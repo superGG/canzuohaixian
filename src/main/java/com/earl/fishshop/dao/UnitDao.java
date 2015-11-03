@@ -4,4 +4,5 @@ import com.earl.fishshop.pojo.UnitPo;
 
 public interface UnitDao extends BaseDao<UnitPo>{
 
+
 }

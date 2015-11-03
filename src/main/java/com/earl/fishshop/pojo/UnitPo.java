@@ -78,4 +78,10 @@ public class UnitPo{
 	public Long getVersion() {
 		return this.version;
 	}
+	@Override
+	public String toString() {
+		return "UnitPo [unitId=" + unitId + ", unitName=" + unitName
+				+ ", createTime=" + createTime + ", creatorId=" + creatorId
+				+ ", isDelete=" + isDelete + ", version=" + version + "]";
+	}
 }

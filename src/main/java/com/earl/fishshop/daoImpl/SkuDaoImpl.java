@@ -15,9 +15,12 @@ import com.earl.fishshop.pojo.SkuPo;
 public class SkuDaoImpl extends BaseDaoImpl<SkuPo> implements SkuDao {
 	// property constants
 	
-	//事例方法
-	public List savesf(){
-		List list = getCurrentSession().createQuery("from user where userid = 1").list();
-		return list;
+	@Override
+	public List<SkuPo> getSkuFromUnit(Long unitId) {
+		// TODO 未测试.
+		String hql = "from SkuPo where unitId = :unitId";
+		@SuppressWarnings("unchecked")
+		List<SkuPo> skuList = getCurrentSession().createQuery(hql).setLong("unitId", unitId).list();
+		return skuList;
 	}
 }
