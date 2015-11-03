@@ -42,6 +42,7 @@ public class CategoryActionTest extends StrutsSpringTestCase {
 		 		"}");
 		 
 	     String res=executeAction("/category_addCategory.action");  
+	     System.out.println(res);
 	}
 
 	@Test

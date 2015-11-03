@@ -13,22 +13,22 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.earl.fishshop.dao.UserDao;
-import com.earl.fishshop.pojo.UserPo;
+import com.earl.fishshop.dao.SkuDao;
+import com.earl.fishshop.pojo.SkuPo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath*:applicationContext-*.xml")
-public class UserDaoImplTest {
+public class SkuDaoImplTest {
 
 	@Resource
-	UserDao userDao;
-	
-	@Resource(name="sessionFactory")
+	SkuDao skuDao;
+
+	@Resource(name = "sessionFactory")
 	SessionFactoryImpl sessionFactory;
-	
-	@Resource(name="transactionManager")
+
+	@Resource(name = "transactionManager")
 	HibernateTransactionManager transactionManager;
-	
+
 	@Test
 	public void testBaseDaoImpl() {
 	}
@@ -38,12 +38,14 @@ public class UserDaoImplTest {
 		fail("Not yet implemented");
 	}
 
-	//TODO lala
+	// TODO lala
 	@Test
 	public void testSave() {
-		UserPo user = new UserPo();
-//		user.setGoodsCategory(1);
-		userDao.save(user);
+		SkuPo unit = new SkuPo();
+		unit.setSkuName("中等规格（10-15斤)");
+		unit.setUnitId(1L);
+		// user.setGoodsCategory(1);
+		skuDao.save(unit);
 	}
 
 	@Test
@@ -58,27 +60,25 @@ public class UserDaoImplTest {
 
 	@Test
 	public void testGet() {
-		fail("Not yet implemented");
+		SkuPo unitPo = skuDao.get(1L);
+		System.out.println(unitPo);
 	}
 
 	@Test
 	public void testFindAll() {
-		List<UserPo> findAll = userDao.findAll();
+		List<SkuPo> findAll = skuDao.findAll();
 		System.out.println(findAll);
-	}
-
-	@Test
-	public void testDeleteAll() {
-		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testDelete() {
 		fail("Not yet implemented");
 	}
-
+	
 	@Test
-	public void testFindByGivenCriteria() {
-		fail("Not yet implemented");
+	public void testGetSkuFromUnit(){
+		List<SkuPo> skuFromUnit = skuDao.getSkuFromUnit(1L);
+		System.out.println(skuFromUnit);
 	}
+	
 }

@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.earl.fishshop.dao.UnitDao;
-import com.earl.fishshop.pojo.SkuPo;
 import com.earl.fishshop.pojo.UnitPo;
 
 

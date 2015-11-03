@@ -42,8 +42,8 @@ CREATE TABLE `category` (
   `totalSellNumber` bigint(20) default NULL,
   `createTime` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `creatorId` bigint(20) default NULL,
-  `isDelete` bit(1) default NULL,
-  `version` bigint(20) default NULL,
+  `isDelete` bit(1) default false,
+  `version` bigint(20) default 1,
   PRIMARY KEY  (`categoryId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -73,8 +73,8 @@ CREATE TABLE `comment` (
   `speedQuality` float default NULL,
   `createTime` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `creatorId` bigint(20) default NULL,
-  `isDelete` bit(1) default NULL,
-  `version` bigint(20) default NULL,
+  `isDelete` bit(1) default false,
+  `version` bigint(20) default 1,
   PRIMARY KEY  (`commentId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -102,7 +102,7 @@ CREATE TABLE `farmers` (
   `createTime` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `creatorId` bigint(20) default NULL,
   `isDelete` bit(1) default NULL,
-  `version` bigint(20) default NULL,
+  `version` bigint(20) default 1,
   PRIMARY KEY  (`farmersId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -132,8 +132,8 @@ CREATE TABLE `fishman` (
   `tonnage` bigint(20) default NULL,
   `createTime` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `creatorId` bigint(20) default NULL,
-  `isDelete` bit(1) default NULL,
-  `version` bigint(20) default NULL,
+  `isDelete` bit(1) default false,
+  `version` bigint(20) default 1,
   PRIMARY KEY  (`fishmanId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -158,8 +158,8 @@ CREATE TABLE `gettype` (
   `parentId` bigint(20) default NULL,
   `createTime` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `creatorId` bigint(20) default NULL,
-  `isDelete` bit(1) default NULL,
-  `version` bigint(20) default NULL,
+  `isDelete` bit(1) default false,
+  `version` bigint(20) default 1,
   PRIMARY KEY  (`getTypeId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -191,8 +191,8 @@ CREATE TABLE `goods` (
   `sellNumber` bigint(20) default NULL,
   `creatorId` bigint(20) default NULL,
   `createTime` timestamp NOT NULL default CURRENT_TIMESTAMP,
-  `isDelete` bit(1) default NULL,
-  `version` bigint(20) default NULL,
+  `isDelete` bit(1) default false,
+  `version` bigint(20) default 1,
   PRIMARY KEY  (`goodsId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -218,8 +218,8 @@ CREATE TABLE `orders` (
   `state` int(11) default NULL,
   `createTime` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `creatorId` bigint(20) default NULL,
-  `isDelete` bit(1) default NULL,
-  `version` bigint(20) default NULL,
+  `isDelete` bit(1) default false,
+  `version` bigint(20) default 1,
   PRIMARY KEY  (`ordersId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -248,8 +248,8 @@ CREATE TABLE `searecord` (
   `anchorPoint` int(11) default NULL,
   `createTime` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `creatorId` bigint(20) default NULL,
-  `isDelete` bit(1) default NULL,
-  `version` bigint(20) default NULL,
+  `isDelete` bit(1) default false,
+  `version` bigint(20) default 1,
   PRIMARY KEY  (`seaRecordId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -279,9 +279,9 @@ CREATE TABLE `shop` (
   `sendPrice` double default NULL,
   `onSell` bit(1) default NULL,
   `creatorId` bigint(20) default NULL,
-  `isDelete` bit(1) default NULL,
+  `isDelete` bit(1) default false,
   `createTime` timestamp NOT NULL default CURRENT_TIMESTAMP,
-  `version` bigint(20) default NULL,
+  `version` bigint(20) default 1,
   PRIMARY KEY  (`shopId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -306,8 +306,8 @@ CREATE TABLE `sku` (
   `skuName` varchar(255) default NULL,
   `createTime` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `creatorId` bigint(20) default NULL,
-  `isDelete` bit(1) default NULL,
-  `version` bigint(20) default NULL,
+  `isDelete` bit(1) default false,
+  `version` bigint(20) default 1,
   PRIMARY KEY  (`skuId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -341,8 +341,8 @@ CREATE TABLE `sorders` (
   `number` bigint(20) default NULL,
   `createTime` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `creatorId` bigint(20) default NULL,
-  `isDelete` bit(1) default NULL,
-  `version` bigint(20) default NULL,
+  `isDelete` bit(1) default false,
+  `version` bigint(20) default 1,
   PRIMARY KEY  (`sordersId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -366,8 +366,8 @@ CREATE TABLE `unit` (
   `unitName` varchar(255) default NULL,
   `createTime` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `creatorId` bigint(20) default NULL,
-  `isDelete` bit(1) default NULL,
-  `version` bigint(20) default NULL,
+  `isDelete` bit(1) default false,
+  `version` bigint(20) default 1,
   PRIMARY KEY  (`unitId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -398,8 +398,8 @@ CREATE TABLE `user` (
   `headImage` varchar(255) default NULL,
   `createTime` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `creatorId` bigint(20) default NULL,
-  `isDelete` bit(1) default NULL,
-  `version` bigint(20) default NULL,
+  `isDelete` bit(1) default false,
+  `version` bigint(20) default 1,
   PRIMARY KEY  (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

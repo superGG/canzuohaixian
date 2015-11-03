@@ -15,12 +15,6 @@ import com.earl.fishshop.pojo.CategoryPo;
 public class CategoryDaoImpl extends BaseDaoImpl<CategoryPo> implements CategoryDao {
 	// property constants
 	
-	//事例方法
-	public List savesf(){
-		List list = getCurrentSession().createQuery("from user where userid = 1").list();
-		return list;
-	}
-
 	@Override
 	public List<CategoryPo> getHierarchyCategory() {
 //		String hql = "from CategoryPo c left join fetch c.childCategory where c.parentId = 0";

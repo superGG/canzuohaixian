@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.hibernate.Hibernate;
 import org.hibernate.internal.SessionFactoryImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,9 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.earl.fishshop.dao.CategoryDao;
-import com.earl.fishshop.dao.GoodsDao;
 import com.earl.fishshop.pojo.CategoryPo;
-import com.earl.fishshop.pojo.GoodsPo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath*:applicationContext-*.xml")
