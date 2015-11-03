@@ -1,16 +1,22 @@
 package com.earl.fishshop.action;
 
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.CategoryPo;
+import com.earl.fishshop.pojo.ResultMessage;
+import com.earl.util.StringUtils;
 
 /**
  * 
- * 用途+action 如Demo+Action-->DemoAction
- * 
- * @author Administrator
+ * 类别Action ,白星东斑鱼
+ * @author 黄祥谦.
  * 
  */
 @Controller(value = "categoryAction")
@@ -22,19 +28,35 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 */
 	private static final long serialVersionUID = 3293435262298029608L;
 
-	protected CategoryPo jsonInputStream;
+	protected ResultMessage resultMessage;
 
+	protected CategoryPo model;
+	
 	@ReturnValue //返回实体对象，或者其他任意对象
-	public CategoryPo getJsonInputStream() {
-		return jsonInputStream;
+	public ResultMessage getResultMessage() {
+		return resultMessage;
 	}
 
-	// 下面填写业务逻辑
-
-	public void save() {
-		categoryServer.save(model);
-		CategoryPo categoryPo = new CategoryPo();
-		jsonInputStream = categoryPo;
-		
+	/**
+	 * 添加商品类别.
+	 * @author 黄祥谦.
+	 */
+	public void addCategory() {
+		Boolean save = categoryServer.save(model);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(save);
 	}
+	
+	/**
+	 * 查询所有商品类别.
+	 * @author 黄祥谦.
+	 */
+	public void getAllCategory(){
+		List<CategoryPo> categoryList = categoryServer.findAll();
+		resultMessage = new ResultMessage();
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("categoryList", categoryList);
+		resultMessage.setResultParm(hashMap);
+	}
+	
 }

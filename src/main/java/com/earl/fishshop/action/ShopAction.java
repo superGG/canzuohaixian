@@ -23,6 +23,8 @@ public class ShopAction extends BaseAction<ShopPo> {
 	private static final long serialVersionUID = 3293435262298029608L;
 
 	protected ShopPo jsonInputStream;
+	
+	protected ShopPo model;
 
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public ShopPo getJsonInputStream() {
@@ -35,6 +37,5 @@ public class ShopAction extends BaseAction<ShopPo> {
 		shopServer.save(model);
 		ShopPo shopPo = new ShopPo();
 		jsonInputStream = shopPo;
-		
 	}
 }

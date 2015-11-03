@@ -23,6 +23,8 @@ public class UserAction extends BaseAction<UserPo> {
 	private static final long serialVersionUID = 3293435262298029608L;
 
 	protected UserPo jsonInputStream;
+	
+	protected UserPo model;
 
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public UserPo getJsonInputStream() {

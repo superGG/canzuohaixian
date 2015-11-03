@@ -174,4 +174,17 @@ public class CategoryPo{
 	public Long getVersion() {
 		return this.version;
 	}
+	@Override
+	public String toString() {
+		return "CategoryPo [categoryId=" + categoryId + ", categorySimpleName="
+				+ categorySimpleName + ", categoryAcademicName="
+				+ categoryAcademicName + ", getType=" + getType
+				+ ", categoryEnglishName=" + categoryEnglishName
+				+ ", parentId=" + parentId + ", fishPhoto=" + fishPhoto
+				+ ", lowPrice=" + lowPrice + ", unit=" + unit
+				+ ", totalSellNumber=" + totalSellNumber + ", createTime="
+				+ createTime + ", creatorId=" + creatorId + ", isDelete="
+				+ isDelete + ", version=" + version + "]";
+	}
+	
 }

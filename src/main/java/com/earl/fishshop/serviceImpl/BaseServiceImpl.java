@@ -33,7 +33,6 @@ import com.earl.fishshop.service.BaseService;
 public class BaseServiceImpl<T> implements BaseService<T> {
 
 	// 不同的T对应不同的Dao
-
 	@SuppressWarnings("rawtypes")
 	
 	BaseDao baseDao;
@@ -69,20 +68,40 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	}
 
 	@Override
-	public void save(T model) {
+	public Boolean save(T model) {
 //		Assert.assertNotNull("baseDao is null", baseDao);
-
-		baseDao.save(model);
+		try {
+			baseDao.save(model);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
-	public void update(T t) {
-		baseDao.update(t);
+	public Boolean update(T t) {
+		try {
+			baseDao.update(t);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
-	public void deleteById(Integer id) {
-		baseDao.deleteById(id);
+	public Boolean deleteById(Integer id) {
+		try {
+			baseDao.deleteById(id);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override

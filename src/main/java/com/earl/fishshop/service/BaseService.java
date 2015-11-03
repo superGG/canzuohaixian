@@ -4,11 +4,11 @@ import java.util.List;
 
 public interface BaseService<T> {
 
-	void save(T model);
+	Boolean save(T model);
 
-	void update(T t);
+	Boolean update(T t);
 
-	void deleteById(Integer id);
+	Boolean deleteById(Integer id);
 
 	List<T> findAll();
 

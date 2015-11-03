@@ -31,7 +31,7 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 
 	// 下面填写业务逻辑
 
-	public void save() {
+	public void addFishman() {
 		fishmanServer.save(model);
 		FishmanPo fishmanPo = new FishmanPo();
 		jsonInputStream = fishmanPo;

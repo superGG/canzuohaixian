@@ -33,10 +33,43 @@
 		</interceptors>
 
 		<default-interceptor-ref name="systemInterceptorStack"></default-interceptor-ref>
+		<action name="category_*" class="categoryAction"
+			method="{1}">
+		</action>
+		<action name="comment_*" class="commentAction"
+			method="{1}">
+		</action>
+		<action name="farmers_*" class="farmersAction"
+			method="{1}">
+		</action>
+		<action name="fishman_*" class="fishmanAction"
+			method="{1}">
+		</action>
+		<action name="gettype_*" class="getTypeAction"
+			method="{1}">
+		</action>
 		<action name="goods_*" class="goodsAction"
 			method="{1}">
 		</action>
-		<action name="carInfo_*" class="carManageAction"
+		<action name="orders_*" class="ordersAction"
+			method="{1}">
+		</action>
+		<action name="searecord_*" class="seaRecordAction"
+			method="{1}">
+		</action>
+		<action name="shop_*" class="shopAction"
+			method="{1}">
+		</action>
+		<action name="sku_*" class="skuAction"
+			method="{1}">
+		</action>
+		<action name="sorders_*" class="sordersAction"
+			method="{1}">
+		</action>
+		<action name="unit_*" class="unitAction"
+			method="{1}">
+		</action>
+		<action name="user_*" class="userAction"
 			method="{1}">
 		</action>
 	</package>

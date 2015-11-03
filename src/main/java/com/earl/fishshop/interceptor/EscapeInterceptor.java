@@ -51,24 +51,27 @@ public class EscapeInterceptor extends AbstractInterceptor {
         // 获取HttpServletRequest   
         HttpServletRequest request = (HttpServletRequest)ctx.get(StrutsStatics.HTTP_REQUEST);
         String header = request.getHeader("Content-Type");
-        logger.debug("header Content-Type " + header);
+        if(header != null){
+        	logger.debug("header Content-Type " + header);
+        }
         
-        if(header == null || header.indexOf("UTF-8") == -1){
+        if(header == null || (header != null && !(header.indexOf("utf-8") == -1 || header.indexOf("UTF-8") == -1))){
         	
-        	@SuppressWarnings("rawtypes")
-        	Map parm = ctx.getParameters();
-        	Object[] tempObjArr = null;
-        	Object[] turnObjArr = null;
-        	for (Object key : parm.keySet()) {
-        		tempObjArr = (Object[]) parm.get(key);
-        		if (tempObjArr[0] != null && tempObjArr[0].getClass().isAssignableFrom(String.class)) {
-        			turnObjArr = new Object[1];
-        			logger.debug("beforeEscape "+key + " : " + tempObjArr[0]);
-        			turnObjArr[0] = new String(
-        					((String) tempObjArr[0]).getBytes("iso-8859-1"),
-        					"utf-8");
-        			parm.put(key, turnObjArr);
-        			logger.debug("afterEscape "+key + " : " + turnObjArr[0]);
+        		}else{
+        			@SuppressWarnings("rawtypes")
+        			Map parm = ctx.getParameters();
+        			Object[] tempObjArr = null;
+        			Object[] turnObjArr = null;
+        			for (Object key : parm.keySet()) {
+        				tempObjArr = (Object[]) parm.get(key);
+        				if (tempObjArr[0] != null && tempObjArr[0].getClass().isAssignableFrom(String.class)) {
+        					turnObjArr = new Object[1];
+        					logger.debug("beforeEscape "+key + " : " + tempObjArr[0]);
+        					turnObjArr[0] = new String(
+        							((String) tempObjArr[0]).getBytes("iso-8859-1"),
+        							"utf-8");
+        					parm.put(key, turnObjArr);
+        					logger.debug("afterEscape "+key + " : " + turnObjArr[0]);
         		}
         	}
         }

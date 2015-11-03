@@ -23,6 +23,8 @@ public class CommentAction extends BaseAction<CommentPo> {
 	private static final long serialVersionUID = 3293435262298029608L;
 
 	protected CommentPo jsonInputStream;
+	
+	protected CommentPo model;
 
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public CommentPo getJsonInputStream() {
@@ -31,10 +33,13 @@ public class CommentAction extends BaseAction<CommentPo> {
 
 	// 下面填写业务逻辑
 
-	public void save() {
+	/**
+	 * 为商品添加评论.
+	 * @author 黄祥谦.
+	 */
+	public void addComment() {
 		commentServer.save(model);
 		CommentPo commentPo = new CommentPo();
 		jsonInputStream = commentPo;
-		
 	}
 }

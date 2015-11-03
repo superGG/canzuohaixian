@@ -23,6 +23,7 @@ public class SordersAction extends BaseAction<SordersPo> {
 	private static final long serialVersionUID = 3293435262298029608L;
 
 	protected SordersPo jsonInputStream;
+	protected SordersPo model;
 
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public SordersPo getJsonInputStream() {

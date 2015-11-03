@@ -23,6 +23,8 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 	private static final long serialVersionUID = 3293435262298029608L;
 
 	protected FarmersPo jsonInputStream;
+	
+	protected FarmersPo model;
 
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public FarmersPo getJsonInputStream() {
