@@ -90,4 +90,11 @@ public class SkuPo{
 	public Long getVersion() {
 		return this.version;
 	}
+	@Override
+	public String toString() {
+		return "SkuPo [skuId=" + skuId + ", unitId=" + unitId + ", skuName="
+				+ skuName + ", createTime=" + createTime + ", creatorId="
+				+ creatorId + ", isDelete=" + isDelete + ", version=" + version
+				+ "]";
+	}
 }

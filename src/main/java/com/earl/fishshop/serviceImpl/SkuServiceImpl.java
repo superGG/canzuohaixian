@@ -5,7 +5,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.earl.fishshop.dao.BaseDao;
+import com.earl.fishshop.dao.SkuDao;
 import com.earl.fishshop.pojo.SkuPo;
 import com.earl.fishshop.service.SkuService;
 
@@ -23,7 +23,7 @@ public class SkuServiceImpl extends BaseServiceImpl<SkuPo> implements
 //	}
 
 	@Resource(name = "skuDao")
-	BaseDao skuDao;
+	SkuDao skuDao;
 
 //	@PreDestroy
 	@PostConstruct

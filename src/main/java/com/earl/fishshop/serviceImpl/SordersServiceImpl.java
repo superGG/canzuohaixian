@@ -5,7 +5,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.earl.fishshop.dao.BaseDao;
+import com.earl.fishshop.dao.SordersDao;
 import com.earl.fishshop.pojo.SordersPo;
 import com.earl.fishshop.service.SordersService;
 
@@ -23,7 +23,7 @@ public class SordersServiceImpl extends BaseServiceImpl<SordersPo> implements
 //	}
 
 	@Resource(name = "sordersDao")
-	BaseDao sordersDao;
+	SordersDao sordersDao;
 
 //	@PreDestroy
 	@PostConstruct

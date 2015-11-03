@@ -5,7 +5,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.earl.fishshop.dao.BaseDao;
+import com.earl.fishshop.dao.FishmanDao;
 import com.earl.fishshop.pojo.FishmanPo;
 import com.earl.fishshop.service.FishmanService;
 
@@ -23,7 +23,7 @@ public class FishmanServiceImpl extends BaseServiceImpl<FishmanPo> implements
 //	}
 
 	@Resource(name = "fishmanDao")
-	BaseDao fishmanDao;
+	FishmanDao fishmanDao;
 
 //	@PreDestroy
 	@PostConstruct

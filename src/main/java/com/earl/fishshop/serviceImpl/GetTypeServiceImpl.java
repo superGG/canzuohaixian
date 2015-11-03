@@ -5,7 +5,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.earl.fishshop.dao.BaseDao;
+import com.earl.fishshop.dao.GetTypeDao;
 import com.earl.fishshop.pojo.GetTypePo;
 import com.earl.fishshop.service.GetTypeService;
 
@@ -23,7 +23,7 @@ public class GetTypeServiceImpl extends BaseServiceImpl<GetTypePo> implements
 //	}
 
 	@Resource(name = "getTypeDao")
-	BaseDao getTypeDao;
+	GetTypeDao getTypeDao;
 
 //	@PreDestroy
 	@PostConstruct
