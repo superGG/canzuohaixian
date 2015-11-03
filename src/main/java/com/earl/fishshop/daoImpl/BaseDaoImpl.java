@@ -1,5 +1,6 @@
 package com.earl.fishshop.daoImpl;
 
+import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -100,14 +101,14 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 
 	// 根据ID删除对象
 	@Override
-	public void deleteById(int id) {
+	public void deleteById(Long id) {
 		logger.debug("delete " + clazz.getName() + " instance");
 		delete(get(id));
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public T get(int id) {
+	public T get(Long id) {
 		logger.debug("get " + clazz.getName() + " instance");
 		T object = (T) getCurrentSession().get(clazz, id);
 		return object;
@@ -146,11 +147,22 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		getCurrentSession().createQuery(hql).executeUpdate();
 	}
 
-	// 通过对象来进行删除
+	/**
+	 * 通过对象来进行删除,软删除对象 
+	 */ 
 	@Override
 	public void delete(T persistentInstance) {
 		logger.debug("delete " + clazz.getName() + " instance");
-		getCurrentSession().delete(persistentInstance);
+//		getCurrentSession().delete(persistentInstance);
+			try {
+				@SuppressWarnings("unchecked")
+				Method method = clazz.getMethod("setIsDelete",Boolean.class);
+				method.invoke(persistentInstance, true);
+				getCurrentSession().update(persistentInstance);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
 	// 通过给定条件进行查询

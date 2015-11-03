@@ -40,7 +40,7 @@ public class GoodsServiceImplTest {
 	@Test
 	public void testDeleteById(){
 		
-		goodsService.deleteById(1);
+		goodsService.deleteById(1L);
 		
 	}
 	

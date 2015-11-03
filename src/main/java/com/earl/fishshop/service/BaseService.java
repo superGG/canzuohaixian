@@ -8,13 +8,13 @@ public interface BaseService<T> {
 
 	Boolean update(T t);
 
-	Boolean deleteById(Integer id);
+	Boolean deleteById(Long id);
 
 	List<T> findAll();
 
 //	List<T> pagefindAll(PageInfo pageInfo);
 
-	T get(Integer id);
+	T get(Long id);
 	
 	List<T> findByGivenCreteria(T object);
 	

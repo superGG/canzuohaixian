@@ -93,7 +93,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	}
 
 	@Override
-	public Boolean deleteById(Integer id) {
+	public Boolean deleteById(Long id) {
 		try {
 			baseDao.deleteById(id);
 			return true;
@@ -105,7 +105,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	}
 
 	@Override
-	public T get(Integer id) {
+	public T get(Long id) {
 		return (T) baseDao.get(id);
 	}
 
