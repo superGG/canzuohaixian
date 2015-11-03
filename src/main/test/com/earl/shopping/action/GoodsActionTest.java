@@ -29,16 +29,6 @@ public class GoodsActionTest extends StrutsSpringTestCase {
 
 	@Test
 	public void testAddCustomUser() throws UnsupportedEncodingException, ServletException {
-//		private String goodsname;
-//		private String description;
-//		private String goodsattributes;
-//		private Float goodsprice;
-//		private String goodspic;
-//		private boolean ishot; 
-//		private String goodsbrand;
-//		private String goodstype;
-//		
-//		private String manufacturer;
 
 		request.addParameter("goods", "{\"goodsname\" : \"dodo\",\"description\": \"zhe ge shang ping\"}");
 		

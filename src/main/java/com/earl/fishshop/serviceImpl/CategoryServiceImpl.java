@@ -37,6 +37,6 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 	@Override
 	public List<CategoryPo> getCategoryHire() {
 		// TODO 未测试.
-		return categoryDao.getCategoryHire();
+		return categoryDao.getHierarchyCategory();
 	}
 }

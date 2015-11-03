@@ -24,6 +24,47 @@ CREATE DATABASE `fishshop`;
 
 USE `fishshop`;
 
+    select
+        categorypo0_.categoryId as category1_0_0_,
+        childcateg1_.categoryId as category1_0_1_,
+        categorypo0_.categorySimpleName as category2_0_0_,
+        categorypo0_.categoryAcademicName as category3_0_0_,
+        categorypo0_.getType as getType4_0_0_,
+        categorypo0_.categoryEnglishName as category5_0_0_,
+        categorypo0_.fishPhoto as fishPhot6_0_0_,
+        categorypo0_.lowPrice as lowPrice7_0_0_,
+        categorypo0_.unit as unit8_0_0_,
+        categorypo0_.totalSellNumber as totalSel9_0_0_,
+        categorypo0_.createTime as createT10_0_0_,
+        categorypo0_.creatorId as creator11_0_0_,
+        categorypo0_.isDelete as isDelet12_0_0_,
+        categorypo0_.version as version13_0_0_,
+        categorypo0_.parentId as parentI14_0_0_,
+        childcateg1_.categorySimpleName as category2_0_1_,
+        childcateg1_.categoryAcademicName as category3_0_1_,
+        childcateg1_.getType as getType4_0_1_,
+        childcateg1_.categoryEnglishName as category5_0_1_,
+        childcateg1_.fishPhoto as fishPhot6_0_1_,
+        childcateg1_.lowPrice as lowPrice7_0_1_,
+        childcateg1_.unit as unit8_0_1_,
+        childcateg1_.totalSellNumber as totalSel9_0_1_,
+        childcateg1_.createTime as createT10_0_1_,
+        childcateg1_.creatorId as creator11_0_1_,
+        childcateg1_.isDelete as isDelet12_0_1_,
+        childcateg1_.version as version13_0_1_,
+        childcateg1_.parentId as parentI14_0_1_,
+        childcateg1_.parentId as parentI14_0_0__,
+        childcateg1_.categoryId as category1_0_0__ 
+    from
+        Category categorypo0_ 
+    left outer join
+        Category childcateg1_ 
+            on categorypo0_.categoryId=childcateg1_.parentId 
+    where
+        categorypo0_.parentId is null 
+    order by
+        childcateg1_.categoryId
+
 --
 -- Table structure for table `category`
 --
@@ -54,7 +95,7 @@ CREATE TABLE `category` (
 
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
 LOCK TABLES `category` WRITE;
-INSERT INTO `category` VALUES (1, '鱼类', '鱼类', 3, 'fishcategory', 0, 'localhost:8080//aaa.jpg', NULL, 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `category` VALUES (1, '鱼类', '鱼类', 3, 'fishcategory', null, 'localhost:8080//aaa.jpg', NULL, 1, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `category` VALUES (2, '东星白班鱼', '东星白班鱼', 3, 'whitefish', 1, 'localhost:8080//aaa.jpg', NULL, 1, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `category` VALUES (3, '小黄鱼', '小黄鱼', 3, 'yellowfish', 1, 'localhost:8080//aaa.jpg', NULL, 1, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `category` VALUES (4, '小黑鱼', '小黑鱼', 3, 'smallblackfish', 1, 'localhost:8080//aaa.jpg', NULL, 1, 0, NULL, NULL, NULL, NULL);

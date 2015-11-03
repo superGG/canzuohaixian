@@ -1,7 +1,7 @@
 package com.earl.fishshop.pojo;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 public class CategoryPo{
 
@@ -36,17 +36,22 @@ public class CategoryPo{
 	 */
 	private String categoryEnglishName ;
 	
+//	/**
+//	 * 字段描述：Long 
+//	 * 字段类型：parentId  
+//	 */
+//	private Long parentId ;
 	/**
 	 * 字段描述：Long 
 	 * 字段类型：parentId  
 	 */
-	private Long parentId ;
+	private Long parentId;
 	
 	/**
 	 * 字段描述：Long 
 	 * 字段类型：parentId  
 	 */
-	private List<CategoryPo> childCategory;
+	private Set<CategoryPo> childCategory;
 	
 	/**
 	 * 字段描述：String 
@@ -127,11 +132,11 @@ public class CategoryPo{
 	public String getCategoryEnglishName() {
 		return this.categoryEnglishName;
 	}
-	public void setParentId(Long parentId){
-		this.parentId = parentId;
-	}
 	public Long getParentId() {
-		return this.parentId;
+		return parentId;
+	}
+	public void setParentId(Long parentId) {
+		this.parentId = parentId;
 	}
 	public void setFishPhoto(String fishPhoto){
 		this.fishPhoto = fishPhoto;
@@ -183,10 +188,10 @@ public class CategoryPo{
 	}
 	
 	
-	public List<CategoryPo> getChildCategory() {
+	public Set<CategoryPo> getChildCategory() {
 		return childCategory;
 	}
-	public void setChildCategory(List<CategoryPo> childCategory) {
+	public void setChildCategory(Set<CategoryPo> childCategory) {
 		this.childCategory = childCategory;
 	}
 	@Override
@@ -195,11 +200,10 @@ public class CategoryPo{
 				+ categorySimpleName + ", categoryAcademicName="
 				+ categoryAcademicName + ", getType=" + getType
 				+ ", categoryEnglishName=" + categoryEnglishName
-				+ ", parentId=" + parentId + ", fishPhoto=" + fishPhoto
-				+ ", lowPrice=" + lowPrice + ", unit=" + unit
-				+ ", totalSellNumber=" + totalSellNumber + ", createTime="
-				+ createTime + ", creatorId=" + creatorId + ", isDelete="
-				+ isDelete + ", version=" + version + "]";
+				+ ", parentId=" + parentId + ", childCategory=" + childCategory
+				+ ", fishPhoto=" + fishPhoto + ", lowPrice=" + lowPrice
+				+ ", unit=" + unit + ", totalSellNumber=" + totalSellNumber
+				+ ", createTime=" + createTime + ", creatorId=" + creatorId
+				+ ", isDelete=" + isDelete + ", version=" + version + "]";
 	}
-	
 }

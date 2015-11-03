@@ -22,10 +22,27 @@ public class CategoryDaoImpl extends BaseDaoImpl<CategoryPo> implements Category
 	}
 
 	@Override
-	public List<CategoryPo> getCategoryHire() {
-		// TODO 未测试.
-		String hql = "from CategoryPo c left join fetch c.childCategory on c.categotyId = null";
-		List<CategoryPo> list = getCurrentSession().createQuery(hql).list();
-		return list;
+	public List<CategoryPo> getHierarchyCategory() {
+//		String hql = "from CategoryPo c left join fetch c.childCategory where c.parentId = 0";
+		String hql = "select distinct c from CategoryPo c left join fetch c.childCategory where c.parentId = null";
+		@SuppressWarnings("unchecked")
+		List<CategoryPo> categoryList = getCurrentSession().createQuery(hql).list();
+		return categoryList;
+	}
+
+	@Override
+	public List<CategoryPo> getTopCategory() {
+		String hql = "from CategoryPo c where c.parentId = null";
+		@SuppressWarnings("unchecked")
+		List<CategoryPo> categorylist = getCurrentSession().createQuery(hql).list();
+		return categorylist;
+	}
+
+	@Override
+	public List<CategoryPo> getNextLevelCategory(Long parentId) {
+		String hql = "from CategoryPo c where c.parentId = :parentId";
+		@SuppressWarnings("unchecked")
+		List<CategoryPo> categorylist = getCurrentSession().createQuery(hql).setLong("parentId", parentId).list();
+		return categorylist;
 	}
 }
