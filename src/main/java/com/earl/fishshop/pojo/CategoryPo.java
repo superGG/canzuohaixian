@@ -1,6 +1,7 @@
 package com.earl.fishshop.pojo;
 
 import java.util.Date;
+import java.util.List;
 
 public class CategoryPo{
 
@@ -40,6 +41,12 @@ public class CategoryPo{
 	 * 字段类型：parentId  
 	 */
 	private Long parentId ;
+	
+	/**
+	 * 字段描述：Long 
+	 * 字段类型：parentId  
+	 */
+	private List<CategoryPo> childCategory;
 	
 	/**
 	 * 字段描述：String 
@@ -173,6 +180,14 @@ public class CategoryPo{
 	}
 	public Long getVersion() {
 		return this.version;
+	}
+	
+	
+	public List<CategoryPo> getChildCategory() {
+		return childCategory;
+	}
+	public void setChildCategory(List<CategoryPo> childCategory) {
+		this.childCategory = childCategory;
 	}
 	@Override
 	public String toString() {

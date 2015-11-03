@@ -1,6 +1,5 @@
 package com.earl.fishshop.action;
 
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.pojo.ResultMessage;
-import com.earl.util.StringUtils;
 
 /**
  * 
@@ -57,6 +55,10 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("categoryList", categoryList);
 		resultMessage.setResultParm(hashMap);
+	}
+	
+	public void getCategoryHire(){
+		List<CategoryPo> categoryList = categoryServer.getCategoryHire();
 	}
 	
 }

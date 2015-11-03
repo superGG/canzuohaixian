@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.hibernate.Session;
 
+import com.earl.fishshop.pojo.CategoryPo;
+
 
 /**
  * Data access interface for domain model
@@ -37,7 +39,7 @@ public interface BaseDao<T> {
 //	List<T> pageFindAll(PageInfo pageInfo);
 	
 	public List<T> findByGivenCriteria(T object);
-	
+
 //	public List<T> findByGivenCreteriaWithPage(T object,PageInfo pageInfo);
 	
 }

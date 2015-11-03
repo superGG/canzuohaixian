@@ -20,4 +20,12 @@ public class CategoryDaoImpl extends BaseDaoImpl<CategoryPo> implements Category
 		List list = getCurrentSession().createQuery("from user where userid = 1").list();
 		return list;
 	}
+
+	@Override
+	public List<CategoryPo> getCategoryHire() {
+		// TODO 未测试.
+		String hql = "from CategoryPo c left join fetch c.childCategory on c.categotyId = null";
+		List<CategoryPo> list = getCurrentSession().createQuery(hql).list();
+		return list;
+	}
 }

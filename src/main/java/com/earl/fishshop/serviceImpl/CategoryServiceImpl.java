@@ -1,11 +1,14 @@
 package com.earl.fishshop.serviceImpl;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.dao.BaseDao;
+import com.earl.fishshop.dao.CategoryDao;
 import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.service.CategoryService;
 
@@ -23,11 +26,17 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 //	}
 
 	@Resource(name = "categoryDao")
-	BaseDao categoryDao;
+	CategoryDao categoryDao;
 
 //	@PreDestroy
 	@PostConstruct
 	public void initBaseDao(){
 		baseDao = categoryDao;
+	}
+
+	@Override
+	public List<CategoryPo> getCategoryHire() {
+		// TODO 未测试.
+		return categoryDao.getCategoryHire();
 	}
 }

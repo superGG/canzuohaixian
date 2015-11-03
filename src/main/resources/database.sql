@@ -53,9 +53,9 @@ CREATE TABLE `category` (
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
 LOCK TABLES `category` WRITE;
 INSERT INTO `category` VALUES (1, '鱼类', '鱼类', 3, 'fishcategory', NULL, 'localhost:8080//aaa.jpg', NULL, 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `category` VALUES (1, '东星白班鱼', '东星白班鱼', 3, 'whitefish', 1, 'localhost:8080//aaa.jpg', NULL, 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `category` VALUES (2, '小黄鱼', '小黄鱼', 3, 'yellowfish', 1, 'localhost:8080//aaa.jpg', NULL, 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `category` VALUES (3, '小黑鱼', '小黑鱼', 3, 'smallblackfish', 1, 'localhost:8080//aaa.jpg', NULL, 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `category` VALUES (2, '东星白班鱼', '东星白班鱼', 3, 'whitefish', 1, 'localhost:8080//aaa.jpg', NULL, 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `category` VALUES (3, '小黄鱼', '小黄鱼', 3, 'yellowfish', 1, 'localhost:8080//aaa.jpg', NULL, 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `category` VALUES (4, '小黑鱼', '小黑鱼', 3, 'smallblackfish', 1, 'localhost:8080//aaa.jpg', NULL, 1, 0, NULL, NULL, NULL, NULL);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 
