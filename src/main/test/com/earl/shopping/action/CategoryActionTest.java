@@ -29,7 +29,7 @@ public class CategoryActionTest extends StrutsSpringTestCase {
 //		 request.addParameter("unit", "1");  
 //		 request.addParameter("totalSellNumber", "0");  
 		
-		//暂时不支持下面的方式
+		//使用下面方式，不能直接用struts的modeldriven
 		 request.addParameter("model", "{" +
 		 		"\"categorySimpleName\" : \"东星白班鱼\"" +
 		 		",\"categoryAcademicName\": \"东星白班鱼\"" +
