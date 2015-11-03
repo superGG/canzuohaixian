@@ -28,8 +28,6 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 
 	protected ResultMessage resultMessage;
 
-	protected CategoryPo model;
-	
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public ResultMessage getResultMessage() {
 		return resultMessage;
@@ -57,8 +55,15 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		resultMessage.setResultParm(hashMap);
 	}
 	
-	public void getCategoryHire(){
-		List<CategoryPo> categoryList = categoryServer.getCategoryHire();
+	/**
+	 * 得到带层次结构的类别
+	 * @author 黄祥谦.
+	 */
+	public void getHierarchyCategory(){
+		List<CategoryPo> categoryList = categoryServer.getHierarchyCategory();
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("categoryList", categoryList);
+		resultMessage.setResultParm(hashMap);
 	}
 	
 }

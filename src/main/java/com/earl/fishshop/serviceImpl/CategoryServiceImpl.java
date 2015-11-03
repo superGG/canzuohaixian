@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.earl.fishshop.dao.BaseDao;
 import com.earl.fishshop.dao.CategoryDao;
 import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.service.CategoryService;
@@ -35,7 +34,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 	}
 
 	@Override
-	public List<CategoryPo> getCategoryHire() {
+	public List<CategoryPo> getHierarchyCategory() {
 		// TODO 未测试.
 		return categoryDao.getHierarchyCategory();
 	}

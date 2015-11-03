@@ -6,7 +6,7 @@ import com.earl.fishshop.pojo.CategoryPo;
 
 public interface CategoryService extends BaseService<CategoryPo>{
 
-	List<CategoryPo> getCategoryHire();
+	List<CategoryPo> getHierarchyCategory();
 
 	
 

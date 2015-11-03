@@ -441,6 +441,8 @@ CREATE TABLE `user` (
   `state` int(11) DEFAULT NULL,
   `userName` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
+  `phoneNumber` varchar(255) DEFAULT NULL,
+  `headImage` varchar(255) DEFAULT NULL,
   `createTime` datetime DEFAULT NULL,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT NULL,

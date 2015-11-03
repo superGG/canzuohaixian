@@ -42,6 +42,18 @@ public class UserPo{
 	private String password ;
 	
 	/**
+	 * 字段描述：String 
+	 * 字段类型：password  
+	 */
+	private String phoneNumber ;
+	
+	/**
+	 * 字段描述：String 
+	 * 字段类型：password  
+	 */
+	private String headImage ;
+	
+	/**
 	 * 字段描述：Date 
 	 * 字段类型：createTime  
 	 */
@@ -101,6 +113,18 @@ public class UserPo{
 	}
 	public String getPassword() {
 		return this.password;
+	}
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	public String getHeadImage() {
+		return headImage;
+	}
+	public void setHeadImage(String headImage) {
+		this.headImage = headImage;
 	}
 	public void setCreateTime(Date createTime){
 		this.createTime = createTime;
