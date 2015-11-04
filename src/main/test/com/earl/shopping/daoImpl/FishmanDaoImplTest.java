@@ -1,7 +1,5 @@
 package com.earl.shopping.daoImpl;
 
-import static org.junit.Assert.fail;
-
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -13,15 +11,15 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.earl.fishshop.dao.SkuDao;
-import com.earl.fishshop.pojo.SkuPo;
+import com.earl.fishshop.dao.FishmanDao;
+import com.earl.fishshop.pojo.FishmanPo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath*:applicationContext-*.xml")
-public class SkuDaoImplTest {
+public class FishmanDaoImplTest {
 
 	@Resource
-	SkuDao skuDao;
+	FishmanDao fishmanDao;
 
 	@Resource(name = "sessionFactory")
 	SessionFactoryImpl sessionFactory;
@@ -29,52 +27,39 @@ public class SkuDaoImplTest {
 	@Resource(name = "transactionManager")
 	HibernateTransactionManager transactionManager;
 
-	@Test
-	public void testGetCurrentSession() {
-		fail("Not yet implemented");
-	}
-
 	// TODO lala
 	@Test
 	public void testSave() {
-		SkuPo unit = new SkuPo();
-		unit.setSkuName("中等规格（10-15斤)");
-		unit.setUnitId(1L);
-		// user.setGoodsCategory(1);
-		skuDao.save(unit);
-	}
-
-	@Test
-	public void testUpdate() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testDeleteById() {
-		fail("Not yet implemented");
+		FishmanPo fishman = new FishmanPo();
+//		fishman.set
+		fishmanDao.save(fishman);
 	}
 
 	@Test
 	public void testGet() {
-		SkuPo unitPo = skuDao.get(1L);
+		FishmanPo unitPo = fishmanDao.get(1L);
 		System.out.println(unitPo);
 	}
 
 	@Test
 	public void testFindAll() {
-		List<SkuPo> findAll = skuDao.findAll();
+		List<FishmanPo> findAll = fishmanDao.findAll();
 		System.out.println(findAll);
 	}
 
 	@Test
-	public void testDelete() {
-		fail("Not yet implemented");
+	public void testAuthenticationFishman(){
+		FishmanPo fishman = new FishmanPo();
+		fishman.setEnginePower(10000L);
+		fishman.setGetType(1);
+		fishman.setIdentityPhoto("lkdjflka.png");
+		fishman.setLongitude(123.231);
+		fishman.setLatitude(2423.234);
+		fishman.setSeaPassPhoto("sdklfjsl.png");
+		fishman.setShipPhoto("sldkjf.png");
+		fishman.setShopId(1L);
+		fishman.setTonnage(235L);
+		
+		fishmanDao.authenticationFishman(1L, fishman);
 	}
-	
-	@Test
-	public void testGetSkuFromUnit(){
-		List<SkuPo> skuFromUnit = skuDao.getSkuFromUnit(1L);
-		System.out.println(skuFromUnit);
-	}
-	
 }

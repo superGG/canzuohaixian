@@ -9,7 +9,7 @@ import com.earl.fishshop.pojo.ResultMessage;
 
 /**
  * 
- * 用途+action 如Demo+Action-->DemoAction
+ * 审查认证Action.
  * 
  * @author Administrator
  * 
@@ -48,6 +48,16 @@ public class CheckoutAction extends BaseAction<CheckoutPo> {
 	 */
 	public void passRecord(){
 		Boolean result = checkoutServer.passRecord(model.getCheckoutId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(result);
+	}
+	
+	/**
+	 * 审查失败.
+	 * @author 黄祥谦.
+	 */
+	public void nopassRecord(){
+		Boolean result = checkoutServer.nopassRecord(model.getCheckoutId());
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
 	}

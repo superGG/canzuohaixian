@@ -9,9 +9,9 @@ import com.earl.fishshop.pojo.ResultMessage;
 
 /**
  * 
- * 用途+action 如Demo+Action-->DemoAction
+ * 评论Action,评论商品. 
  * 
- * @author Administrator
+ * @author 黄祥谦.
  * 
  */
 @Controller(value = "commentAction")

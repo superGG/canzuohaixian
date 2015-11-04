@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-11-04 19:03:51
+Date: 2015-11-05 00:53:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,16 +34,18 @@ CREATE TABLE `category` (
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
-  PRIMARY KEY (`categoryId`)
+  PRIMARY KEY (`categoryId`),
+  KEY `FK_t5q79q343h5dagly7r5avs1wj` (`parentId`),
+  CONSTRAINT `FK_t5q79q343h5dagly7r5avs1wj` FOREIGN KEY (`parentId`) REFERENCES `category` (`categoryId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of category
 -- ----------------------------
-INSERT INTO `category` VALUES ('1', '鱼类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-03 21:41:32', null, null, null);
-INSERT INTO `category` VALUES ('2', '东星白班鱼', '东星白班鱼', '3', 'whitefish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-03 21:41:32', null, null, null);
-INSERT INTO `category` VALUES ('3', '小黄鱼', '小黄鱼', '3', 'yellowfish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-03 21:41:32', null, null, null);
-INSERT INTO `category` VALUES ('4', '小黑鱼', '小黑鱼', '3', 'smallblackfish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-03 21:41:32', null, null, null);
+INSERT INTO `category` VALUES ('1', '鱼类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 05:41:32', null, null, null);
+INSERT INTO `category` VALUES ('2', '东星白班鱼', '东星白班鱼', '3', 'whitefish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 05:41:32', null, null, null);
+INSERT INTO `category` VALUES ('3', '小黄鱼', '小黄鱼', '3', 'yellowfish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 05:41:32', null, null, null);
+INSERT INTO `category` VALUES ('4', '小黑鱼', '小黑鱼', '3', 'smallblackfish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 05:41:32', null, null, null);
 
 -- ----------------------------
 -- Table structure for `checkout`
@@ -57,12 +59,15 @@ CREATE TABLE `checkout` (
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
+  `identityId` bigint(20) DEFAULT NULL,
+  `state` int(11) DEFAULT NULL,
   PRIMARY KEY (`checkoutId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of checkout
 -- ----------------------------
+INSERT INTO `checkout` VALUES ('1', '1', '1', '2015-11-05 03:10:37', null, '', '1', null, '1');
 
 -- ----------------------------
 -- Table structure for `comment`
@@ -101,6 +106,8 @@ CREATE TABLE `farmers` (
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT NULL,
   `version` bigint(20) DEFAULT '1',
+  `longitude` double DEFAULT NULL,
+  `latitude` double DEFAULT NULL,
   PRIMARY KEY (`farmersId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -125,12 +132,15 @@ CREATE TABLE `fishman` (
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
+  `longitude` double DEFAULT NULL,
+  `latitude` double DEFAULT NULL,
   PRIMARY KEY (`fishmanId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of fishman
 -- ----------------------------
+INSERT INTO `fishman` VALUES ('2', '1', '1', 'lkdjflka.png', 'sdklfjsl.png', 'sldkjf.png', '10000', '235', '2015-11-05 00:04:37', null, '', '1', '123.231', '2423.234');
 
 -- ----------------------------
 -- Table structure for `gettype`
@@ -162,6 +172,7 @@ CREATE TABLE `goods` (
   `goodsQuality` int(11) DEFAULT NULL,
   `hotDegree` bigint(20) DEFAULT NULL,
   `getType` int(11) DEFAULT NULL,
+  `sku` int(11) DEFAULT NULL,
   `price` double DEFAULT NULL,
   `nowNumber` bigint(20) DEFAULT '0',
   `unit` int(11) DEFAULT NULL,
@@ -263,9 +274,9 @@ CREATE TABLE `sku` (
 -- ----------------------------
 -- Records of sku
 -- ----------------------------
-INSERT INTO `sku` VALUES ('1', '1', '中等大小(10-15)', '2015-11-04 06:58:42', null, '', '1');
-INSERT INTO `sku` VALUES ('2', '1', '大号(15-20)', '2015-11-04 06:59:08', null, '', '1');
-INSERT INTO `sku` VALUES ('3', '1', '小号(5-10)', '2015-11-04 06:59:32', null, '', '1');
+INSERT INTO `sku` VALUES ('1', '1', '中等大小(10-15)', '2015-11-04 14:58:42', null, '', '1');
+INSERT INTO `sku` VALUES ('2', '1', '大号(15-20)', '2015-11-04 14:59:08', null, '', '1');
+INSERT INTO `sku` VALUES ('3', '1', '小号(5-10)', '2015-11-04 14:59:32', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `sorders`
@@ -312,10 +323,10 @@ CREATE TABLE `unit` (
 -- ----------------------------
 -- Records of unit
 -- ----------------------------
-INSERT INTO `unit` VALUES ('1', '条', '2015-11-03 21:41:33', null, '', '1');
-INSERT INTO `unit` VALUES ('2', '斤', '2015-11-03 21:41:33', null, '', '1');
-INSERT INTO `unit` VALUES ('3', '只', '2015-11-03 21:41:33', null, '', '1');
-INSERT INTO `unit` VALUES ('4', '包', '2015-11-03 21:41:33', null, '', '1');
+INSERT INTO `unit` VALUES ('1', '条', '2015-11-04 05:41:33', null, '', '1');
+INSERT INTO `unit` VALUES ('2', '斤', '2015-11-04 05:41:33', null, '', '1');
+INSERT INTO `unit` VALUES ('3', '只', '2015-11-04 05:41:33', null, '', '1');
+INSERT INTO `unit` VALUES ('4', '包', '2015-11-04 05:41:33', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `user`
@@ -335,8 +346,10 @@ CREATE TABLE `user` (
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
   PRIMARY KEY (`userId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
+INSERT INTO `user` VALUES ('1', '1', '1', '2', '易临风', '798555920', '18719425973', './aaa.jpg', '2015-11-05 03:12:04', null, '', '1');
+INSERT INTO `user` VALUES ('2', '1', '1', '1', 'Imissyou', '798555920', '18719425973', './aaa.jpg', '2015-11-05 03:12:04', null, '', '1');

@@ -22,6 +22,16 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 */
 	private static final long serialVersionUID = 3293435262298029608L;
 
+	Long userId;
+	
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
 	protected ResultMessage resultMessage;
 
 	@ReturnValue //返回实体对象，或者其他任意对象
@@ -49,5 +59,15 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
 		
+	}
+	
+	/**
+	 * 用户认证为渔户.
+	 * @author 黄祥谦.
+	 */
+	public void authenticationFishman(){
+		Boolean result = fishmanServer.authenticationFishman(userId,model);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(result);
 	}
 }

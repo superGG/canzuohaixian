@@ -37,4 +37,6 @@ public class UserAction extends BaseAction<UserPo> {
 		Boolean save = userServer.save(model);
 		resultMessage.setServiceResult(save);
 	}
+	
+
 }

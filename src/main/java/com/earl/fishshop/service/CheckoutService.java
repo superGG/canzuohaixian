@@ -12,6 +12,14 @@ public interface CheckoutService extends BaseService<CheckoutPo>{
 	 */
 	Boolean passRecord(Long checkoutId);
 
+	/**
+	 * 审查不通过.
+	 * @author 黄祥谦.
+	 * @param checkoutId
+	 * @return
+	 */
+	Boolean nopassRecord(Long checkoutId);
+
 	
 
 	

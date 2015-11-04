@@ -60,6 +60,11 @@ public class GoodsPo{
 	private Integer unit ;
 	
 	/**
+	 * 商品规格.
+	 */
+	private Integer sku;
+	
+	/**
 	 * 字段描述：Long 
 	 * 字段类型：sellNumber  
 	 */
@@ -89,7 +94,12 @@ public class GoodsPo{
 	 */
 	private Long version ;
 	
-	
+	public Integer getSku() {
+		return sku;
+	}
+	public void setSku(Integer sku) {
+		this.sku = sku;
+	}
 	public void setGoodsId(Long goodsId){
 		this.goodsId = goodsId;
 	}

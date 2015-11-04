@@ -38,5 +38,17 @@ public class CheckoutServiceImpl extends BaseServiceImpl<CheckoutPo> implements
 			return false;
 		}
 	}
+
+	@Override
+	public Boolean nopassRecord(Long checkoutId) {
+		try {
+			checkoutDao.nopassRecord(checkoutId);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
+	}
 	
 }

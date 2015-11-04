@@ -2,8 +2,6 @@ package com.earl.shopping.daoImpl;
 
 import static org.junit.Assert.fail;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.hibernate.internal.SessionFactoryImpl;
@@ -14,7 +12,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.earl.fishshop.dao.CheckoutDao;
-import com.earl.fishshop.dao.UnitDao;
 import com.earl.fishshop.pojo.UnitPo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -49,6 +46,14 @@ public class CheckoutDaoImplTest {
 //		checkoutDao.save(unit);
 	}
 
+	@Test
+	public void testPassRecord(){
+		//TODO 未测试.
+		checkoutDao.passRecord(1L);
+		System.out.println("dodo");
+	}
+	
+	
 	@Test
 	public void testUpdate() {
 		fail("Not yet implemented");

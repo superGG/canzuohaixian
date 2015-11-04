@@ -2,6 +2,11 @@ package com.earl.fishshop.pojo;
 
 import java.util.Date;
 
+/**
+ * 捕鱼方式，养殖类型.
+ * @author Administrator
+ *
+ */
 public class GetTypePo{
 
 

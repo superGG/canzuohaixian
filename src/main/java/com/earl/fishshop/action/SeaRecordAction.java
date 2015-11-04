@@ -9,7 +9,7 @@ import com.earl.fishshop.pojo.SeaRecordPo;
 
 /**
  * 
- * 用途+action 如Demo+Action-->DemoAction
+ * 航海记录Action.
  * 
  * @author Administrator
  * 
@@ -29,7 +29,6 @@ public class SeaRecordAction extends BaseAction<SeaRecordPo> {
 	public ResultMessage getResultMessage() {
 		return resultMessage;
 	}
-
 
 	// 下面填写业务逻辑
 

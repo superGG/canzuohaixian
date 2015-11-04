@@ -1,7 +1,5 @@
 package com.earl.shopping.daoImpl;
 
-import static org.junit.Assert.fail;
-
 import java.util.List;
 
 import javax.annotation.Resource;

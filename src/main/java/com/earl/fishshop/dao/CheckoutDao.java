@@ -11,4 +11,11 @@ public interface CheckoutDao extends BaseDao<CheckoutPo>{
 	 */
 	void passRecord(Long checkoutId);
 
+	/**
+	 * 审查不通过.
+	 * @author 黄祥谦.
+	 * @param checkoutId
+	 */
+	void nopassRecord(Long checkoutId);
+
 }
