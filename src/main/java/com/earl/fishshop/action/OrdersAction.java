@@ -23,7 +23,6 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	private static final long serialVersionUID = 3293435262298029608L;
 
 	protected OrdersPo jsonInputStream;
-	protected OrdersPo model;
 
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public OrdersPo getJsonInputStream() {

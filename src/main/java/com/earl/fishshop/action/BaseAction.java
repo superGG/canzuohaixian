@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.service.CategoryService;
+import com.earl.fishshop.service.CheckoutService;
 import com.earl.fishshop.service.CommentService;
 import com.earl.fishshop.service.FarmersService;
 import com.earl.fishshop.service.FishmanService;
@@ -70,6 +71,8 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	protected UserService userServer;
 	@Resource
 	protected GetTypeService getTypeServer;
+	@Resource
+	protected CheckoutService checkoutServer;
 	
 //	protected PageInfo pageInfo = new PageInfo();
 //
