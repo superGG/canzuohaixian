@@ -8,8 +8,7 @@ import com.earl.fishshop.pojo.FishmanPo;
 
 /**
  * 
- * 用途+action 如Demo+Action-->DemoAction
- * 
+ * 渔户对应的action. 
  * @author Administrator
  * 
  */

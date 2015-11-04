@@ -13,6 +13,21 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	 */
 	List<CategoryPo> getHierarchyCategory();
 
+	/**
+	 * 得到顶层的类别.
+	 * @author 黄祥谦.
+	 * @return
+	 */
+	List<CategoryPo> getTopCategory();
+
+	/**
+	 * 得到指定类别的下一级类别.
+	 * @author 黄祥谦.
+	 * @param parentId 指定的父类别id.
+	 * @return
+	 */
+	List<CategoryPo> getNextLevelCategory(Long parentId);
+
 	
 
 	

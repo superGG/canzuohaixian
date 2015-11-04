@@ -24,8 +24,6 @@ public class CommentAction extends BaseAction<CommentPo> {
 
 	protected CommentPo jsonInputStream;
 	
-	protected CommentPo model;
-
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public CommentPo getJsonInputStream() {
 		return jsonInputStream;

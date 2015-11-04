@@ -8,7 +8,7 @@ import com.earl.fishshop.pojo.FarmersPo;
 
 /**
  * 
- * 用途+action 如Demo+Action-->DemoAction
+ * 养殖户Action.
  * 
  * @author Administrator
  * 
@@ -24,8 +24,6 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 
 	protected FarmersPo jsonInputStream;
 	
-	protected FarmersPo model;
-
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public FarmersPo getJsonInputStream() {
 		return jsonInputStream;
