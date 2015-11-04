@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.OrdersPo;
+import com.earl.fishshop.pojo.ResultMessage;
 
 /**
  * 
@@ -22,20 +23,20 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 */
 	private static final long serialVersionUID = 3293435262298029608L;
 
-	protected OrdersPo jsonInputStream;
-	protected OrdersPo model;
+	protected ResultMessage resultMessage;
 
 	@ReturnValue //返回实体对象，或者其他任意对象
-	public OrdersPo getJsonInputStream() {
-		return jsonInputStream;
+	public ResultMessage getResultMessage() {
+		return resultMessage;
 	}
+
 
 	// 下面填写业务逻辑
 
-	public void save() {
-		ordersServer.save(model);
-		OrdersPo ordersPo = new OrdersPo();
-		jsonInputStream = ordersPo;
+	public void addOrders() {
+		Boolean save = ordersServer.save(model);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(save);
 		
 	}
 }

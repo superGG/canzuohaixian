@@ -4,8 +4,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
+import com.earl.fishshop.pojo.CheckoutPo;
 import com.earl.fishshop.pojo.ResultMessage;
-import com.earl.fishshop.pojo.SordersPo;
 
 /**
  * 
@@ -14,9 +14,9 @@ import com.earl.fishshop.pojo.SordersPo;
  * @author Administrator
  * 
  */
-@Controller(value = "sordersAction")
+@Controller(value = "checkoutAction")
 @Scope(value = "prototype")
-public class SordersAction extends BaseAction<SordersPo> {
+public class CheckoutAction extends BaseAction<CheckoutPo> {
 
 	/**
 	 * 
@@ -30,12 +30,27 @@ public class SordersAction extends BaseAction<SordersPo> {
 		return resultMessage;
 	}
 
-
 	// 下面填写业务逻辑
 
-	public void addSorders() {
-		Boolean save = sordersServer.save(model);
+	/**
+	 * 添加对象.
+	 * @author 黄祥谦.
+	 */
+	public void addCheckout() {
+		Boolean save = checkoutServer.save(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
 	}
+	
+	/**
+	 * 审查通过.
+	 * @author 黄祥谦.
+	 */
+	public void passRecord(){
+		Boolean result = checkoutServer.passRecord(model.getCheckoutId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(result);
+	}
+	
+	
 }

@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
+import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.UserPo;
 
 /**
@@ -22,21 +23,18 @@ public class UserAction extends BaseAction<UserPo> {
 	 */
 	private static final long serialVersionUID = 3293435262298029608L;
 
-	protected UserPo jsonInputStream;
-	
-	protected UserPo model;
+	protected ResultMessage resultMessage;
 
 	@ReturnValue //返回实体对象，或者其他任意对象
-	public UserPo getJsonInputStream() {
-		return jsonInputStream;
+	public ResultMessage getResultMessage() {
+		return resultMessage;
 	}
+
 
 	// 下面填写业务逻辑
 
 	public void save() {
-		userServer.save(model);
-		UserPo userPo = new UserPo();
-		jsonInputStream = userPo;
-		
+		Boolean save = userServer.save(model);
+		resultMessage.setServiceResult(save);
 	}
 }

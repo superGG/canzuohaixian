@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+        
+<hibernate-mapping package="com.earl.fishshop.pojo">
+    <class name="CheckoutPo" table="Checkout" dynamic-update="true" dynamic-insert="true">
+        <id name="checkoutId" type="java.lang.Long">
+            <column name="checkoutId" />
+            <generator class="native"></generator>
+        </id>
+        <property name="userId" type="java.lang.Long" column="userId" />
+        <property name="userType" type="java.lang.Integer" column="userType" />
+        <property name="identityId" type="java.lang.Long" column="identityId" />
+        <property name="state" type="java.lang.Integer" column="state" />
+        <property name="createTime" type="java.util.Date" column="createTime" />
+        <property name="creatorId" type="java.lang.Long" column="creatorId" />
+        <property name="isDelete" type="java.lang.Boolean" column="isDelete" />
+        <property name="version" type="java.lang.Long" column="version" />
+    </class>
+</hibernate-mapping>

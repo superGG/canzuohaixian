@@ -38,4 +38,17 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 		// TODO 未测试.
 		return categoryDao.getHierarchyCategory();
 	}
+	
+	@Override
+	public List<CategoryPo> getTopCategory(){
+		List<CategoryPo> categoryList = categoryDao.getTopCategory();
+		return categoryList;
+	}
+	
+	@Override
+	public List<CategoryPo> getNextLevelCategory(Long parentId){
+		List<CategoryPo> nextLevelCategory = categoryDao.getNextLevelCategory(parentId);
+		return nextLevelCategory;
+	}
+	
 }

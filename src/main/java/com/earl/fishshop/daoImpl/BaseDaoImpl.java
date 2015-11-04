@@ -70,14 +70,10 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	public void save(T t) {
 		System.out.println("dodo1");
 		logger.debug("saving " + clazz.getName() + " instance");
-//		Transaction tran = getCurrentSession().beginTransaction();
-//		sessionFactory.getCurrentSession().save(t);
-//		tran.commit();
 		Session session = sessionFactory.getCurrentSession();
 		Transaction transaction = session.getTransaction();
 		System.out.println(transaction.getLocalStatus());
 		System.out.println(transaction.getTimeout());
-//		Transaction beginTransaction = session.beginTransaction();
 		System.out.println(transaction);
 		session.save(t);
 	}
@@ -153,7 +149,6 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	@Override
 	public void delete(T persistentInstance) {
 		logger.debug("delete " + clazz.getName() + " instance");
-//		getCurrentSession().delete(persistentInstance);
 			try {
 				@SuppressWarnings("unchecked")
 				Method method = clazz.getMethod("setIsDelete",Boolean.class);
@@ -173,7 +168,6 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 				.beginTransaction();
 
 		Map<String, Object> notNullParam = null;
-		// Method readMethod = beanMap.getWriteMethod("id");
 		notNullParam = getNotNullProperties(object);
 		Criteria criteria = HibernateHelper.getSessionFactory()
 				.getCurrentSession().createCriteria(clazz);

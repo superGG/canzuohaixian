@@ -66,4 +66,27 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		resultMessage.setResultParm(hashMap);
 	}
 	
+	/**
+	 * 得到顶层类别.
+	 * @author 黄祥谦.
+	 */
+	public void getTopCategory(){
+		List<CategoryPo> categoryList = categoryServer.getTopCategory();
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("categoryList", categoryList);
+		resultMessage.setResultParm(hashMap);
+	}
+	
+	/**
+	 * 得到指定类别的下一级类别.
+	 * @author 黄祥谦.
+	 */
+	public void getNextLevelCategory(){
+		List<CategoryPo> categoryList = categoryServer.getNextLevelCategory(model.getCategoryId());
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("categoryList", categoryList);
+		resultMessage.setResultParm(hashMap);
+	}
+	
+	
 }

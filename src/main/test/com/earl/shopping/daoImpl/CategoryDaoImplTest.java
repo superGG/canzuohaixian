@@ -76,19 +76,4 @@ public class CategoryDaoImplTest {
 		CategoryPo category = categoryDao.get(1L);
 		System.out.println(category);
 	}
-
-	@Test
-	public void testUpdate() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testFindAll() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testDeleteAll() {
-		fail("Not yet implemented");
-	}
 }
