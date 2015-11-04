@@ -41,4 +41,16 @@ public class CheckoutAction extends BaseAction<CheckoutPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
 	}
+	
+	/**
+	 * 审查通过.
+	 * @author 黄祥谦.
+	 */
+	public void passRecord(){
+		Boolean result = checkoutServer.passRecord(model.getCheckoutId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(result);
+	}
+	
+	
 }

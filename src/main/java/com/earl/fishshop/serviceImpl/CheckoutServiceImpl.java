@@ -18,17 +18,25 @@ import com.earl.fishshop.service.CheckoutService;
  @Service(value = "checkoutService")
 public class CheckoutServiceImpl extends BaseServiceImpl<CheckoutPo> implements
 		CheckoutService {
-//	public GoodsServiceImpl() {
-//		baseDao = goodsDao;
-//	}
 
 	@Resource(name = "checkoutDao")
 	CheckoutDao checkoutDao;
 
-//	@PreDestroy
 	@PostConstruct
 	public void initBaseDao(){
 		baseDao = checkoutDao;
+	}
+
+	@Override
+	public Boolean passRecord(Long checkoutId) {
+		try {
+			checkoutDao.passRecord(checkoutId);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 }
