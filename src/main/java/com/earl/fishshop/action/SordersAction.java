@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
+import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.SordersPo;
 
 /**
@@ -22,20 +23,19 @@ public class SordersAction extends BaseAction<SordersPo> {
 	 */
 	private static final long serialVersionUID = 3293435262298029608L;
 
-	protected SordersPo jsonInputStream;
-	protected SordersPo model;
+	protected ResultMessage resultMessage;
 
 	@ReturnValue //返回实体对象，或者其他任意对象
-	public SordersPo getJsonInputStream() {
-		return jsonInputStream;
+	public ResultMessage getResultMessage() {
+		return resultMessage;
 	}
+
 
 	// 下面填写业务逻辑
 
-	public void save() {
-		sordersServer.save(model);
-		SordersPo sordersPo = new SordersPo();
-		jsonInputStream = sordersPo;
-		
+	public void addSorders() {
+		Boolean save = sordersServer.save(model);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(save);
 	}
 }

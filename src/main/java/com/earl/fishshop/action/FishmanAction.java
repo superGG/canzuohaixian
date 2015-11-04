@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.FishmanPo;
+import com.earl.fishshop.pojo.ResultMessage;
 
 /**
  * 
@@ -21,19 +22,32 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 */
 	private static final long serialVersionUID = 3293435262298029608L;
 
-	protected FishmanPo jsonInputStream;
+	protected ResultMessage resultMessage;
 
 	@ReturnValue //返回实体对象，或者其他任意对象
-	public FishmanPo getJsonInputStream() {
-		return jsonInputStream;
+	public ResultMessage getResultMessage() {
+		return resultMessage;
 	}
 
 	// 下面填写业务逻辑
-
+	/**
+	 * 添加渔户个人信息.
+	 * @author 黄祥谦.
+	 */
 	public void addFishman() {
-		fishmanServer.save(model);
-		FishmanPo fishmanPo = new FishmanPo();
-		jsonInputStream = fishmanPo;
+		Boolean result = fishmanServer.save(model);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(result);
+	}
+	
+	/**
+	 * 更新渔户个人信息.
+	 * @author 黄祥谦.
+	 */
+	public void updateFishman(){
+		Boolean result = fishmanServer.update(model);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(result);
 		
 	}
 }

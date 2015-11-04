@@ -11,7 +11,9 @@
 	<!-- 数据库连接信息 -->
 	<!-- org.hibernate.dialect.MySQLDialect -->
 	<!-- 使用下面方言，默认生成InnoDB引擎数据库表 -->
-	<property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+	<property name="dialect">
+		org.hibernate.dialect.MySQLInnoDBDialect
+	</property>
 	<property name="connection.url">
 		jdbc:mysql://localhost:3306/fishshop
 	</property>
@@ -46,5 +48,6 @@
 	<mapping resource="com/earl/fishshop/pojo/UnitPo.hbm.xml" />
 	<mapping resource="com/earl/fishshop/pojo/UserPo.hbm.xml" />
 	<mapping resource="com/earl/fishshop/pojo/GetTypePo.hbm.xml" />
+	<mapping resource="com/earl/fishshop/pojo/CheckoutPo.hbm.xml" />
 </session-factory>
 </hibernate-configuration>
