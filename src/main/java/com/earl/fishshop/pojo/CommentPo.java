@@ -1,0 +1,141 @@
+package com.earl.fishshop.pojo;
+
+import java.util.Date;
+
+public class CommentPo{
+
+
+	/**
+	 * 字段描述：Long 
+	 * 字段类型：commentId  
+	 */
+	private Long commentId ;
+	
+	/**
+	 * 字段描述：Long 
+	 * 字段类型：goodsId  
+	 */
+	private Long goodsId ;
+	
+	/**
+	 * 字段描述：Integer 
+	 * 字段类型：commentType  
+	 */
+	private Integer commentType ;
+	
+	/**
+	 * 字段描述：String 
+	 * 字段类型：content  
+	 */
+	private String content ;
+	
+	/**
+	 * 字段描述：Float 
+	 * 字段类型：weightQuality  
+	 */
+	private Float weightQuality ;
+	
+	/**
+	 * 字段描述：Float 
+	 * 字段类型：freshQuality  
+	 */
+	private Float freshQuality ;
+	
+	/**
+	 * 字段描述：Float 
+	 * 字段类型：speedQuality  
+	 */
+	private Float speedQuality ;
+	
+	/**
+	 * 字段描述：Date 
+	 * 字段类型：createTime  
+	 */
+	private Date createTime ;
+	
+	/**
+	 * 字段描述：Long 
+	 * 字段类型：creatorId  
+	 */
+	private Long creatorId ;
+	
+	/**
+	 * 字段描述：Boolean 
+	 * 字段类型：isDelete  
+	 */
+	private Boolean isDelete ;
+	
+	/**
+	 * 字段描述：Long 
+	 * 字段类型：version  
+	 */
+	private Long version ;
+	
+	
+	public void setCommentId(Long commentId){
+		this.commentId = commentId;
+	}
+	public Long getCommentId() {
+		return this.commentId;
+	}
+	public void setGoodsId(Long goodsId){
+		this.goodsId = goodsId;
+	}
+	public Long getGoodsId() {
+		return this.goodsId;
+	}
+	public void setCommentType(Integer commentType){
+		this.commentType = commentType;
+	}
+	public Integer getCommentType() {
+		return this.commentType;
+	}
+	public void setContent(String content){
+		this.content = content;
+	}
+	public String getContent() {
+		return this.content;
+	}
+	public void setWeightQuality(Float weightQuality){
+		this.weightQuality = weightQuality;
+	}
+	public Float getWeightQuality() {
+		return this.weightQuality;
+	}
+	public void setFreshQuality(Float freshQuality){
+		this.freshQuality = freshQuality;
+	}
+	public Float getFreshQuality() {
+		return this.freshQuality;
+	}
+	public void setSpeedQuality(Float speedQuality){
+		this.speedQuality = speedQuality;
+	}
+	public Float getSpeedQuality() {
+		return this.speedQuality;
+	}
+	public void setCreateTime(Date createTime){
+		this.createTime = createTime;
+	}
+	public Date getCreateTime() {
+		return this.createTime;
+	}
+	public void setCreatorId(Long creatorId){
+		this.creatorId = creatorId;
+	}
+	public Long getCreatorId() {
+		return this.creatorId;
+	}
+	public void setIsDelete(Boolean isDelete){
+		this.isDelete = isDelete;
+	}
+	public Boolean getIsDelete() {
+		return this.isDelete;
+	}
+	public void setVersion(Long version){
+		this.version = version;
+	}
+	public Long getVersion() {
+		return this.version;
+	}
+}

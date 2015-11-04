@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+        
+<hibernate-mapping package="com.earl.fishshop.pojo">
+    <class name="SeaRecordPo" table="SeaRecord" dynamic-update="true" dynamic-insert="true">
+        <id name="seaRecordId" type="java.lang.Long">
+            <column name="seaRecordId" />
+            <generator class="native"></generator>
+        </id>
+        <property name="shopId" type="java.lang.Long" column="shopId" />
+        <property name="startSeeTime" type="java.util.Date" column="startSeeTime" />
+        <property name="endSeeTime" type="java.util.Date" column="endSeeTime" />
+        <property name="spendDay" type="java.lang.Integer" column="spendDay" />
+        <property name="state" type="java.lang.Integer" column="state" />
+        <property name="anchorPoint" type="java.lang.Integer" column="anchorPoint" />
+        <property name="createTime" type="java.util.Date" column="createTime" />
+        <property name="creatorId" type="java.lang.Long" column="creatorId" />
+        <property name="isDelete" type="java.lang.Boolean" column="isDelete" />
+        <property name="version" type="java.lang.Long" column="version" />
+    </class>
+</hibernate-mapping>
