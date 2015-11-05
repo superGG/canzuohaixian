@@ -1,5 +1,9 @@
 package com.earl.fishshop.action;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -36,5 +40,38 @@ public class GetTypeAction extends BaseAction<GetTypePo> {
 		Boolean save = getTypeServer.save(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
+	}
+	
+	/**
+	 * 得到带层次结构的捕捞方式，或者养殖方式.
+	 * @author 黄祥谦.
+	 */
+	public void getHierarchyGetType(){
+		List<GetTypePo> getTypeList = getTypeServer.getHierarchyGetType();
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("getTypeList", getTypeList);
+		resultMessage.setResultParm(hashMap);
+	}
+	
+	/**
+	 * 得到顶层捕捞方式.
+	 * @author 黄祥谦.
+	 */
+	public void getTopGetType(){
+		List<GetTypePo> getTypeList = getTypeServer.getTopGetType();
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("getTypeList", getTypeList);
+		resultMessage.setResultParm(hashMap);
+	}
+	
+	/**
+	 * 得到指定类别的下一级捕捞方式或者养殖方式.
+	 * @author 黄祥谦.
+	 */
+	public void getNextLevelGetType(){
+		List<GetTypePo> getTypeList = getTypeServer.getNextLevelGetType(model.getGetTypeId());
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("getTypeList", getTypeList);
+		resultMessage.setResultParm(hashMap);
 	}
 }

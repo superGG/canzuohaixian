@@ -17,38 +17,39 @@ import com.earl.fishshop.service.CategoryService;
  * @author Administrator
  * 
  */
- @Service(value = "categoryService")
+@Service(value = "categoryService")
 public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 		CategoryService {
-//	public GoodsServiceImpl() {
-//		baseDao = goodsDao;
-//	}
+	// public GoodsServiceImpl() {
+	// baseDao = goodsDao;
+	// }
 
 	@Resource(name = "categoryDao")
 	CategoryDao categoryDao;
 
-//	@PreDestroy
+	// @PreDestroy
 	@PostConstruct
-	public void initBaseDao(){
+	public void initBaseDao() {
 		baseDao = categoryDao;
 	}
 
 	@Override
 	public List<CategoryPo> getHierarchyCategory() {
-		// TODO 未测试.
-		return categoryDao.getHierarchyCategory();
+		List<CategoryPo> categoryList = categoryDao.getHierarchyCategory();
+		return categoryList;
 	}
-	
+
 	@Override
-	public List<CategoryPo> getTopCategory(){
+	public List<CategoryPo> getTopCategory() {
 		List<CategoryPo> categoryList = categoryDao.getTopCategory();
 		return categoryList;
 	}
-	
+
 	@Override
-	public List<CategoryPo> getNextLevelCategory(Long parentId){
-		List<CategoryPo> nextLevelCategory = categoryDao.getNextLevelCategory(parentId);
+	public List<CategoryPo> getNextLevelCategory(Long parentId) {
+		List<CategoryPo> nextLevelCategory = categoryDao
+				.getNextLevelCategory(parentId);
 		return nextLevelCategory;
 	}
-	
+
 }

@@ -16,5 +16,13 @@
         <property name="creatorId" type="java.lang.Long" column="creatorId" />
         <property name="isDelete" type="java.lang.Boolean" column="isDelete" />
         <property name="version" type="java.lang.Long" column="version" />
+        <set name="childGetType" order-by="getTypeId" lazy="false">
+         	<!-- key就代表子类中外键 -->
+         	<key>
+         		<column name="parentId" />
+         	</key>
+         	<!-- Class 指定set中存储的类型, 指定的是哪个类型就到相应类型表中找  fid -->
+         	<one-to-many class="GetTypePo"/>
+         </set>
     </class>
 </hibernate-mapping>

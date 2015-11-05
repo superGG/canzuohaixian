@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-11-05 00:53:23
+Date: 2015-11-05 08:14:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -42,10 +42,10 @@ CREATE TABLE `category` (
 -- ----------------------------
 -- Records of category
 -- ----------------------------
-INSERT INTO `category` VALUES ('1', '鱼类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 05:41:32', null, null, null);
-INSERT INTO `category` VALUES ('2', '东星白班鱼', '东星白班鱼', '3', 'whitefish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 05:41:32', null, null, null);
-INSERT INTO `category` VALUES ('3', '小黄鱼', '小黄鱼', '3', 'yellowfish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 05:41:32', null, null, null);
-INSERT INTO `category` VALUES ('4', '小黑鱼', '小黑鱼', '3', 'smallblackfish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 05:41:32', null, null, null);
+INSERT INTO `category` VALUES ('1', '鱼类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 13:41:32', null, null, null);
+INSERT INTO `category` VALUES ('2', '东星白班鱼', '东星白班鱼', '3', 'whitefish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 13:41:32', null, null, null);
+INSERT INTO `category` VALUES ('3', '小黄鱼', '小黄鱼', '3', 'yellowfish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 13:41:32', null, null, null);
+INSERT INTO `category` VALUES ('4', '小黑鱼', '小黑鱼', '3', 'smallblackfish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 13:41:32', null, null, null);
 
 -- ----------------------------
 -- Table structure for `checkout`
@@ -67,7 +67,7 @@ CREATE TABLE `checkout` (
 -- ----------------------------
 -- Records of checkout
 -- ----------------------------
-INSERT INTO `checkout` VALUES ('1', '1', '1', '2015-11-05 03:10:37', null, '', '1', null, '1');
+INSERT INTO `checkout` VALUES ('1', '1', '1', '2015-11-05 11:10:37', null, '', '1', null, '1');
 
 -- ----------------------------
 -- Table structure for `comment`
@@ -140,7 +140,7 @@ CREATE TABLE `fishman` (
 -- ----------------------------
 -- Records of fishman
 -- ----------------------------
-INSERT INTO `fishman` VALUES ('2', '1', '1', 'lkdjflka.png', 'sdklfjsl.png', 'sldkjf.png', '10000', '235', '2015-11-05 00:04:37', null, '', '1', '123.231', '2423.234');
+INSERT INTO `fishman` VALUES ('2', '1', '1', 'lkdjflka.png', 'sdklfjsl.png', 'sldkjf.png', '10000', '235', '2015-11-05 08:04:37', null, '', '1', '123.231', '2423.234');
 
 -- ----------------------------
 -- Table structure for `gettype`
@@ -155,11 +155,15 @@ CREATE TABLE `gettype` (
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
   PRIMARY KEY (`getTypeId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gettype
 -- ----------------------------
+INSERT INTO `gettype` VALUES ('1', '捕捞方式', null, '2015-11-05 08:13:31', null, '', '1');
+INSERT INTO `gettype` VALUES ('2', '养殖方式', null, '2015-11-05 08:13:43', null, '', '1');
+INSERT INTO `gettype` VALUES ('3', '撒网式', '1', '2015-11-05 08:14:17', null, '', '1');
+INSERT INTO `gettype` VALUES ('4', '水箱式', null, '2015-11-05 08:14:41', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `goods`
@@ -274,9 +278,9 @@ CREATE TABLE `sku` (
 -- ----------------------------
 -- Records of sku
 -- ----------------------------
-INSERT INTO `sku` VALUES ('1', '1', '中等大小(10-15)', '2015-11-04 14:58:42', null, '', '1');
-INSERT INTO `sku` VALUES ('2', '1', '大号(15-20)', '2015-11-04 14:59:08', null, '', '1');
-INSERT INTO `sku` VALUES ('3', '1', '小号(5-10)', '2015-11-04 14:59:32', null, '', '1');
+INSERT INTO `sku` VALUES ('1', '1', '中等大小(10-15)', '2015-11-04 22:58:42', null, '', '1');
+INSERT INTO `sku` VALUES ('2', '1', '大号(15-20)', '2015-11-04 22:59:08', null, '', '1');
+INSERT INTO `sku` VALUES ('3', '1', '小号(5-10)', '2015-11-04 22:59:32', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `sorders`
@@ -323,10 +327,10 @@ CREATE TABLE `unit` (
 -- ----------------------------
 -- Records of unit
 -- ----------------------------
-INSERT INTO `unit` VALUES ('1', '条', '2015-11-04 05:41:33', null, '', '1');
-INSERT INTO `unit` VALUES ('2', '斤', '2015-11-04 05:41:33', null, '', '1');
-INSERT INTO `unit` VALUES ('3', '只', '2015-11-04 05:41:33', null, '', '1');
-INSERT INTO `unit` VALUES ('4', '包', '2015-11-04 05:41:33', null, '', '1');
+INSERT INTO `unit` VALUES ('1', '条', '2015-11-04 13:41:33', null, '', '1');
+INSERT INTO `unit` VALUES ('2', '斤', '2015-11-04 13:41:33', null, '', '1');
+INSERT INTO `unit` VALUES ('3', '只', '2015-11-04 13:41:33', null, '', '1');
+INSERT INTO `unit` VALUES ('4', '包', '2015-11-04 13:41:33', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `user`
@@ -351,5 +355,5 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '1', '1', '2', '易临风', '798555920', '18719425973', './aaa.jpg', '2015-11-05 03:12:04', null, '', '1');
-INSERT INTO `user` VALUES ('2', '1', '1', '1', 'Imissyou', '798555920', '18719425973', './aaa.jpg', '2015-11-05 03:12:04', null, '', '1');
+INSERT INTO `user` VALUES ('1', '1', '1', '2', '易临风', '798555920', '18719425973', './aaa.jpg', '2015-11-05 11:12:04', null, '', '1');
+INSERT INTO `user` VALUES ('2', '1', '1', '1', 'Imissyou', '798555920', '18719425973', './aaa.jpg', '2015-11-05 11:12:04', null, '', '1');

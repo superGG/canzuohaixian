@@ -1,14 +1,14 @@
 package com.earl.fishshop.pojo;
 
 import java.util.Date;
+import java.util.Set;
 
 /**
  * 捕鱼方式，养殖类型.
- * @author Administrator
+ * @author 黄祥谦.
  *
  */
 public class GetTypePo{
-
 
 	/**
 	 * 字段描述：Long 
@@ -27,6 +27,12 @@ public class GetTypePo{
 	 * 字段类型：parentId  
 	 */
 	private Long parentId ;
+	
+	/**
+	 * 字段描述：Long 
+	 * 字段类型：parentId  
+	 */
+	private Set<GetTypePo> childGetType;
 	
 	/**
 	 * 字段描述：Date 
@@ -53,6 +59,12 @@ public class GetTypePo{
 	private Long version ;
 	
 	
+	public Set<GetTypePo> getChildGetType() {
+		return childGetType;
+	}
+	public void setChildGetType(Set<GetTypePo> childGetType) {
+		this.childGetType = childGetType;
+	}
 	public void setGetTypeId(Long getTypeId){
 		this.getTypeId = getTypeId;
 	}

@@ -1,11 +1,14 @@
 package com.earl.fishshop.serviceImpl;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.dao.GetTypeDao;
+import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.pojo.GetTypePo;
 import com.earl.fishshop.service.GetTypeService;
 
@@ -18,17 +21,34 @@ import com.earl.fishshop.service.GetTypeService;
  @Service(value = "getTypeService")
 public class GetTypeServiceImpl extends BaseServiceImpl<GetTypePo> implements
 		GetTypeService {
-//	public GoodsServiceImpl() {
-//		baseDao = goodsDao;
-//	}
 
 	@Resource(name = "getTypeDao")
 	GetTypeDao getTypeDao;
 
-//	@PreDestroy
 	@PostConstruct
 	public void initBaseDao(){
 		baseDao = getTypeDao;
+	}
+
+	@Override
+	public List<GetTypePo> getNextLevelGetType(Long parentId) {
+		// TODO 未测试.
+		List<GetTypePo> getTypeList = getTypeDao.getNextLevelGetType(parentId);
+		return getTypeList;
+	}
+
+	@Override
+	public List<GetTypePo> getTopGetType() {
+		// TODO 未测试.
+		List<GetTypePo> getTypeList = getTypeDao.getTopGetType();
+		return getTypeList;
+	}
+
+	@Override
+	public List<GetTypePo> getHierarchyGetType() {
+		// TODO 未测试.
+		List<GetTypePo> getTypeList = getTypeDao.getHierarchyGetType();
+		return getTypeList;
 	}
 	
 }
