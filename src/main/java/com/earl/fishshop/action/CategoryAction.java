@@ -75,6 +75,4 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		hashMap.put("categoryList", categoryList);
 		resultMessage.setResultParm(hashMap);
 	}
-	
-	
 }

@@ -140,7 +140,7 @@ CREATE TABLE `fishman` (
 -- ----------------------------
 -- Records of fishman
 -- ----------------------------
-INSERT INTO `fishman` VALUES ('2', '1', '1', 'lkdjflka.png', 'sdklfjsl.png', 'sldkjf.png', '10000', '235', '2015-11-05 08:04:37', null, '', '1', '123.231', '2423.234');
+INSERT INTO `fishman` VALUES ('1', '1', '1', 'lkdjflka.png', 'sdklfjsl.png', 'sldkjf.png', '10000', '235', '2015-11-05 08:04:37', null, '', '1', '123.231', '2423.234');
 
 -- ----------------------------
 -- Table structure for `gettype`
