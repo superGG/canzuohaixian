@@ -72,5 +72,8 @@
 		<action name="user_*" class="userAction"
 			method="{1}">
 		</action>
+		<action name="verfycode_*" class="verfyCodeAction"
+			method="{1}">
+		</action>
 	</package>
 </struts>    

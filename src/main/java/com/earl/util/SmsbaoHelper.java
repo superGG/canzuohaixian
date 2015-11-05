@@ -75,7 +75,7 @@ public class SmsbaoHelper {
 				int pos = line.indexOf(",");
 				result = Integer.valueOf(line.substring(pos+1));
 			}
-		}
+		} else return -1;
 		System.out.println(result);
 		return result;
 	}
