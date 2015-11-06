@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-11-05 08:14:48
+Date: 2015-11-06 10:22:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -100,14 +100,17 @@ CREATE TABLE `farmers` (
   `farmersId` bigint(20) NOT NULL AUTO_INCREMENT,
   `shopId` bigint(20) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
-  `identityPhoto` varchar(255) DEFAULT NULL,
+  `longitude` double DEFAULT NULL,
+  `latitude` double DEFAULT NULL,
+  `forntIdentityPhoto` varchar(255) DEFAULT NULL,
+  `backIdentityPhoto` varchar(255) DEFAULT NULL,
   `addressPhoto` varchar(255) DEFAULT NULL,
+  `aquacultureLicense` varchar(255) DEFAULT NULL,
+  `multiGetType` varchar(255) DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT NULL,
   `version` bigint(20) DEFAULT '1',
-  `longitude` double DEFAULT NULL,
-  `latitude` double DEFAULT NULL,
   PRIMARY KEY (`farmersId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -123,24 +126,26 @@ CREATE TABLE `fishman` (
   `fishmanId` bigint(20) NOT NULL AUTO_INCREMENT,
   `shopId` bigint(20) DEFAULT NULL,
   `getType` int(11) DEFAULT NULL,
-  `identityPhoto` varchar(255) DEFAULT NULL,
+  `frontIdentityPhoto` varchar(255) DEFAULT NULL,
+  `backIdentityPhoto` varchar(255) DEFAULT NULL,
   `seaPassPhoto` varchar(255) DEFAULT NULL,
   `shipPhoto` varchar(255) DEFAULT NULL,
   `enginePower` bigint(20) DEFAULT NULL,
+  `homePort` int(11) DEFAULT NULL,
+  `shipCreateTime` date DEFAULT NULL,
+  `realName` varchar(255) DEFAULT NULL,
   `tonnage` bigint(20) DEFAULT NULL,
+  `fishingLicense` varchar(255) DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
-  `longitude` double DEFAULT NULL,
-  `latitude` double DEFAULT NULL,
   PRIMARY KEY (`fishmanId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of fishman
 -- ----------------------------
-INSERT INTO `fishman` VALUES ('1', '1', '1', 'lkdjflka.png', 'sdklfjsl.png', 'sldkjf.png', '10000', '235', '2015-11-05 08:04:37', null, '', '1', '123.231', '2423.234');
 
 -- ----------------------------
 -- Table structure for `gettype`
@@ -233,6 +238,26 @@ CREATE TABLE `searecord` (
 
 -- ----------------------------
 -- Records of searecord
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `shipport`
+-- ----------------------------
+DROP TABLE IF EXISTS `shipport`;
+CREATE TABLE `shipport` (
+  `shipportId` bigint(20) NOT NULL AUTO_INCREMENT,
+  `shipportName` varchar(255) DEFAULT NULL,
+  `lontitude` double DEFAULT NULL,
+  `latitude` double DEFAULT NULL,
+  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `creatorId` bigint(20) DEFAULT NULL,
+  `isDelete` bit(1) DEFAULT b'0',
+  `version` bigint(20) DEFAULT '1',
+  PRIMARY KEY (`shipportId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of shipport
 -- ----------------------------
 
 -- ----------------------------

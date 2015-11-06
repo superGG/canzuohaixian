@@ -12,7 +12,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.earl.fishshop.dao.CheckoutDao;
+import com.earl.fishshop.pojo.CheckoutPo;
 import com.earl.fishshop.pojo.UnitPo;
+import com.earl.fishshop.util.MyConstant;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath*:applicationContext-*.xml")
@@ -40,10 +42,12 @@ public class CheckoutDaoImplTest {
 	@Test
 	public void testSave() {
 		//TODO 为测试.
-		UnitPo unit = new UnitPo();
-//		unit.setUnitName("包");
-//		// user.setGoodsCategory(1);
-//		checkoutDao.save(unit);
+		CheckoutPo checkout = new CheckoutPo();
+		checkout.setIdentityId(1L);
+		checkout.setUserType(MyConstant.user_fishman);
+		checkout.setUserId(1L);
+		checkout.setState(MyConstant.checkout_waitpass);
+		checkoutDao.save(checkout);
 	}
 
 	@Test

@@ -9,8 +9,12 @@ public class MyConstant {
 	/**
 	 * 审查不通过.
 	 */
-	public static final Integer checkout_nopass = 1;
-	
+	public static final Integer checkout_nopass = 0;
+
+	/**
+	 * 等待审查.
+	 */
+	public static final Integer checkout_waitpass = 2;
 	/**
 	 * 审查通过.
 	 */
@@ -45,6 +49,7 @@ public class MyConstant {
 	 * 养殖户用户代号.
 	 */
 	public static final Integer user_farmer= 2;
+
 
 
 }

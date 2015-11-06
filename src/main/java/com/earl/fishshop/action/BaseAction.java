@@ -20,11 +20,13 @@ import com.earl.fishshop.service.GetTypeService;
 import com.earl.fishshop.service.GoodsService;
 import com.earl.fishshop.service.OrdersService;
 import com.earl.fishshop.service.SeaRecordService;
+import com.earl.fishshop.service.ShipPortService;
 import com.earl.fishshop.service.ShopService;
 import com.earl.fishshop.service.SkuService;
 import com.earl.fishshop.service.SordersService;
 import com.earl.fishshop.service.UnitService;
 import com.earl.fishshop.service.UserService;
+import com.earl.fishshop.serviceImpl.VerifyCodeService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -73,6 +75,10 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	protected GetTypeService getTypeServer;
 	@Resource
 	protected CheckoutService checkoutServer;
+	@Resource
+	protected VerifyCodeService verifyCodeServer;
+	@Resource
+	protected ShipPortService shipPortServer;
 	
 //	protected PageInfo pageInfo = new PageInfo();
 //

@@ -31,7 +31,7 @@ public class CheckoutAction extends BaseAction<CheckoutPo> {
 	}
 
 	// 下面填写业务逻辑
-
+	
 	/**
 	 * 添加对象.
 	 * @author 黄祥谦.
@@ -61,6 +61,4 @@ public class CheckoutAction extends BaseAction<CheckoutPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
 	}
-	
-	
 }

@@ -37,15 +37,33 @@ public class FarmersPo{
 	
 	/**
 	 * 字段描述：String 
-	 * 字段类型：identityPhoto  
+	 * 字段类型：forntIdentityPhoto  
 	 */
-	private String identityPhoto ;
+	private String forntIdentityPhoto ;
+	
+	/**
+	 * 字段描述：String 
+	 * 字段类型：backIdentityPhoto  
+	 */
+	private String backIdentityPhoto ;
 	
 	/**
 	 * 字段描述：String 
 	 * 字段类型：addressPhoto  
 	 */
 	private String addressPhoto ;
+	
+	/**
+	 * 字段描述：String 
+	 * 字段类型：aquacultureLicense  
+	 */
+	private String aquacultureLicense ;
+	
+	/**
+	 * 字段描述：String 
+	 * 字段类型：multiGetType  
+	 */
+	private String multiGetType ;
 	
 	/**
 	 * 字段描述：Date 
@@ -102,17 +120,35 @@ public class FarmersPo{
 	public Double getLatitude() {
 		return this.latitude;
 	}
-	public void setIdentityPhoto(String identityPhoto){
-		this.identityPhoto = identityPhoto;
+	public void setForntIdentityPhoto(String forntIdentityPhoto){
+		this.forntIdentityPhoto = forntIdentityPhoto;
 	}
-	public String getIdentityPhoto() {
-		return this.identityPhoto;
+	public String getForntIdentityPhoto() {
+		return this.forntIdentityPhoto;
+	}
+	public void setBackIdentityPhoto(String backIdentityPhoto){
+		this.backIdentityPhoto = backIdentityPhoto;
+	}
+	public String getBackIdentityPhoto() {
+		return this.backIdentityPhoto;
 	}
 	public void setAddressPhoto(String addressPhoto){
 		this.addressPhoto = addressPhoto;
 	}
 	public String getAddressPhoto() {
 		return this.addressPhoto;
+	}
+	public void setAquacultureLicense(String aquacultureLicense){
+		this.aquacultureLicense = aquacultureLicense;
+	}
+	public String getAquacultureLicense() {
+		return this.aquacultureLicense;
+	}
+	public void setMultiGetType(String multiGetType){
+		this.multiGetType = multiGetType;
+	}
+	public String getMultiGetType() {
+		return this.multiGetType;
 	}
 	public void setCreateTime(Date createTime){
 		this.createTime = createTime;
