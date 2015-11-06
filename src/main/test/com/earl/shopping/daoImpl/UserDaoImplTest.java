@@ -15,7 +15,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.earl.fishshop.dao.UserDao;
 import com.earl.fishshop.pojo.UserPo;
-import com.earl.fishshop.util.MyConstant;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath*:applicationContext-*.xml")
