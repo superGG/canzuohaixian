@@ -1,4 +1,4 @@
-package com.earl.fishshop.serviceImpl;
+package com.earl.fishshop.base;
 
 import java.util.List;
 
@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
-import com.earl.fishshop.dao.BaseDao;
 import com.earl.fishshop.dao.CategoryDao;
 import com.earl.fishshop.dao.CommentDao;
 import com.earl.fishshop.dao.FarmersDao;
@@ -20,7 +19,6 @@ import com.earl.fishshop.dao.SkuDao;
 import com.earl.fishshop.dao.SordersDao;
 import com.earl.fishshop.dao.UnitDao;
 import com.earl.fishshop.dao.UserDao;
-import com.earl.fishshop.service.BaseService;
 
 /**
  * @author Administrator
@@ -35,7 +33,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	// 不同的T对应不同的Dao
 	@SuppressWarnings("rawtypes")
 	
-	BaseDao baseDao;
+	protected BaseDao baseDao;
 	
 	@Resource
 	protected GoodsDao goodsDao;

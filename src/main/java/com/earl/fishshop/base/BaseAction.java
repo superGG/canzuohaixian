@@ -1,4 +1,4 @@
-package com.earl.fishshop.action;
+package com.earl.fishshop.base;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.Map;
@@ -20,6 +20,7 @@ import com.earl.fishshop.service.GetTypeService;
 import com.earl.fishshop.service.GoodsService;
 import com.earl.fishshop.service.OrdersService;
 import com.earl.fishshop.service.SeaRecordService;
+import com.earl.fishshop.service.ShipPortService;
 import com.earl.fishshop.service.ShopService;
 import com.earl.fishshop.service.SkuService;
 import com.earl.fishshop.service.SordersService;
@@ -75,8 +76,9 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	@Resource
 	protected CheckoutService checkoutServer;
 	@Resource
-	protected VerifyService verifyService;
+	protected ShipPortService shipPortServer;
 	
+	protected VerifyService verifyService;	
 //	protected PageInfo pageInfo = new PageInfo();
 //
 //	public PageInfo getPageInfo() {

@@ -1,4 +1,4 @@
-package com.earl.fishshop.service;
+package com.earl.fishshop.base;
 
 import java.util.List;
 

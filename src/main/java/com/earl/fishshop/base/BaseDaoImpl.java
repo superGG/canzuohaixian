@@ -1,4 +1,4 @@
-package com.earl.fishshop.daoImpl;
+package com.earl.fishshop.base;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
@@ -20,7 +20,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;
 
-import com.earl.fishshop.dao.BaseDao;
 import com.earl.util.HibernateHelper;
 
 

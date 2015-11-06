@@ -18,6 +18,11 @@ public class ShopPo{
 	private String shopName ;
 	
 	/**
+	 * 用户id
+	 */
+	private Long userId;
+	
+	/**
 	 * 字段描述：String 
 	 * 字段类型：getType  
 	 */
@@ -84,6 +89,12 @@ public class ShopPo{
 	private Long version ;
 	
 	
+	public Long getUserId() {
+		return userId;
+	}
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 	public void setShopId(Long shopId){
 		this.shopId = shopId;
 	}

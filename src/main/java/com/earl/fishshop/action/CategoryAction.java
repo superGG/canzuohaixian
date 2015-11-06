@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
+import com.earl.fishshop.base.BaseAction;
 import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.pojo.ResultMessage;
 
@@ -44,18 +45,6 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	}
 	
 	/**
-	 * 查询所有商品类别.
-	 * @author 黄祥谦.
-	 */
-	public void getAllCategory(){
-		List<CategoryPo> categoryList = categoryServer.findAll();
-		resultMessage = new ResultMessage();
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("categoryList", categoryList);
-		resultMessage.setResultParm(hashMap);
-	}
-	
-	/**
 	 * 得到带层次结构的类别
 	 * @author 黄祥谦.
 	 */
@@ -87,6 +76,4 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		hashMap.put("categoryList", categoryList);
 		resultMessage.setResultParm(hashMap);
 	}
-	
-	
 }

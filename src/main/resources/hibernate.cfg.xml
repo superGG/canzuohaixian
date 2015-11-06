@@ -31,9 +31,11 @@
 	<!-- 是否开启二级缓存 -->
 	<property name="cache.use_second_level_cache">true</property>
 	<!-- 指定二级缓存的提供商 org.hibernate.cache.EhCacheProvider 此类并不是二级缓存实现类,而是用来加载缓存.jar包桥接类 -->
-	<property name="hibernate.cache.provider_class">
+	<!-- 
+		<property name="hibernate.cache.provider_class">
 		org.hibernate.cache.EhCacheProvider
-	</property>
+		</property>
+	-->
 	<!-- 映射文件 -->
 	<mapping resource="com/earl/fishshop/pojo/CategoryPo.hbm.xml" />
 	<mapping resource="com/earl/fishshop/pojo/CommentPo.hbm.xml" />
@@ -49,5 +51,6 @@
 	<mapping resource="com/earl/fishshop/pojo/UserPo.hbm.xml" />
 	<mapping resource="com/earl/fishshop/pojo/GetTypePo.hbm.xml" />
 	<mapping resource="com/earl/fishshop/pojo/CheckoutPo.hbm.xml" />
+	<mapping resource="com/earl/fishshop/pojo/ShipPortPo.hbm.xml" />
 </session-factory>
 </hibernate-configuration>

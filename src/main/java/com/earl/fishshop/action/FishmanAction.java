@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
+import com.earl.fishshop.base.BaseAction;
 import com.earl.fishshop.pojo.FishmanPo;
 import com.earl.fishshop.pojo.ResultMessage;
 
@@ -21,6 +22,16 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 * 
 	 */
 	private static final long serialVersionUID = 3293435262298029608L;
+
+	Long userId;
+	
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 
 	protected ResultMessage resultMessage;
 
@@ -49,5 +60,15 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
 		
+	}
+	
+	/**
+	 * 用户认证为渔户.
+	 * @author 黄祥谦.
+	 */
+	public void authenticationFishman(){
+		Boolean result = fishmanServer.authenticationFishman(userId,model);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(result);
 	}
 }

@@ -18,16 +18,16 @@ public class FishmanPo{
 	private Long shopId ;
 	
 	/**
-	 * 字段描述：Integer 
-	 * 字段类型：getType  
+	 * 字段描述：String 
+	 * 字段类型：frontIdentityPhoto  
 	 */
-	private Integer getType ;
+	private String frontIdentityPhoto ;
 	
 	/**
 	 * 字段描述：String 
-	 * 字段类型：identityPhoto  
+	 * 字段类型：backIdentityPhoto  
 	 */
-	private String identityPhoto ;
+	private String backIdentityPhoto ;
 	
 	/**
 	 * 字段描述：String 
@@ -42,16 +42,10 @@ public class FishmanPo{
 	private String shipPhoto ;
 	
 	/**
-	 * 字段描述：Double 
-	 * 字段类型：longitude  
+	 * 字段描述：Integer 
+	 * 字段类型：getType  
 	 */
-	private Double longitude ;
-	
-	/**
-	 * 字段描述：Double 
-	 * 字段类型：latitude  
-	 */
-	private Double latitude ;
+	private Integer getType ;
 	
 	/**
 	 * 字段描述：Long 
@@ -60,10 +54,34 @@ public class FishmanPo{
 	private Long enginePower ;
 	
 	/**
+	 * 字段描述：Integer 
+	 * 字段类型：homePort  
+	 */
+	private Integer homePort ;
+	
+	/**
+	 * 字段描述：Date 
+	 * 字段类型：shipCreateTime  
+	 */
+	private Date shipCreateTime ;
+	
+	/**
+	 * 字段描述：String 
+	 * 字段类型：realName  
+	 */
+	private String realName ;
+	
+	/**
 	 * 字段描述：Long 
 	 * 字段类型：tonnage  
 	 */
 	private Long tonnage ;
+	
+	/**
+	 * 字段描述：String 
+	 * 字段类型：fishingLicense  
+	 */
+	private String fishingLicense ;
 	
 	/**
 	 * 字段描述：Date 
@@ -102,17 +120,17 @@ public class FishmanPo{
 	public Long getShopId() {
 		return this.shopId;
 	}
-	public void setGetType(Integer getType){
-		this.getType = getType;
+	public void setFrontIdentityPhoto(String frontIdentityPhoto){
+		this.frontIdentityPhoto = frontIdentityPhoto;
 	}
-	public Integer getGetType() {
-		return this.getType;
+	public String getFrontIdentityPhoto() {
+		return this.frontIdentityPhoto;
 	}
-	public void setIdentityPhoto(String identityPhoto){
-		this.identityPhoto = identityPhoto;
+	public void setBackIdentityPhoto(String backIdentityPhoto){
+		this.backIdentityPhoto = backIdentityPhoto;
 	}
-	public String getIdentityPhoto() {
-		return this.identityPhoto;
+	public String getBackIdentityPhoto() {
+		return this.backIdentityPhoto;
 	}
 	public void setSeaPassPhoto(String seaPassPhoto){
 		this.seaPassPhoto = seaPassPhoto;
@@ -126,17 +144,11 @@ public class FishmanPo{
 	public String getShipPhoto() {
 		return this.shipPhoto;
 	}
-	public void setLongitude(Double longitude){
-		this.longitude = longitude;
+	public void setGetType(Integer getType){
+		this.getType = getType;
 	}
-	public Double getLongitude() {
-		return this.longitude;
-	}
-	public void setLatitude(Double latitude){
-		this.latitude = latitude;
-	}
-	public Double getLatitude() {
-		return this.latitude;
+	public Integer getGetType() {
+		return this.getType;
 	}
 	public void setEnginePower(Long enginePower){
 		this.enginePower = enginePower;
@@ -144,11 +156,35 @@ public class FishmanPo{
 	public Long getEnginePower() {
 		return this.enginePower;
 	}
+	public void setHomePort(Integer homePort){
+		this.homePort = homePort;
+	}
+	public Integer getHomePort() {
+		return this.homePort;
+	}
+	public void setShipCreateTime(Date shipCreateTime){
+		this.shipCreateTime = shipCreateTime;
+	}
+	public Date getShipCreateTime() {
+		return this.shipCreateTime;
+	}
+	public void setRealName(String realName){
+		this.realName = realName;
+	}
+	public String getRealName() {
+		return this.realName;
+	}
 	public void setTonnage(Long tonnage){
 		this.tonnage = tonnage;
 	}
 	public Long getTonnage() {
 		return this.tonnage;
+	}
+	public void setFishingLicense(String fishingLicense){
+		this.fishingLicense = fishingLicense;
+	}
+	public String getFishingLicense() {
+		return this.fishingLicense;
 	}
 	public void setCreateTime(Date createTime){
 		this.createTime = createTime;

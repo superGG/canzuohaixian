@@ -30,10 +30,6 @@ public class SkuDaoImplTest {
 	HibernateTransactionManager transactionManager;
 
 	@Test
-	public void testBaseDaoImpl() {
-	}
-
-	@Test
 	public void testGetCurrentSession() {
 		fail("Not yet implemented");
 	}

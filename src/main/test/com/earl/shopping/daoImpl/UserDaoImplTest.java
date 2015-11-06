@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.earl.fishshop.dao.UserDao;
 import com.earl.fishshop.pojo.UserPo;
+import com.earl.fishshop.util.MyConstant;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath*:applicationContext-*.xml")
@@ -41,6 +42,15 @@ public class UserDaoImplTest {
 	@Test
 	public void testSave() {
 		UserPo user = new UserPo();
+<<<<<<< HEAD
+		user.setUserType(MyConstant.user_normal);
+		user.setIdentityId(1L);
+		user.setState(MyConstant.user_nopass);
+		user.setUserName("易临风");
+		user.setPassword("yilinfeng");
+		user.setPhoneNumber("18719425973");
+		user.setHeadImage("./head.jpg");
+=======
 		user.setUserName("superGG");
 		user.setUserType(1);
 		user.setIdentityId(1l);
@@ -51,6 +61,7 @@ public class UserDaoImplTest {
 		user.setState(1);
 		user.setCreatorId(1l);
 		user.setVersion(1l);
+>>>>>>> db799ae80bd32d22f82a0ed49f74e95790fa3040
 		
 		userDao.save(user);
 	}
@@ -105,20 +116,5 @@ public class UserDaoImplTest {
 	public void testFindAll() {
 		List<UserPo> findAll = userDao.findAll();
 		System.out.println(findAll);
-	}
-
-	@Test
-	public void testDeleteAll() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testDelete() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testFindByGivenCriteria() {
-		fail("Not yet implemented");
 	}
 }

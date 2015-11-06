@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+        
+<hibernate-mapping package="com.earl.fishshop.pojo">
+    <class name="ShipPortPo" table="ShipPort" dynamic-update="true" dynamic-insert="true">
+        <id name="shipPortId" type="java.lang.Long">
+            <column name="shipPortId" />
+            <generator class="native"></generator>
+        </id>
+        <property name="shipportId" type="java.lang.Long" column="shipportId" />
+        <property name="shipportName" type="java.lang.String" column="shipportName" />
+        <property name="longitude" type="java.lang.Double" column="longitude" />
+        <property name="latitude" type="java.lang.Double" column="latitude" />
+        <property name="createTime" type="java.util.Date" column="createTime" />
+        <property name="creatorId" type="java.lang.Long" column="creatorId" />
+        <property name="isDelete" type="java.lang.Boolean" column="isDelete" />
+        <property name="version" type="java.lang.Long" column="version" />
+    </class>
+</hibernate-mapping>

@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.earl.fishshop.base.BaseServiceImpl;
 import com.earl.fishshop.dao.FarmersDao;
 import com.earl.fishshop.pojo.FarmersPo;
 import com.earl.fishshop.service.FarmersService;

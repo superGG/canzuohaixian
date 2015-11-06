@@ -4,12 +4,13 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
+import com.earl.fishshop.base.BaseAction;
 import com.earl.fishshop.pojo.CheckoutPo;
 import com.earl.fishshop.pojo.ResultMessage;
 
 /**
  * 
- * 用途+action 如Demo+Action-->DemoAction
+ * 审查认证Action.
  * 
  * @author Administrator
  * 
@@ -31,7 +32,7 @@ public class CheckoutAction extends BaseAction<CheckoutPo> {
 	}
 
 	// 下面填写业务逻辑
-
+	
 	/**
 	 * 添加对象.
 	 * @author 黄祥谦.
@@ -52,5 +53,13 @@ public class CheckoutAction extends BaseAction<CheckoutPo> {
 		resultMessage.setServiceResult(result);
 	}
 	
-	
+	/**
+	 * 审查失败.
+	 * @author 黄祥谦.
+	 */
+	public void nopassRecord(){
+		Boolean result = checkoutServer.nopassRecord(model.getCheckoutId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(result);
+	}
 }

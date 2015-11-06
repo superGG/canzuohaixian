@@ -4,12 +4,13 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
+import com.earl.fishshop.base.BaseAction;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.SeaRecordPo;
 
 /**
  * 
- * 用途+action 如Demo+Action-->DemoAction
+ * 航海记录Action.
  * 
  * @author Administrator
  * 
@@ -29,7 +30,6 @@ public class SeaRecordAction extends BaseAction<SeaRecordPo> {
 	public ResultMessage getResultMessage() {
 		return resultMessage;
 	}
-
 
 	// 下面填写业务逻辑
 

@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.earl.fishshop.base.BaseServiceImpl;
 import com.earl.fishshop.dao.CheckoutDao;
 import com.earl.fishshop.pojo.CheckoutPo;
 import com.earl.fishshop.service.CheckoutService;
@@ -31,6 +32,18 @@ public class CheckoutServiceImpl extends BaseServiceImpl<CheckoutPo> implements
 	public Boolean passRecord(Long checkoutId) {
 		try {
 			checkoutDao.passRecord(checkoutId);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public Boolean nopassRecord(Long checkoutId) {
+		try {
+			checkoutDao.nopassRecord(checkoutId);
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception

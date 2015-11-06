@@ -4,8 +4,11 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
+import com.earl.fishshop.base.BaseAction;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.ShopPo;
+import com.earl.fishshop.pojo.UserPo;
+import com.earl.fishshop.util.MyConstant;
 
 /**
  * 
@@ -25,6 +28,17 @@ public class ShopAction extends BaseAction<ShopPo> {
 
 	protected ResultMessage resultMessage;
 
+	protected Long userId;
+	
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public ResultMessage getResultMessage() {
 		return resultMessage;
@@ -34,8 +48,15 @@ public class ShopAction extends BaseAction<ShopPo> {
 	// 下面填写业务逻辑
 
 	public void addShop() {
-		Boolean save = shopServer.save(model);
+		UserPo userPo = userServer.get(userId);
 		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(save);
+		if(userPo.getState() == MyConstant.user_pass){
+			
+			Boolean save = shopServer.save(model);
+			resultMessage.setServiceResult(save);
+		}else{
+			resultMessage.setResultInfo("用户未认证");
+			resultMessage.setServiceResult(false);
+		}
 	}
 }
