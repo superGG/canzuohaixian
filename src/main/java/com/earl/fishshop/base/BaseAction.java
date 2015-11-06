@@ -26,7 +26,7 @@ import com.earl.fishshop.service.SkuService;
 import com.earl.fishshop.service.SordersService;
 import com.earl.fishshop.service.UnitService;
 import com.earl.fishshop.service.UserService;
-import com.earl.fishshop.serviceImpl.VerifyCodeService;
+import com.earl.fishshop.serviceImpl.VerifyService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -76,10 +76,9 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	@Resource
 	protected CheckoutService checkoutServer;
 	@Resource
-	protected VerifyCodeService verifyCodeServer;
-	@Resource
 	protected ShipPortService shipPortServer;
 	
+	protected VerifyService verifyService;	
 //	protected PageInfo pageInfo = new PageInfo();
 //
 //	public PageInfo getPageInfo() {
