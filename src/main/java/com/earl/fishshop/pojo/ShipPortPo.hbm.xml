@@ -10,7 +10,6 @@
             <column name="shipPortId" />
             <generator class="native"></generator>
         </id>
-        <property name="shipportId" type="java.lang.Long" column="shipportId" />
         <property name="shipportName" type="java.lang.String" column="shipportName" />
         <property name="longitude" type="java.lang.Double" column="longitude" />
         <property name="latitude" type="java.lang.Double" column="latitude" />

@@ -42,15 +42,6 @@ public class UserDaoImplTest {
 	@Test
 	public void testSave() {
 		UserPo user = new UserPo();
-<<<<<<< HEAD
-		user.setUserType(MyConstant.user_normal);
-		user.setIdentityId(1L);
-		user.setState(MyConstant.user_nopass);
-		user.setUserName("易临风");
-		user.setPassword("yilinfeng");
-		user.setPhoneNumber("18719425973");
-		user.setHeadImage("./head.jpg");
-=======
 		user.setUserName("superGG");
 		user.setUserType(1);
 		user.setIdentityId(1l);
@@ -61,7 +52,6 @@ public class UserDaoImplTest {
 		user.setState(1);
 		user.setCreatorId(1l);
 		user.setVersion(1l);
->>>>>>> db799ae80bd32d22f82a0ed49f74e95790fa3040
 		
 		userDao.save(user);
 	}

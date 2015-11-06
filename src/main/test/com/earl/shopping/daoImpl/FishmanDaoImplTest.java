@@ -52,9 +52,9 @@ public class FishmanDaoImplTest {
 		FishmanPo fishman = new FishmanPo();
 		fishman.setEnginePower(10000L);
 		fishman.setGetType(1);
-		fishman.setIdentityPhoto("lkdjflka.png");
-		fishman.setLongitude(123.231);
-		fishman.setLatitude(2423.234);
+//		fishman.setIdentityPhoto("lkdjflka.png");
+//		fishman.setLongitude(123.231);
+//		fishman.setLatitude(2423.234);
 		fishman.setSeaPassPhoto("sdklfjsl.png");
 		fishman.setShipPhoto("sldkjf.png");
 		fishman.setShopId(1L);
