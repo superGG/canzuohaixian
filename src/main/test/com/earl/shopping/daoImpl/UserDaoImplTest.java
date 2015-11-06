@@ -38,17 +38,57 @@ public class UserDaoImplTest {
 		fail("Not yet implemented");
 	}
 
-	//TODO lala
 	@Test
 	public void testSave() {
 		UserPo user = new UserPo();
-//		user.setGoodsCategory(1);
+		user.setUserName("superGG");
+		user.setUserType(1);
+		user.setIdentityId(1l);
+		user.setHeadImage("localhost:8080//aaa.jpg");
+		user.setIsDelete(false);
+		user.setPassword("123456");
+		user.setPhoneNumber("18320489492");
+		user.setState(1);
+		user.setCreatorId(1l);
+		user.setVersion(1l);
+		
 		userDao.save(user);
 	}
 
 	@Test
 	public void testUpdate() {
-		fail("Not yet implemented");
+		UserPo user = new UserPo();
+		user.setUserId(2l);
+		user.setUserName("superGG");
+		user.setUserType(1);
+		user.setIdentityId(1l);
+		user.setHeadImage("localhost:8080//aaa.jpg");
+		user.setIsDelete(false);
+		user.setPassword("654321");
+		user.setPhoneNumber("18320489492");
+		user.setState(1);
+		user.setCreatorId(1l);
+		user.setVersion(1l);
+		
+		userDao.update(user);
+	}
+	
+	@Test
+	public void testGetUserByPhone() {
+		String phone = "18320489492";
+		List<UserPo> userList = userDao.getUserByPhone(phone);
+		System.out.println("----------------完美分割线----------------");
+		System.out.println(userList);
+		System.out.println("----------------完美分割线----------------");
+	}
+	
+	@Test
+	public void testGetUserByName() {
+		String userName = "superGG";
+		List<UserPo> userList = userDao.getUserByName(userName);
+		System.out.println("----------------完美分割线----------------");
+		System.out.println(userList);
+		System.out.println("----------------完美分割线----------------");
 	}
 
 	@Test
