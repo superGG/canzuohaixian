@@ -72,7 +72,7 @@
 		<action name="user_*" class="userAction"
 			method="{1}">
 		</action>
-		<action name="verfycode_*" class="verfyCodeAction"
+		<action name="verify_*" class="verifyAction"
 			method="{1}">
 		</action>
 	</package>

@@ -32,7 +32,7 @@ public class UserDaoImpl extends BaseDaoImpl<UserPo> implements UserDao {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<UserPo> getUserByPhone(String phoneNumber){
-		String hql = "from userPo u where u.phoneNumber = :phoneNumber";
+		String hql = "from UserPo u where u.phoneNumber = :phoneNumber";
 		List<UserPo> list = getCurrentSession().createQuery(hql)
 				.setString("phoneNumber", phoneNumber).list();
 		return list;
@@ -46,7 +46,7 @@ public class UserDaoImpl extends BaseDaoImpl<UserPo> implements UserDao {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<UserPo> getUserByName(String userName) {
-		String hql = "from userPo u where u.userName = :userName";
+		String hql = "from UserPo u where u.userName = :userName";
 		List<UserPo> list = getCurrentSession().createQuery(hql)
 				.setString("userName", userName).list();
 		return list;
