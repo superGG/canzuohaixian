@@ -3,6 +3,7 @@ package com.earl.fishshop.dao;
 
 import java.util.List;
 
+import com.earl.fishshop.base.BaseDao;
 import com.earl.fishshop.pojo.UserPo;
 
 public interface UserDao extends BaseDao<UserPo>{

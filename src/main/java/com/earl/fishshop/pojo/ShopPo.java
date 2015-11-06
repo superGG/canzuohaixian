@@ -172,4 +172,15 @@ public class ShopPo{
 	public Long getVersion() {
 		return this.version;
 	}
+	@Override
+	public String toString() {
+		return "ShopPo [shopId=" + shopId + ", shopName=" + shopName
+				+ ", userId=" + userId + ", getType=" + getType
+				+ ", weightQuality=" + weightQuality + ", freshQuality="
+				+ freshQuality + ", speedQuality=" + speedQuality
+				+ ", shopType=" + shopType + ", sendPrice=" + sendPrice
+				+ ", onSell=" + onSell + ", creatorId=" + creatorId
+				+ ", isDelete=" + isDelete + ", createTime=" + createTime
+				+ ", version=" + version + "]";
+	}
 }

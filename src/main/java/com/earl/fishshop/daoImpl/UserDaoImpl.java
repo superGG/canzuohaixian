@@ -15,14 +15,6 @@ import com.earl.fishshop.pojo.UserPo;
  */
 @Repository("userDao")
 public class UserDaoImpl extends BaseDaoImpl<UserPo> implements UserDao {
-	// property constants
-	
-	//事例方法
-	@SuppressWarnings("rawtypes")
-	public List savesf(){
-		List list = getCurrentSession().createQuery("from user where userid = 1").list();
-		return list;
-	}
 	
 	/**
 	 * 通过手机号码查询用户.
