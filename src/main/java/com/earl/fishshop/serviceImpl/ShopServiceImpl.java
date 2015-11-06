@@ -31,5 +31,12 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 	public void initBaseDao(){
 		baseDao = shopDao;
 	}
+
+	@Override
+	public ShopPo getMyShop(Long userId) {
+		// TODO 未测试.
+		
+		return null;
+	}
 	
 }

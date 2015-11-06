@@ -265,6 +265,7 @@ CREATE TABLE `shipport` (
 DROP TABLE IF EXISTS `shop`;
 CREATE TABLE `shop` (
   `shopId` bigint(20) NOT NULL AUTO_INCREMENT,
+  `userId` bigint(20) DEFAULT NULL,
   `shopName` varchar(255) DEFAULT NULL,
   `getType` varchar(255) DEFAULT NULL,
   `weightQuality` float DEFAULT NULL,

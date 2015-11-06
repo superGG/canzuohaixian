@@ -10,7 +10,9 @@ import org.springframework.stereotype.Controller;
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.base.BaseAction;
 import com.earl.fishshop.pojo.ResultMessage;
+import com.earl.fishshop.pojo.ShopPo;
 import com.earl.fishshop.pojo.UserPo;
+import com.sun.tools.internal.xjc.reader.RawTypeSet.Mode;
 
 /**
  * 
@@ -76,5 +78,13 @@ public class UserAction extends BaseAction<UserPo> {
 		Map<String,Object> hashMap = new HashMap<String,Object>();
 		hashMap.put("userList", userList);
 		resultMessage.setResultParm(hashMap);
+	}
+	
+	public void getMyShop(){
+		ShopPo shop = shopServer.getMyShop(model.getUserId());
+		Map<String,Object> hashMap = new HashMap<String,Object>();
+		hashMap.put("shop", shop);
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
 	}
 }
