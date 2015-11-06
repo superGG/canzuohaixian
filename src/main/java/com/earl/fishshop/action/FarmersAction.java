@@ -30,13 +30,9 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 		return resultMessage;
 	}
 
-
-	// 下面填写业务逻辑
-
 	public void addFarmers() {
 		Boolean save = farmersServer.save(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
-		
 	}
 }

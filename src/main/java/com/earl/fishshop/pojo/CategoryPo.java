@@ -36,11 +36,6 @@ public class CategoryPo{
 	 */
 	private String categoryEnglishName ;
 	
-//	/**
-//	 * 字段描述：Long 
-//	 * 字段类型：parentId  
-//	 */
-//	private Long parentId ;
 	/**
 	 * 字段描述：Long 
 	 * 字段类型：parentId  
@@ -64,6 +59,11 @@ public class CategoryPo{
 	 * 字段类型：lowPrice  
 	 */
 	private String lowPrice ;
+	
+	/**
+	 * 
+	 */
+	private Long hotDegree;
 	
 	/**
 	 * 字段描述：Integer 
@@ -102,6 +102,12 @@ public class CategoryPo{
 	private Long version ;
 	
 	
+	public Long getHotDegree() {
+		return hotDegree;
+	}
+	public void setHotDegree(Long hotDegree) {
+		this.hotDegree = hotDegree;
+	}
 	public void setCategoryId(Long categoryId){
 		this.categoryId = categoryId;
 	}

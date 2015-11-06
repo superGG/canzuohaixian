@@ -13,6 +13,7 @@
         <property name="categorySimpleName" type="java.lang.String" column="categorySimpleName" />
         <property name="categoryAcademicName" type="java.lang.String" column="categoryAcademicName" />
         <property name="getType" type="java.lang.Integer" column="getType" />
+        <property name="hotDegree" type="java.lang.Long" column="hotDegree" />
         <property name="categoryEnglishName" type="java.lang.String" column="categoryEnglishName" />
         <property name="parentId" type="java.lang.Long" column="parentId" />
         <property name="fishPhoto" type="java.lang.String" column="fishPhoto" />

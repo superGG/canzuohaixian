@@ -1,9 +1,13 @@
 package com.earl.fishshop.action;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
+import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.pojo.GoodsPo;
 import com.earl.fishshop.pojo.ResultMessage;
 
@@ -38,4 +42,47 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 		resultMessage.setServiceResult(save);
 		
 	}
+	
+	/**
+	 * 更新商品价格.
+	 * @author 黄祥谦.
+	 */
+	public void updateGoodPrice(){
+		Boolean success = goodsServer.updateGoodPrice(model.getGoodsId(),model.getPrice());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(success);
+	}
+	
+	/**
+	 * 更新商品价格.
+	 * @author 黄祥谦.
+	 */
+	public void updateGoodNowNumber(){
+		Boolean success = goodsServer.updateGoodNowNumber(model.getGoodsId(),model.getNowNumber());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(success);
+	}
+	
+	/**
+	 * 得到指定商品类别的商品.
+	 * @author 黄祥谦.
+	 */
+	public void getGoodsWithCategory(){
+		List<GoodsPo> goodsList = goodsServer.getGoodsWithCategory(model.getGoodsCategory());
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("goodsList", goodsList);
+		resultMessage.setResultParm(hashMap);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(true);
+	}
+
+	/**
+	 * 删除指定类别的渔获.
+	 * @author 黄祥谦.
+	 */
+	public void deletePointCategoryGoods(){
+		//TODO 将指定类别的商品删除，就是删除渔获.
+	}
+
+	
 }

@@ -14,6 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.earl.fishshop.dao.GoodsDao;
+import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.pojo.GoodsPo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -78,7 +79,9 @@ public class GoodsDaoImplTest {
 	}
 
 	@Test
-	public void testFindByGivenCriteria() {
-		fail("Not yet implemented");
+	public void testGetCategoryWithTotalNumber() {
+		
+		List<CategoryPo> categoryWithTotalNumber = goodsDao.getCategoryWithTotalNumber(1L);
+		System.out.println(categoryWithTotalNumber);
 	}
 }

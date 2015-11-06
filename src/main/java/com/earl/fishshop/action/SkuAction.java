@@ -37,6 +37,6 @@ public class SkuAction extends BaseAction<SkuPo> {
 		Boolean save = skuServer.save(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
-		
 	}
+	
 }

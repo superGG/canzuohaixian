@@ -30,9 +30,6 @@ public class CommentAction extends BaseAction<CommentPo> {
 		return resultMessage;
 	}
 
-
-	// 下面填写业务逻辑
-
 	/**
 	 * 为商品添加评论.
 	 * @author 黄祥谦.

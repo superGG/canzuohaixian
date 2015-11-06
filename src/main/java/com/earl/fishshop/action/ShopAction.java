@@ -1,9 +1,12 @@
 package com.earl.fishshop.action;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
+import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.ShopPo;
 import com.earl.fishshop.pojo.UserPo;
@@ -81,5 +84,14 @@ public class ShopAction extends BaseAction<ShopPo> {
 		Boolean update = shopServer.updateSentPrice(model.getShopId(), model.getSendPrice());
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(update);
+	}
+	
+	/**
+	 * 已上架渔获.
+	 * 得到类别信息，附带用户的该类别的总货存量.
+	 * @author 黄祥谦.
+	 */
+	public void getCategoryWithTotalNumber(){
+		List<CategoryPo> categoryList = goodsServer.getCategoryWithTotalNumber(model.getShopId());
 	}
 }
