@@ -21,6 +21,11 @@ public class MyConstant {
 	public static final Integer checkout_pass = 1;
 	
 	/**
+	 * 用户被拉黑.
+	 */
+	public static final Integer user_black= 3;
+	
+	/**
 	 * 等待审查.
 	 */
 	public static final Integer user_wait = 2;

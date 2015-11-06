@@ -3,6 +3,7 @@ package com.earl.fishshop.daoImpl;
 import java.util.List;
 import org.springframework.stereotype.Repository;
 
+import com.earl.fishshop.base.BaseDaoImpl;
 import com.earl.fishshop.dao.SeaRecordDao;
 import com.earl.fishshop.pojo.SeaRecordPo;
 
