@@ -1,6 +1,7 @@
 package com.earl.fishshop.pojo;
 
 import java.util.Date;
+import java.util.List;
 
 public class OrdersPo{
 
@@ -29,6 +30,10 @@ public class OrdersPo{
 	 */
 	private Integer state ;
 	
+	private String buyerName;
+	
+	private List<SordersPo> sorders;
+	
 	/**
 	 * 字段描述：Date 
 	 * 字段类型：createTime  
@@ -54,6 +59,18 @@ public class OrdersPo{
 	private Long version ;
 	
 	
+	public String getBuyerName() {
+		return buyerName;
+	}
+	public void setBuyerName(String buyerName) {
+		this.buyerName = buyerName;
+	}
+	public List<SordersPo> getSorders() {
+		return sorders;
+	}
+	public void setSorders(List<SordersPo> sorders) {
+		this.sorders = sorders;
+	}
 	public void setOrdersId(Long ordersId){
 		this.ordersId = ordersId;
 	}

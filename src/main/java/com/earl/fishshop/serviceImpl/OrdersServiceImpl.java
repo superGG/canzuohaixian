@@ -1,5 +1,7 @@
 package com.earl.fishshop.serviceImpl;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
@@ -25,6 +27,13 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 	@PostConstruct
 	public void initBaseDao(){
 		baseDao = ordersDao;
+	}
+
+	@Override
+	public List<OrdersPo> getMyShopOrders(Long shopId) {
+		// TODO 未测试.
+		List<OrdersPo> ordersList = ordersDao.getMyShopOrders(shopId);
+		return ordersList;
 	}
 	
 }

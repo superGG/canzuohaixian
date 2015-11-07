@@ -1,5 +1,7 @@
 package com.earl.fishshop.action;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -37,6 +39,14 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		Boolean save = ordersServer.save(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
+	}
+	
+	/**
+	 * 得到指定商店的订单.
+	 * @author 黄祥谦.
+	 */
+	public void getMyShopOrders(){
+		List<OrdersPo> ordersList = ordersServer.getMyShopOrders(model.getShopId());
 		
 	}
 }

@@ -69,6 +69,7 @@ public class SordersPo{
 	 * 字段描述：Long 
 	 * 字段类型：sellNumber  
 	 */
+	//TODO 去掉sellNumber.
 	private Long sellNumber ;
 	
 	/**
