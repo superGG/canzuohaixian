@@ -6,9 +6,10 @@ public class SeaRecordPo{
 
 
 	/**
+	 * 每次更新航海表，这里就记录着最新的航行id，用于标记得到本次航行订单.
 	 * 字段描述：Long 
 	 * 字段类型：seaRecordId  
-	 */
+	 */ 
 	private Long seaRecordId ;
 	
 	/**

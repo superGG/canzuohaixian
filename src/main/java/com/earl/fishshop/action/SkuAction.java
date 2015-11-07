@@ -9,7 +9,7 @@ import com.earl.fishshop.pojo.SkuPo;
 
 /**
  * 
- * 用途+action 如Demo+Action-->DemoAction
+ * 规格，只，斤
  * 
  * @author Administrator
  * 

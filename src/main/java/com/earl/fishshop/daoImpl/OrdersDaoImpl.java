@@ -30,5 +30,11 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 		}
 		return list;
 	}
+	
+	@Override
+	public void updateOrdersState(Long ordersId, Integer state){
+		String hql ="update OrdersPo set state =:state where ordersId =:ordersId";
+		getCurrentSession().createQuery(hql).setInteger("state", state).setLong("ordersId", ordersId).executeUpdate();
+	}
 
 }

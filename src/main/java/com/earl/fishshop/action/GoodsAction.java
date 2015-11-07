@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
-import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.pojo.GoodsPo;
 import com.earl.fishshop.pojo.ResultMessage;
 
@@ -82,7 +81,6 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 	 */
 	public void deletePointCategoryGoods(){
 		//TODO 将指定类别的商品删除，就是删除渔获.
+		
 	}
-
-	
 }

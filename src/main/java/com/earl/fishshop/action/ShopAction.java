@@ -14,7 +14,7 @@ import com.earl.fishshop.util.MyConstant;
 
 /**
  * 
- * 用途+action 如Demo+Action-->DemoAction
+ * 商店信息
  * 
  * @author Administrator
  * 

@@ -13,4 +13,12 @@ public interface OrdersDao extends BaseDao<OrdersPo>{
 	 */
 	List<OrdersPo> getMyShopOrders(Long shopId);
 
+	/**
+	 * 更新订单状态.
+	 * @author 黄祥谦.
+	 * @param ordersId TODO
+	 * @param state TODO
+	 */
+	void updateOrdersState(Long ordersId, Integer state);
+
 }

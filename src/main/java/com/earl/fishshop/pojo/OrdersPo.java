@@ -34,6 +34,10 @@ public class OrdersPo{
 	
 	private List<SordersPo> sorders;
 	
+	private Long seaRecordId;
+	
+	private String orderNumber;
+	
 	/**
 	 * 字段描述：Date 
 	 * 字段类型：createTime  
@@ -58,7 +62,18 @@ public class OrdersPo{
 	 */
 	private Long version ;
 	
-	
+	public String getOrderNumber() {
+		return orderNumber;
+	}
+	public void setOrderNumber(String orderNumber) {
+		this.orderNumber = orderNumber;
+	}
+	public Long getSeaRecordId() {
+		return seaRecordId;
+	}
+	public void setSeaRecordId(Long seaRecordId) {
+		this.seaRecordId = seaRecordId;
+	}
 	public String getBuyerName() {
 		return buyerName;
 	}

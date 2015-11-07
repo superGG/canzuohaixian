@@ -41,10 +41,10 @@ CREATE TABLE `category` (
 -- ----------------------------
 -- Records of category
 -- ----------------------------
-INSERT INTO `category` VALUES ('1', '鱼类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 13:41:32', null, null, null);
-INSERT INTO `category` VALUES ('2', '东星白班鱼', '东星白班鱼', '3', 'whitefish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 13:41:32', null, null, null);
-INSERT INTO `category` VALUES ('3', '小黄鱼', '小黄鱼', '3', 'yellowfish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 13:41:32', null, null, null);
-INSERT INTO `category` VALUES ('4', '小黑鱼', '小黑鱼', '3', 'smallblackfish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 13:41:32', null, null, null);
+INSERT INTO `category` VALUES ('1', '鱼类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 13:41:32', null, false, 1);
+INSERT INTO `category` VALUES ('2', '东星白班鱼', '东星白班鱼', '3', 'whitefish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 13:41:32', null, false, 1);
+INSERT INTO `category` VALUES ('3', '小黄鱼', '小黄鱼', '3', 'yellowfish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 13:41:32', null, false, 1);
+INSERT INTO `category` VALUES ('4', '小黑鱼', '小黑鱼', '3', 'smallblackfish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 13:41:32', null, false, 1);
 
 -- ----------------------------
 -- Table structure for `checkout`
@@ -75,6 +75,7 @@ DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
   `commentId` bigint(20) NOT NULL AUTO_INCREMENT,
   `goodsId` bigint(20) DEFAULT NULL,
+  `ordersId` bigint(20) DEFAULT NULL,
   `commentType` int(11) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
   `weightQuality` float DEFAULT NULL,
@@ -203,8 +204,11 @@ DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
   `ordersId` bigint(20) NOT NULL AUTO_INCREMENT,
   `shopId` bigint(20) DEFAULT NULL,
+  `seaRecordId` bigint(20) DEFAULT NULL,
   `totalprice` bigint(20) DEFAULT NULL,
   `state` int(11) DEFAULT NULL,
+  `buyerName` varchar(255) DEFAULT NULL,
+  `orderNumber` varchar(255) DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
