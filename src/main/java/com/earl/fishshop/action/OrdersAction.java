@@ -54,6 +54,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getUnSentOrders(){
+//		ordersServer.getUnSentOrders();
 		
 	}
 	

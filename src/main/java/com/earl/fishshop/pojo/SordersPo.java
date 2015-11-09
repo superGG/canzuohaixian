@@ -30,6 +30,10 @@ public class SordersPo{
 	private Long goodsId ;
 	
 	/**
+	 * 商品的所属类别.
+	 */
+	private Long categoryId;
+	/**
 	 * 字段描述：String 
 	 * 字段类型：goodsName  
 	 */
@@ -102,7 +106,12 @@ public class SordersPo{
 	 */
 	private Long version ;
 	
-	
+	public Long getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
+	}
 	public void setSordersId(Long sordersId){
 		this.sordersId = sordersId;
 	}

@@ -1,6 +1,7 @@
 package com.earl.fishshop.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.earl.fishshop.pojo.CategoryPo;
 
@@ -27,6 +28,14 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	 * @return
 	 */
 	List<CategoryPo> getNextLevelCategory(Long parentId);
+
+	/**
+	 * 得到本月热门类别.
+	 * @author 黄祥谦.
+	 * @param application 
+	 * @return
+	 */
+	List<CategoryPo> getHotCategory(Map<String, Object> application);
 
 	
 

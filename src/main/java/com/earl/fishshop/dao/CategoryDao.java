@@ -29,4 +29,15 @@ public interface CategoryDao extends BaseDao<CategoryPo>{
 	 */
 	List<CategoryPo> getNextLevelCategory(Long parentId);
 
+	/**
+	 * 得到本月热门类别.
+	 * 指定返回个数
+	 * @author 黄祥谦.
+	 * @param date TODO
+	 * @param date2 
+	 * @param showNumber TODO
+	 * @return
+	 */
+	List<CategoryPo> getHotCategory(String date, String date2, Integer showNumber);
+
 }

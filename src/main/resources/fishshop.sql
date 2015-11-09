@@ -321,6 +321,7 @@ CREATE TABLE `sorders` (
   `orderId` bigint(20) DEFAULT NULL,
   `shopId` bigint(20) DEFAULT NULL,
   `goodsId` bigint(20) DEFAULT NULL,
+  `categoryId` bigint(20) DEFAULT NULL,
   `goodsName` varchar(255) DEFAULT NULL,
   `goodsType` varchar(255) DEFAULT NULL,
   `price` double DEFAULT NULL,
@@ -387,5 +388,6 @@ CREATE TABLE `user` (
 -- ----------------------------
 INSERT INTO `user` VALUES ('1', '1', '1', '2', '易临风', '798555920', '18719425973', './aaa.jpg', '2015-11-05 11:12:04', null, '', '1');
 INSERT INTO `user` VALUES ('2', '1', '1', '1', 'Imissyou', '798555920', '18719425973', './aaa.jpg', '2015-11-05 11:12:04', null, '', '1');
+
 
 

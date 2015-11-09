@@ -14,6 +14,7 @@
         <property name="orderId" type="java.lang.Long" column="orderId" />
         <property name="shopId" type="java.lang.Long" column="shopId" />
         <property name="goodsId" type="java.lang.Long" column="goodsId" />
+        <property name="categoryId" type="java.lang.Long" column="categoryId" />
         <property name="goodsName" type="java.lang.String" column="goodsName" />
         <property name="goodsType" type="java.lang.String" column="goodsType" />
         <property name="price" type="java.lang.Double" column="price" />
