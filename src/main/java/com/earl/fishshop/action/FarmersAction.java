@@ -4,7 +4,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
-import com.earl.fishshop.base.BaseAction;
 import com.earl.fishshop.pojo.FarmersPo;
 import com.earl.fishshop.pojo.ResultMessage;
 
@@ -31,13 +30,9 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 		return resultMessage;
 	}
 
-
-	// 下面填写业务逻辑
-
 	public void addFarmers() {
 		Boolean save = farmersServer.save(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
-		
 	}
 }

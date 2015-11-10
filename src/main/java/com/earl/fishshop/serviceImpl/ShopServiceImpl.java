@@ -5,7 +5,6 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.earl.fishshop.base.BaseServiceImpl;
 import com.earl.fishshop.dao.ShopDao;
 import com.earl.fishshop.pojo.ShopPo;
 import com.earl.fishshop.service.ShopService;
@@ -19,14 +18,10 @@ import com.earl.fishshop.service.ShopService;
  @Service(value = "shopService")
 public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 		ShopService {
-//	public GoodsServiceImpl() {
-//		baseDao = goodsDao;
-//	}
 
 	@Resource(name = "shopDao")
 	ShopDao shopDao;
 
-//	@PreDestroy
 	@PostConstruct
 	public void initBaseDao(){
 		baseDao = shopDao;
@@ -35,8 +30,20 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 	@Override
 	public ShopPo getMyShop(Long userId) {
 		// TODO 未测试.
-		
-		return null;
+		ShopPo shop = shopDao.getMyShop(userId);
+		return shop;
+	}
+
+	@Override
+	public Boolean updateSentPrice(Long shopId, Double sendPrice) {
+		// TODO 未测试.
+		try {
+			shopDao.updateSentPrice(shopId, sendPrice);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
 	}
 	
 }

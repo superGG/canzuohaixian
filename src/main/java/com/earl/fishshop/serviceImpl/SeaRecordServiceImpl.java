@@ -5,7 +5,6 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.earl.fishshop.base.BaseServiceImpl;
 import com.earl.fishshop.dao.SeaRecordDao;
 import com.earl.fishshop.pojo.SeaRecordPo;
 import com.earl.fishshop.service.SeaRecordService;
@@ -19,14 +18,10 @@ import com.earl.fishshop.service.SeaRecordService;
  @Service(value = "seaRecordService")
 public class SeaRecordServiceImpl extends BaseServiceImpl<SeaRecordPo> implements
 		SeaRecordService {
-//	public GoodsServiceImpl() {
-//		baseDao = goodsDao;
-//	}
 
 	@Resource(name = "seaRecordDao")
 	SeaRecordDao seaRecordDao;
 
-//	@PreDestroy
 	@PostConstruct
 	public void initBaseDao(){
 		baseDao = seaRecordDao;

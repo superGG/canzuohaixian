@@ -1,4 +1,4 @@
-package com.earl.fishshop.base;
+package com.earl.fishshop.action;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.Map;
@@ -78,7 +78,8 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	@Resource
 	protected ShipPortService shipPortServer;
 	
-	protected VerifyService verifyService;	
+	protected VerifyService verifyService;
+	
 //	protected PageInfo pageInfo = new PageInfo();
 //
 //	public PageInfo getPageInfo() {

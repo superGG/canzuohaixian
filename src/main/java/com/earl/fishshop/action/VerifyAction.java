@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
-import com.earl.fishshop.base.BaseAction;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.UserPo;
 import com.earl.fishshop.serviceImpl.VerifyService;
@@ -115,9 +114,6 @@ public class VerifyAction extends BaseAction<UserPo>{
 		resultMessage = verifyService.userLogin(phone, userName, password);
 	}
 	
-	
-	
-	
     /**
      * 获取图片验证码.
      * @author 宋文光
@@ -128,7 +124,6 @@ public class VerifyAction extends BaseAction<UserPo>{
     	session.put("imgVerifyCode", resultMessage.getResultInfo());
     	resultMessage.setUserToken(true);
     }
-    
  
     /**
      * 验证输入图片验证码.

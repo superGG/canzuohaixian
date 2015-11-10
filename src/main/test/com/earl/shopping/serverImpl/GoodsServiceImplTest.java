@@ -15,7 +15,7 @@ import com.earl.fishshop.service.GoodsService;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:applicationContext-*.xml")
+@ContextConfiguration("classpath*:applicationContext-*.xml")
 public class GoodsServiceImplTest {
 	
 	@Resource
@@ -29,6 +29,7 @@ public class GoodsServiceImplTest {
 	@Test
 	public void testSaveGoods() {
 		GoodsPo goods = new GoodsPo();
+		goods.setHotDegree(100L);
 		goodsService.save(goods);
 	}
 

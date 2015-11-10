@@ -8,11 +8,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
-import com.earl.fishshop.base.BaseAction;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.ShopPo;
 import com.earl.fishshop.pojo.UserPo;
-import com.sun.tools.internal.xjc.reader.RawTypeSet.Mode;
 
 /**
  * 
@@ -80,6 +78,10 @@ public class UserAction extends BaseAction<UserPo> {
 		resultMessage.setResultParm(hashMap);
 	}
 	
+	/**
+	 * 得到我的商店信息.
+	 * @author 黄祥谦.
+	 */
 	public void getMyShop(){
 		ShopPo shop = shopServer.getMyShop(model.getUserId());
 		Map<String,Object> hashMap = new HashMap<String,Object>();
@@ -87,4 +89,5 @@ public class UserAction extends BaseAction<UserPo> {
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}
+	
 }

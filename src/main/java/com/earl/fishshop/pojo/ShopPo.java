@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class ShopPo{
 
-
 	/**
 	 * 字段描述：Long 
 	 * 字段类型：shopId  
@@ -58,6 +57,7 @@ public class ShopPo{
 	 */
 	private Double sendPrice ;
 	
+
 	/**
 	 * 字段描述：Boolean 
 	 * 字段类型：onSell  
@@ -87,7 +87,6 @@ public class ShopPo{
 	 * 字段类型：version  
 	 */
 	private Long version ;
-	
 	
 	public Long getUserId() {
 		return userId;
@@ -172,5 +171,16 @@ public class ShopPo{
 	}
 	public Long getVersion() {
 		return this.version;
+	}
+	@Override
+	public String toString() {
+		return "ShopPo [shopId=" + shopId + ", shopName=" + shopName
+				+ ", userId=" + userId + ", getType=" + getType
+				+ ", weightQuality=" + weightQuality + ", freshQuality="
+				+ freshQuality + ", speedQuality=" + speedQuality
+				+ ", shopType=" + shopType + ", sendPrice=" + sendPrice
+				+ ", onSell=" + onSell + ", creatorId=" + creatorId
+				+ ", isDelete=" + isDelete + ", createTime=" + createTime
+				+ ", version=" + version + "]";
 	}
 }

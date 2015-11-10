@@ -15,7 +15,7 @@ import com.earl.fishshop.service.UserService;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:applicationContext-*.xml")
+@ContextConfiguration("classpath*:applicationContext-*.xml")
 public class UserServiceImplTest {
 	
 	@Resource
@@ -50,6 +50,7 @@ public class UserServiceImplTest {
 
 	@Test
 	public void testDeleteById(){
+		
 	}
 	
 }

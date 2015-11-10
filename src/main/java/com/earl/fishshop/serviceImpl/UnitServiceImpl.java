@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.earl.fishshop.base.BaseServiceImpl;
 import com.earl.fishshop.dao.UnitDao;
 import com.earl.fishshop.pojo.SkuPo;
 import com.earl.fishshop.pojo.UnitPo;
@@ -22,9 +21,6 @@ import com.earl.fishshop.service.UnitService;
  @Service(value = "unitService")
 public class UnitServiceImpl extends BaseServiceImpl<UnitPo> implements
 		UnitService {
-//	public GoodsServiceImpl() {
-//		baseDao = goodsDao;
-//	}
 
 	@Resource(name = "unitDao")
 	UnitDao unitDao;

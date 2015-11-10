@@ -1,11 +1,12 @@
 package com.earl.fishshop.serviceImpl;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.earl.fishshop.base.BaseServiceImpl;
 import com.earl.fishshop.dao.OrdersDao;
 import com.earl.fishshop.pojo.OrdersPo;
 import com.earl.fishshop.service.OrdersService;
@@ -19,17 +20,20 @@ import com.earl.fishshop.service.OrdersService;
  @Service(value = "ordersService")
 public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 		OrdersService {
-//	public GoodsServiceImpl() {
-//		baseDao = goodsDao;
-//	}
 
 	@Resource(name = "ordersDao")
 	OrdersDao ordersDao;
 
-//	@PreDestroy
 	@PostConstruct
 	public void initBaseDao(){
 		baseDao = ordersDao;
+	}
+
+	@Override
+	public List<OrdersPo> getMyShopOrders(Long shopId) {
+		// TODO 未测试.
+		List<OrdersPo> ordersList = ordersDao.getMyShopOrders(shopId);
+		return ordersList;
 	}
 	
 }

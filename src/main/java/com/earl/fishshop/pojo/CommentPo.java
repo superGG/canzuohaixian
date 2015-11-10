@@ -18,6 +18,12 @@ public class CommentPo{
 	private Long goodsId ;
 	
 	/**
+	 * 字段描述：Long 
+	 * 字段类型：goodsId  
+	 */
+	private Long ordersId ;
+	
+	/**
 	 * 字段描述：Integer 
 	 * 字段类型：commentType  
 	 */
@@ -72,6 +78,12 @@ public class CommentPo{
 	private Long version ;
 	
 	
+	public Long getOrdersId() {
+		return ordersId;
+	}
+	public void setOrdersId(Long ordersId) {
+		this.ordersId = ordersId;
+	}
 	public void setCommentId(Long commentId){
 		this.commentId = commentId;
 	}

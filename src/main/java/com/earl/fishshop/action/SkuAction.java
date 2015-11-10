@@ -4,13 +4,12 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
-import com.earl.fishshop.base.BaseAction;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.SkuPo;
 
 /**
  * 
- * 用途+action 如Demo+Action-->DemoAction
+ * 规格，只，斤
  * 
  * @author Administrator
  * 
@@ -38,6 +37,6 @@ public class SkuAction extends BaseAction<SkuPo> {
 		Boolean save = skuServer.save(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
-		
 	}
+	
 }

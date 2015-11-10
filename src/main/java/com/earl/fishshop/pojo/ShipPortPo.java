@@ -9,7 +9,7 @@ public class ShipPortPo{
 	 * 字段描述：Long 
 	 * 字段类型：shipportId  
 	 */
-	private Long shipportId ;
+	private Long shipPortId ;
 	
 	/**
 	 * 字段描述：String 
@@ -53,12 +53,11 @@ public class ShipPortPo{
 	 */
 	private Long version ;
 	
-	
-	public void setShipportId(Long shipportId){
-		this.shipportId = shipportId;
+	public Long getShipPortId() {
+		return shipPortId;
 	}
-	public Long getShipportId() {
-		return this.shipportId;
+	public void setShipPortId(Long shipPortId) {
+		this.shipPortId = shipPortId;
 	}
 	public void setShipportName(String shipportName){
 		this.shipportName = shipportName;

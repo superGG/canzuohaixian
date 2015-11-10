@@ -1,4 +1,4 @@
-package com.earl.fishshop.base;
+package com.earl.fishshop.serviceImpl;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
+import com.earl.fishshop.base.BaseDao;
 import com.earl.fishshop.dao.CategoryDao;
 import com.earl.fishshop.dao.CommentDao;
 import com.earl.fishshop.dao.FarmersDao;
@@ -19,6 +20,7 @@ import com.earl.fishshop.dao.SkuDao;
 import com.earl.fishshop.dao.SordersDao;
 import com.earl.fishshop.dao.UnitDao;
 import com.earl.fishshop.dao.UserDao;
+import com.earl.fishshop.service.BaseService;
 
 /**
  * @author Administrator

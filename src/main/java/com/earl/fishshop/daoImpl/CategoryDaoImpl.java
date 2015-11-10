@@ -1,9 +1,11 @@
 package com.earl.fishshop.daoImpl;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
-import com.earl.fishshop.base.BaseDaoImpl;
 import com.earl.fishshop.dao.CategoryDao;
 import com.earl.fishshop.pojo.CategoryPo;
 
@@ -39,5 +41,26 @@ public class CategoryDaoImpl extends BaseDaoImpl<CategoryPo> implements Category
 		@SuppressWarnings("unchecked")
 		List<CategoryPo> categorylist = getCurrentSession().createQuery(hql).setLong("parentId", parentId).list();
 		return categorylist;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<CategoryPo> getHotCategory(String date,String date2, Integer showNumber) {
+		// TODO 未测试.
+//		SELECT COUNT(*) AS total FROM `logs` WHERE FROM_UNIXTIME(`create_time`,'%Y-%m')='2015-06'
+//		String hql = "select categoryId,sum(number) from SordersPo where FROM_UNIXTIME(`createTime`,'%Y-%m')=:date order by number group by categoryId limit 0,:showNumber";
+//		select categoryId,sum(number) as hotdegree from sorders where createTime >'2015-11' and createTime < '2015-12' group by categoryId order by number ;
+//		String hql = "select categoryId,sum(number) as hotDegree from SordersPo where createTime>:date  order by number group by categoryId limit 0,:showNumber";
+		String hql = "select categoryId,sum(number) as hotdegree from sorders where createTime >:date and createTime < :date2 group by categoryId order by number limit 0,:showNumber";
+		List<Object[]> list = getCurrentSession().createSQLQuery(hql).setString("date", date).setString("date2", date2).setInteger("showNumber", showNumber).list();
+		List<CategoryPo> list2 = null;
+		for (Object[] category : list) {
+			String hql2 = "from CategoryPo where categoryId =:categoryId";
+			list2 = getCurrentSession().createQuery(hql2).setLong("categoryId", ((BigInteger)category[0]).longValue()).list();
+			for (CategoryPo object : list2) {
+				object.setHotDegree(((BigDecimal)category[1]).longValue());
+			}
+		}
+		return list2;
 	}
 }

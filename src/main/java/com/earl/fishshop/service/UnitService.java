@@ -2,7 +2,6 @@ package com.earl.fishshop.service;
 
 import java.util.List;
 
-import com.earl.fishshop.base.BaseService;
 import com.earl.fishshop.pojo.SkuPo;
 import com.earl.fishshop.pojo.UnitPo;
 
