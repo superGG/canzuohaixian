@@ -58,7 +58,7 @@ public class CategoryPo{
 	 * 字段描述：String 
 	 * 字段类型：lowPrice  
 	 */
-	private String lowPrice ;
+	private Double lowPrice ;//
 	
 	/**
 	 * 
@@ -150,11 +150,11 @@ public class CategoryPo{
 	public String getFishPhoto() {
 		return this.fishPhoto;
 	}
-	public void setLowPrice(String lowPrice){
-		this.lowPrice = lowPrice;
+	public Double getLowPrice() {
+		return lowPrice;
 	}
-	public String getLowPrice() {
-		return this.lowPrice;
+	public void setLowPrice(Double lowPrice) {
+		this.lowPrice = lowPrice;
 	}
 	public void setUnit(Integer unit){
 		this.unit = unit;

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.pojo.ResultMessage;
+import com.earl.fishshop.pojo.ShopPo;
+import com.earl.fishshop.vo.PageInfo;
 
 /**
  * 
@@ -26,6 +28,8 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 */
 	private static final long serialVersionUID = 3293435262298029608L;
 
+	private PageInfo pageInfo;
+	
 	protected ResultMessage resultMessage;
 
 	@ReturnValue //返回实体对象，或者其他任意对象
@@ -33,6 +37,14 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		return resultMessage;
 	}
 
+	public PageInfo getPageInfo() {
+		return pageInfo;
+	}
+
+	public void setPageInfo(PageInfo pageInfo) {
+		this.pageInfo = pageInfo;
+	}
+	
 	/**
 	 * 添加商品类别.
 	 * @author 黄祥谦.
@@ -70,7 +82,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getNextLevelCategory(){
-		List<CategoryPo> categoryList = categoryServer.getNextLevelCategory(model.getCategoryId());
+		List<CategoryPo> categoryList = categoryServer.getNextLevelCategory(model.getCategoryId(), pageInfo);
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("categoryList", categoryList);
 		resultMessage.setResultParm(hashMap);
@@ -95,5 +107,21 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 */
 	public void getHotCategory(){
 		List<CategoryPo> categoryList = categoryServer.getHotCategory(application);
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("categoryList", categoryList);
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+	}
+	
+	/**
+	 * 得到指定类别的商家信息.
+	 * @author 黄祥谦.
+	 */
+	public void getGoodsShops(){
+		List<ShopPo> shopList = categoryServer.getGoodsShops(model.getCategoryId(), pageInfo);
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("shopList", shopList);
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
 	}
 }

@@ -21,7 +21,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;
 
 import com.earl.fishshop.base.BaseDao;
-import com.earl.util.HibernateHelper;
+import com.earl.fishshop.vo.PageInfo;
 
 
 /**
@@ -66,7 +66,6 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	 * @Param  T   object
 	 * @Result void
 	 */
-//	@Transactional
 	public void save(T t) {
 		System.out.println("dodo1");
 		logger.debug("saving " + clazz.getName() + " instance");
@@ -164,13 +163,9 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	@Override
 	public List<T> findByGivenCriteria(T object) {
 		// 业务逻辑开始
-		HibernateHelper.getSessionFactory().getCurrentSession()
-				.beginTransaction();
-
 		Map<String, Object> notNullParam = null;
 		notNullParam = getNotNullProperties(object);
-		Criteria criteria = HibernateHelper.getSessionFactory()
-				.getCurrentSession().createCriteria(clazz);
+		Criteria criteria = getCurrentSession().createCriteria(clazz);
 		for (String key : notNullParam.keySet()) {
 			criteria.add(Restrictions.eq(key, notNullParam.get(key)));
 		}
@@ -179,110 +174,49 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		List<T> listObject = criteria.list();
 
 		// 业务逻辑结束
-		HibernateHelper.getSessionFactory().getCurrentSession()
-				.getTransaction().commit();
 		logger.debug("退出findByGivenCreteria方法");
 		return listObject;
 	}
 
-//	@Override
-//	public List<T> findByGivenCreteriaWithPage(T object, PageInfo pageInfo) {
+	/**
+	 * 通过给定条件查询,并且分页.
+	 */
+	public List<T> findByGivenCreteriaWithPage(T object, PageInfo pageInfo) {
 //		// 业务逻辑开始
-//		HibernateHelper.getSessionFactory().getCurrentSession()
-//				.beginTransaction();
-//
-//		Map<String, Object> notNullParam = null;
-//		notNullParam = getNotNullProperties(object);
-//
-//		Criteria criteria = HibernateHelper.getSessionFactory()
-//				.getCurrentSession().createCriteria(clazz);
-//		for (String key : notNullParam.keySet()) {
-//			criteria.add(Restrictions.eq(key, notNullParam.get(key)));
-//		}
-//
-//		// 分页
-//		criteria.setFirstResult(
-//				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
-//				.setMaxResults(pageInfo.getSize()).list();
-//
-//		@SuppressWarnings("unchecked")
-//		List<T> listObject = criteria.list();
-//
-//		// 业务逻辑结束
-//		HibernateHelper.getSessionFactory().getCurrentSession()
-//				.getTransaction().commit();
-//		logger.debug("退出findByGivenCreteriaWithPage方法");
-//		return listObject;
-//	}
-
-	// 前提，pojo id属性名上要有 IdAnnotatioin标签
-//	public void updateWithNotNullProperties(T object) {
-//		//
-//		Transaction tran = getCurrentSession().beginTransaction();
-//
-//		T t = null;
-//
-//		Map<String, Object> notNullParam;
-//
-//		try {
-//
-//			notNullParam = getNotNullProperties(object);
-//
-//			BeanMap beanMap = new BeanMap(object);
-//
-//			Field[] fields = clazz.getFields();
-//
-//			for (Field field : fields) {
-//				//判断该属性是否标注着idAnnotation
-//				if (field.isAnnotationPresent(IdAnnotatioin.class)) {
-//					Object id;
-//					// 得到po的id
-//					id = beanMap.getReadMethod(field.getName());
-//					// 通过hibernate的id查询出对象
-//					t = get((Integer) id);
-//				}
-//			}
-//
-//			for (String paramName : notNullParam.keySet()) {
-//				// 得到非空属性的set方法,得到非空属性的值
-//
-//				Method writeMethod = beanMap.getWriteMethod(paramName);
-//
-//				// 赋值，
-//				writeMethod.invoke(t, beanMap.get(paramName));
-//				// 更新
-//				getCurrentSession().update(t);
-//				
-//				tran.commit();
-//			}
-//		} catch (IllegalAccessException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (InvocationTargetException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
-
-	private Map<String, Object> getNotNullProperties(T object) {
 
 		Map<String, Object> notNullParam = null;
+		notNullParam = getNotNullProperties(object);
+
+		Criteria criteria = getCurrentSession().createCriteria(clazz);
+		for (String key : notNullParam.keySet()) {
+			criteria.add(Restrictions.eq(key, notNullParam.get(key)));
+		}
+		// 分页
+		criteria.setFirstResult(
+				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
+				.setMaxResults(pageInfo.getSize()).list();
+
+		@SuppressWarnings("unchecked")
+		List<T> listObject = criteria.list();
+
+		return listObject;
+	}
+
+	private Map<String, Object> getNotNullProperties(T object) {
+		Map<String, Object> notNullParam = null;
 		BeanMap beanMap = new BeanMap(object);
-		// Method readMethod = beanMap.getWriteMethod("id");
 		notNullParam = new HashMap<String, Object>();
 		Iterator<Object> keyIterator = beanMap.keySet().iterator();
 		String propertyName = null;
 		while (keyIterator.hasNext()) {
 			propertyName = (String) keyIterator.next();
-			
-			//beanMap.get(propertyName)!= ""可以加上去 
 			if (!propertyName.equals("class")
-					&& beanMap.get(propertyName) != null) {
+					&& beanMap.get(propertyName) != null
+					&& beanMap.get(propertyName) != ""
+					) {
 				notNullParam.put(propertyName, beanMap.get(propertyName));
 			}
 		}
-
 		return notNullParam;
 	}
-
 }

@@ -18,10 +18,10 @@ public class GoodsPo{
 	private Long shopId ;
 	
 	/**
-	 * 字段描述：Integer 
+	 * 字段描述：Long 
 	 * 字段类型：goodsCategory  
 	 */
-	private Integer goodsCategory ;
+	private Long categoryId;
 	
 	/**
 	 * 字段描述：Integer 
@@ -112,12 +112,6 @@ public class GoodsPo{
 	public Long getShopId() {
 		return this.shopId;
 	}
-	public void setGoodsCategory(Integer goodsCategory){
-		this.goodsCategory = goodsCategory;
-	}
-	public Integer getGoodsCategory() {
-		return this.goodsCategory;
-	}
 	public void setGoodsQuality(Integer goodsQuality){
 		this.goodsQuality = goodsQuality;
 	}
@@ -183,5 +177,22 @@ public class GoodsPo{
 	}
 	public Long getVersion() {
 		return this.version;
+	}
+	public Long getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
+	}
+	@Override
+	public String toString() {
+		return "GoodsPo [goodsId=" + goodsId + ", shopId=" + shopId
+				+ ", categoryId=" + categoryId + ", goodsQuality="
+				+ goodsQuality + ", hotDegree=" + hotDegree + ", getType="
+				+ getType + ", price=" + price + ", nowNumber=" + nowNumber
+				+ ", unit=" + unit + ", sku=" + sku + ", sellNumber="
+				+ sellNumber + ", creatorId=" + creatorId + ", createTime="
+				+ createTime + ", isDelete=" + isDelete + ", version="
+				+ version + "]";
 	}
 }

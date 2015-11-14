@@ -7,10 +7,12 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.CategoryPo;
+import com.earl.fishshop.pojo.GoodsPo;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.ShopPo;
 import com.earl.fishshop.pojo.UserPo;
 import com.earl.fishshop.util.MyConstant;
+import com.earl.fishshop.vo.PageInfo;
 
 /**
  * 
@@ -32,6 +34,8 @@ public class ShopAction extends BaseAction<ShopPo> {
 
 	protected Long userId;
 	
+	private PageInfo pageInfo;
+
 	public Long getUserId() {
 		return userId;
 	}
@@ -40,6 +44,13 @@ public class ShopAction extends BaseAction<ShopPo> {
 		this.userId = userId;
 	}
 
+	public PageInfo getPageInfo() {
+		return pageInfo;
+	}
+
+	public void setPageInfo(PageInfo pageInfo) {
+		this.pageInfo = pageInfo;
+	}
 
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public ResultMessage getResultMessage() {
@@ -93,5 +104,15 @@ public class ShopAction extends BaseAction<ShopPo> {
 	 */
 	public void getCategoryWithTotalNumber(){
 		List<CategoryPo> categoryList = goodsServer.getCategoryWithTotalNumber(model.getShopId());
+	}
+	
+	/**
+	 * 得到商家发布的所有商品，数量为0的不显示.
+	 * @author 黄祥谦.
+	 */
+	public void getShopAllGoods(){
+		
+		List<GoodsPo> goodsList = goodsServer.getShopAllGoods(model.getShopId(), pageInfo);
+		
 	}
 }

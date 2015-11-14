@@ -4,10 +4,14 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.earl.fishshop.dao.CategoryDao;
 import com.earl.fishshop.pojo.CategoryPo;
+import com.earl.fishshop.vo.PageInfo;
 
 
 /**
@@ -36,10 +40,27 @@ public class CategoryDaoImpl extends BaseDaoImpl<CategoryPo> implements Category
 	}
 
 	@Override
-	public List<CategoryPo> getNextLevelCategory(Long parentId) {
-		String hql = "from CategoryPo c where c.parentId = :parentId";
+	public List<CategoryPo> getNextLevelCategory(Long parentId, PageInfo pageInfo) {
+		
+		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
+		createCriteria.add(Restrictions.eq("parentId", parentId));
+		
+		createCriteria.setFirstResult(
+				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
+				.setMaxResults(pageInfo.getSize());
+
 		@SuppressWarnings("unchecked")
-		List<CategoryPo> categorylist = getCurrentSession().createQuery(hql).setLong("parentId", parentId).list();
+		List<CategoryPo> categorylist = createCriteria.list();
+		for (CategoryPo categoryPo : categorylist) {
+			String hql = "select min(price) from GoodsPo where categoryId = :categoryId";
+			Double uniqueResult = (Double) getCurrentSession().createQuery(hql).setLong("categoryId", categoryPo.getCategoryId()).uniqueResult();
+			categoryPo.setLowPrice(uniqueResult);
+		}
+		
+		Long size = (Long) createCriteria.setProjection(Projections.rowCount())
+	                .uniqueResult();
+		pageInfo.setTotalCount(size);
+		
 		return categorylist;
 	}
 

@@ -20,11 +20,6 @@ public class ResultMessage {
     private Boolean userToken;
 
     /**
-     * 新浪授权码判断结果.
-     */
-    private Boolean sinaAuthCode;
-
-    /**
      * 服务类执行结果.
      */
     private Boolean serviceResult;
@@ -33,23 +28,6 @@ public class ResultMessage {
      * 返回结果信息.
      */
     private String resultInfo;
-
-    /**
-     * @return 获取的sinaAuthCode
-     */
-    public final Boolean getSinaAuthCode() {
-        return sinaAuthCode;
-    }
-
-    /**
-     * 设置sinaAuthCode的方法.
-     * 
-     * @param sinaAuthCode
-     *            赋值给sinaAuthCode的值
-     */
-    public final void setSinaAuthCode(final Boolean sinaAuthCode) {
-        this.sinaAuthCode = sinaAuthCode;
-    }
 
     /**
      * 返回参数，又vo的json字符串组成.
@@ -90,22 +68,6 @@ public class ResultMessage {
         this.serviceResult = serviceResult;
     }
 
-    /**
-     * @return 获取的resultInfo
-     */
-    public final String getResultInfo() {
-        return resultInfo;
-    }
-
-    /**
-     * 设置resultInfo的方法.
-     * 
-     * @param resultInfo
-     *            赋值给resultInfo的值
-     */
-    public final void setResultInfo(final String resultInfo) {
-        this.resultInfo = resultInfo;
-    }
 
     /**
      * @return 获取的resultParm
@@ -123,4 +85,13 @@ public class ResultMessage {
     public final void setResultParm(final Map<String, Object> resultParm) {
         this.resultParm = resultParm;
     }
+
+	public String getResultInfo() {
+		return resultInfo;
+	}
+
+	public void setResultInfo(String resultInfo) {
+		this.resultInfo = resultInfo;
+	}
+    
 }
