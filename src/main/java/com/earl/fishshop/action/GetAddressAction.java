@@ -1,5 +1,7 @@
 package com.earl.fishshop.action;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -39,6 +41,33 @@ public class GetAddressAction extends BaseAction<GetAddressPo> {
 	public void addGetAddress() {
 		Boolean save = getAddressServer.save(model);
 		resultMessage = new ResultMessage();
+		resultMessage.setResultInfo("添加成功");
 		resultMessage.setServiceResult(save);
+	}
+	
+	/**
+	 * 更新收货人地址.
+	 * @author 黄祥谦.
+	 */
+	public void updateGetAddress(){
+		Boolean update = getAddressServer.update(model);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultInfo("更新成功");
+		resultMessage.setServiceResult(update);
+	}
+	
+	/**
+	 * 删除指定编号收货人地址.
+	 * @author 黄祥谦.
+	 */
+	public void deleteGetAddress(){
+		Boolean deleteById = getAddressServer.deleteById(model.getGetAddressId());
+		resultMessage = new ResultMessage();
+		resultMessage.setResultInfo("删除成功");
+		resultMessage.setServiceResult(deleteById);
+	}
+	
+	public void getUserAllAddress(){
+		List<GetAddressPo> getAddress = getAddressServer.getUserAllAddress(model.getUserId());
 	}
 }

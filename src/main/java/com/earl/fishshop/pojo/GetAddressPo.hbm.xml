@@ -10,6 +10,7 @@
             <column name="getAddressId" />
             <generator class="native"></generator>
         </id>
+        <property name="userId" type="java.lang.Long" column="userId" />
         <property name="userName" type="java.lang.String" column="userName" />
         <property name="address" type="java.lang.String" column="address" />
         <property name="phone" type="java.lang.String" column="phone" />

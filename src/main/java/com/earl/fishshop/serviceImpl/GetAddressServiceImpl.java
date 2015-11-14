@@ -1,5 +1,7 @@
 package com.earl.fishshop.serviceImpl;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
@@ -29,6 +31,13 @@ public class GetAddressServiceImpl extends BaseServiceImpl<GetAddressPo> impleme
 	@PostConstruct
 	public void initBaseDao(){
 		baseDao = getAddressDao;
+	}
+
+	@Override
+	public List<GetAddressPo> getUserAllAddress(Long userId) {
+		// TODO 未测试.
+		List<GetAddressPo> getAddressList = getAddressDao.getUserAllAddress(userId);
+		return getAddressList;
 	}
 	
 }

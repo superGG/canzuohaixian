@@ -34,6 +34,9 @@ public class OrdersPo{
 	
 	private List<OrdersDetailPo> ordersDetail;
 	
+	/**
+	 * 哪一批次的航海记录
+	 */
 	private Long seaRecordId;
 	
 	/**
