@@ -56,7 +56,7 @@ public class CategoryDaoImplTest {
 	public void testGetNextLevelCategory(){
 		PageInfo pageInfo = new PageInfo();
 		pageInfo.setIndexPageNum(1);
-		pageInfo.setSize(2);
+		pageInfo.setSize(6);
 		List<CategoryPo> categoryList = categoryDao.getNextLevelCategory(1L, pageInfo);
 		System.out.println(categoryList);
 	}

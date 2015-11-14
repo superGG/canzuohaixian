@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.earl.fishshop.dao.GoodsDao;
 import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.pojo.GoodsPo;
-import com.earl.fishshop.pojo.ShopPo;
 import com.earl.fishshop.service.GoodsService;
 import com.earl.fishshop.vo.PageInfo;
 
@@ -65,6 +64,13 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 	public List<CategoryPo> getCategoryWithTotalNumber(Long shopId) {
 		// TODO 未测试.
 		List<CategoryPo> goodsList = goodsDao.getCategoryWithTotalNumber(shopId);
+		return goodsList;
+	}
+
+	@Override
+	public List<GoodsPo> getShopAllGoods(Long shopId, PageInfo pageInfo) {
+		// TODO 未测试.
+		List<GoodsPo> goodsList = goodsDao.getShopAllGoods(shopId, pageInfo);
 		return goodsList;
 	}
 

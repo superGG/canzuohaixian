@@ -26,7 +26,6 @@ CREATE TABLE `category` (
   `categoryEnglishName` varchar(255) DEFAULT NULL,
   `parentId` bigint(20) DEFAULT NULL,
   `fishPhoto` varchar(255) DEFAULT NULL,
-  `lowPrice` varchar(255) DEFAULT NULL,
   `unit` int(11) DEFAULT NULL,
   `totalSellNumber` bigint(20) DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -41,10 +40,10 @@ CREATE TABLE `category` (
 -- ----------------------------
 -- Records of category
 -- ----------------------------
-INSERT INTO `category` VALUES ('1', '鱼类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 13:41:32', null, false, 1);
-INSERT INTO `category` VALUES ('2', '东星白班鱼', '东星白班鱼', '3', 'whitefish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 13:41:32', null, false, 1);
-INSERT INTO `category` VALUES ('3', '小黄鱼', '小黄鱼', '3', 'yellowfish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 13:41:32', null, false, 1);
-INSERT INTO `category` VALUES ('4', '小黑鱼', '小黑鱼', '3', 'smallblackfish', '1', 'localhost:8080//aaa.jpg', null, '1', '0', '2015-11-04 13:41:32', null, false, 1);
+INSERT INTO `category` VALUES ('1', '鱼类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, false, 1);
+INSERT INTO `category` VALUES ('2', '东星白班鱼', '东星白班鱼', '3', 'whitefish', '1', 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, false, 1);
+INSERT INTO `category` VALUES ('3', '小黄鱼', '小黄鱼', '3', 'yellowfish', '1', 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, false, 1);
+INSERT INTO `category` VALUES ('4', '小黑鱼', '小黑鱼', '3', 'smallblackfish', '1', 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, false, 1);
 
 -- ----------------------------
 -- Table structure for `checkout`
@@ -196,7 +195,7 @@ CREATE TABLE `goods` (
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
-
+INSERT INTO `goods` VALUES (1, 1, 2, NULL, NULL, NULL, NULL, 30, 50, 1, 20, NULL, '2015-11-14 10:19:32', '', 1);
 -- ----------------------------
 -- Table structure for `orders`
 -- ----------------------------

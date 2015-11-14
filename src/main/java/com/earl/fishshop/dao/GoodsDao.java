@@ -5,6 +5,7 @@ import java.util.List;
 import com.earl.fishshop.base.BaseDao;
 import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.pojo.GoodsPo;
+import com.earl.fishshop.vo.PageInfo;
 
 public interface GoodsDao extends BaseDao<GoodsPo>{
 
@@ -40,5 +41,14 @@ public interface GoodsDao extends BaseDao<GoodsPo>{
 	 * @return
 	 */
 	List<CategoryPo> getCategoryWithTotalNumber(Long shopId);
+	
+	/**
+	 * 得到商家发布的所有商品，数量为零的不显示
+	 * @author 黄祥谦.
+	 * @param shopId
+	 * @param pageInfo TODO
+	 * @return
+	 */
+	List<GoodsPo> getShopAllGoods(Long shopId, PageInfo pageInfo);
 
 }

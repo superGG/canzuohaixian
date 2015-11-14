@@ -47,10 +47,15 @@ public class CategoryDaoImpl extends BaseDaoImpl<CategoryPo> implements Category
 		
 		createCriteria.setFirstResult(
 				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
-				.setMaxResults(pageInfo.getSize()).list();
+				.setMaxResults(pageInfo.getSize());
 
 		@SuppressWarnings("unchecked")
 		List<CategoryPo> categorylist = createCriteria.list();
+		for (CategoryPo categoryPo : categorylist) {
+			String hql = "select min(price) from GoodsPo where categoryId = :categoryId";
+			Double uniqueResult = (Double) getCurrentSession().createQuery(hql).setLong("categoryId", categoryPo.getCategoryId()).uniqueResult();
+			categoryPo.setLowPrice(uniqueResult);
+		}
 		
 		Long size = (Long) createCriteria.setProjection(Projections.rowCount())
 	                .uniqueResult();

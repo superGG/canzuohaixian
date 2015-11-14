@@ -184,4 +184,15 @@ public class GoodsPo{
 	public void setCategoryId(Long categoryId) {
 		this.categoryId = categoryId;
 	}
+	@Override
+	public String toString() {
+		return "GoodsPo [goodsId=" + goodsId + ", shopId=" + shopId
+				+ ", categoryId=" + categoryId + ", goodsQuality="
+				+ goodsQuality + ", hotDegree=" + hotDegree + ", getType="
+				+ getType + ", price=" + price + ", nowNumber=" + nowNumber
+				+ ", unit=" + unit + ", sku=" + sku + ", sellNumber="
+				+ sellNumber + ", creatorId=" + creatorId + ", createTime="
+				+ createTime + ", isDelete=" + isDelete + ", version="
+				+ version + "]";
+	}
 }

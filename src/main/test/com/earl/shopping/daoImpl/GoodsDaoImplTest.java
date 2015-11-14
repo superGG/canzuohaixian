@@ -16,6 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.earl.fishshop.dao.GoodsDao;
 import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.pojo.GoodsPo;
+import com.earl.fishshop.vo.PageInfo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath*:applicationContext-*.xml")
@@ -83,5 +84,14 @@ public class GoodsDaoImplTest {
 		
 		List<CategoryPo> categoryWithTotalNumber = goodsDao.getCategoryWithTotalNumber(1L);
 		System.out.println(categoryWithTotalNumber);
+	}
+	
+	@Test
+	public void testGetShopAllGoods(){
+		PageInfo pageInfo = new PageInfo();
+		pageInfo.setIndexPageNum(1);
+		pageInfo.setSize(4);
+		List<GoodsPo> goodsList = goodsDao.getShopAllGoods(1L, pageInfo);
+		System.out.println(goodsList);
 	}
 }

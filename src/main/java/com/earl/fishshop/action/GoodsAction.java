@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.GoodsPo;
 import com.earl.fishshop.pojo.ResultMessage;
-import com.earl.fishshop.pojo.ShopPo;
 import com.earl.fishshop.vo.PageInfo;
 
 /**
