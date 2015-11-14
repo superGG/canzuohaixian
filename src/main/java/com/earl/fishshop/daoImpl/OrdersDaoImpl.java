@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.earl.fishshop.dao.OrdersDao;
+import com.earl.fishshop.pojo.OrdersDetailPo;
 import com.earl.fishshop.pojo.OrdersPo;
-import com.earl.fishshop.pojo.SordersPo;
 
 
 /**
@@ -23,10 +23,10 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 		@SuppressWarnings("unchecked")
 		List<OrdersPo> list = getCurrentSession().createQuery(hql).setLong("shopId", shopId).list();
 		for (OrdersPo ordersPo : list) {
-			String hql2 = "from SordersPo where orderId =: orderId";
+			String hql2 = "from OrdersDetailPo where orderId =: orderId";
 			@SuppressWarnings("unchecked")
-			List<SordersPo> sordersList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).list();
-			ordersPo.setSorders(sordersList);
+			List<OrdersDetailPo> ordersDetailList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).list();
+			ordersPo.setOrdersDetail(ordersDetailList);
 		}
 		return list;
 	}

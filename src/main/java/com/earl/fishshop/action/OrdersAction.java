@@ -42,7 +42,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	}
 	
 	/**
-	 * 得到指定商店的订单.
+	 * 得到指定商店的所有订单.
 	 * @author 黄祥谦.
 	 */
 	public void getMyShopOrders(){

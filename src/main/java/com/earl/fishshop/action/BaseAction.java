@@ -16,8 +16,11 @@ import com.earl.fishshop.service.CheckoutService;
 import com.earl.fishshop.service.CommentService;
 import com.earl.fishshop.service.FarmersService;
 import com.earl.fishshop.service.FishmanService;
+import com.earl.fishshop.service.FordersService;
+import com.earl.fishshop.service.GetAddressService;
 import com.earl.fishshop.service.GetTypeService;
 import com.earl.fishshop.service.GoodsService;
+import com.earl.fishshop.service.OrdersDetailService;
 import com.earl.fishshop.service.OrdersService;
 import com.earl.fishshop.service.SeaRecordService;
 import com.earl.fishshop.service.ShipPortService;
@@ -77,6 +80,12 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	protected CheckoutService checkoutServer;
 	@Resource
 	protected ShipPortService shipPortServer;
+	@Resource
+	protected GetAddressService getAddressServer;
+	@Resource
+	protected FordersService fordersServer;
+	@Resource 
+	protected OrdersDetailService ordersDetailServer;
 	
 	protected VerifyService verifyService;
 	

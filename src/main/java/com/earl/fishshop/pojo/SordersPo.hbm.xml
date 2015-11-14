@@ -11,7 +11,7 @@
             <generator class="native"></generator>
         </id>
         <version name="version" column="version" type="java.lang.Long"></version>
-        <property name="orderId" type="java.lang.Long" column="orderId" />
+        <property name="forderId" type="java.lang.Long" column="forderId" />
         <property name="shopId" type="java.lang.Long" column="shopId" />
         <property name="goodsId" type="java.lang.Long" column="goodsId" />
         <property name="categoryId" type="java.lang.Long" column="categoryId" />

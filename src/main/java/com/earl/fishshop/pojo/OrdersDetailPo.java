@@ -2,19 +2,20 @@ package com.earl.fishshop.pojo;
 
 import java.util.Date;
 
-public class SordersPo{
+public class OrdersDetailPo{
+
 
 	/**
 	 * 字段描述：Long 
 	 * 字段类型：sordersId  
 	 */
-	private Long sordersId ;
+	private Long ordersDetailId ;
 	
 	/**
 	 * 字段描述：Long 
 	 * 字段类型：orderId  
 	 */
-	private Long forderId ;
+	private Long orderId ;
 	
 	/**
 	 * 字段描述：Long 
@@ -111,17 +112,17 @@ public class SordersPo{
 	public void setCategoryId(Long categoryId) {
 		this.categoryId = categoryId;
 	}
-	public void setSordersId(Long sordersId){
-		this.sordersId = sordersId;
+	public Long getOrdersDetailId() {
+		return ordersDetailId;
 	}
-	public Long getSordersId() {
-		return this.sordersId;
+	public void setOrdersDetailId(Long ordersDetailId) {
+		this.ordersDetailId = ordersDetailId;
 	}
-	public Long getForderId() {
-		return forderId;
+	public void setOrderId(Long orderId){
+		this.orderId = orderId;
 	}
-	public void setForderId(Long forderId) {
-		this.forderId = forderId;
+	public Long getOrderId() {
+		return this.orderId;
 	}
 	public void setShopId(Long shopId){
 		this.shopId = shopId;
