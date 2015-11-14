@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.earl.fishshop.pojo.CategoryPo;
+import com.earl.fishshop.pojo.ShopPo;
+import com.earl.fishshop.vo.PageInfo;
 
 public interface CategoryService extends BaseService<CategoryPo>{
 
@@ -25,9 +27,10 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	 * 得到指定类别的下一级类别.
 	 * @author 黄祥谦.
 	 * @param parentId 指定的父类别id.
+	 * @param pageInfo TODO
 	 * @return
 	 */
-	List<CategoryPo> getNextLevelCategory(Long parentId);
+	List<CategoryPo> getNextLevelCategory(Long parentId, PageInfo pageInfo);
 
 	/**
 	 * 得到本月热门类别.
@@ -37,7 +40,15 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	 */
 	List<CategoryPo> getHotCategory(Map<String, Object> application);
 
-	
+	/**
+	 * 得到发布该种类商品的商店.
+	 * @author 黄祥谦.
+	 * @param categoryId TODO
+	 * @param pageInfo
+	 * @return
+	 */
+	List<ShopPo> getGoodsShops(Long categoryId, PageInfo pageInfo);
+
 
 	
 	

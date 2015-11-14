@@ -177,7 +177,7 @@ DROP TABLE IF EXISTS `goods`;
 CREATE TABLE `goods` (
   `goodsId` bigint(20) NOT NULL AUTO_INCREMENT,
   `shopId` bigint(20) DEFAULT NULL,
-  `goodsCategory` int(11) DEFAULT NULL,
+  `categoryId` bigint(20) DEFAULT NULL,
   `goodsQuality` int(11) DEFAULT NULL,
   `hotDegree` bigint(20) DEFAULT NULL,
   `getType` int(11) DEFAULT NULL,

@@ -58,7 +58,7 @@ public class CategoryPo{
 	 * 字段描述：String 
 	 * 字段类型：lowPrice  
 	 */
-	private String lowPrice ;
+	private String lowPrice ;//每次添加商品时，刷新该值
 	
 	/**
 	 * 

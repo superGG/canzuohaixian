@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.earl.fishshop.dao.CategoryDao;
 import com.earl.fishshop.pojo.CategoryPo;
+import com.earl.fishshop.vo.PageInfo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath*:applicationContext-*.xml")
@@ -53,9 +54,11 @@ public class CategoryDaoImplTest {
 
 	@Test
 	public void testGetNextLevelCategory(){
-		List<CategoryPo> categoryList = categoryDao.getNextLevelCategory(1L);
+		PageInfo pageInfo = new PageInfo();
+		pageInfo.setIndexPageNum(1);
+		pageInfo.setSize(2);
+		List<CategoryPo> categoryList = categoryDao.getNextLevelCategory(1L, pageInfo);
 		System.out.println(categoryList);
-		
 	}
 
 	@Test
@@ -74,4 +77,5 @@ public class CategoryDaoImplTest {
 		CategoryPo category = categoryDao.get(1L);
 		System.out.println(category);
 	}
+	
 }

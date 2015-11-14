@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.dao.CategoryDao;
 import com.earl.fishshop.pojo.CategoryPo;
+import com.earl.fishshop.pojo.ShopPo;
 import com.earl.fishshop.service.CategoryService;
+import com.earl.fishshop.vo.PageInfo;
 
 /**
  * 每个ServiceImpl都要继承相对应的service接口
@@ -44,9 +46,9 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 	}
 
 	@Override
-	public List<CategoryPo> getNextLevelCategory(Long parentId) {
+	public List<CategoryPo> getNextLevelCategory(Long parentId, PageInfo pageInfo) {
 		List<CategoryPo> nextLevelCategory = categoryDao
-				.getNextLevelCategory(parentId);
+				.getNextLevelCategory(parentId, pageInfo);
 		return nextLevelCategory;
 	}
 
@@ -68,5 +70,12 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 		}else{
 			return (List<CategoryPo>)application.get("hotGoods");
 		}
+	}
+
+	@Override
+	public List<ShopPo> getGoodsShops(Long categoryId, PageInfo pageInfo) {
+		// TODO 未测试.
+		List<ShopPo> shopList = shopDao.getGoodsShops(categoryId,pageInfo);
+		return shopList;
 	}
 }

@@ -30,7 +30,7 @@ public interface GoodsDao extends BaseDao<GoodsPo>{
 	 * @param goodsCategory
 	 * @return
 	 */
-	List<GoodsPo> getGoodsWithCategory(Integer goodsCategory);
+	List<GoodsPo> getGoodsWithCategory(Long goodsCategory);
 
 	/**
 	 * 已上架渔获.

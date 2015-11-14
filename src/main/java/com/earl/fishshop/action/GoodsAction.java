@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.GoodsPo;
 import com.earl.fishshop.pojo.ResultMessage;
+import com.earl.fishshop.pojo.ShopPo;
+import com.earl.fishshop.vo.PageInfo;
 
 /**
  * 
@@ -27,6 +29,17 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 	private static final long serialVersionUID = 3293435262298029608L;
 
 	protected ResultMessage resultMessage;
+	
+	private PageInfo pageInfo ;
+	
+
+	public PageInfo getPageInfo() {
+		return pageInfo;
+	}
+
+	public void setPageInfo(PageInfo pageInfo) {
+		this.pageInfo = pageInfo;
+	}
 
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public ResultMessage getResultMessage() {
@@ -67,11 +80,10 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getGoodsWithCategory(){
-		List<GoodsPo> goodsList = goodsServer.getGoodsWithCategory(model.getGoodsCategory());
+		List<GoodsPo> goodsList = goodsServer.getGoodsWithCategory(model.getCategoryId());
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("goodsList", goodsList);
 		resultMessage.setResultParm(hashMap);
-		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(true);
 	}
 
@@ -83,4 +95,6 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 		//TODO 将指定类别的商品删除，就是删除渔获.
 		
 	}
+	
+	
 }

@@ -43,7 +43,7 @@ public class GoodsDaoImplTest {
 	@Test
 	public void testSave() {
 		GoodsPo goods = new GoodsPo();
-		goods.setGoodsCategory(1);
+		goods.setCategoryId(1L);
 		goodsDao.save(goods);
 	}
 

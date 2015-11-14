@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.earl.fishshop.dao.ShopDao;
 import com.earl.fishshop.pojo.ShopPo;
+import com.earl.fishshop.vo.PageInfo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath*:applicationContext-*.xml")
@@ -50,5 +51,14 @@ public class ShopDaoImplTest {
 	@Test
 	public void testUpdateSentPrice() {
 		shopDao.updateSentPrice(1L, 234.45);
+	}
+	
+	@Test
+	public void testGetGoodsShop(){
+		PageInfo pageInfo = new PageInfo();
+		pageInfo.setIndexPageNum(1);
+		pageInfo.setSize(1);
+		List<ShopPo> goodsShops = shopDao.getGoodsShops(2L, pageInfo);
+		System.out.println(goodsShops);
 	}
 }

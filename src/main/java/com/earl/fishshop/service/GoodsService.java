@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.pojo.GoodsPo;
+import com.earl.fishshop.pojo.ShopPo;
+import com.earl.fishshop.vo.PageInfo;
 
 public interface GoodsService extends BaseService<GoodsPo>{
 
@@ -28,10 +30,10 @@ public interface GoodsService extends BaseService<GoodsPo>{
 	/**
 	 * 通过商品类别得到指定商品.
 	 * @author 黄祥谦.
-	 * @param goodsCategory
+	 * @param categoryId
 	 * @return
 	 */
-	List<GoodsPo> getGoodsWithCategory(Integer goodsCategory);
+	List<GoodsPo> getGoodsWithCategory(Long categoryId);
 
 	/**
 	 * 得到用户发布的该类别下的商品总量
@@ -40,6 +42,7 @@ public interface GoodsService extends BaseService<GoodsPo>{
 	 * @return
 	 */
 	List<CategoryPo> getCategoryWithTotalNumber(Long shopId);
+
 
 	
 }

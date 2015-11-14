@@ -30,11 +30,11 @@ public class GoodsDaoImpl extends BaseDaoImpl<GoodsPo> implements GoodsDao {
 	}
 
 	@Override
-	public List<GoodsPo> getGoodsWithCategory(Integer goodsCategory) {
+	public List<GoodsPo> getGoodsWithCategory(Long categoryId) {
 		// TODO 未测试.
-		String hql = "from GoodsPo where goodsCategory =:goodsCategory";
+		String hql = "from GoodsPo where categoryId =:categoryId";
 		@SuppressWarnings("unchecked")
-		List<GoodsPo> goodsList = getCurrentSession().createQuery(hql).setInteger("goodsCategory", goodsCategory).list();
+		List<GoodsPo> goodsList = getCurrentSession().createQuery(hql).setLong("categoryId", categoryId).list();
 		return goodsList;
 	}
 
@@ -43,7 +43,7 @@ public class GoodsDaoImpl extends BaseDaoImpl<GoodsPo> implements GoodsDao {
 		// TODO 未测试.
 //		select goodscategory,count(*),sum(nowNumber) from goods where shopId=1 group by goodscategory;
 		//SQL语句测试过没有问题，需要组织返回的数据结构.
-		String sql = "select goodscategory,count(*),sum(nowNumber) from goods where shopId=：shopId group by goodscategory";
+		String sql = "select categoryId,count(*),sum(nowNumber) from goods where shopId=：shopId group by categoryId";
 		List list = getCurrentSession().createSQLQuery(sql).setLong("shopId", shopId).list();
 		return list;
 	}
