@@ -3,14 +3,14 @@ package com.earl.fishshop.pojo;
 import java.util.Date;
 import java.util.List;
 
-public class OrdersPo{
+public class FordersPo{
 
 
 	/**
 	 * 字段描述：Long 
 	 * 字段类型：ordersId  
 	 */
-	private Long ordersId ;
+	private Long fordersId ;
 	
 	/**
 	 * 字段描述：Long 
@@ -32,7 +32,7 @@ public class OrdersPo{
 	
 	private String buyerName;
 	
-	private List<OrdersDetailPo> ordersDetail;
+	private List<SordersPo> sorders;
 	
 	private Long seaRecordId;
 	
@@ -83,17 +83,17 @@ public class OrdersPo{
 	public void setBuyerName(String buyerName) {
 		this.buyerName = buyerName;
 	}
-	public List<OrdersDetailPo> getOrdersDetail() {
-		return ordersDetail;
+	public List<SordersPo> getSorders() {
+		return sorders;
 	}
-	public void setOrdersDetail(List<OrdersDetailPo> ordersDetail) {
-		this.ordersDetail = ordersDetail;
+	public void setSorders(List<SordersPo> sorders) {
+		this.sorders = sorders;
 	}
-	public void setOrdersId(Long ordersId){
-		this.ordersId = ordersId;
+	public Long getFordersId() {
+		return fordersId;
 	}
-	public Long getOrdersId() {
-		return this.ordersId;
+	public void setFordersId(Long fordersId) {
+		this.fordersId = fordersId;
 	}
 	public void setShopId(Long shopId){
 		this.shopId = shopId;

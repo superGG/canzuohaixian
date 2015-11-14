@@ -111,8 +111,15 @@ public class ShopAction extends BaseAction<ShopPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getShopAllGoods(){
-		
 		List<GoodsPo> goodsList = goodsServer.getShopAllGoods(model.getShopId(), pageInfo);
-		
+	}
+	
+	/**
+	 * 得到指定商店信息.
+	 * @author 黄祥谦.
+	 */
+	public void getShop(){
+	ShopPo shop = shopServer.get(model.getShopId());
+	System.out.println(shop);
 	}
 }

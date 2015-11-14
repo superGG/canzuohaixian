@@ -219,6 +219,22 @@ CREATE TABLE `orders` (
 -- Records of orders
 -- ----------------------------
 
+DROP TABLE IF EXISTS `forders`;
+CREATE TABLE `forders` (
+  `fordersId` bigint(20) NOT NULL AUTO_INCREMENT,
+  `shopId` bigint(20) DEFAULT NULL,
+  `seaRecordId` bigint(20) DEFAULT NULL,
+  `totalprice` bigint(20) DEFAULT NULL,
+  `state` int(11) DEFAULT NULL,
+  `buyerName` varchar(255) DEFAULT NULL,
+  `orderNumber` varchar(255) DEFAULT NULL,
+  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `creatorId` bigint(20) DEFAULT NULL,
+  `isDelete` bit(1) DEFAULT b'0',
+  `version` bigint(20) DEFAULT '1',
+  PRIMARY KEY (`fordersId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 -- ----------------------------
 -- Table structure for `searecord`
 -- ----------------------------
@@ -317,7 +333,7 @@ INSERT INTO `sku` VALUES ('3', '1', '小号(5-10)', '2015-11-04 22:59:32', null,
 DROP TABLE IF EXISTS `sorders`;
 CREATE TABLE `sorders` (
   `sordersId` bigint(20) NOT NULL AUTO_INCREMENT,
-  `orderId` bigint(20) DEFAULT NULL,
+  `forderId` bigint(20) DEFAULT NULL,
   `shopId` bigint(20) DEFAULT NULL,
   `goodsId` bigint(20) DEFAULT NULL,
   `categoryId` bigint(20) DEFAULT NULL,
@@ -340,6 +356,29 @@ CREATE TABLE `sorders` (
 -- Records of sorders
 -- ----------------------------
 
+
+
+DROP TABLE IF EXISTS `ordersDateail`;
+CREATE TABLE `ordersDateail` (
+  `ordersDetailId` bigint(20) NOT NULL AUTO_INCREMENT,
+  `orderId` bigint(20) DEFAULT NULL,
+  `shopId` bigint(20) DEFAULT NULL,
+  `goodsId` bigint(20) DEFAULT NULL,
+  `categoryId` bigint(20) DEFAULT NULL,
+  `goodsName` varchar(255) DEFAULT NULL,
+  `goodsType` varchar(255) DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  `totalprice` double DEFAULT NULL,
+  `sku` varchar(255) DEFAULT NULL,
+  `unit` varchar(255) DEFAULT NULL,
+  `sellNumber` bigint(20) DEFAULT NULL,
+  `number` bigint(20) DEFAULT NULL,
+  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `creatorId` bigint(20) DEFAULT NULL,
+  `isDelete` bit(1) DEFAULT b'0',
+  `version` bigint(20) DEFAULT '1',
+  PRIMARY KEY (`ordersDetailId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- ----------------------------
 -- Table structure for `unit`
 -- ----------------------------
