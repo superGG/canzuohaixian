@@ -26,5 +26,15 @@ public class FarmersServiceImpl extends BaseServiceImpl<FarmersPo> implements
 	public void initBaseDao(){
 		baseDao = farmersDao;
 	}
+
+	@Override
+	public Boolean authenticationFarmer(Long userId, FarmersPo model) {
+		try {
+			farmersDao.authenticationFarmers(userId,model);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 	
 }

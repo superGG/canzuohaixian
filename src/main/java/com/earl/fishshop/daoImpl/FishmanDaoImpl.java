@@ -1,5 +1,7 @@
 package com.earl.fishshop.daoImpl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.earl.fishshop.dao.FishmanDao;
@@ -23,4 +25,17 @@ public class FishmanDaoImpl extends BaseDaoImpl<FishmanPo> implements
 				.setInteger("state", MyConstant.user_wait)
 				.setLong("userId", userId).executeUpdate();
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<FishmanPo> getFishman(Long identityId) {
+		String hql = "from FishmanPo f where f.fishmanId = :identityId";
+		List<FishmanPo> list = getCurrentSession().createQuery(hql)
+				.setLong("identityId", identityId).list();
+		return list;
+	}
+	
+	
+	
+	
 }
