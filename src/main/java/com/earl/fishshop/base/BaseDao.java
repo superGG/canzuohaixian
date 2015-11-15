@@ -38,6 +38,8 @@ public interface BaseDao<T> {
 	
 	public List<T> findByGivenCriteria(T object);
 
+	void updateWithNotNullProperties(T object);
+
 //	public List<T> findByGivenCreteriaWithPage(T object,PageInfo pageInfo);
 	
 }

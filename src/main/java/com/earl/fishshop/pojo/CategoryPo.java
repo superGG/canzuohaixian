@@ -1,7 +1,8 @@
 package com.earl.fishshop.pojo;
 
 import java.util.Date;
-import java.util.Set;
+
+import com.earl.fishshop.annotation.IdAnnotatioin;
 
 public class CategoryPo{
 
@@ -10,6 +11,7 @@ public class CategoryPo{
 	 * 字段描述：Long 
 	 * 字段类型：categoryId  
 	 */
+	@IdAnnotatioin
 	private Long categoryId ;
 	
 	/**
@@ -41,12 +43,6 @@ public class CategoryPo{
 	 * 字段类型：parentId  
 	 */
 	private Long parentId;
-	
-	/**
-	 * 字段描述：Long 
-	 * 字段类型：parentId  
-	 */
-	private Set<CategoryPo> childCategory;
 	
 	/**
 	 * 字段描述：String 
@@ -192,22 +188,14 @@ public class CategoryPo{
 	public Long getVersion() {
 		return this.version;
 	}
-	
-	
-	public Set<CategoryPo> getChildCategory() {
-		return childCategory;
-	}
-	public void setChildCategory(Set<CategoryPo> childCategory) {
-		this.childCategory = childCategory;
-	}
 	@Override
 	public String toString() {
 		return "CategoryPo [categoryId=" + categoryId + ", categorySimpleName="
 				+ categorySimpleName + ", categoryAcademicName="
 				+ categoryAcademicName + ", getType=" + getType
 				+ ", categoryEnglishName=" + categoryEnglishName
-				+ ", parentId=" + parentId + ", childCategory=" + childCategory
-				+ ", fishPhoto=" + fishPhoto + ", lowPrice=" + lowPrice
+				+ ", parentId=" + parentId + ", fishPhoto=" + fishPhoto
+				+ ", lowPrice=" + lowPrice + ", hotDegree=" + hotDegree
 				+ ", unit=" + unit + ", totalSellNumber=" + totalSellNumber
 				+ ", createTime=" + createTime + ", creatorId=" + creatorId
 				+ ", isDelete=" + isDelete + ", version=" + version + "]";

@@ -59,8 +59,8 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 		String object = (String) application.get("date");
 		int i = Calendar.getInstance().get(Calendar.MONTH);
 		int y = Calendar.getInstance().get(Calendar.YEAR);
-		String date = y+"-"+String.valueOf(i);
-		String date2 = y+"-"+String.valueOf(i+1);
+		String date = y+"-"+String.valueOf(i)+"-1";
+		String date2 = y+"-"+String.valueOf(i+1)+"-1";
 		
 		if(object != date){
 			List<CategoryPo> categoryList = categoryDao.getHotCategory(date,date2, 6);

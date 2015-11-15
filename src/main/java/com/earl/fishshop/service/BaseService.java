@@ -7,6 +7,8 @@ public interface BaseService<T> {
 	Boolean save(T model);
 
 	Boolean update(T t);
+	
+	Boolean updateWithNotNullProperties(T t);
 
 	Boolean deleteById(Long id);
 
