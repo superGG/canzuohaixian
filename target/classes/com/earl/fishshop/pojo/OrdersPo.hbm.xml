@@ -13,7 +13,7 @@
         <version name="version" column="version" type="java.lang.Long"></version>
         <property name="shopId" type="java.lang.Long" column="shopId" />
         <property name="seaRecordId" type="java.lang.Long" column="seaRecordId" />
-        <property name="totalprice" type="java.lang.Long" column="totalprice" />
+        <property name="totalprice" type="java.lang.Double" column="totalprice" />
         <property name="state" type="java.lang.Integer" column="state" />
         <property name="buyerName" type="java.lang.String" column="buyerName" />
         <property name="orderNumber" type="java.lang.String" column="orderNumber" />

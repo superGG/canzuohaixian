@@ -208,4 +208,16 @@ public class OrdersDetailPo{
 	public Long getVersion() {
 		return this.version;
 	}
+	@Override
+	public String toString() {
+		return "OrdersDetailPo [ordersDetailId=" + ordersDetailId
+				+ ", orderId=" + orderId + ", shopId=" + shopId + ", goodsId="
+				+ goodsId + ", categoryId=" + categoryId + ", goodsName="
+				+ goodsName + ", goodsType=" + goodsType + ", price=" + price
+				+ ", totalprice=" + totalprice + ", sku=" + sku + ", unit="
+				+ unit + ", sellNumber=" + sellNumber + ", number=" + number
+				+ ", createTime=" + createTime + ", creatorId=" + creatorId
+				+ ", isDelete=" + isDelete + ", version=" + version + "]";
+	}
+	
 }

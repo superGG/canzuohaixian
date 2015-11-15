@@ -30,6 +30,8 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	
 	private PageInfo pageInfo;
 	
+	OrdersPo orders;
+	
 	public PageInfo getPageInfo() {
 		return pageInfo;
 	}
@@ -49,7 +51,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	// 下面填写业务逻辑
 
 	public void addOrders() {
-		Boolean save = ordersServer.addOrders(model);
+		Boolean save = ordersServer.addOrders(orders);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
 	}

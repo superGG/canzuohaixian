@@ -47,6 +47,10 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 
 	// 下面填写业务逻辑
 
+	/**
+	 * 添加商品.
+	 * @author 黄祥谦.
+	 */
 	public void addGoods() {
 		Boolean save = goodsServer.save(model);
 		resultMessage = new ResultMessage();

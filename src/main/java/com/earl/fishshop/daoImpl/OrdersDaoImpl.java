@@ -50,9 +50,12 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 		// TODO 未测试.
 		Long ordersId = (Long) getCurrentSession().save(orders);
 		List<OrdersDetailPo> ordersDetail = orders.getOrdersDetail();
-		for (OrdersDetailPo ordersDetailPo : ordersDetail) {
-			ordersDetailPo.setOrderId(ordersId);
-			getCurrentSession().save(ordersDetailPo);
+		if(ordersDetail != null){
+			for (OrdersDetailPo ordersDetailPo : ordersDetail) {
+				ordersDetailPo.setOrderId(ordersId);
+				getCurrentSession().save(ordersDetailPo);
+			}
+			
 		}
 	}
 

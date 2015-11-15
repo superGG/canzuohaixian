@@ -229,7 +229,7 @@ CREATE TABLE `orders` (
   `ordersId` bigint(20) NOT NULL AUTO_INCREMENT,
   `shopId` bigint(20) DEFAULT NULL,
   `seaRecordId` bigint(20) DEFAULT NULL,
-  `totalprice` bigint(20) DEFAULT NULL,
+  `totalprice` double DEFAULT NULL,
   `state` int(11) DEFAULT NULL,
   `buyerName` varchar(255) DEFAULT NULL,
   `orderNumber` varchar(255) DEFAULT NULL,

@@ -3,6 +3,7 @@ package com.earl.fishshop.pojo;
 import java.util.Date;
 import java.util.List;
 
+//TODO 添加订单收货地址信息.
 public class OrdersPo{
 
 
@@ -22,7 +23,7 @@ public class OrdersPo{
 	 * 字段描述：Long 
 	 * 字段类型：totalprice  
 	 */
-	private Long totalprice ;
+	private Double totalprice ;
 	
 	/**
 	 * 字段描述：Integer 
@@ -104,11 +105,11 @@ public class OrdersPo{
 	public Long getShopId() {
 		return this.shopId;
 	}
-	public void setTotalprice(Long totalprice){
-		this.totalprice = totalprice;
+	public Double getTotalprice() {
+		return totalprice;
 	}
-	public Long getTotalprice() {
-		return this.totalprice;
+	public void setTotalprice(Double totalprice) {
+		this.totalprice = totalprice;
 	}
 	public void setState(Integer state){
 		this.state = state;
@@ -139,5 +140,15 @@ public class OrdersPo{
 	}
 	public Long getVersion() {
 		return this.version;
+	}
+	@Override
+	public String toString() {
+		return "OrdersPo [ordersId=" + ordersId + ", shopId=" + shopId
+				+ ", totalprice=" + totalprice + ", state=" + state
+				+ ", buyerName=" + buyerName + ", ordersDetail=" + ordersDetail
+				+ ", seaRecordId=" + seaRecordId + ", orderNumber="
+				+ orderNumber + ", createTime=" + createTime + ", creatorId="
+				+ creatorId + ", isDelete=" + isDelete + ", version=" + version
+				+ "]";
 	}
 }
