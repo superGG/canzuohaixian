@@ -1,5 +1,8 @@
 package com.earl.fishshop.action;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -22,8 +25,18 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 */
 	private static final long serialVersionUID = 3293435262298029608L;
 
-	Long userId;
+	private Long userId;
 	
+	private Long identityId;
+	
+	public Long getIdentityId() {
+		return identityId;
+	}
+
+	public void setIdentityId(Long identityId) {
+		this.identityId = identityId;
+	}
+
 	public Long getUserId() {
 		return userId;
 	}
@@ -31,6 +44,8 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
+	
+	
 
 	protected ResultMessage resultMessage;
 
@@ -69,5 +84,18 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 		Boolean result = fishmanServer.authenticationFishman(userId,model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
+	}
+	
+	/**
+	 * 查询渔户的详细信息.
+	 *@author 宋文光.
+	 */
+	public void getFiahman() {
+		List<FishmanPo> list = fishmanServer.getFishman(identityId);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("fiashman", list);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
 	}
 }
