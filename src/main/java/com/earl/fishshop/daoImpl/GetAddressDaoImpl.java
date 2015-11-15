@@ -21,4 +21,13 @@ public class GetAddressDaoImpl extends BaseDaoImpl<GetAddressPo> implements GetA
 		List list = getCurrentSession().createQuery("from user where userid = 1").list();
 		return list;
 	}
+
+	@Override
+	public List<GetAddressPo> getUserAllAddress(Long userId) {
+		// TODO 未测试.
+		String hql = " from GetAddressPo where userId =:userId";
+		@SuppressWarnings("unchecked")
+		List<GetAddressPo> getAddressList = getCurrentSession().createQuery(hql).setLong("userId", userId).list();
+		return getAddressList;
+	}
 }

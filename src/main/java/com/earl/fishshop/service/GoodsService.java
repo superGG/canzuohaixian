@@ -52,4 +52,12 @@ public interface GoodsService extends BaseService<GoodsPo>{
 	 */
 	List<GoodsPo> getShopAllGoods(Long shopId, PageInfo pageInfo);
 
+	/**
+	 * 得到商品详情.
+	 * @author 黄祥谦.
+	 * @param goodsId
+	 * @return
+	 */
+	GoodsPo getGoodsInfo(Long goodsId);
+
 }

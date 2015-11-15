@@ -74,4 +74,11 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 		return goodsList;
 	}
 
+	@Override
+	public GoodsPo getGoodsInfo(Long goodsId) {
+		// TODO 未测试.
+		GoodsPo goods = goodsDao.get(goodsId);
+		return goods;
+	}
+
 }

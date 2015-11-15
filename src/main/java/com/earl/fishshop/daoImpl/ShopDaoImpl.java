@@ -41,6 +41,7 @@ public class ShopDaoImpl extends BaseDaoImpl<ShopPo> implements ShopDao {
 		// TODO 未测试.
 		Criteria createCriteria = getCurrentSession().createCriteria(GoodsPo.class);
 		createCriteria.add(Restrictions.eq("categoryId", categoryId));
+		createCriteria.add(Restrictions.gt("nowNumber", 0L));
 		createCriteria.setProjection(Projections.property("shopId"));
 		createCriteria.setProjection(Projections.groupProperty("shopId"));
 		

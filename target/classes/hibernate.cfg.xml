@@ -50,6 +50,7 @@
 	<mapping resource="com/earl/fishshop/pojo/UnitPo.hbm.xml" />
 	<mapping resource="com/earl/fishshop/pojo/UserPo.hbm.xml" />
 	<mapping resource="com/earl/fishshop/pojo/GetTypePo.hbm.xml" />
+	<mapping resource="com/earl/fishshop/pojo/GetAddressPo.hbm.xml" />
 	<mapping resource="com/earl/fishshop/pojo/CheckoutPo.hbm.xml" />
 	<mapping resource="com/earl/fishshop/pojo/ShipPortPo.hbm.xml" />
 	<mapping resource="com/earl/fishshop/pojo/FordersPo.hbm.xml" />

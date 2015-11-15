@@ -1,5 +1,7 @@
 package com.earl.fishshop.daoImpl;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -20,9 +22,9 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;
 
+import com.earl.fishshop.annotation.IdAnnotatioin;
 import com.earl.fishshop.base.BaseDao;
 import com.earl.fishshop.vo.PageInfo;
-
 
 /**
  * 这里用到工具类 HibernateHelper
@@ -82,10 +84,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	public boolean update(T t) {
 		logger.debug("update " + clazz.getName() + " instance");
 		try {
-			Session session = sessionFactory.getCurrentSession();
-			Transaction transaction = session.getTransaction();
-			System.out.println(transaction.getLocalStatus());
-			System.out.println(transaction.getTimeout());
+			
 			getCurrentSession().update(t);
 			return true;
 		} catch (Exception e) {
@@ -149,10 +148,10 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	public void delete(T persistentInstance) {
 		logger.debug("delete " + clazz.getName() + " instance");
 			try {
-				@SuppressWarnings("unchecked")
-				Method method = clazz.getMethod("setIsDelete",Boolean.class);
-				method.invoke(persistentInstance, true);
-				getCurrentSession().update(persistentInstance);
+//				Method method = clazz.getMethod("setIsDelete",Boolean.class);
+//				method.invoke(persistentInstance, true);
+//				getCurrentSession().update(persistentInstance);
+				getCurrentSession().delete(persistentInstance);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -202,6 +201,53 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		return listObject;
 	}
 
+		// 前提，pojo id属性名上要有 IdAnnotatioin标签
+		@Override
+		public void updateWithNotNullProperties(T object) {
+			//
+			T t = null;
+
+			Map<String, Object> notNullParam;
+
+			try {
+
+				notNullParam = getNotNullProperties(object);
+
+				BeanMap beanMap = new BeanMap(object);
+
+				Field[] fields = clazz.getDeclaredFields();
+
+				for (Field field : fields) {
+					//判断该属性是否标注着idAnnotation
+					if (field.isAnnotationPresent(IdAnnotatioin.class)) {
+						Long id;
+						// 得到po的id
+						id = (Long) beanMap.get(field.getName());
+						// 通过hibernate的id查询出对象
+						t = get(id);
+						break;
+					}
+				}
+
+				for (String paramName : notNullParam.keySet()) {
+					// 得到非空属性的set方法,得到非空属性的值
+
+					Method writeMethod = beanMap.getWriteMethod(paramName);
+
+					// 赋值，
+					writeMethod.invoke(t, beanMap.get(paramName));
+					// 更新
+				}
+				getCurrentSession().update(t);
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	
 	private Map<String, Object> getNotNullProperties(T object) {
 		Map<String, Object> notNullParam = null;
 		BeanMap beanMap = new BeanMap(object);

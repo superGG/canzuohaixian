@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.OrdersPo;
 import com.earl.fishshop.pojo.ResultMessage;
+import com.earl.fishshop.vo.PageInfo;
 
 /**
  * 
@@ -26,6 +27,18 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	private static final long serialVersionUID = 3293435262298029608L;
 
 	protected ResultMessage resultMessage;
+	
+	private PageInfo pageInfo;
+	
+	public PageInfo getPageInfo() {
+		return pageInfo;
+	}
+
+
+	public void setPageInfo(PageInfo pageInfo) {
+		this.pageInfo = pageInfo;
+	}
+
 
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public ResultMessage getResultMessage() {
@@ -36,7 +49,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	// 下面填写业务逻辑
 
 	public void addOrders() {
-		Boolean save = ordersServer.save(model);
+		Boolean save = ordersServer.addOrders(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
 	}
@@ -46,7 +59,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getMyShopOrders(){
-		List<OrdersPo> ordersList = ordersServer.getMyShopOrders(model.getShopId());
+		List<OrdersPo> ordersList = ordersServer.getMyShopOrders(model.getShopId(), pageInfo);
 	}
 	
 	/**
@@ -87,7 +100,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getOrdersWithSeaRecord(){
-		
+		List<OrdersPo> orders = ordersServer.getOrdersWithSeaRecord(model.getSeaRecordId(), pageInfo);
 	}
 	
 	/**

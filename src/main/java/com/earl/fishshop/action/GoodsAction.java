@@ -95,5 +95,15 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 		
 	}
 	
-	
+	/**
+	 * 得到商品信息
+	 * @author 黄祥谦.
+	 */
+	public void getGoodsInfo(){
+		GoodsPo goods= goodsServer.getGoodsInfo(model.getGoodsId());
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("goodsList", goods);
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+	}
 }

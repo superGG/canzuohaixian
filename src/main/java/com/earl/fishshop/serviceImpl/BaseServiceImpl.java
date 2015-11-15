@@ -127,6 +127,19 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 		return baseDao.findByGivenCriteria(object);
 	}
 
+	@Override
+	public Boolean updateWithNotNullProperties(T t) {
+		// TODO 未测试.
+		try {
+			baseDao.updateWithNotNullProperties(t);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 //	@SuppressWarnings("unchecked")
 //	@Override
 //	public List<T> findByGivenCreteriaWithPage(T object, PageInfo pageInfo) {

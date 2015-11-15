@@ -33,7 +33,7 @@ public class OrderDetailAction extends BaseAction<OrdersDetailPo> {
 
 	// 下面填写业务逻辑
 
-	public void addSorders() {
+	public void addOrderDetail() {
 		Boolean save = ordersDetailServer.save(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);

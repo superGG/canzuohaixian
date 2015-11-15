@@ -56,14 +56,23 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	}
 	
 	/**
-	 * 得到带层次结构的类别
+	 * 删除指定类别.
 	 * @author 黄祥谦.
 	 */
-	public void getHierarchyCategory(){
-		List<CategoryPo> categoryList = categoryServer.getHierarchyCategory();
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("categoryList", categoryList);
-		resultMessage.setResultParm(hashMap);
+	public void deleteCategory(){
+		Boolean delete = categoryServer.deleteById(model.getCategoryId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(delete);
+	}
+	
+	/**
+	 * 更新指定类别信息.
+	 * @author 黄祥谦.
+	 */
+	public void updateCategory(){
+		Boolean update = categoryServer.updateWithNotNullProperties(model);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(update);
 	}
 	
 	/**
@@ -85,6 +94,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		List<CategoryPo> categoryList = categoryServer.getNextLevelCategory(model.getCategoryId(), pageInfo);
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("categoryList", categoryList);
+		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 	}
 	
@@ -109,6 +119,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		List<CategoryPo> categoryList = categoryServer.getHotCategory(application);
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("categoryList", categoryList);
+		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}
@@ -121,6 +132,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		List<ShopPo> shopList = categoryServer.getGoodsShops(model.getCategoryId(), pageInfo);
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("shopList", shopList);
+		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}
