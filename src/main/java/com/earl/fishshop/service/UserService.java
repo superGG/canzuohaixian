@@ -29,4 +29,11 @@ public interface UserService extends BaseService<UserPo>{
 	 * @return
 	 */
 	String getPhoneByName(String userName);
+
+	/**
+	 * 获取所有渔户的用户信息.
+	 *@author 宋文光.
+	 * @return
+	 */
+	List<UserPo> getAllFishmanUser();
 }

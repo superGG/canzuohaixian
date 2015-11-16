@@ -1,5 +1,7 @@
 package com.earl.fishshop.serviceImpl;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
@@ -37,6 +39,12 @@ public class FishmanServiceImpl extends BaseServiceImpl<FishmanPo> implements
 			// TODO: handle exception
 			return false;
 		}
+	}
+
+	@Override
+	public List<FishmanPo> getFishman(Long identityId) {
+		List<FishmanPo> list = fishmanDao.getFishman(identityId);
+		return list;
 	}
 	
 }

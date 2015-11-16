@@ -23,6 +23,16 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 	 */
 	private static final long serialVersionUID = 3293435262298029608L;
 
+	private Long userId;
+	
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
 	protected ResultMessage resultMessage;
 
 	@ReturnValue //返回实体对象，或者其他任意对象
@@ -34,5 +44,15 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 		Boolean save = farmersServer.save(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
+	}
+	
+	/**
+	 * 用户认证为养殖户.
+	 * @author 宋文光.
+	 */
+	public void authenticationFishman(){
+		Boolean result = farmersServer.authenticationFarmer(userId,model);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(result);
 	}
 }

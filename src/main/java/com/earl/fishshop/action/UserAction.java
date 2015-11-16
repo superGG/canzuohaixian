@@ -82,10 +82,22 @@ public class UserAction extends BaseAction<UserPo> {
 	 * 得到我的商店信息.
 	 * @author 黄祥谦.
 	 */
-	public void getMyShop(){
+	public void getMyShop() {
 		ShopPo shop = shopServer.getMyShop(model.getUserId());
 		Map<String,Object> hashMap = new HashMap<String,Object>();
 		hashMap.put("shop", shop);
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+	}
+	
+	/**
+	 * 获取所有渔户的用户信息.
+	 *@author 宋文光.
+	 */
+	public void getAllFishmanUser() {
+		List<UserPo> userList = userServer.getAllFishmanUser();
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("fishmanUser", userList);
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}

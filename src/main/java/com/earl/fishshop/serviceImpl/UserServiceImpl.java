@@ -65,5 +65,11 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 		String phone = userList.get(0).getPhoneNumber();
 		return phone;
 	}
+
+	@Override
+	public List<UserPo> getAllFishmanUser() {
+		List<UserPo> userList = userDao.getAllFishmanUser();
+		return userList;
+	}
 	
 }
