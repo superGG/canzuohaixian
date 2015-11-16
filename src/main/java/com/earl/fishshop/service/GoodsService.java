@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.pojo.GoodsPo;
-import com.earl.fishshop.pojo.ShopPo;
 import com.earl.fishshop.vo.PageInfo;
 
 public interface GoodsService extends BaseService<GoodsPo>{

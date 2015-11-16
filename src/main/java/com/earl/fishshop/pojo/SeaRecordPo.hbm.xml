@@ -16,7 +16,9 @@
         <property name="endSeeTime" type="java.util.Date" column="endSeeTime" />
         <property name="spendDay" type="java.lang.Integer" column="spendDay" />
         <property name="state" type="java.lang.Integer" column="state" />
-        <property name="anchorPoint" type="java.lang.Integer" column="anchorPoint" />
+		<property name="shipportName" type="java.lang.String" column="shipportName" />
+        <property name="longitude" type="java.lang.Double" column="longitude" />
+        <property name="latitude" type="java.lang.Double" column="latitude" />
         <property name="createTime" type="java.util.Date" column="createTime" />
         <property name="creatorId" type="java.lang.Long" column="creatorId" />
         <property name="isDelete" type="java.lang.Boolean" column="isDelete" />

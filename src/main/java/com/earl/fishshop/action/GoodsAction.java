@@ -69,7 +69,7 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 	}
 	
 	/**
-	 * 更新商品价格.
+	 * 更新商品数量.
 	 * @author 黄祥谦.
 	 */
 	public void updateGoodNowNumber(){

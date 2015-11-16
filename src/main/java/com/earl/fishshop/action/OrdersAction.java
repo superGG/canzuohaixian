@@ -1,5 +1,6 @@
 package com.earl.fishshop.action;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.context.annotation.Scope;
@@ -57,11 +58,37 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	}
 	
 	/**
+	 * 更新订单.
+	 * @author 黄祥谦.
+	 */
+	public void updateOrders(){
+		Boolean updateWithNotNullProperties = ordersServer.updateWithNotNullProperties(model);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(updateWithNotNullProperties);
+		
+	}
+	
+	/**
+	 * 取消订单.
+	 * @author 黄祥谦.
+	 */
+	public void deleteOrders(){
+		Boolean deleteById = ordersServer.deleteById(model.getOrdersId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(deleteById);
+	}
+	
+	/**
 	 * 得到指定商店的所有订单.
 	 * @author 黄祥谦.
 	 */
 	public void getMyShopOrders(){
 		List<OrdersPo> ordersList = ordersServer.getMyShopOrders(model.getShopId(), pageInfo);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
 	}
 	
 	/**
@@ -69,8 +96,12 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getUnSentOrders(){
-//		ordersServer.getUnSentOrders();
-		
+		List<OrdersPo> ordersList = ordersServer.getUnSentOrders(pageInfo);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
 	}
 	
 	/**
@@ -78,7 +109,12 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getUnPayOrders(){
-		
+		List<OrdersPo> ordersList = ordersServer.getUnpayOrders(pageInfo);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
 	}
 	
 	/**
@@ -86,7 +122,12 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getUngetOrders(){
-		
+		List<OrdersPo> ordersList = ordersServer.getUngetOrders(pageInfo);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
 	}
 	
 	/**
@@ -94,7 +135,12 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getUnCommentOrders(){
-		
+		List<OrdersPo> ordersList = ordersServer.getUnCommentOrders(pageInfo);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
 	}
 	
 	/**
@@ -102,7 +148,12 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getOrdersWithSeaRecord(){
-		List<OrdersPo> orders = ordersServer.getOrdersWithSeaRecord(model.getSeaRecordId(), pageInfo);
+		List<OrdersPo> ordersList = ordersServer.getOrdersWithSeaRecord(model.getSeaRecordId(), pageInfo);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
 	}
 	
 	/**
@@ -110,6 +161,8 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void setOrderNumber(){
-		
+		Boolean success = ordersServer.setOrderNumber(model.getOrderNumber());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(success);
 	}
 }

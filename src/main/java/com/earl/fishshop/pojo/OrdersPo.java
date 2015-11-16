@@ -33,6 +33,12 @@ public class OrdersPo{
 	
 	private String buyerName;
 	
+	private String shopKeeperName;//店家店面，海哥好
+	
+	private String sendAddress;//发货地址
+	
+	private String phone;//收货电话
+	
 	private List<OrdersDetailPo> ordersDetail;
 	
 	/**
@@ -69,6 +75,24 @@ public class OrdersPo{
 	 */
 	private Long version ;
 	
+	public String getShopKeeperName() {
+		return shopKeeperName;
+	}
+	public void setShopKeeperName(String shopKeeperName) {
+		this.shopKeeperName = shopKeeperName;
+	}
+	public String getSendAddress() {
+		return sendAddress;
+	}
+	public void setSendAddress(String sendAddress) {
+		this.sendAddress = sendAddress;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	public String getOrderNumber() {
 		return orderNumber;
 	}
@@ -145,10 +169,11 @@ public class OrdersPo{
 	public String toString() {
 		return "OrdersPo [ordersId=" + ordersId + ", shopId=" + shopId
 				+ ", totalprice=" + totalprice + ", state=" + state
-				+ ", buyerName=" + buyerName + ", ordersDetail=" + ordersDetail
-				+ ", seaRecordId=" + seaRecordId + ", orderNumber="
-				+ orderNumber + ", createTime=" + createTime + ", creatorId="
-				+ creatorId + ", isDelete=" + isDelete + ", version=" + version
-				+ "]";
+				+ ", buyerName=" + buyerName + ", shopKeeperName="
+				+ shopKeeperName + ", sendAddress=" + sendAddress + ", phone="
+				+ phone + ", ordersDetail=" + ordersDetail + ", seaRecordId="
+				+ seaRecordId + ", orderNumber=" + orderNumber
+				+ ", createTime=" + createTime + ", creatorId=" + creatorId
+				+ ", isDelete=" + isDelete + ", version=" + version + "]";
 	}
 }

@@ -1,15 +1,11 @@
 package com.earl.shopping.action;
 
 import java.io.UnsupportedEncodingException;
-import java.util.Date;
-import java.util.List;
 
 import javax.servlet.ServletException;
 
 import org.apache.struts2.StrutsSpringTestCase;
 import org.junit.Test;
-
-import com.earl.fishshop.pojo.OrdersDetailPo;
 
 public class OrdersActionTest extends StrutsSpringTestCase {
 
@@ -34,7 +30,9 @@ public class OrdersActionTest extends StrutsSpringTestCase {
 		 "\"totalprice\" : \"30.5\"" +
 		 ",\"state\": \"1\"" +
 		 ",\"buyerName\": \"yilinfeng\"" +
-		 ",\"seaRecordId\": \"5\"" +
+		 ",\"shopKeeperName\": \"海格号\"" +
+		 ",\"sendAddress\": \"广东省湛江市广东海洋大学\"" +
+		 ",\"phone\": \"18719425973\"" +
 		 ",\"version\": \"1\"" +
 		 ",\"ordersDetail\": [{\"shopId\":\"5\"" +
 		 						",\"goodsId\": \"5\"" +
@@ -45,7 +43,7 @@ public class OrdersActionTest extends StrutsSpringTestCase {
 		 						",\"unit\": \"斤\"" +
 		 						",\"number\": \"5\"" +
 		 						",\"version\": \"1\"" +
-		 						",\"goodsType\":\"2341\"}" +
+		 						",\"goodsType\":\"养殖\"}" +
 		 					",{\"shopId\":\"5\"" +
 		 						",\"goodsId\": \"5\"" +
 		 						",\"categoryId\": \"5\"" +
@@ -74,4 +72,9 @@ public class OrdersActionTest extends StrutsSpringTestCase {
 		System.out.println(res);
 	}
 
+	@Test
+	public void testUpdateOrdersState() throws UnsupportedEncodingException, ServletException{
+		
+		String res = executeAction("/orders_updateOrdersState.action");
+	}
 }

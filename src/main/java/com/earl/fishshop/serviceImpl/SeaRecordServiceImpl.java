@@ -26,5 +26,17 @@ public class SeaRecordServiceImpl extends BaseServiceImpl<SeaRecordPo> implement
 	public void initBaseDao(){
 		baseDao = seaRecordDao;
 	}
+
+	@Override
+	public Boolean addSeaRecord(SeaRecordPo model) {
+		// TODO 未测试.
+		try {
+			seaRecordDao.addSeaRecord(model);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
+	}
 	
 }

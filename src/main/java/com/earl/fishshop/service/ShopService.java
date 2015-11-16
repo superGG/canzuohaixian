@@ -21,9 +21,20 @@ public interface ShopService extends BaseService<ShopPo>{
 	 */
 	Boolean updateSentPrice(Long shopId, Double sendPrice);
 
-	
+	/**
+	 * 添加商店信息.
+	 * @author 黄祥谦.
+	 * @param model
+	 * @return
+	 */
+	Boolean addShop(ShopPo model);
 
-	
-	
-	
+	/**
+	 * 停止航行.
+	 * @author 黄祥谦.
+	 * @param shopId
+	 * @return
+	 */
+	Boolean endSeaing(Long shopId);
+
 }

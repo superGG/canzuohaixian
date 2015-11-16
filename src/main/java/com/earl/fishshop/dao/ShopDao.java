@@ -33,4 +33,14 @@ public interface ShopDao extends BaseDao<ShopPo>{
 	 */
 	List<ShopPo> getGoodsShops(Long categoryId, PageInfo pageInfo);
 
+	/**
+	 * 得到该类别下的养殖户商家的信息.
+	 * @author 黄祥谦.
+	 * @param categoryId
+	 * @param shopType TODO
+	 * @param pageInfo
+	 * @return
+	 */
+	List<ShopPo> getPointTypeGoodsShops(Long categoryId, Integer shopType, PageInfo pageInfo);
+
 }

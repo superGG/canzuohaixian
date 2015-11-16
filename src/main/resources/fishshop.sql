@@ -131,7 +131,7 @@ CREATE TABLE `fishman` (
   `seaPassPhoto` varchar(255) DEFAULT NULL,
   `shipPhoto` varchar(255) DEFAULT NULL,
   `enginePower` bigint(20) DEFAULT NULL,
-  `homePort` int(11) DEFAULT NULL,
+  `homePort` bigint(20) DEFAULT NULL,
   `shipCreateTime` date DEFAULT NULL,
   `realName` varchar(255) DEFAULT NULL,
   `tonnage` bigint(20) DEFAULT NULL,
@@ -232,7 +232,9 @@ CREATE TABLE `orders` (
   `totalprice` double DEFAULT NULL,
   `state` int(11) DEFAULT NULL,
   `buyerName` varchar(255) DEFAULT NULL,
-  `orderNumber` varchar(255) DEFAULT NULL,
+  `shopKeeperName` varchar(255) DEFAULT NULL,
+  `sendAddress` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
@@ -260,7 +262,6 @@ CREATE TABLE `ordersdetail` (
   `totalprice` double DEFAULT NULL,
   `sku` varchar(255) DEFAULT NULL,
   `unit` varchar(255) DEFAULT NULL,
-  `sellNumber` bigint(20) DEFAULT NULL,
   `number` bigint(20) DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `creatorId` bigint(20) DEFAULT NULL,
@@ -272,8 +273,8 @@ CREATE TABLE `ordersdetail` (
 -- ----------------------------
 -- Records of ordersdetail
 -- ----------------------------
-INSERT INTO `ordersdetail` VALUES ('1', '1', '1', '1', '2', null, null, null, null, null, null, null, '2', '2015-11-15 11:04:07', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('2', '2', null, null, '2', null, null, null, null, null, null, null, '5', '2015-11-15 11:05:08', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('1', '1', '1', '1', '2', null, null, null, null, null, null, '2', '2015-11-15 11:04:07', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('2', '2', null, null, '2', null, null, null, null, null, null, '5', '2015-11-15 11:05:08', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `searecord`
@@ -286,7 +287,9 @@ CREATE TABLE `searecord` (
   `endSeeTime` datetime DEFAULT NULL,
   `spendDay` int(11) DEFAULT NULL,
   `state` int(11) DEFAULT NULL,
-  `anchorPoint` int(11) DEFAULT NULL,
+  `shipportName` varchar(255) DEFAULT NULL,
+  `lontitude` double DEFAULT NULL,
+  `latitude` double DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
@@ -314,6 +317,21 @@ CREATE TABLE `shipport` (
   PRIMARY KEY (`shipportId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `getAddress`;
+CREATE TABLE `getAddress` (
+  `getAddressId` bigint(20) NOT NULL AUTO_INCREMENT,
+  `userId` bigint(20) DEFAULT NULL ,
+  `userName` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `postcode` varchar(255) DEFAULT NULL,
+  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `creatorId` bigint(20) DEFAULT NULL,
+  `isDelete` bit(1) DEFAULT b'0',
+  `version` bigint(20) DEFAULT '1',
+  PRIMARY KEY (`getAddressId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 -- ----------------------------
 -- Records of shipport
 -- ----------------------------
@@ -333,6 +351,12 @@ CREATE TABLE `shop` (
   `shopType` int(11) DEFAULT NULL,
   `sendPrice` double DEFAULT NULL,
   `onSell` bit(1) DEFAULT NULL,
+  `shipPort` varchar(255) DEFAULT NULL,
+  `portTime` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `seaRecordId` bigint(20) DEFAULT NULL,
+  `lontitude` double DEFAULT NULL,
+  `latitude` double DEFAULT NULL,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -343,8 +367,8 @@ CREATE TABLE `shop` (
 -- ----------------------------
 -- Records of shop
 -- ----------------------------
-INSERT INTO `shop` VALUES ('1', '1', '海格号', '3', null, null, null, '1', '234.45', '', null, '', '2015-11-06 18:43:07', '1');
-INSERT INTO `shop` VALUES ('2', '3', '钟海号', '4', null, null, null, null, '30', '', null, '', '2015-11-15 09:56:05', '1');
+-- INSERT INTO `shop` VALUES ('1', '1', '海格号', '3', null, null, null, '1', '234.45', '', null, '',null,null,null, '2015-11-06 18:43:07', '1');
+-- INSERT INTO `shop` VALUES ('2', '3', '钟海号', '4', null, null, null, null, '30', '', null, '',null,null,null, '2015-11-15 09:56:05', '1');
 
 -- ----------------------------
 -- Table structure for `sku`

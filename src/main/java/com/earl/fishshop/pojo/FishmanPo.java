@@ -57,7 +57,7 @@ public class FishmanPo{
 	 * 字段描述：Integer 
 	 * 字段类型：homePort  
 	 */
-	private Integer homePort ;
+	private Long homePort ;
 	
 	/**
 	 * 字段描述：Date 
@@ -156,11 +156,11 @@ public class FishmanPo{
 	public Long getEnginePower() {
 		return this.enginePower;
 	}
-	public void setHomePort(Integer homePort){
-		this.homePort = homePort;
+	public Long getHomePort() {
+		return homePort;
 	}
-	public Integer getHomePort() {
-		return this.homePort;
+	public void setHomePort(Long homePort) {
+		this.homePort = homePort;
 	}
 	public void setShipCreateTime(Date shipCreateTime){
 		this.shipCreateTime = shipCreateTime;
@@ -209,5 +209,18 @@ public class FishmanPo{
 	}
 	public Long getVersion() {
 		return this.version;
+	}
+	@Override
+	public String toString() {
+		return "FishmanPo [fishmanId=" + fishmanId + ", shopId=" + shopId
+				+ ", frontIdentityPhoto=" + frontIdentityPhoto
+				+ ", backIdentityPhoto=" + backIdentityPhoto
+				+ ", seaPassPhoto=" + seaPassPhoto + ", shipPhoto=" + shipPhoto
+				+ ", getType=" + getType + ", enginePower=" + enginePower
+				+ ", homePort=" + homePort + ", shipCreateTime="
+				+ shipCreateTime + ", realName=" + realName + ", tonnage="
+				+ tonnage + ", fishingLicense=" + fishingLicense
+				+ ", createTime=" + createTime + ", creatorId=" + creatorId
+				+ ", isDelete=" + isDelete + ", version=" + version + "]";
 	}
 }

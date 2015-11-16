@@ -71,13 +71,6 @@ public class OrdersDetailPo{
 	
 	/**
 	 * 字段描述：Long 
-	 * 字段类型：sellNumber  
-	 */
-	//TODO 去掉sellNumber.
-	private Long sellNumber ;
-	
-	/**
-	 * 字段描述：Long 
 	 * 字段类型：number  
 	 */
 	private Long number ;
@@ -172,12 +165,6 @@ public class OrdersDetailPo{
 	public String getUnit() {
 		return this.unit;
 	}
-	public void setSellNumber(Long sellNumber){
-		this.sellNumber = sellNumber;
-	}
-	public Long getSellNumber() {
-		return this.sellNumber;
-	}
 	public void setNumber(Long number){
 		this.number = number;
 	}
@@ -215,9 +202,8 @@ public class OrdersDetailPo{
 				+ goodsId + ", categoryId=" + categoryId + ", goodsName="
 				+ goodsName + ", goodsType=" + goodsType + ", price=" + price
 				+ ", totalprice=" + totalprice + ", sku=" + sku + ", unit="
-				+ unit + ", sellNumber=" + sellNumber + ", number=" + number
-				+ ", createTime=" + createTime + ", creatorId=" + creatorId
-				+ ", isDelete=" + isDelete + ", version=" + version + "]";
+				+ unit + ", number=" + number + ", createTime=" + createTime
+				+ ", creatorId=" + creatorId + ", isDelete=" + isDelete
+				+ ", version=" + version + "]";
 	}
-	
 }

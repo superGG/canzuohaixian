@@ -39,4 +39,21 @@ public interface OrdersDao extends BaseDao<OrdersPo>{
 	 */
 	List<OrdersPo> getOrdersWithSeaRecord(Long seaRecordId, PageInfo pageInfo);
 
+	/**
+	 * 得到未发货订单.
+	 * @author 黄祥谦.
+	 * @param state TODO
+	 * @param pageInfo TODO
+	 * @return
+	 */
+	List<OrdersPo> getPointStateOrders(Integer state, PageInfo pageInfo);
+
+	/**
+	 * 设置订单编号.
+	 * @author 黄祥谦.
+	 * @param ordersId TODO
+	 * @param orderNumber
+	 */
+	void setOrderNumber(Long ordersId, String orderNumber);
+
 }

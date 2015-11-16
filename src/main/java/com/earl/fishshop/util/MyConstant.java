@@ -55,6 +55,27 @@ public class MyConstant {
 	 */
 	public static final Integer user_farmer= 2;
 
+	public static final Integer order_unsent = 0;
+	
+	public static final Integer order_unpay= 1;
+
+	public static final Integer order_unget = 2;
+
+	public static final Integer order_uncomment = 3;
+
+	public static final Boolean shop_notOnSell = false;
+	
+	public static final Boolean shop_onSell = true;
+
+	/**
+	 * 标志渔户商店
+	 */
+	public static final Integer shop_fishman = 0;
+
+	/**
+	 * 标志养殖户商店
+	 */
+	public static final Integer shop_farmerman = 0;
 
 
 }

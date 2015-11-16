@@ -69,6 +69,10 @@ public class GetAddressAction extends BaseAction<GetAddressPo> {
 		resultMessage.setServiceResult(deleteById);
 	}
 	
+	/**
+	 * 得到用户的所有收货地址.
+	 * @author 黄祥谦.
+	 */
 	public void getUserAllAddress(){
 		List<GetAddressPo> getAddressList = getAddressServer.getUserAllAddress(model.getUserId());
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
