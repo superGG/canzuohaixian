@@ -32,7 +32,7 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 		List<OrdersPo> ordersList= createCriteria.list();
 		
 		for (OrdersPo ordersPo : ordersList) {
-			String hql2 = "from OrdersDetailPo where orderId =: orderId";
+			String hql2 = "from OrdersDetailPo where orderId =:orderId";
 			@SuppressWarnings("unchecked")
 			List<OrdersDetailPo> ordersDetailList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).list();
 			ordersPo.setOrdersDetail(ordersDetailList);
@@ -54,7 +54,7 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 		List<OrdersDetailPo> ordersDetail = orders.getOrdersDetail();
 		if(ordersDetail != null){
 			for (OrdersDetailPo ordersDetailPo : ordersDetail) {
-				String hql = "update GoodsPo set nowNumber=nowNumber - :tosell,sellNumber=sellNumber + :tosell where goodsId =:goodsId and nowNubmer-:tosell >= 0";
+				String hql = "update GoodsPo set nowNumber=nowNumber - :tosell,sellNumber=sellNumber + :tosell where goodsId =:goodsId and nowNumber-:tosell >= 0";
 				Integer executeUpdate = getCurrentSession().createQuery(hql).setLong("tosell", ordersDetailPo.getNumber()).setLong("goodsId",ordersDetailPo.getGoodsId()).executeUpdate();
 				if(executeUpdate == 0 ){
 					throw new RuntimeException("商品数量不够！！");
@@ -77,7 +77,7 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 		@SuppressWarnings("unchecked")
 		List<OrdersPo> ordersList = createCriteria.list();
 		for (OrdersPo ordersPo : ordersList) {
-			String hql2 = "from OrdersDetailPo where orderId =: orderId";
+			String hql2 = "from OrdersDetailPo where orderId =:orderId";
 			@SuppressWarnings("unchecked")
 			List<OrdersDetailPo> ordersDetailList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).list();
 			ordersPo.setOrdersDetail(ordersDetailList);
@@ -86,17 +86,18 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 	}
 
 	@Override
-	public List<OrdersPo> getPointStateOrders(Integer state, PageInfo pageInfo) {
+	public List<OrdersPo> getPointStateOrders(Long userId, Integer state, PageInfo pageInfo) {
 		// TODO 未测试.
 		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
 		createCriteria.add(Restrictions.eq("state", state));
+		createCriteria.add(Restrictions.eq("userId", userId));
 		createCriteria.setFirstResult(
 				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
 				.setMaxResults(pageInfo.getSize());
 		@SuppressWarnings("unchecked")
 		List<OrdersPo> ordersList = createCriteria.list();
 		for (OrdersPo ordersPo : ordersList) {
-			String hql2 = "from OrdersDetailPo where orderId =: orderId";
+			String hql2 = "from OrdersDetailPo where orderId =:orderId";
 			@SuppressWarnings("unchecked")
 			List<OrdersDetailPo> ordersDetailList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).list();
 			ordersPo.setOrdersDetail(ordersDetailList);

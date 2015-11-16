@@ -11,6 +11,7 @@
             <generator class="native"></generator>
         </id>
         <version name="version" column="version" type="java.lang.Long"></version>
+        <property name="userId" type="java.lang.Long" column="userId" />
         <property name="shopId" type="java.lang.Long" column="shopId" />
         <property name="seaRecordId" type="java.lang.Long" column="seaRecordId" />
         <property name="totalprice" type="java.lang.Double" column="totalprice" />

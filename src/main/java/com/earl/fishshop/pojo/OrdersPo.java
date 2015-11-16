@@ -3,6 +3,8 @@ package com.earl.fishshop.pojo;
 import java.util.Date;
 import java.util.List;
 
+import com.earl.fishshop.annotation.IdAnnotatioin;
+
 //TODO 添加订单收货地址信息.
 public class OrdersPo{
 
@@ -11,7 +13,10 @@ public class OrdersPo{
 	 * 字段描述：Long 
 	 * 字段类型：ordersId  
 	 */
+	@IdAnnotatioin
 	private Long ordersId ;
+	
+	private Long userId;
 	
 	/**
 	 * 字段描述：Long 
@@ -75,6 +80,12 @@ public class OrdersPo{
 	 */
 	private Long version ;
 	
+	public Long getUserId() {
+		return userId;
+	}
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 	public String getShopKeeperName() {
 		return shopKeeperName;
 	}
@@ -167,13 +178,14 @@ public class OrdersPo{
 	}
 	@Override
 	public String toString() {
-		return "OrdersPo [ordersId=" + ordersId + ", shopId=" + shopId
-				+ ", totalprice=" + totalprice + ", state=" + state
-				+ ", buyerName=" + buyerName + ", shopKeeperName="
-				+ shopKeeperName + ", sendAddress=" + sendAddress + ", phone="
-				+ phone + ", ordersDetail=" + ordersDetail + ", seaRecordId="
-				+ seaRecordId + ", orderNumber=" + orderNumber
-				+ ", createTime=" + createTime + ", creatorId=" + creatorId
-				+ ", isDelete=" + isDelete + ", version=" + version + "]";
+		return "OrdersPo [ordersId=" + ordersId + ", userId=" + userId
+				+ ", shopId=" + shopId + ", totalprice=" + totalprice
+				+ ", state=" + state + ", buyerName=" + buyerName
+				+ ", shopKeeperName=" + shopKeeperName + ", sendAddress="
+				+ sendAddress + ", phone=" + phone + ", ordersDetail="
+				+ ordersDetail + ", seaRecordId=" + seaRecordId
+				+ ", orderNumber=" + orderNumber + ", createTime=" + createTime
+				+ ", creatorId=" + creatorId + ", isDelete=" + isDelete
+				+ ", version=" + version + "]";
 	}
 }

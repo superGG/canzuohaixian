@@ -42,7 +42,6 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		this.pageInfo = pageInfo;
 	}
 
-
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public ResultMessage getResultMessage() {
 		return resultMessage;
@@ -58,7 +57,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	}
 	
 	/**
-	 * 更新订单.
+	 * 更新订单.包括状态
 	 * @author 黄祥谦.
 	 */
 	public void updateOrders(){
@@ -92,11 +91,11 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	}
 	
 	/**
-	 * 得到未发货订单.
+	 * 客户得到未发货订单.
 	 * @author 黄祥谦.
 	 */
 	public void getUnSentOrders(){
-		List<OrdersPo> ordersList = ordersServer.getUnSentOrders(pageInfo);
+		List<OrdersPo> ordersList = ordersServer.getUnSentOrders(model.getUserId(), pageInfo);
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
@@ -109,7 +108,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getUnPayOrders(){
-		List<OrdersPo> ordersList = ordersServer.getUnpayOrders(pageInfo);
+		List<OrdersPo> ordersList = ordersServer.getUnpayOrders(model.getUserId(), pageInfo);
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
@@ -122,7 +121,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getUngetOrders(){
-		List<OrdersPo> ordersList = ordersServer.getUngetOrders(pageInfo);
+		List<OrdersPo> ordersList = ordersServer.getUngetOrders(model.getUserId(), pageInfo);
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
@@ -135,7 +134,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getUnCommentOrders(){
-		List<OrdersPo> ordersList = ordersServer.getUnCommentOrders(pageInfo);
+		List<OrdersPo> ordersList = ordersServer.getUnCommentOrders(model.getUserId(), pageInfo);
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
@@ -161,7 +160,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void setOrderNumber(){
-		Boolean success = ordersServer.setOrderNumber(model.getOrderNumber());
+		Boolean success = ordersServer.setOrderNumber(model.getOrdersId(), model.getOrderNumber());
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(success);
 	}

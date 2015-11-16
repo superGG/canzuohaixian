@@ -42,11 +42,12 @@ public interface OrdersDao extends BaseDao<OrdersPo>{
 	/**
 	 * 得到未发货订单.
 	 * @author 黄祥谦.
+	 * @param userId TODO
 	 * @param state TODO
 	 * @param pageInfo TODO
 	 * @return
 	 */
-	List<OrdersPo> getPointStateOrders(Integer state, PageInfo pageInfo);
+	List<OrdersPo> getPointStateOrders(Long userId, Integer state, PageInfo pageInfo);
 
 	/**
 	 * 设置订单编号.
