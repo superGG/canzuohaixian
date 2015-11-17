@@ -63,13 +63,17 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 				model.setLatitude(farmers.getLatitude());
 				model.setShopType(MyConstant.shop_farmerman);
 				model.setOnSell(MyConstant.shop_onSell);
-				shopDao.save(model);
+				Long shopId = shopDao.addShop(model);
+				farmers.setShopId(shopId);
+				farmersDao.update(farmers);
 			}else if(userPo.getUserType() == MyConstant.user_fishman){
 				FishmanPo fishman = fishmanDao.get(userPo.getIdentityId());
 				model.setShopType(MyConstant.shop_fishman);
 				model.setGetType(String.valueOf(fishman.getGetType()));
 				model.setOnSell(MyConstant.shop_notOnSell);
-				shopDao.save(model);
+				Long shopId = shopDao.addShop(model);
+				fishman.setShopId(shopId);
+				fishmanDao.update(fishman);
 			}
 			return true;
 		} catch (Exception e) {

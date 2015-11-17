@@ -1,5 +1,6 @@
 package com.earl.fishshop.daoImpl;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -52,5 +53,12 @@ public class ShopDaoImpl extends BaseDaoImpl<ShopPo> implements ShopDao {
 		Long uniqueResult = (Long) getCurrentSession().createQuery(hql2).setLong("categoryId", categoryId).setInteger("shopType", shopType).uniqueResult();
 		pageInfo.setTotalCount(uniqueResult);
 		return shopList;
+	}
+
+	@Override
+	public Long addShop(ShopPo model) {
+		// TODO 未测试.
+		Long save = (Long) getCurrentSession().save(model);
+		return save;
 	}
 }
