@@ -71,26 +71,14 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	public void save(T t) {
 		System.out.println("dodo1");
 		logger.debug("saving " + clazz.getName() + " instance");
-		Session session = sessionFactory.getCurrentSession();
-		Transaction transaction = session.getTransaction();
-		System.out.println(transaction.getLocalStatus());
-		System.out.println(transaction.getTimeout());
-		System.out.println(transaction);
-		session.save(t);
+		getCurrentSession().save(t);
 	}
 
 	// 更新对象
 	@Override
-	public boolean update(T t) {
+	public void update(T t) {
 		logger.debug("update " + clazz.getName() + " instance");
-		try {
-			
 			getCurrentSession().update(t);
-			return true;
-		} catch (Exception e) {
-			logger.debug(e);
-			return false;
-		}
 	}
 
 	// 根据ID删除对象

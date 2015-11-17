@@ -58,13 +58,6 @@ public class CategoryActionTest extends StrutsSpringTestCase {
 	}
 
 	@Test
-	public void testGetAllCategory() throws UnsupportedEncodingException,
-			ServletException {
-		String res = executeAction("/category_getAllCategory.action");
-		System.out.println(res);
-	}
-
-	@Test
 	public void testGetNextLevelCategory() throws UnsupportedEncodingException,
 			ServletException {
 		request.addParameter("categoryId", "1"); // 鱼类
@@ -91,7 +84,7 @@ public class CategoryActionTest extends StrutsSpringTestCase {
 	@Test
 	public void testGetHotCategory() throws UnsupportedEncodingException,
 			ServletException {
-		request.addParameter("categoryId", "2"); // 鱼类
+		request.addParameter("categoryId", "2"); // 
 		request.addParameter("pageInfo.indexPageNum", "1");
 		request.addParameter("pageInfo.size", "2");
 		String res = executeAction("/category_getHotCategory.action");

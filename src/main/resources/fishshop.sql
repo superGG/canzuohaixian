@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-11-17 11:26:40
+Date: 2015-11-17 19:05:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -37,15 +37,20 @@ CREATE TABLE `category` (
   PRIMARY KEY (`categoryId`),
   KEY `FK_t5q79q343h5dagly7r5avs1wj` (`parentId`),
   CONSTRAINT `FK_t5q79q343h5dagly7r5avs1wj` FOREIGN KEY (`parentId`) REFERENCES `category` (`categoryId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of category
 -- ----------------------------
 INSERT INTO `category` VALUES ('1', '鱼类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('2', '东星白班鱼', '东星白班鱼', '3', 'whitefish', '1', 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('3', '小黄鱼', '小黄鱼', '3', 'yellowfish', '1', 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('4', '小黑鱼', '小黑鱼', '3', 'smallblackfish', '1', 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('2', '虾类', '虾类', '3', 'shrimpscategory', null, 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('3', '蟹类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('4', '贝类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('5', '鱿鱼类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('6', '人参类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('7', '东星白班鱼', '东星白班鱼', '3', 'whitefish', '1', 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('8', '小黄鱼', '小黄鱼', '3', 'yellowfish', '1', 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('9', '小黑鱼', '小黑鱼', '3', 'smallblackfish', '1', 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
 
 -- ----------------------------
 -- Table structure for `checkout`
@@ -113,7 +118,7 @@ CREATE TABLE `farmers` (
   `isDelete` bit(1) DEFAULT NULL,
   `version` bigint(20) DEFAULT '1',
   PRIMARY KEY (`farmersId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of farmers
@@ -147,29 +152,6 @@ CREATE TABLE `fishman` (
 
 -- ----------------------------
 -- Records of fishman
--- ----------------------------
-
--- ----------------------------
--- Table structure for `forders`
--- ----------------------------
-DROP TABLE IF EXISTS `forders`;
-CREATE TABLE `forders` (
-  `fordersId` bigint(20) NOT NULL AUTO_INCREMENT,
-  `shopId` bigint(20) DEFAULT NULL,
-  `seaRecordId` bigint(20) DEFAULT NULL,
-  `totalprice` bigint(20) DEFAULT NULL,
-  `state` int(11) DEFAULT NULL,
-  `buyerName` varchar(255) DEFAULT NULL,
-  `orderNumber` varchar(255) DEFAULT NULL,
-  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `creatorId` bigint(20) DEFAULT NULL,
-  `isDelete` bit(1) DEFAULT b'0',
-  `version` bigint(20) DEFAULT '1',
-  PRIMARY KEY (`fordersId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of forders
 -- ----------------------------
 
 -- ----------------------------
@@ -412,35 +394,6 @@ INSERT INTO `sku` VALUES ('2', '1', '大号(15-20)', '2015-11-04 22:59:08', null
 INSERT INTO `sku` VALUES ('3', '1', '小号(5-10)', '2015-11-04 22:59:32', null, '', '1');
 
 -- ----------------------------
--- Table structure for `sorders`
--- ----------------------------
-DROP TABLE IF EXISTS `sorders`;
-CREATE TABLE `sorders` (
-  `sordersId` bigint(20) NOT NULL AUTO_INCREMENT,
-  `forderId` bigint(20) DEFAULT NULL,
-  `shopId` bigint(20) DEFAULT NULL,
-  `goodsId` bigint(20) DEFAULT NULL,
-  `categoryId` bigint(20) DEFAULT NULL,
-  `goodsName` varchar(255) DEFAULT NULL,
-  `goodsType` varchar(255) DEFAULT NULL,
-  `price` double DEFAULT NULL,
-  `totalprice` double DEFAULT NULL,
-  `sku` varchar(255) DEFAULT NULL,
-  `unit` varchar(255) DEFAULT NULL,
-  `sellNumber` bigint(20) DEFAULT NULL,
-  `number` bigint(20) DEFAULT NULL,
-  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `creatorId` bigint(20) DEFAULT NULL,
-  `isDelete` bit(1) DEFAULT b'0',
-  `version` bigint(20) DEFAULT '1',
-  PRIMARY KEY (`sordersId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of sorders
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `unit`
 -- ----------------------------
 DROP TABLE IF EXISTS `unit`;
@@ -488,3 +441,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` VALUES ('1', '2', '1', '2', '易临风', '798555920', '18719425973', './aaa.jpg', '2015-11-05 11:12:04', null, '', '1');
 INSERT INTO `user` VALUES ('2', '1', '1', '1', 'Imissyou', '798555920', '18719425973', './aaa.jpg', '2015-11-05 11:12:04', null, '', '1');
 INSERT INTO `user` VALUES ('3', '2', '1', '1', '', '798555920', '18719425973', './aaa.jpg', '2015-11-15 09:54:21', null, '', '1');
+
+
+
+
+select s.* from shop s,goods g where s.onSell=true and g.categoryId=2 and g.nowNumber > 0 group by shopId limit 0,3;

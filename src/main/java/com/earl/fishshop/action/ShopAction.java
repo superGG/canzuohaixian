@@ -108,8 +108,8 @@ public class ShopAction extends BaseAction<ShopPo> {
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("goodsList", goodsList);
 		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(true);
 		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
 	}
 	
 	/**
@@ -120,6 +120,11 @@ public class ShopAction extends BaseAction<ShopPo> {
 	public void getShop(){
 	ShopPo shop = shopServer.get(model.getShopId());
 	System.out.println(shop);
+	Map<String, Object> hashMap = new HashMap<String, Object>();
+	hashMap.put("shop", shop);
+	resultMessage = new ResultMessage();
+	resultMessage.setResultParm(hashMap);
+	resultMessage.setServiceResult(true);
 	}
 	
 	/**
@@ -128,7 +133,8 @@ public class ShopAction extends BaseAction<ShopPo> {
 	 */
 	public void endSeaing(){
 	Boolean success = shopServer.endSeaing(model.getShopId());
-	
+	resultMessage = new ResultMessage();
+	resultMessage.setServiceResult(success);
 	}
 
 

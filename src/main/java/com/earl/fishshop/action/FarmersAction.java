@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.FarmersPo;
-import com.earl.fishshop.pojo.FishmanPo;
 import com.earl.fishshop.pojo.ResultMessage;
 
 /**

@@ -33,7 +33,6 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 
 	@Override
 	public ShopPo getMyShop(Long userId) {
-		// TODO 未测试.
 		ShopPo shop = shopDao.getMyShop(userId);
 		return shop;
 	}
@@ -83,10 +82,15 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 	@Override
 	public Boolean endSeaing(Long shopId) {
 		// TODO 未测试.
-		ShopPo shopPo = shopDao.get(shopId);
-		shopPo.setOnSell(false);
-		boolean update = shopDao.update(shopPo);
-		return update;
+		try {
+			ShopPo shopPo = shopDao.get(shopId);
+			shopPo.setOnSell(false);
+			shopDao.update(shopPo);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
 	}
 
 }
