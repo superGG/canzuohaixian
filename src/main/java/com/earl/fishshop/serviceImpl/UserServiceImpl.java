@@ -71,5 +71,11 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 		List<UserPo> userList = userDao.getAllFishmanUser();
 		return userList;
 	}
+
+	@Override
+	public List<UserPo> getAllFarmersUser() {
+		List<UserPo> userList = userDao.getAllFarmersUser();
+		return userList;
+	}
 	
 }
