@@ -3,6 +3,9 @@ package com.earl.fishshop.pojo;
 import java.util.Date;
 import java.util.List;
 
+import com.earl.fishshop.annotation.IdAnnotatioin;
+
+//TODO 添加订单收货地址信息.
 public class OrdersPo{
 
 
@@ -10,7 +13,10 @@ public class OrdersPo{
 	 * 字段描述：Long 
 	 * 字段类型：ordersId  
 	 */
+	@IdAnnotatioin
 	private Long ordersId ;
+	
+	private Long userId;
 	
 	/**
 	 * 字段描述：Long 
@@ -22,7 +28,7 @@ public class OrdersPo{
 	 * 字段描述：Long 
 	 * 字段类型：totalprice  
 	 */
-	private Long totalprice ;
+	private Double totalprice ;
 	
 	/**
 	 * 字段描述：Integer 
@@ -31,6 +37,12 @@ public class OrdersPo{
 	private Integer state ;
 	
 	private String buyerName;
+	
+	private String shopKeeperName;//店家店面，海哥好
+	
+	private String sendAddress;//发货地址
+	
+	private String phone;//收货电话
 	
 	private List<OrdersDetailPo> ordersDetail;
 	
@@ -68,6 +80,30 @@ public class OrdersPo{
 	 */
 	private Long version ;
 	
+	public Long getUserId() {
+		return userId;
+	}
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+	public String getShopKeeperName() {
+		return shopKeeperName;
+	}
+	public void setShopKeeperName(String shopKeeperName) {
+		this.shopKeeperName = shopKeeperName;
+	}
+	public String getSendAddress() {
+		return sendAddress;
+	}
+	public void setSendAddress(String sendAddress) {
+		this.sendAddress = sendAddress;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	public String getOrderNumber() {
 		return orderNumber;
 	}
@@ -104,11 +140,11 @@ public class OrdersPo{
 	public Long getShopId() {
 		return this.shopId;
 	}
-	public void setTotalprice(Long totalprice){
-		this.totalprice = totalprice;
+	public Double getTotalprice() {
+		return totalprice;
 	}
-	public Long getTotalprice() {
-		return this.totalprice;
+	public void setTotalprice(Double totalprice) {
+		this.totalprice = totalprice;
 	}
 	public void setState(Integer state){
 		this.state = state;
@@ -139,5 +175,17 @@ public class OrdersPo{
 	}
 	public Long getVersion() {
 		return this.version;
+	}
+	@Override
+	public String toString() {
+		return "OrdersPo [ordersId=" + ordersId + ", userId=" + userId
+				+ ", shopId=" + shopId + ", totalprice=" + totalprice
+				+ ", state=" + state + ", buyerName=" + buyerName
+				+ ", shopKeeperName=" + shopKeeperName + ", sendAddress="
+				+ sendAddress + ", phone=" + phone + ", ordersDetail="
+				+ ordersDetail + ", seaRecordId=" + seaRecordId
+				+ ", orderNumber=" + orderNumber + ", createTime=" + createTime
+				+ ", creatorId=" + creatorId + ", isDelete=" + isDelete
+				+ ", version=" + version + "]";
 	}
 }

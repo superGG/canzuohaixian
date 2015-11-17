@@ -18,7 +18,7 @@
         <property name="shipPhoto" type="java.lang.String" column="shipPhoto" />
         <property name="getType" type="java.lang.Integer" column="getType" />
         <property name="enginePower" type="java.lang.Long" column="enginePower" />
-        <property name="homePort" type="java.lang.Integer" column="homePort" />
+        <property name="homePort" type="java.lang.Long" column="homePort" />
         <property name="shipCreateTime" type="java.util.Date" column="shipCreateTime" />
         <property name="realName" type="java.lang.String" column="realName" />
         <property name="tonnage" type="java.lang.Long" column="tonnage" />

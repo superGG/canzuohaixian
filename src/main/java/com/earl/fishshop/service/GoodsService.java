@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.pojo.GoodsPo;
-import com.earl.fishshop.pojo.ShopPo;
 import com.earl.fishshop.vo.PageInfo;
 
 public interface GoodsService extends BaseService<GoodsPo>{
@@ -59,5 +58,14 @@ public interface GoodsService extends BaseService<GoodsPo>{
 	 * @return
 	 */
 	GoodsPo getGoodsInfo(Long goodsId);
+
+	/**
+	 * 删除指定商店的特定类别渔货
+	 * @author 黄祥谦.
+	 * @param categoryId
+	 * @param shopId
+	 * @return
+	 */
+	Boolean deletePointCategoryGoods(Long categoryId, Long shopId);
 
 }

@@ -1,5 +1,6 @@
 package com.earl.fishshop.action;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.context.annotation.Scope;
@@ -30,6 +31,8 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	
 	private PageInfo pageInfo;
 	
+	OrdersPo orders;
+	
 	public PageInfo getPageInfo() {
 		return pageInfo;
 	}
@@ -38,7 +41,6 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	public void setPageInfo(PageInfo pageInfo) {
 		this.pageInfo = pageInfo;
 	}
-
 
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public ResultMessage getResultMessage() {
@@ -49,9 +51,30 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	// 下面填写业务逻辑
 
 	public void addOrders() {
-		Boolean save = ordersServer.addOrders(model);
+		Boolean save = ordersServer.addOrders(orders);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
+	}
+	
+	/**
+	 * 更新订单.包括状态
+	 * @author 黄祥谦.
+	 */
+	public void updateOrders(){
+		Boolean updateWithNotNullProperties = ordersServer.updateWithNotNullProperties(model);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(updateWithNotNullProperties);
+		
+	}
+	
+	/**
+	 * 取消订单.
+	 * @author 黄祥谦.
+	 */
+	public void deleteOrders(){
+		Boolean deleteById = ordersServer.deleteById(model.getOrdersId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(deleteById);
 	}
 	
 	/**
@@ -60,15 +83,24 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 */
 	public void getMyShopOrders(){
 		List<OrdersPo> ordersList = ordersServer.getMyShopOrders(model.getShopId(), pageInfo);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
 	}
 	
 	/**
-	 * 得到未发货订单.
+	 * 客户得到未发货订单.
 	 * @author 黄祥谦.
 	 */
 	public void getUnSentOrders(){
-//		ordersServer.getUnSentOrders();
-		
+		List<OrdersPo> ordersList = ordersServer.getUnSentOrders(model.getUserId(), pageInfo);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
 	}
 	
 	/**
@@ -76,7 +108,12 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getUnPayOrders(){
-		
+		List<OrdersPo> ordersList = ordersServer.getUnpayOrders(model.getUserId(), pageInfo);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
 	}
 	
 	/**
@@ -84,7 +121,12 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getUngetOrders(){
-		
+		List<OrdersPo> ordersList = ordersServer.getUngetOrders(model.getUserId(), pageInfo);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
 	}
 	
 	/**
@@ -92,7 +134,12 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getUnCommentOrders(){
-		
+		List<OrdersPo> ordersList = ordersServer.getUnCommentOrders(model.getUserId(), pageInfo);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
 	}
 	
 	/**
@@ -100,7 +147,12 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getOrdersWithSeaRecord(){
-		List<OrdersPo> orders = ordersServer.getOrdersWithSeaRecord(model.getSeaRecordId(), pageInfo);
+		List<OrdersPo> ordersList = ordersServer.getOrdersWithSeaRecord(model.getSeaRecordId(), pageInfo);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
 	}
 	
 	/**
@@ -108,6 +160,8 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void setOrderNumber(){
-		
+		Boolean success = ordersServer.setOrderNumber(model.getOrdersId(), model.getOrderNumber());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(success);
 	}
 }

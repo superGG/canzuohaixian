@@ -33,9 +33,10 @@ public class SeaRecordAction extends BaseAction<SeaRecordPo> {
 	// 下面填写业务逻辑
 
 	public void addSeaRecord() {
-		Boolean save = seaRecordServer.save(model);
+		Boolean save = seaRecordServer.addSeaRecord(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
-		
 	}
+	
+
 }

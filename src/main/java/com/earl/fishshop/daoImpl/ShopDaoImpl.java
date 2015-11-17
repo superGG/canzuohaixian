@@ -1,15 +1,10 @@
 package com.earl.fishshop.daoImpl;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.earl.fishshop.dao.ShopDao;
-import com.earl.fishshop.pojo.GoodsPo;
 import com.earl.fishshop.pojo.ShopPo;
 import com.earl.fishshop.vo.PageInfo;
 
@@ -39,26 +34,23 @@ public class ShopDaoImpl extends BaseDaoImpl<ShopPo> implements ShopDao {
 	@Override
 	public List<ShopPo> getGoodsShops(Long categoryId, PageInfo pageInfo) {
 		// TODO 未测试.
-		Criteria createCriteria = getCurrentSession().createCriteria(GoodsPo.class);
-		createCriteria.add(Restrictions.eq("categoryId", categoryId));
-		createCriteria.add(Restrictions.gt("nowNumber", 0L));
-		createCriteria.setProjection(Projections.property("shopId"));
-		createCriteria.setProjection(Projections.groupProperty("shopId"));
 		
-		@SuppressWarnings("unchecked")
-		List<Long> list = createCriteria.setFirstResult(
-				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
-				.setMaxResults(pageInfo.getSize()).list();
-		List<ShopPo> shopList = new ArrayList<ShopPo>();
-		  Long size = (Long) createCriteria.setProjection(Projections.rowCount())
-	                .uniqueResult();
-		pageInfo.setTotalCount(size);
-		
-		for (Long shopId : list) {
-			String hql2 = "from ShopPo where shopId = :shopId";
-			ShopPo tmpShop = (ShopPo) getCurrentSession().createQuery(hql2).setLong("shopId", shopId).uniqueResult();
-			shopList.add(tmpShop);
-		}
+		String hql = "select ShopPo from ShopPo s,GoodsPo g where s.onSell=true and g.categoryId=:categoryId and g.nowNumber > 0 group by shopId limit :index to :afterIndex";
+		String hql2 = "select count(*) from ShopPo s,GoodsPo g where s.onSell=true and g.categoryId:categoryId and g.nowNumber>0 group by shopId";
+		List<ShopPo> shopList = getCurrentSession().createQuery(hql).setLong("categoryId", categoryId).setInteger("index", ((pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())).setInteger("afterIndex", ((pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())+pageInfo.getSize()).list();
+		Long uniqueResult = (Long) getCurrentSession().createQuery(hql2).setLong("categoryId", categoryId).uniqueResult();
+		pageInfo.setTotalCount(uniqueResult);
+		return shopList;
+	}
+
+	@Override
+	public List<ShopPo> getPointTypeGoodsShops(Long categoryId, Integer shopType, PageInfo pageInfo) {
+		// TODO 未测试.
+		String hql = "select ShopPo from ShopPo s,GoodsPo g where s.onSell=true and s.shopType=:shopType and g.categoryId=:categoryId and g.nowNumber > 0 group by shopId limit :index to :afterIndex";
+		String hql2 = "select count(*) from ShopPo s,GoodsPo g where s.onSell=true and s.shopType=:shopType and g.categoryId:categoryId and g.nowNumber>0 group by shopId";
+		List<ShopPo> shopList = getCurrentSession().createQuery(hql).setLong("categoryId", categoryId).setInteger("shopType", shopType).setInteger("index", ((pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())).setInteger("afterIndex", ((pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())+pageInfo.getSize()).list();
+		Long uniqueResult = (Long) getCurrentSession().createQuery(hql2).setLong("categoryId", categoryId).setInteger("shopType", shopType).uniqueResult();
+		pageInfo.setTotalCount(uniqueResult);
 		return shopList;
 	}
 }

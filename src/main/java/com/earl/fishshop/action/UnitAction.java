@@ -44,6 +44,16 @@ public class UnitAction extends BaseAction<UnitPo> {
 	}
 	
 	/**
+	 * 删除指定单位.
+	 * @author 黄祥谦.
+	 */
+	public void deleteUnit(){
+		Boolean deleteById = unitServer.deleteById(model.getUnitId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(deleteById);
+	}
+	
+	/**
 	 * 得到所有单位.
 	 * @author 黄祥谦.
 	 */

@@ -125,11 +125,23 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	}
 	
 	/**
-	 * 得到指定类别的商家信息.
+	 * 得到指定类别的商家信息.全部
 	 * @author 黄祥谦.
 	 */
 	public void getGoodsShops(){
 		List<ShopPo> shopList = categoryServer.getGoodsShops(model.getCategoryId(), pageInfo);
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("shopList", shopList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+	}
+	/**
+	 * 得到指定类别的渔户家信息.全部
+	 * @author 黄祥谦.
+	 */
+	public void getGoodsFishShops(){
+		List<ShopPo> shopList = categoryServer.getGoodsFishShops(model.getCategoryId(), pageInfo);
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("shopList", shopList);
 		resultMessage = new ResultMessage();

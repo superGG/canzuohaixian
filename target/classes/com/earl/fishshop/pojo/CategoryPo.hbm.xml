@@ -10,9 +10,7 @@
             <column name="categoryId" />
             <generator class="native"></generator>
         </id>
-        <!-- 
 		<version name="version" column="version" type="java.lang.Long"></version>
-		 -->
         <property name="categorySimpleName" type="java.lang.String" column="categorySimpleName" />
         <property name="categoryAcademicName" type="java.lang.String" column="categoryAcademicName" />
         <property name="getType" type="java.lang.Integer" column="getType" />
@@ -25,6 +23,8 @@
         <property name="createTime" type="java.util.Date" column="createTime" />
         <property name="creatorId" type="java.lang.Long" column="creatorId" />
         <property name="isDelete" type="java.lang.Boolean"   column="isDelete" />
+        <!-- 
         <property name="version" type="java.lang.Long"   column="version" />
+         -->
     </class>
 </hibernate-mapping>

@@ -1,5 +1,8 @@
 package com.earl.fishshop.daoImpl;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -47,9 +50,16 @@ public class GoodsDaoImpl extends BaseDaoImpl<GoodsPo> implements GoodsDao {
 		// TODO 未测试.
 //		select goodscategory,count(*),sum(nowNumber) from goods where shopId=1 group by goodscategory;
 		//SQL语句测试过没有问题，需要组织返回的数据结构.
-		String sql = "select categoryId,count(*),sum(nowNumber) from goods where shopId=：shopId group by categoryId";
-		List list = getCurrentSession().createSQLQuery(sql).setLong("shopId", shopId).list();
-		return list;
+		String sql = "select categoryId,count(*),sum(nowNumber) from goods where shopId=:shopId group by categoryId";
+		List<Object[]> list = getCurrentSession().createSQLQuery(sql).setLong("shopId", shopId).list();
+		List<CategoryPo> list2 = new ArrayList<CategoryPo>();
+		for (Object[] category : list) {
+			String hql2 = "from CategoryPo where categoryId =:categoryId";
+			CategoryPo uniqueResult = (CategoryPo) getCurrentSession().createQuery(hql2).setLong("categoryId", ((BigInteger)category[0]).longValue()).uniqueResult();
+				uniqueResult.setTotalNowNumber(((BigDecimal)category[2]).longValue());
+				list2.add(uniqueResult);
+		}
+		return list2;
 	}
 
 	@Override
@@ -70,6 +80,14 @@ public class GoodsDaoImpl extends BaseDaoImpl<GoodsPo> implements GoodsDao {
 		pageInfo.setTotalCount(size);
 		
 		return goodsList;
+	}
+
+	@Override
+	public void deletePointCategoryGoods(Long categoryId, Long shopId) {
+		// TODO 未测试.
+		String hql = "delete from GoodsPo where categoryId=:categoryId and shopId=:shopId";
+		getCurrentSession().createQuery(hql).setLong("categoryId", categoryId).setLong("shopId", shopId).executeUpdate();
+		
 	}
 
 }

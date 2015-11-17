@@ -43,10 +43,22 @@ public class SeaRecordPo{
 	private Integer state ;
 	
 	/**
-	 * 字段描述：Integer 
-	 * 字段类型：anchorPoint  
+	 * 字段描述：String 
+	 * 字段类型：shipportName  
 	 */
-	private Integer anchorPoint ;
+	private String shipportName ;
+	
+	/**
+	 * 字段描述：Double 
+	 * 字段类型：longitude  
+	 */
+	private Double longitude ;
+	
+	/**
+	 * 字段描述：Double 
+	 * 字段类型：latitude  
+	 */
+	private Double latitude ;
 	
 	/**
 	 * 字段描述：Date 
@@ -72,7 +84,24 @@ public class SeaRecordPo{
 	 */
 	private Long version ;
 	
-	
+	public String getShipportName() {
+		return shipportName;
+	}
+	public void setShipportName(String shipportName) {
+		this.shipportName = shipportName;
+	}
+	public Double getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+	public Double getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
 	public void setSeaRecordId(Long seaRecordId){
 		this.seaRecordId = seaRecordId;
 	}
@@ -108,12 +137,6 @@ public class SeaRecordPo{
 	}
 	public Integer getState() {
 		return this.state;
-	}
-	public void setAnchorPoint(Integer anchorPoint){
-		this.anchorPoint = anchorPoint;
-	}
-	public Integer getAnchorPoint() {
-		return this.anchorPoint;
 	}
 	public void setCreateTime(Date createTime){
 		this.createTime = createTime;

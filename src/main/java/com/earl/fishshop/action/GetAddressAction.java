@@ -1,5 +1,6 @@
 package com.earl.fishshop.action;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.context.annotation.Scope;
@@ -46,11 +47,12 @@ public class GetAddressAction extends BaseAction<GetAddressPo> {
 	}
 	
 	/**
+	 * 动态更新.
 	 * 更新收货人地址.
 	 * @author 黄祥谦.
 	 */
 	public void updateGetAddress(){
-		Boolean update = getAddressServer.update(model);
+		Boolean update = getAddressServer.updateWithNotNullProperties(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setResultInfo("更新成功");
 		resultMessage.setServiceResult(update);
@@ -67,7 +69,15 @@ public class GetAddressAction extends BaseAction<GetAddressPo> {
 		resultMessage.setServiceResult(deleteById);
 	}
 	
+	/**
+	 * 得到用户的所有收货地址.
+	 * @author 黄祥谦.
+	 */
 	public void getUserAllAddress(){
-		List<GetAddressPo> getAddress = getAddressServer.getUserAllAddress(model.getUserId());
+		List<GetAddressPo> getAddressList = getAddressServer.getUserAllAddress(model.getUserId());
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("getAddressList", getAddressList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
 	}
 }

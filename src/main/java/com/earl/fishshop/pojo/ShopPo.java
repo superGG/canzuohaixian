@@ -8,16 +8,16 @@ public class ShopPo{
 	 * 字段描述：Long 
 	 * 字段类型：shopId  
 	 */
-	private Long shopId ;
+	private Long shopId;
 	
 	/**
 	 * 字段描述：String 
-	 * 字段类型：shopName  
+	 * 字段类型：shopName 商店名称.
 	 */
 	private String shopName ;
 	
 	/**
-	 * 用户id
+	 * 用户id  创建商店的用户.
 	 */
 	private Long userId;
 	
@@ -49,7 +49,7 @@ public class ShopPo{
 	 * 字段描述：Integer 
 	 * 字段类型：shopType  
 	 */
-	private Integer shopType ;
+	private Integer shopType ;//渔户，养殖户
 	
 	/**
 	 * 字段描述：Double 
@@ -64,6 +64,24 @@ public class ShopPo{
 	 */
 	private Boolean onSell ;
 	
+	private String shipPort;//靠岸口
+	
+	private String portTime;//靠岸时间.
+	
+	private String address;//养殖户养殖地点.
+	
+	private Long seaRecordId;//航海记录id
+	/**
+	 * 字段描述：Double 
+	 * 字段类型：longitude  
+	 */
+	private Double longitude ;
+	
+	/**
+	 * 字段描述：Double 
+	 * 字段类型：latitude  
+	 */
+	private Double latitude ;
 	/**
 	 * 字段描述：Long 
 	 * 字段类型：creatorId  
@@ -88,6 +106,42 @@ public class ShopPo{
 	 */
 	private Long version ;
 	
+	public Double getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+	public Double getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+	public Long getSeaRecordId() {
+		return seaRecordId;
+	}
+	public void setSeaRecordId(Long seaRecordId) {
+		this.seaRecordId = seaRecordId;
+	}
+	public String getShipPort() {
+		return shipPort;
+	}
+	public void setShipPort(String shipPort) {
+		this.shipPort = shipPort;
+	}
+	public String getPortTime() {
+		return portTime;
+	}
+	public void setPortTime(String portTime) {
+		this.portTime = portTime;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 	public Long getUserId() {
 		return userId;
 	}
@@ -179,7 +233,10 @@ public class ShopPo{
 				+ ", weightQuality=" + weightQuality + ", freshQuality="
 				+ freshQuality + ", speedQuality=" + speedQuality
 				+ ", shopType=" + shopType + ", sendPrice=" + sendPrice
-				+ ", onSell=" + onSell + ", creatorId=" + creatorId
+				+ ", onSell=" + onSell + ", shipPort=" + shipPort
+				+ ", portTime=" + portTime + ", address=" + address
+				+ ", seaRecordId=" + seaRecordId + ", longitude=" + longitude
+				+ ", latitude=" + latitude + ", creatorId=" + creatorId
 				+ ", isDelete=" + isDelete + ", createTime=" + createTime
 				+ ", version=" + version + "]";
 	}

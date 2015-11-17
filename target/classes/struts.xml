@@ -63,9 +63,6 @@
 		<action name="sku_*" class="skuAction"
 			method="{1}">
 		</action>
-		<action name="sorders_*" class="sordersAction"
-			method="{1}">
-		</action>
 		<action name="unit_*" class="unitAction"
 			method="{1}">
 		</action>

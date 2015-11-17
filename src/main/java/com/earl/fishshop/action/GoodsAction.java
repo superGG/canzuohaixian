@@ -47,6 +47,10 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 
 	// 下面填写业务逻辑
 
+	/**
+	 * 添加商品.
+	 * @author 黄祥谦.
+	 */
 	public void addGoods() {
 		Boolean save = goodsServer.save(model);
 		resultMessage = new ResultMessage();
@@ -65,7 +69,7 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 	}
 	
 	/**
-	 * 更新商品价格.
+	 * 更新商品数量.
 	 * @author 黄祥谦.
 	 */
 	public void updateGoodNowNumber(){
@@ -82,6 +86,7 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 		List<GoodsPo> goodsList = goodsServer.getGoodsWithCategory(model.getCategoryId());
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("goodsList", goodsList);
+		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}
@@ -92,7 +97,9 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 	 */
 	public void deletePointCategoryGoods(){
 		//TODO 将指定类别的商品删除，就是删除渔获.
-		
+		Boolean success = goodsServer.deletePointCategoryGoods(model.getCategoryId(),model.getShopId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(success);
 	}
 	
 	/**
@@ -103,6 +110,7 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 		GoodsPo goods= goodsServer.getGoodsInfo(model.getGoodsId());
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("goodsList", goods);
+		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}

@@ -54,9 +54,9 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 	}
 
 	@Override
-	public List<GoodsPo> getGoodsWithCategory(Long goodsCategory) {
+	public List<GoodsPo> getGoodsWithCategory(Long cagtegoryId) {
 		// TODO 未测试.
-		List<GoodsPo> goodsList = goodsDao.getGoodsWithCategory(goodsCategory);
+		List<GoodsPo> goodsList = goodsDao.getGoodsWithCategory(cagtegoryId);
 		return goodsList;
 	}
 
@@ -79,6 +79,18 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 		// TODO 未测试.
 		GoodsPo goods = goodsDao.get(goodsId);
 		return goods;
+	}
+
+	@Override
+	public Boolean deletePointCategoryGoods(Long categoryId, Long shopId) {
+		// TODO 未测试.
+		try {
+			goodsDao.deletePointCategoryGoods(categoryId,shopId);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
 	}
 
 }

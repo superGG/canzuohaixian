@@ -11,8 +11,11 @@ import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.dao.CategoryDao;
 import com.earl.fishshop.pojo.CategoryPo;
+import com.earl.fishshop.pojo.SeaRecordPo;
 import com.earl.fishshop.pojo.ShopPo;
+import com.earl.fishshop.pojo.UserPo;
 import com.earl.fishshop.service.CategoryService;
+import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.vo.PageInfo;
 
 /**
@@ -55,7 +58,6 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<CategoryPo> getHotCategory(Map<String,Object> application) {
-		// TODO 未测试.
 		String object = (String) application.get("date");
 		int i = Calendar.getInstance().get(Calendar.MONTH);
 		int y = Calendar.getInstance().get(Calendar.YEAR);
@@ -74,8 +76,31 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 
 	@Override
 	public List<ShopPo> getGoodsShops(Long categoryId, PageInfo pageInfo) {
-		// TODO 未测试.
 		List<ShopPo> shopList = shopDao.getGoodsShops(categoryId,pageInfo);
+		for (ShopPo shopPo : shopList) {
+			UserPo userPo = userDao.get(shopPo.getUserId());
+			if(userPo.getUserType() == MyConstant.user_farmer){
+			}else if(userPo.getUserType() == MyConstant.user_fishman){
+				SeaRecordPo farmersPo = seaRecordDao.get(shopPo.getSeaRecordId());
+				shopPo.setShipPort(farmersPo.getShipportName());
+				shopPo.setLatitude(farmersPo.getLatitude());
+				shopPo.setLongitude(farmersPo.getLongitude());
+			}
+		}
+		return shopList;
+	}
+
+	@Override
+	public List<ShopPo> getGoodsFarmerShops(Long categoryId, PageInfo pageInfo) {
+		// TODO 未测试.
+		List<ShopPo> shopList = shopDao.getPointTypeGoodsShops(categoryId,MyConstant.shop_farmerman, pageInfo);
+		return shopList;
+	}
+	
+	@Override
+	public List<ShopPo> getGoodsFishShops(Long categoryId, PageInfo pageInfo) {
+		// TODO 未测试.
+		List<ShopPo> shopList = shopDao.getPointTypeGoodsShops(categoryId,MyConstant.shop_fishman, pageInfo);
 		return shopList;
 	}
 }

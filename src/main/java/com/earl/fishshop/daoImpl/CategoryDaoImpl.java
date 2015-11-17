@@ -2,6 +2,7 @@ package com.earl.fishshop.daoImpl;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -74,13 +75,12 @@ public class CategoryDaoImpl extends BaseDaoImpl<CategoryPo> implements Category
 //		String hql = "select categoryId,sum(number) as hotDegree from SordersPo where createTime>:date  order by number group by categoryId limit 0,:showNumber";
 		String hql = "select categoryId,sum(number) as hotdegree from ordersdetail where createTime >:date and createTime < :date2 group by categoryId order by number limit 0,:showNumber";
 		List<Object[]> list = getCurrentSession().createSQLQuery(hql).setString("date", date).setString("date2", date2).setInteger("showNumber", showNumber).list();
-		List<CategoryPo> list2 = null;
+		List<CategoryPo> list2 = new ArrayList<CategoryPo>();
 		for (Object[] category : list) {
 			String hql2 = "from CategoryPo where categoryId =:categoryId";
-			list2 = getCurrentSession().createQuery(hql2).setLong("categoryId", ((BigInteger)category[0]).longValue()).list();
-			for (CategoryPo object : list2) {
-				object.setHotDegree(((BigDecimal)category[1]).longValue());
-			}
+			CategoryPo uniqueResult = (CategoryPo) getCurrentSession().createQuery(hql2).setLong("categoryId", ((BigInteger)category[0]).longValue()).uniqueResult();
+				uniqueResult.setHotDegree(((BigDecimal)category[1]).longValue());
+				list2.add(uniqueResult);
 		}
 		return list2;
 	}

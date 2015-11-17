@@ -16,12 +16,6 @@ import com.earl.fishshop.pojo.GetAddressPo;
 public class GetAddressDaoImpl extends BaseDaoImpl<GetAddressPo> implements GetAddressDao {
 	// property constants
 	
-	//事例方法
-	public List savesf(){
-		List list = getCurrentSession().createQuery("from user where userid = 1").list();
-		return list;
-	}
-
 	@Override
 	public List<GetAddressPo> getUserAllAddress(Long userId) {
 		// TODO 未测试.

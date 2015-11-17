@@ -1,6 +1,8 @@
 package com.earl.fishshop.action;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -10,8 +12,6 @@ import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.pojo.GoodsPo;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.ShopPo;
-import com.earl.fishshop.pojo.UserPo;
-import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.vo.PageInfo;
 
 /**
@@ -32,17 +32,7 @@ public class ShopAction extends BaseAction<ShopPo> {
 
 	protected ResultMessage resultMessage;
 
-	protected Long userId;
-	
 	private PageInfo pageInfo;
-
-	public Long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
 
 	public PageInfo getPageInfo() {
 		return pageInfo;
@@ -65,16 +55,10 @@ public class ShopAction extends BaseAction<ShopPo> {
 	 * @author 黄祥谦.
 	 */
 	public void addShop() {
-		UserPo userPo = userServer.get(userId);
-		resultMessage = new ResultMessage();
-		if(userPo.getState() == MyConstant.user_pass){
 			
-			Boolean save = shopServer.save(model);
+			Boolean save = shopServer.addShop(model);
+			resultMessage = new ResultMessage();
 			resultMessage.setServiceResult(save);
-		}else{
-			resultMessage.setResultInfo("用户未认证");
-			resultMessage.setServiceResult(false);
-		}
 	}
 	
 	/**
@@ -82,7 +66,7 @@ public class ShopAction extends BaseAction<ShopPo> {
 	 * @author 黄祥谦.
 	 */
 	public void updateShop(){
-		Boolean update = shopServer.update(model);
+		Boolean update = shopServer.updateWithNotNullProperties(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(update);
 	}
@@ -104,6 +88,10 @@ public class ShopAction extends BaseAction<ShopPo> {
 	 */
 	public void getCategoryWithTotalNumber(){
 		List<CategoryPo> categoryList = goodsServer.getCategoryWithTotalNumber(model.getShopId());
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("categoryList", categoryList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
 	}
 	
 	/**
@@ -121,5 +109,14 @@ public class ShopAction extends BaseAction<ShopPo> {
 	public void getShop(){
 	ShopPo shop = shopServer.get(model.getShopId());
 	System.out.println(shop);
+	}
+	
+	/**
+	 * 到港口了，停止出港
+	 * @author 黄祥谦.
+	 */
+	public void endSeaing(){
+	Boolean success = shopServer.endSeaing(model.getShopId());
+	
 	}
 }

@@ -56,9 +56,6 @@ public class CategoryPo{
 	 */
 	private Double lowPrice ;//
 	
-	/**
-	 * 
-	 */
 	private Long hotDegree;
 	
 	/**
@@ -73,6 +70,8 @@ public class CategoryPo{
 	 */
 	private Long totalSellNumber ;
 	
+	
+	private Long totalNowNumber;
 	/**
 	 * 字段描述：Date 
 	 * 字段类型：createTime  
@@ -97,7 +96,12 @@ public class CategoryPo{
 	 */
 	private Long version ;
 	
-	
+	public Long getTotalNowNumber() {
+		return totalNowNumber;
+	}
+	public void setTotalNowNumber(Long totalNowNumber) {
+		this.totalNowNumber = totalNowNumber;
+	}
 	public Long getHotDegree() {
 		return hotDegree;
 	}

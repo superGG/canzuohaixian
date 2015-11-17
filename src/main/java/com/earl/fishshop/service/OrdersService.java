@@ -31,6 +31,51 @@ public interface OrdersService extends BaseService<OrdersPo>{
 	 */
 	List<OrdersPo> getOrdersWithSeaRecord(Long seaRecordId, PageInfo pageInfo);
 
+	/**
+	 * 得到未发货订单.
+	 * @author 黄祥谦.
+	 * @param userId TODO
+	 * @param pageInfo TODO
+	 * @return
+	 */
+	List<OrdersPo> getUnSentOrders(Long userId, PageInfo pageInfo);
+
+	/**
+	 * 得到未支付订单.
+	 * @author 黄祥谦.
+	 * @param userId TODO
+	 * @param pageInfo
+	 * @return
+	 */
+	List<OrdersPo> getUnpayOrders(Long userId, PageInfo pageInfo);
+
+	/**
+	 * 得到未支付订单.
+	 * @author 黄祥谦.
+	 * @param userId TODO
+	 * @param pageInfo
+	 * @return
+	 */
+	List<OrdersPo> getUngetOrders(Long userId, PageInfo pageInfo);
+
+	/**
+	 * 得到未评论订单.
+	 * @author 黄祥谦.
+	 * @param userId TODO
+	 * @param pageInfo
+	 * @return
+	 */
+	List<OrdersPo> getUnCommentOrders(Long userId, PageInfo pageInfo);
+
+	/**
+	 * 设置订单编号.
+	 * @author 黄祥谦.
+	 * @param orderId TODO
+	 * @param orderNumber
+	 * @return
+	 */
+	Boolean setOrderNumber(Long orderId, String orderNumber);
+
 	
 
 	

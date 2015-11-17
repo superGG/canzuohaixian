@@ -16,7 +16,6 @@ import com.earl.fishshop.service.CheckoutService;
 import com.earl.fishshop.service.CommentService;
 import com.earl.fishshop.service.FarmersService;
 import com.earl.fishshop.service.FishmanService;
-import com.earl.fishshop.service.FordersService;
 import com.earl.fishshop.service.GetAddressService;
 import com.earl.fishshop.service.GetTypeService;
 import com.earl.fishshop.service.GoodsService;
@@ -26,7 +25,6 @@ import com.earl.fishshop.service.SeaRecordService;
 import com.earl.fishshop.service.ShipPortService;
 import com.earl.fishshop.service.ShopService;
 import com.earl.fishshop.service.SkuService;
-import com.earl.fishshop.service.SordersService;
 import com.earl.fishshop.service.UnitService;
 import com.earl.fishshop.service.UserService;
 import com.earl.fishshop.serviceImpl.VerifyService;
@@ -69,8 +67,6 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	@Resource
 	protected SkuService skuServer;
 	@Resource
-	protected SordersService sordersServer;
-	@Resource
 	protected UnitService unitServer;
 	@Resource
 	protected UserService userServer;
@@ -82,8 +78,6 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	protected ShipPortService shipPortServer;
 	@Resource
 	protected GetAddressService getAddressServer;
-	@Resource
-	protected FordersService fordersServer;
 	@Resource 
 	protected OrdersDetailService ordersDetailServer;
 	
