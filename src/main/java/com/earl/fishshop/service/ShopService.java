@@ -1,5 +1,6 @@
 package com.earl.fishshop.service;
 
+import com.earl.fishshop.pojo.CommentPo;
 import com.earl.fishshop.pojo.ShopPo;
 
 public interface ShopService extends BaseService<ShopPo>{
@@ -36,5 +37,12 @@ public interface ShopService extends BaseService<ShopPo>{
 	 * @return
 	 */
 	Boolean endSeaing(Long shopId);
+
+	/**
+	 * 更新商店的评分.
+	 *@author 宋文光.
+	 * @param model
+	 */
+	void updateShopComment(CommentPo model);
 
 }
