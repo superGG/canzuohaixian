@@ -105,4 +105,36 @@ public class UserAction extends BaseAction<UserPo> {
 		resultMessage.setServiceResult(true);
 	}
 	
+	/**
+	 * 获取所有养殖户的用户信息.
+	 *@author 宋文光.
+	 */
+	public void getAllFarmersUser() {
+		List<UserPo> userList = userServer.getAllFarmersUser();
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("farmersUser", userList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+	}
+	
+	/**
+	 * 用户注册.
+	 *@author 宋文光.
+	 */
+	public void registerUser() {
+		resultMessage = new ResultMessage();
+		if (userServer.getUserByName(model.getUserName()) != null){
+			resultMessage.setServiceResult(false);
+			resultMessage.setResultInfo("用户已存在");
+		} else if (userServer.getUserByPhone(model.getPhoneNumber()) != null) {
+			resultMessage.setServiceResult(false);
+			resultMessage.setResultInfo("用户已存在");
+		} else {
+			userServer.save(model);
+			resultMessage.setServiceResult(true);
+			resultMessage.setResultInfo("注册成功");
+		}
+	}
+	
 }

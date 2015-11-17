@@ -57,6 +57,16 @@ public class UserDaoImpl extends BaseDaoImpl<UserPo> implements UserDao {
 		return list;
 	}
 	
-	
+	/**
+	 * 获取所有养殖户的用户信息.
+	 * @author 宋文光
+	 */
+	@SuppressWarnings("unchecked")
+	public List<UserPo> getAllFarmersUser() {
+		String hql = "from UserPo u where u.userType = :userType";
+		List<UserPo> list = getCurrentSession().createQuery(hql)
+				.setInteger("userType", MyConstant.user_farmer).list();
+		return list;
+	}
 
 }

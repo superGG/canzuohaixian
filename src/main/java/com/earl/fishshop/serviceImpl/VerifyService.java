@@ -6,7 +6,10 @@ package com.earl.fishshop.serviceImpl;
 
 import java.awt.image.BufferedImage;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import com.earl.fishshop.pojo.ResultMessage;
@@ -237,6 +240,12 @@ public class VerifyService extends BaseServiceImpl<UserPo> {
 		if(userPo != null) { //根据用户输入查询所得用户信息.
 			if(password == userPo.getPassword()) { //密码验证
 				rs.setServiceResult(true);
+				rs.setResultInfo("登陆成功");
+				List<UserPo> list = new ArrayList<UserPo>();
+				list.add(userPo);
+				Map<String, Object> hashMap = new HashMap<String, Object>();
+				hashMap.put("user", list);
+				rs.setResultParm(hashMap);
 			} else {
 				rs.setResultInfo("密码错误");
 				rs.setServiceResult(false);
