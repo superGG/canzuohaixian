@@ -17,6 +17,12 @@ public class ShopPo{
 	private String shopName ;
 	
 	/**
+	 * 字段描述：Integer 
+	 * 字段类型：grade 评分.
+	 */
+	private Integer grade;
+	
+	/**
 	 * 用户id  创建商店的用户.
 	 */
 	private Long userId;
@@ -226,18 +232,25 @@ public class ShopPo{
 	public Long getVersion() {
 		return this.version;
 	}
+	public Integer getGrade() {
+		return grade;
+	}
+	public void setGrade(Integer grade) {
+		this.grade = grade;
+	}
 	@Override
 	public String toString() {
 		return "ShopPo [shopId=" + shopId + ", shopName=" + shopName
-				+ ", userId=" + userId + ", getType=" + getType
-				+ ", weightQuality=" + weightQuality + ", freshQuality="
-				+ freshQuality + ", speedQuality=" + speedQuality
-				+ ", shopType=" + shopType + ", sendPrice=" + sendPrice
-				+ ", onSell=" + onSell + ", shipPort=" + shipPort
+				+ ", grade=" + grade + ", userId=" + userId + ", getType="
+				+ getType + ", weightQuality=" + weightQuality
+				+ ", freshQuality=" + freshQuality + ", speedQuality="
+				+ speedQuality + ", shopType=" + shopType + ", sendPrice="
+				+ sendPrice + ", onSell=" + onSell + ", shipPort=" + shipPort
 				+ ", portTime=" + portTime + ", address=" + address
 				+ ", seaRecordId=" + seaRecordId + ", longitude=" + longitude
 				+ ", latitude=" + latitude + ", creatorId=" + creatorId
 				+ ", isDelete=" + isDelete + ", createTime=" + createTime
 				+ ", version=" + version + "]";
 	}
+	
 }
