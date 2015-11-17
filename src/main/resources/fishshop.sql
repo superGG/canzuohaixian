@@ -346,6 +346,7 @@ CREATE TABLE `shop` (
   `userId` bigint(20) DEFAULT NULL,
   `shopName` varchar(255) DEFAULT NULL,
   `getType` varchar(255) DEFAULT NULL,
+  `grade` int (15) DEFAULT NULL,
   `weightQuality` float DEFAULT NULL,
   `freshQuality` float DEFAULT NULL,
   `speedQuality` float DEFAULT NULL,

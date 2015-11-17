@@ -107,6 +107,7 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 		shop.setFreshQuality(newFreshQuality);
 		shop.setSpeedQuality(newSpeedQuality);
 		shop.setWeightQuality(newWeightQuality);
+		shop.setGrade(shop.getGrade() + model.getCommentType());
 		shopDao.update(shop);
 		
 	}
