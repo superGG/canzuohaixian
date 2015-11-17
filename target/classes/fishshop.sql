@@ -302,13 +302,12 @@ CREATE TABLE `searecord` (
   `spendDay` int(11) DEFAULT NULL,
   `state` int(11) DEFAULT NULL,
   `shipportName` varchar(255) DEFAULT NULL,
-  `lontitude` double DEFAULT NULL,
+  `longitude` double DEFAULT NULL,
   `latitude` double DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
-  `longitude` double DEFAULT NULL,
   PRIMARY KEY (`seaRecordId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -323,13 +322,12 @@ DROP TABLE IF EXISTS `shipport`;
 CREATE TABLE `shipport` (
   `shipportId` bigint(20) NOT NULL AUTO_INCREMENT,
   `shipportName` varchar(255) DEFAULT NULL,
-  `lontitude` double DEFAULT NULL,
+  `longitude` double DEFAULT NULL,
   `latitude` double DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
-  `longitude` double DEFAULT NULL,
   PRIMARY KEY (`shipportId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -442,7 +440,3 @@ INSERT INTO `user` VALUES ('1', '2', '1', '2', '易临风', '798555920', '187194
 INSERT INTO `user` VALUES ('2', '1', '1', '1', 'Imissyou', '798555920', '18719425973', './aaa.jpg', '2015-11-05 11:12:04', null, '', '1');
 INSERT INTO `user` VALUES ('3', '2', '1', '1', '', '798555920', '18719425973', './aaa.jpg', '2015-11-15 09:54:21', null, '', '1');
 
-
-
-
-select s.* from shop s,goods g where s.onSell=true and g.categoryId=2 and g.nowNumber > 0 group by shopId limit 0,3;
