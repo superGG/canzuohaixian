@@ -33,19 +33,16 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 
 	@Override
 	public List<OrdersPo> getMyShopOrders(Long shopId, PageInfo pageInfo) {
-		// TODO 未测试.
 		List<OrdersPo> ordersList = ordersDao.getMyShopOrders(shopId, pageInfo);
 		return ordersList;
 	}
 
 	@Override
 	public Boolean addOrders(OrdersPo orders) {
-		// TODO 未测试.
 		try {
 			ordersDao.addOrders(orders);
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		return false;
@@ -53,35 +50,30 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 
 	@Override
 	public List<OrdersPo> getOrdersWithSeaRecord(Long seaRecordId, PageInfo pageInfo) {
-		// TODO 未测试.
 		List<OrdersPo> ordersList = ordersDao.getOrdersWithSeaRecord(seaRecordId, pageInfo);
 		return ordersList;
 	}
 
 	@Override
 	public List<OrdersPo> getUnSentOrders(Long userId, PageInfo pageInfo) {
-		// TODO 未测试.
 		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_unsent, pageInfo);
 		return ordersList;
 	}
 	
 	@Override
 	public List<OrdersPo> getUnpayOrders(Long userId, PageInfo pageInfo) {
-		// TODO 未测试.
 		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_unpay, pageInfo);
 		return ordersList;
 	}
 
 	@Override
 	public List<OrdersPo> getUngetOrders(Long userId, PageInfo pageInfo) {
-		// TODO 未测试.
 		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_unget, pageInfo);
 		return ordersList;
 	}
 
 	@Override
 	public List<OrdersPo> getUnCommentOrders(Long userId, PageInfo pageInfo) {
-		// TODO 未测试.
 		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_uncomment, pageInfo);
 		return ordersList;
 	}

@@ -28,7 +28,6 @@ public class CategoryDaoImplTest {
 	@Resource(name="transactionManager")
 	HibernateTransactionManager transactionManager;
 	
-	//TODO lala
 	@Test
 	public void testSave() {
 		CategoryPo category = new CategoryPo();

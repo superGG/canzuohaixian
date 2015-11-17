@@ -76,10 +76,9 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 			baseDao.save(model);
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
-			return false;
 		}
+		return false;
 	}
 
 	@Override
@@ -88,10 +87,9 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 			baseDao.update(t);
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
-			return false;
 		}
+		return false;
 	}
 
 	@Override
@@ -100,10 +98,9 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 			baseDao.deleteById(id);
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
-			return false;
 		}
+		return false;
 	}
 
 	@Override
@@ -131,12 +128,10 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 
 	@Override
 	public Boolean updateWithNotNullProperties(T t) {
-		// TODO 未测试.
 		try {
 			baseDao.updateWithNotNullProperties(t);
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		return false;

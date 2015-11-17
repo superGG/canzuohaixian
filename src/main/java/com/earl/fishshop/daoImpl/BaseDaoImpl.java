@@ -17,7 +17,6 @@ import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;
@@ -71,26 +70,14 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	public void save(T t) {
 		System.out.println("dodo1");
 		logger.debug("saving " + clazz.getName() + " instance");
-		Session session = sessionFactory.getCurrentSession();
-		Transaction transaction = session.getTransaction();
-		System.out.println(transaction.getLocalStatus());
-		System.out.println(transaction.getTimeout());
-		System.out.println(transaction);
-		session.save(t);
+		getCurrentSession().save(t);
 	}
 
 	// 更新对象
 	@Override
-	public boolean update(T t) {
+	public void update(T t) {
 		logger.debug("update " + clazz.getName() + " instance");
-		try {
-			
 			getCurrentSession().update(t);
-			return true;
-		} catch (Exception e) {
-			logger.debug(e);
-			return false;
-		}
 	}
 
 	// 根据ID删除对象
@@ -153,7 +140,6 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 //				getCurrentSession().update(persistentInstance);
 				getCurrentSession().delete(persistentInstance);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	}
@@ -204,19 +190,12 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		// 前提，pojo id属性名上要有 IdAnnotatioin标签
 		@Override
 		public void updateWithNotNullProperties(T object) {
-			//
 			T t = null;
-
 			Map<String, Object> notNullParam;
-
 			try {
-
 				notNullParam = getNotNullProperties(object);
-
 				BeanMap beanMap = new BeanMap(object);
-
 				Field[] fields = clazz.getDeclaredFields();
-
 				for (Field field : fields) {
 					//判断该属性是否标注着idAnnotation
 					if (field.isAnnotationPresent(IdAnnotatioin.class)) {
@@ -228,22 +207,17 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 						break;
 					}
 				}
-
 				for (String paramName : notNullParam.keySet()) {
 					// 得到非空属性的set方法,得到非空属性的值
-
 					Method writeMethod = beanMap.getWriteMethod(paramName);
-
 					// 赋值，
 					writeMethod.invoke(t, beanMap.get(paramName));
-					// 更新
 				}
+				// 更新
 				getCurrentSession().update(t);
 			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

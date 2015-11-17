@@ -68,10 +68,7 @@ public class CategoryDaoImpl extends BaseDaoImpl<CategoryPo> implements Category
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<CategoryPo> getHotCategory(String date,String date2, Integer showNumber) {
-		// TODO 未测试.
 //		SELECT COUNT(*) AS total FROM `logs` WHERE FROM_UNIXTIME(`create_time`,'%Y-%m')='2015-06'
-//		String hql = "select categoryId,sum(number) from SordersPo where FROM_UNIXTIME(`createTime`,'%Y-%m')=:date order by number group by categoryId limit 0,:showNumber";
-//		select categoryId,sum(number) as hotdegree from sorders where createTime >'2015-11' and createTime < '2015-12' group by categoryId order by number ;
 //		String hql = "select categoryId,sum(number) as hotDegree from SordersPo where createTime>:date  order by number group by categoryId limit 0,:showNumber";
 		String hql = "select categoryId,sum(number) as hotdegree from ordersdetail where createTime >:date and createTime < :date2 group by categoryId order by number limit 0,:showNumber";
 		List<Object[]> list = getCurrentSession().createSQLQuery(hql).setString("date", date).setString("date2", date2).setInteger("showNumber", showNumber).list();

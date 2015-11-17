@@ -33,26 +33,23 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 
 	@Override
 	public ShopPo getMyShop(Long userId) {
-		// TODO 未测试.
 		ShopPo shop = shopDao.getMyShop(userId);
 		return shop;
 	}
 
 	@Override
 	public Boolean updateSentPrice(Long shopId, Double sendPrice) {
-		// TODO 未测试.
 		try {
 			shopDao.updateSentPrice(shopId, sendPrice);
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 			return false;
 		}
 	}
 
 	@Override
 	public Boolean addShop(ShopPo model) {
-		// TODO 未测试.
 		try {
 			UserPo userPo = userDao.get(model.getUserId());
 			if(userPo.getUserType() == MyConstant.user_farmer){
@@ -63,17 +60,20 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 				model.setLatitude(farmers.getLatitude());
 				model.setShopType(MyConstant.shop_farmerman);
 				model.setOnSell(MyConstant.shop_onSell);
-				shopDao.save(model);
+				Long shopId = shopDao.addShop(model);
+				farmers.setShopId(shopId);
+				farmersDao.update(farmers);
 			}else if(userPo.getUserType() == MyConstant.user_fishman){
 				FishmanPo fishman = fishmanDao.get(userPo.getIdentityId());
 				model.setShopType(MyConstant.shop_fishman);
 				model.setGetType(String.valueOf(fishman.getGetType()));
 				model.setOnSell(MyConstant.shop_notOnSell);
-				shopDao.save(model);
+				Long shopId = shopDao.addShop(model);
+				fishman.setShopId(shopId);
+				fishmanDao.update(fishman);
 			}
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 			return false;
 		}
@@ -82,10 +82,15 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 	@Override
 	public Boolean endSeaing(Long shopId) {
 		// TODO 未测试.
-		ShopPo shopPo = shopDao.get(shopId);
-		shopPo.setOnSell(false);
-		boolean update = shopDao.update(shopPo);
-		return update;
+		try {
+			ShopPo shopPo = shopDao.get(shopId);
+			shopPo.setOnSell(false);
+			shopDao.update(shopPo);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
 	}
 
 }

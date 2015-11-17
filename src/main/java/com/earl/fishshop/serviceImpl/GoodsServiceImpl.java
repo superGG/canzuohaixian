@@ -37,9 +37,9 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 			goodsDao.updateGoodPrice(goodsId,price);
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
-			return false;
+			e.printStackTrace();
 		}
+		return false;
 	}
 
 	@Override
@@ -48,28 +48,25 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 			goodsDao.updateGoodNowNumber(goodsId,nowNumber);
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
-			return false;
+			e.printStackTrace();
 		}
+		return false;
 	}
 
 	@Override
 	public List<GoodsPo> getGoodsWithCategory(Long cagtegoryId) {
-		// TODO 未测试.
 		List<GoodsPo> goodsList = goodsDao.getGoodsWithCategory(cagtegoryId);
 		return goodsList;
 	}
 
 	@Override
 	public List<CategoryPo> getCategoryWithTotalNumber(Long shopId) {
-		// TODO 未测试.
 		List<CategoryPo> goodsList = goodsDao.getCategoryWithTotalNumber(shopId);
 		return goodsList;
 	}
 
 	@Override
 	public List<GoodsPo> getShopAllGoods(Long shopId, PageInfo pageInfo) {
-		// TODO 未测试.
 		List<GoodsPo> goodsList = goodsDao.getShopAllGoods(shopId, pageInfo);
 		return goodsList;
 	}
@@ -83,12 +80,11 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 
 	@Override
 	public Boolean deletePointCategoryGoods(Long categoryId, Long shopId) {
-		// TODO 未测试.
 		try {
 			goodsDao.deletePointCategoryGoods(categoryId,shopId);
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return false;
 	}

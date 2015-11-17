@@ -50,6 +50,7 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	List<ShopPo> getGoodsShops(Long categoryId, PageInfo pageInfo);
 
 	/**
+	 * 野生产品
 	 * 得到该类别下的渔户商家的信息.
 	 * @author 黄祥谦.
 	 * @param categoryId
@@ -57,7 +58,9 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	 * @return
 	 */
 	List<ShopPo> getGoodsFishShops(Long categoryId, PageInfo pageInfo);
+	
 	/**
+	 * 养殖产品
 	 * 得到该类别下的养殖户商家的信息.
 	 * @author 黄祥谦.
 	 * @param categoryId

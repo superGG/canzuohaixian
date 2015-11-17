@@ -43,4 +43,12 @@ public interface ShopDao extends BaseDao<ShopPo>{
 	 */
 	List<ShopPo> getPointTypeGoodsShops(Long categoryId, Integer shopType, PageInfo pageInfo);
 
+	/**
+	 * 添加商店.
+	 * @author 黄祥谦.
+	 * @param model
+	 * @return
+	 */
+	Long addShop(ShopPo model);
+
 }

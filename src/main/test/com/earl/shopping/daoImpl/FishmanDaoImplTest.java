@@ -27,7 +27,6 @@ public class FishmanDaoImplTest {
 	@Resource(name = "transactionManager")
 	HibernateTransactionManager transactionManager;
 
-	// TODO lala
 	@Test
 	public void testSave() {
 		FishmanPo fishman = new FishmanPo();

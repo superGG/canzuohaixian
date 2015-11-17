@@ -17,7 +17,6 @@ public class SkuDaoImpl extends BaseDaoImpl<SkuPo> implements SkuDao {
 	
 	@Override
 	public List<SkuPo> getSkuFromUnit(Long unitId) {
-		// TODO 未测试.
 		String hql = "from SkuPo where unitId = :unitId";
 		@SuppressWarnings("unchecked")
 		List<SkuPo> skuList = getCurrentSession().createQuery(hql).setLong("unitId", unitId).list();

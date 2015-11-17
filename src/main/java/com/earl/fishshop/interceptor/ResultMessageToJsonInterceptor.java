@@ -68,7 +68,7 @@ public class ResultMessageToJsonInterceptor extends AbstractInterceptor {
         			out.flush();
         			out.close();
         		}
-//                break;//得到第一个标注ReturnValue的方法，运行里面的方法，并将该方法返回值转成json返回前台.
+                break;//得到第一个标注ReturnValue的方法，运行里面的方法，并将该方法返回值转成json返回前台.
         	}
         }
         logger.debug("退出ResultMessage封装为json拦截器");

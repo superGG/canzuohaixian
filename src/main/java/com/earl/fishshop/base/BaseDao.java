@@ -16,7 +16,7 @@ public interface BaseDao<T> {
 
 	void save(T t);
 
-	boolean update(T t);
+	void update(T t);
 
 	void deleteById(Long id);
 
