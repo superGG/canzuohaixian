@@ -73,6 +73,7 @@ public class UserAction extends BaseAction<UserPo> {
 	 */
 	public void findAllUser() {
 		List<UserPo> userList = userServer.findAll();
+		resultMessage = new ResultMessage();
 		Map<String,Object> hashMap = new HashMap<String,Object>();
 		hashMap.put("userList", userList);
 		resultMessage.setResultParm(hashMap);
@@ -86,6 +87,7 @@ public class UserAction extends BaseAction<UserPo> {
 		ShopPo shop = shopServer.getMyShop(model.getUserId());
 		Map<String,Object> hashMap = new HashMap<String,Object>();
 		hashMap.put("shop", shop);
+		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}
@@ -98,6 +100,7 @@ public class UserAction extends BaseAction<UserPo> {
 		List<UserPo> userList = userServer.getAllFishmanUser();
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("fishmanUser", userList);
+		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}
