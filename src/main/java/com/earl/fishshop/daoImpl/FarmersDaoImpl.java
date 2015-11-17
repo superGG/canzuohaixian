@@ -1,5 +1,7 @@
 package com.earl.fishshop.daoImpl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.earl.fishshop.dao.FarmersDao;
@@ -25,5 +27,14 @@ public class FarmersDaoImpl extends BaseDaoImpl<FarmersPo> implements FarmersDao
 		
 	}
 	// property constants
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<FarmersPo> getFarmers(Long identityId) {
+		String hql = "from FarmersPo f where f.farmersId = :identityId";
+		List<FarmersPo> list = getCurrentSession().createQuery(hql)
+				.setLong("identityId", identityId).list();
+		return list;
+	}
 	
 }
