@@ -148,4 +148,19 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}
+	
+	
+	/**
+	 * 得到养殖户商家信息.
+	 * @author 黄祥谦.
+	 */
+	public void getGoodsFarmerShops(){
+		List<ShopPo> shopList = categoryServer.getGoodsFarmerShops(model.getCategoryId(), pageInfo);
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("shopList", shopList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+		
+	}
 }

@@ -35,6 +35,7 @@ public class ShopDaoImpl extends BaseDaoImpl<ShopPo> implements ShopDao {
 		// TODO 未测试.
 		String hql = "select s from ShopPo s,GoodsPo g where s.onSell=true and g.categoryId=:categoryId and g.nowNumber > 0 group by s.shopId ";
 		String hql2 = "select count(*) from ShopPo s,GoodsPo g where s.onSell=true and g.categoryId=:categoryId and g.nowNumber>0 group by s.shopId";
+		@SuppressWarnings("unchecked")
 		List<ShopPo> shopList = getCurrentSession()
 				.createQuery(hql)
 				.setLong("categoryId", categoryId)
@@ -51,8 +52,9 @@ public class ShopDaoImpl extends BaseDaoImpl<ShopPo> implements ShopDao {
 	public List<ShopPo> getPointTypeGoodsShops(Long categoryId,
 			Integer shopType, PageInfo pageInfo) {
 		// TODO 未测试.
-		String hql = "select ShopPo from ShopPo s,GoodsPo g where s.onSell=true and s.shopType=:shopType and g.categoryId=:categoryId and g.nowNumber > 0 group by s.shopId";
-		String hql2 = "select count(*) from ShopPo s,GoodsPo g where s.onSell=true and s.shopType=:shopType and g.categoryId:categoryId and g.nowNumber>0 group by s.shopId";
+		String hql = "select s from ShopPo s,GoodsPo g where s.onSell=true and s.shopType=:shopType and g.categoryId=:categoryId and g.nowNumber > 0 group by s.shopId";
+		String hql2 = "select count(*) from ShopPo s,GoodsPo g where s.onSell=true and s.shopType=:shopType and g.categoryId =:categoryId and g.nowNumber>0 group by s.shopId";
+		@SuppressWarnings("unchecked")
 		List<ShopPo> shopList = getCurrentSession()
 				.createQuery(hql)
 				.setLong("categoryId", categoryId)
