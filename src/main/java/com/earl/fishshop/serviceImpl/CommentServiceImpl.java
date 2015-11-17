@@ -26,5 +26,6 @@ public class CommentServiceImpl extends BaseServiceImpl<CommentPo> implements
 	public void initBaseDao(){
 		baseDao = commentDao;
 	}
+
 	
 }

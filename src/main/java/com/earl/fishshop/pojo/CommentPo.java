@@ -15,7 +15,7 @@ public class CommentPo{
 	 * 字段描述：Long 
 	 * 字段类型：goodsId  
 	 */
-	private Long goodsId ;
+	private Long shopId ;
 	
 	/**
 	 * 字段描述：Long 
@@ -90,11 +90,11 @@ public class CommentPo{
 	public Long getCommentId() {
 		return this.commentId;
 	}
-	public void setGoodsId(Long goodsId){
-		this.goodsId = goodsId;
+	public void setShopId(Long shopId){
+		this.shopId = shopId;
 	}
-	public Long getGoodsId() {
-		return this.goodsId;
+	public Long getShopId() {
+		return this.shopId;
 	}
 	public void setCommentType(Integer commentType){
 		this.commentType = commentType;
