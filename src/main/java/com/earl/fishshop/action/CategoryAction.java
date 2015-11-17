@@ -83,6 +83,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		List<CategoryPo> categoryList = categoryServer.getTopCategory();
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("categoryList", categoryList);
+		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 	}
 	
