@@ -1,11 +1,14 @@
 package com.earl.fishshop.serviceImpl;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.dao.ShopDao;
+import com.earl.fishshop.pojo.CommentPo;
 import com.earl.fishshop.pojo.FarmersPo;
 import com.earl.fishshop.pojo.FishmanPo;
 import com.earl.fishshop.pojo.ShopPo;
@@ -91,6 +94,22 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 			// TODO: handle exception
 		}
 		return false;
+	}
+
+	@Override
+	public void updateShopComment(CommentPo model) {
+		List<CommentPo> list = commentDao.getShopComment(model.getShopId());
+		int i = list.size();
+		ShopPo shop = shopDao.get(model.getShopId());
+		Float newFreshQuality = (shop.getFreshQuality() * (i-1) + model.getFreshQuality())/i;
+		Float newSpeedQuality = (shop.getSpeedQuality() * (i-1) + model.getSpeedQuality())/i;
+		Float newWeightQuality = (shop.getWeightQuality() * (i-1) + model.getWeightQuality())/i;
+		shop.setFreshQuality(newFreshQuality);
+		shop.setSpeedQuality(newSpeedQuality);
+		shop.setWeightQuality(newWeightQuality);
+		shop.setGrade(shop.getGrade() + model.getCommentType());
+		shopDao.update(shop);
+		
 	}
 
 }

@@ -80,7 +80,7 @@ INSERT INTO `checkout` VALUES ('1', '1', '1', '2015-11-05 11:10:37', null, '', '
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
   `commentId` bigint(20) NOT NULL AUTO_INCREMENT,
-  `goodsId` bigint(20) DEFAULT NULL,
+  `shopId` bigint(20) DEFAULT NULL,
   `ordersId` bigint(20) DEFAULT NULL,
   `commentType` int(11) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
@@ -302,13 +302,12 @@ CREATE TABLE `searecord` (
   `spendDay` int(11) DEFAULT NULL,
   `state` int(11) DEFAULT NULL,
   `shipportName` varchar(255) DEFAULT NULL,
-  `lontitude` double DEFAULT NULL,
+  `longitude` double DEFAULT NULL,
   `latitude` double DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
-  `longitude` double DEFAULT NULL,
   PRIMARY KEY (`seaRecordId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -323,13 +322,12 @@ DROP TABLE IF EXISTS `shipport`;
 CREATE TABLE `shipport` (
   `shipportId` bigint(20) NOT NULL AUTO_INCREMENT,
   `shipportName` varchar(255) DEFAULT NULL,
-  `lontitude` double DEFAULT NULL,
+  `longitude` double DEFAULT NULL,
   `latitude` double DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
-  `longitude` double DEFAULT NULL,
   PRIMARY KEY (`shipportId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -346,6 +344,7 @@ CREATE TABLE `shop` (
   `userId` bigint(20) DEFAULT NULL,
   `shopName` varchar(255) DEFAULT NULL,
   `getType` varchar(255) DEFAULT NULL,
+  `grade` int (15) DEFAULT NULL,
   `weightQuality` float DEFAULT NULL,
   `freshQuality` float DEFAULT NULL,
   `speedQuality` float DEFAULT NULL,
@@ -356,20 +355,19 @@ CREATE TABLE `shop` (
   `portTime` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `seaRecordId` bigint(20) DEFAULT NULL,
-  `lontitude` double DEFAULT NULL,
+  `longitude` double DEFAULT NULL,
   `latitude` double DEFAULT NULL,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `version` bigint(20) DEFAULT '1',
-  `longitude` double DEFAULT NULL,
   PRIMARY KEY (`shopId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop
 -- ----------------------------
-INSERT INTO `shop` VALUES ('3', '1', '海格号', '4;2;3', null, null, null, '1', '40.5', '', null, null, '广东海洋大学', null, null, '344.6', null, '', '2015-11-17 11:18:57', '1', '234.4');
+INSERT INTO `shop` VALUES ('3', '1', '海格号', '4;2;3', null, null, null, '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
 
 -- ----------------------------
 -- Table structure for `sku`
@@ -442,7 +440,3 @@ INSERT INTO `user` VALUES ('1', '2', '1', '2', '易临风', '798555920', '187194
 INSERT INTO `user` VALUES ('2', '1', '1', '1', 'Imissyou', '798555920', '18719425973', './aaa.jpg', '2015-11-05 11:12:04', null, '', '1');
 INSERT INTO `user` VALUES ('3', '2', '1', '1', '', '798555920', '18719425973', './aaa.jpg', '2015-11-15 09:54:21', null, '', '1');
 
-
-
-
-select s.* from shop s,goods g where s.onSell=true and g.categoryId=2 and g.nowNumber > 0 group by shopId limit 0,3;
