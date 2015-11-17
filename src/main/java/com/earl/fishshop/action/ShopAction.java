@@ -1,6 +1,8 @@
 package com.earl.fishshop.action;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -55,6 +57,7 @@ public class ShopAction extends BaseAction<ShopPo> {
 	public void addShop() {
 			
 			Boolean save = shopServer.addShop(model);
+			resultMessage = new ResultMessage();
 			resultMessage.setServiceResult(save);
 	}
 	
@@ -63,7 +66,7 @@ public class ShopAction extends BaseAction<ShopPo> {
 	 * @author 黄祥谦.
 	 */
 	public void updateShop(){
-		Boolean update = shopServer.update(model);
+		Boolean update = shopServer.updateWithNotNullProperties(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(update);
 	}
@@ -85,6 +88,10 @@ public class ShopAction extends BaseAction<ShopPo> {
 	 */
 	public void getCategoryWithTotalNumber(){
 		List<CategoryPo> categoryList = goodsServer.getCategoryWithTotalNumber(model.getShopId());
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("categoryList", categoryList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
 	}
 	
 	/**

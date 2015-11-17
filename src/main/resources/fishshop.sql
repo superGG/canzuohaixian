@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-11-16 22:15:07
+Date: 2015-11-17 11:26:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -118,6 +118,7 @@ CREATE TABLE `farmers` (
 -- ----------------------------
 -- Records of farmers
 -- ----------------------------
+INSERT INTO `farmers` VALUES ('1', '1', '广东海洋大学', '234.4', '344.6', '/fishshop/aaa.jpg', 'fs.jpg', 'dflj.jpg', '23409232408', '4;2;3', '2015-11-17 11:17:58', null, null, '1');
 
 -- ----------------------------
 -- Table structure for `fishman`
@@ -142,7 +143,7 @@ CREATE TABLE `fishman` (
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
   PRIMARY KEY (`fishmanId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of fishman
@@ -239,12 +240,14 @@ CREATE TABLE `goods` (
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
   PRIMARY KEY (`goodsId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
-INSERT INTO `goods` VALUES ('1', '1', '2', null, null, null, null, null, '45', null, '15', null, '2015-11-16 22:13:25', '', '1');
+INSERT INTO `goods` VALUES ('1', '1', '2', '3', null, null, null, '34.5', '60', null, '15', null, '2015-11-16 22:13:25', '', '1');
+INSERT INTO `goods` VALUES ('2', '1', '2', '5', null, '1', '1', '40', '1000', '1', '0', null, '2015-11-17 09:40:12', '', '0');
+INSERT INTO `goods` VALUES ('3', '1', '2', '5', null, '1', '1', '40', '1000', '1', '0', null, '2015-11-17 09:41:23', '', '1');
 
 -- ----------------------------
 -- Table structure for `orders`
@@ -267,7 +270,7 @@ CREATE TABLE `orders` (
   `version` bigint(20) DEFAULT '1',
   `orderNumber` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ordersId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of orders
@@ -296,7 +299,7 @@ CREATE TABLE `ordersdetail` (
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
   PRIMARY KEY (`ordersDetailId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ordersdetail
@@ -379,11 +382,12 @@ CREATE TABLE `shop` (
   `version` bigint(20) DEFAULT '1',
   `longitude` double DEFAULT NULL,
   PRIMARY KEY (`shopId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop
 -- ----------------------------
+INSERT INTO `shop` VALUES ('3', '1', '海格号', '4;2;3', null, null, null, '1', '40.5', '', null, null, '广东海洋大学', null, null, '344.6', null, '', '2015-11-17 11:18:57', '1', '234.4');
 
 -- ----------------------------
 -- Table structure for `sku`
@@ -481,6 +485,6 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '1', '1', '2', '易临风', '798555920', '18719425973', './aaa.jpg', '2015-11-05 11:12:04', null, '', '1');
+INSERT INTO `user` VALUES ('1', '2', '1', '2', '易临风', '798555920', '18719425973', './aaa.jpg', '2015-11-05 11:12:04', null, '', '1');
 INSERT INTO `user` VALUES ('2', '1', '1', '1', 'Imissyou', '798555920', '18719425973', './aaa.jpg', '2015-11-05 11:12:04', null, '', '1');
 INSERT INTO `user` VALUES ('3', '2', '1', '1', '', '798555920', '18719425973', './aaa.jpg', '2015-11-15 09:54:21', null, '', '1');

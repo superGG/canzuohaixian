@@ -26,7 +26,7 @@ public interface GoodsDao extends BaseDao<GoodsPo>{
 	void updateGoodNowNumber(Long goodsId, Long nowNumber);
 
 	/**
-	 * 得到指定类别的商品.
+	 * 得到商家指定类别的商品.
 	 * @author 黄祥谦.
 	 * @param goodsCategory
 	 * @return
@@ -50,5 +50,14 @@ public interface GoodsDao extends BaseDao<GoodsPo>{
 	 * @return
 	 */
 	List<GoodsPo> getShopAllGoods(Long shopId, PageInfo pageInfo);
+
+	/**
+	 * 删除指定商店的特定类别渔货
+	 * @author 黄祥谦.
+	 * @param categoryId
+	 * @param shopId
+	 * @return
+	 */
+	void deletePointCategoryGoods(Long categoryId, Long shopId);
 
 }

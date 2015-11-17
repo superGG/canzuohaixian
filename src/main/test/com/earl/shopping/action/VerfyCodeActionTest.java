@@ -14,7 +14,7 @@ public class VerfyCodeActionTest extends StrutsSpringTestCase {
 	
 	@Test
 	public void testGetVerifyCode() throws Exception{
-	     String res=executeAction("/verfycode_getVerifyCode.action");  
+	     String res=executeAction("/verify_getImgVerifyCode.action");  
 	     System.out.println(res);
 	}
 	

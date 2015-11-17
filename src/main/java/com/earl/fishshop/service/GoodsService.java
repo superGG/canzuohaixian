@@ -59,4 +59,13 @@ public interface GoodsService extends BaseService<GoodsPo>{
 	 */
 	GoodsPo getGoodsInfo(Long goodsId);
 
+	/**
+	 * 删除指定商店的特定类别渔货
+	 * @author 黄祥谦.
+	 * @param categoryId
+	 * @param shopId
+	 * @return
+	 */
+	Boolean deletePointCategoryGoods(Long categoryId, Long shopId);
+
 }

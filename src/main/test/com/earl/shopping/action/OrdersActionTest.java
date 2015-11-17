@@ -119,7 +119,6 @@ public class OrdersActionTest extends StrutsSpringTestCase {
 		request.addParameter("pageInfo.size", "3");
 		String res = executeAction("/orders_getUnPayOrders.action");
 		System.out.println(res);
-		
 	}
 	
 }

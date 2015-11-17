@@ -119,7 +119,7 @@ public class VerifyAction extends BaseAction<UserPo>{
      * @author 宋文光
      */
     public final void getImgVerifyCode() {
-    	verifyService = VerifyService.getInstance();
+    	verifyService = VerifyService.getInstance();	
     	resultMessage = verifyService.getVerifyCode();
     	session.put("imgVerifyCode", resultMessage.getResultInfo());
     	resultMessage.setUserToken(true);

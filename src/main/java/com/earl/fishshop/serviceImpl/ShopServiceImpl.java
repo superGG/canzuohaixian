@@ -56,20 +56,25 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 		try {
 			UserPo userPo = userDao.get(model.getUserId());
 			if(userPo.getUserType() == MyConstant.user_farmer){
-				FarmersPo farmersPo = farmersDao.get(userPo.getIdentityId());
-				model.setGetType(farmersPo.getMultiGetType());
-				model.setAddress(farmersPo.getAddress());
+				FarmersPo farmers = farmersDao.get(userPo.getIdentityId());
+				model.setGetType(farmers.getMultiGetType());
+				model.setAddress(farmers.getAddress());
+				model.setLongitude(farmers.getLongitude());
+				model.setLatitude(farmers.getLatitude());
+				model.setShopType(MyConstant.shop_farmerman);
 				model.setOnSell(MyConstant.shop_onSell);
 				shopDao.save(model);
 			}else if(userPo.getUserType() == MyConstant.user_fishman){
-				FishmanPo farmersPo = fishmanDao.get(userPo.getIdentityId());
-				model.setGetType(String.valueOf(farmersPo.getGetType()));
+				FishmanPo fishman = fishmanDao.get(userPo.getIdentityId());
+				model.setShopType(MyConstant.shop_fishman);
+				model.setGetType(String.valueOf(fishman.getGetType()));
 				model.setOnSell(MyConstant.shop_notOnSell);
 				shopDao.save(model);
 			}
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 			return false;
 		}
 	}
