@@ -27,7 +27,6 @@ public class ShopDaoImpl extends BaseDaoImpl<ShopPo> implements ShopDao {
 
 	@Override
 	public void updateSentPrice(Long shopId, Double sendPrice) {
-		// TODO 未测试.
 		String hql = "update ShopPo set sendPrice = :sendPrice where shopId = :shopId";
 		getCurrentSession().createQuery(hql).setLong("shopId", shopId).setDouble("sendPrice", sendPrice).executeUpdate();
 	}

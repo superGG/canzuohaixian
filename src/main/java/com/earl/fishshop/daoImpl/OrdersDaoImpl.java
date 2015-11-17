@@ -22,7 +22,6 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 
 	@Override
 	public List<OrdersPo> getMyShopOrders(Long shopId, PageInfo pageInfo) {
-		// TODO 未测试.
 		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
 		createCriteria.add(Restrictions.eq("shopId", shopId));
 		createCriteria.setFirstResult(
@@ -48,7 +47,6 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 
 	@Override
 	public void addOrders(OrdersPo orders) {
-		// TODO 未测试.
 		orders.setState(MyConstant.order_unpay);//设置订单初始状态.
 		Long ordersId = (Long) getCurrentSession().save(orders);
 		List<OrdersDetailPo> ordersDetail = orders.getOrdersDetail();
@@ -67,7 +65,6 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 
 	@Override
 	public List<OrdersPo> getOrdersWithSeaRecord(Long seaRecordId, PageInfo pageInfo) {
-		// TODO 未测试.
 		
 		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
 		createCriteria.add(Restrictions.eq("seaRecordId", seaRecordId));
@@ -87,7 +84,6 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 
 	@Override
 	public List<OrdersPo> getPointStateOrders(Long userId, Integer state, PageInfo pageInfo) {
-		// TODO 未测试.
 		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
 		createCriteria.add(Restrictions.eq("state", state));
 		createCriteria.add(Restrictions.eq("userId", userId));
@@ -107,7 +103,6 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 
 	@Override
 	public void setOrderNumber(Long ordersId, String orderNumber) {
-		// TODO 未测试.
 		String hql = "update OrdersPo set orderNumber =:orderNumber where ordersId =:ordersId";
 		getCurrentSession().createQuery(hql).setString("orderNumber", orderNumber).setLong("ordersId", ordersId).executeUpdate();
 	}

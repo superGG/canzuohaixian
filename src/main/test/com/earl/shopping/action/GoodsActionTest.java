@@ -11,7 +11,6 @@ public class GoodsActionTest extends StrutsSpringTestCase {
 
 	@Override
 	protected String[] getContextLocations() {
-		// TODO Auto-generated method stub
 			String [] lala =	{"classpath*:applicationContext-*.xml"};  
 			return lala;
 	}

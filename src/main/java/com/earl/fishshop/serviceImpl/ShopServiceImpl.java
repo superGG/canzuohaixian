@@ -40,19 +40,17 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 
 	@Override
 	public Boolean updateSentPrice(Long shopId, Double sendPrice) {
-		// TODO 未测试.
 		try {
 			shopDao.updateSentPrice(shopId, sendPrice);
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 			return false;
 		}
 	}
 
 	@Override
 	public Boolean addShop(ShopPo model) {
-		// TODO 未测试.
 		try {
 			UserPo userPo = userDao.get(model.getUserId());
 			if(userPo.getUserType() == MyConstant.user_farmer){
@@ -77,7 +75,6 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 			}
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 			return false;
 		}

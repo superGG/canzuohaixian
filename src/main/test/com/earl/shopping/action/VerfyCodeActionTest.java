@@ -7,7 +7,6 @@ public class VerfyCodeActionTest extends StrutsSpringTestCase {
 
 	@Override
 	protected String[] getContextLocations() {
-		// TODO Auto-generated method stub
 			String [] lala =	{"classpath*:applicationContext-*.xml"};  
 			return lala;
 	}

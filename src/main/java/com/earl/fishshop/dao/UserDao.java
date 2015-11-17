@@ -29,6 +29,13 @@ public interface UserDao extends BaseDao<UserPo>{
 	 * @return
 	 */
 	List<UserPo> getAllFishmanUser();
+
+	/**
+	 * 获取所有养殖户的用户信息.
+	 *@author 宋文光.
+	 * @return
+	 */
+	List<UserPo> getAllFarmersUser();
 	
 
 }

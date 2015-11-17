@@ -36,9 +36,9 @@ public class FishmanServiceImpl extends BaseServiceImpl<FishmanPo> implements
 			fishmanDao.authenticationFishman(userId,model);
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
-			return false;
+			e.printStackTrace();
 		}
+		return false;
 	}
 
 	@Override

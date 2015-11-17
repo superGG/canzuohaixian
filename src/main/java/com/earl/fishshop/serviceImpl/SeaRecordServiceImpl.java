@@ -34,7 +34,7 @@ public class SeaRecordServiceImpl extends BaseServiceImpl<SeaRecordPo> implement
 			seaRecordDao.addSeaRecord(model);
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return false;
 	}

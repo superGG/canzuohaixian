@@ -31,21 +31,18 @@ public class GetTypeServiceImpl extends BaseServiceImpl<GetTypePo> implements
 
 	@Override
 	public List<GetTypePo> getNextLevelGetType(Long parentId) {
-		// TODO 未测试.
 		List<GetTypePo> getTypeList = getTypeDao.getNextLevelGetType(parentId);
 		return getTypeList;
 	}
 
 	@Override
 	public List<GetTypePo> getTopGetType() {
-		// TODO 未测试.
 		List<GetTypePo> getTypeList = getTypeDao.getTopGetType();
 		return getTypeList;
 	}
 
 	@Override
 	public List<GetTypePo> getHierarchyGetType() {
-		// TODO 未测试.
 		List<GetTypePo> getTypeList = getTypeDao.getHierarchyGetType();
 		return getTypeList;
 	}

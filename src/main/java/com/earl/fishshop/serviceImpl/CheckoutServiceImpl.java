@@ -33,10 +33,9 @@ public class CheckoutServiceImpl extends BaseServiceImpl<CheckoutPo> implements
 			checkoutDao.passRecord(checkoutId);
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
-			return false;
 		}
+		return false;
 	}
 
 	@Override
@@ -45,10 +44,9 @@ public class CheckoutServiceImpl extends BaseServiceImpl<CheckoutPo> implements
 			checkoutDao.nopassRecord(checkoutId);
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
-			return false;
 		}
+		return false;
 	}
 	
 }

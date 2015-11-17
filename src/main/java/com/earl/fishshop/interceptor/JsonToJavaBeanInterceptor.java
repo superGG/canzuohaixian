@@ -14,6 +14,7 @@ import org.apache.log4j.Logger;
 
 import com.earl.fishshop.helper.JsonHelper;
 import com.earl.fishshop.helper.ValidateHelper;
+import com.earl.fishshop.pojo.ResultMessage;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;

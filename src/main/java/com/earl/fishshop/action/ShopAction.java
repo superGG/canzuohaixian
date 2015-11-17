@@ -30,7 +30,7 @@ public class ShopAction extends BaseAction<ShopPo> {
 	 */
 	private static final long serialVersionUID = 3293435262298029608L;
 
-	protected ResultMessage resultMessage;
+	private ResultMessage resultMessage;
 
 	private PageInfo pageInfo;
 
@@ -42,6 +42,10 @@ public class ShopAction extends BaseAction<ShopPo> {
 		this.pageInfo = pageInfo;
 	}
 
+	public void setResultMessage(ResultMessage resultMessage) {
+		this.resultMessage = resultMessage;
+	}
+	
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public ResultMessage getResultMessage() {
 		return resultMessage;
@@ -91,6 +95,7 @@ public class ShopAction extends BaseAction<ShopPo> {
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("categoryList", categoryList);
 		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(true);
 		resultMessage.setResultParm(hashMap);
 	}
 	
@@ -100,12 +105,18 @@ public class ShopAction extends BaseAction<ShopPo> {
 	 */
 	public void getShopAllGoods(){
 		List<GoodsPo> goodsList = goodsServer.getShopAllGoods(model.getShopId(), pageInfo);
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("goodsList", goodsList);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(true);
+		resultMessage.setResultParm(hashMap);
 	}
 	
 	/**
 	 * 得到指定商店信息.
 	 * @author 黄祥谦.
 	 */
+	//TODO 未完成.
 	public void getShop(){
 	ShopPo shop = shopServer.get(model.getShopId());
 	System.out.println(shop);
@@ -119,4 +130,6 @@ public class ShopAction extends BaseAction<ShopPo> {
 	Boolean success = shopServer.endSeaing(model.getShopId());
 	
 	}
+
+
 }

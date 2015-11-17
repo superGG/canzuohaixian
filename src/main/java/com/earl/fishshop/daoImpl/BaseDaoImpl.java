@@ -153,7 +153,6 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 //				getCurrentSession().update(persistentInstance);
 				getCurrentSession().delete(persistentInstance);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	}
@@ -204,19 +203,12 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		// 前提，pojo id属性名上要有 IdAnnotatioin标签
 		@Override
 		public void updateWithNotNullProperties(T object) {
-			//
 			T t = null;
-
 			Map<String, Object> notNullParam;
-
 			try {
-
 				notNullParam = getNotNullProperties(object);
-
 				BeanMap beanMap = new BeanMap(object);
-
 				Field[] fields = clazz.getDeclaredFields();
-
 				for (Field field : fields) {
 					//判断该属性是否标注着idAnnotation
 					if (field.isAnnotationPresent(IdAnnotatioin.class)) {
@@ -228,22 +220,17 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 						break;
 					}
 				}
-
 				for (String paramName : notNullParam.keySet()) {
 					// 得到非空属性的set方法,得到非空属性的值
-
 					Method writeMethod = beanMap.getWriteMethod(paramName);
-
 					// 赋值，
 					writeMethod.invoke(t, beanMap.get(paramName));
-					// 更新
 				}
+				// 更新
 				getCurrentSession().update(t);
 			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
