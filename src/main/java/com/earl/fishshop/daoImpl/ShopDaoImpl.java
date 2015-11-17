@@ -74,4 +74,7 @@ public class ShopDaoImpl extends BaseDaoImpl<ShopPo> implements ShopDao {
 		Long save =  (Long) getCurrentSession().save(model);
 		return save;
 	}
+
+	
+
 }

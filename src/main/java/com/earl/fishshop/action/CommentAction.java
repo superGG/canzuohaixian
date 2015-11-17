@@ -31,11 +31,12 @@ public class CommentAction extends BaseAction<CommentPo> {
 	}
 
 	/**
-	 * 为商品添加评论.
+	 * 为商店添加评论.
 	 * @author 黄祥谦.
 	 */
 	public void addComment() {
 		Boolean save = commentServer.save(model);
+		shopServer.updateShopComment(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
 	}
