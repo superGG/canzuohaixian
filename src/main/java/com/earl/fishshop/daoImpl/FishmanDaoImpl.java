@@ -18,9 +18,10 @@ public class FishmanDaoImpl extends BaseDaoImpl<FishmanPo> implements
 
 	@Override
 	public void authenticationFishman(Long userId, FishmanPo model) {
-		save(model);
-		String hql = "update UserPo set userType =:userType,state=:state  where userId =:userId";
+		Long identityId = (Long) getCurrentSession().save(model);
+		String hql = "update UserPo set userType =:userType,state=:state, identityId=:identityId where userId =:userId";
 		getCurrentSession().createQuery(hql)
+				.setLong("identityId", identityId)
 				.setInteger("userType", MyConstant.user_fishman)
 				.setInteger("state", MyConstant.user_wait)
 				.setLong("userId", userId).executeUpdate();

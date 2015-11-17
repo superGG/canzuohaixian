@@ -18,9 +18,10 @@ public class FarmersDaoImpl extends BaseDaoImpl<FarmersPo> implements FarmersDao
 
 	@Override
 	public void authenticationFarmers(Long userId, FarmersPo model) {
-		save(model);
-		String hql = "update UserPo set userType =:userType,state=:state  where userId =:userId";
+		Long identityId = (Long) getCurrentSession().save(model);
+		String hql = "update UserPo set userType =:userType,state=:state, identityId=:identityId  where userId =:userId";
 		getCurrentSession().createQuery(hql)
+				.setLong("identityId", identityId)
 				.setInteger("userType", MyConstant.user_farmer)
 				.setInteger("state", MyConstant.user_wait)
 				.setLong("userId", userId).executeUpdate();

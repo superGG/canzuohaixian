@@ -39,4 +39,6 @@ public class CommentAction extends BaseAction<CommentPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
 	}
+	
+	
 }
