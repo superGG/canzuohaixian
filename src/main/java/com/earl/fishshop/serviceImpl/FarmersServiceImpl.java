@@ -1,5 +1,7 @@
 package com.earl.fishshop.serviceImpl;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
@@ -35,6 +37,12 @@ public class FarmersServiceImpl extends BaseServiceImpl<FarmersPo> implements
 		} catch (Exception e) {
 			return false;
 		}
+	}
+
+	@Override
+	public List<FarmersPo> getFarmers(Long identityId) {
+		List<FarmersPo> list = farmersDao.getFarmers(identityId);
+		return list;
 	}
 	
 }
