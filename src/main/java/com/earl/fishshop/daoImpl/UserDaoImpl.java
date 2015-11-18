@@ -69,4 +69,15 @@ public class UserDaoImpl extends BaseDaoImpl<UserPo> implements UserDao {
 		return list;
 	}
 
+	@Override
+	public Boolean blackUser(Long identityId) {
+		//TODO 不知道executeUpdate()返回值是啥
+		Boolean result = true;
+		String hql = "update UserPo set state=:state where identityId = :identityId";
+		getCurrentSession().createQuery(hql)
+			.setInteger("state", MyConstant.user_black)
+			.setLong("identityId", identityId).executeUpdate();
+		return result;
+	}
+
 }

@@ -44,4 +44,13 @@ public interface UserService extends BaseService<UserPo>{
 	 */
 	List<UserPo> getAllFarmersUser();
 
+	/**
+	 * 拉黑用户.
+	 *@author 宋文光.
+	 * @param identityId
+	 * 			渔户或养殖户id;
+	 * @return
+	 */
+	Boolean blackUser(Long identityId);
+
 }

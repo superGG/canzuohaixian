@@ -23,4 +23,18 @@ public interface FishmanDao extends BaseDao<FishmanPo>{
 	 */
 	List<FishmanPo> getFishman(Long identityId);
 
+	/**
+	 * 通过渔户认证.
+	 *@author 宋文光.
+	 * @param userId
+	 */
+	void passAuthenticationFishman(Long userId);
+
+	/**
+	 * 不通过渔户认证.
+	 *@author 宋文光.
+	 * @param userId
+	 */
+	void noPassAuthenticationFishman(Long userId);
+
 }

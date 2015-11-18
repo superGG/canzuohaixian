@@ -1,6 +1,5 @@
 package com.earl.fishshop.service;
 
-import java.util.List;
 import java.util.Map;
 
 import com.earl.fishshop.pojo.CommentPo;
@@ -54,30 +53,8 @@ public interface ShopService extends BaseService<ShopPo>{
 	 * @param shopId
 	 * @return
 	 */
-	Map<String, Object> getShopComment(Long shopId);
+	Map<String, Object> getShopCommentInfo(Long shopId);
 
-	/**
-	 * 获取商店所有好评.
-	 * @author 宋文光.
-	 * @param shopId
-	 * @return
-	 */
-	List<CommentPo> getGoodComment(Long shopId);
 	
-	/**
-	 * 获取商店所有中评.
-	 * @author 宋文光.
-	 * @param shopId
-	 * @return
-	 */
-	List<CommentPo> getMidComment(Long shopId);
-	
-	/**
-	 * 获取商店所有差评.
-	 * @author 宋文光.
-	 * @param shopId
-	 * @return
-	 */
-	List<CommentPo> getBedComment(Long shopId);
 
 }
