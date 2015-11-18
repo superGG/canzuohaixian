@@ -54,8 +54,8 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 	}
 
 	@Override
-	public List<GoodsPo> getGoodsWithCategory(Long cagtegoryId) {
-		List<GoodsPo> goodsList = goodsDao.getGoodsWithCategory(cagtegoryId);
+	public List<GoodsPo> getGoodsWithCategory(Long cagtegoryId, PageInfo pageInfo) {
+		List<GoodsPo> goodsList = goodsDao.getGoodsWithCategory(cagtegoryId, pageInfo);
 		return goodsList;
 	}
 

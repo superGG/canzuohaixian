@@ -83,7 +83,7 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getGoodsWithCategory(){
-		List<GoodsPo> goodsList = goodsServer.getGoodsWithCategory(model.getCategoryId());
+		List<GoodsPo> goodsList = goodsServer.getGoodsWithCategory(model.getCategoryId(), pageInfo);
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("goodsList", goodsList);
 		resultMessage = new ResultMessage();

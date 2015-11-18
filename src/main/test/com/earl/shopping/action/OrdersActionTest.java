@@ -116,7 +116,7 @@ public class OrdersActionTest extends StrutsSpringTestCase {
 		request.addParameter("userId", "1");
 		request.addParameter("pageInfo.indexPageNum", "1");
 		request.addParameter("pageInfo.size", "3");
-		String res = executeAction("/orders_getUnPayOrders.action");
+		String res = executeAction("/orders_getUnSentOrders.action");
 		System.out.println(res);
 	}
 	

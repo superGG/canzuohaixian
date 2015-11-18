@@ -53,6 +53,11 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		Boolean save = categoryServer.save(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
+		if(save){
+			resultMessage.setResultInfo("添加成功");
+		}else{
+			resultMessage.setResultInfo("添加失败");
+		}
 	}
 	
 	/**

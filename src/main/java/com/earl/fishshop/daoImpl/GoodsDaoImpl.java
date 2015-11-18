@@ -36,10 +36,10 @@ public class GoodsDaoImpl extends BaseDaoImpl<GoodsPo> implements GoodsDao {
 	}
 
 	@Override
-	public List<GoodsPo> getGoodsWithCategory(Long categoryId) {
+	public List<GoodsPo> getGoodsWithCategory(Long categoryId, PageInfo pageInfo) {
 		String hql = "from GoodsPo where categoryId =:categoryId";
 		@SuppressWarnings("unchecked")
-		List<GoodsPo> goodsList = getCurrentSession().createQuery(hql).setLong("categoryId", categoryId).list();
+		List<GoodsPo> goodsList = getCurrentSession().createQuery(hql).setLong("categoryId", categoryId).setFirstResult((pageInfo.getIndexPageNum() - 1) * pageInfo.getSize()).setMaxResults(pageInfo.getSize()).list();
 		return goodsList;
 	}
 
