@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.CategoryPo;
+import com.earl.fishshop.pojo.CommentPo;
 import com.earl.fishshop.pojo.GoodsPo;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.ShopPo;
@@ -136,6 +137,55 @@ public class ShopAction extends BaseAction<ShopPo> {
 	resultMessage = new ResultMessage();
 	resultMessage.setServiceResult(success);
 	}
+	
+	/**
+	 * 获取商店的评论信息.
+	 * @author 宋文光.
+	 */
+	public void getShopComment() {
+		Map<String, Object> hashMap = shopServer.getShopComment(model.getShopId());
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+	}
+	
+	/**
+	 * 获取商店所有好评.
+	 * @author 宋文光.
+	 */
+	public void getGoodComment() {
+		List<CommentPo> list = shopServer.getGoodComment(model.getShopId());
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("goodComment", list);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(map);
+		resultMessage.setServiceResult(true);
+	}
 
+	/**
+	 * 获取商店所有中评.
+	 * @author 宋文光.
+	 */
+	public void getMidComment() {
+		List<CommentPo> list = shopServer.getMidComment(model.getShopId());
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("midComment", list);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(map);
+		resultMessage.setServiceResult(true);
+	}
+	
+	/**
+	 * 获取商店所有好评.
+	 * @author 宋文光.
+	 */
+	public void getBedComment() {
+		List<CommentPo> list = shopServer.getBedComment(model.getShopId());
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("bedComment", list);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(map);
+		resultMessage.setServiceResult(true);
+	}
 
 }

@@ -1,6 +1,8 @@
 package com.earl.fishshop.serviceImpl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -107,8 +109,44 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 		shop.setFreshQuality(newFreshQuality);
 		shop.setSpeedQuality(newSpeedQuality);
 		shop.setWeightQuality(newWeightQuality);
+		shop.setGrade(shop.getGrade() + model.getCommentType());
 		shopDao.update(shop);
 		
+	}
+
+	@Override
+	public Map<String, Object> getShopComment(Long shopId) {
+		ShopPo shop = shopDao.get(shopId);
+		int commentSizt = commentDao.getShopComment(shopId).size();
+		int goodComment = commentDao.getGoodComment(shopId).size();
+		int midComment = commentDao.getMidComment(shopId).size();
+		int bedComment = commentDao.getBedComment(shopId).size();
+		Map<String, Object> hashMap = new HashMap<String,Object>();
+		hashMap.put("shop", shop);  //商店信息：新鲜度、足斤足称、发货速度
+		hashMap.put("commentSize", commentSizt); //全部评论数量
+		hashMap.put("goodComment", goodComment);// 好评数量
+		hashMap.put("midComment", midComment); //中评数量
+		hashMap.put("bedComment", bedComment); //差评数量
+		
+		return hashMap;
+	}
+
+	@Override
+	public List<CommentPo> getGoodComment(Long shopId) {
+		List<CommentPo> list = commentDao.getGoodComment(shopId);
+		return list;
+	}
+
+	@Override
+	public List<CommentPo> getMidComment(Long shopId) {
+		List<CommentPo> list = commentDao.getMidComment(shopId);
+		return list;
+	}
+
+	@Override
+	public List<CommentPo> getBedComment(Long shopId) {
+		List<CommentPo> list = commentDao.getBedComment(shopId);
+		return list;
 	}
 
 }

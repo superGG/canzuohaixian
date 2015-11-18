@@ -88,6 +88,22 @@ public class MyConstant {
 	 * 标志养殖户商店 v1
 	 */
 	public static final Integer shop_farmerman = 1;
-
+	
+	/**
+	 * 好评.
+	 */
+	public static final Integer comment_good = 1;
+	
+	/**
+	 * 中评
+	 */
+	public static final Integer comment_med = 0;
+	
+	/**
+	 * 差评.
+	 */
+	public static final Integer comment_bed = -1;
+	
+	
 
 }
