@@ -23,6 +23,33 @@ public class CommentDaoImpl extends BaseDaoImpl<CommentPo> implements CommentDao
 					.setLong("shopId", shopId).list();
 		return list;
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<CommentPo> getGoodComment(Long shopId) {
+		String hql = "from CommentPo c where commentType = '1' and shopId = :shopId";
+		List<CommentPo> list = getCurrentSession().createQuery(hql)
+								.setLong("shopId", shopId).list();
+		return list;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<CommentPo> getMidComment(Long shopId) {
+		String hql = "from CommentPo c where commentType = '0' and shopId = :shopId";
+		List<CommentPo> list = getCurrentSession().createQuery(hql)
+								.setLong("shopId", shopId).list();
+		return list;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<CommentPo> getBedComment(Long shopId) {
+		String hql = "from CommentPo c where commentType = '-1' and shopId = :shopId";
+		List<CommentPo> list = getCurrentSession().createQuery(hql)
+								.setLong("shopId", shopId).list();
+		return list;
+	}
 	
 	
 }
