@@ -29,9 +29,10 @@ public interface GoodsDao extends BaseDao<GoodsPo>{
 	 * 得到商家指定类别的商品.
 	 * @author 黄祥谦.
 	 * @param goodsCategory
+	 * @param pageInfo TODO
 	 * @return
 	 */
-	List<GoodsPo> getGoodsWithCategory(Long goodsCategory);
+	List<GoodsPo> getGoodsWithCategory(Long goodsCategory, PageInfo pageInfo);
 
 	/**
 	 * 已上架渔获.

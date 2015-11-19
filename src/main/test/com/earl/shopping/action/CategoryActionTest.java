@@ -51,7 +51,6 @@ public class CategoryActionTest extends StrutsSpringTestCase {
 		request.addParameter("parentId", "1");
 		request.addParameter("fishPhoto", "localhost:8080//aaa.jpg");
 		request.addParameter("unit", "1");
-		request.addParameter("totalSellNumber", "0");
 //		request.addParameter("version", "3");
 		String res = executeAction("/category_updateCategory.action");
 		System.out.println(res);

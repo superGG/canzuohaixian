@@ -30,9 +30,10 @@ public interface GoodsService extends BaseService<GoodsPo>{
 	 * 通过商品类别得到指定商品.
 	 * @author 黄祥谦.
 	 * @param categoryId
+	 * @param pageInfo TODO
 	 * @return
 	 */
-	List<GoodsPo> getGoodsWithCategory(Long categoryId);
+	List<GoodsPo> getGoodsWithCategory(Long categoryId, PageInfo pageInfo);
 
 	/**
 	 * 得到用户发布的该类别下的商品总量
