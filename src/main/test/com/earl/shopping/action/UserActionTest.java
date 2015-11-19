@@ -1,5 +1,9 @@
 package com.earl.shopping.action;
 
+import java.io.UnsupportedEncodingException;
+
+import javax.servlet.ServletException;
+
 import org.apache.struts2.StrutsSpringTestCase;
 import org.junit.Test;
 
@@ -25,6 +29,15 @@ public class UserActionTest extends StrutsSpringTestCase {
 //		request.addParameter("totalSellNumber", "0");
 
 		String res = executeAction("/user_findAllUser.action");
+		System.out.println(res);
+	}
+	
+	@Test
+	public void testUserLogin() throws Exception {
+		request.addParameter("userName", "易临风");
+		request.addParameter("password", "798555920");
+		
+		String res = executeAction("/user_userLogin.action");
 		System.out.println(res);
 	}
 	

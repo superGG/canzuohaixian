@@ -2,6 +2,8 @@ package com.earl.fishshop.pojo;
 
 import java.util.Date;
 
+import com.earl.fishshop.annotation.IdAnnotatioin;
+
 public class UserPo{
 
 
@@ -9,6 +11,7 @@ public class UserPo{
 	 * 字段描述：Long 
 	 * 字段类型：userId  
 	 */
+	@IdAnnotatioin
 	private Long userId ;
 	
 	/**

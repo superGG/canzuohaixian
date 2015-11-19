@@ -11,6 +11,7 @@ import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.ShopPo;
 import com.earl.fishshop.pojo.UserPo;
+import com.earl.fishshop.serviceImpl.VerifyService;
 
 /**
  * 
@@ -90,6 +91,17 @@ public class UserAction extends BaseAction<UserPo> {
 		Map<String,Object> hashMap = new HashMap<String,Object>();
 		hashMap.put("userList", userList);
 		resultMessage.setResultParm(hashMap);
+	}
+	
+	/**
+	 * 用户登录验证.
+	 * @author 宋文光
+	 */
+	public final void userLogin() {
+		verifyService = VerifyService.getInstance();
+		resultMessage = verifyService.userLogin(model.getPhoneNumber()
+								, model.getUserName()
+								, model.getPassword());
 	}
 	
 	/**
