@@ -81,4 +81,36 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}
+	
+	/**
+	 * 获取所有养殖户数量.
+	 * @author 宋文光
+	 */
+	public void findAllFarmersNumber() {
+		List<FarmersPo> farmersList = farmersServer.findAll();
+		String farmersNamber = String.valueOf(farmersList.size());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(true);
+		resultMessage.setResultInfo(farmersNamber);
+	}
+	
+	/**
+	 * 通过认证养殖户.
+	 *@author 宋文光.
+	 */
+	public void passAuthenticationFarmers() {
+		Boolean result = farmersServer.passAuthenticationFarmers(userId);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(result);
+	}
+	
+	/**
+	 * 不通过认证养殖户.
+	 *@author 宋文光.
+	 */
+	public void noPassAuthenticationFarmers() {
+		Boolean result = farmersServer.noPassAuthenticationFarmers(userId,model.getFarmersId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(result);
+	}
 }

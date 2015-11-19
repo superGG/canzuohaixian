@@ -94,11 +94,44 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 *@author 宋文光.
 	 */
 	public void getFiahman() {
-		List<FishmanPo> list = fishmanServer.getFishman(identityId);
+		List<FishmanPo> list = fishmanServer.getFishman(model.getFishmanId());
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("fiashman", list);
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}
+	
+	/**
+	 * 获取所有渔户数量.
+	 * @author 宋文光
+	 */
+	public void findAllFiahmanNumber() {
+		List<FishmanPo> fishmanList = fishmanServer.findAll();
+		String fishmanNamber = String.valueOf(fishmanList.size());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(true);
+		resultMessage.setResultInfo(fishmanNamber);
+	}
+	
+	/**
+	 * 通过认证渔户.
+	 *@author 宋文光.
+	 */
+	public void passAuthenticationFishman() {
+		Boolean result = fishmanServer.passAuthenticationFishman(userId);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(result);
+	}
+	
+	/**
+	 * 不通过认证渔户.
+	 *@author 宋文光.
+	 */
+	public void noPassAuthenticationFishman() {
+		Boolean result = fishmanServer.noPassAuthenticationFishman(userId,model.getFishmanId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(result);
+	}
+	
 }

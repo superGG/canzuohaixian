@@ -46,5 +46,28 @@ public class FishmanServiceImpl extends BaseServiceImpl<FishmanPo> implements
 		List<FishmanPo> list = fishmanDao.getFishman(identityId);
 		return list;
 	}
+
+	@Override
+	public Boolean passAuthenticationFishman(Long userId) {
+		try {
+			fishmanDao.passAuthenticationFishman(userId);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public Boolean noPassAuthenticationFishman(Long userId, Long fishmanId) {
+		try {
+			fishmanDao.noPassAuthenticationFishman(userId);
+			fishmanDao.deleteById(fishmanId);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 }

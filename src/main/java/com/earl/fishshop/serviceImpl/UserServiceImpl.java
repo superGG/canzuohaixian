@@ -77,5 +77,11 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 		List<UserPo> userList = userDao.getAllFarmersUser();
 		return userList;
 	}
+
+	@Override
+	public Boolean blackUser(Long identityId) {
+		Boolean result = userDao.blackUser(identityId);
+		return result;
+	}
 	
 }

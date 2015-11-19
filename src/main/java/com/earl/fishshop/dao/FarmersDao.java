@@ -23,4 +23,17 @@ public interface FarmersDao extends BaseDao<FarmersPo>{
 	 */
 	List<FarmersPo> getFarmers(Long identityId);
 
+	/**
+	 * 通过养殖户认证.
+	 *@author 宋文光.
+	 * @param userId
+	 */
+	void passAuthenticationFarmers(Long userId);
+
+	/**
+	 * 不通过养殖户认证.
+	 *@author 宋文光.
+	 * @param userId
+	 */
+	void noPassAuthenticationFarmers(Long userId);
 }

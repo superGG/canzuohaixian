@@ -3,7 +3,6 @@ package com.earl.fishshop.dao;
 import java.util.List;
 
 import com.earl.fishshop.base.BaseDao;
-import com.earl.fishshop.pojo.CommentPo;
 import com.earl.fishshop.pojo.ShopPo;
 import com.earl.fishshop.vo.PageInfo;
 

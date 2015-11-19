@@ -23,6 +23,25 @@ public interface FishmanService extends BaseService<FishmanPo>{
 	 */
 	List<FishmanPo> getFishman(Long identityId);
 
+	/**
+	 * 通过渔户认证.
+	 *@author 宋文光.
+	 * @param userId
+	 * @return
+	 */
+	Boolean passAuthenticationFishman(Long userId);
+
+	/**
+	 * 不通过渔户认证.
+	 *@author 宋文光.
+	 * @param userId 用户id
+	 * @param fishmanId 渔户id
+	 * @return
+	 */
+	Boolean noPassAuthenticationFishman(Long userId, Long fishmanId);
+
+	
+
 	
 
 	

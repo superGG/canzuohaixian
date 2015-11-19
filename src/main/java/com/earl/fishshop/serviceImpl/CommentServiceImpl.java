@@ -1,5 +1,7 @@
 package com.earl.fishshop.serviceImpl;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.earl.fishshop.dao.CommentDao;
 import com.earl.fishshop.pojo.CommentPo;
 import com.earl.fishshop.service.CommentService;
+import com.earl.fishshop.vo.PageInfo;
 
 /**
  * 每个ServiceImpl都要继承相对应的service接口
@@ -27,5 +30,27 @@ public class CommentServiceImpl extends BaseServiceImpl<CommentPo> implements
 		baseDao = commentDao;
 	}
 
-	
+	@Override
+	public List<CommentPo> getShopComment(Long shopId, PageInfo pageInfo) {
+		List<CommentPo> list = commentDao.getShopComment(shopId, pageInfo);
+		return list;
+	}
+
+	@Override
+	public List<CommentPo> getGoodComment(Long shopId, PageInfo pageInfo) {
+		List<CommentPo> list = commentDao.getGoodComment(shopId, pageInfo);
+		return list;
+	}
+
+	@Override
+	public List<CommentPo> getMidComment(Long shopId, PageInfo pageInfo) {
+		List<CommentPo> list = commentDao.getMidComment(shopId, pageInfo);
+		return list;
+	}
+
+	@Override
+	public List<CommentPo> getBedComment(Long shopId, PageInfo pageInfo) {
+		List<CommentPo> list = commentDao.getBedComment(shopId, pageInfo);
+		return list;
+	}
 }

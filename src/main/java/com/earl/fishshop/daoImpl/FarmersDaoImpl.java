@@ -37,5 +37,25 @@ public class FarmersDaoImpl extends BaseDaoImpl<FarmersPo> implements FarmersDao
 				.setLong("identityId", identityId).list();
 		return list;
 	}
+
+	@Override
+	public void passAuthenticationFarmers(Long userId) {
+		String hql = "update UserPo set state=:state where userId =:userId";
+		getCurrentSession().createQuery(hql)
+				.setInteger("state", MyConstant.user_pass)
+				.setLong("userId", userId).executeUpdate();
+		
+	}
+
+	@Override
+	public void noPassAuthenticationFarmers(Long userId) {
+		String hql = "update UserPo set userType =:userType,state=:state, identityId=:identityId where userId =:userId";
+		getCurrentSession().createQuery(hql)
+				.setLong("identityId", 0l)
+				.setInteger("userType", MyConstant.user_normal)
+				.setInteger("state", MyConstant.user_nopass)
+				.setLong("userId", userId).executeUpdate();
+		
+	}
 	
 }

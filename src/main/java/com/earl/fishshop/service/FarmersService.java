@@ -24,7 +24,22 @@ public interface FarmersService extends BaseService<FarmersPo>{
 	List<FarmersPo> getFarmers(Long identityId);
 
 	
+	/**
+	 *  通过养殖户认证.
+	 *@author 宋文光.
+	 * @param userId
+	 * @return
+	 */
+	Boolean passAuthenticationFarmers(Long userId);
 
+	/**
+	 * 不通过养殖认证.
+	 *@author 宋文光.
+	 * @param userId
+	 * @param farmersId
+	 * @return
+	 */
+	Boolean noPassAuthenticationFarmers(Long userId, Long farmersId);
 	
 	
 	

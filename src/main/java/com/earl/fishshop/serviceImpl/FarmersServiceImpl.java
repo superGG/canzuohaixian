@@ -44,5 +44,28 @@ public class FarmersServiceImpl extends BaseServiceImpl<FarmersPo> implements
 		List<FarmersPo> list = farmersDao.getFarmers(identityId);
 		return list;
 	}
+
+	@Override
+	public Boolean passAuthenticationFarmers(Long userId) {
+		try {
+			farmersDao.passAuthenticationFarmers(userId);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public Boolean noPassAuthenticationFarmers(Long userId, Long farmersId) {
+		try {
+			farmersDao.noPassAuthenticationFarmers(userId);
+			farmersDao.deleteById(farmersId);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 }
