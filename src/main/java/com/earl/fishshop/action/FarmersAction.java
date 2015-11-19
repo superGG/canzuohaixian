@@ -68,6 +68,16 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
 	}
+
+	/**
+	 * 更新养殖户个人信息.
+	 * @author 宋文光.
+	 */
+	public void updateFarmers(){
+		Boolean result = farmersServer.updateWithNotNullProperties(model);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(result);
+	}
 	
 	/**
 	 * 查询渔户的详细信息.

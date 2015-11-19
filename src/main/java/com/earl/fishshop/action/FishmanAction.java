@@ -73,10 +73,9 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 * @author 黄祥谦.
 	 */
 	public void updateFishman(){
-		Boolean result = fishmanServer.update(model);
+		Boolean result = fishmanServer.updateWithNotNullProperties(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
-		
 	}
 	
 	/**

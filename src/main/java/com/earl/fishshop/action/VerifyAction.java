@@ -105,14 +105,6 @@ public class VerifyAction extends BaseAction<UserPo>{
 		return resultMessage;
 	}
     
-	/**
-	 * 用户登录验证.
-	 * @author 宋文光
-	 */
-	public final void userLogin() {
-		verifyService = VerifyService.getInstance();
-		resultMessage = verifyService.userLogin(phone, userName, password);
-	}
 	
     /**
      * 获取图片验证码.
