@@ -5,6 +5,8 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
@@ -37,6 +39,12 @@ import com.opensymphony.xwork2.ModelDriven;
 public class BaseAction<T> extends ActionSupport implements RequestAware,
 		SessionAware, ApplicationAware, ModelDriven<T> {
 
+    /**
+     * log4j实例对象.
+     */
+    private static Logger logger = LogManager.getLogger(BaseAction.class
+            .getName());
+	
 	/**
 	 * 
 	 */
@@ -101,7 +109,7 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 		Class clazz = (Class) type.getActualTypeArguments()[0];
 		try {
 			model = (T) clazz.newInstance();
-			System.out.println(model);
+			logger.info(model);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

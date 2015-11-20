@@ -97,7 +97,6 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 */
 	public void getTopCategory(){
 		List<CategoryPo> categoryList = categoryServer.getTopCategory();
-		System.out.println(model);
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("categoryList", categoryList);
 		resultMessage = new ResultMessage();
@@ -156,6 +155,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}
+	
 	/**
 	 * 得到指定类别的渔户家信息.全部
 	 * @author 黄祥谦.
@@ -169,7 +169,6 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		resultMessage.setServiceResult(true);
 	}
 	
-	
 	/**
 	 * 得到养殖户商家信息.
 	 * @author 黄祥谦.
@@ -181,6 +180,5 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
-		
 	}
 }

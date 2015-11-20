@@ -13,8 +13,7 @@ import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 /**
  * ip拦截器.
  * 
- * @author 侯骏雄
- * @since 3.0.0
+ * @author 黄祥谦.
  */
 public class IpInterceptor extends AbstractInterceptor {
 
@@ -29,15 +28,6 @@ public class IpInterceptor extends AbstractInterceptor {
     private static Logger logger = LogManager.getLogger(IpInterceptor.class
             .getName());
 
-    /**
-     * 拦截action进行参数转码处理.
-     * 
-     * @param invocation
-     *            action作用域
-     * @throws Exception
-     *             普通异常
-     * @return 拦截结果
-     */
     @Override
     public final String intercept(final ActionInvocation invocation)
             throws Exception {
