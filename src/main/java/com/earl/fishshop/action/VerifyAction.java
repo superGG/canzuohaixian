@@ -1,7 +1,3 @@
-/**
- * Copyright (c) 2007-2015 WteamFly.  All rights reserved. 网飞网络公司 版权所有.
- * 请勿修改或删除版权声明及文件头部.
- */
 package com.earl.fishshop.action;
 
 import org.springframework.context.annotation.Scope;
@@ -11,6 +7,7 @@ import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.UserPo;
 import com.earl.fishshop.util.VerifyServiceUtil;
+import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
 
 
 /**
@@ -134,8 +131,9 @@ public class VerifyAction extends BaseAction<UserPo>{
      * 在注册时发送验证码到手机.
      * @throws Exception 
      * @author 宋文光
+     * @throws java.lang.Exception 
      */
-    public final void smsCodeOfRegister() throws Exception {
+    public final void smsCodeOfRegister() throws java.lang.Exception {
     	verifyServiceUtil = new VerifyServiceUtil();
     	resultMessage = verifyServiceUtil.smsCodeOfRegister(model.getPhoneNumber());
     	session.put("smsVerifyCode", resultMessage.getResultInfo());
@@ -145,8 +143,9 @@ public class VerifyAction extends BaseAction<UserPo>{
      * 在找回密码时发送验证码到手机.
      * @throws Exception 
      * @author 宋文光
+     * @throws java.lang.Exception 
      */
-    public final void smsCodeOfFound() throws Exception {
+    public final void smsCodeOfFound() throws java.lang.Exception  {
     	verifyServiceUtil =  new VerifyServiceUtil();
     	resultMessage = verifyServiceUtil.smsCodefindPassWord(model.getPhoneNumber());
     	session.put("smsVerifyCode", resultMessage.getResultInfo());
