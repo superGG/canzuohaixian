@@ -2,6 +2,8 @@ package com.earl.shopping.serverImpl;
 
 import static org.junit.Assert.fail;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.junit.Test;
@@ -41,6 +43,15 @@ public class UserServiceImplTest {
 		user.setVersion(2l);
 		
 		userService.save(user);
+	}
+	
+	@Test
+	public void testGetUserByName() {
+		String userName = "易临风";
+		List<UserPo> userList = userService.getUserByName(userName);
+		System.out.println("----------------完美分割线----------------");
+		System.out.println(userList.get(0));
+		System.out.println("----------------完美分割线----------------");
 	}
 
 	@Test

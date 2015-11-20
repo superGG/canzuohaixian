@@ -1,14 +1,13 @@
-﻿package com.earl.fishshop.serviceImpl;
+/**
+ * Copyright (c) 2007-2015 WteamFly.  All rights reserved. 网飞网络公司 版权所有.
+ * 请勿修改或删除版权声明及文件头部.
+ */
+package com.earl.fishshop.util;
 
 import java.awt.image.BufferedImage;
 import java.io.FileOutputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
-
-import javax.annotation.Resource;
 
 import com.earl.fishshop.dao.UserDao;
 import com.earl.fishshop.pojo.ResultMessage;
@@ -22,55 +21,22 @@ import com.earl.util.VerifyCodeUtil;
  * @author 宋文光
  * @since 3.0.0
  */
-public class VerifyServiceImpl extends BaseServiceImpl<UserPo> {
-	/**
-	 * 单例对象.
-	 */
-	private static VerifyServiceImpl instance = new VerifyServiceImpl();
-
-	/**
-	 * 单例模式的私有构造方法.
-	 */
-	private VerifyServiceImpl() {
-	}
-
-	@Resource
-	UserDao userDao;
-	/**
-	 * 获取单例.
-	 * 
-	 * @return 单例
-	 */
-	public static VerifyServiceImpl getInstance() {
-		return instance;
-	}
-
+public class VerifyServiceUtil  {
+	
+	
+	
 	/**
 	 * 6位数的手机验证码.
 	 */
 	private Integer mobileVerifyCode = null;
 
 	
-	/* (non-Javadoc)
-	 * @see com.earl.fishshop.serviceImpl.VerifyService#userLogin(java.lang.String, java.lang.String, java.lang.String)
-	 */
-	public ResultMessage userLogin(String userPhone, String userName, String password) {
-		ResultMessage rs = new ResultMessage();
-		if (userPhone != null) {  //用户使用手机登录
-			List<UserPo> userList = userDao.getUserByPhone(userPhone);
-			rs = verifyPassword(userList.get(0), password);
-		} else if (userName != null ){   //用户使用 用户名登录
-			List<UserPo> userList = userDao.getUserByName(userName);
-			rs = verifyPassword(userList.get(0), password);
-		} else {
-			rs.setResultInfo("验证失败");
-			rs.setServiceResult(false);
-		}
-		return rs;
-	}
 	
-	/* (non-Javadoc)
-	 * @see com.earl.fishshop.serviceImpl.VerifyService#getVerifyCode()
+	
+	/**
+	 * 生成验证码.
+	 * @author 宋文光
+	 * @return ResultMessage 验证码.
 	 */
 	public ResultMessage getVerifyCode() {
 		ResultMessage rs = new ResultMessage();
@@ -88,8 +54,14 @@ public class VerifyServiceImpl extends BaseServiceImpl<UserPo> {
 		return rs;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.earl.fishshop.serviceImpl.VerifyService#confirmVerifyCode(java.lang.String, java.lang.String)
+	/**
+	 * 验证输入验证码.
+	 * @author 宋文光
+	 * @param verifyCode
+	 *            系统生成验证码.
+	 * @param uVerifyCode
+	 *            用户输入的验证码.
+	 * @return ResultMessage 服务信息.
 	 */
 	public ResultMessage confirmVerifyCode(final String verifyCode,
 			final String uVerifyCode) {
@@ -101,8 +73,13 @@ public class VerifyServiceImpl extends BaseServiceImpl<UserPo> {
 		return rs;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.earl.fishshop.serviceImpl.VerifyService#sendMobileVerifyCode(java.lang.String)
+	/**
+	 * 向指定手机号码发送验证码.
+	 * @author 宋文光
+	 * @param verifyPhone
+	 *            指定手机号码.
+	 * @return resulrMessage.
+	 * @throws Exception
 	 */
 	public ResultMessage sendMobileVerifyCode(String verifyPhone)
 			throws Exception {
@@ -140,12 +117,22 @@ public class VerifyServiceImpl extends BaseServiceImpl<UserPo> {
 		return rs;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.earl.fishshop.serviceImpl.VerifyService#findPassWord(java.lang.String, java.lang.String)
+	/**
+	 * 找回密码.
+	 * @author 宋文光
+	 * @param userPhone
+	 *  			用户输入的手机号码.
+	 * @param userName
+	 * 				用户输入的用户名.
+	 * @return
+	 * @throws Exception
 	 */
+	@SuppressWarnings("null")
 	public ResultMessage findPassWord(String userPhone, String userName)
 			throws Exception {
 		ResultMessage rs = new ResultMessage();
+		
+		UserDao userDao = null;
 		if (userPhone != null) {
 			List<UserPo> userList = userDao.getUserByPhone(userPhone);
 			if(userList.get(0) != null) {
@@ -170,8 +157,10 @@ public class VerifyServiceImpl extends BaseServiceImpl<UserPo> {
 		return rs;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.earl.fishshop.serviceImpl.VerifyService#checkSmsbao()
+	/**
+	 * 查询短信宝余额.
+	 * @author 宋文光
+	 * @return resulrMessage.
 	 */
 	public ResultMessage checkSmsbao(){
 		ResultMessage rs = new ResultMessage();
@@ -197,29 +186,6 @@ public class VerifyServiceImpl extends BaseServiceImpl<UserPo> {
 		return rs;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.earl.fishshop.serviceImpl.VerifyService#verifyPassword(com.earl.fishshop.pojo.UserPo, java.lang.String)
-	 */
-	public ResultMessage verifyPassword(UserPo userPo, String password) {
-		ResultMessage rs = new ResultMessage();
-		if(userPo != null) { //根据用户输入查询所得用户信息.
-			if(password == userPo.getPassword()) { //密码验证
-				rs.setServiceResult(true);
-				rs.setResultInfo("登陆成功");
-				List<UserPo> list = new ArrayList<UserPo>();
-				list.add(userPo);
-				Map<String, Object> hashMap = new HashMap<String, Object>();
-				hashMap.put("user", list);
-				rs.setResultParm(hashMap);
-			} else {
-				rs.setResultInfo("密码错误");
-				rs.setServiceResult(false);
-			}
-		} else {  
-			rs.setResultInfo("无此用户");
-			rs.setServiceResult(false);
-		}
-		return rs;
-	}
+	
 
 }

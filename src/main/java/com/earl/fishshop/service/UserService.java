@@ -2,6 +2,7 @@ package com.earl.fishshop.service;
 
 import java.util.List;
 
+import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.UserPo;
 
 public interface UserService extends BaseService<UserPo>{
@@ -52,5 +53,15 @@ public interface UserService extends BaseService<UserPo>{
 	 * @return
 	 */
 	Boolean blackUser(Long identityId);
+
+	/**
+	 * 用户登陆.
+	 *@author 宋文光.
+	 * @param phoneNumber
+	 * @param userName
+	 * @param password
+	 * @return
+	 */
+	ResultMessage userLogin(String phoneNumber, String userName, String password);
 
 }
