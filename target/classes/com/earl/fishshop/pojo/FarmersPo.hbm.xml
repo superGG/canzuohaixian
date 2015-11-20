@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+        
+<hibernate-mapping package="com.earl.fishshop.pojo">
+    <class name="FarmersPo" table="Farmers" dynamic-update="true" dynamic-insert="true">
+        <id name="farmersId" type="java.lang.Long">
+            <column name="farmersId" />
+            <generator class="native"></generator>
+        </id>
+        <version name="version" column="version" type="java.lang.Long"></version>
+        <property name="shopId" type="java.lang.Long" column="shopId" />
+        <property name="address" type="java.lang.String" column="address" />
+        <property name="longitude" type="java.lang.Double" column="longitude" />
+        <property name="latitude" type="java.lang.Double" column="latitude" />
+        <property name="forntIdentityPhoto" type="java.lang.String" column="forntIdentityPhoto" />
+        <property name="backIdentityPhoto" type="java.lang.String" column="backIdentityPhoto" />
+        <property name="addressPhoto" type="java.lang.String" column="addressPhoto" />
+        <property name="aquacultureLicense" type="java.lang.String" column="aquacultureLicense" />
+        <property name="multiGetType" type="java.lang.String" column="multiGetType" />
+        <property name="createTime" type="java.util.Date" column="createTime" />
+        <property name="creatorId" type="java.lang.Long" column="creatorId" />
+        <property name="isDelete" type="java.lang.Boolean" column="isDelete" />
+    </class>
+</hibernate-mapping>

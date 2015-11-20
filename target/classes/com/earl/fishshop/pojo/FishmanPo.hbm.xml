@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+        
+<hibernate-mapping package="com.earl.fishshop.pojo">
+    <class name="FishmanPo" table="Fishman" dynamic-update="true" dynamic-insert="true">
+        <id name="fishmanId" type="java.lang.Long">
+            <column name="fishmanId" />
+            <generator class="native"></generator>
+        </id>
+        <version name="version" column="version" type="java.lang.Long"></version>
+        <property name="shopId" type="java.lang.Long" column="shopId" />
+        <property name="frontIdentityPhoto" type="java.lang.String" column="frontIdentityPhoto" />
+        <property name="backIdentityPhoto" type="java.lang.String" column="backIdentityPhoto" />
+        <property name="seaPassPhoto" type="java.lang.String" column="seaPassPhoto" />
+        <property name="shipPhoto" type="java.lang.String" column="shipPhoto" />
+        <property name="getType" type="java.lang.Integer" column="getType" />
+        <property name="enginePower" type="java.lang.Long" column="enginePower" />
+        <property name="homePort" type="java.lang.Long" column="homePort" />
+        <property name="shipCreateTime" type="java.util.Date" column="shipCreateTime" />
+        <property name="realName" type="java.lang.String" column="realName" />
+        <property name="tonnage" type="java.lang.Long" column="tonnage" />
+        <property name="fishingLicense" type="java.lang.String" column="fishingLicense" />
+        <property name="createTime" type="java.util.Date" column="createTime" />
+        <property name="creatorId" type="java.lang.Long" column="creatorId" />
+        <property name="isDelete" type="java.lang.Boolean" column="isDelete" />
+    </class>
+</hibernate-mapping>

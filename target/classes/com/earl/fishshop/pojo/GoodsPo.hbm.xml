@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+        
+<hibernate-mapping package="com.earl.fishshop.pojo">
+    <class name="GoodsPo" table="Goods" dynamic-update="true" dynamic-insert="true">
+        <id name="goodsId" type="java.lang.Long">
+            <column name="goodsId" />
+            <generator class="native"></generator>
+        </id>
+        <version name="version" column="version" type="java.lang.Long"></version>
+        <property name="shopId" type="java.lang.Long" column="shopId" />
+        <property name="categoryId" type="java.lang.Long" column="categoryId" />
+        <property name="goodsQuality" type="java.lang.Integer" column="goodsQuality" />
+        <property name="hotDegree" type="java.lang.Long" column="hotDegree" />
+        <property name="getType" type="java.lang.Integer" column="getType" />
+        <property name="sku" type="java.lang.Integer" column="sku" />
+        <property name="price" type="java.lang.Double" column="price" />
+        <property name="nowNumber" type="java.lang.Long" column="nowNumber" />
+        <property name="unit" type="java.lang.Integer" column="unit" />
+        <property name="sellNumber" type="java.lang.Long" column="sellNumber" />
+        <property name="creatorId" type="java.lang.Long" column="creatorId" />
+        <property name="createTime" type="java.util.Date" column="createTime" />
+        <property name="isDelete" type="java.lang.Boolean" column="isDelete" />
+    </class>
+</hibernate-mapping>

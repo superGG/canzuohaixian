@@ -30,7 +30,8 @@ public class UserAction extends BaseAction<UserPo> {
 
 	protected ResultMessage resultMessage;
 
-	@ReturnValue //返回实体对象，或者其他任意对象
+	@ReturnValue
+	// 返回实体对象，或者其他任意对象
 	public ResultMessage getResultMessage() {
 		return resultMessage;
 	}
@@ -39,7 +40,6 @@ public class UserAction extends BaseAction<UserPo> {
 	 * 用户身份id.
 	 */
 	private Long identityId;
-	
 
 	public Long getIdentityId() {
 		return identityId;
@@ -51,7 +51,8 @@ public class UserAction extends BaseAction<UserPo> {
 
 	// 下面填写业务逻辑
 	/**
-	 * 添加用户.
+	 * 添加用户(注册).
+	 * 
 	 * @author 宋文光
 	 */
 	public void addUser() {
@@ -59,9 +60,10 @@ public class UserAction extends BaseAction<UserPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
 	}
-	
+
 	/**
 	 * 更新用户信息.
+	 * 
 	 * @author 宋文光
 	 */
 	public void updateUser() {
@@ -69,9 +71,10 @@ public class UserAction extends BaseAction<UserPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(update);
 	}
-	
+
 	/**
 	 * 删除用户信息.
+	 * 
 	 * @author 宋文光
 	 */
 	public void deleteUser() {
@@ -79,31 +82,33 @@ public class UserAction extends BaseAction<UserPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(delete);
 	}
-	
+
 	/**
 	 * 获取所有用户.
+	 * 
 	 * @author 宋文光
 	 */
 	public void findAllUser() {
 		List<UserPo> userList = userServer.findAll();
 		resultMessage = new ResultMessage();
-		Map<String,Object> hashMap = new HashMap<String,Object>();
+		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("userList", userList);
 		resultMessage.setResultParm(hashMap);
 	}
-	
+
 	/**
 	 * 用户登录验证.
+	 * 
 	 * @author 宋文光
 	 */
 	public final void userLogin() {
-		resultMessage = userServer.userLogin(model.getPhoneNumber()
-								, model.getUserName()
-								, model.getPassword());
+		resultMessage = userServer.userLogin(model.getPhoneNumber(),
+				model.getUserName(), model.getPassword());
 	}
-	
+
 	/**
 	 * 获取所有用户数量.
+	 * 
 	 * @author 宋文光
 	 */
 	public void findAllUserNumber() {
@@ -113,24 +118,25 @@ public class UserAction extends BaseAction<UserPo> {
 		resultMessage.setServiceResult(true);
 		resultMessage.setResultInfo(userNamber);
 	}
-	
-	
+
 	/**
 	 * 得到我的商店信息.
+	 * 
 	 * @author 黄祥谦.
 	 */
 	public void getMyShop() {
 		ShopPo shop = shopServer.getMyShop(model.getUserId());
-		Map<String,Object> hashMap = new HashMap<String,Object>();
+		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("shop", shop);
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}
-	
+
 	/**
 	 * 获取所有渔户的用户信息.
-	 *@author 宋文光.
+	 * 
+	 * @author 宋文光.
 	 */
 	public void getAllFishmanUser() {
 		List<UserPo> userList = userServer.getAllFishmanUser();
@@ -140,10 +146,11 @@ public class UserAction extends BaseAction<UserPo> {
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}
-	
+
 	/**
 	 * 获取所有养殖户的用户信息.
-	 *@author 宋文光.
+	 * 
+	 * @author 宋文光.
 	 */
 	public void getAllFarmersUser() {
 		List<UserPo> userList = userServer.getAllFarmersUser();
@@ -153,29 +160,11 @@ public class UserAction extends BaseAction<UserPo> {
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}
-	
-	/**
-	 * 用户注册.
-	 *@author 宋文光.
-	 */
-	public void registerUser() {
-		resultMessage = new ResultMessage();
-		if (userServer.getUserByName(model.getUserName()) != null){
-			resultMessage.setServiceResult(false);
-			resultMessage.setResultInfo("用户已存在");
-		} else if (userServer.getUserByPhone(model.getPhoneNumber()) != null) {
-			resultMessage.setServiceResult(false);
-			resultMessage.setResultInfo("用户已存在");
-		} else {
-			userServer.save(model);
-			resultMessage.setServiceResult(true);
-			resultMessage.setResultInfo("注册成功");
-		}
-	}
-	
+
 	/**
 	 * 拉黑用户.
-	 *@author 宋文光.
+	 * 
+	 * @author 宋文光.
 	 */
 	public void blackUser() {
 		resultMessage = new ResultMessage();
@@ -188,5 +177,5 @@ public class UserAction extends BaseAction<UserPo> {
 			resultMessage.setResultInfo("拉黑出错");
 		}
 	}
-	
+
 }
