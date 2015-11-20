@@ -52,7 +52,7 @@ public class EscapeInterceptor extends AbstractInterceptor {
         HttpServletRequest request = (HttpServletRequest)ctx.get(StrutsStatics.HTTP_REQUEST);
         String header = request.getHeader("Content-Type");
         if(header != null){
-        	logger.debug("header Content-Type " + header);
+        	logger.info("header Content-Type " + header);
         }
         
         if(header == null || (header != null && !(header.indexOf("utf-8") == -1 || header.indexOf("UTF-8") == -1))){

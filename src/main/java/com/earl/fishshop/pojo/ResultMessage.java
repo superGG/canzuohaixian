@@ -93,5 +93,11 @@ public class ResultMessage {
 	public void setResultInfo(String resultInfo) {
 		this.resultInfo = resultInfo;
 	}
-    
+
+	@Override
+	public String toString() {
+		return "ResultMessage [userToken=" + userToken + ", serviceResult="
+				+ serviceResult + ", resultInfo=" + resultInfo
+				+ ", resultParm=" + resultParm + "]";
+	}
 }

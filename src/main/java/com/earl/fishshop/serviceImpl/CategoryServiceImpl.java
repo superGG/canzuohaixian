@@ -16,7 +16,9 @@ import com.earl.fishshop.pojo.ShopPo;
 import com.earl.fishshop.pojo.UserPo;
 import com.earl.fishshop.service.CategoryService;
 import com.earl.fishshop.util.MyConstant;
+import com.earl.fishshop.vo.CategoryFileVo;
 import com.earl.fishshop.vo.PageInfo;
+import com.earl.util.FileUploadImpl;
 
 /**
  * 每个ServiceImpl都要继承相对应的service接口
@@ -31,6 +33,9 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 	@Resource(name = "categoryDao")
 	CategoryDao categoryDao;
 
+	@Resource(name = "fileUpload")
+	FileUploadImpl fileUpload;
+	
 	@PostConstruct
 	public void initBaseDao() {
 		baseDao = categoryDao;
@@ -64,7 +69,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 		String date = y+"-"+String.valueOf(i)+"-1";
 		String date2 = y+"-"+String.valueOf(i+1)+"-1";
 		
-		if(object != date){
+		if(!date.equals(object)){
 			List<CategoryPo> categoryList = categoryDao.getHotCategory(date,date2, 6);
 			application.put("hotGoods", categoryList);
 			application.put("date", date);
@@ -92,15 +97,27 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 
 	@Override
 	public List<ShopPo> getGoodsFarmerShops(Long categoryId, PageInfo pageInfo) {
-		// TODO 未测试.
 		List<ShopPo> shopList = shopDao.getPointTypeGoodsShops(categoryId,MyConstant.shop_farmerman, pageInfo);
 		return shopList;
 	}
 	
 	@Override
 	public List<ShopPo> getGoodsFishShops(Long categoryId, PageInfo pageInfo) {
-		// TODO 未测试.
 		List<ShopPo> shopList = shopDao.getPointTypeGoodsShops(categoryId,MyConstant.shop_fishman, pageInfo);
 		return shopList;
+	}
+
+	@Override
+	public Boolean addCategory(CategoryPo model, CategoryFileVo categoryFile) {
+		// TODO 未测试.
+		try {
+			String uploadCategoryFile = fileUpload.uploadCategoryFile(categoryFile.getFile(), categoryFile.getFileFileName());
+			model.setFishPhoto(uploadCategoryFile);
+			categoryDao.save(model);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
 	}
 }
