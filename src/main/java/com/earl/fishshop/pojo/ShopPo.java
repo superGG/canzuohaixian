@@ -63,7 +63,6 @@ public class ShopPo{
 	 */
 	private Double sendPrice ;
 	
-
 	/**
 	 * 字段描述：Boolean 
 	 * 字段类型：onSell  

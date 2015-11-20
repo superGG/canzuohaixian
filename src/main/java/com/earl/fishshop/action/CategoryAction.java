@@ -11,6 +11,7 @@ import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.ShopPo;
+import com.earl.fishshop.vo.CategoryFileVo;
 import com.earl.fishshop.vo.PageInfo;
 
 /**
@@ -30,6 +31,8 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 
 	private PageInfo pageInfo;
 	
+	private CategoryFileVo categoryFile;
+	
 	protected ResultMessage resultMessage;
 
 	@ReturnValue //返回实体对象，或者其他任意对象
@@ -45,6 +48,14 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		this.pageInfo = pageInfo;
 	}
 	
+	public CategoryFileVo getCategoryFile() {
+		return categoryFile;
+	}
+
+	public void setCategoryFile(CategoryFileVo categoryFile) {
+		this.categoryFile = categoryFile;
+	}
+
 	/**
 	 * 添加商品类别.
 	 * @author 黄祥谦.
@@ -86,6 +97,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 */
 	public void getTopCategory(){
 		List<CategoryPo> categoryList = categoryServer.getTopCategory();
+		System.out.println(model);
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("categoryList", categoryList);
 		resultMessage = new ResultMessage();
@@ -101,6 +113,8 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("categoryList", categoryList);
 		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(true);
+		resultMessage.setResultInfo("方法执行成功");
 		resultMessage.setResultParm(hashMap);
 	}
 	

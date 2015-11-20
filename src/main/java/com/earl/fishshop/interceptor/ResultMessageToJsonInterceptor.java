@@ -64,7 +64,9 @@ public class ResultMessageToJsonInterceptor extends AbstractInterceptor {
         			response.setContentType("text/html;charset=UTF8");
         			PrintWriter out = null;
         			out = response.getWriter();
-        			out.println(JsonHelper.toJson(resultMessage));
+        			String json = JsonHelper.toJson(resultMessage);
+					out.println(json);
+					logger.info("resultMessage =>" + json);
         			out.flush();
         			out.close();
         		}

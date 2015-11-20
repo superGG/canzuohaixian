@@ -24,10 +24,14 @@
 			<interceptor name="jsonTojavaBeanInterceptor"
 				class="com.earl.fishshop.interceptor.JsonToJavaBeanInterceptor">
 			</interceptor>
+			<interceptor name="ipInterceptor"
+				class="com.earl.fishshop.interceptor.IpInterceptor">
+			</interceptor>
 			<interceptor-stack name="systemInterceptorStack">
 				<interceptor-ref name="resultMessageInterceptor" /> 
 				<interceptor-ref name="escapeInterceptor" /> 
 				<interceptor-ref name="jsonTojavaBeanInterceptor" /> 
+				<interceptor-ref name="ipInterceptor" /> 
 				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
 		</interceptors>
