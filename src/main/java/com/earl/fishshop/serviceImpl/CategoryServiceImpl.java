@@ -64,7 +64,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 		String date = y+"-"+String.valueOf(i)+"-1";
 		String date2 = y+"-"+String.valueOf(i+1)+"-1";
 		
-		if(!object.equals(date)){
+		if(!date.equals(object)){
 			List<CategoryPo> categoryList = categoryDao.getHotCategory(date,date2, 6);
 			application.put("hotGoods", categoryList);
 			application.put("date", date);

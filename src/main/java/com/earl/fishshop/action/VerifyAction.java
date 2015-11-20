@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.UserPo;
-import com.earl.fishshop.serviceImpl.VerifyService;
+import com.earl.fishshop.serviceImpl.VerifyServiceImpl;
 
 
 /**
@@ -111,7 +111,7 @@ public class VerifyAction extends BaseAction<UserPo>{
      * @author 宋文光
      */
     public final void getImgVerifyCode() {
-    	verifyService = VerifyService.getInstance();	
+    	verifyService = VerifyServiceImpl.getInstance();	
     	resultMessage = verifyService.getVerifyCode();
     	session.put("imgVerifyCode", resultMessage.getResultInfo());
     	resultMessage.setUserToken(true);
@@ -122,7 +122,7 @@ public class VerifyAction extends BaseAction<UserPo>{
      * @author 宋文光
      */
     public final void confirmImgVerifyCode() {
-    	final VerifyService service = VerifyService.getInstance();
+    	final VerifyServiceImpl service = VerifyServiceImpl.getInstance();
     	final String ImgVf = (String) session.get("imgVerifyCode");
     	resultMessage = service.confirmVerifyCode(ImgVf , verifyCode);
     	resultMessage.setUserToken(true);
@@ -134,7 +134,7 @@ public class VerifyAction extends BaseAction<UserPo>{
      * @author 宋文光
      */
     public final void smsCodeOfRegister() throws Exception {
-    	verifyService = VerifyService.getInstance();
+    	verifyService = VerifyServiceImpl.getInstance();
     	resultMessage = verifyService.sendMobileVerifyCode(phone);
     	session.put("smsVerifyCode", resultMessage.getResultInfo());
     }
@@ -145,7 +145,7 @@ public class VerifyAction extends BaseAction<UserPo>{
      * @author 宋文光
      */
     public final void smsCodeOfFound() throws Exception {
-    	verifyService = VerifyService.getInstance();
+    	verifyService = VerifyServiceImpl.getInstance();
     	resultMessage = verifyService.findPassWord(phone, userName);
     	session.put("smsVerifyCode", resultMessage.getResultInfo());
     }
@@ -155,7 +155,7 @@ public class VerifyAction extends BaseAction<UserPo>{
      * @author 宋文光
      */
     public final void confirmSmsVerifyCode() {
-    	final VerifyService service = VerifyService.getInstance();
+    	final VerifyServiceImpl service = VerifyServiceImpl.getInstance();
     	final String SmsVf = (String) session.get("smsVerifyCode");
     	resultMessage = service.confirmVerifyCode(SmsVf , verifyCode);
     	resultMessage.setUserToken(true);
@@ -167,7 +167,7 @@ public class VerifyAction extends BaseAction<UserPo>{
      * @author 宋文光
      */
     public final void checkSmsBao() {
-    	verifyService = VerifyService.getInstance();
+    	verifyService = VerifyServiceImpl.getInstance();
     	resultMessage = verifyService.checkSmsbao();
     }
     

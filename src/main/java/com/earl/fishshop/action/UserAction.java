@@ -11,7 +11,7 @@ import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.ShopPo;
 import com.earl.fishshop.pojo.UserPo;
-import com.earl.fishshop.serviceImpl.VerifyService;
+import com.earl.fishshop.serviceImpl.VerifyServiceImpl;
 
 /**
  * 
@@ -98,7 +98,7 @@ public class UserAction extends BaseAction<UserPo> {
 	 * @author 宋文光
 	 */
 	public final void userLogin() {
-		verifyService = VerifyService.getInstance();
+		verifyService = VerifyServiceImpl.getInstance();
 		resultMessage = verifyService.userLogin(model.getPhoneNumber()
 								, model.getUserName()
 								, model.getPassword());

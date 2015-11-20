@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import javax.annotation.Resource;
+
+import com.earl.fishshop.dao.UserDao;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.UserPo;
 import com.earl.util.SmsbaoHelper;
@@ -23,24 +26,26 @@ import com.earl.util.VerifyCodeUtil;
  * @author 宋文光
  * @since 3.0.0
  */
-public class VerifyService extends BaseServiceImpl<UserPo> {
+public class VerifyServiceImpl extends BaseServiceImpl<UserPo> {
 	/**
 	 * 单例对象.
 	 */
-	private static VerifyService instance = new VerifyService();
+	private static VerifyServiceImpl instance = new VerifyServiceImpl();
 
 	/**
 	 * 单例模式的私有构造方法.
 	 */
-	private VerifyService() {
+	private VerifyServiceImpl() {
 	}
 
+	@Resource
+	UserDao userDao;
 	/**
 	 * 获取单例.
 	 * 
 	 * @return 单例
 	 */
-	public static VerifyService getInstance() {
+	public static VerifyServiceImpl getInstance() {
 		return instance;
 	}
 
@@ -50,16 +55,8 @@ public class VerifyService extends BaseServiceImpl<UserPo> {
 	private Integer mobileVerifyCode = null;
 
 	
-	/**
-	 * 用户登录验证.
-	 * @param userPhone
-	 * 			用户登录的手机.
-	 * @param userName
-	 * 			用户登录的用户名.
-	 * @param password
-	 * 			用户登录的密码.
-	 * @return
-	 * @author 宋文光
+	/* (non-Javadoc)
+	 * @see com.earl.fishshop.serviceImpl.VerifyService#userLogin(java.lang.String, java.lang.String, java.lang.String)
 	 */
 	public ResultMessage userLogin(String userPhone, String userName, String password) {
 		ResultMessage rs = new ResultMessage();
@@ -76,10 +73,8 @@ public class VerifyService extends BaseServiceImpl<UserPo> {
 		return rs;
 	}
 	
-	/**
-	 * 生成验证码.
-	 * @author 宋文光
-	 * @return ResultMessage 验证码.
+	/* (non-Javadoc)
+	 * @see com.earl.fishshop.serviceImpl.VerifyService#getVerifyCode()
 	 */
 	public ResultMessage getVerifyCode() {
 		ResultMessage rs = new ResultMessage();
@@ -97,14 +92,8 @@ public class VerifyService extends BaseServiceImpl<UserPo> {
 		return rs;
 	}
 
-	/**
-	 * 验证输入验证码.
-	 * @author 宋文光
-	 * @param verifyCode
-	 *            系统生成验证码.
-	 * @param uVerifyCode
-	 *            用户输入的验证码.
-	 * @return ResultMessage 服务信息.
+	/* (non-Javadoc)
+	 * @see com.earl.fishshop.serviceImpl.VerifyService#confirmVerifyCode(java.lang.String, java.lang.String)
 	 */
 	public ResultMessage confirmVerifyCode(final String verifyCode,
 			final String uVerifyCode) {
@@ -116,13 +105,8 @@ public class VerifyService extends BaseServiceImpl<UserPo> {
 		return rs;
 	}
 
-	/**
-	 * 向指定手机号码发送验证码.
-	 * @author 宋文光
-	 * @param verifyPhone
-	 *            指定手机号码.
-	 * @return resulrMessage.
-	 * @throws Exception
+	/* (non-Javadoc)
+	 * @see com.earl.fishshop.serviceImpl.VerifyService#sendMobileVerifyCode(java.lang.String)
 	 */
 	public ResultMessage sendMobileVerifyCode(String verifyPhone)
 			throws Exception {
@@ -160,15 +144,8 @@ public class VerifyService extends BaseServiceImpl<UserPo> {
 		return rs;
 	}
 
-	/**
-	 * 找回密码.
-	 * @author 宋文光
-	 * @param userPhone
-	 *  			用户输入的手机号码.
-	 * @param userName
-	 * 				用户输入的用户名.
-	 * @return
-	 * @throws Exception
+	/* (non-Javadoc)
+	 * @see com.earl.fishshop.serviceImpl.VerifyService#findPassWord(java.lang.String, java.lang.String)
 	 */
 	public ResultMessage findPassWord(String userPhone, String userName)
 			throws Exception {
@@ -197,10 +174,8 @@ public class VerifyService extends BaseServiceImpl<UserPo> {
 		return rs;
 	}
 
-	/**
-	 * 查询短信宝余额.
-	 * @author 宋文光
-	 * @return resulrMessage.
+	/* (non-Javadoc)
+	 * @see com.earl.fishshop.serviceImpl.VerifyService#checkSmsbao()
 	 */
 	public ResultMessage checkSmsbao(){
 		ResultMessage rs = new ResultMessage();
@@ -226,14 +201,8 @@ public class VerifyService extends BaseServiceImpl<UserPo> {
 		return rs;
 	}
 	
-	/**
-	 * 验证用户登录密码.
-	 * @author 宋文光
-	 * @param userPo
-	 * 			用户信息.
-	 * @param password
-	 * 			用户输入密码.
-	 * @return
+	/* (non-Javadoc)
+	 * @see com.earl.fishshop.serviceImpl.VerifyService#verifyPassword(com.earl.fishshop.pojo.UserPo, java.lang.String)
 	 */
 	public ResultMessage verifyPassword(UserPo userPo, String password) {
 		ResultMessage rs = new ResultMessage();
