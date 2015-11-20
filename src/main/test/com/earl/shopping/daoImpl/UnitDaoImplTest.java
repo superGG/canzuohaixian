@@ -38,7 +38,6 @@ public class UnitDaoImplTest {
 		fail("Not yet implemented");
 	}
 
-	// TODO lala
 	@Test
 	public void testSave() {
 		UnitPo unit = new UnitPo();

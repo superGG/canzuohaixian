@@ -34,7 +34,6 @@ public class FarmersDaoImplTest {
 		fail("Not yet implemented");
 	}
 
-	// TODO lala
 	@Test
 	public void testSave() {
 		SkuPo unit = new SkuPo();

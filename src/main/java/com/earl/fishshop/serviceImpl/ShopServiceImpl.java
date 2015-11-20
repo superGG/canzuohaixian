@@ -93,7 +93,7 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 			shopDao.update(shopPo);
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return false;
 	}

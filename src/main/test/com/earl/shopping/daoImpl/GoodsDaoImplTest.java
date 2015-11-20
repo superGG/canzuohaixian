@@ -40,7 +40,6 @@ public class GoodsDaoImplTest {
 		fail("Not yet implemented");
 	}
 
-	//TODO lala
 	@Test
 	public void testSave() {
 		GoodsPo goods = new GoodsPo();
