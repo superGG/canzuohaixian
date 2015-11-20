@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+        
+<hibernate-mapping package="com.earl.fishshop.pojo">
+    <class name="GetAddressPo" table="GetAddress" dynamic-update="true" dynamic-insert="true">
+        <id name="getAddressId" type="java.lang.Long">
+            <column name="getAddressId" />
+            <generator class="native"></generator>
+        </id>
+        <property name="userId" type="java.lang.Long" column="userId" />
+        <property name="userName" type="java.lang.String" column="userName" />
+        <property name="address" type="java.lang.String" column="address" />
+        <property name="phone" type="java.lang.String" column="phone" />
+        <property name="postcode" type="java.lang.String" column="postcode" />
+        <property name="createTime" type="java.util.Date" column="createTime" />
+        <property name="creatorId" type="java.lang.Long" column="creatorId" />
+        <property name="isDelete" type="java.lang.Boolean" column="isDelete" />
+        <property name="version" type="java.lang.Long" column="version" />
+    </class>
+</hibernate-mapping>
