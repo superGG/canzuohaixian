@@ -12,7 +12,8 @@ import com.earl.fishshop.pojo.ResultMessage;
 
 /**
  * 
- * 渔户对应的action. 
+ * 渔户对应的action.
+ * 
  * @author Administrator
  * 
  */
@@ -26,12 +27,12 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	private static final long serialVersionUID = 3293435262298029608L;
 
 	private Long userId;
-	
+
 	/*
 	 * 外键id.
 	 */
 	private Long identityId;
-	
+
 	public Long getIdentityId() {
 		return identityId;
 	}
@@ -47,12 +48,11 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
-	
-	
 
 	protected ResultMessage resultMessage;
 
-	@ReturnValue //返回实体对象，或者其他任意对象
+	@ReturnValue
+	// 返回实体对象，或者其他任意对象
 	public ResultMessage getResultMessage() {
 		return resultMessage;
 	}
@@ -60,6 +60,7 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	// 下面填写业务逻辑
 	/**
 	 * 添加渔户个人信息.
+	 * 
 	 * @author 黄祥谦.
 	 */
 	public void addFishman() {
@@ -67,30 +68,33 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
 	}
-	
+
 	/**
 	 * 更新渔户个人信息.
+	 * 
 	 * @author 黄祥谦.
 	 */
-	public void updateFishman(){
+	public void updateFishman() {
 		Boolean result = fishmanServer.updateWithNotNullProperties(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
 	}
-	
+
 	/**
 	 * 用户认证为渔户.
+	 * 
 	 * @author 黄祥谦.
 	 */
-	public void authenticationFishman(){
-		Boolean result = fishmanServer.authenticationFishman(userId,model);
+	public void authenticationFishman() {
+		Boolean result = fishmanServer.authenticationFishman(userId, model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
 	}
-	
+
 	/**
 	 * 查询渔户的详细信息.
-	 *@author 宋文光.
+	 * 
+	 * @author 宋文光.
 	 */
 	public void getFiahman() {
 		List<FishmanPo> list = fishmanServer.getFishman(model.getFishmanId());
@@ -100,9 +104,10 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}
-	
+
 	/**
 	 * 获取所有渔户数量.
+	 * 
 	 * @author 宋文光
 	 */
 	public void findAllFiahmanNumber() {
@@ -112,25 +117,28 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 		resultMessage.setServiceResult(true);
 		resultMessage.setResultInfo(fishmanNamber);
 	}
-	
+
 	/**
 	 * 通过认证渔户.
-	 *@author 宋文光.
+	 * 
+	 * @author 宋文光.
 	 */
 	public void passAuthenticationFishman() {
 		Boolean result = fishmanServer.passAuthenticationFishman(userId);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
 	}
-	
+
 	/**
 	 * 不通过认证渔户.
-	 *@author 宋文光.
+	 * 
+	 * @author 宋文光.
 	 */
 	public void noPassAuthenticationFishman() {
-		Boolean result = fishmanServer.noPassAuthenticationFishman(userId,model.getFishmanId());
+		Boolean result = fishmanServer.noPassAuthenticationFishman(userId,
+				model.getFishmanId());
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
 	}
-	
+
 }

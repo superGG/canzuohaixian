@@ -5,8 +5,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
@@ -29,7 +27,6 @@ import com.earl.fishshop.service.ShopService;
 import com.earl.fishshop.service.SkuService;
 import com.earl.fishshop.service.UnitService;
 import com.earl.fishshop.service.UserService;
-import com.earl.fishshop.serviceImpl.VerifyServiceImpl;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -39,12 +36,6 @@ import com.opensymphony.xwork2.ModelDriven;
 public class BaseAction<T> extends ActionSupport implements RequestAware,
 		SessionAware, ApplicationAware, ModelDriven<T> {
 
-    /**
-     * log4j实例对象.
-     */
-    private static Logger logger = LogManager.getLogger(BaseAction.class
-            .getName());
-	
 	/**
 	 * 
 	 */
@@ -89,8 +80,6 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	@Resource 
 	protected OrdersDetailService ordersDetailServer;
 	
-	protected VerifyServiceImpl verifyService;
-	
 //	protected PageInfo pageInfo = new PageInfo();
 //
 //	public PageInfo getPageInfo() {
@@ -109,7 +98,7 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 		Class clazz = (Class) type.getActualTypeArguments()[0];
 		try {
 			model = (T) clazz.newInstance();
-			logger.info(model);
+			System.out.println(model);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

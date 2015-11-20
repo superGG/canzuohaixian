@@ -153,4 +153,15 @@ public class UserPo{
 	public Long getVersion() {
 		return this.version;
 	}
+	@Override
+	public String toString() {
+		return "UserPo [userId=" + userId + ", userType=" + userType
+				+ ", identityId=" + identityId + ", state=" + state
+				+ ", userName=" + userName + ", password=" + password
+				+ ", phoneNumber=" + phoneNumber + ", headImage=" + headImage
+				+ ", createTime=" + createTime + ", creatorId=" + creatorId
+				+ ", isDelete=" + isDelete + ", version=" + version + "]";
+	}
+	
+	
 }
