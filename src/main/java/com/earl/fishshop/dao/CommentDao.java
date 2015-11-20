@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.earl.fishshop.base.BaseDao;
 import com.earl.fishshop.pojo.CommentPo;
+import com.earl.fishshop.vo.PageInfo;
 
 public interface CommentDao extends BaseDao<CommentPo>{
 
@@ -38,5 +39,20 @@ public interface CommentDao extends BaseDao<CommentPo>{
 	 * @return
 	 */
 	List<CommentPo> getBedComment(Long shopId);
+
+	/**
+	 * 获取商店所有评论.
+	 *@author 宋文光.
+	 * @param shopId
+	 * @param pageInfo
+	 * @return
+	 */
+	List<CommentPo> getShopComment(Long shopId, PageInfo pageInfo);
+
+	List<CommentPo> getMidComment(Long shopId, PageInfo pageInfo);
+
+	List<CommentPo> getGoodComment(Long shopId, PageInfo pageInfo);
+
+	List<CommentPo> getBedComment(Long shopId, PageInfo pageInfo);
 
 }

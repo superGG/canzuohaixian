@@ -36,6 +36,14 @@ public interface UserDao extends BaseDao<UserPo>{
 	 * @return
 	 */
 	List<UserPo> getAllFarmersUser();
+
+	/**
+	 * 拉黑指定用户.
+	 *@author 宋文光.
+	 * @param identityId
+	 * @return
+	 */
+	Boolean blackUser(Long identityId);
 	
 
 }

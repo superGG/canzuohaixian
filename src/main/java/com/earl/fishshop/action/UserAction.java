@@ -11,6 +11,7 @@ import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.ShopPo;
 import com.earl.fishshop.pojo.UserPo;
+import com.earl.fishshop.serviceImpl.VerifyService;
 
 /**
  * 
@@ -35,6 +36,19 @@ public class UserAction extends BaseAction<UserPo> {
 		return resultMessage;
 	}
 
+	/**
+	 * 用户身份id.
+	 */
+	private Long identityId;
+	
+
+	public Long getIdentityId() {
+		return identityId;
+	}
+
+	public void setIdentityId(Long identityId) {
+		this.identityId = identityId;
+	}
 
 	// 下面填写业务逻辑
 	/**
@@ -78,6 +92,30 @@ public class UserAction extends BaseAction<UserPo> {
 		hashMap.put("userList", userList);
 		resultMessage.setResultParm(hashMap);
 	}
+	
+	/**
+	 * 用户登录验证.
+	 * @author 宋文光
+	 */
+	public final void userLogin() {
+		verifyService = VerifyService.getInstance();
+		resultMessage = verifyService.userLogin(model.getPhoneNumber()
+								, model.getUserName()
+								, model.getPassword());
+	}
+	
+	/**
+	 * 获取所有用户数量.
+	 * @author 宋文光
+	 */
+	public void findAllUserNumber() {
+		List<UserPo> userList = userServer.findAll();
+		String userNamber = String.valueOf(userList.size());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(true);
+		resultMessage.setResultInfo(userNamber);
+	}
+	
 	
 	/**
 	 * 得到我的商店信息.
@@ -134,6 +172,22 @@ public class UserAction extends BaseAction<UserPo> {
 			userServer.save(model);
 			resultMessage.setServiceResult(true);
 			resultMessage.setResultInfo("注册成功");
+		}
+	}
+	
+	/**
+	 * 拉黑用户.
+	 *@author 宋文光.
+	 */
+	public void blackUser() {
+		resultMessage = new ResultMessage();
+		Boolean success = userServer.blackUser(identityId);
+		if (success) {
+			resultMessage.setServiceResult(success);
+			resultMessage.setResultInfo("拉黑成功");
+		} else {
+			resultMessage.setServiceResult(false);
+			resultMessage.setResultInfo("拉黑出错");
 		}
 	}
 	

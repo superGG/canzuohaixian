@@ -32,7 +32,7 @@ import com.earl.fishshop.vo.PageInfo;
  * @time 2015/7/16
  */
 @Repository("baseDao")
-@Lazy(value=true)
+@Lazy(value = true)
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
 	@SuppressWarnings("rawtypes")
@@ -40,9 +40,9 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 
 	static Logger logger = null; // 这个日志工具暂时没有必要,驻澳用于记录日志，在构造方法中进行实例化
 
-	@Resource(name="sessionFactory")
+	@Resource(name = "sessionFactory")
 	SessionFactory sessionFactory;
-	
+
 	@SuppressWarnings("rawtypes")
 	public BaseDaoImpl() {
 		logger = Logger.getLogger(this.getClass());
@@ -77,7 +77,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	@Override
 	public void update(T t) {
 		logger.debug("update " + clazz.getName() + " instance");
-			getCurrentSession().update(t);
+		getCurrentSession().update(t);
 	}
 
 	// 根据ID删除对象
@@ -105,20 +105,20 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 
 	// 查找该表中的所有记录，并且分页显示，需要信息，当前页数，
-//	@SuppressWarnings("unchecked")
-//	@Override
-//	public List<T> pageFindAll(PageInfo pageInfo) {
-//		logger.debug("findAll " + clazz.getName() + " instance");
-//		Transaction tran = getCurrentSession().beginTransaction();
-//		String hql = "from " + clazz.getSimpleName();
-//		List<T> list = getCurrentSession()
-//				.createQuery(hql)
-//				.setFirstResult(
-//						(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
-//				.setMaxResults(pageInfo.getSize()).list();
-//		tran.commit();
-//		return list;
-//	}
+	// @SuppressWarnings("unchecked")
+	// @Override
+	// public List<T> pageFindAll(PageInfo pageInfo) {
+	// logger.debug("findAll " + clazz.getName() + " instance");
+	// Transaction tran = getCurrentSession().beginTransaction();
+	// String hql = "from " + clazz.getSimpleName();
+	// List<T> list = getCurrentSession()
+	// .createQuery(hql)
+	// .setFirstResult(
+	// (pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
+	// .setMaxResults(pageInfo.getSize()).list();
+	// tran.commit();
+	// return list;
+	// }
 
 	// 删除所有对象
 	@Override
@@ -129,19 +129,19 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 
 	/**
-	 * 通过对象来进行删除,软删除对象 
-	 */ 
+	 * 通过对象来进行删除,软删除对象
+	 */
 	@Override
 	public void delete(T persistentInstance) {
 		logger.debug("delete " + clazz.getName() + " instance");
-			try {
-//				Method method = clazz.getMethod("setIsDelete",Boolean.class);
-//				method.invoke(persistentInstance, true);
-//				getCurrentSession().update(persistentInstance);
-				getCurrentSession().delete(persistentInstance);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		try {
+			// Method method = clazz.getMethod("setIsDelete",Boolean.class);
+			// method.invoke(persistentInstance, true);
+			// getCurrentSession().update(persistentInstance);
+			getCurrentSession().delete(persistentInstance);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// 通过给定条件进行查询
@@ -167,7 +167,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	 * 通过给定条件查询,并且分页.
 	 */
 	public List<T> findByGivenCreteriaWithPage(T object, PageInfo pageInfo) {
-//		// 业务逻辑开始
+		// // 业务逻辑开始
 
 		Map<String, Object> notNullParam = null;
 		notNullParam = getNotNullProperties(object);
@@ -187,41 +187,41 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		return listObject;
 	}
 
-		// 前提，pojo id属性名上要有 IdAnnotatioin标签
-		@Override
-		public void updateWithNotNullProperties(T object) {
-			T t = null;
-			Map<String, Object> notNullParam;
-			try {
-				notNullParam = getNotNullProperties(object);
-				BeanMap beanMap = new BeanMap(object);
-				Field[] fields = clazz.getDeclaredFields();
-				for (Field field : fields) {
-					//判断该属性是否标注着idAnnotation
-					if (field.isAnnotationPresent(IdAnnotatioin.class)) {
-						Long id;
-						// 得到po的id
-						id = (Long) beanMap.get(field.getName());
-						// 通过hibernate的id查询出对象
-						t = get(id);
-						break;
-					}
+	// 前提，pojo id属性名上要有 IdAnnotatioin标签
+	@Override
+	public void updateWithNotNullProperties(T object) {
+		T t = null;
+		Map<String, Object> notNullParam;
+		try {
+			notNullParam = getNotNullProperties(object);
+			BeanMap beanMap = new BeanMap(object);
+			Field[] fields = clazz.getDeclaredFields();
+			for (Field field : fields) {
+				// 判断该属性是否标注着idAnnotation
+				if (field.isAnnotationPresent(IdAnnotatioin.class)) {
+					Long id;
+					// 得到po的id
+					id = (Long) beanMap.get(field.getName());
+					// 通过hibernate的id查询出对象
+					t = get(id);
+					break;
 				}
-				for (String paramName : notNullParam.keySet()) {
-					// 得到非空属性的set方法,得到非空属性的值
-					Method writeMethod = beanMap.getWriteMethod(paramName);
-					// 赋值，
-					writeMethod.invoke(t, beanMap.get(paramName));
-				}
-				// 更新
-				getCurrentSession().update(t);
-			} catch (IllegalAccessException e) {
-				e.printStackTrace();
-			} catch (InvocationTargetException e) {
-				e.printStackTrace();
 			}
+			for (String paramName : notNullParam.keySet()) {
+				// 得到非空属性的set方法,得到非空属性的值
+				Method writeMethod = beanMap.getWriteMethod(paramName);
+				// 赋值，
+				writeMethod.invoke(t, beanMap.get(paramName));
+			}
+			// 更新
+			getCurrentSession().update(t);
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
 		}
-	
+	}
+
 	private Map<String, Object> getNotNullProperties(T object) {
 		Map<String, Object> notNullParam = null;
 		BeanMap beanMap = new BeanMap(object);
@@ -232,8 +232,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 			propertyName = (String) keyIterator.next();
 			if (!propertyName.equals("class")
 					&& beanMap.get(propertyName) != null
-					&& beanMap.get(propertyName) != ""
-					) {
+					&& beanMap.get(propertyName) != "") {
 				notNullParam.put(propertyName, beanMap.get(propertyName));
 			}
 		}

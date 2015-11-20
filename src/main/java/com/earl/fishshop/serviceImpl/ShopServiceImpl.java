@@ -115,7 +115,7 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 	}
 
 	@Override
-	public Map<String, Object> getShopComment(Long shopId) {
+	public Map<String, Object> getShopCommentInfo(Long shopId) {
 		ShopPo shop = shopDao.get(shopId);
 		int commentSizt = commentDao.getShopComment(shopId).size();
 		int goodComment = commentDao.getGoodComment(shopId).size();
@@ -129,24 +129,6 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 		hashMap.put("bedComment", bedComment); //差评数量
 		
 		return hashMap;
-	}
-
-	@Override
-	public List<CommentPo> getGoodComment(Long shopId) {
-		List<CommentPo> list = commentDao.getGoodComment(shopId);
-		return list;
-	}
-
-	@Override
-	public List<CommentPo> getMidComment(Long shopId) {
-		List<CommentPo> list = commentDao.getMidComment(shopId);
-		return list;
-	}
-
-	@Override
-	public List<CommentPo> getBedComment(Long shopId) {
-		List<CommentPo> list = commentDao.getBedComment(shopId);
-		return list;
 	}
 
 }
