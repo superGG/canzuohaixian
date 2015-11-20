@@ -47,10 +47,4 @@ public class MyMain {
 		System.out.println("filterProperties2:"+filterProperties2);
 	}
 	
-	@Test
-	public void testFilterProperties3() throws IllegalAccessException, InvocationTargetException, IllegalArgumentException, NoSuchFieldException, SecurityException, InstantiationException{
-		CategoryForxxxVo filterProperties3 = (CategoryForxxxVo) FilterPropertiesUtil.filterProperties3(category, CategoryForxxxVo.class);
-		System.out.println("filterPropertie3:"+filterProperties3);
-	}
-	
 }
