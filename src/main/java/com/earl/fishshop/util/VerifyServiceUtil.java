@@ -1,7 +1,3 @@
-/**
- * Copyright (c) 2007-2015 WteamFly.  All rights reserved. 网飞网络公司 版权所有.
- * 请勿修改或删除版权声明及文件头部.
- */
 package com.earl.fishshop.util;
 
 import java.awt.image.BufferedImage;
@@ -164,7 +160,6 @@ public class VerifyServiceUtil {
 	 * @author 宋文光
 	 * @param userPhone
 	 *            用户输入的手机号码.
-	 * @param userDao TODO
 	 * @return
 	 * @throws Exception
 	 */
