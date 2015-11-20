@@ -116,7 +116,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 			categoryDao.save(model);
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return false;
 	}

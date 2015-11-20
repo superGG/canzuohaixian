@@ -59,6 +59,7 @@ public class LogAspect {
 		Logger.getLogger(this.getClass()).info(builder.toString());
 		return result;
 	}
+	
 	@Around("logManager()")
 	public Object invoke1(ProceedingJoinPoint join) throws Throwable {
 		Logger.getLogger(this.getClass()).info("---->");
