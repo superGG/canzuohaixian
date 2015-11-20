@@ -90,14 +90,23 @@ public class FileUploadImpl {
 	}
 
 	private String uploadFile(File file, String filePath, String oldName) {
+		String dir = getDir(filePath);
 		String newName = this.newName(oldName);
+		File destFile;
 		try {
-			FileUtils.copyFile(file, new File(filePath, newName));
+			destFile = new File(filePath, newName);
+			FileUtils.copyFile(file, destFile);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		} finally {
 			file.delete();
 		}
-		return newName;
+		return dir+"/"+newName;
+	}
+
+	private String getDir(String filePath2) {
+		// TODO 未测试.
+		String substring = filePath2.substring(filePath2.lastIndexOf("\\")+2, filePath2.length());
+		return substring;
 	}
 }

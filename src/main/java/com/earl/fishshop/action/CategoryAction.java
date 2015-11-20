@@ -61,7 +61,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 * @author 黄祥谦.
 	 */
 	public void addCategory() {
-		Boolean save = categoryServer.save(model);
+		Boolean save = categoryServer.addCategory(model, categoryFile);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
 		if(save){

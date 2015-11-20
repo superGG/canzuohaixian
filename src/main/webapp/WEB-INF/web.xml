@@ -12,6 +12,9 @@
     <filter-name>struts2</filter-name>
     <url-pattern>*.action</url-pattern>
   </filter-mapping>
+   <listener>
+     <listener-class>com.earl.fishshop.listener.InitDataServletContextListener</listener-class>
+</listener>
   <context-param>
      <param-name>contextConfigLocation</param-name>
      <param-value>classpath*:applicationContext-*.xml</param-value>

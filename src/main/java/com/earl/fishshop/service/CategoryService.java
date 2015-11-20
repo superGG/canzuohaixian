@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.pojo.ShopPo;
+import com.earl.fishshop.vo.CategoryFileVo;
 import com.earl.fishshop.vo.PageInfo;
 
 public interface CategoryService extends BaseService<CategoryPo>{
@@ -68,6 +69,15 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	 * @return
 	 */
 	List<ShopPo> getGoodsFarmerShops(Long categoryId, PageInfo pageInfo);
+
+	/**
+	 * 添加类别.
+	 * @author 黄祥谦.
+	 * @param model
+	 * @param categoryFile TODO
+	 * @return
+	 */
+	Boolean addCategory(CategoryPo model, CategoryFileVo categoryFile);
 
 
 	
