@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.UserPo;
-import com.earl.fishshop.serviceImpl.VerifyService;
+import com.earl.fishshop.util.VerifyServiceUtil;
 
 
 /**
@@ -23,6 +23,8 @@ import com.earl.fishshop.serviceImpl.VerifyService;
 public class VerifyAction extends BaseAction<UserPo>{
 	
 	private static final long serialVersionUID = 3293435262298029608L;
+	
+	VerifyServiceUtil verifyServiceUtil;
 	
     /**
      * 结果信息.
@@ -111,8 +113,8 @@ public class VerifyAction extends BaseAction<UserPo>{
      * @author 宋文光
      */
     public final void getImgVerifyCode() {
-    	verifyService = VerifyService.getInstance();	
-    	resultMessage = verifyService.getVerifyCode();
+    	verifyServiceUtil = new VerifyServiceUtil();	
+    	resultMessage = verifyServiceUtil.getVerifyCode();
     	session.put("imgVerifyCode", resultMessage.getResultInfo());
     	resultMessage.setUserToken(true);
     }
@@ -121,10 +123,10 @@ public class VerifyAction extends BaseAction<UserPo>{
      * 验证输入图片验证码.
      * @author 宋文光
      */
-    public final void confirmImgVerifyCode() {
-    	final VerifyService service = VerifyService.getInstance();
-    	final String ImgVf = (String) session.get("imgVerifyCode");
-    	resultMessage = service.confirmVerifyCode(ImgVf , verifyCode);
+    public void confirmImgVerifyCode() {
+    	verifyServiceUtil = new VerifyServiceUtil();
+    	String ImgVf = (String) session.get("imgVerifyCode");
+    	resultMessage = verifyServiceUtil.confirmVerifyCode(ImgVf , verifyCode);
     	resultMessage.setUserToken(true);
     }
     
@@ -134,8 +136,8 @@ public class VerifyAction extends BaseAction<UserPo>{
      * @author 宋文光
      */
     public final void smsCodeOfRegister() throws Exception {
-    	verifyService = VerifyService.getInstance();
-    	resultMessage = verifyService.sendMobileVerifyCode(phone);
+    	verifyServiceUtil = new VerifyServiceUtil();
+    	resultMessage = verifyServiceUtil.sendMobileVerifyCode(model.getPhoneNumber());
     	session.put("smsVerifyCode", resultMessage.getResultInfo());
     }
     
@@ -145,8 +147,8 @@ public class VerifyAction extends BaseAction<UserPo>{
      * @author 宋文光
      */
     public final void smsCodeOfFound() throws Exception {
-    	verifyService = VerifyService.getInstance();
-    	resultMessage = verifyService.findPassWord(phone, userName);
+    	verifyServiceUtil =  new VerifyServiceUtil();
+    	resultMessage = verifyServiceUtil.findPassWord(model.getPhoneNumber(), model.getUserName());
     	session.put("smsVerifyCode", resultMessage.getResultInfo());
     }
     
@@ -154,10 +156,10 @@ public class VerifyAction extends BaseAction<UserPo>{
      * 验证输入手机验证码.
      * @author 宋文光
      */
-    public final void confirmSmsVerifyCode() {
-    	final VerifyService service = VerifyService.getInstance();
-    	final String SmsVf = (String) session.get("smsVerifyCode");
-    	resultMessage = service.confirmVerifyCode(SmsVf , verifyCode);
+    public void confirmSmsVerifyCode() {
+    	verifyServiceUtil =  new VerifyServiceUtil();
+    	String SmsVf = (String) session.get("smsVerifyCode");
+    	resultMessage = verifyServiceUtil.confirmVerifyCode(SmsVf , verifyCode);
     	resultMessage.setUserToken(true);
     }
     
@@ -167,8 +169,8 @@ public class VerifyAction extends BaseAction<UserPo>{
      * @author 宋文光
      */
     public final void checkSmsBao() {
-    	verifyService = VerifyService.getInstance();
-    	resultMessage = verifyService.checkSmsbao();
+    	verifyServiceUtil = new VerifyServiceUtil();
+    	resultMessage = verifyServiceUtil.checkSmsbao();
     }
     
     

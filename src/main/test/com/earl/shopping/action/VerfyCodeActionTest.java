@@ -17,5 +17,10 @@ public class VerfyCodeActionTest extends StrutsSpringTestCase {
 	     System.out.println(res);
 	}
 	
+	@Test
+	public void testCheckSmsBao() throws Exception{
+	     String res=executeAction("/verify_checkSmsBao.action");  
+	     System.out.println(res);
+	}
 	
 }

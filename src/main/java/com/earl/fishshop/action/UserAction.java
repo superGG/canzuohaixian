@@ -11,7 +11,6 @@ import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.ShopPo;
 import com.earl.fishshop.pojo.UserPo;
-import com.earl.fishshop.serviceImpl.VerifyService;
 
 /**
  * 
@@ -66,7 +65,7 @@ public class UserAction extends BaseAction<UserPo> {
 	 * @author 宋文光
 	 */
 	public void updateUser() {
-		Boolean update = userServer.update(model);
+		Boolean update = userServer.updateWithNotNullProperties(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(update);
 	}
@@ -98,8 +97,7 @@ public class UserAction extends BaseAction<UserPo> {
 	 * @author 宋文光
 	 */
 	public final void userLogin() {
-		verifyService = VerifyService.getInstance();
-		resultMessage = verifyService.userLogin(model.getPhoneNumber()
+		resultMessage = userServer.userLogin(model.getPhoneNumber()
 								, model.getUserName()
 								, model.getPassword());
 	}

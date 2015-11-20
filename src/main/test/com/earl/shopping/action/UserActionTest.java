@@ -1,14 +1,13 @@
 package com.earl.shopping.action;
 
-import java.io.UnsupportedEncodingException;
-
-import javax.servlet.ServletException;
-
 import org.apache.struts2.StrutsSpringTestCase;
 import org.junit.Test;
 
 public class UserActionTest extends StrutsSpringTestCase {
 
+	
+	
+	
 	@Override
 	protected String[] getContextLocations() {
 		String[] lala = { "classpath*:applicationContext-*.xml" };

@@ -84,7 +84,7 @@ public class UserDaoImplTest {
 	
 	@Test
 	public void testGetUserByName() {
-		String userName = "superGG";
+		String userName = "易临风";
 		List<UserPo> userList = userDao.getUserByName(userName);
 		System.out.println("----------------完美分割线----------------");
 		System.out.println(userList);
