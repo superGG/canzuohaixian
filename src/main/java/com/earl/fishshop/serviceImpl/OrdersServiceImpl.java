@@ -120,8 +120,19 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 	@Override
 	public Boolean realPayOrders(Long ordersId) {
 		// TODO 未测试.
+		try {
 			ordersDao.updateOrdersState(ordersId, MyConstant.order_pay);
-		return null;
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
-	
+
+	@Override
+	public List<OrdersPo> getAllUserOrders(Long userId, PageInfo pageInfo) {
+		// TODO 未测试.
+		List<OrdersPo> ordersList = ordersDao.getAllUserOrders(userId, pageInfo);
+		return ordersList;
+	}
 }

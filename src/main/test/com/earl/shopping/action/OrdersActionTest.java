@@ -26,7 +26,6 @@ public class OrdersActionTest extends StrutsSpringTestCase {
 		 "\"totalprice\" : \"30.5\"" +
 		 ",\"userId\" : \"1\"" +
 		 ",\"shopId\": \"1\"" +
-		 ",\"state\": \"1\"" +
 		 ",\"buyerName\": \"yilinfeng\"" +
 		 ",\"shopKeeperName\": \"海格号222\"" +
 		 ",\"sendAddress\": \"广东省湛江市广东海洋大学\"" +

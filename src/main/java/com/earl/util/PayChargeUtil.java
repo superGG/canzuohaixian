@@ -55,25 +55,7 @@ public class PayChargeUtil {
 	//        											upacp: 8-40 位，yeepay_wap:1-50 位，jdpay_wap:1-30 位，
 	//        											cnp_u:8-20 位，cnp_f:8-20 位，推荐使用 8-20 位，要求数字或字母，不允许特殊字符)。
 	        chargeMap.put("channel", payWay);//required 支付使用的第三方支付渠道，
-	//                                           alipay:支付宝手机支付
-	//                                           alipay_wap:支付宝手机网页支付
-	//                                           alipay_qr:支付宝扫码支付
-	//                                           alipay_pc_direct:支付宝 PC 网页支付
-	//                                           apple_pay:Apple Pay
-	//                                           bfb:百度钱包移动快捷支付
-	//                                           bfb_wap:百度钱包手机网页支付
-	//                                           upacp:银联全渠道支付（2015 年 1 月 1 日后的银联新商户使用。若有疑问，请与 Ping++ 或者相关的收单行联系）
-	//                                           upacp_wap:银联全渠道手机网页支付（2015 年 1 月 1 日后的银联新商户使用。若有疑问，请与 Ping++ 或者相关的收单行联系）
-	//                                           upacp_pc:银联 PC 网页支付
-	//                                           upmp:银联手机支付（限个人工作室和 2014 年之前的银联老客户使用。若有疑问，请与 Ping++ 或者相关的收单行联系）
-	//                                           upmp_wap:银联手机网页支付（限个人工作室和 2014 年之前的银联老客户使用。若有疑问，请与 Ping++ 或者相关的收单行联系）
-	//                                           wx:微信支付
-	//                                           wx_pub:微信公众账号支付
-	//                                           wx_pub_qr:微信公众账号扫码支付
-	//                                           yeepay_wap:易宝手机网页支付
-	//                                           jdpay_wap:京东手机网页支付
-	//                                           cnp_u:应用内快捷支付（银联）
-	//                                           cnp_f:应用内快捷支付（外卡）
+
 	        chargeMap.put("client_ip", "127.0.0.1");//required 发起支付请求终端的 IP 地址，格式为 IPV4，如: 127.0.0.1。
 	        Map<String, String> app = new HashMap<String, String>();
 	        app.put("id",appId);

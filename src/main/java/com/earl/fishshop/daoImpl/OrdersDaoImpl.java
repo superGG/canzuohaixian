@@ -107,4 +107,22 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 		getCurrentSession().createQuery(hql).setString("orderNumber", orderNumber).setLong("ordersId", ordersId).executeUpdate();
 	}
 
+	@Override
+	public List<OrdersPo> getAllUserOrders(Long userId, PageInfo pageInfo) {
+		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
+		createCriteria.add(Restrictions.eq("userId", userId));
+		createCriteria.setFirstResult(
+				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
+				.setMaxResults(pageInfo.getSize());
+		@SuppressWarnings("unchecked")
+		List<OrdersPo> ordersList = createCriteria.list();
+		for (OrdersPo ordersPo : ordersList) {
+			String hql2 = "from OrdersDetailPo where orderId =:orderId";
+			@SuppressWarnings("unchecked")
+			List<OrdersDetailPo> ordersDetailList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).list();
+			ordersPo.setOrdersDetail(ordersDetailList);
+		}
+		return ordersList;
+	}
+
 }

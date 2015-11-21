@@ -40,6 +40,11 @@ public class OrdersDetailPo{
 	private String goodsName ;
 	
 	/**
+	 * 鱼图片.
+	 */
+	private String fishPhoto;
+	
+	/**
 	 * 字段描述：String 
 	 * 字段类型：goodsType  
 	 */
@@ -76,6 +81,11 @@ public class OrdersDetailPo{
 	private Long number ;
 	
 	/**
+	 * 邮费
+	 */
+	private Long postage;
+	
+	/**
 	 * 字段描述：Date 
 	 * 字段类型：createTime  
 	 */
@@ -99,6 +109,18 @@ public class OrdersDetailPo{
 	 */
 	private Long version ;
 	
+	public Long getPostage() {
+		return postage;
+	}
+	public void setPostage(Long postage) {
+		this.postage = postage;
+	}
+	public String getFishPhoto() {
+		return fishPhoto;
+	}
+	public void setFishPhoto(String fishPhoto) {
+		this.fishPhoto = fishPhoto;
+	}
 	public Long getCategoryId() {
 		return categoryId;
 	}

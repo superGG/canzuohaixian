@@ -92,4 +92,13 @@ public interface OrdersService extends BaseService<OrdersPo>{
 	 * @return
 	 */
 	Boolean realPayOrders(Long ordersId);
+
+	/**
+	 * 得到用户所有订单.
+	 * @author 黄祥谦.
+	 * @param userId
+	 * @param pageInfo
+	 * @return
+	 */
+	List<OrdersPo> getAllUserOrders(Long userId, PageInfo pageInfo);
 }

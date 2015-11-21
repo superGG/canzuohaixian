@@ -91,6 +91,15 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		resultMessage.setServiceResult(true);
 	}
 	
+	public void getAllUserOrders(){
+		List<OrdersPo> ordersList = ordersServer.getAllUserOrders(model.getUserId(),pageInfo);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+	}
+	
 	/**
 	 * 客户得到未发货订单.
 	 * @author 黄祥谦.
@@ -177,5 +186,17 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 	}
+	
+	/**
+	 * 真实支付订单，修改订单状态.
+	 * @author 黄祥谦.
+	 */
+	public void realPayOrders(){
+		Boolean success = ordersServer.realPayOrders(model.getOrdersId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(success);
+		
+	}
+	
 	
 }

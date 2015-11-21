@@ -270,12 +270,14 @@ CREATE TABLE `ordersdetail` (
   `goodsId` bigint(20) DEFAULT NULL,
   `categoryId` bigint(20) DEFAULT NULL,
   `goodsName` varchar(255) DEFAULT NULL,
+  `fishPhoto` varchar(255) DEFAULT NULL,
   `goodsType` varchar(255) DEFAULT NULL,
   `price` double DEFAULT NULL,
   `totalprice` double DEFAULT NULL,
   `sku` varchar(255) DEFAULT NULL,
   `unit` varchar(255) DEFAULT NULL,
   `number` bigint(20) DEFAULT NULL,
+  `postage` bigint(20) DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
@@ -286,9 +288,9 @@ CREATE TABLE `ordersdetail` (
 -- ----------------------------
 -- Records of ordersdetail
 -- ----------------------------
-INSERT INTO `ordersdetail` VALUES ('1', '2', '5', '1', '5', 'sdfsd', '养殖', '40', null, '中等大小', '斤', '5', '2015-11-16 22:14:31', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('2', '2', '5', '1', '5', 'sdfsd', '野生', '40', null, '中等大小', '斤', '5', '2015-11-16 22:14:31', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('3', '2', '3', '1', '5', 'sdfsd', '养殖', '40', null, '中等大小', '斤', '5', '2015-11-16 22:14:31', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('1', '2', '5', '1', '5', 'sdfsd' , 'sdf.jpg' , '养殖', '40', null, '中等大小', '斤', '5',null, '2015-11-16 22:14:31', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('2', '2', '5', '1', '5', 'sdfsd' , 'sdf.jpg' , '野生', '40', null, '中等大小', '斤', '5',null, '2015-11-16 22:14:31', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('3', '2', '3', '1', '5', 'sdfsd' , 'sdf.jpg' , '养殖', '40', null, '中等大小', '斤', '5',null, '2015-11-16 22:14:31', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `searecord`
@@ -367,7 +369,7 @@ CREATE TABLE `shop` (
 -- ----------------------------
 -- Records of shop
 -- ----------------------------
-INSERT INTO `shop` VALUES ('3', '1', '海格号', '4;2;3', null, null, null, '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
+INSERT INTO `shop` VALUES ('3', '1', '海格号', '4;2;3', null,null, null, null, '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
 
 -- ----------------------------
 -- Table structure for `sku`
