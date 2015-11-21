@@ -10,6 +10,7 @@ import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.OrdersPo;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.vo.PageInfo;
+import com.pingplusplus.model.Charge;
 
 /**
  * 
@@ -164,4 +165,17 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(success);
 	}
+	
+	/**
+	 * 支付订单费用.
+	 * @author 黄祥谦.
+	 */
+	public void payForOrdersWithAlipay(){
+		Charge charge = ordersServer.payForOrdersWithAlipay(model.getOrdersId());
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("charge", charge);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+	}
+	
 }

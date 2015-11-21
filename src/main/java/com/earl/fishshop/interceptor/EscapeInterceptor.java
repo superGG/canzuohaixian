@@ -1,6 +1,5 @@
 package com.earl.fishshop.interceptor;
 
-import java.util.Enumeration;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -52,7 +51,6 @@ public class EscapeInterceptor extends AbstractInterceptor {
         // 获取HttpServletRequest   
         HttpServletRequest request = (HttpServletRequest)ctx.get(StrutsStatics.HTTP_REQUEST);
         String header = request.getHeader("Content-Type");
-        Enumeration headerNames = request.getHeaderNames();
         if(header != null){
         	logger.info("header Content-Type " + header);
         }

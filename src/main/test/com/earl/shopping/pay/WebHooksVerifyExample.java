@@ -53,7 +53,7 @@ public class WebHooksVerifyExample {
 		in.close();
 		String pubKey = new String(fileBytes, "UTF-8");
 		if (base64) {
-			fileBytes = Base64.decodeBase64(pubKey);
+			fileBytes = Base64.decodeBase64(pubKey.getBytes());
 		}
 		return fileBytes;
 	}
@@ -73,7 +73,7 @@ public class WebHooksVerifyExample {
 		String pubKey = new String(keyBytes, "UTF-8");
 		pubKey = pubKey.replaceAll("(-+BEGIN PUBLIC KEY-+\\r?\\n|-+END PUBLIC KEY-+\\r?\\n?)", "");
 
-		keyBytes = Base64.decodeBase64(pubKey);
+		keyBytes = Base64.decodeBase64(pubKey.getBytes());
 
 		// generate public key
 		X509EncodedKeySpec spec = new X509EncodedKeySpec(keyBytes);

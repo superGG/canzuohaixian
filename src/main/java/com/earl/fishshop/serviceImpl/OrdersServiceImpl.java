@@ -12,6 +12,8 @@ import com.earl.fishshop.pojo.OrdersPo;
 import com.earl.fishshop.service.OrdersService;
 import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.vo.PageInfo;
+import com.earl.util.PayChargeUtil;
+import com.pingplusplus.model.Charge;
 
 /**
  * 每个ServiceImpl都要继承相对应的service接口
@@ -85,6 +87,40 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return null;
+	}
+	//                                           alipay:支付宝手机支付
+	//                                           alipay_wap:支付宝手机网页支付
+	//                                           alipay_qr:支付宝扫码支付
+	//                                           alipay_pc_direct:支付宝 PC 网页支付
+	//                                           apple_pay:Apple Pay
+	//                                           bfb:百度钱包移动快捷支付
+	//                                           bfb_wap:百度钱包手机网页支付
+	//                                           upacp:银联全渠道支付（2015 年 1 月 1 日后的银联新商户使用。若有疑问，请与 Ping++ 或者相关的收单行联系）
+	//                                           upacp_wap:银联全渠道手机网页支付（2015 年 1 月 1 日后的银联新商户使用。若有疑问，请与 Ping++ 或者相关的收单行联系）
+	//                                           upacp_pc:银联 PC 网页支付
+	//                                           upmp:银联手机支付（限个人工作室和 2014 年之前的银联老客户使用。若有疑问，请与 Ping++ 或者相关的收单行联系）
+	//                                           upmp_wap:银联手机网页支付（限个人工作室和 2014 年之前的银联老客户使用。若有疑问，请与 Ping++ 或者相关的收单行联系）
+	//                                           wx:微信支付
+	//                                           wx_pub:微信公众账号支付
+	//                                           wx_pub_qr:微信公众账号扫码支付
+	//                                           yeepay_wap:易宝手机网页支付
+	//                                           jdpay_wap:京东手机网页支付
+	//                                           cnp_u:应用内快捷支付（银联）
+	//                                           cnp_f:应用内快捷支付（外卡）
+	@Override
+	public Charge payForOrdersWithAlipay(Long ordersId) {
+		// TODO 未测试.
+		OrdersPo ordersPo = ordersDao.get(ordersId);
+		Double price = ordersPo.getTotalprice()*100;
+		Charge charge = PayChargeUtil.charge(ordersPo.getOrdersId(), price.longValue(), "alipay", ordersPo.getShopKeeperName(), ordersPo.getBuyerName());
+		return charge;
+	}
+
+	@Override
+	public Boolean realPayOrders(Long ordersId) {
+		// TODO 未测试.
+			ordersDao.updateOrdersState(ordersId, MyConstant.order_pay);
 		return null;
 	}
 	

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.earl.fishshop.pojo.OrdersPo;
 import com.earl.fishshop.vo.PageInfo;
+import com.pingplusplus.model.Charge;
 
 public interface OrdersService extends BaseService<OrdersPo>{
 
@@ -76,9 +77,19 @@ public interface OrdersService extends BaseService<OrdersPo>{
 	 */
 	Boolean setOrderNumber(Long orderId, String orderNumber);
 
-	
+	/**
+	 * 支付订单.
+	 * @author 黄祥谦.
+	 * @param ordersId
+	 * @return
+	 */
+	Charge payForOrdersWithAlipay(Long ordersId);
 
-	
-	
-	
+	/**
+	 * 修改订单状态为支付状态
+	 * @author 黄祥谦.
+	 * @param ordersId
+	 * @return
+	 */
+	Boolean realPayOrders(Long ordersId);
 }

@@ -74,6 +74,11 @@ public class MyConstant {
 	 * 订单未评论 v3.
 	 */
 	public static final Integer order_uncomment = 3;
+	
+	/**
+	 * 订单完成支付状态.
+	 */
+	public static final Integer order_pay = 4;
 
 	public static final Boolean shop_notOnSell = false;
 	
@@ -103,6 +108,8 @@ public class MyConstant {
 	 * 差评.
 	 */
 	public static final Integer comment_bed = -1;
+
+
 	
 	
 
