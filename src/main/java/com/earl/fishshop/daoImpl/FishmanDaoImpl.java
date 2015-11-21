@@ -46,10 +46,10 @@ public class FishmanDaoImpl extends BaseDaoImpl<FishmanPo> implements
 
 	@Override
 	public void noPassAuthenticationFishman(Long userId) {
-		String hql = "update UserPo set userType =:userType,state=:state, identityId=:identityId where userId =:userId";
+		String hql = "update UserPo set state=:state where userId =:userId";
 		getCurrentSession().createQuery(hql)
-				.setLong("identityId", 0l)
-				.setInteger("userType", MyConstant.user_normal)
+//				.setLong("identityId", 0l)
+//				.setInteger("userType", MyConstant.user_normal)
 				.setInteger("state", MyConstant.user_nopass)
 				.setLong("userId", userId).executeUpdate();
 		

@@ -36,6 +36,7 @@ public class VerifyServiceUtil extends  BaseServiceImpl<UserPo>{
 			BufferedImage bi = verifycode.getImage();
 			VerifyCodeUtil.output(bi, new FileOutputStream("f:/a.jpg"));
 			String vf = verifycode.getText();
+			//TODO 验证码应该存在resultMessage中，只为了测试。图片传到客户端还没做
 			rs.setResultInfo(vf);
 			rs.setServiceResult(true);
 		} catch (Exception e) {
@@ -58,9 +59,13 @@ public class VerifyServiceUtil extends  BaseServiceImpl<UserPo>{
 	public ResultMessage confirmImgVerifyCode(final String verifyCode,
 			final String uVerifyCode) {
 		ResultMessage rs = new ResultMessage();
-		rs.setServiceResult(false);
+		
 		if (verifyCode == uVerifyCode) {
 			rs.setServiceResult(true);
+			rs.setResultInfo("验证成功");
+		} else {
+			rs.setServiceResult(false);
+			rs.setResultInfo("验证码错误");
 		}
 		return rs;
 	}

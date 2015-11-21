@@ -27,16 +27,6 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 	private static final long serialVersionUID = 3293435262298029608L;
 
 	private Long userId;
-	
-	private Long identityId;
-	
-	public Long getIdentityId() {
-		return identityId;
-	}
-
-	public void setIdentityId(Long identityId) {
-		this.identityId = identityId;
-	}
 
 	public Long getUserId() {
 		return userId;
@@ -80,11 +70,11 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 	}
 	
 	/**
-	 * 查询渔户的详细信息.
+	 * 查询养殖户的详细信息.
 	 *@author 宋文光.
 	 */
 	public void getFarmers() {
-		List<FarmersPo> list = farmersServer.getFarmers(identityId);
+		List<FarmersPo> list = farmersServer.getFarmers(model.getFarmersId());
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("farmers", list);
 		resultMessage = new ResultMessage();
