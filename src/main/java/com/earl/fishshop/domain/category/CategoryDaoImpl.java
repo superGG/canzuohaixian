@@ -11,6 +11,8 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.earl.fishshop.base.BaseDaoImpl;
+import com.earl.fishshop.domain.sku.SkuPo;
+import com.earl.fishshop.helper.JsonHelper;
 import com.earl.fishshop.vo.PageInfo;
 
 
@@ -79,5 +81,34 @@ public class CategoryDaoImpl extends BaseDaoImpl<CategoryPo> implements Category
 				list2.add(uniqueResult);
 		}
 		return list2;
+	}
+
+	@Override
+	public void addCategory(CategoryPo model) {
+		// TODO 未测试.
+		ArrayList<Long> arrayList = new ArrayList<Long>();
+		List<SkuPo> skuList = model.getSkuArrayList();
+		for (SkuPo skuPo : skuList) {
+			Long save = (Long) getCurrentSession().save(skuPo);
+			arrayList.add(save);
+		}
+		String json = JsonHelper.toJson(arrayList);
+		model.setSkuList(json);
+		getCurrentSession().save(model);
+	}
+
+	@Override
+	public CategoryPo getCategoryWithSku(Long categoryId) {
+		// TODO 未测试.
+		CategoryPo categoryPo = get(categoryId);
+		String skuList = categoryPo.getSkuList();
+		List<Long> jsonToBeanList = JsonHelper.jsonToBeanList(skuList, Long.class);
+		ArrayList<SkuPo> arrayList = new ArrayList<SkuPo>();
+		for (Long long1 : jsonToBeanList) {
+			SkuPo object = (SkuPo) getCurrentSession().get(SkuPo.class, long1);
+			arrayList.add(object);
+		}
+		categoryPo.setSkuArrayList(arrayList);
+		return null;
 	}
 }

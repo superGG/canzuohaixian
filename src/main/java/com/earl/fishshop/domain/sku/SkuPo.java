@@ -24,6 +24,16 @@ public class SkuPo{
 	private String skuName ;
 	
 	/**
+	 * 低范围.
+	 */
+	private Long lowscale;
+
+	/**
+	 * 高范围.
+	 */
+	private Long highscale;
+	
+	/**
 	 * 字段描述：Date 
 	 * 字段类型：createTime  
 	 */
@@ -47,7 +57,18 @@ public class SkuPo{
 	 */
 	private Long version ;
 	
-	
+	public Long getLowscale() {
+		return lowscale;
+	}
+	public void setLowscale(Long lowscale) {
+		this.lowscale = lowscale;
+	}
+	public Long getHighscale() {
+		return highscale;
+	}
+	public void setHighscale(Long highscale) {
+		this.highscale = highscale;
+	}
 	public void setSkuId(Long skuId){
 		this.skuId = skuId;
 	}

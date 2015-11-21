@@ -1,8 +1,10 @@
 package com.earl.fishshop.domain.category;
 
 import java.util.Date;
+import java.util.List;
 
 import com.earl.fishshop.annotation.IdAnnotatioin;
+import com.earl.fishshop.domain.sku.SkuPo;
 
 public class CategoryPo{
 
@@ -72,6 +74,11 @@ public class CategoryPo{
 	
 	
 	private Long totalNowNumber;
+	
+	private String skuList;
+	
+	private List<SkuPo> skuArrayList;
+	
 	/**
 	 * 字段描述：Date 
 	 * 字段类型：createTime  
@@ -96,6 +103,18 @@ public class CategoryPo{
 	 */
 	private Long version ;
 	
+	public List<SkuPo> getSkuArrayList() {
+		return skuArrayList;
+	}
+	public void setSkuArrayList(List<SkuPo> skuArrayList) {
+		this.skuArrayList = skuArrayList;
+	}
+	public String getSkuList() {
+		return skuList;
+	}
+	public void setSkuList(String skuList) {
+		this.skuList = skuList;
+	}
 	public Long getTotalNowNumber() {
 		return totalNowNumber;
 	}

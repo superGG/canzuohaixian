@@ -111,11 +111,18 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 		try {
 			String uploadCategoryFile = fileUpload.uploadCategoryFile(categoryFile.getFile(), categoryFile.getFileFileName());
 			model.setFishPhoto(uploadCategoryFile);
-			categoryDao.save(model);
+			categoryDao.addCategory(model);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	@Override
+	public CategoryPo getCategoryWithSku(Long categoryId) {
+		// TODO 未测试.
+		CategoryPo category = categoryDao.getCategoryWithSku(categoryId);
+		return category;
 	}
 }
