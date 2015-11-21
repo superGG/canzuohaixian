@@ -12,8 +12,8 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.earl.fishshop.dao.ShopDao;
-import com.earl.fishshop.pojo.ShopPo;
+import com.earl.fishshop.domain.shop.ShopDao;
+import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.vo.PageInfo;
 
 @RunWith(SpringJUnit4ClassRunner.class)

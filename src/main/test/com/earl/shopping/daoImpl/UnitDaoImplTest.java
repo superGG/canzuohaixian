@@ -13,8 +13,8 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.earl.fishshop.dao.UnitDao;
-import com.earl.fishshop.pojo.UnitPo;
+import com.earl.fishshop.domain.unit.UnitDao;
+import com.earl.fishshop.domain.unit.UnitPo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath*:applicationContext-*.xml")

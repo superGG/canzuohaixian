@@ -6,7 +6,7 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.earl.fishshop.pojo.CategoryPo;
+import com.earl.fishshop.domain.category.CategoryPo;
 import com.earl.fishshop.vo.CategoryForxxxVo;
 import com.earl.util.FilterPropertiesUtil;
 

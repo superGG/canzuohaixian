@@ -11,8 +11,8 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.earl.fishshop.pojo.UserPo;
-import com.earl.fishshop.service.UserService;
+import com.earl.fishshop.domain.user.UserPo;
+import com.earl.fishshop.domain.user.UserService;
 
 
 
