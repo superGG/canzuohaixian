@@ -11,6 +11,7 @@ import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.ShopPo;
 import com.earl.fishshop.pojo.UserPo;
+import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
 
 /**
  * 
@@ -29,7 +30,7 @@ public class UserAction extends BaseAction<UserPo> {
 	private static final long serialVersionUID = 3293435262298029608L;
 
 	protected ResultMessage resultMessage;
-
+	
 	@ReturnValue
 	// 返回实体对象，或者其他任意对象
 	public ResultMessage getResultMessage() {
@@ -160,6 +161,28 @@ public class UserAction extends BaseAction<UserPo> {
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}
+	
+	 /**
+     * 在注册时发送验证码到手机.
+     * @throws Exception 
+     * @author 宋文光
+     * @throws java.lang.Exception 
+     */
+    public final void smsCodeOfRegister() throws java.lang.Exception {
+    	resultMessage = userServer.smsCodeOfRegister(model.getPhoneNumber());
+    	session.put("smsVerifyCode", resultMessage.getResultInfo());
+    }
+    
+    /**
+     * 在找回密码时发送验证码到手机.
+     * @throws Exception 
+     * @author 宋文光
+     * @throws java.lang.Exception 
+     */
+    public final void smsCodeOfFound() throws java.lang.Exception  {
+    	resultMessage = userServer.smsCodefindPassWord(model.getPhoneNumber());
+    	session.put("smsVerifyCode", resultMessage.getResultInfo());
+    }
 
 	/**
 	 * 拉黑用户.

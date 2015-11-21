@@ -2,15 +2,11 @@ package com.earl.fishshop.util;
 
 import java.awt.image.BufferedImage;
 import java.io.FileOutputStream;
-import java.util.List;
 import java.util.Random;
 
-import javax.annotation.Resource;
-
-import com.earl.fishshop.dao.UserDao;
-import com.earl.fishshop.daoImpl.UserDaoImpl;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.UserPo;
+import com.earl.fishshop.serviceImpl.BaseServiceImpl;
 import com.earl.util.SmsbaoHelper;
 import com.earl.util.VerifyCodeUtil;
 
@@ -20,15 +16,13 @@ import com.earl.util.VerifyCodeUtil;
  * @author 宋文光
  * @since 3.0.0
  */
-public class VerifyServiceUtil {
+public class VerifyServiceUtil extends  BaseServiceImpl<UserPo>{
 
 	/**
 	 * 6位数的手机验证码.
 	 */
 	private Integer mobileVerifyCode = null;
 
-	@Resource(name = "userDao")
-	private UserDao userDao;
 	/**
 	 * 生成验证码.
 	 * 
@@ -111,73 +105,6 @@ public class VerifyServiceUtil {
 		} catch (Exception e) {
 			e.printStackTrace();
 			rs.setResultInfo("生成失败");
-			rs.setServiceResult(false);
-		}
-		return rs;
-	}
-
-	/**
-	 * 找回密码.
-	 * 
-	 * @author 宋文光
-	 * @param userPhone
-	 *            用户输入的手机号码.
-	 * @param userName
-	 *            用户输入的用户名.
-	 * @return
-	 * @throws Exception
-	 */
-	public ResultMessage smsCodefindPassWord(String userPhone) throws Exception {
-		ResultMessage rs = new ResultMessage();
-		
-		if (userPhone != null) {
-			List<UserPo> userList = userDao.getUserByPhone(userPhone);
-			if (userList.size() != 0) {
-				rs = sendMobileVerifyCode(userPhone);
-			} else {
-				rs.setResultInfo("该手机无注册用户");
-				rs.setServiceResult(false);
-			}
-			// }
-			// else if (userName != null ){
-			// List<UserPo> userList = userDao.getUserByName(userName);
-			// //通过用户名查询用户返回用户名手机号且发送短信到该手机号
-			// if(userList.size() != 0) {
-			// rs = sendMobileVerifyCode(userList.get(0).getPhoneNumber());
-			// } else {
-			// rs.setResultInfo("无此用户");
-			// rs.setServiceResult(false);
-			// }
-		} else {
-			rs.setResultInfo("验证失败");
-			rs.setServiceResult(false);
-		}
-		return rs;
-	}
-
-	/**
-	 * 用户注册.
-	 * @author 宋文光
-	 * @param userPhone
-	 *            用户输入的手机号码.
-	 * @return
-	 * @throws Exception
-	 */
-	public ResultMessage smsCodeOfRegister(String userPhone) throws Exception {
-		ResultMessage rs = new ResultMessage();
-		userDao = new UserDaoImpl();
-		
-		if (userPhone != null) {
-			//检测注册手机是否被注册
-			List<UserPo> userList = userDao.getUserByPhone(userPhone);
-			if (userList.size() == 0) {
-				rs = sendMobileVerifyCode(userPhone);
-			} else {
-				rs.setResultInfo("该手机已被注册");
-				rs.setServiceResult(false);
-			}
-		} else {
-			rs.setResultInfo("注册失败");
 			rs.setServiceResult(false);
 		}
 		return rs;
