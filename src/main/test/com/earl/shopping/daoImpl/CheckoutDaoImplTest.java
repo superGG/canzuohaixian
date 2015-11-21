@@ -11,7 +11,7 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.earl.fishshop.dao.CheckoutDao;
+import com.earl.fishshop.domain.checkout.CheckoutDao;
 import com.earl.fishshop.pojo.CheckoutPo;
 import com.earl.fishshop.util.MyConstant;
 

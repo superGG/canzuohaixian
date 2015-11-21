@@ -13,7 +13,7 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.earl.fishshop.dao.SkuDao;
+import com.earl.fishshop.domain.sku.SkuDao;
 import com.earl.fishshop.pojo.SkuPo;
 
 @RunWith(SpringJUnit4ClassRunner.class)

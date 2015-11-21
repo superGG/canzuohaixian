@@ -11,10 +11,10 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.earl.fishshop.domain.orders.OrdersService;
 import com.earl.fishshop.helper.JsonHelper;
 import com.earl.fishshop.pojo.OrdersDetailPo;
 import com.earl.fishshop.pojo.OrdersPo;
-import com.earl.fishshop.service.OrdersService;
 
 
 

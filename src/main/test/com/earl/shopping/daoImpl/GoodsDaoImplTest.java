@@ -13,7 +13,7 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.earl.fishshop.dao.GoodsDao;
+import com.earl.fishshop.domain.goods.GoodsDao;
 import com.earl.fishshop.pojo.CategoryPo;
 import com.earl.fishshop.pojo.GoodsPo;
 import com.earl.fishshop.vo.PageInfo;

@@ -4,9 +4,9 @@ import java.awt.image.BufferedImage;
 import java.io.FileOutputStream;
 import java.util.Random;
 
+import com.earl.fishshop.base.BaseServiceImpl;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.UserPo;
-import com.earl.fishshop.serviceImpl.BaseServiceImpl;
 import com.earl.util.SmsbaoHelper;
 import com.earl.util.VerifyCodeUtil;
 
