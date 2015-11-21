@@ -7,11 +7,13 @@
 	<version>1.0.0-RELEASE</version>
 	<packaging>jar</packaging>
 	<name>FishShop</name>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.2.2.RELEASE</spring.version>
 		<struts2.version>2.3.24.1</struts2.version>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -19,6 +21,7 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -113,5 +116,45 @@
 			<artifactId>struts2-junit-plugin</artifactId>
 			<version>${struts2.version}</version>
 		</dependency>
+		<dependency>
+    <groupId>Pingplusplus</groupId>
+    <artifactId>pingpp-java</artifactId>
+    <version>2.1.1</version>
+    <type>jar</type>
+</dependency>
 	</dependencies>
+	<repositories>  
+    <repository>  
+      <id>maven-net-cn</id>  
+      <name>Maven China Mirror</name>  
+      <url>http://maven.net.cn/content/groups/public/</url>  
+      <releases>  
+        <enabled>true</enabled>  
+      </releases>  
+      <snapshots>  
+        <enabled>false</enabled>  
+      </snapshots>  
+    </repository>  
+    <repository>
+    <snapshots>
+        <enabled>false</enabled>
+    </snapshots>
+    <id>central</id>
+    <name>bintray</name>
+    <url>http://jcenter.bintray.com</url>
+</repository>
+  </repositories>  
+  <pluginRepositories>  
+    <pluginRepository>  
+      <id>maven-net-cn</id>  
+      <name>Maven China Mirror</name>  
+      <url>http://maven.net.cn/content/groups/public/</url>  
+      <releases>  
+        <enabled>true</enabled>  
+      </releases>  
+      <snapshots>  
+        <enabled>false</enabled>  
+      </snapshots>      
+    </pluginRepository>  
+  </pluginRepositories>  
 </project>

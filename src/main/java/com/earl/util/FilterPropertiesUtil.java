@@ -68,26 +68,6 @@ public class FilterPropertiesUtil {
 		return newInstance;
 	}
 	
-public static Object filterProperties3(Object po,Class<?> vo) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException, InstantiationException {
-		Object newInstance = vo.newInstance();
-		long begintime = System.currentTimeMillis();
-		logger.debug("进入filterProperties3构造方法");
-		Field[] fieldsvo = vo.getClass().getDeclaredFields();
-		Field[] fieldspo = po.getClass().getDeclaredFields();
-		for (Field field : fieldsvo) {
-			field.setAccessible(true);
-			for (Field field2 : fieldspo) {
-				if(field2.getName() == field.getName()){
-					field2.setAccessible(true);
-					field.set(newInstance, field2.get(po));
-				}
-			}
-		}
-		long endtime = System.currentTimeMillis();
-		long spend = endtime-begintime;
-		logger.debug("退出filterProperties3方法,毫秒数: "+spend+"毫秒;耗费时间：" + spend/1000 + "秒");
-		return newInstance;
-	}
 }
 
 
