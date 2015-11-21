@@ -1,0 +1,128 @@
+package com.earl.fishshop.domain.orders;
+
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
+
+import com.earl.fishshop.base.BaseDaoImpl;
+import com.earl.fishshop.pojo.OrdersDetailPo;
+import com.earl.fishshop.pojo.OrdersPo;
+import com.earl.fishshop.util.MyConstant;
+import com.earl.fishshop.vo.PageInfo;
+
+
+/**
+ * 
+ * 
+ */
+@Repository("ordersDao")
+public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
+
+	@Override
+	public List<OrdersPo> getMyShopOrders(Long shopId, PageInfo pageInfo) {
+		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
+		createCriteria.add(Restrictions.eq("shopId", shopId));
+		createCriteria.setFirstResult(
+				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
+				.setMaxResults(pageInfo.getSize());
+		@SuppressWarnings("unchecked")
+		List<OrdersPo> ordersList= createCriteria.list();
+		
+		for (OrdersPo ordersPo : ordersList) {
+			String hql2 = "from OrdersDetailPo where orderId =:orderId";
+			@SuppressWarnings("unchecked")
+			List<OrdersDetailPo> ordersDetailList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).list();
+			ordersPo.setOrdersDetail(ordersDetailList);
+		}
+		return ordersList;
+	}
+	
+	@Override
+	public void updateOrdersState(Long ordersId, Integer state){
+		String hql ="update OrdersPo set state =:state where ordersId =:ordersId";
+		getCurrentSession().createQuery(hql).setInteger("state", state).setLong("ordersId", ordersId).executeUpdate();
+	}
+
+	@Override
+	public void addOrders(OrdersPo orders) {
+		orders.setState(MyConstant.order_unpay);//设置订单初始状态.
+		Long ordersId = (Long) getCurrentSession().save(orders);
+		List<OrdersDetailPo> ordersDetail = orders.getOrdersDetail();
+		if(ordersDetail != null){
+			for (OrdersDetailPo ordersDetailPo : ordersDetail) {
+				String hql = "update GoodsPo set nowNumber=nowNumber - :tosell,sellNumber=sellNumber + :tosell where goodsId =:goodsId and nowNumber-:tosell >= 0";
+				Integer executeUpdate = getCurrentSession().createQuery(hql).setLong("tosell", ordersDetailPo.getNumber()).setLong("goodsId",ordersDetailPo.getGoodsId()).executeUpdate();
+				if(executeUpdate == 0 ){
+					throw new RuntimeException("商品数量不够！！");
+				}
+				ordersDetailPo.setOrderId(ordersId);
+				getCurrentSession().save(ordersDetailPo);
+			}
+		}
+	}
+
+	@Override
+	public List<OrdersPo> getOrdersWithSeaRecord(Long seaRecordId, PageInfo pageInfo) {
+		
+		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
+		createCriteria.add(Restrictions.eq("seaRecordId", seaRecordId));
+		createCriteria.setFirstResult(
+				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
+				.setMaxResults(pageInfo.getSize());
+		@SuppressWarnings("unchecked")
+		List<OrdersPo> ordersList = createCriteria.list();
+		for (OrdersPo ordersPo : ordersList) {
+			String hql2 = "from OrdersDetailPo where orderId =:orderId";
+			@SuppressWarnings("unchecked")
+			List<OrdersDetailPo> ordersDetailList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).list();
+			ordersPo.setOrdersDetail(ordersDetailList);
+		}
+		return ordersList;
+	}
+
+	@Override
+	public List<OrdersPo> getPointStateOrders(Long userId, Integer state, PageInfo pageInfo) {
+		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
+		createCriteria.add(Restrictions.eq("state", state));
+		createCriteria.add(Restrictions.eq("userId", userId));
+		createCriteria.setFirstResult(
+				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
+				.setMaxResults(pageInfo.getSize());
+		@SuppressWarnings("unchecked")
+		List<OrdersPo> ordersList = createCriteria.list();
+		for (OrdersPo ordersPo : ordersList) {
+			String hql2 = "from OrdersDetailPo where orderId =:orderId";
+			@SuppressWarnings("unchecked")
+			List<OrdersDetailPo> ordersDetailList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).list();
+			ordersPo.setOrdersDetail(ordersDetailList);
+		}
+		return ordersList;
+	}
+
+	@Override
+	public void setOrderNumber(Long ordersId, String orderNumber) {
+		String hql = "update OrdersPo set orderNumber =:orderNumber where ordersId =:ordersId";
+		getCurrentSession().createQuery(hql).setString("orderNumber", orderNumber).setLong("ordersId", ordersId).executeUpdate();
+	}
+
+	@Override
+	public List<OrdersPo> getAllUserOrders(Long userId, PageInfo pageInfo) {
+		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
+		createCriteria.add(Restrictions.eq("userId", userId));
+		createCriteria.setFirstResult(
+				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
+				.setMaxResults(pageInfo.getSize());
+		@SuppressWarnings("unchecked")
+		List<OrdersPo> ordersList = createCriteria.list();
+		for (OrdersPo ordersPo : ordersList) {
+			String hql2 = "from OrdersDetailPo where orderId =:orderId";
+			@SuppressWarnings("unchecked")
+			List<OrdersDetailPo> ordersDetailList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).list();
+			ordersPo.setOrdersDetail(ordersDetailList);
+		}
+		return ordersList;
+	}
+
+}
