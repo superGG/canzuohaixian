@@ -76,7 +76,7 @@ public class VerifyAction extends BaseAction<UserPo>{
     public void confirmImgVerifyCode() {
     	verifyServiceUtil = new VerifyServiceUtil();
     	String ImgVf = (String) session.get("imgVerifyCode");
-    	resultMessage = verifyServiceUtil.confirmImgVerifyCode(ImgVf , verifyCode);
+    	verifyServiceUtil.confirmImgVerifyCode(ImgVf , verifyCode);
     	resultMessage.setUserToken(true);
     }
     
@@ -89,19 +89,12 @@ public class VerifyAction extends BaseAction<UserPo>{
     public void confirmSmsVerifyCode() {
     	verifyServiceUtil =  new VerifyServiceUtil();
     	String SmsVf = (String) session.get("smsVerifyCode");
-    	resultMessage = verifyServiceUtil.confirmImgVerifyCode(SmsVf , verifyCode);
+    	verifyServiceUtil.confirmImgVerifyCode(SmsVf , verifyCode);
     	resultMessage.setUserToken(true);
     }
     
 
-    /**
-     * 查询短信余量.
-     * @author 宋文光
-     */
-    public final void checkSmsBao() {
-    	verifyServiceUtil = new VerifyServiceUtil();
-    	resultMessage = verifyServiceUtil.checkSmsbao();
-    }
+   
     
     
 

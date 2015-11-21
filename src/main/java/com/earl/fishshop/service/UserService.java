@@ -82,4 +82,12 @@ public interface UserService extends BaseService<UserPo>{
 	 */
 	ResultMessage smsCodefindPassWord(String phoneNumber) throws Exception;
 
+	/**
+	 * 用户注册.
+	 *@author 宋文光.
+	 * @param model
+	 * @return
+	 */
+	Boolean rigisterUser(UserPo model);
+
 }

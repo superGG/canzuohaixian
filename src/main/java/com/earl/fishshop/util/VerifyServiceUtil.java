@@ -56,18 +56,14 @@ public class VerifyServiceUtil extends  BaseServiceImpl<UserPo>{
 	 *            用户输入的验证码.
 	 * @return ResultMessage 服务信息.
 	 */
-	public ResultMessage confirmImgVerifyCode(final String verifyCode,
+	public Boolean confirmImgVerifyCode(final String verifyCode,
 			final String uVerifyCode) {
-		ResultMessage rs = new ResultMessage();
 		
 		if (verifyCode == uVerifyCode) {
-			rs.setServiceResult(true);
-			rs.setResultInfo("验证成功");
+			return true;
 		} else {
-			rs.setServiceResult(false);
-			rs.setResultInfo("验证码错误");
+			return false;
 		}
-		return rs;
 	}
 
 	/**
