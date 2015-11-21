@@ -20,6 +20,9 @@ public class VerifyAction extends BaseAction<UserPo>{
 	
 	private static final long serialVersionUID = 3293435262298029608L;
 	
+	/**
+	 * 验证工具类.
+	 */
 	VerifyServiceUtil verifyServiceUtil;
 	
     /**
@@ -27,42 +30,10 @@ public class VerifyAction extends BaseAction<UserPo>{
      */
     protected ResultMessage resultMessage;
     
-//    /**
-//     * 用户输入的手机号码.
-//     */
-//    private String phone;
-    
     /**
      * 用户输入的验证码.
      */
     private String verifyCode;
-    
-//    /**
-//     * 用户输入密码.
-//     */
-//    private String password;
-//    
-//    /**
-//     * 所要找回的用户名.
-//     */
-//    private String userName;
-    
-    
-//	public String getPassword() {
-//		return password;
-//	}
-//
-//	public void setPassword(String password) {
-//		this.password = password;
-//	}
-
-//	public String getUserName() {
-//		return userName;
-//	}
-//
-//	public void setUserName(String userName) {
-//		this.userName = userName;
-//	}
 
 	/**
      * @return 获取的uVerifyCode
@@ -74,29 +45,12 @@ public class VerifyAction extends BaseAction<UserPo>{
     /**
      * 设置uVerifyCode的方法.
      * 
-     * @param uVerifyCode
-     *            赋值给uVerifyCode的值
+     * @param VerifyCode
+     *            赋值给VerifyCode的值
      */
 	public void setVerifyCode(String verifyCode) {
 		this.verifyCode = verifyCode;
 	}
-
-//	/**
-//     * @return 获取的uPhone
-//     */
-//	public String getPhone() {
-//		return phone;
-//	}
-//
-//	 /**
-//     * 设置uPhone的方法.
-//     * 
-//     * @param uPhone
-//     *            赋值给uPhone的值
-//     */
-//	public void setPhone(String phone) {
-//		this.phone = phone;
-//	}
 
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public ResultMessage getResultMessage() {

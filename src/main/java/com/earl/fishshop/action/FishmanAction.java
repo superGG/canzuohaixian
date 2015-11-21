@@ -28,19 +28,6 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 
 	private Long userId;
 
-	/*
-	 * 外键id.
-	 */
-	private Long identityId;
-
-	public Long getIdentityId() {
-		return identityId;
-	}
-
-	public void setIdentityId(Long identityId) {
-		this.identityId = identityId;
-	}
-
 	public Long getUserId() {
 		return userId;
 	}

@@ -37,19 +37,6 @@ public class UserAction extends BaseAction<UserPo> {
 		return resultMessage;
 	}
 
-	/**
-	 * 用户身份id.
-	 */
-	private Long identityId;
-
-	public Long getIdentityId() {
-		return identityId;
-	}
-
-	public void setIdentityId(Long identityId) {
-		this.identityId = identityId;
-	}
-
 	// 下面填写业务逻辑
 	/**
 	 * 添加用户(注册).
@@ -91,9 +78,21 @@ public class UserAction extends BaseAction<UserPo> {
 	 */
 	public void findAllUser() {
 		List<UserPo> userList = userServer.findAll();
-		resultMessage = new ResultMessage();
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("userList", userList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+	}
+	
+	/**
+	 * 获取指定用户（某种状态）.
+	 *@author 宋文光.
+	 */
+	public void getUser() {
+		List<UserPo> userlist = userServer.findByGivenCreteria(model);
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("userlist", userlist);
+		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 	}
 
@@ -191,7 +190,7 @@ public class UserAction extends BaseAction<UserPo> {
 	 */
 	public void blackUser() {
 		resultMessage = new ResultMessage();
-		Boolean success = userServer.blackUser(identityId);
+		Boolean success = userServer.blackUser(model.getIdentityId());
 		if (success) {
 			resultMessage.setServiceResult(success);
 			resultMessage.setResultInfo("拉黑成功");

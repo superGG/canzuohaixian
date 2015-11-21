@@ -62,7 +62,7 @@ public class FishmanServiceImpl extends BaseServiceImpl<FishmanPo> implements
 	public Boolean noPassAuthenticationFishman(Long userId, Long fishmanId) {
 		try {
 			fishmanDao.noPassAuthenticationFishman(userId);
-			fishmanDao.deleteById(fishmanId);
+//			fishmanDao.deleteById(fishmanId); //删除渔户
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

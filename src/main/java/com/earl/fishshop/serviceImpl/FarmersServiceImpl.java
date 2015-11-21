@@ -60,7 +60,7 @@ public class FarmersServiceImpl extends BaseServiceImpl<FarmersPo> implements
 	public Boolean noPassAuthenticationFarmers(Long userId, Long farmersId) {
 		try {
 			farmersDao.noPassAuthenticationFarmers(userId);
-			farmersDao.deleteById(farmersId);
+//			farmersDao.deleteById(farmersId);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
