@@ -3,7 +3,6 @@ package com.earl.fishshop.domain.orders;
 import java.util.List;
 
 import com.earl.fishshop.base.BaseDao;
-import com.earl.fishshop.pojo.OrdersPo;
 import com.earl.fishshop.vo.PageInfo;
 
 public interface OrdersDao extends BaseDao<OrdersPo>{

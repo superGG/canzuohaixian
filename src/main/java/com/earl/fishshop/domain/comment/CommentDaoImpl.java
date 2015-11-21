@@ -8,7 +8,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.earl.fishshop.base.BaseDaoImpl;
-import com.earl.fishshop.pojo.CommentPo;
 import com.earl.fishshop.vo.PageInfo;
 
 

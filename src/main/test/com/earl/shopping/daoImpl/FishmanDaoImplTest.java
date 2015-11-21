@@ -12,7 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.earl.fishshop.domain.fishman.FishmanDao;
-import com.earl.fishshop.pojo.FishmanPo;
+import com.earl.fishshop.domain.fishman.FishmanPo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath*:applicationContext-*.xml")

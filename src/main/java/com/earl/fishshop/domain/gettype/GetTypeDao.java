@@ -3,7 +3,6 @@ package com.earl.fishshop.domain.gettype;
 import java.util.List;
 
 import com.earl.fishshop.base.BaseDao;
-import com.earl.fishshop.pojo.GetTypePo;
 
 public interface GetTypeDao extends BaseDao<GetTypePo>{
 

@@ -11,8 +11,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.earl.fishshop.base.BaseDaoImpl;
-import com.earl.fishshop.pojo.CategoryPo;
-import com.earl.fishshop.pojo.GoodsPo;
+import com.earl.fishshop.domain.category.CategoryPo;
 import com.earl.fishshop.vo.PageInfo;
 
 

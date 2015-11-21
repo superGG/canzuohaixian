@@ -4,8 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.earl.fishshop.base.BaseService;
-import com.earl.fishshop.pojo.CategoryPo;
-import com.earl.fishshop.pojo.ShopPo;
+import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.vo.CategoryFileVo;
 import com.earl.fishshop.vo.PageInfo;
 

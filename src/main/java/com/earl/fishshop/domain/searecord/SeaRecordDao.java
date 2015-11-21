@@ -1,7 +1,6 @@
 package com.earl.fishshop.domain.searecord;
 
 import com.earl.fishshop.base.BaseDao;
-import com.earl.fishshop.pojo.SeaRecordPo;
 
 public interface SeaRecordDao extends BaseDao<SeaRecordPo>{
 

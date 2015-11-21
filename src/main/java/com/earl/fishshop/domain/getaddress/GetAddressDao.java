@@ -3,7 +3,6 @@ package com.earl.fishshop.domain.getaddress;
 import java.util.List;
 
 import com.earl.fishshop.base.BaseDao;
-import com.earl.fishshop.pojo.GetAddressPo;
 
 public interface GetAddressDao extends BaseDao<GetAddressPo>{
 

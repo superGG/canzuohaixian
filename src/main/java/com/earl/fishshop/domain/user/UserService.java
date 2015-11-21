@@ -3,8 +3,7 @@ package com.earl.fishshop.domain.user;
 import java.util.List;
 
 import com.earl.fishshop.base.BaseService;
-import com.earl.fishshop.pojo.ResultMessage;
-import com.earl.fishshop.pojo.UserPo;
+import com.earl.fishshop.vo.ResultMessage;
 
 public interface UserService extends BaseService<UserPo>{
 

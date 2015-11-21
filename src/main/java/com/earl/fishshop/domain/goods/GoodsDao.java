@@ -3,8 +3,7 @@ package com.earl.fishshop.domain.goods;
 import java.util.List;
 
 import com.earl.fishshop.base.BaseDao;
-import com.earl.fishshop.pojo.CategoryPo;
-import com.earl.fishshop.pojo.GoodsPo;
+import com.earl.fishshop.domain.category.CategoryPo;
 import com.earl.fishshop.vo.PageInfo;
 
 public interface GoodsDao extends BaseDao<GoodsPo>{

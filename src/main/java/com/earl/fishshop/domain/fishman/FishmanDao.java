@@ -3,7 +3,6 @@ package com.earl.fishshop.domain.fishman;
 import java.util.List;
 
 import com.earl.fishshop.base.BaseDao;
-import com.earl.fishshop.pojo.FishmanPo;
 
 public interface FishmanDao extends BaseDao<FishmanPo>{
 

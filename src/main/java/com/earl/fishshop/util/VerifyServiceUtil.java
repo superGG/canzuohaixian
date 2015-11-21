@@ -5,8 +5,8 @@ import java.io.FileOutputStream;
 import java.util.Random;
 
 import com.earl.fishshop.base.BaseServiceImpl;
-import com.earl.fishshop.pojo.ResultMessage;
-import com.earl.fishshop.pojo.UserPo;
+import com.earl.fishshop.domain.user.UserPo;
+import com.earl.fishshop.vo.ResultMessage;
 import com.earl.util.SmsbaoHelper;
 import com.earl.util.VerifyCodeUtil;
 

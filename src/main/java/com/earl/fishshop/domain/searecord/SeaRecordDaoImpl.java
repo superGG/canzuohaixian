@@ -3,8 +3,7 @@ package com.earl.fishshop.domain.searecord;
 import org.springframework.stereotype.Repository;
 
 import com.earl.fishshop.base.BaseDaoImpl;
-import com.earl.fishshop.pojo.SeaRecordPo;
-import com.earl.fishshop.pojo.ShopPo;
+import com.earl.fishshop.domain.shop.ShopPo;
 
 
 /**

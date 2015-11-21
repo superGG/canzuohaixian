@@ -9,9 +9,8 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.base.BaseAction;
-import com.earl.fishshop.pojo.ResultMessage;
-import com.earl.fishshop.pojo.ShopPo;
-import com.earl.fishshop.pojo.UserPo;
+import com.earl.fishshop.domain.shop.ShopPo;
+import com.earl.fishshop.vo.ResultMessage;
 import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
 
 /**

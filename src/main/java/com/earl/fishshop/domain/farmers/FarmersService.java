@@ -3,7 +3,6 @@ package com.earl.fishshop.domain.farmers;
 import java.util.List;
 
 import com.earl.fishshop.base.BaseService;
-import com.earl.fishshop.pojo.FarmersPo;
 
 public interface FarmersService extends BaseService<FarmersPo>{
 

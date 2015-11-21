@@ -11,7 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.earl.fishshop.domain.gettype.GetTypeDao;
-import com.earl.fishshop.pojo.GetTypePo;
+import com.earl.fishshop.domain.gettype.GetTypePo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath*:applicationContext-*.xml")

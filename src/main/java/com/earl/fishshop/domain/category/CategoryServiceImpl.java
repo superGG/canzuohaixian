@@ -10,10 +10,9 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.base.BaseServiceImpl;
-import com.earl.fishshop.pojo.CategoryPo;
-import com.earl.fishshop.pojo.SeaRecordPo;
-import com.earl.fishshop.pojo.ShopPo;
-import com.earl.fishshop.pojo.UserPo;
+import com.earl.fishshop.domain.searecord.SeaRecordPo;
+import com.earl.fishshop.domain.shop.ShopPo;
+import com.earl.fishshop.domain.user.UserPo;
 import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.vo.CategoryFileVo;
 import com.earl.fishshop.vo.PageInfo;

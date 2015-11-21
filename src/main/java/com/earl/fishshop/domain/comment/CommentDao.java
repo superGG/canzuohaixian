@@ -3,7 +3,6 @@ package com.earl.fishshop.domain.comment;
 import java.util.List;
 
 import com.earl.fishshop.base.BaseDao;
-import com.earl.fishshop.pojo.CommentPo;
 import com.earl.fishshop.vo.PageInfo;
 
 public interface CommentDao extends BaseDao<CommentPo>{

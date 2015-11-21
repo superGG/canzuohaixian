@@ -9,11 +9,10 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.base.BaseAction;
-import com.earl.fishshop.pojo.CategoryPo;
-import com.earl.fishshop.pojo.GoodsPo;
-import com.earl.fishshop.pojo.ResultMessage;
-import com.earl.fishshop.pojo.ShopPo;
+import com.earl.fishshop.domain.category.CategoryPo;
+import com.earl.fishshop.domain.goods.GoodsPo;
 import com.earl.fishshop.vo.PageInfo;
+import com.earl.fishshop.vo.ResultMessage;
 
 /**
  * 

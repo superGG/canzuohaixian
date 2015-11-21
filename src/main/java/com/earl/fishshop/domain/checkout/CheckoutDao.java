@@ -1,7 +1,6 @@
 package com.earl.fishshop.domain.checkout;
 
 import com.earl.fishshop.base.BaseDao;
-import com.earl.fishshop.pojo.CheckoutPo;
 
 public interface CheckoutDao extends BaseDao<CheckoutPo>{
 

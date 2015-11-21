@@ -10,9 +10,8 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.base.BaseServiceImpl;
-import com.earl.fishshop.pojo.ResultMessage;
-import com.earl.fishshop.pojo.UserPo;
 import com.earl.fishshop.util.VerifyServiceUtil;
+import com.earl.fishshop.vo.ResultMessage;
 
 /**
  * 每个ServiceImpl都要继承相对应的service接口

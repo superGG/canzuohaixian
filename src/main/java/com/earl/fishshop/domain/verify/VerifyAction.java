@@ -5,9 +5,9 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.base.BaseAction;
-import com.earl.fishshop.pojo.ResultMessage;
-import com.earl.fishshop.pojo.UserPo;
+import com.earl.fishshop.domain.user.UserPo;
 import com.earl.fishshop.util.VerifyServiceUtil;
+import com.earl.fishshop.vo.ResultMessage;
 
 
 /**

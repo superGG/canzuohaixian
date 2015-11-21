@@ -3,8 +3,7 @@ package com.earl.fishshop.domain.unit;
 import java.util.List;
 
 import com.earl.fishshop.base.BaseService;
-import com.earl.fishshop.pojo.SkuPo;
-import com.earl.fishshop.pojo.UnitPo;
+import com.earl.fishshop.domain.sku.SkuPo;
 
 public interface UnitService extends BaseService<UnitPo>{
 

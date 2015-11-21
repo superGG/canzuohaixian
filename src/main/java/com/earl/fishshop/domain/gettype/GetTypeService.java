@@ -3,7 +3,6 @@ package com.earl.fishshop.domain.gettype;
 import java.util.List;
 
 import com.earl.fishshop.base.BaseService;
-import com.earl.fishshop.pojo.GetTypePo;
 
 public interface GetTypeService extends BaseService<GetTypePo>{
 
