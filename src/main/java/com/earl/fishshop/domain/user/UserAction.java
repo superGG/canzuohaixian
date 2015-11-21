@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.base.BaseAction;
 import com.earl.fishshop.domain.shop.ShopPo;
+import com.earl.fishshop.util.VerifyServiceUtil;
 import com.earl.fishshop.vo.ResultMessage;
 import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
 
@@ -31,6 +32,21 @@ public class UserAction extends BaseAction<UserPo> {
 
 	protected ResultMessage resultMessage;
 	
+	protected VerifyServiceUtil verifyServiceUtil;
+	
+	/**
+	 * 用户输入的验证码.
+	 */
+	private String verifyCode; 
+	
+	public String getVerifyCode() {
+		return verifyCode;
+	}
+
+	public void setVerifyCode(String verifyCode) {
+		this.verifyCode = verifyCode;
+	}
+
 	@ReturnValue
 	// 返回实体对象，或者其他任意对象
 	public ResultMessage getResultMessage() {
@@ -44,9 +60,18 @@ public class UserAction extends BaseAction<UserPo> {
 	 * @author 宋文光
 	 */
 	public void addUser() {
-		Boolean save = userServer.save(model);
+		verifyServiceUtil =  new VerifyServiceUtil();
 		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(save);
+		
+    	String SmsVf = (String) session.get("smsVerifyCode");
+    	Boolean result = verifyServiceUtil.confirmImgVerifyCode(SmsVf , verifyCode);
+		if (result) {
+			Boolean save = userServer.rigisterUser(model);
+			resultMessage.setServiceResult(save);
+		} else {
+			resultMessage.setResultInfo("验证码错误");
+			resultMessage.setServiceResult(result);
+		}
 	}
 
 	/**
@@ -182,6 +207,41 @@ public class UserAction extends BaseAction<UserPo> {
     	resultMessage = userServer.smsCodefindPassWord(model.getPhoneNumber());
     	session.put("smsVerifyCode", resultMessage.getResultInfo());
     }
+    
+    /**
+     * 验证输入手机验证码.
+     * @author 宋文光
+     */
+    public void confirmSmsVerifyCode() {
+    	verifyServiceUtil =  new VerifyServiceUtil();
+    	resultMessage = new ResultMessage();
+    	String SmsVf = (String) session.get("smsVerifyCode");
+    	Boolean result = verifyServiceUtil.confirmImgVerifyCode(SmsVf , verifyCode);
+    	if ( result ) {
+    		resultMessage.setServiceResult(result);
+    	} else {
+    		resultMessage.setServiceResult(result);
+    		resultMessage.setResultInfo("验证码错误");
+    	}
+    }
+    
+    /**
+     * 找回密码时修改密码.
+     * @author 宋文光.
+     */
+    public void findPassword() {
+    	resultMessage = new ResultMessage();
+    	UserPo userPo  = userServer.getUserByPhone(model.getPhoneNumber()).get(0);
+    	userPo.setPassword(model.getPassword());
+    	Boolean update = userServer.update(userPo);
+    	if(update){
+    		resultMessage.setServiceResult(update);
+    		resultMessage.setResultInfo("更新成功");
+    	} else {
+    		resultMessage.setServiceResult(update);
+    		resultMessage.setResultInfo("更新失败");
+    	}
+    }
 
 	/**
 	 * 拉黑用户.
@@ -200,4 +260,12 @@ public class UserAction extends BaseAction<UserPo> {
 		}
 	}
 
+	 /**
+     * 查询短信余量.
+     * @author 宋文光
+     */
+    public final void checkSmsBao() {
+    	verifyServiceUtil = new VerifyServiceUtil();
+    	resultMessage = verifyServiceUtil.checkSmsbao();
+    }
 }

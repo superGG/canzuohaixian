@@ -216,4 +216,19 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 		return rs;
 	}
 
+	@Override
+	public Boolean rigisterUser(UserPo model) {
+		Boolean result;
+		try {
+			model.setUserName(model.getPhoneNumber());
+			model.setHeadImage("localhost:8080//aaa.jpg");
+			userDao.save(model);
+			result = true;
+		} catch (Exception e) {
+			result = false;
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }
