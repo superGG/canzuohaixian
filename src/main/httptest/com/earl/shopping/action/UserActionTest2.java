@@ -1,4 +1,4 @@
-package com.earl.shopping.httptest;
+package com.earl.shopping.action;
 
 import java.io.File;
 
@@ -6,9 +6,7 @@ import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.PostMethod;
-import org.apache.commons.httpclient.methods.multipart.FilePart;
-import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
-import org.apache.commons.httpclient.methods.multipart.Part;
+import org.apache.commons.httpclient.params.HttpMethodParams;
 
 public class UserActionTest2 {
 
@@ -20,19 +18,13 @@ public class UserActionTest2 {
     	
      	HttpClient client = new HttpClient();
     	PostMethod filePost = new PostMethod(targetURL);
-//    	filePost.getParams().setBooleanParameter(HttpMethodParams.USE_EXPECT_CONTINUE,
-//                cbxExpectHeader.isSelected());
-    	NameValuePair userName   = new NameValuePair("userName", "易临风");
+    	filePost.getParams().setBooleanParameter(HttpMethodParams.USE_EXPECT_CONTINUE,
+                true);
+    	NameValuePair userName   = new NameValuePair("userName", "IMissYou");
         NameValuePair password      = new NameValuePair("password", "798555920");
+        //TODO 要先设置文件参数，在设置from表单参数，否则表单参数丢失.
                 try {
-                    Part[] parts = {
-                        new FilePart("categoryFile.file", targetFile)
-//                        new FilePart(targetFile.getName(), targetFile)
-                    };
                     filePost.setRequestBody(new NameValuePair[] {userName, password});
-                    filePost.setRequestEntity(
-                        new MultipartRequestEntity(parts, filePost.getParams())
-                        );
                     client.getHttpConnectionManager().
                         getParams().setConnectionTimeout(5000);
                     int status = client.executeMethod(filePost);

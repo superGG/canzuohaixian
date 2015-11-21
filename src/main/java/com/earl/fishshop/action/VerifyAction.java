@@ -1,7 +1,3 @@
-/**
- * Copyright (c) 2007-2015 WteamFly.  All rights reserved. 网飞网络公司 版权所有.
- * 请勿修改或删除版权声明及文件头部.
- */
 package com.earl.fishshop.action;
 
 import org.springframework.context.annotation.Scope;
@@ -11,6 +7,7 @@ import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.pojo.ResultMessage;
 import com.earl.fishshop.pojo.UserPo;
 import com.earl.fishshop.util.VerifyServiceUtil;
+import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
 
 
 /**
@@ -31,42 +28,42 @@ public class VerifyAction extends BaseAction<UserPo>{
      */
     protected ResultMessage resultMessage;
     
-    /**
-     * 用户输入的手机号码.
-     */
-    private String phone;
+//    /**
+//     * 用户输入的手机号码.
+//     */
+//    private String phone;
     
     /**
      * 用户输入的验证码.
      */
     private String verifyCode;
     
-    /**
-     * 用户输入密码.
-     */
-    private String password;
+//    /**
+//     * 用户输入密码.
+//     */
+//    private String password;
+//    
+//    /**
+//     * 所要找回的用户名.
+//     */
+//    private String userName;
     
-    /**
-     * 所要找回的用户名.
-     */
-    private String userName;
     
-    
-	public String getPassword() {
-		return password;
-	}
+//	public String getPassword() {
+//		return password;
+//	}
+//
+//	public void setPassword(String password) {
+//		this.password = password;
+//	}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+//	public String getUserName() {
+//		return userName;
+//	}
+//
+//	public void setUserName(String userName) {
+//		this.userName = userName;
+//	}
 
 	/**
      * @return 获取的uVerifyCode
@@ -85,22 +82,22 @@ public class VerifyAction extends BaseAction<UserPo>{
 		this.verifyCode = verifyCode;
 	}
 
-	/**
-     * @return 获取的uPhone
-     */
-	public String getPhone() {
-		return phone;
-	}
-
-	 /**
-     * 设置uPhone的方法.
-     * 
-     * @param uPhone
-     *            赋值给uPhone的值
-     */
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+//	/**
+//     * @return 获取的uPhone
+//     */
+//	public String getPhone() {
+//		return phone;
+//	}
+//
+//	 /**
+//     * 设置uPhone的方法.
+//     * 
+//     * @param uPhone
+//     *            赋值给uPhone的值
+//     */
+//	public void setPhone(String phone) {
+//		this.phone = phone;
+//	}
 
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public ResultMessage getResultMessage() {
@@ -114,7 +111,7 @@ public class VerifyAction extends BaseAction<UserPo>{
      */
     public final void getImgVerifyCode() {
     	verifyServiceUtil = new VerifyServiceUtil();	
-    	resultMessage = verifyServiceUtil.getVerifyCode();
+    	resultMessage = verifyServiceUtil.getImgVerifyCode();
     	session.put("imgVerifyCode", resultMessage.getResultInfo());
     	resultMessage.setUserToken(true);
     }
@@ -126,7 +123,7 @@ public class VerifyAction extends BaseAction<UserPo>{
     public void confirmImgVerifyCode() {
     	verifyServiceUtil = new VerifyServiceUtil();
     	String ImgVf = (String) session.get("imgVerifyCode");
-    	resultMessage = verifyServiceUtil.confirmVerifyCode(ImgVf , verifyCode);
+    	resultMessage = verifyServiceUtil.confirmImgVerifyCode(ImgVf , verifyCode);
     	resultMessage.setUserToken(true);
     }
     
@@ -134,10 +131,11 @@ public class VerifyAction extends BaseAction<UserPo>{
      * 在注册时发送验证码到手机.
      * @throws Exception 
      * @author 宋文光
+     * @throws java.lang.Exception 
      */
-    public final void smsCodeOfRegister() throws Exception {
+    public final void smsCodeOfRegister() throws java.lang.Exception {
     	verifyServiceUtil = new VerifyServiceUtil();
-    	resultMessage = verifyServiceUtil.sendMobileVerifyCode(model.getPhoneNumber());
+    	resultMessage = verifyServiceUtil.smsCodeOfRegister(model.getPhoneNumber());
     	session.put("smsVerifyCode", resultMessage.getResultInfo());
     }
     
@@ -145,10 +143,11 @@ public class VerifyAction extends BaseAction<UserPo>{
      * 在找回密码时发送验证码到手机.
      * @throws Exception 
      * @author 宋文光
+     * @throws java.lang.Exception 
      */
-    public final void smsCodeOfFound() throws Exception {
+    public final void smsCodeOfFound() throws java.lang.Exception  {
     	verifyServiceUtil =  new VerifyServiceUtil();
-    	resultMessage = verifyServiceUtil.findPassWord(model.getPhoneNumber(), model.getUserName());
+    	resultMessage = verifyServiceUtil.smsCodefindPassWord(model.getPhoneNumber());
     	session.put("smsVerifyCode", resultMessage.getResultInfo());
     }
     
@@ -159,7 +158,7 @@ public class VerifyAction extends BaseAction<UserPo>{
     public void confirmSmsVerifyCode() {
     	verifyServiceUtil =  new VerifyServiceUtil();
     	String SmsVf = (String) session.get("smsVerifyCode");
-    	resultMessage = verifyServiceUtil.confirmVerifyCode(SmsVf , verifyCode);
+    	resultMessage = verifyServiceUtil.confirmImgVerifyCode(SmsVf , verifyCode);
     	resultMessage.setUserToken(true);
     }
     

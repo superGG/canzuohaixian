@@ -17,5 +17,24 @@ public class VerifyActionTest extends StrutsSpringTestCase {
 	     System.out.println(res);
 	}
 	
+	@Test
+	public void testCheckSmsBao() throws Exception{
+	     String res=executeAction("/verify_checkSmsBao.action");  
+	     System.out.println(res);
+	}
 	
+	
+	@Test
+	public void testSmsCodeOfRegister() throws Exception{
+		 request.addParameter("phoneNumber", "18719425973");
+	     String res=executeAction("/verify_smsCodeOfRegister.action");  
+	     System.out.println(res);
+	}
+	
+	@Test
+	public void testSmsCodeOfFound() throws Exception{
+		 request.addParameter("phoneNumber", "18320489492");
+	     String res=executeAction("/verify_smsCodeOfFound.action");  
+	     System.out.println(res);
+	}
 }

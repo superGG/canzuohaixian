@@ -33,11 +33,11 @@ public class ChargeExample {
 	/**
 	 * pingpp 管理平台对应的 API key
 	 */
-	public static String apiKey = "YOUR-KEY";
+	public static String apiKey = "sk_test_T04yj18Kezv1LG408S0C0mrT";
 	/**
 	 * pingpp 管理平台对应的应用 ID
 	 */
-	public static String appId = "YOUR-APPID";
+	public static String appId = "app_fT8aTCzvnr1OLyT0";
 	
     public static void main(String[] args) {
         Pingpp.apiKey = apiKey;
