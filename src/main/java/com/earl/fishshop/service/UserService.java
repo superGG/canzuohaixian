@@ -64,4 +64,22 @@ public interface UserService extends BaseService<UserPo>{
 	 */
 	ResultMessage userLogin(String phoneNumber, String userName, String password);
 
+	/**
+	 * 注册时发验证码到指定手机.
+	 *@author 宋文光.
+	 * @param phoneNumber
+	 * @return
+	 * @throws Exception 
+	 */
+	ResultMessage smsCodeOfRegister(String phoneNumber) throws Exception;
+
+	/**
+	 * 找回密码时发验证码到指定手机.
+	 *@author 宋文光.
+	 * @param phoneNumber
+	 * @return
+	 * @throws Exception 
+	 */
+	ResultMessage smsCodefindPassWord(String phoneNumber) throws Exception;
+
 }
