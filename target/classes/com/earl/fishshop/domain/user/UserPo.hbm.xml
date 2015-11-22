@@ -5,7 +5,7 @@
         
         
 <hibernate-mapping package="com.earl.fishshop.domain.user">
-    <class name="UserPo" table="User" dynamic-update="true" dynamic-insert="true">
+    <class name="UserPo" table="user" dynamic-update="true" dynamic-insert="true">
         <id name="userId" type="java.lang.Long">
             <column name="userId" />
             <generator class="native"></generator>

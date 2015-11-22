@@ -53,11 +53,6 @@ public class OrdersPo{
 	private Long seaRecordId;
 	
 	/**
-	 * 订单号.
-	 */
-	private String orderNumber;
-	
-	/**
 	 * 字段描述：Date 
 	 * 字段类型：createTime  
 	 */
@@ -104,12 +99,6 @@ public class OrdersPo{
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-	public String getOrderNumber() {
-		return orderNumber;
-	}
-	public void setOrderNumber(String orderNumber) {
-		this.orderNumber = orderNumber;
 	}
 	public Long getSeaRecordId() {
 		return seaRecordId;
@@ -185,8 +174,7 @@ public class OrdersPo{
 				+ ", shopKeeperName=" + shopKeeperName + ", sendAddress="
 				+ sendAddress + ", phone=" + phone + ", ordersDetail="
 				+ ordersDetail + ", seaRecordId=" + seaRecordId
-				+ ", orderNumber=" + orderNumber + ", createTime=" + createTime
-				+ ", creatorId=" + creatorId + ", isDelete=" + isDelete
-				+ ", version=" + version + "]";
+				+ ", createTime=" + createTime + ", creatorId=" + creatorId
+				+ ", isDelete=" + isDelete + ", version=" + version + "]";
 	}
 }

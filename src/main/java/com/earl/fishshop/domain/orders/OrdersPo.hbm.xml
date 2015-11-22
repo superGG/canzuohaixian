@@ -5,7 +5,7 @@
         
         
 <hibernate-mapping package="com.earl.fishshop.domain.orders">
-    <class name="OrdersPo" table="Orders" dynamic-update="true" dynamic-insert="true">
+    <class name="OrdersPo" table="orders" dynamic-update="true" dynamic-insert="true">
         <id name="ordersId" type="java.lang.Long">
             <column name="ordersId" />
             <generator class="native"></generator>
@@ -22,7 +22,6 @@
         <property name="sendAddress" type="java.lang.String" column="sendAddress" />
         <property name="phone" type="java.lang.String" column="phone" />
        
-        <property name="orderNumber" type="java.lang.String" column="orderNumber" />
         <property name="createTime" type="java.util.Date" column="createTime" />
         <property name="creatorId" type="java.lang.Long" column="creatorId" />
         <property name="isDelete" type="java.lang.Boolean" column="isDelete" />

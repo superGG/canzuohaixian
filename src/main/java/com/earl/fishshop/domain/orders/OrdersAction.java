@@ -166,16 +166,6 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	}
 	
 	/**
-	 * 设置订单的订单编号.
-	 * @author 黄祥谦.
-	 */
-	public void setOrderNumber(){
-		Boolean success = ordersServer.setOrderNumber(model.getOrdersId(), model.getOrderNumber());
-		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(success);
-	}
-	
-	/**
 	 * 支付订单费用.
 	 * @author 黄祥谦.
 	 */

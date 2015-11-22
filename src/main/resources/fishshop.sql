@@ -250,14 +250,13 @@ CREATE TABLE `orders` (
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
-  `orderNumber` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ordersId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11111111 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
-INSERT INTO `orders` VALUES ('11111110', '1', '1', '5', '30.5', '1', 'yilinfeng', '海格号', '广东省湛江市广东海洋大学', '18719425973', '2015-11-16 22:14:31', null, '', '1', null);
+INSERT INTO `orders` VALUES ('11111110', '1', '1', '5', '30.5', '1', 'yilinfeng', '海格号', '广东省湛江市广东海洋大学', '18719425973', '2015-11-16 22:14:31', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `ordersdetail`
