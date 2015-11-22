@@ -124,5 +124,23 @@ public class CommentDaoImpl extends BaseDaoImpl<CommentPo> implements CommentDao
 		pageInfo.setTotalCount(size);
 		return commentList;
 	}
+
+	@Override
+	public List<CommentPo> getUserComment(Long creatorId, PageInfo pageInfo) {
+		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
+		createCriteria.add(Restrictions.eq("creatorId", creatorId))
+						.add(Restrictions.gt("nowNumber", 0L));
+		
+		createCriteria.setFirstResult(
+				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
+				.setMaxResults(pageInfo.getSize());
+		@SuppressWarnings("unchecked")
+		List<CommentPo> commentList = createCriteria.list();
+		
+		Long size = (Long) createCriteria.setProjection(Projections.rowCount())
+                .uniqueResult();
+		pageInfo.setTotalCount(size);
+		return commentList;
+	}
 	
 }

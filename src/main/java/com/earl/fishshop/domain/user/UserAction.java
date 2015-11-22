@@ -9,9 +9,11 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.base.BaseAction;
+import com.earl.fishshop.domain.comment.CommentPo;
 import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.util.VerifyServiceUtil;
 import com.earl.fishshop.vo.ResultMessage;
+import com.earl.fishshop.vo.UserFileVo;
 import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
 
 /**
@@ -34,15 +36,21 @@ public class UserAction extends BaseAction<UserPo> {
 	
 	protected VerifyServiceUtil verifyServiceUtil;
 	
+	private UserFileVo userFileVo;
+	
+	public UserFileVo getUserFileVo() {
+		return userFileVo;
+	}
+
+	public void setUserFileVo(UserFileVo userFileVo) {
+		this.userFileVo = userFileVo;
+	}
+
 	/**
 	 * 用户输入的验证码.
 	 */
 	private String verifyCode; 
 	
-	public String getVerifyCode() {
-		return verifyCode;
-	}
-
 	public void setVerifyCode(String verifyCode) {
 		this.verifyCode = verifyCode;
 	}
@@ -81,6 +89,17 @@ public class UserAction extends BaseAction<UserPo> {
 	 */
 	public void updateUser() {
 		Boolean update = userServer.updateWithNotNullProperties(model);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(update);
+	}
+	
+	/**
+	 * 更新用户头像.
+	 * 
+	 * @author 宋文光
+	 */
+	public void updateUserImg() {
+		Boolean update = userServer.updateUserImg(model,userFileVo);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(update);
 	}
@@ -127,8 +146,7 @@ public class UserAction extends BaseAction<UserPo> {
 	 * @author 宋文光
 	 */
 	public final void userLogin() {
-		resultMessage = userServer.userLogin(model.getPhoneNumber(),
-				model.getUserName(), model.getPassword());
+		resultMessage = userServer.userLogin(model);
 	}
 
 	/**
