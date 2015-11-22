@@ -3,6 +3,7 @@ package com.earl.fishshop.domain.orders;
 import java.util.List;
 
 import com.earl.fishshop.base.BaseDao;
+import com.earl.fishshop.domain.ordersdetail.OrdersDetailPo;
 import com.earl.fishshop.vo.PageInfo;
 
 public interface OrdersDao extends BaseDao<OrdersPo>{
@@ -26,8 +27,9 @@ public interface OrdersDao extends BaseDao<OrdersPo>{
 	 * 添加订单.
 	 * @author 黄祥谦.
 	 * @param orders
+	 * @param getAddressId TODO
 	 */
-	void addOrders(OrdersPo orders);
+	void addOrders(OrdersPo orders, Long getAddressId);
 
 	/**
 	 * 得到本次出航订单.
@@ -64,5 +66,14 @@ public interface OrdersDao extends BaseDao<OrdersPo>{
 	 * @return
 	 */
 	List<OrdersPo> getAllUserOrders(Long userId, PageInfo pageInfo);
+
+	/**
+	 * 得到邮费.
+	 * @author 黄祥谦.
+	 * @param ordersDetail
+	 * @param provinceId
+	 * @return
+	 */
+	Double getOrdersPostage(List<OrdersDetailPo> ordersDetail, Long provinceId);
 
 }

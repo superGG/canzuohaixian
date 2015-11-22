@@ -68,7 +68,7 @@ public class OrdersServiceImplTest {
 
 		OrdersPo ordersPo = new OrdersPo();
 		ordersPo.setBuyerName("dsdf");
-		ordersPo.setOrderNumber("134345");
+//		ordersPo.setOrderNumber("134345");
 		ArrayList<OrdersDetailPo> arrayList = new ArrayList<OrdersDetailPo>();
 		OrdersDetailPo ordersDetailPo = new OrdersDetailPo();
 		ordersDetailPo.setCategoryId(1L);

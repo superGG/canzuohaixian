@@ -5,7 +5,7 @@
         
         
 <hibernate-mapping package="com.earl.fishshop.domain.gettype">
-    <class name="GetTypePo" table="GetType" dynamic-update="true" dynamic-insert="true">
+    <class name="GetTypePo" table="getType" dynamic-update="true" dynamic-insert="true">
         <id name="getTypeId" type="java.lang.Long">
             <column name="getTypeId" />
             <generator class="native"></generator>

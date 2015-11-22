@@ -40,6 +40,8 @@ public class GetAddressPo{
 	 */
 	private String postcode ;
 	
+	private Long provinceId;
+	
 	/**
 	 * 字段描述：Date 
 	 * 字段类型：createTime  
@@ -64,6 +66,12 @@ public class GetAddressPo{
 	 */
 	private Long version ;
 	
+	public Long getProvinceId() {
+		return provinceId;
+	}
+	public void setProvinceId(Long provinceId) {
+		this.provinceId = provinceId;
+	}
 	public Long getUserId() {
 		return userId;
 	}

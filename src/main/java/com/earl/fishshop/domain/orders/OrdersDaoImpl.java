@@ -6,9 +6,12 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
+
 import com.earl.fishshop.base.BaseDaoImpl;
+import com.earl.fishshop.domain.getaddress.GetAddressPo;
 import com.earl.fishshop.domain.ordersdetail.OrdersDetailPo;
-import com.earl.fishshop.util.MyConstant;
+import com.earl.fishshop.domain.postage.PostagePo;
+import com.earl.fishshop.domain.sku.SkuPo;
 import com.earl.fishshop.vo.PageInfo;
 
 
@@ -45,8 +48,12 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 	}
 
 	@Override
-	public void addOrders(OrdersPo orders) {
-		orders.setState(MyConstant.order_unpay);//设置订单初始状态.
+	public void addOrders(OrdersPo orders, Long getAddressId) {
+		GetAddressPo object = (GetAddressPo) getCurrentSession().get(GetAddressPo.class, getAddressId);
+		orders.setUserName(object.getUserName());
+		orders.setSendAddress(object.getAddress());
+		orders.setPhone(object.getPhone());
+		getOrdersPostage(orders.getOrdersDetail(), object.getProvinceId());
 		Long ordersId = (Long) getCurrentSession().save(orders);
 		List<OrdersDetailPo> ordersDetail = orders.getOrdersDetail();
 		if(ordersDetail != null){
@@ -122,6 +129,30 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 			ordersPo.setOrdersDetail(ordersDetailList);
 		}
 		return ordersList;
+	}
+
+	@Override
+	public Double getOrdersPostage(List<OrdersDetailPo> ordersDetail,
+			Long provinceId) {
+		// TODO 未测试.
+		Double postagePrice = 0.0;
+		Double weight = 0.0;
+		for (OrdersDetailPo ordersDetailPo : ordersDetail) {
+			String unit = ordersDetailPo.getUnit();
+			if( "斤".equals(unit)){
+				weight = weight + ordersDetailPo.getNumber();
+			}else{
+				SkuPo sku = (SkuPo) getCurrentSession().get(SkuPo.class, ordersDetailPo.getSkuId());
+				weight = weight + ((sku.getLowscale()+sku.getHighscale())/2) * ordersDetailPo.getNumber();
+			}
+		}
+		PostagePo postage = (PostagePo) getCurrentSession().get(PostagePo.class, provinceId);
+		if( weight<=1){
+			postagePrice = postage.getFirstWeigh();
+		}else{
+			postagePrice = postage.getFirstWeigh()+postage.getIncreasePrice()*(weight -1);
+		}
+		return postagePrice;
 	}
 
 }

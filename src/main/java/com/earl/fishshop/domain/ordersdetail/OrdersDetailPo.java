@@ -68,6 +68,8 @@ public class OrdersDetailPo{
 	 */
 	private String sku ;
 	
+	private Long skuId;
+	
 	/**
 	 * 字段描述：String 
 	 * 字段类型：unit  
@@ -109,6 +111,12 @@ public class OrdersDetailPo{
 	 */
 	private Long version ;
 	
+	public Long getSkuId() {
+		return skuId;
+	}
+	public void setSkuId(Long skuId) {
+		this.skuId = skuId;
+	}
 	public Long getPostage() {
 		return postage;
 	}

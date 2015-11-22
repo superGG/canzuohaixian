@@ -109,9 +109,15 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 */
 	public void getTopCategory(){
 		List<CategoryPo> categoryList = categoryServer.getTopCategory();
+		
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("categoryList", categoryList);
 		resultMessage = new ResultMessage();
+		if(categoryList.size() != 0){
+			resultMessage.setServiceResult(true);
+		}else{
+			resultMessage.setServiceResult(false);
+		}
 		resultMessage.setResultParm(hashMap);
 	}
 	
