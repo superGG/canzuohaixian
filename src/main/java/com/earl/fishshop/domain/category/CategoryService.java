@@ -79,8 +79,12 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	 */
 	Boolean addCategory(CategoryPo model, CategoryFileVo categoryFile);
 
+	/**
+	 * 得到带规格的类别
+	 * @author 黄祥谦.
+	 * @param categoryId
+	 * @return
+	 */
+	CategoryPo getCategoryWithSku(Long categoryId);
 
-	
-	
-	
 }

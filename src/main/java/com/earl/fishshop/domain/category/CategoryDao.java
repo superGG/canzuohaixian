@@ -41,4 +41,19 @@ public interface CategoryDao extends BaseDao<CategoryPo>{
 	 */
 	List<CategoryPo> getHotCategory(String date, String date2, Integer showNumber);
 
+	/**
+	 * 添加类别.
+	 * @author 黄祥谦.
+	 * @param model
+	 */
+	void addCategory(CategoryPo model);
+
+	/**
+	 * 得到带规格的类别
+	 * @author 黄祥谦.
+	 * @param categoryId
+	 * @return
+	 */
+	CategoryPo getCategoryWithSku(Long categoryId);
+
 }

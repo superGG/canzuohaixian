@@ -252,12 +252,12 @@ CREATE TABLE `orders` (
   `version` bigint(20) DEFAULT '1',
   `orderNumber` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ordersId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11111111 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
-INSERT INTO `orders` VALUES ('1', '1', '1', '5', '30.5', '1', 'yilinfeng', '海格号', '广东省湛江市广东海洋大学', '18719425973', '2015-11-16 22:14:31', null, '', '1', null);
+INSERT INTO `orders` VALUES ('11111110', '1', '1', '5', '30.5', '1', 'yilinfeng', '海格号', '广东省湛江市广东海洋大学', '18719425973', '2015-11-16 22:14:31', null, '', '1', null);
 
 -- ----------------------------
 -- Table structure for `ordersdetail`
@@ -288,9 +288,9 @@ CREATE TABLE `ordersdetail` (
 -- ----------------------------
 -- Records of ordersdetail
 -- ----------------------------
-INSERT INTO `ordersdetail` VALUES ('1', '2', '5', '1', '5', 'sdfsd' , 'sdf.jpg' , '养殖', '40', null, '中等大小', '斤', '5',null, '2015-11-16 22:14:31', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('2', '2', '5', '1', '5', 'sdfsd' , 'sdf.jpg' , '野生', '40', null, '中等大小', '斤', '5',null, '2015-11-16 22:14:31', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('3', '2', '3', '1', '5', 'sdfsd' , 'sdf.jpg' , '养殖', '40', null, '中等大小', '斤', '5',null, '2015-11-16 22:14:31', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('1', '11111110', '5', '1', '5', 'sdfsd' , 'sdf.jpg' , '养殖', '40', null, '中等大小', '斤', '5',null, '2015-11-16 22:14:31', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('2', '11111110', '5', '1', '5', 'sdfsd' , 'sdf.jpg' , '野生', '40', null, '中等大小', '斤', '5',null, '2015-11-16 22:14:31', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('3', '11111110', '3', '1', '5', 'sdfsd' , 'sdf.jpg' , '养殖', '40', null, '中等大小', '斤', '5',null, '2015-11-16 22:14:31', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `searecord`
@@ -379,6 +379,8 @@ CREATE TABLE `sku` (
   `skuId` bigint(20) NOT NULL AUTO_INCREMENT,
   `unitId` bigint(20) DEFAULT NULL,
   `skuName` varchar(255) DEFAULT NULL,
+  `lowscale` bigint(20) DEFAULT NULL,
+  `highscale` bigint(20) DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
@@ -389,9 +391,9 @@ CREATE TABLE `sku` (
 -- ----------------------------
 -- Records of sku
 -- ----------------------------
-INSERT INTO `sku` VALUES ('1', '1', '中等大小(10-15)', '2015-11-04 22:58:42', null, '', '1');
-INSERT INTO `sku` VALUES ('2', '1', '大号(15-20)', '2015-11-04 22:59:08', null, '', '1');
-INSERT INTO `sku` VALUES ('3', '1', '小号(5-10)', '2015-11-04 22:59:32', null, '', '1');
+INSERT INTO `sku` VALUES ('1', '1', '中等大小',null,null, '2015-11-04 22:58:42', null, '', '1');
+INSERT INTO `sku` VALUES ('2', '1', '大号',null,null, '2015-11-04 22:59:08', null, '', '1');
+INSERT INTO `sku` VALUES ('3', '1', '小号', null,null, '2015-11-04 22:59:32', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `unit`

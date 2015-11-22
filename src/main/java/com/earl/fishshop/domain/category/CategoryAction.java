@@ -72,6 +72,18 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	}
 	
 	/**
+	 * 得到带规格的类别.
+	 * @author 黄祥谦.
+	 */
+	public void getCategoryWithSku(){
+		CategoryPo category = categoryServer.getCategoryWithSku(model.getCategoryId());
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("category", category);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+	}
+	
+	/**
 	 * 删除指定类别.
 	 * @author 黄祥谦.
 	 */

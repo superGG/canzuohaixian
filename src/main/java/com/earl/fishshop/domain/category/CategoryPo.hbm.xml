@@ -20,6 +20,7 @@
         <property name="fishPhoto" type="java.lang.String" column="fishPhoto" />
         <property name="unit" type="java.lang.Integer" column="unit" />
         <property name="totalSellNumber" type="java.lang.Long" column="totalSellNumber" />
+        <property name="skuList" type="java.lang.Long" column="skuList" />
         <property name="createTime" type="java.util.Date" column="createTime" />
         <property name="creatorId" type="java.lang.Long" column="creatorId" />
         <property name="isDelete" type="java.lang.Boolean"   column="isDelete" />
