@@ -21,6 +21,10 @@
         <property name="shopKeeperName" type="java.lang.String" column="shopKeeperName" />
         <property name="sendAddress" type="java.lang.String" column="sendAddress" />
         <property name="phone" type="java.lang.String" column="phone" />
+        <property name="userName" type="java.lang.String" column="userName" />
+        <property name="orderNumber" type="java.lang.String" column="orderNumber" />
+        <property name="provinceId" type="java.lang.Long" column="provinceId" />
+        <property name="postagePrice" type="java.lang.Double" column="postagePrice" />
        
         <property name="createTime" type="java.util.Date" column="createTime" />
         <property name="creatorId" type="java.lang.Long" column="creatorId" />

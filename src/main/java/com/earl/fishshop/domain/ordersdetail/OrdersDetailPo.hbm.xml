@@ -21,6 +21,7 @@
         <property name="price" type="java.lang.Double" column="price" />
         <property name="totalprice" type="java.lang.Double" column="totalprice" />
         <property name="sku" type="java.lang.String" column="sku" />
+        <property name="skuId" type="java.lang.Long" column="skuId" />
         <property name="unit" type="java.lang.String" column="unit" />
         <property name="number" type="java.lang.Long" column="number" />
         <property name="postage" type="java.lang.Long" column="postage" />

@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.base.BaseServiceImpl;
+import com.earl.fishshop.domain.ordersdetail.OrdersDetailPo;
 import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.vo.PageInfo;
 import com.earl.util.PayChargeUtil;
@@ -38,14 +39,15 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 	}
 
 	@Override
-	public Boolean addOrders(OrdersPo orders) {
+	public Boolean addOrders(OrdersPo orders, Long getAddressId) {
 		try {
-			ordersDao.addOrders(orders);
+			orders.setState(MyConstant.order_unpay);//设置订单初始状态.
+			ordersDao.addOrders(orders, getAddressId);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return false;
+		return false; 
 	}
 
 	@Override
@@ -132,5 +134,16 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 		// TODO 未测试.
 		List<OrdersPo> ordersList = ordersDao.getAllUserOrders(userId, pageInfo);
 		return ordersList;
+	}
+
+	@Override
+	public Double getOrdersPostage(OrdersPo model) {
+		// TODO 未测试.
+		List<OrdersDetailPo> ordersDetail = model.getOrdersDetail();
+		for (OrdersDetailPo ordersDetailPo : ordersDetail) {
+			ordersDetailPo.getSkuId();
+		}
+		Double postagePrice = ordersDao.getOrdersPostage(model.getOrdersDetail(),model.getProvinceId());
+		return postagePrice;
 	}
 }

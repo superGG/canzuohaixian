@@ -29,6 +29,7 @@ CREATE TABLE `category` (
   `fishPhoto` varchar(255) DEFAULT NULL,
   `unit` int(11) DEFAULT NULL,
   `totalSellNumber` bigint(20) DEFAULT NULL,
+  `skuList` varchar(255) DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
@@ -42,15 +43,15 @@ CREATE TABLE `category` (
 -- ----------------------------
 -- Records of category
 -- ----------------------------
-INSERT INTO `category` VALUES ('1', '鱼类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('2', '虾类', '虾类', '3', 'shrimpscategory', null, 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('3', '蟹类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('4', '贝类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('5', '鱿鱼类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('6', '人参类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('7', '东星白班鱼', '东星白班鱼', '3', 'whitefish', '1', 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('8', '小黄鱼', '小黄鱼', '3', 'yellowfish', '1', 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('9', '小黑鱼', '小黑鱼', '3', 'smallblackfish', '1', 'localhost:8080//aaa.jpg', '1', '0', '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('1', '鱼类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('2', '虾类', '虾类', '3', 'shrimpscategory', null, 'localhost:8080//aaa.jpg', '1', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('3', '蟹类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('4', '贝类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('5', '鱿鱼类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('6', '人参类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('7', '东星白班鱼', '东星白班鱼', '3', 'whitefish', '1', 'localhost:8080//aaa.jpg', '1', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('8', '小黄鱼', '小黄鱼', '3', 'yellowfish', '1', 'localhost:8080//aaa.jpg', '1', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('9', '小黑鱼', '小黑鱼', '3', 'smallblackfish', '1', 'localhost:8080//aaa.jpg', '1', '0', null,'2015-11-04 13:41:32', null, '', '1', null);
 
 -- ----------------------------
 -- Table structure for `checkout`
@@ -165,6 +166,7 @@ CREATE TABLE `getaddress` (
   `address` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
   `postcode` varchar(255) DEFAULT NULL,
+  `provinceId` bigint(20) DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
@@ -245,7 +247,11 @@ CREATE TABLE `orders` (
   `buyerName` varchar(255) DEFAULT NULL,
   `shopKeeperName` varchar(255) DEFAULT NULL,
   `sendAddress` varchar(255) DEFAULT NULL,
+  `userName` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
+  `orderNumber` varchar(255) DEFAULT NULL,
+  `provinceId` bigint(20) DEFAULT NULL,
+  `postagePrice` double DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
@@ -256,7 +262,7 @@ CREATE TABLE `orders` (
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
-INSERT INTO `orders` VALUES ('11111110', '1', '1', '5', '30.5', '1', 'yilinfeng', '海格号', '广东省湛江市广东海洋大学', '18719425973', '2015-11-16 22:14:31', null, '', '1');
+-- INSERT INTO `orders` VALUES ('11111110', '1', '1', '5', '30.5', '1', 'yilinfeng', '海格号', '广东省湛江市广东海洋大学',null, '18719425973',null,null, '2015-11-16 22:14:31', null, '', '1','1');
 
 -- ----------------------------
 -- Table structure for `ordersdetail`
@@ -274,6 +280,7 @@ CREATE TABLE `ordersdetail` (
   `price` double DEFAULT NULL,
   `totalprice` double DEFAULT NULL,
   `sku` varchar(255) DEFAULT NULL,
+  `skuId` bigint(20) DEFAULT NULL,
   `unit` varchar(255) DEFAULT NULL,
   `number` bigint(20) DEFAULT NULL,
   `postage` bigint(20) DEFAULT NULL,
@@ -287,9 +294,9 @@ CREATE TABLE `ordersdetail` (
 -- ----------------------------
 -- Records of ordersdetail
 -- ----------------------------
-INSERT INTO `ordersdetail` VALUES ('1', '11111110', '5', '1', '5', 'sdfsd' , 'sdf.jpg' , '养殖', '40', null, '中等大小', '斤', '5',null, '2015-11-16 22:14:31', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('2', '11111110', '5', '1', '5', 'sdfsd' , 'sdf.jpg' , '野生', '40', null, '中等大小', '斤', '5',null, '2015-11-16 22:14:31', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('3', '11111110', '3', '1', '5', 'sdfsd' , 'sdf.jpg' , '养殖', '40', null, '中等大小', '斤', '5',null, '2015-11-16 22:14:31', null, '', '1');
+-- INSERT INTO `ordersdetail` VALUES ('1', '11111110', '5', '1', '5', 'sdfsd' , 'sdf.jpg' , '养殖', '40', null, '中等大小', '斤', '5',null, '2015-11-16 22:14:31', null, '', '1');
+-- INSERT INTO `ordersdetail` VALUES ('2', '11111110', '5', '1', '5', 'sdfsd' , 'sdf.jpg' , '野生', '40', null, '中等大小', '斤', '5',null, '2015-11-16 22:14:31', null, '', '1');
+-- INSERT INTO `ordersdetail` VALUES ('3', '11111110', '3', '1', '5', 'sdfsd' , 'sdf.jpg' , '养殖', '40', null, '中等大小', '斤', '5',null, '2015-11-16 22:14:31', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `searecord`
@@ -378,8 +385,8 @@ CREATE TABLE `sku` (
   `skuId` bigint(20) NOT NULL AUTO_INCREMENT,
   `unitId` bigint(20) DEFAULT NULL,
   `skuName` varchar(255) DEFAULT NULL,
-  `lowscale` bigint(20) DEFAULT NULL,
-  `highscale` bigint(20) DEFAULT NULL,
+  `lowscale` double DEFAULT NULL,
+  `highscale` double DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
@@ -442,4 +449,22 @@ CREATE TABLE `user` (
 INSERT INTO `user` VALUES ('1', '2', '1', '2', '易临风', '798555920', '18719425973', './aaa.jpg', '2015-11-05 11:12:04', null, '', '1');
 INSERT INTO `user` VALUES ('2', '1', '1', '1', 'Imissyou', '798555920', '18719425973', './aaa.jpg', '2015-11-05 11:12:04', null, '', '1');
 INSERT INTO `user` VALUES ('3', '2', '1', '1', '', '798555920', '18719425973', './aaa.jpg', '2015-11-15 09:54:21', null, '', '1');
+
+-- ----------------------------
+-- Table structure for `user`
+-- ----------------------------
+DROP TABLE IF EXISTS `postage`;
+CREATE TABLE `postage` (
+  `postageId` bigint(20) NOT NULL AUTO_INCREMENT,
+  `firstWeigh` double DEFAULT NULL,
+  `increasePrice` double DEFAULT NULL,
+  `provinceName` varchar(255) DEFAULT NULL,
+  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `creatorId` bigint(20) DEFAULT NULL,
+  `isDelete` bit(1) DEFAULT b'0',
+  `version` bigint(20) DEFAULT '1',
+  PRIMARY KEY (`postageId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 

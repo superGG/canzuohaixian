@@ -26,12 +26,12 @@ public class SkuPo{
 	/**
 	 * 低范围.
 	 */
-	private Long lowscale;
+	private Double lowscale;
 
 	/**
 	 * 高范围.
 	 */
-	private Long highscale;
+	private Double highscale;
 	
 	/**
 	 * 字段描述：Date 
@@ -57,16 +57,16 @@ public class SkuPo{
 	 */
 	private Long version ;
 	
-	public Long getLowscale() {
+	public Double getLowscale() {
 		return lowscale;
 	}
-	public void setLowscale(Long lowscale) {
+	public void setLowscale(Double lowscale) {
 		this.lowscale = lowscale;
 	}
-	public Long getHighscale() {
+	public Double getHighscale() {
 		return highscale;
 	}
-	public void setHighscale(Long highscale) {
+	public void setHighscale(Double highscale) {
 		this.highscale = highscale;
 	}
 	public void setSkuId(Long skuId){

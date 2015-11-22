@@ -15,6 +15,7 @@
         <property name="address" type="java.lang.String" column="address" />
         <property name="phone" type="java.lang.String" column="phone" />
         <property name="postcode" type="java.lang.String" column="postcode" />
+        <property name="provinceId" type="java.lang.Long" column="provinceId" />
         <property name="createTime" type="java.util.Date" column="createTime" />
         <property name="creatorId" type="java.lang.Long" column="creatorId" />
         <property name="isDelete" type="java.lang.Boolean" column="isDelete" />

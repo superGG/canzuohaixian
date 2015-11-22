@@ -34,6 +34,8 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	
 	OrdersPo orders;
 	
+	private Long getAddressId;
+	
 	public PageInfo getPageInfo() {
 		return pageInfo;
 	}
@@ -43,16 +45,25 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		this.pageInfo = pageInfo;
 	}
 
+	public Long getGetAddressId() {
+		return getAddressId;
+	}
+
+
+	public void setGetAddressId(Long getAddressId) {
+		this.getAddressId = getAddressId;
+	}
+
+
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public ResultMessage getResultMessage() {
 		return resultMessage;
 	}
 
-
 	// 下面填写业务逻辑
 
 	public void addOrders() {
-		Boolean save = ordersServer.addOrders(orders);
+		Boolean save = ordersServer.addOrders(orders, getAddressId);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
 	}
@@ -186,6 +197,33 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(success);
 		
+	}
+	
+	/**
+	 * 设置订单的订单编号.
+	 * @author 黄祥谦.
+	 */
+	public void setOrderNumber(){
+		Boolean success = ordersServer.setOrderNumber(model.getOrdersId(), model.getOrderNumber());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(success);
+	}
+	
+	/**
+	 * 得到订单运费.
+	 * @author 黄祥谦.
+	 */
+	public void getOrdersPostage(){
+		Double postagePrice = ordersServer.getOrdersPostage(model);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("postagePrice", postagePrice);
+		resultMessage = new ResultMessage();
+		if(postagePrice != null){
+			
+			resultMessage.setServiceResult(true);
+		}else{
+			resultMessage.setServiceResult(false);
+		}
 	}
 	
 	

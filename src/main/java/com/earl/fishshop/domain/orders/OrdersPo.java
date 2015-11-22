@@ -9,7 +9,6 @@ import com.earl.fishshop.domain.ordersdetail.OrdersDetailPo;
 //TODO 添加订单收货地址信息.
 public class OrdersPo{
 
-
 	/**
 	 * 字段描述：Long 
 	 * 字段类型：ordersId  
@@ -41,9 +40,23 @@ public class OrdersPo{
 	
 	private String shopKeeperName;//店家店面，海哥好
 	
+	/**
+	 * 收货人姓名.
+	 */
+	private String userName;
+	
 	private String sendAddress;//发货地址
 	
 	private String phone;//收货电话
+	
+	private Long provinceId;
+	
+	private Double postagePrice;
+	
+	/**
+	 * 订单编号.
+	 */
+	private String orderNumber;
 	
 	private List<OrdersDetailPo> ordersDetail;
 	
@@ -76,6 +89,30 @@ public class OrdersPo{
 	 */
 	private Long version ;
 	
+	public Double getPostagePrice() {
+		return postagePrice;
+	}
+	public void setPostagePrice(Double postagePrice) {
+		this.postagePrice = postagePrice;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getOrderNumber() {
+		return orderNumber;
+	}
+	public void setOrderNumber(String orderNumber) {
+		this.orderNumber = orderNumber;
+	}
+	public Long getProvinceId() {
+		return provinceId;
+	}
+	public void setProvinceId(Long provinceId) {
+		this.provinceId = provinceId;
+	}
 	public Long getUserId() {
 		return userId;
 	}
