@@ -50,17 +50,33 @@ public class CommentAction extends BaseAction<CommentPo> {
 
 	/**
 	 * 为商店添加评论.
-	 * @author 黄祥谦.
+	 * @author 宋文光.
 	 */
 	public void addComment() {
 		Boolean save = commentServer.save(model);
 		shopServer.updateShopComment(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
+		if (save) {
+			resultMessage.setResultInfo("添加成功");
+		} else {
+			resultMessage.setResultInfo("添加失败");
+		}	
 	}
 	
+	/**
+	 * 获取用户评论.
+	 *@author 宋文光.
+	 */
+	public void getUserComment() {
+		List<CommentPo> list = commentServer.getUserComment(model,pageInfo);
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("commentsArray", list);
+		hashMap.put("total", list.size());
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+	}
 	
-
 	/**
 	 * 获取商店的所有评论.
 	 * @author 宋文光.

@@ -51,4 +51,10 @@ public class CommentServiceImpl extends BaseServiceImpl<CommentPo> implements
 		List<CommentPo> list = commentDao.getBedComment(shopId, pageInfo);
 		return list;
 	}
+
+	@Override
+	public List<CommentPo> getUserComment(CommentPo model, PageInfo pageInfo) {
+		List<CommentPo> list = commentDao.getUserComment(model.getCreatorId(), pageInfo);
+		return list;
+	}
 }

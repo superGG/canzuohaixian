@@ -43,6 +43,15 @@ public interface CommentService extends BaseService<CommentPo>{
 	 */
 	List<CommentPo> getBedComment(Long shopId, PageInfo pageInfo);
 
+	/**
+	 * 等到用户自己的评论.
+	 *@author 宋文光.
+	 * @param model
+	 * @param pageInfo
+	 * @return
+	 */
+	List<CommentPo> getUserComment(CommentPo model, PageInfo pageInfo);
+
 	
 
 	

@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import com.earl.fishshop.base.BaseServiceImpl;
 import com.earl.fishshop.util.VerifyServiceUtil;
 import com.earl.fishshop.vo.ResultMessage;
+import com.earl.fishshop.vo.UserFileVo;
+import com.earl.util.FileUploadImpl;
 
 /**
  * 每个ServiceImpl都要继承相对应的service接口
@@ -30,6 +32,9 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	public void initBaseDao() {
 		baseDao = userDao;
 	}
+	
+	@Resource(name = "fileUpload")
+	FileUploadImpl fileUpload;
 
 	VerifyServiceUtil verifyServiceUtil;
 	/**
@@ -61,24 +66,14 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	/**
 	 * 用户登录验证.
 	 * 
-	 * @param userPhone
-	 *            用户登录的手机.
-	 * @param userName
-	 *            用户登录的用户名.
-	 * @param password
-	 *            用户登录的密码.
 	 * @return
 	 * @author 宋文光
 	 */
-	public ResultMessage userLogin(String userPhone, String userName,
-			String password) {
+	public ResultMessage userLogin(UserPo model) {
 		ResultMessage rs = new ResultMessage();
-		if (userPhone != null) { // 用户使用手机登录
-			List<UserPo> userList = userDao.getUserByPhone(userPhone);
-			rs = verifyPassword(userList, password);
-		} else if (userName != null) { // 用户使用 用户名登录
-			List<UserPo> userList = userDao.getUserByName(userName);
-			rs = verifyPassword(userList, password);
+		if (model.getPhoneNumber() != null) { // 用户使用手机登录
+			List<UserPo> userList = userDao.getUserByPhone(model.getPhoneNumber());
+			rs = verifyPassword(userList, model.getPassword());
 		} else {
 			rs.setResultInfo("验证失败");
 			rs.setServiceResult(false);
@@ -229,6 +224,21 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	@Override
+	public Boolean updateUserImg(UserPo model, UserFileVo userFile) {
+		try {
+			String uploadUserFile = fileUpload.uploadUserFile(
+							userFile.getFile(), userFile.getFileFileName());
+			model.setHeadImage(uploadUserFile);
+			userDao.updateWithNotNullProperties(model);
+			return true;
+		} catch (Exception e) {
+			System.out.println("更新用户头像失败");
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 }

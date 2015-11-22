@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.earl.fishshop.base.BaseService;
 import com.earl.fishshop.vo.ResultMessage;
+import com.earl.fishshop.vo.UserFileVo;
 
 public interface UserService extends BaseService<UserPo>{
 
@@ -55,16 +56,6 @@ public interface UserService extends BaseService<UserPo>{
 	Boolean blackUser(Long identityId);
 
 	/**
-	 * 用户登陆.
-	 *@author 宋文光.
-	 * @param phoneNumber
-	 * @param userName
-	 * @param password
-	 * @return
-	 */
-	ResultMessage userLogin(String phoneNumber, String userName, String password);
-
-	/**
 	 * 注册时发验证码到指定手机.
 	 *@author 宋文光.
 	 * @param phoneNumber
@@ -89,5 +80,22 @@ public interface UserService extends BaseService<UserPo>{
 	 * @return
 	 */
 	Boolean rigisterUser(UserPo model);
+
+	/**
+	 * 更新用户头像.
+	 *@author 宋文光.
+	 * @param model
+	 * @param userFileVo
+	 * @return
+	 */
+	Boolean updateUserImg(UserPo model, UserFileVo userFileVo);
+
+	/**
+	 * 用户登录.
+	 *@author 宋文光.
+	 * @param model
+	 * @return
+	 */
+	ResultMessage userLogin(UserPo model);
 
 }
