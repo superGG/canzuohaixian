@@ -2,12 +2,16 @@ package com.earl.util;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
+import com.earl.fishshop.helper.JsonHelper;
 
 /*
  * 实现文件上传功能  HTTP  FTP
@@ -74,11 +78,32 @@ public class FileUploadImpl {
 	 * java.lang.String)
 	 */
 
-	public String uploadCategoryFile(File file, String oldName) {
-		String uploadFile = uploadFile(file, categoryfilePath, oldName);
-		return uploadFile;
+//	public String uploadCategoryFile(File file, String oldName) {
+//		String uploadFile = uploadFile(file, categoryfilePath, oldName);
+//		return uploadFile;
+//	}
+	
+	public String uploadMulitCategoryFile(File[] file, String oldName[]) {
+		ArrayList<String> filename = new ArrayList<String>();
+		for(int i=0;i<file.length;i++){
+			String uploadFile = uploadFile(file[i], categoryfilePath, oldName[i]);
+			filename.add(uploadFile);
+		}
+		String jsonFileName = JsonHelper.toJson(filename);
+		return jsonFileName;
+	}
+	public String uploadMulitCategoryFile(List<File> file, List<String> oldName) {
+		ArrayList<String> filename = new ArrayList<String>();
+		for(int i=0;i<file.size();i++){
+			String uploadFile = uploadFile(file.get(i), categoryfilePath, oldName.get(i));
+			filename.add(uploadFile);
+		}
+		String jsonFileName = JsonHelper.toJson(filename);
+		return jsonFileName;
 	}
 
+	
+	
 	public String uploadFishmanFile(File file, String oldName) {
 		String uploadFile = uploadFile(file, fishmanfilePath, oldName);
 		return uploadFile;

@@ -1,37 +1,37 @@
 package com.earl.fishshop.vo;
 
 import java.io.File;
+import java.util.List;
 
 public class CategoryFileVo {
 	
-	private File file;
+	private List<File> file;
 	
-	private String contentType;
+	private List<String> contentType;
 	
-	private String fileName;
+	private List<String> fileName;
 
-	public File getFile() {
+	public List<File> getFile() {
 		return file;
 	}
 
-	public void setFile(File file) {
+	public void setFile(List<File> file) {
 		this.file = file;
 	}
 
-	public String getFileContentType() {
+	public List<String> getFileContentType() {
 		return contentType;
 	}
 
-	public void setFileContentType(String contentType) {
+	public void setFileContentType(List<String> contentType) {
 		this.contentType = contentType;
 	}
 
-	public String getFileFileName() {
+	public List<String> getFileFileName() {
 		return fileName;
 	}
 
-	public void setFileFileName(String fileName) {
+	public void setFileFileName(List<String> fileName) {
 		this.fileName = fileName;
 	}
-
 }

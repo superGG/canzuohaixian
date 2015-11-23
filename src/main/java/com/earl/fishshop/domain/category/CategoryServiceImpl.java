@@ -109,7 +109,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 	public Boolean addCategory(CategoryPo model, CategoryFileVo categoryFile) {
 		// TODO 未测试.
 		try {
-			String uploadCategoryFile = fileUpload.uploadCategoryFile(categoryFile.getFile(), categoryFile.getFileFileName());
+			String uploadCategoryFile = fileUpload.uploadMulitCategoryFile(categoryFile.getFile(), categoryFile.getFileFileName());
 			model.setFishPhoto(uploadCategoryFile);
 			categoryDao.addCategory(model);
 			return true;
