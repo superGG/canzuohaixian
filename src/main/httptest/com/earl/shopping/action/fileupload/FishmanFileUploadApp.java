@@ -1,7 +1,6 @@
 package com.earl.shopping.action.fileupload;
 
 import java.io.File;
-import java.util.List;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
@@ -14,28 +13,34 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
 
 public class FishmanFileUploadApp {
 
-	private List<File> targetFile;
+	private File targetFile;
 
 	public void dod() {
 		String targetURL = "http://localhost:8080/fishshop/fishman_authenticationFishman.action";
-		targetFile.add(new File(
-				"D:/Favorites/test/test.jpg"));
+		targetFile = new File(
+				"C:/Users/Administrator/Desktop/SpringMVC.jpg.png");
 
-		targetFile.add(new File(
-				"D:/Favorites/test/宋文光.jpg"));
 		PostMethod filePost = new PostMethod(targetURL);
 
 		// filePost.getParams().setBooleanParameter(HttpMethodParams.USE_EXPECT_CONTINUE,
 		// cbxExpectHeader.isSelected());
 		try {
-
-			Part[] parts = { new FilePart("fishmanFileVo.file", targetFile.get(0)),
-					new FilePart("fishmanFileVo.file", targetFile.get(1)),
-					new StringPart("userId", "1")
+			
+			Part[] parts = { 
+			 new FilePart("fishmanFile.file", targetFile)
+			,new FilePart("fishmanFile.file", new File("C:/Users/Administrator/Desktop/struts2流程图.png"))
+			,new StringPart("userId", "1","utf-8")
+//			,new StringPart("categorySimpleName", "东星白班鱼","utf-8")
+//			,new StringPart("categoryAcademicName", "东星白班鱼","utf-8")
+//			,new StringPart("getType", "3","UTF-8")
+//			,new StringPart("categoryEnglishName", "东星白班鱼","utf-8")
+//			,new StringPart("parentId", "","utf-8")
+//			,new StringPart("unit", "1","utf-8")
+//			,new StringPart("totalSellNumber", "9","utf-8")
 			// new FilePart(targetFile.getName(), targetFile)
 			};
 			HttpMethodParams params = filePost.getParams();
-			// String contentCharset = params.getContentCharset();
+//			String contentCharset = params.getContentCharset();
 			params.setContentCharset("utf-8");
 			filePost.setRequestEntity(new MultipartRequestEntity(parts,
 					filePost.getParams()));

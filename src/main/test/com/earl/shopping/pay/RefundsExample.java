@@ -1,5 +1,8 @@
 package com.earl.shopping.pay;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.pingplusplus.Pingpp;
 import com.pingplusplus.exception.APIConnectionException;
 import com.pingplusplus.exception.APIException;
@@ -9,9 +12,6 @@ import com.pingplusplus.exception.InvalidRequestException;
 import com.pingplusplus.model.Charge;
 import com.pingplusplus.model.ChargeRefundCollection;
 import com.pingplusplus.model.Refund;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 退款相关示例

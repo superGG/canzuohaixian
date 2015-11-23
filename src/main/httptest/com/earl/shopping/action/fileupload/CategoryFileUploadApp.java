@@ -18,7 +18,7 @@ public class CategoryFileUploadApp {
 	public void dod() {
 		String targetURL = "http://localhost:8080/fishshop/category_addCategory.action";
 		targetFile = new File(
-				"D:/Favorites/test/test.jpg");
+				"C:/Users/Administrator/Desktop/SpringMVC.jpg.png");
 
 		PostMethod filePost = new PostMethod(targetURL);
 

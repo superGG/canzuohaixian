@@ -27,12 +27,20 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 */
 	private static final long serialVersionUID = 3293435262298029608L;
 
-	private FishmanFileVo fishmanFileVo;
+	private FishmanFileVo fishmanFile;
 
 	private Long userId;
 
-	public void setFishmanFileVo(FishmanFileVo fishmanFileVo) {
-		this.fishmanFileVo = fishmanFileVo;
+	public FishmanFileVo getFishmanFile() {
+		return fishmanFile;
+	}
+
+	public void setFishmanFile(FishmanFileVo fishmanFile) {
+		this.fishmanFile = fishmanFile;
+	}
+
+	public Long getUserId() {
+		return userId;
 	}
 
 	public void setUserId(Long userId) {
@@ -76,7 +84,8 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 * @author 宋文光.
 	 */
 	public void authenticationFishman() {
-		Boolean result = fishmanServer.authenticationFishman(userId, model,fishmanFileVo);
+		System.out.println("11111");
+		Boolean result = fishmanServer.authenticationFishman(userId, model,fishmanFile);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
 	}
