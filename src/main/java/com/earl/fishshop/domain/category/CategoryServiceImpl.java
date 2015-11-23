@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.earl.fishshop.base.BaseServiceImpl;
+import com.earl.fishshop.domain.base.BaseServiceImpl;
 import com.earl.fishshop.domain.searecord.SeaRecordPo;
 import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.domain.user.UserPo;

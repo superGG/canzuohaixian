@@ -10,7 +10,7 @@ import java.util.Random;
 
 import javax.annotation.Resource;
 
-import com.earl.fishshop.base.BaseServiceImpl;
+import com.earl.fishshop.domain.base.BaseServiceImpl;
 import com.earl.fishshop.domain.user.UserDao;
 import com.earl.fishshop.domain.user.UserPo;
 import com.earl.fishshop.vo.ResultMessage;

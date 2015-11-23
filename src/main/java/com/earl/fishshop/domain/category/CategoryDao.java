@@ -2,7 +2,7 @@ package com.earl.fishshop.domain.category;
 
 import java.util.List;
 
-import com.earl.fishshop.base.BaseDao;
+import com.earl.fishshop.domain.base.BaseDao;
 import com.earl.fishshop.vo.PageInfo;
 
 public interface CategoryDao extends BaseDao<CategoryPo>{

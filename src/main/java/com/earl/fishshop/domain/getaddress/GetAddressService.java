@@ -2,7 +2,7 @@ package com.earl.fishshop.domain.getaddress;
 
 import java.util.List;
 
-import com.earl.fishshop.base.BaseService;
+import com.earl.fishshop.domain.base.BaseService;
 
 public interface GetAddressService extends BaseService<GetAddressPo>{
 

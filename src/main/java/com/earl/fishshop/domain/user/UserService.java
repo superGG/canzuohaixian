@@ -2,7 +2,7 @@ package com.earl.fishshop.domain.user;
 
 import java.util.List;
 
-import com.earl.fishshop.base.BaseService;
+import com.earl.fishshop.domain.base.BaseService;
 import com.earl.fishshop.vo.ResultMessage;
 import com.earl.fishshop.vo.UserFileVo;
 

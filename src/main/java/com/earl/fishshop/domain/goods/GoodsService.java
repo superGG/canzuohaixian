@@ -2,7 +2,7 @@ package com.earl.fishshop.domain.goods;
 
 import java.util.List;
 
-import com.earl.fishshop.base.BaseService;
+import com.earl.fishshop.domain.base.BaseService;
 import com.earl.fishshop.domain.category.CategoryPo;
 import com.earl.fishshop.vo.PageInfo;
 

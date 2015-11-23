@@ -2,7 +2,7 @@ package com.earl.fishshop.domain.farmers;
 
 import java.util.List;
 
-import com.earl.fishshop.base.BaseService;
+import com.earl.fishshop.domain.base.BaseService;
 import com.earl.fishshop.vo.FarmersFileVo;
 
 public interface FarmersService extends BaseService<FarmersPo>{

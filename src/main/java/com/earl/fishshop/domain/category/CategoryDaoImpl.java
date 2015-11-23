@@ -10,7 +10,7 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-import com.earl.fishshop.base.BaseDaoImpl;
+import com.earl.fishshop.domain.base.BaseDaoImpl;
 import com.earl.fishshop.domain.sku.SkuPo;
 import com.earl.fishshop.helper.JsonHelper;
 import com.earl.fishshop.vo.PageInfo;
