@@ -1,5 +1,7 @@
 package com.earl.shopping.action;
 
+import java.io.File;
+
 import org.apache.struts2.StrutsSpringTestCase;
 import org.junit.Test;
 
@@ -17,10 +19,6 @@ public class FishmanActionTest extends StrutsSpringTestCase {
 
 		request.addParameter("shopId","2");
 		request.addParameter("getType", "3");// 捕捞方式
-		request.addParameter("frontIdentityPhoto", "localhost:8080//aaa.jpg");
-		request.addParameter("backIdentityPhoto", "localhost:8080//aaa.jpg");
-		request.addParameter("seaPassPhoto", "localhost:8080//aaa.jpg");
-		request.addParameter("shipPhoto", "localhost:8080//aaa.jpg");
 		request.addParameter("enginePower", "20");
 		request.addParameter("homePort", "11");
 		request.addParameter("realName", "王嘉涛");
@@ -55,10 +53,9 @@ public class FishmanActionTest extends StrutsSpringTestCase {
 	@Test
 	public void testAuthenticationFishman() throws Exception {
 		request.addParameter("userId", "1"); 
-		request.addParameter("frontIdentityPhoto", "localhost:8080//ccc.jpg");
-		request.addParameter("backIdentityPhoto", "localhost:8080//ccc.jpg");
-		request.addParameter("seaPassPhoto", "localhost:8080//ccc.jpg");
-		request.addParameter("shipPhoto", "localhost:8080//ccc.jpg");
+		request.addParameter("fishmanId", "1"); 
+		File file = new File("D:/Favorites/test/QQ图片20150623221402.jpg");
+		request.addHeader("fishmanFileVo", file);
 		String res = executeAction("/fishman_authenticationFishman.action");
 
 		System.out.println(res);
