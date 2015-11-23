@@ -120,6 +120,22 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 	}
 
 	@Override
+	public Boolean updateCategory(CategoryPo model, CategoryFileVo categoryFile) {
+		// TODO 未测试.
+		try {
+			if(categoryFile.getFileFileName().size() != 0 ){
+				String uploadCategoryFile = fileUpload.uploadMulitCategoryFile(categoryFile.getFile(), categoryFile.getFileFileName());
+				model.setFishPhoto(uploadCategoryFile);
+			}
+			categoryDao.updateCategory(model);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
 	public CategoryPo getCategoryWithSku(Long categoryId) {
 		// TODO 未测试.
 		CategoryPo category = categoryDao.getCategoryWithSku(categoryId);

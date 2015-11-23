@@ -87,4 +87,13 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	 */
 	CategoryPo getCategoryWithSku(Long categoryId);
 
+	/**
+	 * 更新类别信息.
+	 * @author 黄祥谦.
+	 * @param model
+	 * @param categoryFile
+	 * @return
+	 */
+	Boolean updateCategory(CategoryPo model, CategoryFileVo categoryFile);
+
 }
