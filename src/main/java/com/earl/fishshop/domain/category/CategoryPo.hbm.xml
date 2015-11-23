@@ -18,7 +18,7 @@
         <property name="categoryEnglishName" type="java.lang.String" column="categoryEnglishName" />
         <property name="parentId" type="java.lang.Long" column="parentId" />
         <property name="fishPhoto" type="java.lang.String" column="fishPhoto" />
-        <property name="unit" type="java.lang.Integer" column="unit" />
+        <property name="unit" type="java.lang.String" column="unit" />
         <property name="totalSellNumber" type="java.lang.Long" column="totalSellNumber" />
         <property name="skuList" type="java.lang.String" column="skuList" />
         <property name="createTime" type="java.util.Date" column="createTime" />

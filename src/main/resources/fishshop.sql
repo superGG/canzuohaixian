@@ -27,7 +27,7 @@ CREATE TABLE `category` (
   `categoryEnglishName` varchar(255) DEFAULT NULL,
   `parentId` bigint(20) DEFAULT NULL,
   `fishPhoto` varchar(255) DEFAULT NULL,
-  `unit` int(11) DEFAULT NULL,
+  `unit` varchar(255) DEFAULT NULL,
   `totalSellNumber` bigint(20) DEFAULT NULL,
   `skuList` varchar(255) DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -43,15 +43,15 @@ CREATE TABLE `category` (
 -- ----------------------------
 -- Records of category
 -- ----------------------------
-INSERT INTO `category` VALUES ('1', '鱼类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('2', '虾类', '虾类', '3', 'shrimpscategory', null, 'localhost:8080//aaa.jpg', '1', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('3', '蟹类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('4', '贝类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('5', '鱿鱼类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('6', '人参类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '1', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('7', '东星白班鱼', '东星白班鱼', '3', 'whitefish', '1', 'localhost:8080//aaa.jpg', '1', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('8', '小黄鱼', '小黄鱼', '3', 'yellowfish', '1', 'localhost:8080//aaa.jpg', '1', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('9', '小黑鱼', '小黑鱼', '3', 'smallblackfish', '1', 'localhost:8080//aaa.jpg', '1', '0', null,'2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('1', '鱼类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '斤', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('2', '虾类', '虾类', '3', 'shrimpscategory', null, 'localhost:8080//aaa.jpg', '斤', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('3', '蟹类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '斤', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('4', '贝类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '斤', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('5', '鱿鱼类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '斤', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('6', '人参类', '鱼类', '3', 'fishcategory', null, 'localhost:8080//aaa.jpg', '斤', '0',null, '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('7', '东星白班鱼', '东星白班鱼', '3', 'whitefish', '1', 'localhost:8080//aaa.jpg', '斤', '3',null, '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('8', '小黄鱼', '小黄鱼', '3', 'yellowfish', '1', 'localhost:8080//aaa.jpg', '只', '1',null, '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('9', '小黑鱼', '小黑鱼', '3', 'smallblackfish', '1', 'localhost:8080//aaa.jpg', '斤', '1', null,'2015-11-04 13:41:32', null, '', '1', null);
 
 -- ----------------------------
 -- Table structure for `checkout`
