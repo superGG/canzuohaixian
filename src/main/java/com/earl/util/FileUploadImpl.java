@@ -2,6 +2,9 @@ package com.earl.util;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
@@ -79,16 +82,16 @@ public class FileUploadImpl {
 		return uploadFile;
 	}
 
-	public String uploadFishmanFile(File file, String oldName) {
-		String uploadFile = uploadFile(file, fishmanfilePath, oldName);
+	public List<String> uploadFishmanFile(List<File> file, List<String> oldName) {
+		List<String> uploadFile = uploadFile(file, fishmanfilePath, oldName);
 		return uploadFile;
 	}
 
-	public String uploadFarmerFile(File file, String oldName) {
-		String uploadFile = uploadFile(file, farmerfilePath, oldName);
+	public List<String> uploadFarmerFile(List<File> file, List<String> oldName) {
+		List<String> uploadFile = uploadFile(file, farmerfilePath, oldName);
 		return uploadFile;
 	}
-	
+
 	public String uploadUserFile(File file, String oldName) {
 		String uploadFile = uploadFile(file, userfilePath, oldName);
 		return uploadFile;
@@ -106,12 +109,75 @@ public class FileUploadImpl {
 		} finally {
 			file.delete();
 		}
-		return dir+"/"+newName;
+		return dir + "/" + newName;
+	}
+
+	/**
+	 * 多文件上传.
+	 *@author 宋文光.
+	 * @param file 多文件
+	 * @param filePath 
+	 * @param oldName
+	 * @return
+	 */
+	private List<String> uploadFile(List<File> file, String filePath, List<String> oldName) {
+		String dir = getDir(filePath);
+//		List<String> name = nameArray(oldName);
+		List<String> newNameList = new ArrayList<String>();
+		for (int i = 0; i < file.size(); i++) {
+			String newName = this.newName(oldName.get(i));
+			File destFile;
+			try {
+				destFile = new File(filePath, newName);
+				FileUtils.copyFile(file.get(i), destFile);
+				newNameList.add(dir + "/" + newName);
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			} finally {
+				file.get(i).delete();
+			}
+		}
+		return newNameList;
+	}
+
+	/**
+	 * 将多文件名切割成单文件名.
+	 *@author 宋文光.
+	 * @param oldName
+	 * @return
+	 */
+	private List<String> nameArray(String oldName) {
+		List<String> newName = new ArrayList<String>();
+
+		StringTokenizer stMsg = new StringTokenizer(oldName, ";");
+		while (stMsg.hasMoreTokens()) {
+			String name = stMsg.nextToken();
+			newName.add(name);
+			System.out.println(name);
+		}
+		return newName;
+	}
+	
+	/**
+	 * 将多个文件地址合并.
+	 *@author 宋文光.
+	 * @param file
+	 * @param filePath
+	 * @return
+	 */
+	private String contentName(List<File> file, String filePath) {
+		String dir = getDir(filePath);
+		String newName =dir + "/" +file.get(0);
+		for (int i=1; i < file.size(); i++) {
+			newName = newName + ";" + dir + "/" + file.get(i);
+		}
+		return newName;
 	}
 
 	private String getDir(String filePath2) {
 		// TODO 未测试.
-		String substring = filePath2.substring(filePath2.lastIndexOf("\\")+2, filePath2.length());
+		String substring = filePath2.substring(filePath2.lastIndexOf("\\") + 2,
+				filePath2.length());
 		return substring;
 	}
 }

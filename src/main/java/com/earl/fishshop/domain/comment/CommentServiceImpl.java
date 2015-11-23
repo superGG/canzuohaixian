@@ -57,4 +57,12 @@ public class CommentServiceImpl extends BaseServiceImpl<CommentPo> implements
 		List<CommentPo> list = commentDao.getUserComment(model.getCreatorId(), pageInfo);
 		return list;
 	}
+
+	@Override
+	public Boolean saveComment(CommentPo model) {
+		String name = userDao.get(model.getUserId()).getUserName();
+		model.setUserName(name);
+		commentDao.save(model);
+		return null;
+	}
 }

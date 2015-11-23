@@ -12,8 +12,11 @@
         </id>
         <version name="version" column="version" type="java.lang.Long"></version>
         <property name="shopId" type="java.lang.Long" column="shopId" />
+        <property name="userId" type="java.lang.Long" column="shopId" />
         <property name="ordersId" type="java.lang.Long" column="ordersId" />
         <property name="commentType" type="java.lang.Integer" column="commentType" />
+        <property name="content" type="java.lang.String" column="content" />
+        <property name="userName" type="java.lang.String" column="content" />
         <property name="content" type="java.lang.String" column="content" />
         <property name="weightQuality" type="java.lang.Float" column="weightQuality" />
         <property name="freshQuality" type="java.lang.Float" column="freshQuality" />

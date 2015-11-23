@@ -51,5 +51,6 @@ public abstract class StringUtils {
 		}
 		return stream;
 	}
+	
 
 }

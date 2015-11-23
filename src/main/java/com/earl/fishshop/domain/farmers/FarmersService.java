@@ -3,6 +3,7 @@ package com.earl.fishshop.domain.farmers;
 import java.util.List;
 
 import com.earl.fishshop.base.BaseService;
+import com.earl.fishshop.vo.FarmersFileVo;
 
 public interface FarmersService extends BaseService<FarmersPo>{
 
@@ -11,9 +12,10 @@ public interface FarmersService extends BaseService<FarmersPo>{
 	 *@author 宋文光.
 	 * @param userId
 	 * @param model
+	 * @param farmersFileVo 
 	 * @return
 	 */
-	Boolean authenticationFarmer(Long userId, FarmersPo model);
+	Boolean authenticationFarmer(Long userId, FarmersPo model, FarmersFileVo farmersFileVo);
 
 	/**
 	 * 查询养殖户的详细信息.
