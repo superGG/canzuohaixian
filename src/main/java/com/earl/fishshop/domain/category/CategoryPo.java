@@ -60,11 +60,7 @@ public class CategoryPo{
 	
 	private Long hotDegree;
 	
-	/**
-	 * 字段描述：Integer 
-	 * 字段类型：unit  
-	 */
-	private Integer unit ;
+	private String unit ;
 	
 	/**
 	 * 字段描述：Long 
@@ -175,11 +171,11 @@ public class CategoryPo{
 	public void setLowPrice(Double lowPrice) {
 		this.lowPrice = lowPrice;
 	}
-	public void setUnit(Integer unit){
-		this.unit = unit;
+	public String getUnit() {
+		return unit;
 	}
-	public Integer getUnit() {
-		return this.unit;
+	public void setUnit(String unit) {
+		this.unit = unit;
 	}
 	public void setTotalSellNumber(Long totalSellNumber){
 		this.totalSellNumber = totalSellNumber;

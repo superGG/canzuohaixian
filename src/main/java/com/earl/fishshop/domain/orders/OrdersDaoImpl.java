@@ -63,6 +63,13 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 				if(executeUpdate == 0 ){
 					throw new RuntimeException("商品数量不够！！");
 				}
+				String hql2 = "update CategoryPo set totalSellNumber = totalSellNumber+ :tosell where categoryId =:categoryId";
+				try {
+					getCurrentSession().createQuery(hql).setLong("tosell", ordersDetailPo.getNumber()).setLong("categoryId",ordersDetailPo.getCategoryId()).executeUpdate();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
 				ordersDetailPo.setOrderId(ordersId);
 				getCurrentSession().save(ordersDetailPo);
 			}
