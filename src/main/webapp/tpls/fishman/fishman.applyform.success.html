@@ -1,0 +1,18 @@
+<div class="modal-content" ui-view>
+    <div class="modal-header" >
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">商家验证操作</h4>
+    </div>
+    <div class="alert alert-success fade in" ng-show="getStatus()">
+        <i class="fa-fw fa fa-check ficon">&#xe805;</i> <strong>成功</strong>
+        商铺的申请已通过！
+    </div>
+    <div class="alert alert-danger fade in" ng-show="!getStatus()">
+         <i class="fa-fw fa fa-times ficon">&#xe819;</i> <strong>错误</strong>
+        验证通过失败，请重试！
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal" ui-sref="fishman">关闭</button>
+        <button type="button" class="btn btn-primary" ui-sref=".infoform({fishmanId:fishmanapplyinfo.fishmanId})">继续完善商铺信息</button>
+    </div>
+</div>

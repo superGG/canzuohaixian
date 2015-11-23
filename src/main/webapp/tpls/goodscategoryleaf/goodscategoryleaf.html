@@ -1,0 +1,124 @@
+
+<div class="row" ng-controller="GCLCtrl">
+    <div class="col-xs-12 col-md-12"  ui-view>
+        <div class="widget">
+            <div class="widget-header ">
+                <span class="widget-caption">商品子分类管理表</span>
+                <div class="widget-buttons">
+                    <a href="#" data-toggle="maximize">
+                        <i class="fa fa-expand"></i>
+                    </a>
+                    <a href="#" data-toggle="collapse">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                    <a href="#" data-toggle="dispose">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="widget-body">
+                <div class="table-toolbar">
+                    <a id="editabledatatable_new" href="javascript:void(0);" class="btn btn-default" ui-sref=".newleaf">
+                        新建一个商品子分类
+                    </a>
+                </div>
+                <table class="table table-striped table-bordered table-hover" id="expandabledatatable">
+                    <thead>
+                        <tr>
+                            <th>
+                                分类ID
+                            </th>
+                            <th>
+                                俗名
+                            </th>
+                            <th>
+                                学名
+                            </th>
+                            <th>
+                                英文名
+                            </th>
+                            <th>
+                                父类别ID
+                            </th>
+                            <th>
+                                计价单位
+                            </th>
+                            <th>
+                                创建时间
+                            </th>
+                            <th>
+                                展示图片
+                            </th>
+                            <th>
+                                规格1
+                            </th>
+                            <th>
+                                规格2
+                            </th>
+                            <th>
+                                规格3
+                            </th>
+                            <th>
+                                规格4
+                            </th>
+                            <th>
+                                规格5
+                            </th>
+                            <th>
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr ng-repeat = "gclInfo in gclsInfo" on-finish-render-filters>
+                            <td>
+                                {{gclInfo.categoryId}}
+                            </td>
+                            <td>
+                                {{gclInfo.categoryAcademicName}}
+                            </td>
+                            <td>
+                                {{gclInfo.categorySimpleName}}
+                            </td>
+                            <td>
+                                {{gclInfo.categoryEnglishName}}
+                            </td>
+                            <td>
+                                {{gclInfo.parentId}}
+                            </td>
+                            <td>
+                                {{gclInfo.unit}}
+                            </td>
+                            <td>
+                                {{gclInfo.createTime}}
+                            </td>
+                            <td>
+                                {{gclInfo.fishPhoto}}
+                            </td>
+                            <td>
+                                {{gclInfo.skuList[0].lowscale}}~{{gclInfo.skuList[0].highscale}}
+                            </td>
+                            <td>
+                                {{gclInfo.skuList[1].lowscale}}~{{gclInfo.skuList[1].highscale}}
+                            </td>
+                            <td>
+                                {{gclInfo.skuList[2].lowscale}}~{{gclInfo.skuList[2].highscale}}
+                            </td>
+                            <td>
+                                {{gclInfo.skuList[3].lowscale}}~{{gclInfo.skuList[3].highscale}}
+                            </td>
+                            <td>
+                                {{gclInfo.skuList[4].lowscale}}~{{gclInfo.skuList[4].highscale}}
+                            </td>
+                            <td>
+                                <a href="#" class="btn btn-info btn-xs edit" ui-sref=".editleaf" ng-click="editOne(gclInfo.categoryId)"><i class="fa fa-edit ficon">&#xe820;</i> 编辑</a>
+                                <a href="#" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o ficon">&#xe824;</i> 删除</a>
+                            </td>
+                        </tr>
+                      
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
