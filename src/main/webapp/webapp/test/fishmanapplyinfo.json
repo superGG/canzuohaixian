@@ -1,0 +1,12 @@
+
+{
+	"result":{
+		"fishmanId":"23",
+		"phoneNumber":"15811707583",
+		"frontIdentityPhoto":"imgs/frontIdentityPhoto.jpg",
+		"backIdentityPhoto":"imgs/frontIdentityPhoto.jpg",
+		"seaPassPhoto":"imgs/frontIdentityPhoto.jpg",
+		"shipPhoto":"imgs/frontIdentityPhoto.jpg",
+		"createTime":"20151010"
+		}
+}
