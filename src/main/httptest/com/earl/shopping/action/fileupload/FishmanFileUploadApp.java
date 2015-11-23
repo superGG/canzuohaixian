@@ -1,6 +1,7 @@
 package com.earl.shopping.action.fileupload;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.httpclient.HttpClient;
@@ -14,10 +15,15 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
 
 public class FishmanFileUploadApp {
 
+
+	public static void main(String[] args) {
+		new FishmanFileUploadApp().dod();
+	}
 	private List<File> targetFile;
 
 	public void dod() {
-		String targetURL = "http://localhost:8080/fishshop/fishman_authenticationFishman.action";
+		String targetURL = "http://192.168.1.107:8080/fishshop/fishman_authenticationFishman.action";
+		targetFile = new ArrayList<File>();
 		targetFile.add(new File(
 				"D:/Favorites/test/test.jpg"));
 
@@ -28,10 +34,11 @@ public class FishmanFileUploadApp {
 		// filePost.getParams().setBooleanParameter(HttpMethodParams.USE_EXPECT_CONTINUE,
 		// cbxExpectHeader.isSelected());
 		try {
-
-			Part[] parts = { new FilePart("fishmanFileVo.file", targetFile.get(0)),
-					new FilePart("fishmanFileVo.file", targetFile.get(1)),
-					new StringPart("userId", "1")
+			Part[] parts = { new FilePart("fishmanFile.file", new File(
+							"D:/Favorites/test/test.jpg"))
+					,new FilePart("fishmanFile.file", new File(
+							"D:/Favorites/test/宋文光.jpg"))
+					,new StringPart("userId", "1","utf-8")
 			// new FilePart(targetFile.getName(), targetFile)
 			};
 			HttpMethodParams params = filePost.getParams();
@@ -53,8 +60,5 @@ public class FishmanFileUploadApp {
 		}
 	}
 
-	public static void main(String[] args) {
-		new FishmanFileUploadApp().dod();
-	}
 
 }

@@ -97,7 +97,7 @@ public class VerifyServiceUtil extends  BaseServiceImpl<UserPo>{
 			// 结果返回0时，短信发送成功
 			result = send.send();
 			if (result == 0) {
-				rs.setResultInfo(code);
+//				rs.setResultInfo(code);
 				rs.setServiceResult(true);
 			} else {
 				rs.setResultInfo("生成失败");

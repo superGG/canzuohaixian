@@ -33,7 +33,7 @@ public class UserActionTest extends StrutsSpringTestCase {
 	
 	@Test
 	public void testUserLogin() throws Exception {
-		request.addParameter("userName", "易临风");
+		request.addParameter("phoneNumber", "18719425973");
 		request.addParameter("password", "798555920");
 		
 		String res = executeAction("/user_userLogin.action");

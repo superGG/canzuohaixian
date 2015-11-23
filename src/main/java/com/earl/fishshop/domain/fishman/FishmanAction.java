@@ -31,6 +31,10 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 
 	private Long userId;
 
+	public FishmanFileVo getFishmanFileVo() {
+		return fishmanFileVo;
+	}
+
 	public void setFishmanFileVo(FishmanFileVo fishmanFileVo) {
 		this.fishmanFileVo = fishmanFileVo;
 	}
@@ -76,7 +80,8 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 * @author 宋文光.
 	 */
 	public void authenticationFishman() {
-		Boolean result = fishmanServer.authenticationFishman(userId, model,fishmanFileVo);
+		Boolean result = fishmanServer.authenticationFishman(userId, model,
+				fishmanFileVo);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
 	}

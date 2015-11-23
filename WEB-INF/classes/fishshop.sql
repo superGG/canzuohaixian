@@ -436,7 +436,7 @@ CREATE TABLE `user` (
   `state` int(11) DEFAULT NULL,
   `userName` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `phoneNumber` varchar(255) DEFAULT NULL UNIQUE,
+  `phoneNumber` varchar(255) DEFAULT NULL,
   `headImage` varchar(255) DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `creatorId` bigint(20) DEFAULT NULL,
@@ -449,8 +449,8 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('1', '2', '1', '2', '易临风', '798555920', '18719425973', './aaa.jpg', '2015-11-05 11:12:04', null, '', '1');
-INSERT INTO `user` VALUES ('2', '1', '1', '1', 'Imissyou', '798555920', '18320489492', './aaa.jpg', '2015-11-05 11:12:04', null, '', '1');
-INSERT INTO `user` VALUES ('3', '2', '1', '1', '', '798555920', '18765432104', './aaa.jpg', '2015-11-15 09:54:21', null, '', '1');
+INSERT INTO `user` VALUES ('2', '1', '1', '1', 'Imissyou', '798555920', '18719425973', './aaa.jpg', '2015-11-05 11:12:04', null, '', '1');
+INSERT INTO `user` VALUES ('3', '2', '1', '1', '', '798555920', '18719425973', './aaa.jpg', '2015-11-15 09:54:21', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `user`

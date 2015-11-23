@@ -162,6 +162,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 			List<UserPo> userList = userDao.getUserByPhone(userPhone);
 			if (userList.size() != 0) {
 				rs = verifyServiceUtil.sendMobileVerifyCode(userPhone);
+				rs.setResultInfo("已发送验证码");
 			} else {
 				rs.setResultInfo("该手机无注册用户");
 				rs.setServiceResult(false);
@@ -200,6 +201,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 			List<UserPo> userList = userDao.getUserByPhone(userPhone);
 			if (userList.size() == 0) {
 				rs = verifyServiceUtil.sendMobileVerifyCode(userPhone);
+				rs.setResultInfo("已发送验证码");
 			} else {
 				rs.setResultInfo("该手机已被注册");
 				rs.setServiceResult(false);
