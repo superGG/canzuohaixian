@@ -19,6 +19,7 @@ import com.earl.fishshop.helper.JsonHelper;
 @Component("fileUpload")
 public class FileUploadImpl {
 
+	@SuppressWarnings("unused")
 	private String filePath = "C:/";
 
 	private String categoryfilePath = "C:/category/";

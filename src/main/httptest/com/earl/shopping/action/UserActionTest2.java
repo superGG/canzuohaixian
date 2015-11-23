@@ -10,7 +10,8 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
 
 public class UserActionTest2 {
 
-	 private File targetFile;
+	 @SuppressWarnings("unused")
+	private File targetFile;
 
     public void dod(){
     	String targetURL = "http://localhost:8080/fishshop/user_userLogin.action";

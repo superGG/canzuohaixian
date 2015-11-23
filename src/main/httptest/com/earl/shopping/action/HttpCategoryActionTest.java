@@ -5,7 +5,6 @@ import java.io.File;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.PostMethod;
-import org.apache.commons.httpclient.methods.multipart.FilePart;
 import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
 import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
@@ -14,6 +13,7 @@ import org.junit.Test;
 
 public class HttpCategoryActionTest {
 
+	@SuppressWarnings("unused")
 	private File targetFile;
 
 
