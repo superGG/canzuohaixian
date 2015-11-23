@@ -16,7 +16,7 @@ public class CategoryFileUploadApp {
 	private File targetFile;
 
 	public void dod() {
-		String targetURL = "http://localhost:8080/fishshop/category_addCategory.action";
+		String targetURL = "http://192.168.1.107:8080/fishshop/category_addCategory.action";
 		targetFile = new File(
 				"C:/Users/Administrator/Desktop/SpringMVC.jpg.png");
 
@@ -28,7 +28,7 @@ public class CategoryFileUploadApp {
 			
 			Part[] parts = { 
 			 new FilePart("categoryFile.file", targetFile)
-			,new FilePart("categoryFile.file", new File("C:/Users/Administrator/Desktop/struts2流程图.png"))
+			,new FilePart("categoryFile.file", new File("D:/Favorites/test/宋文光.jpg"))
 			,new StringPart("categorySimpleName", "东星白班鱼","utf-8")
 			,new StringPart("categoryAcademicName", "东星白班鱼","utf-8")
 			,new StringPart("getType", "3","UTF-8")

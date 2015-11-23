@@ -56,6 +56,7 @@ public class FishmanActionTest extends StrutsSpringTestCase {
 		request.addParameter("fishmanId", "1"); 
 		File file = new File("D:/Favorites/test/QQ图片20150623221402.jpg");
 		request.addHeader("fishmanFileVo", file);
+		request.addHeader("fishmanFileVo", new File("D:/Favorites/test/test.jpg"));
 		String res = executeAction("/fishman_authenticationFishman.action");
 
 		System.out.println(res);

@@ -1,0 +1,3431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>数据库结构—动软自动生成器</title>
+<style type="text/css">
+body {
+	font-size: 9pt;
+}
+
+.styledb {
+	font-size: 14px;
+}
+
+.styletab {
+	font-size: 14px;
+	padding-top: 15px;
+}
+</style>
+</head>
+<body>
+	<div style="text-align: center">
+		<div class="styledb">数据库名：fishshop</div>
+		<div class="styletab">表名：category</div>
+		<div align="left"></div>
+		<div>
+			<table border="0" cellpadding="5" cellspacing="0" width="90%">
+				<tr>
+					<td bgcolor="#FBFBFB"><table cellspacing="0" cellpadding="5"
+							border="1" width="100%" bordercolorlight="#D7D7E5"
+							bordercolordark="#D3D8E0">
+							<tr bgcolor="#F0F0F0">
+								<td>序号</td>
+								<td>列名</td>
+								<td>数据类型</td>
+								<td>长度</td>
+								<td>小数位</td>
+								<td>标识</td>
+								<td>主键</td>
+								<td>外键</td>
+								<td>允许空</td>
+								<td>默认值</td>
+								<td>说明</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>categoryId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>&nbsp;</td>
+								<td align="left">auto_increment</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>categorySimpleName</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>categoryAcademicName</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>getType</td>
+								<td>int</td>
+								<td>11</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>categoryEnglishName</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>parentId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>fishPhoto</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>unit</td>
+								<td>int</td>
+								<td>11</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>totalSellNumber</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>createTime</td>
+								<td>timestamp</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>CURRENT_TIMESTAMP</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>creatorId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>isDelete</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>b'0'</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>13</td>
+								<td>version</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>1</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>14</td>
+								<td>hotDegree</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="styletab">表名：checkout</div>
+		<div align="left"></div>
+		<div>
+			<table border="0" cellpadding="5" cellspacing="0" width="90%">
+				<tr>
+					<td bgcolor="#FBFBFB"><table cellspacing="0" cellpadding="5"
+							border="1" width="100%" bordercolorlight="#D7D7E5"
+							bordercolordark="#D3D8E0">
+							<tr bgcolor="#F0F0F0">
+								<td>序号</td>
+								<td>列名</td>
+								<td>数据类型</td>
+								<td>长度</td>
+								<td>小数位</td>
+								<td>标识</td>
+								<td>主键</td>
+								<td>外键</td>
+								<td>允许空</td>
+								<td>默认值</td>
+								<td>说明</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>checkoutId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>&nbsp;</td>
+								<td align="left">auto_increment</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>userId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>userType</td>
+								<td>int</td>
+								<td>11</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>createTime</td>
+								<td>timestamp</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>CURRENT_TIMESTAMP</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>creatorId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>isDelete</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>b'0'</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>version</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>1</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>identityId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>state</td>
+								<td>int</td>
+								<td>11</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="styletab">表名：comment</div>
+		<div align="left"></div>
+		<div>
+			<table border="0" cellpadding="5" cellspacing="0" width="90%">
+				<tr>
+					<td bgcolor="#FBFBFB"><table cellspacing="0" cellpadding="5"
+							border="1" width="100%" bordercolorlight="#D7D7E5"
+							bordercolordark="#D3D8E0">
+							<tr bgcolor="#F0F0F0">
+								<td>序号</td>
+								<td>列名</td>
+								<td>数据类型</td>
+								<td>长度</td>
+								<td>小数位</td>
+								<td>标识</td>
+								<td>主键</td>
+								<td>外键</td>
+								<td>允许空</td>
+								<td>默认值</td>
+								<td>说明</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>commentId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>&nbsp;</td>
+								<td align="left">auto_increment</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>goodsId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>ordersId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>commentType</td>
+								<td>int</td>
+								<td>11</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>content</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>weightQuality</td>
+								<td>float</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>freshQuality</td>
+								<td>float</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>speedQuality</td>
+								<td>float</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>createTime</td>
+								<td>timestamp</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>CURRENT_TIMESTAMP</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>creatorId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>isDelete</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>b'0'</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>version</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>1</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="styletab">表名：farmers</div>
+		<div align="left"></div>
+		<div>
+			<table border="0" cellpadding="5" cellspacing="0" width="90%">
+				<tr>
+					<td bgcolor="#FBFBFB"><table cellspacing="0" cellpadding="5"
+							border="1" width="100%" bordercolorlight="#D7D7E5"
+							bordercolordark="#D3D8E0">
+							<tr bgcolor="#F0F0F0">
+								<td>序号</td>
+								<td>列名</td>
+								<td>数据类型</td>
+								<td>长度</td>
+								<td>小数位</td>
+								<td>标识</td>
+								<td>主键</td>
+								<td>外键</td>
+								<td>允许空</td>
+								<td>默认值</td>
+								<td>说明</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>farmersId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>&nbsp;</td>
+								<td align="left">auto_increment</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>shopId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>address</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>longitude</td>
+								<td>double</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>latitude</td>
+								<td>double</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>forntIdentityPhoto</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>backIdentityPhoto</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>addressPhoto</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>aquacultureLicense</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>multiGetType</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>createTime</td>
+								<td>timestamp</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>CURRENT_TIMESTAMP</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>creatorId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>13</td>
+								<td>isDelete</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>14</td>
+								<td>version</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>1</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="styletab">表名：fishman</div>
+		<div align="left"></div>
+		<div>
+			<table border="0" cellpadding="5" cellspacing="0" width="90%">
+				<tr>
+					<td bgcolor="#FBFBFB"><table cellspacing="0" cellpadding="5"
+							border="1" width="100%" bordercolorlight="#D7D7E5"
+							bordercolordark="#D3D8E0">
+							<tr bgcolor="#F0F0F0">
+								<td>序号</td>
+								<td>列名</td>
+								<td>数据类型</td>
+								<td>长度</td>
+								<td>小数位</td>
+								<td>标识</td>
+								<td>主键</td>
+								<td>外键</td>
+								<td>允许空</td>
+								<td>默认值</td>
+								<td>说明</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>fishmanId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>&nbsp;</td>
+								<td align="left">auto_increment</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>shopId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>getType</td>
+								<td>int</td>
+								<td>11</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>frontIdentityPhoto</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>backIdentityPhoto</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>seaPassPhoto</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>shipPhoto</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>enginePower</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>homePort</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>shipCreateTime</td>
+								<td>date</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>realName</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>tonnage</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>13</td>
+								<td>fishingLicense</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>14</td>
+								<td>createTime</td>
+								<td>timestamp</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>CURRENT_TIMESTAMP</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>15</td>
+								<td>creatorId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>16</td>
+								<td>isDelete</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>b'0'</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>17</td>
+								<td>version</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>1</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="styletab">表名：forders</div>
+		<div align="left"></div>
+		<div>
+			<table border="0" cellpadding="5" cellspacing="0" width="90%">
+				<tr>
+					<td bgcolor="#FBFBFB"><table cellspacing="0" cellpadding="5"
+							border="1" width="100%" bordercolorlight="#D7D7E5"
+							bordercolordark="#D3D8E0">
+							<tr bgcolor="#F0F0F0">
+								<td>序号</td>
+								<td>列名</td>
+								<td>数据类型</td>
+								<td>长度</td>
+								<td>小数位</td>
+								<td>标识</td>
+								<td>主键</td>
+								<td>外键</td>
+								<td>允许空</td>
+								<td>默认值</td>
+								<td>说明</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>fordersId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>&nbsp;</td>
+								<td align="left">auto_increment</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>shopId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>seaRecordId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>totalprice</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>state</td>
+								<td>int</td>
+								<td>11</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>buyerName</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>orderNumber</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>createTime</td>
+								<td>timestamp</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>CURRENT_TIMESTAMP</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>creatorId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>isDelete</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>b'0'</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>version</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>1</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="styletab">表名：getaddress</div>
+		<div align="left"></div>
+		<div>
+			<table border="0" cellpadding="5" cellspacing="0" width="90%">
+				<tr>
+					<td bgcolor="#FBFBFB"><table cellspacing="0" cellpadding="5"
+							border="1" width="100%" bordercolorlight="#D7D7E5"
+							bordercolordark="#D3D8E0">
+							<tr bgcolor="#F0F0F0">
+								<td>序号</td>
+								<td>列名</td>
+								<td>数据类型</td>
+								<td>长度</td>
+								<td>小数位</td>
+								<td>标识</td>
+								<td>主键</td>
+								<td>外键</td>
+								<td>允许空</td>
+								<td>默认值</td>
+								<td>说明</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>getAddressId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>&nbsp;</td>
+								<td align="left">auto_increment</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>userId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>userName</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>address</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>phone</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>postcode</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>createTime</td>
+								<td>timestamp</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>CURRENT_TIMESTAMP</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>creatorId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>isDelete</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>b'0'</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>version</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>1</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="styletab">表名：gettype</div>
+		<div align="left"></div>
+		<div>
+			<table border="0" cellpadding="5" cellspacing="0" width="90%">
+				<tr>
+					<td bgcolor="#FBFBFB"><table cellspacing="0" cellpadding="5"
+							border="1" width="100%" bordercolorlight="#D7D7E5"
+							bordercolordark="#D3D8E0">
+							<tr bgcolor="#F0F0F0">
+								<td>序号</td>
+								<td>列名</td>
+								<td>数据类型</td>
+								<td>长度</td>
+								<td>小数位</td>
+								<td>标识</td>
+								<td>主键</td>
+								<td>外键</td>
+								<td>允许空</td>
+								<td>默认值</td>
+								<td>说明</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>getTypeId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>&nbsp;</td>
+								<td align="left">auto_increment</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>getName</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>parentId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>createTime</td>
+								<td>timestamp</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>CURRENT_TIMESTAMP</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>creatorId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>isDelete</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>b'0'</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>version</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>1</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="styletab">表名：goods</div>
+		<div align="left"></div>
+		<div>
+			<table border="0" cellpadding="5" cellspacing="0" width="90%">
+				<tr>
+					<td bgcolor="#FBFBFB"><table cellspacing="0" cellpadding="5"
+							border="1" width="100%" bordercolorlight="#D7D7E5"
+							bordercolordark="#D3D8E0">
+							<tr bgcolor="#F0F0F0">
+								<td>序号</td>
+								<td>列名</td>
+								<td>数据类型</td>
+								<td>长度</td>
+								<td>小数位</td>
+								<td>标识</td>
+								<td>主键</td>
+								<td>外键</td>
+								<td>允许空</td>
+								<td>默认值</td>
+								<td>说明</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>goodsId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>&nbsp;</td>
+								<td align="left">auto_increment</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>shopId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>categoryId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>goodsQuality</td>
+								<td>int</td>
+								<td>11</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>hotDegree</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>getType</td>
+								<td>int</td>
+								<td>11</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>sku</td>
+								<td>int</td>
+								<td>11</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>price</td>
+								<td>double</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>nowNumber</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>0</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>unit</td>
+								<td>int</td>
+								<td>11</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>sellNumber</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>0</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>creatorId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>13</td>
+								<td>createTime</td>
+								<td>timestamp</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>CURRENT_TIMESTAMP</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>14</td>
+								<td>isDelete</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>b'0'</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>15</td>
+								<td>version</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>1</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="styletab">表名：orders</div>
+		<div align="left"></div>
+		<div>
+			<table border="0" cellpadding="5" cellspacing="0" width="90%">
+				<tr>
+					<td bgcolor="#FBFBFB"><table cellspacing="0" cellpadding="5"
+							border="1" width="100%" bordercolorlight="#D7D7E5"
+							bordercolordark="#D3D8E0">
+							<tr bgcolor="#F0F0F0">
+								<td>序号</td>
+								<td>列名</td>
+								<td>数据类型</td>
+								<td>长度</td>
+								<td>小数位</td>
+								<td>标识</td>
+								<td>主键</td>
+								<td>外键</td>
+								<td>允许空</td>
+								<td>默认值</td>
+								<td>说明</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>ordersId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>&nbsp;</td>
+								<td align="left">auto_increment</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>userId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>shopId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>seaRecordId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>totalprice</td>
+								<td>double</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>state</td>
+								<td>int</td>
+								<td>11</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>buyerName</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>shopKeeperName</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>sendAddress</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>phone</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>createTime</td>
+								<td>timestamp</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>CURRENT_TIMESTAMP</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>creatorId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>13</td>
+								<td>isDelete</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>b'0'</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>14</td>
+								<td>version</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>1</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>15</td>
+								<td>orderNumber</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="styletab">表名：ordersdetail</div>
+		<div align="left"></div>
+		<div>
+			<table border="0" cellpadding="5" cellspacing="0" width="90%">
+				<tr>
+					<td bgcolor="#FBFBFB"><table cellspacing="0" cellpadding="5"
+							border="1" width="100%" bordercolorlight="#D7D7E5"
+							bordercolordark="#D3D8E0">
+							<tr bgcolor="#F0F0F0">
+								<td>序号</td>
+								<td>列名</td>
+								<td>数据类型</td>
+								<td>长度</td>
+								<td>小数位</td>
+								<td>标识</td>
+								<td>主键</td>
+								<td>外键</td>
+								<td>允许空</td>
+								<td>默认值</td>
+								<td>说明</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>ordersDetailId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>&nbsp;</td>
+								<td align="left">auto_increment</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>orderId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>shopId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>goodsId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>categoryId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>goodsName</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>goodsType</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>price</td>
+								<td>double</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>totalprice</td>
+								<td>double</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>sku</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>unit</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>number</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>13</td>
+								<td>createTime</td>
+								<td>timestamp</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>CURRENT_TIMESTAMP</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>14</td>
+								<td>creatorId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>15</td>
+								<td>isDelete</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>b'0'</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>16</td>
+								<td>version</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>1</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="styletab">表名：searecord</div>
+		<div align="left"></div>
+		<div>
+			<table border="0" cellpadding="5" cellspacing="0" width="90%">
+				<tr>
+					<td bgcolor="#FBFBFB"><table cellspacing="0" cellpadding="5"
+							border="1" width="100%" bordercolorlight="#D7D7E5"
+							bordercolordark="#D3D8E0">
+							<tr bgcolor="#F0F0F0">
+								<td>序号</td>
+								<td>列名</td>
+								<td>数据类型</td>
+								<td>长度</td>
+								<td>小数位</td>
+								<td>标识</td>
+								<td>主键</td>
+								<td>外键</td>
+								<td>允许空</td>
+								<td>默认值</td>
+								<td>说明</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>seaRecordId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>&nbsp;</td>
+								<td align="left">auto_increment</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>shopId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>startSeeTime</td>
+								<td>datetime</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>endSeeTime</td>
+								<td>datetime</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>spendDay</td>
+								<td>int</td>
+								<td>11</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>state</td>
+								<td>int</td>
+								<td>11</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>shipportName</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>lontitude</td>
+								<td>double</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>latitude</td>
+								<td>double</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>createTime</td>
+								<td>timestamp</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>CURRENT_TIMESTAMP</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>creatorId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>isDelete</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>b'0'</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>13</td>
+								<td>version</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>1</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>14</td>
+								<td>longitude</td>
+								<td>double</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="styletab">表名：shipport</div>
+		<div align="left"></div>
+		<div>
+			<table border="0" cellpadding="5" cellspacing="0" width="90%">
+				<tr>
+					<td bgcolor="#FBFBFB"><table cellspacing="0" cellpadding="5"
+							border="1" width="100%" bordercolorlight="#D7D7E5"
+							bordercolordark="#D3D8E0">
+							<tr bgcolor="#F0F0F0">
+								<td>序号</td>
+								<td>列名</td>
+								<td>数据类型</td>
+								<td>长度</td>
+								<td>小数位</td>
+								<td>标识</td>
+								<td>主键</td>
+								<td>外键</td>
+								<td>允许空</td>
+								<td>默认值</td>
+								<td>说明</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>shipportId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>&nbsp;</td>
+								<td align="left">auto_increment</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>shipportName</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>lontitude</td>
+								<td>double</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>latitude</td>
+								<td>double</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>createTime</td>
+								<td>timestamp</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>CURRENT_TIMESTAMP</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>creatorId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>isDelete</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>b'0'</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>version</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>1</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>longitude</td>
+								<td>double</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="styletab">表名：shop</div>
+		<div align="left"></div>
+		<div>
+			<table border="0" cellpadding="5" cellspacing="0" width="90%">
+				<tr>
+					<td bgcolor="#FBFBFB"><table cellspacing="0" cellpadding="5"
+							border="1" width="100%" bordercolorlight="#D7D7E5"
+							bordercolordark="#D3D8E0">
+							<tr bgcolor="#F0F0F0">
+								<td>序号</td>
+								<td>列名</td>
+								<td>数据类型</td>
+								<td>长度</td>
+								<td>小数位</td>
+								<td>标识</td>
+								<td>主键</td>
+								<td>外键</td>
+								<td>允许空</td>
+								<td>默认值</td>
+								<td>说明</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>shopId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>&nbsp;</td>
+								<td align="left">auto_increment</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>userId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>shopName</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>getType</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>weightQuality</td>
+								<td>float</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>freshQuality</td>
+								<td>float</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>speedQuality</td>
+								<td>float</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>shopType</td>
+								<td>int</td>
+								<td>11</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>sendPrice</td>
+								<td>double</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>onSell</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>shipPort</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>portTime</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>13</td>
+								<td>address</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>14</td>
+								<td>seaRecordId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>15</td>
+								<td>lontitude</td>
+								<td>double</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>16</td>
+								<td>latitude</td>
+								<td>double</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>17</td>
+								<td>creatorId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>18</td>
+								<td>isDelete</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>b'0'</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>19</td>
+								<td>createTime</td>
+								<td>timestamp</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>CURRENT_TIMESTAMP</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>20</td>
+								<td>version</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>1</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>21</td>
+								<td>longitude</td>
+								<td>double</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="styletab">表名：sku</div>
+		<div align="left"></div>
+		<div>
+			<table border="0" cellpadding="5" cellspacing="0" width="90%">
+				<tr>
+					<td bgcolor="#FBFBFB"><table cellspacing="0" cellpadding="5"
+							border="1" width="100%" bordercolorlight="#D7D7E5"
+							bordercolordark="#D3D8E0">
+							<tr bgcolor="#F0F0F0">
+								<td>序号</td>
+								<td>列名</td>
+								<td>数据类型</td>
+								<td>长度</td>
+								<td>小数位</td>
+								<td>标识</td>
+								<td>主键</td>
+								<td>外键</td>
+								<td>允许空</td>
+								<td>默认值</td>
+								<td>说明</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>skuId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>&nbsp;</td>
+								<td align="left">auto_increment</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>unitId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>skuName</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>createTime</td>
+								<td>timestamp</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>CURRENT_TIMESTAMP</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>creatorId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>isDelete</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>b'0'</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>version</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>1</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="styletab">表名：sorders</div>
+		<div align="left"></div>
+		<div>
+			<table border="0" cellpadding="5" cellspacing="0" width="90%">
+				<tr>
+					<td bgcolor="#FBFBFB"><table cellspacing="0" cellpadding="5"
+							border="1" width="100%" bordercolorlight="#D7D7E5"
+							bordercolordark="#D3D8E0">
+							<tr bgcolor="#F0F0F0">
+								<td>序号</td>
+								<td>列名</td>
+								<td>数据类型</td>
+								<td>长度</td>
+								<td>小数位</td>
+								<td>标识</td>
+								<td>主键</td>
+								<td>外键</td>
+								<td>允许空</td>
+								<td>默认值</td>
+								<td>说明</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>sordersId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>&nbsp;</td>
+								<td align="left">auto_increment</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>forderId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>shopId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>goodsId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>categoryId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>goodsName</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>goodsType</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>price</td>
+								<td>double</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>totalprice</td>
+								<td>double</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>sku</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>unit</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>sellNumber</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>13</td>
+								<td>number</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>14</td>
+								<td>createTime</td>
+								<td>timestamp</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>CURRENT_TIMESTAMP</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>15</td>
+								<td>creatorId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>16</td>
+								<td>isDelete</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>b'0'</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>17</td>
+								<td>version</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>1</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="styletab">表名：unit</div>
+		<div align="left"></div>
+		<div>
+			<table border="0" cellpadding="5" cellspacing="0" width="90%">
+				<tr>
+					<td bgcolor="#FBFBFB"><table cellspacing="0" cellpadding="5"
+							border="1" width="100%" bordercolorlight="#D7D7E5"
+							bordercolordark="#D3D8E0">
+							<tr bgcolor="#F0F0F0">
+								<td>序号</td>
+								<td>列名</td>
+								<td>数据类型</td>
+								<td>长度</td>
+								<td>小数位</td>
+								<td>标识</td>
+								<td>主键</td>
+								<td>外键</td>
+								<td>允许空</td>
+								<td>默认值</td>
+								<td>说明</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>unitId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>&nbsp;</td>
+								<td align="left">auto_increment</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>unitName</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>createTime</td>
+								<td>timestamp</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>CURRENT_TIMESTAMP</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>creatorId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>isDelete</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>b'0'</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>version</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>1</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="styletab">表名：user</div>
+		<div align="left"></div>
+		<div>
+			<table border="0" cellpadding="5" cellspacing="0" width="90%">
+				<tr>
+					<td bgcolor="#FBFBFB"><table cellspacing="0" cellpadding="5"
+							border="1" width="100%" bordercolorlight="#D7D7E5"
+							bordercolordark="#D3D8E0">
+							<tr bgcolor="#F0F0F0">
+								<td>序号</td>
+								<td>列名</td>
+								<td>数据类型</td>
+								<td>长度</td>
+								<td>小数位</td>
+								<td>标识</td>
+								<td>主键</td>
+								<td>外键</td>
+								<td>允许空</td>
+								<td>默认值</td>
+								<td>说明</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>userId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>&nbsp;</td>
+								<td align="left">auto_increment</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>userType</td>
+								<td>int</td>
+								<td>11</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>identityId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>state</td>
+								<td>int</td>
+								<td>11</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>userName</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>password</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>phoneNumber</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>headImage</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>createTime</td>
+								<td>timestamp</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>否</td>
+								<td>CURRENT_TIMESTAMP</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>creatorId</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>isDelete</td>
+								<td>bit</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>b'0'</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>version</td>
+								<td>bigint</td>
+								<td>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>1</td>
+								<td align="left">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

@@ -38,7 +38,7 @@ public class CategoryDaoImplTest {
 		category.setParentId(1l);
 		category.setIsDelete(false);
 		category.setGetType(3);
-		category.setUnit(1);
+		category.setUnit("1");
 		category.setVersion(1L);
 		category.setTotalSellNumber(0L);
 		
