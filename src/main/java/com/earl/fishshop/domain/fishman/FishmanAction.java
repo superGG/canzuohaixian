@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.base.BaseAction;
+import com.earl.fishshop.vo.FishmanFileVo;
 import com.earl.fishshop.vo.ResultMessage;
 
 /**
@@ -26,10 +27,12 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 */
 	private static final long serialVersionUID = 3293435262298029608L;
 
+	private FishmanFileVo fishmanFileVo;
+
 	private Long userId;
 
-	public Long getUserId() {
-		return userId;
+	public void setFishmanFileVo(FishmanFileVo fishmanFileVo) {
+		this.fishmanFileVo = fishmanFileVo;
 	}
 
 	public void setUserId(Long userId) {
@@ -70,10 +73,10 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	/**
 	 * 用户认证为渔户.
 	 * 
-	 * @author 黄祥谦.
+	 * @author 宋文光.
 	 */
 	public void authenticationFishman() {
-		Boolean result = fishmanServer.authenticationFishman(userId, model);
+		Boolean result = fishmanServer.authenticationFishman(userId, model,fishmanFileVo);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
 	}

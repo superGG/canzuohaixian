@@ -18,6 +18,18 @@ public class CommentPo{
 	private Long shopId ;
 	
 	/**
+	 * 字段描述：用户ID
+	 * 字段类型：Long 
+	 */
+	private Long userId;
+	
+	/**
+	 * 字段描述：用户姓名
+	 * 字段类型：String 
+	 */
+	private String userName;
+	
+	/**
 	 * 字段描述：Long 
 	 * 字段类型：goodsId  
 	 */
@@ -150,4 +162,29 @@ public class CommentPo{
 	public Long getVersion() {
 		return this.version;
 	}
+	public Long getUserId() {
+		return userId;
+	}
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	@Override
+	public String toString() {
+		return "CommentPo [commentId=" + commentId + ", shopId=" + shopId
+				+ ", userId=" + userId + ", userName=" + userName
+				+ ", ordersId=" + ordersId + ", commentType=" + commentType
+				+ ", content=" + content + ", weightQuality=" + weightQuality
+				+ ", freshQuality=" + freshQuality + ", speedQuality="
+				+ speedQuality + ", createTime=" + createTime + ", creatorId="
+				+ creatorId + ", isDelete=" + isDelete + ", version=" + version
+				+ "]";
+	}
+	
+	
 }

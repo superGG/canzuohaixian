@@ -52,6 +52,14 @@ public interface CommentService extends BaseService<CommentPo>{
 	 */
 	List<CommentPo> getUserComment(CommentPo model, PageInfo pageInfo);
 
+	/**
+	 * 添加评论.
+	 *@author 宋文光.
+	 * @param model
+	 * @return
+	 */
+	Boolean saveComment(CommentPo model);
+
 	
 
 	

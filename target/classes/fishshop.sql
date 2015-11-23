@@ -82,6 +82,8 @@ DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
   `commentId` bigint(20) NOT NULL AUTO_INCREMENT,
   `shopId` bigint(20) DEFAULT NULL,
+  `userId` bigint(20) DEFAULT NULL,
+  `userName` varchar(255) DEFAULT NULL,
   `ordersId` bigint(20) DEFAULT NULL,
   `commentType` int(11) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
