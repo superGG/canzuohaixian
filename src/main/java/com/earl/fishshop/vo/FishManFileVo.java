@@ -34,6 +34,4 @@ public class FishmanFileVo{
 	public void setFileFileName(List<String> fileName) {
 		this.fileName = fileName;
 	}
-
-
 }

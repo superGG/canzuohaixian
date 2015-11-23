@@ -72,6 +72,16 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	}
 	
 	/**
+	 * 更新指定类别信息.
+	 * @author 黄祥谦.
+	 */
+	public void updateCategory(){
+		Boolean update = categoryServer.updateCategory(model,categoryFile);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(update);
+	}
+
+	/**
 	 * 得到带规格的类别.
 	 * @author 黄祥谦.
 	 */
@@ -91,16 +101,6 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		Boolean delete = categoryServer.deleteById(model.getCategoryId());
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(delete);
-	}
-	
-	/**
-	 * 更新指定类别信息.
-	 * @author 黄祥谦.
-	 */
-	public void updateCategory(){
-		Boolean update = categoryServer.updateWithNotNullProperties(model);
-		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(update);
 	}
 	
 	/**

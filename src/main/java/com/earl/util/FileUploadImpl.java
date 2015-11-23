@@ -4,13 +4,14 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
+import com.earl.fishshop.helper.JsonHelper;
 
 /*
  * 实现文件上传功能  HTTP  FTP
@@ -77,11 +78,33 @@ public class FileUploadImpl {
 	 * java.lang.String)
 	 */
 
-	public String uploadCategoryFile(File file, String oldName) {
-		String uploadFile = uploadFile(file, categoryfilePath, oldName);
-		return uploadFile;
+//	public String uploadCategoryFile(File file, String oldName) {
+//		String uploadFile = uploadFile(file, categoryfilePath, oldName);
+//		return uploadFile;
+//	}
+	
+	public String uploadMulitCategoryFile(File[] file, String oldName[]) {
+		ArrayList<String> filename = new ArrayList<String>();
+		for(int i=0;i<file.length;i++){
+			String uploadFile = uploadFile(file[i], categoryfilePath, oldName[i]);
+			filename.add(uploadFile);
+		}
+		String jsonFileName = JsonHelper.toJson(filename);
+		return jsonFileName;
+	}
+	public String uploadMulitCategoryFile(List<File> file, List<String> oldName) {
+		ArrayList<String> filename = new ArrayList<String>();
+		for(int i=0;i<file.size();i++){
+			String uploadFile = uploadFile(file.get(i), categoryfilePath, oldName.get(i));
+			filename.add(uploadFile);
+		}
+		String jsonFileName = JsonHelper.toJson(filename);
+		return jsonFileName;
 	}
 
+//	public String uploadFishmanFile(File file, String oldName) {
+//		String uploadFile = uploadFile(file, fishmanfilePath, oldName);
+	
 	public List<String> uploadFishmanFile(List<File> file, List<String> oldName) {
 		List<String> uploadFile = uploadFile(file, fishmanfilePath, oldName);
 		return uploadFile;
@@ -140,42 +163,7 @@ public class FileUploadImpl {
 		return newNameList;
 	}
 
-	/**
-	 * 将多文件名切割成单文件名.
-	 *@author 宋文光.
-	 * @param oldName
-	 * @return
-	 */
-	private List<String> nameArray(String oldName) {
-		List<String> newName = new ArrayList<String>();
-
-		StringTokenizer stMsg = new StringTokenizer(oldName, ";");
-		while (stMsg.hasMoreTokens()) {
-			String name = stMsg.nextToken();
-			newName.add(name);
-			System.out.println(name);
-		}
-		return newName;
-	}
-	
-	/**
-	 * 将多个文件地址合并.
-	 *@author 宋文光.
-	 * @param file
-	 * @param filePath
-	 * @return
-	 */
-	private String contentName(List<File> file, String filePath) {
-		String dir = getDir(filePath);
-		String newName =dir + "/" +file.get(0);
-		for (int i=1; i < file.size(); i++) {
-			newName = newName + ";" + dir + "/" + file.get(i);
-		}
-		return newName;
-	}
-
 	private String getDir(String filePath2) {
-		// TODO 未测试.
 		String substring = filePath2.substring(filePath2.lastIndexOf("\\") + 2,
 				filePath2.length());
 		return substring;

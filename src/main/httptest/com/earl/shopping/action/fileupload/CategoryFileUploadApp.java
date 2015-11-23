@@ -26,8 +26,10 @@ public class CategoryFileUploadApp {
 		// cbxExpectHeader.isSelected());
 		try {
 			
-			Part[] parts = { new FilePart("categoryFile.file", targetFile)
-				,new StringPart("categorySimpleName", "东星白班鱼","utf-8")
+			Part[] parts = { 
+			 new FilePart("categoryFile.file", targetFile)
+			,new FilePart("categoryFile.file", new File("C:/Users/Administrator/Desktop/struts2流程图.png"))
+			,new StringPart("categorySimpleName", "东星白班鱼","utf-8")
 			,new StringPart("categoryAcademicName", "东星白班鱼","utf-8")
 			,new StringPart("getType", "3","UTF-8")
 			,new StringPart("categoryEnglishName", "东星白班鱼","utf-8")

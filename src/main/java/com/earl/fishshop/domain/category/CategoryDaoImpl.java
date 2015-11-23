@@ -98,6 +98,20 @@ public class CategoryDaoImpl extends BaseDaoImpl<CategoryPo> implements Category
 	}
 
 	@Override
+	public void updateCategory(CategoryPo model) {
+		// TODO 未测试.
+		ArrayList<Long> arrayList = new ArrayList<Long>();
+		List<SkuPo> skuList = model.getSkuArrayList();
+		for (SkuPo skuPo : skuList) {
+			getCurrentSession().update(skuPo);
+			arrayList.add(skuPo.getSkuId());
+		}
+		String json = JsonHelper.toJson(arrayList);
+		model.setSkuList(json);
+		updateWithNotNullProperties(model);
+	}
+
+	@Override
 	public CategoryPo getCategoryWithSku(Long categoryId) {
 		// TODO 未测试.
 		CategoryPo categoryPo = get(categoryId);
