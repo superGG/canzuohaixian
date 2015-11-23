@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.base.BaseAction;
-import com.earl.fishshop.domain.comment.CommentPo;
 import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.util.VerifyServiceUtil;
 import com.earl.fishshop.vo.ResultMessage;

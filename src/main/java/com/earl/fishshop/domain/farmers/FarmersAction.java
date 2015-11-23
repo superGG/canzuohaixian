@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.base.BaseAction;
+import com.earl.fishshop.vo.FarmersFileVo;
 import com.earl.fishshop.vo.ResultMessage;
 
 /**
@@ -28,8 +29,10 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 
 	private Long userId;
 
-	public Long getUserId() {
-		return userId;
+	private FarmersFileVo farmersFileVo;
+	
+	public void setFarmersFileVo(FarmersFileVo farmersFileVo) {
+		this.farmersFileVo = farmersFileVo;
 	}
 
 	public void setUserId(Long userId) {
@@ -54,7 +57,7 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 	 * @author 宋文光.
 	 */
 	public void authenticationFishman(){
-		Boolean result = farmersServer.authenticationFarmer(userId,model);
+		Boolean result = farmersServer.authenticationFarmer(userId,model,farmersFileVo);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
 	}

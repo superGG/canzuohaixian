@@ -53,7 +53,7 @@ public class CommentAction extends BaseAction<CommentPo> {
 	 * @author 宋文光.
 	 */
 	public void addComment() {
-		Boolean save = commentServer.save(model);
+		Boolean save = commentServer.saveComment(model);
 		shopServer.updateShopComment(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);

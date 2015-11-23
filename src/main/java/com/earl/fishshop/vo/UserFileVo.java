@@ -5,10 +5,10 @@ import java.io.File;
 
 public class UserFileVo{
 
-private File file;
+	private File file;
 	
 	private String contentType;
-	
+
 	private String fileName;
 
 	public File getFile() {
