@@ -76,5 +76,8 @@
 		<action name="verifycode_*" class="verifyCodeAction"
 			method="{1}">
 		</action>
+		<action name="getaddress_*" class="getAddressAction"
+			method="{1}">
+		</action>
 	</package>
 </struts>    

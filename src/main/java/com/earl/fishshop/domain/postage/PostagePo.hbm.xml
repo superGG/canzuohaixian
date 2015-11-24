@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
         
         
-<hibernate-mapping package="com.earl.fishshop.domain.unit">
+<hibernate-mapping package="com.earl.fishshop.domain.postage">
     <class name="PostagePo" table="postage" dynamic-update="true" dynamic-insert="true">
         <id name="postageId" type="java.lang.Long">
             <column name="postageId" />

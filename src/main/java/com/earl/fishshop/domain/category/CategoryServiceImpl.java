@@ -1,5 +1,6 @@
 package com.earl.fishshop.domain.category;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
@@ -10,9 +11,11 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.domain.base.BaseServiceImpl;
+import com.earl.fishshop.domain.gettype.GetTypePo;
 import com.earl.fishshop.domain.searecord.SeaRecordPo;
 import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.domain.user.UserPo;
+import com.earl.fishshop.helper.JsonHelper;
 import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.vo.CategoryFileVo;
 import com.earl.fishshop.vo.PageInfo;
@@ -60,7 +63,6 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 			try {
 				FilterPropertiesUtil.filterProperties(categoryPo, CategoryForNextLevel.class);
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -94,10 +96,20 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 			if(userPo.getUserType() == MyConstant.user_farmer){
 			}else if(userPo.getUserType() == MyConstant.user_fishman){
 				SeaRecordPo farmersPo = seaRecordDao.get(shopPo.getSeaRecordId());
+				shopPo.setPortTime(farmersPo.getEndSeeTime());
 				shopPo.setShipPort(farmersPo.getShipportName());
 				shopPo.setLatitude(farmersPo.getLatitude());
 				shopPo.setLongitude(farmersPo.getLongitude());
 			}
+			String getType = shopPo.getGetType();
+			ArrayList<String> getTypeName = new ArrayList<String>();
+			@SuppressWarnings("unchecked")
+			List<Double> jsonToBean = JsonHelper.jsonToBean(getType, List.class);
+			for (Double long1 : jsonToBean) {
+				GetTypePo getTypePo = getTypeDao.get(long1.longValue());
+				getTypeName.add(getTypePo.getGetName());
+			}
+			shopPo.setGetTypeString(getTypeName);
 		}
 		return shopList;
 	}

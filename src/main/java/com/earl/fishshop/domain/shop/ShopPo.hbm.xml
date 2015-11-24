@@ -22,7 +22,7 @@
         <property name="sendPrice" type="java.lang.Double" column="sendPrice" />
         <property name="onSell" type="java.lang.Boolean" column="onSell" />
         <property name="shipPort" type="java.lang.String" column="shipPort" />
-        <property name="portTime" type="java.lang.String" column="portTime" />
+        <property name="portTime" type="java.util.Date" column="portTime" />
         <property name="address" type="java.lang.String" column="address" />
         <property name="seaRecordId" type="java.lang.Long" column="seaRecordId" />
 		<property name="longitude" type="java.lang.Double" column="longitude" />

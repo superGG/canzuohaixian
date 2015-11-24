@@ -1,6 +1,7 @@
 package com.earl.fishshop.domain.shop;
 
 import java.util.Date;
+import java.util.List;
 
 public class ShopPo{
 
@@ -32,6 +33,11 @@ public class ShopPo{
 	 * 字段类型：getType  
 	 */
 	private String getType ;
+	
+	/**
+	 * string 类型的捕捞方式.
+	 */
+	private List<String> getTypeString;
 	
 	/**
 	 * 字段描述：Float 
@@ -71,7 +77,7 @@ public class ShopPo{
 	
 	private String shipPort;//靠岸口
 	
-	private String portTime;//靠岸时间.
+	private Date portTime;//靠岸时间.
 	
 	private String address;//养殖户养殖地点.
 	
@@ -111,6 +117,12 @@ public class ShopPo{
 	 */
 	private Long version ;
 	
+	public List<String> getGetTypeString() {
+		return getTypeString;
+	}
+	public void setGetTypeString(List<String> getTypeString) {
+		this.getTypeString = getTypeString;
+	}
 	public Double getLongitude() {
 		return longitude;
 	}
@@ -135,10 +147,10 @@ public class ShopPo{
 	public void setShipPort(String shipPort) {
 		this.shipPort = shipPort;
 	}
-	public String getPortTime() {
+	public Date getPortTime() {
 		return portTime;
 	}
-	public void setPortTime(String portTime) {
+	public void setPortTime(Date portTime) {
 		this.portTime = portTime;
 	}
 	public String getAddress() {
