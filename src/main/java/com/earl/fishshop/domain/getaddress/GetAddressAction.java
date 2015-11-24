@@ -79,5 +79,7 @@ public class GetAddressAction extends BaseAction<GetAddressPo> {
 		hashMap.put("getAddressList", getAddressList);
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
+		resultMessage.setResultInfo("访问成功");
+		resultMessage.setServiceResult(true);
 	}
 }

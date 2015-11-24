@@ -50,13 +50,14 @@ public class EscapeInterceptor extends AbstractInterceptor {
         
         // 获取HttpServletRequest   
         HttpServletRequest request = (HttpServletRequest)ctx.get(StrutsStatics.HTTP_REQUEST);
-        String header = request.getHeader("Content-Type");
+//        String header = request.getHeader("Content-Type");
+        String header = request.getHeader("Charset");
         if(header != null){
-        	logger.info("header Content-Type " + header);
+        	logger.info("header Charset:" + header);
         }
         //不是form表单，并且没有指定utf-8
-        if(header == null || (header != null && !((header.indexOf("utf-8") == -1 || header.indexOf("UTF-8") == -1 )&& header.indexOf("multipart/form-data") == -1))){
-        	
+//        if(header == null || (header != null && !((header.indexOf("utf-8") == -1 || header.indexOf("UTF-8") == -1 )&& header.indexOf("multipart/form-data") == -1))){
+        	if( header == null || (header.indexOf("UTF-8") == -1||header.indexOf("itf-8") ==-1)){
         		}else{
         			@SuppressWarnings("rawtypes")
         			Map parm = ctx.getParameters();
