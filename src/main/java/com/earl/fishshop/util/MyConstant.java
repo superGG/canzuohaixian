@@ -76,6 +76,11 @@ public class MyConstant {
 	public static final Integer order_uncomment = 3;
 	
 	/**
+	 * 订单评论 v4.
+	 */
+	public static final Integer order_comment = 4;
+	
+	/**
 	 * 订单完成支付状态.
 	 */
 	public static final Integer order_pay = 4;
@@ -108,9 +113,11 @@ public class MyConstant {
 	 * 差评.
 	 */
 	public static final Integer comment_bed = -1;
-
-
 	
+	/**
+	 * 评论匿名.
+	 */
+	public static final Integer comment_anonymity = 1;
 	
 
 }

@@ -407,7 +407,7 @@ body {
 							</tr>
 							<tr>
 								<td>2</td>
-								<td>goodsId</td>
+								<td>shopId</td>
 								<td>bigint</td>
 								<td>20</td>
 								<td>&nbsp;</td>
@@ -416,11 +416,11 @@ body {
 								<td>&nbsp;</td>
 								<td>是</td>
 								<td>&nbsp;</td>
-								<td align="left">&nbsp;</td>
+								<td align="left">关联的商店id</td>
 							</tr>
 							<tr>
 								<td>3</td>
-								<td>ordersId</td>
+								<td>userId</td>
 								<td>bigint</td>
 								<td>20</td>
 								<td>&nbsp;</td>
@@ -429,10 +429,23 @@ body {
 								<td>&nbsp;</td>
 								<td>是</td>
 								<td>&nbsp;</td>
-								<td align="left">&nbsp;</td>
+								<td align="left">关联的用户id</td>
 							</tr>
 							<tr>
 								<td>4</td>
+								<td>userName</td>
+								<td>varchar</td>
+								<td>255</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">评论的用户名</td>
+							</tr>
+							<tr>
+								<td>5</td>
 								<td>commentType</td>
 								<td>int</td>
 								<td>11</td>
@@ -445,7 +458,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>5</td>
+								<td>6</td>
 								<td>content</td>
 								<td>varchar</td>
 								<td>255</td>
@@ -458,7 +471,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>6</td>
+								<td>7</td>
 								<td>weightQuality</td>
 								<td>float</td>
 								<td>&nbsp;</td>
@@ -471,7 +484,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>7</td>
+								<td>8</td>
 								<td>freshQuality</td>
 								<td>float</td>
 								<td>&nbsp;</td>
@@ -484,7 +497,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>8</td>
+								<td>9</td>
 								<td>speedQuality</td>
 								<td>float</td>
 								<td>&nbsp;</td>
@@ -497,7 +510,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>9</td>
+								<td>10</td>
 								<td>createTime</td>
 								<td>timestamp</td>
 								<td>&nbsp;</td>
@@ -510,7 +523,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>10</td>
+								<td>11</td>
 								<td>creatorId</td>
 								<td>bigint</td>
 								<td>20</td>
@@ -523,7 +536,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>11</td>
+								<td>12</td>
 								<td>isDelete</td>
 								<td>bit</td>
 								<td>&nbsp;</td>
@@ -536,7 +549,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>12</td>
+								<td>13</td>
 								<td>version</td>
 								<td>bigint</td>
 								<td>20</td>
@@ -547,6 +560,19 @@ body {
 								<td>是</td>
 								<td>1</td>
 								<td align="left">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>14</td>
+								<td>anonymity</td>
+								<td>int</td>
+								<td>15</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>0</td>
+								<td align="left">是否匿名</td>
 							</tr>
 						</table>
 					</td>
@@ -2552,6 +2578,19 @@ body {
 							</tr>
 							<tr>
 								<td>5</td>
+								<td>grade</td>
+								<td>int</td>
+								<td>15</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>是</td>
+								<td>&nbsp;</td>
+								<td align="left">商店评分</td>
+							</tr>
+							<tr>
+								<td>6</td>
 								<td>weightQuality</td>
 								<td>float</td>
 								<td>&nbsp;</td>
@@ -2564,7 +2603,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>6</td>
+								<td>7</td>
 								<td>freshQuality</td>
 								<td>float</td>
 								<td>&nbsp;</td>
@@ -2577,7 +2616,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>7</td>
+								<td>8</td>
 								<td>speedQuality</td>
 								<td>float</td>
 								<td>&nbsp;</td>
@@ -2590,7 +2629,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>8</td>
+								<td>9</td>
 								<td>shopType</td>
 								<td>int</td>
 								<td>11</td>
@@ -2603,7 +2642,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>9</td>
+								<td>10</td>
 								<td>sendPrice</td>
 								<td>double</td>
 								<td>&nbsp;</td>
@@ -2616,7 +2655,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>10</td>
+								<td>11</td>
 								<td>onSell</td>
 								<td>bit</td>
 								<td>&nbsp;</td>
@@ -2629,7 +2668,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>11</td>
+								<td>12</td>
 								<td>shipPort</td>
 								<td>varchar</td>
 								<td>255</td>
@@ -2642,7 +2681,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>12</td>
+								<td>13</td>
 								<td>portTime</td>
 								<td>varchar</td>
 								<td>255</td>
@@ -2655,7 +2694,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>13</td>
+								<td>14</td>
 								<td>address</td>
 								<td>varchar</td>
 								<td>255</td>
@@ -2668,7 +2707,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>14</td>
+								<td>15</td>
 								<td>seaRecordId</td>
 								<td>bigint</td>
 								<td>20</td>
@@ -2681,7 +2720,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>15</td>
+								<td>16</td>
 								<td>lontitude</td>
 								<td>double</td>
 								<td>&nbsp;</td>
@@ -2694,7 +2733,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>16</td>
+								<td>17</td>
 								<td>latitude</td>
 								<td>double</td>
 								<td>&nbsp;</td>
@@ -2707,7 +2746,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>17</td>
+								<td>18</td>
 								<td>creatorId</td>
 								<td>bigint</td>
 								<td>20</td>
@@ -2720,7 +2759,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>18</td>
+								<td>19</td>
 								<td>isDelete</td>
 								<td>bit</td>
 								<td>&nbsp;</td>
@@ -2733,7 +2772,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>19</td>
+								<td>20</td>
 								<td>createTime</td>
 								<td>timestamp</td>
 								<td>&nbsp;</td>
@@ -2746,7 +2785,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>20</td>
+								<td>21</td>
 								<td>version</td>
 								<td>bigint</td>
 								<td>20</td>
@@ -2759,7 +2798,7 @@ body {
 								<td align="left">&nbsp;</td>
 							</tr>
 							<tr>
-								<td>21</td>
+								<td>22</td>
 								<td>longitude</td>
 								<td>double</td>
 								<td>&nbsp;</td>

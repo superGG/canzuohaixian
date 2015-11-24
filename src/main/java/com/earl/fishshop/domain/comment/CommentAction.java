@@ -73,6 +73,7 @@ public class CommentAction extends BaseAction<CommentPo> {
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("commentsArray", list);
 		hashMap.put("total", list.size());
+		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}
@@ -85,6 +86,8 @@ public class CommentAction extends BaseAction<CommentPo> {
 		List<CommentPo> list = commentServer.getShopComment(model.getShopId(), pageInfo);
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("comment", list);
+		hashMap.put("total", list.size());
+		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 		

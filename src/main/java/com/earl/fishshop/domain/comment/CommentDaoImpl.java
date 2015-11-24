@@ -21,7 +21,7 @@ public class CommentDaoImpl extends BaseDaoImpl<CommentPo> implements CommentDao
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<CommentPo> getShopComment(Long shopId) {
-		String hql = "from CommentPo c where shopId = : shopId";
+		String hql = "from CommentPo c where shopId = :shopId";
 		List<CommentPo> list = getCurrentSession().createQuery(hql)
 					.setLong("shopId", shopId).list();
 		return list;
@@ -57,7 +57,7 @@ public class CommentDaoImpl extends BaseDaoImpl<CommentPo> implements CommentDao
 	@Override
 	public List<CommentPo> getShopComment(Long shopId, PageInfo pageInfo) {
 		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
-		createCriteria.add(Restrictions.eq("shopId", shopId)).add(Restrictions.gt("nowNumber", 0L));
+		createCriteria.add(Restrictions.eq("shopId", shopId));
 		
 		createCriteria.setFirstResult(
 				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
@@ -74,8 +74,7 @@ public class CommentDaoImpl extends BaseDaoImpl<CommentPo> implements CommentDao
 	public List<CommentPo> getGoodComment(Long shopId, PageInfo pageInfo) {
 		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
 		createCriteria.add(Restrictions.eq("shopId", shopId))
-						.add(Restrictions.eq("commentType", 1))
-						.add(Restrictions.gt("nowNumber", 0L));
+						.add(Restrictions.eq("commentType", 1));
 		
 		createCriteria.setFirstResult(
 				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
@@ -92,8 +91,7 @@ public class CommentDaoImpl extends BaseDaoImpl<CommentPo> implements CommentDao
 	public List<CommentPo> getMidComment(Long shopId, PageInfo pageInfo) {
 		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
 		createCriteria.add(Restrictions.eq("shopId", shopId))
-						.add(Restrictions.eq("commentType", 0))
-						.add(Restrictions.gt("nowNumber", 0L));
+						.add(Restrictions.eq("commentType", 0));
 		
 		createCriteria.setFirstResult(
 				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
@@ -110,8 +108,7 @@ public class CommentDaoImpl extends BaseDaoImpl<CommentPo> implements CommentDao
 	public List<CommentPo> getBedComment(Long shopId, PageInfo pageInfo) {
 		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
 		createCriteria.add(Restrictions.eq("shopId", shopId))
-						.add(Restrictions.eq("commentType", -1))
-						.add(Restrictions.gt("nowNumber", 0L));
+						.add(Restrictions.eq("commentType", -1));
 		
 		createCriteria.setFirstResult(
 				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
@@ -126,10 +123,9 @@ public class CommentDaoImpl extends BaseDaoImpl<CommentPo> implements CommentDao
 	}
 
 	@Override
-	public List<CommentPo> getUserComment(Long creatorId, PageInfo pageInfo) {
+	public List<CommentPo> getUserComment(Long userId, PageInfo pageInfo) {
 		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
-		createCriteria.add(Restrictions.eq("creatorId", creatorId))
-						.add(Restrictions.gt("nowNumber", 0L));
+		createCriteria.add(Restrictions.eq("userId", userId));
 		
 		createCriteria.setFirstResult(
 				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
@@ -141,6 +137,12 @@ public class CommentDaoImpl extends BaseDaoImpl<CommentPo> implements CommentDao
                 .uniqueResult();
 		pageInfo.setTotalCount(size);
 		return commentList;
+	}
+
+	@Override
+	public void saveComment(CommentPo model) {
+		getCurrentSession().save(model);
+		
 	}
 	
 }

@@ -7,7 +7,10 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+
 import com.earl.fishshop.domain.base.BaseServiceImpl;
+import com.earl.fishshop.domain.orders.OrdersPo;
+import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.vo.PageInfo;
 
 /**
@@ -16,7 +19,7 @@ import com.earl.fishshop.vo.PageInfo;
  * @author Administrator
  * 
  */
- @Service(value = "commentService")
+@Service(value = "commentService")
 public class CommentServiceImpl extends BaseServiceImpl<CommentPo> implements
 		CommentService {
 
@@ -24,7 +27,7 @@ public class CommentServiceImpl extends BaseServiceImpl<CommentPo> implements
 	CommentDao commentDao;
 
 	@PostConstruct
-	public void initBaseDao(){
+	public void initBaseDao() {
 		baseDao = commentDao;
 	}
 
@@ -54,15 +57,26 @@ public class CommentServiceImpl extends BaseServiceImpl<CommentPo> implements
 
 	@Override
 	public List<CommentPo> getUserComment(CommentPo model, PageInfo pageInfo) {
-		List<CommentPo> list = commentDao.getUserComment(model.getCreatorId(), pageInfo);
+		List<CommentPo> list = commentDao.getUserComment(model.getUserId(),
+				pageInfo);
 		return list;
 	}
 
 	@Override
 	public Boolean saveComment(CommentPo model) {
-		String name = userDao.get(model.getUserId()).getUserName();
-		model.setUserName(name);
-		commentDao.save(model);
-		return null;
+
+		if (model.getAnonymity() == MyConstant.comment_anonymity) {
+			model.setUserName("匿名");
+			commentDao.saveComment(model);
+		} else {
+			// 当不匿名时获取评论用户名
+			String name = userDao.get(model.getUserId()).getUserName();
+			model.setUserName(name);
+			commentDao.saveComment(model);
+		}
+		OrdersPo order = ordersDao.get(model.getOrdersId());
+		order.setState(MyConstant.order_comment);
+		ordersDao.update(order);
+		return true;
 	}
 }

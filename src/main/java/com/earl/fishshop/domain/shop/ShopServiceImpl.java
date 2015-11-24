@@ -100,15 +100,20 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 	public void updateShopComment(CommentPo model) {
 		List<CommentPo> list = commentDao.getShopComment(model.getShopId());
 		int i = list.size();
-		ShopPo shop = shopDao.get(model.getShopId());
-		Float newFreshQuality = (shop.getFreshQuality() * (i-1) + model.getFreshQuality())/i;
-		Float newSpeedQuality = (shop.getSpeedQuality() * (i-1) + model.getSpeedQuality())/i;
-		Float newWeightQuality = (shop.getWeightQuality() * (i-1) + model.getWeightQuality())/i;
+		ShopPo shop = shopDao.getShop(model.getShopId());
+		System.out.println(shop.getFreshQuality().getClass() );
+		System.out.println(shop.getFreshQuality() + "-----" + shop.getFreshQuality() * (i-1) );
+		System.out.println(model.getFreshQuality().getClass() );
+		System.out.println(model.getFreshQuality() +  shop.getFreshQuality());
+		Float newFreshQuality = new Float((shop.getFreshQuality() * (i-1) + model.getFreshQuality())/i);
+		Float newSpeedQuality = new Float((shop.getSpeedQuality() * (i-1) + model.getSpeedQuality())/i);
+		Float newWeightQuality = new Float((shop.getWeightQuality() * (i-1) + model.getWeightQuality())/i);
 		shop.setFreshQuality(newFreshQuality);
 		shop.setSpeedQuality(newSpeedQuality);
 		shop.setWeightQuality(newWeightQuality);
+		System.out.println("---------------------------------");
 		shop.setGrade(shop.getGrade() + model.getCommentType());
-		shopDao.update(shop);
+		shopDao.updateShop(shop);
 		
 	}
 
