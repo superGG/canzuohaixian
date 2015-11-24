@@ -123,6 +123,6 @@ public class CategoryDaoImpl extends BaseDaoImpl<CategoryPo> implements Category
 			arrayList.add(object);
 		}
 		categoryPo.setSkuArrayList(arrayList);
-		return null;
+		return categoryPo;
 	}
 }

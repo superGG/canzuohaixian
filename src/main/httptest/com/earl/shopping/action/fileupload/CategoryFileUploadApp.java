@@ -28,7 +28,7 @@ public class CategoryFileUploadApp {
 			
 			Part[] parts = { 
 			 new FilePart("categoryFile.file", targetFile)
-			,new FilePart("categoryFile.file", new File("D:/Favorites/test/宋文光.jpg"))
+//			,new FilePart("categoryFile.file", new File("D:/Favorites/test/宋文光.jpg"))
 			,new StringPart("categorySimpleName", "东星白班鱼","utf-8")
 			,new StringPart("categoryAcademicName", "东星白班鱼","utf-8")
 			,new StringPart("getType", "3","UTF-8")

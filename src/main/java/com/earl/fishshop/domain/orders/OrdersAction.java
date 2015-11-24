@@ -102,6 +102,10 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		resultMessage.setServiceResult(true);
 	}
 	
+	/**
+	 * 得到用户所有订单.
+	 * @author 黄祥谦.
+	 */
 	public void getAllUserOrders(){
 		List<OrdersPo> ordersList = ordersServer.getAllUserOrders(model.getUserId(),pageInfo);
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();

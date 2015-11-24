@@ -53,7 +53,8 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 		orders.setUserName(object.getUserName());
 		orders.setSendAddress(object.getAddress());
 		orders.setPhone(object.getPhone());
-		getOrdersPostage(orders.getOrdersDetail(), object.getProvinceId());
+		Double ordersPostage = getOrdersPostage(orders.getOrdersDetail(), object.getProvinceId());
+		orders.setPostagePrice(ordersPostage);
 		Long ordersId = (Long) getCurrentSession().save(orders);
 		List<OrdersDetailPo> ordersDetail = orders.getOrdersDetail();
 		if(ordersDetail != null){
@@ -65,7 +66,7 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 				}
 				String hql2 = "update CategoryPo set totalSellNumber = totalSellNumber+ :tosell where categoryId =:categoryId";
 				try {
-					getCurrentSession().createQuery(hql).setLong("tosell", ordersDetailPo.getNumber()).setLong("categoryId",ordersDetailPo.getCategoryId()).executeUpdate();
+					getCurrentSession().createQuery(hql2).setLong("tosell", ordersDetailPo.getNumber()).setLong("categoryId",ordersDetailPo.getCategoryId()).executeUpdate();
 				} catch (Exception e) {
 					// TODO: handle exception
 					e.printStackTrace();
