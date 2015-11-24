@@ -76,4 +76,11 @@ public interface OrdersDao extends BaseDao<OrdersPo>{
 	 */
 	Double getOrdersPostage(List<OrdersDetailPo> ordersDetail, Long provinceId);
 
+	/**
+	 * 更新订单.
+	 *@author 宋文光.
+	 * @param order
+	 */
+	void updateOrder(OrdersPo order);
+
 }

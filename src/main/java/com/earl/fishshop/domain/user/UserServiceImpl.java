@@ -157,26 +157,14 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	public ResultMessage smsCodefindPassWord(String userPhone) throws Exception {
 		ResultMessage rs = new ResultMessage();
 		verifyServiceUtil = new VerifyServiceUtil();
-		
 		if (userPhone != null) {
 			List<UserPo> userList = userDao.getUserByPhone(userPhone);
 			if (userList.size() != 0) {
 				rs = verifyServiceUtil.sendMobileVerifyCode(userPhone);
-				rs.setResultInfo("已发送验证码");
 			} else {
 				rs.setResultInfo("该手机无注册用户");
 				rs.setServiceResult(false);
 			}
-			// }
-			// else if (userName != null ){
-			// List<UserPo> userList = userDao.getUserByName(userName);
-			// //通过用户名查询用户返回用户名手机号且发送短信到该手机号
-			// if(userList.size() != 0) {
-			// rs = sendMobileVerifyCode(userList.get(0).getPhoneNumber());
-			// } else {
-			// rs.setResultInfo("无此用户");
-			// rs.setServiceResult(false);
-			// }
 		} else {
 			rs.setResultInfo("验证失败");
 			rs.setServiceResult(false);
@@ -192,16 +180,15 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	 * @return
 	 * @throws Exception
 	 */
-	public ResultMessage smsCodeOfRegister(String userPhone) throws Exception {
+	public ResultMessage smsCodeOfRegister(UserPo model) throws Exception {
 		ResultMessage rs = new ResultMessage();
 		verifyServiceUtil = new VerifyServiceUtil();
 		
-		if (userPhone != null) {
+		if (model.getPhoneNumber() != null) {
 			//检测注册手机是否被注册
-			List<UserPo> userList = userDao.getUserByPhone(userPhone);
+			List<UserPo> userList = userDao.getUserByPhone(model.getPhoneNumber());
 			if (userList.size() == 0) {
-				rs = verifyServiceUtil.sendMobileVerifyCode(userPhone);
-				rs.setResultInfo("已发送验证码");
+				rs = verifyServiceUtil.sendMobileVerifyCode(model.getPhoneNumber());
 			} else {
 				rs.setResultInfo("该手机已被注册");
 				rs.setServiceResult(false);

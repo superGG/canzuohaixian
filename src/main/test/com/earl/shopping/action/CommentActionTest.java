@@ -44,6 +44,7 @@ public class CommentActionTest extends StrutsSpringTestCase {
 //
 		request.addParameter("userId", "1");
 		request.addParameter("shopId", "3");
+		request.addParameter("ordersId", "3");
 		request.addParameter("commentType", "0");
 		request.addParameter("content", "不错。我只是来测试而已");
 		request.addParameter("weightQuality", "3");

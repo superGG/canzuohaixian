@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.domain.base.BaseAction;
 import com.earl.fishshop.domain.shop.ShopPo;
+import com.earl.fishshop.domain.verifycode.VerifyCodePo;
 import com.earl.fishshop.util.VerifyServiceUtil;
 import com.earl.fishshop.vo.ResultMessage;
 import com.earl.fishshop.vo.UserFileVo;
@@ -37,6 +38,16 @@ public class UserAction extends BaseAction<UserPo> {
 	
 	private UserFileVo userFileVo;
 	
+	private VerifyCodePo verifyCodePo;
+	
+	public VerifyCodePo getVerifyCodePo() {
+		return verifyCodePo;
+	}
+
+	public void setVerifyCodePo(VerifyCodePo verifyCodePo) {
+		this.verifyCodePo = verifyCodePo;
+	}
+
 	public UserFileVo getUserFileVo() {
 		return userFileVo;
 	}
@@ -50,6 +61,11 @@ public class UserAction extends BaseAction<UserPo> {
 	 */
 	private String verifyCode; 
 	
+	
+	public String getVerifyCode() {
+		return verifyCode;
+	}
+
 	public void setVerifyCode(String verifyCode) {
 		this.verifyCode = verifyCode;
 	}
@@ -70,7 +86,7 @@ public class UserAction extends BaseAction<UserPo> {
 		verifyServiceUtil =  new VerifyServiceUtil();
 		resultMessage = new ResultMessage();
 		
-    	String SmsVf = (String) session.get("smsVerifyCode");
+		String SmsVf = verifyCodeServer.getVerifyCode(model.getPhoneNumber());
     	Boolean result = verifyServiceUtil.confirmImgVerifyCode(SmsVf , verifyCode);
 		if (result) {
 			Boolean save = userServer.rigisterUser(model);
@@ -135,6 +151,7 @@ public class UserAction extends BaseAction<UserPo> {
 		List<UserPo> userlist = userServer.findByGivenCreteria(model);
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("userlist", userlist);
+		hashMap.put("number", userlist.size());
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 	}
@@ -148,18 +165,18 @@ public class UserAction extends BaseAction<UserPo> {
 		resultMessage = userServer.userLogin(model);
 	}
 
-	/**
-	 * 获取所有用户数量.
-	 * 
-	 * @author 宋文光
-	 */
-	public void findAllUserNumber() {
-		List<UserPo> userList = userServer.findAll();
-		String userNamber = String.valueOf(userList.size());
-		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(true);
-		resultMessage.setResultInfo(userNamber);
-	}
+//	/**
+//	 * 获取所有用户数量.
+//	 * 
+//	 * @author 宋文光
+//	 */
+//	public void findAllUserNumber() {
+//		List<UserPo> userList = userServer.findAll();
+//		String userNamber = String.valueOf(userList.size());
+//		resultMessage = new ResultMessage();
+//		resultMessage.setServiceResult(true);
+//		resultMessage.setResultInfo(userNamber);
+//	}
 
 	/**
 	 * 得到我的商店信息.
@@ -210,8 +227,15 @@ public class UserAction extends BaseAction<UserPo> {
      * @throws java.lang.Exception 
      */
     public final void smsCodeOfRegister() throws java.lang.Exception {
-    	resultMessage = userServer.smsCodeOfRegister(model.getPhoneNumber());
-    	session.put("smsVerifyCode", resultMessage.getResultInfo());
+    	resultMessage = userServer.smsCodeOfRegister(model);
+    	System.out.println("验证码："+ resultMessage.getResultInfo());
+    	if (resultMessage.getServiceResult()) {
+    		verifyCodePo = new VerifyCodePo();
+    		verifyCodePo.setVerifyCode(resultMessage.getResultInfo());
+    		verifyCodePo.setPhoneNumber(model.getPhoneNumber());
+    		verifyCodeServer.saveVerifyCode(verifyCodePo);
+    		resultMessage.setResultInfo("发送成功");
+    	} 
     }
     
     /**
@@ -222,7 +246,14 @@ public class UserAction extends BaseAction<UserPo> {
      */
     public final void smsCodeOfFound() throws java.lang.Exception  {
     	resultMessage = userServer.smsCodefindPassWord(model.getPhoneNumber());
-    	session.put("smsVerifyCode", resultMessage.getResultInfo());
+    	System.out.println("验证码："+ resultMessage.getResultInfo());
+    	if (resultMessage.getServiceResult()) {
+    		verifyCodePo = new VerifyCodePo();
+    		verifyCodePo.setVerifyCode(resultMessage.getResultInfo());
+    		verifyCodePo.setPhoneNumber(model.getPhoneNumber());
+    		verifyCodeServer.saveVerifyCode(verifyCodePo);
+    		resultMessage.setResultInfo("发送成功");
+    	} 
     }
     
     /**
@@ -232,7 +263,8 @@ public class UserAction extends BaseAction<UserPo> {
     public void confirmSmsVerifyCode() {
     	verifyServiceUtil =  new VerifyServiceUtil();
     	resultMessage = new ResultMessage();
-    	String SmsVf = (String) session.get("smsVerifyCode");
+//    	String SmsVf = (String) session.get("smsVerifyCode");
+    	String SmsVf = verifyCodeServer.getVerifyCode(model.getPhoneNumber());
     	Boolean result = verifyServiceUtil.confirmImgVerifyCode(SmsVf , verifyCode);
     	if ( result ) {
     		resultMessage.setServiceResult(result);

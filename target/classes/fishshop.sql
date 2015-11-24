@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-11-24 18:36:33
+Date: 2015-11-24 19:29:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -83,7 +83,7 @@ CREATE TABLE `comment` (
   `commentId` bigint(20) NOT NULL AUTO_INCREMENT,
   `shopId` bigint(20) DEFAULT NULL,
   `userId` bigint(20) DEFAULT NULL,
-  `userName` varchar(255) DEFAULT NULL,
+  `phoneNumber` varchar(255) DEFAULT NULL,
   `ordersId` bigint(20) DEFAULT NULL,
   `commentType` int(11) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
@@ -101,13 +101,13 @@ CREATE TABLE `comment` (
 -- ----------------------------
 -- Records of comment
 -- ----------------------------
-INSERT INTO `comment` VALUES ('1', '1', '1', '易临风', '1', '1', '很好很满意', '0', '4', '5', '5', '2015-11-17 11:17:58', null, null, null);
-INSERT INTO `comment` VALUES ('2', '1', '1', '易临风', '2', '1', '很好很满意', '0', '3', '3.8', '5', '2015-11-17 11:17:58', null, null, null);
-INSERT INTO `comment` VALUES ('3', '1', '2', '易临风', '3', '1', '很好很满意', '0', '4', '4.2', '5', '2015-11-17 11:17:58', null, null, null);
-INSERT INTO `comment` VALUES ('4', '2', '2', '易临风', '4', '0', '很好很满意', '0', '5', '5', '3.3', '2015-11-17 11:17:58', null, null, null);
-INSERT INTO `comment` VALUES ('5', '2', '3', '易临风', '5', '0', '很好很满意', '1', '2', '5', '4.4', '2015-11-17 11:17:58', null, null, null);
-INSERT INTO `comment` VALUES ('6', '3', '1', '易临风', '6', '-1', '很好很满意', '1', '1', '5', '5', '2015-11-17 11:17:58', null, null, null);
-INSERT INTO `comment` VALUES ('7', '3', '3', '易临风', '7', '-1', '很好很满意', '1', '4', '5', '5', '2015-11-17 11:17:58', null, null, null);
+INSERT INTO `comment` VALUES ('1', '1', '1', '18320489492', '1', '1', '很好很满意', '0', '4', '5', '5', '2015-11-17 11:17:58', null, null, null);
+INSERT INTO `comment` VALUES ('2', '1', '1', '18320489492临风', '2', '1', '很好很满意', '0', '3', '3.8', '5', '2015-11-17 11:17:58', null, null, null);
+INSERT INTO `comment` VALUES ('3', '1', '2', '18320489492', '3', '1', '很好很满意', '0', '4', '4.2', '5', '2015-11-17 11:17:58', null, null, null);
+INSERT INTO `comment` VALUES ('4', '2', '2', '18320489492', '4', '0', '很好很满意', '0', '5', '5', '3.3', '2015-11-17 11:17:58', null, null, null);
+INSERT INTO `comment` VALUES ('5', '2', '3', '匿名', '5', '0', '很好很满意', '1', '2', '5', '4.4', '2015-11-17 11:17:58', null, null, null);
+INSERT INTO `comment` VALUES ('6', '3', '1', '匿名', '6', '-1', '很好很满意', '1', '1', '5', '5', '2015-11-17 11:17:58', null, null, null);
+INSERT INTO `comment` VALUES ('7', '3', '3', '匿名', '7', '-1', '很好很满意', '1', '4', '5', '5', '2015-11-17 11:17:58', null, null, null);
 
 -- ----------------------------
 -- Table structure for `farmers`
@@ -193,7 +193,7 @@ CREATE TABLE `getaddress` (
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
   PRIMARY KEY (`getAddressId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of getaddress
@@ -201,6 +201,7 @@ CREATE TABLE `getaddress` (
 INSERT INTO `getaddress` VALUES ('1', '4', 'yilinfeng', '广东海洋大学', '18719425973', '524000', '1', '2015-11-24 10:57:48', null, '', '1');
 INSERT INTO `getaddress` VALUES ('2', '4', 'yilinfeng22', '广东海洋大', '345', '34234', '1', '2015-11-24 18:33:44', null, '', '1');
 INSERT INTO `getaddress` VALUES ('3', '4', 'ImissYou', '湛江市麻章区', '16345', '435', '1', '2015-11-24 18:34:14', null, '', '1');
+INSERT INTO `getaddress` VALUES ('14', '4', '詹纪勋', '广东海洋大学', '18312687412', '525438', null, '2015-11-24 19:07:27', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `gettype`
@@ -287,6 +288,7 @@ CREATE TABLE `orders` (
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
+INSERT INTO `orders` VALUES ('11111110', '1', '1', '5', '30.5', '3', 'yilinfeng', '海格号', '广东省湛江市广东海洋大学', '易临风', '18719425973', '123456789', '20', '5.5', '2015-11-16 22:14:31', null, null, '1');
 INSERT INTO `orders` VALUES ('11111120', '1', '1', '5', '30.5', '1', 'yilinfeng', '海格hao', '广东海洋大学', 'yilinfeng', '18719425973', null, null, '80', '2015-11-24 11:25:52', null, '', '1');
 
 -- ----------------------------
@@ -422,8 +424,8 @@ CREATE TABLE `shop` (
 -- ----------------------------
 -- Records of shop
 -- ----------------------------
-INSERT INTO `shop` VALUES ('1', '1', '海格号', '[2,3,4]', '5', null, null, null, '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
-INSERT INTO `shop` VALUES ('2', '2', '泰坦尼克号', '[4]', '5', null, null, null, '1', '40.5', '', null, null, '广东海洋大学', '1', '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
+INSERT INTO `shop` VALUES ('1', '1', '海格号', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
+INSERT INTO `shop` VALUES ('2', '2', '泰坦尼克号', '[4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', '1', '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
 INSERT INTO `shop` VALUES ('3', '1', '海格号', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
 
 -- ----------------------------
@@ -499,4 +501,23 @@ CREATE TABLE `user` (
 INSERT INTO `user` VALUES ('1', '2', '1', '2', '易临风', '798555920', '18719425973', 'user/bbb.jpg', '2015-11-05 11:12:04', null, '', '1');
 INSERT INTO `user` VALUES ('2', '1', '1', '1', 'Imissyou', '798555920', '18320489492', 'user/bbb.jpg', '2015-11-05 11:12:04', null, '', '1');
 INSERT INTO `user` VALUES ('3', '2', '1', '1', '', '798555920', '18765432104', 'user/aaa.jpg', '2015-11-15 09:54:21', null, '', '1');
-INSERT INTO `user` VALUES ('4', '2', '2', '2', null, '328499605', '18312687412', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1');
+INSERT INTO `user` VALUES ('4', '2', '2', '2', '詹命天子', '328499605', '18312687412', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1');
+
+-- ----------------------------
+-- Table structure for `verifycode`
+-- ----------------------------
+DROP TABLE IF EXISTS `verifycode`;
+CREATE TABLE `verifycode` (
+  `verifycodeId` bigint(20) NOT NULL AUTO_INCREMENT,
+  `verifyCode` varchar(255) DEFAULT NULL,
+  `phoneNumber` varchar(255) DEFAULT NULL,
+  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `creatorId` bigint(20) DEFAULT NULL,
+  `isDelete` bit(1) DEFAULT b'0',
+  `version` bigint(20) DEFAULT '1',
+  PRIMARY KEY (`verifycodeId`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of verifycode
+-- ----------------------------

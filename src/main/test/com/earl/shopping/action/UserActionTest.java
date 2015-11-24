@@ -57,7 +57,7 @@ public class UserActionTest extends StrutsSpringTestCase {
 	
 	@Test
 	public void testSmsCodeOfRegister() throws Exception{
-		 request.addParameter("phoneNumber", "18719425973");
+		 request.addParameter("phoneNumber", "18320489492");
 	     String res=executeAction("/user_smsCodeOfRegister.action");  
 	     System.out.println(res);
 	}
@@ -69,5 +69,23 @@ public class UserActionTest extends StrutsSpringTestCase {
 	     System.out.println(res);
 	}
 	
+	@Test
+	public void testConfirmSmsVerifyCode() throws Exception{
+		 request.addParameter("phoneNumber", "18320489492");
+		 request.addParameter("verifyCode", "656363");
+		 
+	     String res=executeAction("/user_confirmSmsVerifyCode.action");  
+	     System.out.println(res);
+	}
+	
+	@Test
+	public void testAddUser() throws Exception{
+		 request.addParameter("phoneNumber", "18320489491");
+		 request.addParameter("password", "18320489492");
+		 request.addParameter("verifyCode", "656363");
+		 
+	     String res=executeAction("/user_addUser.action");  
+	     System.out.println(res);
+	}
 
 }

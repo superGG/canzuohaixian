@@ -58,11 +58,11 @@ public interface UserService extends BaseService<UserPo>{
 	/**
 	 * 注册时发验证码到指定手机.
 	 *@author 宋文光.
-	 * @param phoneNumber
+	 * @param model
 	 * @return
 	 * @throws Exception 
 	 */
-	ResultMessage smsCodeOfRegister(String phoneNumber) throws Exception;
+	ResultMessage smsCodeOfRegister(UserPo model) throws Exception;
 
 	/**
 	 * 找回密码时发验证码到指定手机.

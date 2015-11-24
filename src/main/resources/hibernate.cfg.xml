@@ -57,17 +57,12 @@
 	<mapping resource="com/earl/fishshop/domain/sku/SkuPo.hbm.xml" />
 	<mapping resource="com/earl/fishshop/domain/unit/UnitPo.hbm.xml" />
 	<mapping resource="com/earl/fishshop/domain/user/UserPo.hbm.xml" />
-	<mapping
-		resource="com/earl/fishshop/domain/gettype/GetTypePo.hbm.xml" />
-	<mapping
-		resource="com/earl/fishshop/domain/getaddress/GetAddressPo.hbm.xml" />
-	<mapping
-		resource="com/earl/fishshop/domain/checkout/CheckoutPo.hbm.xml" />
-	<mapping
-		resource="com/earl/fishshop/domain/shipport/ShipPortPo.hbm.xml" />
-	<mapping
-		resource="com/earl/fishshop/domain/ordersdetail/OrdersDetailPo.hbm.xml" />
-	<mapping
-		resource="com/earl/fishshop/domain/postage/PostagePo.hbm.xml" />
+	<mapping resource="com/earl/fishshop/domain/gettype/GetTypePo.hbm.xml" />
+	<mapping resource="com/earl/fishshop/domain/getaddress/GetAddressPo.hbm.xml" />
+	<mapping resource="com/earl/fishshop/domain/checkout/CheckoutPo.hbm.xml" />
+	<mapping resource="com/earl/fishshop/domain/shipport/ShipPortPo.hbm.xml" />
+	<mapping resource="com/earl/fishshop/domain/ordersdetail/OrdersDetailPo.hbm.xml" />
+	<mapping resource="com/earl/fishshop/domain/verifycode/VerifyCodePo.hbm.xml" />
+	<mapping resource="com/earl/fishshop/domain/postage/PostagePo.hbm.xml" />
 </session-factory>
 </hibernate-configuration>

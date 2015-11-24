@@ -27,6 +27,7 @@ import com.earl.fishshop.domain.shop.ShopService;
 import com.earl.fishshop.domain.sku.SkuService;
 import com.earl.fishshop.domain.unit.UnitService;
 import com.earl.fishshop.domain.user.UserService;
+import com.earl.fishshop.domain.verifycode.VerifyCodeService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -79,6 +80,8 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	protected GetAddressService getAddressServer;
 	@Resource 
 	protected OrdersDetailService ordersDetailServer;
+	@Resource
+	protected VerifyCodeService verifyCodeServer;
 	
 //	protected PageInfo pageInfo = new PageInfo();
 //

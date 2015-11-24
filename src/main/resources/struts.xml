@@ -73,7 +73,7 @@
 		<action name="user_*" class="userAction"
 			method="{1}">
 		</action>
-		<action name="verify_*" class="verifyAction"
+		<action name="verifycode_*" class="verifyCodeAction"
 			method="{1}">
 		</action>
 		<action name="getaddress_*" class="getAddressAction"
