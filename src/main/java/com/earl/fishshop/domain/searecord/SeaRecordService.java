@@ -1,6 +1,6 @@
 package com.earl.fishshop.domain.searecord;
 
-import com.earl.fishshop.base.BaseService;
+import com.earl.fishshop.domain.base.BaseService;
 
 public interface SeaRecordService extends BaseService<SeaRecordPo>{
 

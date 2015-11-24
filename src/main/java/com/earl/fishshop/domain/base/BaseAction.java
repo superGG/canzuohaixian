@@ -1,4 +1,4 @@
-package com.earl.fishshop.base;
+package com.earl.fishshop.domain.base;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.Map;

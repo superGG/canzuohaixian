@@ -3,7 +3,7 @@ package com.earl.fishshop.domain.unit;
 
 import org.springframework.stereotype.Repository;
 
-import com.earl.fishshop.base.BaseDaoImpl;
+import com.earl.fishshop.domain.base.BaseDaoImpl;
 
 
 /**

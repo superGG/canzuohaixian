@@ -1,6 +1,6 @@
 package com.earl.fishshop.domain.checkout;
 
-import com.earl.fishshop.base.BaseService;
+import com.earl.fishshop.domain.base.BaseService;
 
 public interface CheckoutService extends BaseService<CheckoutPo>{
 

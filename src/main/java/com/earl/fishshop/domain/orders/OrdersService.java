@@ -2,7 +2,7 @@ package com.earl.fishshop.domain.orders;
 
 import java.util.List;
 
-import com.earl.fishshop.base.BaseService;
+import com.earl.fishshop.domain.base.BaseService;
 import com.earl.fishshop.vo.PageInfo;
 import com.pingplusplus.model.Charge;
 

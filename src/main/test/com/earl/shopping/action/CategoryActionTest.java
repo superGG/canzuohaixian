@@ -61,7 +61,7 @@ public class CategoryActionTest extends StrutsSpringTestCase {
 			ServletException {
 		request.addParameter("categoryId", "1"); // 鱼类
 		request.addParameter("pageInfo.indexPageNum", "1");
-		request.addParameter("pageInfo.size", "1");
+		request.addParameter("pageInfo.size", "1"); 
 		String res = executeAction("/category_getNextLevelCategory.action");
 
 		System.out.println(res);

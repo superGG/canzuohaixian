@@ -485,5 +485,3 @@ CREATE TABLE `postage` (
   PRIMARY KEY (`postageId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-

@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.FileOutputStream;
 import java.util.Random;
 
-import com.earl.fishshop.base.BaseServiceImpl;
+import com.earl.fishshop.domain.base.BaseServiceImpl;
 import com.earl.fishshop.domain.user.UserPo;
 import com.earl.fishshop.vo.ResultMessage;
 import com.earl.util.SmsbaoHelper;

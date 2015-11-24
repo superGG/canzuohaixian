@@ -1,22 +1,25 @@
-package com.earl.shopping.action.fileupload;
+package com.earl.shopping.action;
 
 import java.io.File;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.PostMethod;
-import org.apache.commons.httpclient.methods.multipart.FilePart;
 import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
 import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
 import org.apache.commons.httpclient.params.HttpMethodParams;
+import org.junit.Test;
 
-public class CategoryFileUploadApp {
+public class HttpCategoryActionTest {
 
+	@SuppressWarnings("unused")
 	private File targetFile;
 
-	public void dod() {
-		String targetURL = "http://192.168.1.107:8080/fishshop/category_addCategory.action";
+
+	@Test
+	public void testGetGoodsShops(){
+		String targetURL = "http://192.168.1.107:8080/fishshop/category_getGoodsShops.action";
 		targetFile = new File(
 				"C:/Users/Administrator/Desktop/SpringMVC.jpg.png");
 
@@ -25,17 +28,12 @@ public class CategoryFileUploadApp {
 		// filePost.getParams().setBooleanParameter(HttpMethodParams.USE_EXPECT_CONTINUE,
 		// cbxExpectHeader.isSelected());
 		try {
-			
 			Part[] parts = { 
-			 new FilePart("categoryFile.file", targetFile)
-			,new FilePart("categoryFile.file", new File("D:/Favorites/test/宋文光.jpg"))
-			,new StringPart("categorySimpleName", "东星白班鱼","utf-8")
-			,new StringPart("categoryAcademicName", "东星白班鱼","utf-8")
-			,new StringPart("getType", "3","UTF-8")
-			,new StringPart("categoryEnglishName", "东星白班鱼","utf-8")
-			,new StringPart("parentId", "","utf-8")
-			,new StringPart("unit", "1","utf-8")
-			,new StringPart("totalSellNumber", "9","utf-8")
+//			 new FilePart("categoryFile.file", targetFile)
+//			,new FilePart("categoryFile.file", new File("D:/Favorites/test/宋文光.jpg"))
+			new StringPart("categoryId", "7","utf-8")
+			,new StringPart("pageInfo.indexPageNum", "1","utf-8")
+			,new StringPart("pageInfo.size", "3","UTF-8")
 			// new FilePart(targetFile.getName(), targetFile)
 			};
 			HttpMethodParams params = filePost.getParams();
@@ -56,9 +54,9 @@ public class CategoryFileUploadApp {
 			filePost.releaseConnection();
 		}
 	}
-
-	public static void main(String[] args) {
-		new CategoryFileUploadApp().dod();
-	}
+	
+//	public static void main(String[] args) {
+//		new CategoryActionTest().dod();
+//	}
 
 }

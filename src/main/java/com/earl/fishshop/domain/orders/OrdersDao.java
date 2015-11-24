@@ -2,7 +2,7 @@ package com.earl.fishshop.domain.orders;
 
 import java.util.List;
 
-import com.earl.fishshop.base.BaseDao;
+import com.earl.fishshop.domain.base.BaseDao;
 import com.earl.fishshop.domain.ordersdetail.OrdersDetailPo;
 import com.earl.fishshop.vo.PageInfo;
 

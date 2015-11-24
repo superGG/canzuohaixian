@@ -2,7 +2,7 @@ package com.earl.fishshop.domain.shop;
 
 import java.util.Map;
 
-import com.earl.fishshop.base.BaseService;
+import com.earl.fishshop.domain.base.BaseService;
 import com.earl.fishshop.domain.comment.CommentPo;
 
 public interface ShopService extends BaseService<ShopPo>{

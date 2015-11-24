@@ -7,7 +7,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 
-import com.earl.fishshop.base.BaseDaoImpl;
+import com.earl.fishshop.domain.base.BaseDaoImpl;
 import com.earl.fishshop.domain.getaddress.GetAddressPo;
 import com.earl.fishshop.domain.ordersdetail.OrdersDetailPo;
 import com.earl.fishshop.domain.postage.PostagePo;

@@ -2,7 +2,7 @@ package com.earl.fishshop.domain.shop;
 
 import java.util.List;
 
-import com.earl.fishshop.base.BaseDao;
+import com.earl.fishshop.domain.base.BaseDao;
 import com.earl.fishshop.vo.PageInfo;
 
 public interface ShopDao extends BaseDao<ShopPo>{

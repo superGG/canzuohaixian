@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.earl.fishshop.base.BaseServiceImpl;
+import com.earl.fishshop.domain.base.BaseServiceImpl;
 import com.earl.fishshop.domain.searecord.SeaRecordPo;
 import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.domain.user.UserPo;
@@ -17,6 +17,7 @@ import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.vo.CategoryFileVo;
 import com.earl.fishshop.vo.PageInfo;
 import com.earl.util.FileUploadImpl;
+import com.earl.util.FilterPropertiesUtil;
 
 /**
  * 每个ServiceImpl都要继承相对应的service接口
@@ -55,6 +56,14 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 	public List<CategoryPo> getNextLevelCategory(Long parentId, PageInfo pageInfo) {
 		List<CategoryPo> nextLevelCategory = categoryDao
 				.getNextLevelCategory(parentId, pageInfo);
+		for (CategoryPo categoryPo : nextLevelCategory) {
+			try {
+				FilterPropertiesUtil.filterProperties(categoryPo, CategoryForNextLevel.class);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
 		return nextLevelCategory;
 	}
 

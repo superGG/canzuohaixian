@@ -11,14 +11,18 @@ import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 
-public class CategoryFileUploadApp {
-
+/**
+ * @author 黄祥谦.
+ * @date:2015-11-23 下午9:45:48
+ * @version :
+ */
+public class xxxFileUploadApp {
 	private File targetFile;
 
 	public void dod() {
-		String targetURL = "http://192.168.1.107:8080/fishshop/category_addCategory.action";
+		String targetURL = "http://localhost:8080/fishshop/category_addCategory.action";
 		targetFile = new File(
-				"C:/Users/Administrator/Desktop/SpringMVC.jpg.png");
+				"D:/Favorites/test/test.jpg");
 
 		PostMethod filePost = new PostMethod(targetURL);
 
@@ -28,7 +32,7 @@ public class CategoryFileUploadApp {
 			
 			Part[] parts = { 
 			 new FilePart("categoryFile.file", targetFile)
-			,new FilePart("categoryFile.file", new File("D:/Favorites/test/宋文光.jpg"))
+			,new FilePart("categoryFile.file", new File("C:/Users/Administrator/Desktop/struts2流程图.png"))
 			,new StringPart("categorySimpleName", "东星白班鱼","utf-8")
 			,new StringPart("categoryAcademicName", "东星白班鱼","utf-8")
 			,new StringPart("getType", "3","UTF-8")
@@ -60,5 +64,4 @@ public class CategoryFileUploadApp {
 	public static void main(String[] args) {
 		new CategoryFileUploadApp().dod();
 	}
-
 }

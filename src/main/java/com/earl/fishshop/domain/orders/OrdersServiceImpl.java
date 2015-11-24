@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.earl.fishshop.base.BaseServiceImpl;
+import com.earl.fishshop.domain.base.BaseServiceImpl;
 import com.earl.fishshop.domain.ordersdetail.OrdersDetailPo;
 import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.vo.PageInfo;

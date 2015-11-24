@@ -2,7 +2,7 @@ package com.earl.fishshop.domain.shipport;
 
 import org.springframework.stereotype.Repository;
 
-import com.earl.fishshop.base.BaseDaoImpl;
+import com.earl.fishshop.domain.base.BaseDaoImpl;
 
 
 /**
