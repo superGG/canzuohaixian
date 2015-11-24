@@ -13,7 +13,6 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import com.earl.fishshop.helper.JsonHelper;
-import com.earl.fishshop.helper.ValidateHelper;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
@@ -73,7 +72,8 @@ public class JsonToJavaBeanInterceptor extends AbstractInterceptor {
                     tempJson = (Object[]) parm.get(key);
                     if (tempJson[0] != null) {
                     	Object jsonBean = JsonHelper.jsonToBean(tempJson[0].toString(), fieldClass);
-                        validataResult = ValidateHelper.vaildateBean(jsonBean);
+                    	//直接使用field注入，下面方法需要get,set方法，所有报错.
+//                        validataResult = ValidateHelper.vaildateBean(jsonBean);
                         if (validataResult) {
                         	declaredField.setAccessible(true);
                         	declaredField.set(invocation.getAction(), jsonBean);

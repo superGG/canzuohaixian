@@ -18,6 +18,7 @@
         <property name="password" type="java.lang.String" column="password" />
         <property name="phoneNumber" type="java.lang.String" column="phoneNumber" />
         <property name="headImage" type="java.lang.String" column="headImage" />
+        <property name="getAddressId" type="java.lang.Long" column="getAddressId" />
         <property name="createTime" type="java.util.Date" column="createTime" />
         <property name="creatorId" type="java.lang.Long" column="creatorId" />
         <property name="isDelete" type="java.lang.Boolean" column="isDelete" />

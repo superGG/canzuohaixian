@@ -11,6 +11,8 @@ import java.util.regex.Pattern;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import com.sun.tools.javac.util.Log;
+
 /**
  * 数据验证操作工具类.
  * 
@@ -186,6 +188,7 @@ public final class ValidateHelper {
                             && !"null".equals(methodResult)) {
                         fieldName = methodName.substring(LENGTH_OF_STRING_GET,
                                 methodName.length());
+                        logger.info(fieldName);
                         char[] fieldNameArr = fieldName.toCharArray();
                         fieldNameArr[0] = Character
                                 .toLowerCase(fieldNameArr[0]);

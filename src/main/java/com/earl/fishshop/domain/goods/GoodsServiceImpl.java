@@ -66,6 +66,9 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 	@Override
 	public List<GoodsPo> getShopAllGoods(Long shopId, PageInfo pageInfo) {
 		List<GoodsPo> goodsList = goodsDao.getShopAllGoods(shopId, pageInfo);
+		for (GoodsPo goodsPo : goodsList) {
+			goodsPo.setSkuString(skuDao.get(goodsPo.getSku()).getSkuName());
+		}
 		return goodsList;
 	}
 

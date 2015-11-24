@@ -121,6 +121,19 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		resultMessage.setResultParm(hashMap);
 	}
 	
+	public void getAllNextLevelCategory(){
+		List<CategoryPo> categoryList = categoryServer.getAllNextLevelCategory();
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("categoryList", categoryList);
+		resultMessage = new ResultMessage();
+		if(categoryList.size() != 0){
+			resultMessage.setServiceResult(true);
+		}else{
+			resultMessage.setServiceResult(false);
+		}
+		resultMessage.setResultParm(hashMap);
+	}
+	
 	/**
 	 * 得到指定类别的下一级类别.
 	 * @author 黄祥谦.

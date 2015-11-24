@@ -53,6 +53,8 @@ public class OrdersPo{
 	
 	private Double postagePrice;
 	
+	private Integer sordersNumber;
+	
 	/**
 	 * 订单编号.
 	 */
@@ -89,6 +91,12 @@ public class OrdersPo{
 	 */
 	private Long version ;
 	
+	public Integer getSordersNumber() {
+		return sordersNumber;
+	}
+	public void setSordersNumber(Integer sordersNumber) {
+		this.sordersNumber = sordersNumber;
+	}
 	public Double getPostagePrice() {
 		return postagePrice;
 	}

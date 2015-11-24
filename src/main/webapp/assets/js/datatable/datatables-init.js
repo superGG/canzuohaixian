@@ -183,7 +183,7 @@ var InitiateGCCDataTable = function () {
             function fnFormatDetails(oTable, nTr) {
                 var aData = oTable.fnGetData(nTr);
                 var sOut = '<table>';
-                sOut += '<tr><td rowspan="5" style="padding:0 10px 0 0;"><div style="width:150px;height:150px; "><img src="assets/img/avatars/' + aData[4] + '"/ style="max-width:100%;"></div></td><td>类别ID:</td><td>' + aData[1] + '</td></tr>';
+                sOut += '<tr><td rowspan="5" style="padding:0 10px 0 0;"><div style="width:150px;height:150px; "><img src="' + aData[4] + '"/ style="max-width:100%;"></div></td><td>类别ID:</td><td>' + aData[1] + '</td></tr>';
                 sOut += '<tr><td>类别名:</td><td>' + aData[2] + '</td></tr>';
                 sOut += '<tr><td>创建时间:</td><td>' + aData[3] + '</td></tr>';
                 // sOut += '<tr><td>Positon:</td><td>' + aData[4] + '</td></tr>';
@@ -267,7 +267,7 @@ var InitiateGCLDataTable = function () {
             function fnFormatDetails(oTable, nTr) {
                 var aData = oTable.fnGetData(nTr);
                 var sOut = '<table>';
-                sOut += '<tr><td rowspan="5" style="padding:0 10px 0 0;"><div style="width:150px;height:150px; "><img src="assets/img/avatars/' + aData[8] + '"/ style="max-width:100%;"></div></td><td>类别ID:</td><td>' + aData[1] + '</td><td>   父类别ID:</td><td>' + aData[5] + '</td></tr>';
+                sOut += '<tr><td rowspan="5" style="padding:0 10px 0 0;"><div style="width:150px;height:150px; "><img src="' + aData[8] + '"/ style="max-width:100%;"></div></td><td>类别ID:</td><td>' + aData[1] + '</td><td>   父类别ID:</td><td>' + aData[5] + '</td></tr>';
                 sOut += '<tr><td>俗名:</td><td>' + aData[2] + '</td><td>  </td><td>计价单位:</td><td>' + aData[6] + '</td><td>  </td><td>规格2:</td><td>'+ aData[10] +'</td><td>  </td><td>规格5:</td><td>'+ aData[13] +'</td></tr>';
                 sOut += '<tr><td>学名:</td><td>' + aData[3] + '</td><td>  </td><td>创建时间:</td><td>' + aData[7] + '</td><td>  </td><td>规格3:</td><td>'+ aData[11] +'</td></tr>';
                 sOut += '<tr><td>英文名:</td><td>' + aData[4] + '</td><td>  </td><td>规格1:</td><td>'+ aData[9] +'</td><td>  </td><td>规格4:</td><td>'+ aData[12] +'</td></tr>';

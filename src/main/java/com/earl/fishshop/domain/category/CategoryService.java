@@ -96,4 +96,11 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	 */
 	Boolean updateCategory(CategoryPo model, CategoryFileVo categoryFile);
 
+	/**
+	 * 
+	 * @author 黄祥谦.
+	 * @return
+	 */
+	List<CategoryPo> getAllNextLevelCategory();
+
 }

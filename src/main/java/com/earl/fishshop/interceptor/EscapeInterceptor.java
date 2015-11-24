@@ -53,7 +53,7 @@ public class EscapeInterceptor extends AbstractInterceptor {
 //        String header = request.getHeader("Content-Type");
         String header = request.getHeader("Charset");
         if(header != null){
-        	logger.info("header Charset:" + header);
+        	logger.debug("header Charset:" + header);
         }
         //不是form表单，并且没有指定utf-8
 //        if(header == null || (header != null && !((header.indexOf("utf-8") == -1 || header.indexOf("UTF-8") == -1 )&& header.indexOf("multipart/form-data") == -1))){

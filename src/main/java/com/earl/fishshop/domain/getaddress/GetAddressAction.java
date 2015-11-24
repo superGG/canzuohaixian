@@ -40,10 +40,17 @@ public class GetAddressAction extends BaseAction<GetAddressPo> {
 	 * @author 黄祥谦.
 	 */
 	public void addGetAddress() {
-		Boolean save = getAddressServer.save(model);
+		Boolean save = getAddressServer.addGetAddress(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setResultInfo("添加成功");
 		resultMessage.setServiceResult(save);
+	}
+	
+	public void updateUserAddress(){
+		Boolean success = getAddressServer.updateUserAddress(model.getGetAddressId(), model.getUserId());
+		resultMessage = new ResultMessage();
+		resultMessage.setResultInfo("更新成功");
+		resultMessage.setServiceResult(success);
 	}
 	
 	/**

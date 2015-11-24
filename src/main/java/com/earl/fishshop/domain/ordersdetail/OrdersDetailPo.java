@@ -13,7 +13,7 @@ public class OrdersDetailPo{
 	
 	/**
 	 * 字段描述：Long 
-	 * 字段类型：orderId  
+	 * 字段类型：orderId
 	 */
 	private Long orderId ;
 	

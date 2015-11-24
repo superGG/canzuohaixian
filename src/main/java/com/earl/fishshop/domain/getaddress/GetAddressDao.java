@@ -14,4 +14,19 @@ public interface GetAddressDao extends BaseDao<GetAddressPo>{
 	 */
 	List<GetAddressPo> getUserAllAddress(Long userId);
 
+	/**
+	 * 添加收货地址.
+	 * @author 黄祥谦.
+	 * @param model
+	 */
+	void addGetAddress(GetAddressPo model);
+
+	/**
+	 * 更新用户常用地址.
+	 * @author 黄祥谦.
+	 * @param getAddressId
+	 * @param userId
+	 */
+	void updateUserAddress(Long getAddressId, Long userId);
+
 }

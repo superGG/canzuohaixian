@@ -42,6 +42,7 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 	public Boolean addOrders(OrdersPo orders, Long getAddressId) {
 		try {
 			orders.setState(MyConstant.order_unpay);//设置订单初始状态.
+			orders.setSordersNumber(orders.getOrdersDetail().size());
 			ordersDao.addOrders(orders, getAddressId);
 			return true;
 		} catch (Exception e) {

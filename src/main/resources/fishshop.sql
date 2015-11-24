@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-11-24 19:29:06
+Date: 2015-11-24 22:07:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -242,7 +242,9 @@ CREATE TABLE `goods` (
   `sku` int(11) DEFAULT NULL,
   `price` double DEFAULT NULL,
   `nowNumber` bigint(20) DEFAULT '0',
-  `unit` int(11) DEFAULT NULL,
+  `unit` varchar(255) DEFAULT NULL,
+  `goodsName` varchar(255) DEFAULT NULL,
+  `goodsPhoto` varchar(255) DEFAULT NULL,
   `sellNumber` bigint(20) DEFAULT '0',
   `creatorId` bigint(20) DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -254,10 +256,10 @@ CREATE TABLE `goods` (
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
-INSERT INTO `goods` VALUES ('1', '1', '7', '3', null, null, null, '34.5', '910', null, '165', null, '2015-11-16 22:13:25', '', '1');
-INSERT INTO `goods` VALUES ('2', '2', '7', '5', null, '1', '1', '40', '1000', '1', '0', null, '2015-11-17 09:40:12', '', '0');
-INSERT INTO `goods` VALUES ('3', '2', '8', '5', null, '1', '1', '40', '1000', '1', '0', null, '2015-11-17 09:41:23', '', '1');
-INSERT INTO `goods` VALUES ('4', '2', '9', '5', null, '1', '1', '40', '1000', '1', '0', null, '2015-11-17 09:41:23', '', '1');
+INSERT INTO `goods` VALUES ('1', '1', '7', '3', null, '1', '1', '34.5', '910', '斤', 'sss', 'goods/aaa.jpg', '165', null, '2015-11-16 22:13:25', '', '1');
+INSERT INTO `goods` VALUES ('2', '2', '7', '5', null, '1', '1', '40', '1000', '只', 'aaa', 'goods/aaa.jpg', '35', null, '2015-11-17 09:40:12', '', '0');
+INSERT INTO `goods` VALUES ('3', '2', '8', '5', null, '1', '1', '40', '1000', '只', 'bbb', 'goods/aaa.jpg', '46', null, '2015-11-17 09:41:23', '', '1');
+INSERT INTO `goods` VALUES ('4', '2', '9', '5', null, '1', '1', '40', '1000', '只', 'ddd', 'goods/aaa.jpg', '66', null, '2015-11-17 09:41:23', '', '1');
 
 -- ----------------------------
 -- Table structure for `orders`
@@ -278,6 +280,7 @@ CREATE TABLE `orders` (
   `orderNumber` varchar(255) DEFAULT NULL,
   `provinceId` bigint(20) DEFAULT NULL,
   `postagePrice` double DEFAULT NULL,
+  `sordersNumber` int(11) DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
@@ -288,8 +291,8 @@ CREATE TABLE `orders` (
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
-INSERT INTO `orders` VALUES ('11111110', '1', '1', '5', '30.5', '3', 'yilinfeng', '海格号', '广东省湛江市广东海洋大学', '易临风', '18719425973', '123456789', '20', '5.5', '2015-11-16 22:14:31', null, null, '1');
-INSERT INTO `orders` VALUES ('11111120', '1', '1', '5', '30.5', '1', 'yilinfeng', '海格hao', '广东海洋大学', 'yilinfeng', '18719425973', null, null, '80', '2015-11-24 11:25:52', null, '', '1');
+INSERT INTO `orders` VALUES ('11111110', '2', '1', '5', '30.5', '3', 'yilinfeng', '海格号', '广东省湛江市广东海洋大学', '易临风', '18719425973', '123456789', '20', '5.5', '10', '2015-11-16 22:14:31', null, null, '1');
+INSERT INTO `orders` VALUES ('11111120', '1', '1', '5', '30.5', '1', 'yilinfeng', '海格hao', '广东海洋大学', 'yilinfeng', '18719425973', null, null, '80', '5', '2015-11-24 11:25:52', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `ordersdetail`
@@ -491,6 +494,7 @@ CREATE TABLE `user` (
   `creatorId` bigint(20) DEFAULT NULL,
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
+  `getAddressId` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`userId`),
   UNIQUE KEY `phoneNumber` (`phoneNumber`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
@@ -498,10 +502,10 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '2', '1', '2', '易临风', '798555920', '18719425973', 'user/bbb.jpg', '2015-11-05 11:12:04', null, '', '1');
-INSERT INTO `user` VALUES ('2', '1', '1', '1', 'Imissyou', '798555920', '18320489492', 'user/bbb.jpg', '2015-11-05 11:12:04', null, '', '1');
-INSERT INTO `user` VALUES ('3', '2', '1', '1', '', '798555920', '18765432104', 'user/aaa.jpg', '2015-11-15 09:54:21', null, '', '1');
-INSERT INTO `user` VALUES ('4', '2', '2', '2', '詹命天子', '328499605', '18312687412', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1');
+INSERT INTO `user` VALUES ('1', '2', '1', '2', '易临风', '798555920', '18719425973', 'user/bbb.jpg', '2015-11-05 11:12:04', null, '', '1', null);
+INSERT INTO `user` VALUES ('2', '1', '1', '1', 'Imissyou', '798555920', '18320489492', 'user/bbb.jpg', '2015-11-05 11:12:04', null, '', '1', null);
+INSERT INTO `user` VALUES ('3', '2', '1', '1', '', '798555920', '18765432104', 'user/aaa.jpg', '2015-11-15 09:54:21', null, '', '1', null);
+INSERT INTO `user` VALUES ('4', '2', '2', '2', '詹命天子', '328499605', '18312687412', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', null);
 
 -- ----------------------------
 -- Table structure for `verifycode`

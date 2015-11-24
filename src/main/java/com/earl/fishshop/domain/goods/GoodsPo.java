@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class GoodsPo{
 
-
 	/**
 	 * 字段描述：Long 
 	 * 字段类型：goodsId  
@@ -22,6 +21,12 @@ public class GoodsPo{
 	 * 字段类型：goodsCategory  
 	 */
 	private Long categoryId;
+	
+	private String goodsName;
+	
+	private String skuString;
+	
+	private String goodsPhoto;
 	
 	/**
 	 * 字段描述：Integer 
@@ -57,12 +62,12 @@ public class GoodsPo{
 	 * 字段描述：Integer 
 	 * 字段类型：unit  
 	 */
-	private Integer unit ;
+	private String unit ;
 	
 	/**
 	 * 商品规格.
 	 */
-	private Integer sku;
+	private Long sku;
 	
 	/**
 	 * 字段描述：Long 
@@ -94,10 +99,28 @@ public class GoodsPo{
 	 */
 	private Long version ;
 	
-	public Integer getSku() {
+	public String getGoodsName() {
+		return goodsName;
+	}
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
+	}
+	public String getSkuString() {
+		return skuString;
+	}
+	public void setSkuString(String skuString) {
+		this.skuString = skuString;
+	}
+	public String getGoodsPhoto() {
+		return goodsPhoto;
+	}
+	public void setGoodsPhoto(String goodsPhoto) {
+		this.goodsPhoto = goodsPhoto;
+	}
+	public Long getSku() {
 		return sku;
 	}
-	public void setSku(Integer sku) {
+	public void setSku(Long sku) {
 		this.sku = sku;
 	}
 	public void setGoodsId(Long goodsId){
@@ -142,11 +165,11 @@ public class GoodsPo{
 	public Long getNowNumber() {
 		return this.nowNumber;
 	}
-	public void setUnit(Integer unit){
-		this.unit = unit;
+	public String getUnit() {
+		return unit;
 	}
-	public Integer getUnit() {
-		return this.unit;
+	public void setUnit(String unit) {
+		this.unit = unit;
 	}
 	public void setSellNumber(Long sellNumber){
 		this.sellNumber = sellNumber;

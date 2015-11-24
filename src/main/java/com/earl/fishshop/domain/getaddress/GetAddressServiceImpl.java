@@ -37,5 +37,30 @@ public class GetAddressServiceImpl extends BaseServiceImpl<GetAddressPo> impleme
 		List<GetAddressPo> getAddressList = getAddressDao.getUserAllAddress(userId);
 		return getAddressList;
 	}
+
+	@Override
+	public Boolean addGetAddress(GetAddressPo model) {
+		// TODO 未测试.
+		try {
+			getAddressDao.addGetAddress(model);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public Boolean updateUserAddress(Long getAddressId, Long userId) {
+		// TODO 未测试.
+		try {
+			getAddressDao.updateUserAddress(getAddressId,userId);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 }

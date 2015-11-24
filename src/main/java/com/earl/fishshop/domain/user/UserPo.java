@@ -56,6 +56,8 @@ public class UserPo{
 	 */
 	private String headImage ;
 	
+	private Long getAddressId;
+	
 	/**
 	 * 字段描述：Date 
 	 * 字段类型：createTime  
@@ -80,7 +82,12 @@ public class UserPo{
 	 */
 	private Long version ;
 	
-	
+	public Long getGetAddressId() {
+		return getAddressId;
+	}
+	public void setGetAddressId(Long getAddressId) {
+		this.getAddressId = getAddressId;
+	}
 	public void setUserId(Long userId){
 		this.userId = userId;
 	}

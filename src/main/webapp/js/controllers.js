@@ -41,11 +41,13 @@ seaTable.controller('seaTableCtrl',function($rootScope,$scope,$location){
 
 GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 
-	$http.get('http://192.168.1.107:8080/fishshop/category_getTopCategory.action')
-	// $http.get('http://www.earltech.cn:8080/fishshop/category_getTopCategory.action')
+	$http.get('http://localhost:8080/fishshop/category_getTopCategory.action')
+//	 $http.get('http://www.earltech.cn:8080/fishshop/category_getTopCategory.action')
 	.success(function(data){
 
 		$scope.gccsInfo = data.resultParm.categoryList;
+		
+//		$scope.skuArrayList = data.resultParm.categoryList.skuArrayList;
 	})
 
 	$scope.forCompentId = function(id){
@@ -76,9 +78,10 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 
 GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 
-	$http.get('test/goodscategoryleafinfo.json').success(function(data){
+//	$http.get('test/goodscategoryleafinfo.json').success(function(data){
+	$http.get('http://localhost:8080/fishshop/category_getAllNextLevelCategory.action').success(function(data){
 
-		$scope.gclsInfo = data.result;
+		$scope.gclsInfo = data.resultParm.categoryList;
 	})
 
 	$http.get('test/goodscategorycompentinfo.json').success(function(data){

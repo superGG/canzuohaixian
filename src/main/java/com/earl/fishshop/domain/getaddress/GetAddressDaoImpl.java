@@ -23,4 +23,19 @@ public class GetAddressDaoImpl extends BaseDaoImpl<GetAddressPo> implements GetA
 		List<GetAddressPo> getAddressList = getCurrentSession().createQuery(hql).setLong("userId", userId).list();
 		return getAddressList;
 	}
+
+	@Override
+	public void addGetAddress(GetAddressPo model) {
+		// TODO 未测试.
+		Long getAddressId = (Long) getCurrentSession().save(model);
+		String hql = "update from User set getAddressId=:getAddressId where userId =:userId ";
+		getCurrentSession().createQuery(hql).setLong("getAddressId", getAddressId).setLong("userId", model.getUserId()).executeUpdate();
+	}
+
+	@Override
+	public void updateUserAddress(Long getAddressId, Long userId) {
+		// TODO 未测试.
+		String hql = "update from User set getAddressId=:getAddressId where userId =:userId ";
+		getCurrentSession().createQuery(hql).setLong("getAddressId", getAddressId).setLong("userId", userId).executeUpdate();
+	}
 }

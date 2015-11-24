@@ -162,4 +162,11 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 		CategoryPo category = categoryDao.getCategoryWithSku(categoryId);
 		return category;
 	}
+
+	@Override
+	public List<CategoryPo> getAllNextLevelCategory() {
+		// TODO 未测试.
+		List<CategoryPo> categoryList = categoryDao.getAllNextLevelCategory();
+		return categoryList;
+	}
 }

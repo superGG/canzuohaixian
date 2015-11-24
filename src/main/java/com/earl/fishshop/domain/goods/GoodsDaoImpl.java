@@ -69,7 +69,6 @@ public class GoodsDaoImpl extends BaseDaoImpl<GoodsPo> implements GoodsDao {
 				.setMaxResults(pageInfo.getSize());
 		@SuppressWarnings("unchecked")
 		List<GoodsPo> goodsList = createCriteria.list();
-		
 		Long size = (Long) createCriteria.setProjection(Projections.rowCount())
                 .uniqueResult();
 		pageInfo.setTotalCount(size);
@@ -81,7 +80,6 @@ public class GoodsDaoImpl extends BaseDaoImpl<GoodsPo> implements GoodsDao {
 	public void deletePointCategoryGoods(Long categoryId, Long shopId) {
 		String hql = "delete from GoodsPo where categoryId=:categoryId and shopId=:shopId";
 		getCurrentSession().createQuery(hql).setLong("categoryId", categoryId).setLong("shopId", shopId).executeUpdate();
-		
 	}
 
 }

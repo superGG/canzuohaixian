@@ -25,6 +25,7 @@
         <property name="orderNumber" type="java.lang.String" column="orderNumber" />
         <property name="provinceId" type="java.lang.Long" column="provinceId" />
         <property name="postagePrice" type="java.lang.Double" column="postagePrice" />
+        <property name="sordersNumber" type="java.lang.Integer" column="sordersNumber" />
        
         <property name="createTime" type="java.util.Date" column="createTime" />
         <property name="creatorId" type="java.lang.Long" column="creatorId" />

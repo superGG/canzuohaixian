@@ -29,12 +29,12 @@ public class HttpOrdersActionTest extends BaseActionTest{
 					 ",\"shopId\": \"1\"" +
 					 ",\"buyerName\": \"yilinfeng\"" +
 					 ",\"shopKeeperName\": \"海格号222\"" +
-					 ",\"sendAddress\": \"广东省湛江市广东海洋大学\"" +
+					 ",\"sendAddress\": \"广东省湛江市广东海洋大学22222\"" +
 					 ",\"phone\": \"18719425973\"" +
 					 ",\"version\": \"1\"" +
 					 ",\"ordersDetail\": [{\"shopId\":\"5\"" +
 					 						",\"goodsId\": \"1\"" +
-					 						",\"categoryId\": \"7\"" +
+					 						",\"categoryId\": \"8\"" +
 					 						",\"goodsName\": \"sdfsd\"" +
 					 						",\"price\": \"40.0\"" +
 					 						",\"sku\": \"中等大小\"" +
@@ -54,8 +54,8 @@ public class HttpOrdersActionTest extends BaseActionTest{
 				 							",\"goodsType\":\"野生\"}" +
 					 					",{\"shopId\":\"3\"" +
 					 						",\"goodsId\": \"1\"" +
-					 						",\"categoryId\": \"8\"" +
-				 							",\"goodsName\": \"sdfsd\"" +
+					 						",\"categoryId\": \"9\"" +
+				 							",\"goodsName\": \"白星东邦鱼\"" +
 				 							",\"price\": \"40.0\"" +
 				 							",\"sku\": \"中等大小\"" +
 				 							",\"unit\": \"斤\"" +

@@ -133,7 +133,7 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 		for (OrdersPo ordersPo : ordersList) {
 			String hql2 = "from OrdersDetailPo where orderId =:orderId";
 			@SuppressWarnings("unchecked")
-			List<OrdersDetailPo> ordersDetailList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).list();
+			List<OrdersDetailPo> ordersDetailList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).setFirstResult(1).setMaxResults(1).list();
 			ordersPo.setOrdersDetail(ordersDetailList);
 		}
 		return ordersList;

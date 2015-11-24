@@ -63,4 +63,11 @@ public interface CategoryDao extends BaseDao<CategoryPo>{
 	 */
 	void updateCategory(CategoryPo model);
 
+	/**
+	 * 得到所有二级分类.
+	 * @author 黄祥谦.
+	 * @return
+	 */
+	List<CategoryPo> getAllNextLevelCategory();
+
 }

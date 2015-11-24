@@ -42,6 +42,25 @@ public class CategoryDaoImpl extends BaseDaoImpl<CategoryPo> implements Category
 	}
 
 	@Override
+	public List<CategoryPo> getAllNextLevelCategory() {
+		// TODO 未测试.
+		String hql = "from CategoryPo c where c.parentId != null";
+		@SuppressWarnings("unchecked")
+		List<CategoryPo> categorylist = getCurrentSession().createQuery(hql).list();
+		for (CategoryPo categoryPo : categorylist) {
+			String skuList = categoryPo.getSkuList();
+			List<Double> jsonToBeanList = JsonHelper.jsonToBean(skuList, List.class);
+			ArrayList<SkuPo> arrayList = new ArrayList<SkuPo>();
+			for (Double long1 : jsonToBeanList) {
+				SkuPo object = (SkuPo) getCurrentSession().get(SkuPo.class, long1.longValue());
+				arrayList.add(object);
+			}
+			categoryPo.setSkuArrayList(arrayList);
+		}
+		return categorylist;
+	}
+
+	@Override
 	public List<CategoryPo> getNextLevelCategory(Long parentId, PageInfo pageInfo) {
 		
 		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
