@@ -40,7 +40,7 @@ public class FilterPropertiesUtil {
 		ArrayList<String> arrayList = new ArrayList<String>();
 		Field[] fields = vo.getDeclaredFields();
 		for (Field field : fields) {
-			logger.info(field.getName());
+			logger.debug(field.getName());
 			arrayList.add(field.getName());
 		}
 		Field[] declaredFields = po.getClass().getDeclaredFields();

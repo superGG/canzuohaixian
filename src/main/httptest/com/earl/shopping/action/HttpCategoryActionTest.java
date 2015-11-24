@@ -22,7 +22,7 @@ public class HttpCategoryActionTest extends BaseActionTest{
 		PostMethod filePost = new PostMethod(targetURL);
 
 			Part[] parts = { 
-			new StringPart("categoryId", "9","utf-8")
+			new StringPart("categoryId", "7","utf-8")
 			,new StringPart("pageInfo.indexPageNum", "1","utf-8")
 			,new StringPart("pageInfo.size", "3","UTF-8")
 			// new FilePart(targetFile.getName(), targetFile)
