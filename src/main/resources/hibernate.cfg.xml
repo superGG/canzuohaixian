@@ -53,5 +53,6 @@
 	<mapping resource="com/earl/fishshop/domain/checkout/CheckoutPo.hbm.xml" />
 	<mapping resource="com/earl/fishshop/domain/shipport/ShipPortPo.hbm.xml" />
 	<mapping resource="com/earl/fishshop/domain/ordersdetail/OrdersDetailPo.hbm.xml" />
+	<mapping resource="com/earl/fishshop/domain/verifycode/VerifyCodePo.hbm.xml" />
 </session-factory>
 </hibernate-configuration>

@@ -17,7 +17,7 @@
         <property name="commentType" type="java.lang.Integer" column="commentType" />
         <property name="anonymity" type="java.lang.Integer" column="anonymity" />
         <property name="content" type="java.lang.String" column="content" />
-        <property name="userName" type="java.lang.String" column="userName" />
+        <property name="phoneNumber" type="java.lang.String" column="phoneNumber" />
         <property name="weightQuality" type="java.lang.Float" column="weightQuality" />
         <property name="freshQuality" type="java.lang.Float" column="freshQuality" />
         <property name="speedQuality" type="java.lang.Float" column="speedQuality" />

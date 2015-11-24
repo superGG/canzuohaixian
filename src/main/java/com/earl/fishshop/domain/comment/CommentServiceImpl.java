@@ -66,17 +66,17 @@ public class CommentServiceImpl extends BaseServiceImpl<CommentPo> implements
 	public Boolean saveComment(CommentPo model) {
 
 		if (model.getAnonymity() == MyConstant.comment_anonymity) {
-			model.setUserName("匿名");
+			model.setPhoneNumber("匿名");
 			commentDao.saveComment(model);
 		} else {
 			// 当不匿名时获取评论用户名
-			String name = userDao.get(model.getUserId()).getUserName();
-			model.setUserName(name);
+			String phoneNumber = userDao.get(model.getUserId()).getPhoneNumber();
+			model.setPhoneNumber(phoneNumber);
 			commentDao.saveComment(model);
 		}
 		OrdersPo order = ordersDao.get(model.getOrdersId());
 		order.setState(MyConstant.order_comment);
-		ordersDao.update(order);
+		ordersDao.updateOrder(order);
 		return true;
 	}
 }

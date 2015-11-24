@@ -162,4 +162,10 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 		return postagePrice;
 	}
 
+	@Override
+	public void updateOrder(OrdersPo order) {
+		getCurrentSession().update(order);
+		
+	}
+
 }

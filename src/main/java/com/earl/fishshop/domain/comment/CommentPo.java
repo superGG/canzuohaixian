@@ -24,10 +24,10 @@ public class CommentPo{
 	private Long userId;
 	
 	/**
-	 * 字段描述：用户姓名
+	 * 字段描述：用户手机
 	 * 字段类型：String 
 	 */
-	private String userName;
+	private String phoneNumber;
 	
 	/**
 	 * 字段描述：Long 
@@ -174,13 +174,14 @@ public class CommentPo{
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
 	
+	
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 	public Integer getAnonymity() {
 		return anonymity;
 	}
@@ -190,7 +191,7 @@ public class CommentPo{
 	@Override
 	public String toString() {
 		return "CommentPo [commentId=" + commentId + ", shopId=" + shopId
-				+ ", userId=" + userId + ", userName=" + userName
+				+ ", userId=" + userId + ", phoneNumber=" + phoneNumber
 				+ ", ordersId=" + ordersId + ", commentType=" + commentType
 				+ ", content=" + content + ", anonymity=" + anonymity
 				+ ", weightQuality=" + weightQuality + ", freshQuality="
@@ -198,6 +199,7 @@ public class CommentPo{
 				+ ", createTime=" + createTime + ", creatorId=" + creatorId
 				+ ", isDelete=" + isDelete + ", version=" + version + "]";
 	}
+	
 	
 	
 	

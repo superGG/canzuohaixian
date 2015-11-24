@@ -3,7 +3,7 @@ package com.earl.shopping.action;
 import org.apache.struts2.StrutsSpringTestCase;
 import org.junit.Test;
 
-public class VerifyActionTest extends StrutsSpringTestCase {
+public class VerifyUtilTest extends StrutsSpringTestCase {
 
 	@Override
 	protected String[] getContextLocations() {
