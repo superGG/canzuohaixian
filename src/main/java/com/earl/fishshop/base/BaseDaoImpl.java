@@ -67,8 +67,8 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	 * @Result void
 	 */
 	public void save(T t) {
-		System.out.println("dodo1");
-		logger.debug("saving " + clazz.getName() + " instance");
+		System.out.println(t.toString());
+//		logger.debug("saving " + clazz.getName() + " instance");
 		getCurrentSession().save(t);
 	}
 
@@ -89,7 +89,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public T get(Long id) {
-		logger.debug("get " + clazz.getName() + " instance");
+//		logger.debug("get " + clazz.getName() + " instance");
 		T object = (T) getCurrentSession().get(clazz, id);
 		return object;
 	}

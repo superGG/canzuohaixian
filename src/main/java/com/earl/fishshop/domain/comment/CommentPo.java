@@ -48,6 +48,12 @@ public class CommentPo{
 	private String content ;
 	
 	/**
+	 * 字段描述：是否匿名. 
+	 * 字段类型：Integer  
+	 */
+	private Integer anonymity;
+	
+	/**
 	 * 字段描述：Float 
 	 * 字段类型：weightQuality  
 	 */
@@ -174,17 +180,25 @@ public class CommentPo{
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	
+	public Integer getAnonymity() {
+		return anonymity;
+	}
+	public void setAnonymity(Integer anonymity) {
+		this.anonymity = anonymity;
+	}
 	@Override
 	public String toString() {
 		return "CommentPo [commentId=" + commentId + ", shopId=" + shopId
 				+ ", userId=" + userId + ", userName=" + userName
 				+ ", ordersId=" + ordersId + ", commentType=" + commentType
-				+ ", content=" + content + ", weightQuality=" + weightQuality
-				+ ", freshQuality=" + freshQuality + ", speedQuality="
-				+ speedQuality + ", createTime=" + createTime + ", creatorId="
-				+ creatorId + ", isDelete=" + isDelete + ", version=" + version
-				+ "]";
+				+ ", content=" + content + ", anonymity=" + anonymity
+				+ ", weightQuality=" + weightQuality + ", freshQuality="
+				+ freshQuality + ", speedQuality=" + speedQuality
+				+ ", createTime=" + createTime + ", creatorId=" + creatorId
+				+ ", isDelete=" + isDelete + ", version=" + version + "]";
 	}
+	
 	
 	
 }

@@ -84,4 +84,11 @@ public interface CommentDao extends BaseDao<CommentPo>{
 	 */
 	List<CommentPo> getUserComment(Long creatorId, PageInfo pageInfo);
 
+	/**
+	 * 添加评论.
+	 *@author 宋文光.
+	 * @param model
+	 */
+	void saveComment(CommentPo model);
+
 }
