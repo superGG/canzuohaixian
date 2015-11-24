@@ -32,8 +32,8 @@ public class ShopDaoImpl extends BaseDaoImpl<ShopPo> implements ShopDao {
 	@Override
 	public List<ShopPo> getGoodsShops(Long categoryId, PageInfo pageInfo) {
 		// TODO 未测试.
-		String hql = "select s from ShopPo s,GoodsPo g where s.onSell=true and g.categoryId=:categoryId and g.nowNumber > 0 group by s.shopId ";
-		String hql2 = "select count(*) from ShopPo s,GoodsPo g where s.onSell=true and g.categoryId=:categoryId and g.nowNumber>0 group by s.shopId";
+		String hql = "select s from ShopPo s,GoodsPo g where s.shopId = g.shopId and s.onSell=true and g.categoryId=:categoryId and g.nowNumber > 0 group by s.shopId ";
+		String hql2 = "select count(*) from ShopPo s,GoodsPo g where s.shopId = g.shopId and s.onSell=true and g.categoryId=:categoryId and g.nowNumber>0 group by s.shopId";
 		@SuppressWarnings("unchecked")
 		List<ShopPo> shopList = getCurrentSession()
 				.createQuery(hql)
