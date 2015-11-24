@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.domain.base.BaseAction;
+import com.earl.fishshop.util.VerifyServiceUtil;
 import com.earl.fishshop.vo.ResultMessage;
 
 /**
@@ -22,7 +23,20 @@ public class VerifyCodeAction extends BaseAction<VerifyCodePo> {
 	 */
 	private static final long serialVersionUID = 3293435262298029608L;
 
+	private String verifyCode;
+	
 	protected ResultMessage resultMessage;
+	private VerifyServiceUtil verifyServiceUtil;
+
+	
+	public String getVerifyCode() {
+		return verifyCode;
+	}
+
+	public void setVerifyCode(String verifyCode) {
+		this.verifyCode = verifyCode;
+	}
+
 
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public ResultMessage getResultMessage() {
@@ -47,5 +61,27 @@ public class VerifyCodeAction extends BaseAction<VerifyCodePo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(deleteById);
 	}
+	
+	/**
+     * 获取图片验证码.
+     * @author 宋文光
+     */
+    public final void getImgVerifyCode() {
+    	verifyServiceUtil = new VerifyServiceUtil();	
+    	resultMessage = verifyServiceUtil.getImgVerifyCode();
+    	session.put("imgVerifyCode", resultMessage.getResultInfo());
+    	resultMessage.setUserToken(true);
+    }
+ 
+    /**
+     * 验证输入图片验证码.
+     * @author 宋文光
+     */
+    public void confirmImgVerifyCode() {
+    	verifyServiceUtil = new VerifyServiceUtil();
+    	String ImgVf = (String) session.get("imgVerifyCode");
+    	verifyServiceUtil.confirmImgVerifyCode(ImgVf , verifyCode);
+    	resultMessage.setUserToken(true);
+    }
 	
 }
