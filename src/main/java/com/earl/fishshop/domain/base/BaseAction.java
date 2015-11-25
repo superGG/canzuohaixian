@@ -101,7 +101,8 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 		Class clazz = (Class) type.getActualTypeArguments()[0];
 		try {
 			model = (T) clazz.newInstance();
-			System.out.println(model);
+			//TODO 输出model的
+//			System.out.println(model);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
