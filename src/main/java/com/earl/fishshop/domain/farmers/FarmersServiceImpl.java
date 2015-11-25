@@ -1,5 +1,6 @@
 package com.earl.fishshop.domain.farmers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -8,7 +9,8 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.domain.base.BaseServiceImpl;
-import com.earl.fishshop.vo.FarmersFileVo;
+import com.earl.fishshop.helper.JsonHelper;
+import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.util.FileUploadImpl;
 
 /**
@@ -34,17 +36,20 @@ public class FarmersServiceImpl extends BaseServiceImpl<FarmersPo> implements
 
 	@Override
 	public Boolean authenticationFarmer(Long userId, FarmersPo model,
-			FarmersFileVo farmersFileVo) {
+			MulitFileVo farmersFileVo) {
 		List<String> photoPath = fileUpload.uploadFarmerFile(
 				farmersFileVo.getFile(), farmersFileVo.getFileFileName());
-		model.setForntIdentityPhoto(photoPath.get(0));
-		model.setBackIdentityPhoto(photoPath.get(1));
-		String addressPhoto = photoPath.get(2);
+		model.setForntIdentityPhoto(photoPath.get(0));//第一张是身份证正面
+		model.setBackIdentityPhoto(photoPath.get(1));//第二张是身份证背面
+		
+		List<String> addressPhotoList = new ArrayList<String>();//将之后养殖场照片放到list中装成json
+		addressPhotoList.add(photoPath.get(2));
 		if(photoPath.size() >= 4) {
-			for (int i=3; i<photoPath.size()-1; i++) {
-				addressPhoto = addressPhoto + ";" + photoPath.get(i);
+			for (int i=3; i<photoPath.size(); i++) {
+				addressPhotoList.add(photoPath.get(i));
 			}
 		}
+		String addressPhoto = JsonHelper.toJson(addressPhotoList);
 		model.setAddressPhoto(addressPhoto);
 		try {
 			farmersDao.authenticationFarmers(userId, model);

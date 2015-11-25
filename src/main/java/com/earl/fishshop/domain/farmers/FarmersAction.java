@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.domain.base.BaseAction;
-import com.earl.fishshop.vo.FarmersFileVo;
+import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.fishshop.vo.ResultMessage;
 
 /**
@@ -27,12 +27,21 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 	 */
 	private static final long serialVersionUID = 3293435262298029608L;
 
+	/**
+	 * 用户id.
+	 */
 	private Long userId;
 
-	private FarmersFileVo farmersFileVo;
+	/**
+	 * 养殖场文件.
+	 */
+	private MulitFileVo farmersFile;
 	
-	public void setFarmersFileVo(FarmersFileVo farmersFileVo) {
-		this.farmersFileVo = farmersFileVo;
+	public MulitFileVo getFarmersFile() {
+		return farmersFile;
+	}
+	public void setFarmersFile(MulitFileVo farmersFile) {
+		this.farmersFile = farmersFile;
 	}
 
 	public void setUserId(Long userId) {
@@ -56,8 +65,8 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 	 * 用户认证为养殖户.
 	 * @author 宋文光.
 	 */
-	public void authenticationFishman(){
-		Boolean result = farmersServer.authenticationFarmer(userId,model,farmersFileVo);
+	public void authenticationFarmer(){
+		Boolean result = farmersServer.authenticationFarmer(userId,model,farmersFile);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
 	}

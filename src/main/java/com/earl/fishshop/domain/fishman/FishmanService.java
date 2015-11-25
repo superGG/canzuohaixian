@@ -3,7 +3,7 @@ package com.earl.fishshop.domain.fishman;
 import java.util.List;
 
 import com.earl.fishshop.domain.base.BaseService;
-import com.earl.fishshop.vo.FishmanFileVo;
+import com.earl.fishshop.vo.MulitFileVo;
 
 public interface FishmanService extends BaseService<FishmanPo>{
 
@@ -15,7 +15,7 @@ public interface FishmanService extends BaseService<FishmanPo>{
 	 * @param fishmanFileVo 图片信息.
 	 * @return
 	 */
-	Boolean authenticationFishman(Long userId, FishmanPo model, FishmanFileVo fishmanFileVo);
+	Boolean authenticationFishman(Long userId, FishmanPo model, MulitFileVo fishmanFileVo);
 
 	/**
 	 * 查询渔户详细信息.

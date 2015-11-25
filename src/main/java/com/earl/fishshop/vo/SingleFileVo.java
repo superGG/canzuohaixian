@@ -2,13 +2,12 @@ package com.earl.fishshop.vo;
 
 import java.io.File;
 
-
-public class UserFileVo{
-
+public class SingleFileVo {
+	
 	private File file;
 	
 	private String contentType;
-
+	
 	private String fileName;
 
 	public File getFile() {
@@ -34,5 +33,4 @@ public class UserFileVo{
 	public void setFileFileName(String fileName) {
 		this.fileName = fileName;
 	}
-
 }

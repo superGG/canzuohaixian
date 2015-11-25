@@ -116,8 +116,8 @@ public class FileUploadImpl {
 		return uploadFile;
 	}
 
-	public String uploadUserFile(File file, String oldName) {
-		String uploadFile = uploadFile(file, userfilePath, oldName);
+	public List<String> uploadUserFile(List<File> file, List<String> oldName) {
+		List<String> uploadFile = uploadFile(file, userfilePath, oldName);
 		return uploadFile;
 	}
 
@@ -146,7 +146,6 @@ public class FileUploadImpl {
 	 */
 	private List<String> uploadFile(List<File> file, String filePath, List<String> oldName) {
 		String dir = getDir(filePath);
-//		List<String> name = nameArray(oldName);
 		List<String> newNameList = new ArrayList<String>();
 		for (int i = 0; i < file.size(); i++) {
 			String newName = this.newName(oldName.get(i));
@@ -154,7 +153,7 @@ public class FileUploadImpl {
 			try {
 				destFile = new File(filePath, newName);
 				FileUtils.copyFile(file.get(i), destFile);
-				newNameList.add(dir + "/" + newName);
+				newNameList.add(dir + newName);
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			} finally {

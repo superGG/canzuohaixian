@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.domain.base.BaseServiceImpl;
 import com.earl.fishshop.util.VerifyServiceUtil;
+import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.fishshop.vo.ResultMessage;
-import com.earl.fishshop.vo.UserFileVo;
 import com.earl.util.FileUploadImpl;
 
 /**
@@ -32,11 +32,12 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	public void initBaseDao() {
 		baseDao = userDao;
 	}
-	
+
 	@Resource(name = "fileUpload")
 	FileUploadImpl fileUpload;
 
 	VerifyServiceUtil verifyServiceUtil;
+
 	/**
 	 * 通过手机号码查询用户.
 	 * 
@@ -72,7 +73,8 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	public ResultMessage userLogin(UserPo model) {
 		ResultMessage rs = new ResultMessage();
 		if (model.getPhoneNumber() != null) { // 用户使用手机登录
-			List<UserPo> userList = userDao.getUserByPhone(model.getPhoneNumber());
+			List<UserPo> userList = userDao.getUserByPhone(model
+					.getPhoneNumber());
 			rs = verifyPassword(userList, model.getPassword());
 		} else {
 			rs.setResultInfo("验证失败");
@@ -142,7 +144,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 		}
 		return rs;
 	}
-	
+
 	/**
 	 * 找回密码.
 	 * 
@@ -174,6 +176,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 
 	/**
 	 * 用户注册.
+	 * 
 	 * @author 宋文光
 	 * @param userPhone
 	 *            用户输入的手机号码.
@@ -183,12 +186,14 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	public ResultMessage smsCodeOfRegister(UserPo model) throws Exception {
 		ResultMessage rs = new ResultMessage();
 		verifyServiceUtil = new VerifyServiceUtil();
-		
+
 		if (model.getPhoneNumber() != null) {
-			//检测注册手机是否被注册
-			List<UserPo> userList = userDao.getUserByPhone(model.getPhoneNumber());
+			// 检测注册手机是否被注册
+			List<UserPo> userList = userDao.getUserByPhone(model
+					.getPhoneNumber());
 			if (userList.size() == 0) {
-				rs = verifyServiceUtil.sendMobileVerifyCode(model.getPhoneNumber());
+				rs = verifyServiceUtil.sendMobileVerifyCode(model
+						.getPhoneNumber());
 			} else {
 				rs.setResultInfo("该手机已被注册");
 				rs.setServiceResult(false);
@@ -216,11 +221,11 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	}
 
 	@Override
-	public Boolean updateUserImg(UserPo model, UserFileVo userFile) {
+	public Boolean updateUserImg(UserPo model, MulitFileVo userFile) {
 		try {
-			String uploadUserFile = fileUpload.uploadUserFile(
-							userFile.getFile(), userFile.getFileFileName());
-			model.setHeadImage(uploadUserFile);
+			List<String> uploadUserFile = fileUpload.uploadUserFile(
+					userFile.getFile(), userFile.getFileFileName());
+			model.setHeadImage(uploadUserFile.get(0));
 			userDao.updateWithNotNullProperties(model);
 			return true;
 		} catch (Exception e) {

@@ -14,10 +14,14 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
 public class FishmanFileUploadApp {
 	private File targetFile;
 
+	public static void main(String[] args) {
+		new FishmanFileUploadApp().dod();
+	}
+	
 	public void dod() {
 		String targetURL = "http://localhost:8080/fishshop/fishman_authenticationFishman.action";
 		targetFile = new File(
-				"C:/Users/Administrator/Desktop/SpringMVC.jpg.png");
+				"D:/Favorites/test/test.jpg");
 
 		PostMethod filePost = new PostMethod(targetURL);
 
@@ -27,16 +31,12 @@ public class FishmanFileUploadApp {
 			
 			Part[] parts = { 
 			 new FilePart("fishmanFile.file", targetFile)
-			,new FilePart("fishmanFile.file", new File("C:/Users/Administrator/Desktop/struts2流程图.png"))
-			,new StringPart("userId", "1","utf-8")
-//			,new StringPart("categorySimpleName", "东星白班鱼","utf-8")
-//			,new StringPart("categoryAcademicName", "东星白班鱼","utf-8")
-//			,new StringPart("getType", "3","UTF-8")
-//			,new StringPart("categoryEnglishName", "东星白班鱼","utf-8")
-//			,new StringPart("parentId", "","utf-8")
-//			,new StringPart("unit", "1","utf-8")
-//			,new StringPart("totalSellNumber", "9","utf-8")
-			// new FilePart(targetFile.getName(), targetFile)
+			,new FilePart("fishmanFile.file", new File("D:/Favorites/test/QQ图片20150623221402.jpg"))
+			,new FilePart("fishmanFile.file", new File("D:/Favorites/test/宋文光.jpg"))
+			,new FilePart("fishmanFile.file", new File("D:/Favorites/test/257667_880_510_70.jpg"))
+			,new FilePart("fishmanFile.file", new File("D:/Favorites/test/wifi0s0-15815604312520b8e092d2c33a0f76e6b33525d17c_crop.jpg"))
+			 ,new FilePart("fishmanFile.file", new File("D:/Favorites/test/QQ图片20151010192845.jpg"))
+			,new StringPart("userId", "3","utf-8")
 			};
 			HttpMethodParams params = filePost.getParams();
 //			String contentCharset = params.getContentCharset();

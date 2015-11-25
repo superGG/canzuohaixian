@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.earl.fishshop.domain.base.BaseService;
 import com.earl.fishshop.domain.shop.ShopPo;
-import com.earl.fishshop.vo.CategoryFileVo;
+import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.fishshop.vo.PageInfo;
 
 public interface CategoryService extends BaseService<CategoryPo>{
@@ -77,7 +77,7 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	 * @param categoryFile TODO
 	 * @return
 	 */
-	Boolean addCategory(CategoryPo model, CategoryFileVo categoryFile);
+	Boolean addCategory(CategoryPo model, MulitFileVo categoryFile);
 
 	/**
 	 * 得到带规格的类别
@@ -94,7 +94,7 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	 * @param categoryFile
 	 * @return
 	 */
-	Boolean updateCategory(CategoryPo model, CategoryFileVo categoryFile);
+	Boolean updateCategory(CategoryPo model, MulitFileVo categoryFile);
 
 	/**
 	 * 

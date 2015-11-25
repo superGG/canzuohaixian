@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.domain.base.BaseAction;
 import com.earl.fishshop.domain.shop.ShopPo;
-import com.earl.fishshop.vo.CategoryFileVo;
+import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.fishshop.vo.PageInfo;
 import com.earl.fishshop.vo.ResultMessage;
 
@@ -31,7 +31,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 
 	private PageInfo pageInfo;
 	
-	private CategoryFileVo categoryFile;
+	private MulitFileVo categoryFile;
 	
 	protected ResultMessage resultMessage;
 
@@ -48,11 +48,11 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		this.pageInfo = pageInfo;
 	}
 	
-	public CategoryFileVo getCategoryFile() {
+	public MulitFileVo getCategoryFile() {
 		return categoryFile;
 	}
 
-	public void setCategoryFile(CategoryFileVo categoryFile) {
+	public void setCategoryFile(MulitFileVo categoryFile) {
 		this.categoryFile = categoryFile;
 	}
 
