@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.domain.base.BaseAction;
-import com.earl.fishshop.vo.MuchFileVo;
+import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.fishshop.vo.ResultMessage;
 
 /**
@@ -27,15 +27,15 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 */
 	private static final long serialVersionUID = 3293435262298029608L;
 
-	private MuchFileVo fishmanFile;
+	private MulitFileVo fishmanFile;
 
 	private Long userId;
 
-	public MuchFileVo getFishmanFile() {
+	public MulitFileVo getFishmanFile() {
 		return fishmanFile;
 	}
 
-	public void setFishmanFile(MuchFileVo fishmanFile) {
+	public void setFishmanFile(MulitFileVo fishmanFile) {
 		this.fishmanFile = fishmanFile;
 	}
 

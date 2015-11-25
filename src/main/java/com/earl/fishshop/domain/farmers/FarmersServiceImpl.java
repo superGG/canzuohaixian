@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.domain.base.BaseServiceImpl;
 import com.earl.fishshop.helper.JsonHelper;
-import com.earl.fishshop.vo.MuchFileVo;
+import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.util.FileUploadImpl;
 
 /**
@@ -36,7 +36,7 @@ public class FarmersServiceImpl extends BaseServiceImpl<FarmersPo> implements
 
 	@Override
 	public Boolean authenticationFarmer(Long userId, FarmersPo model,
-			MuchFileVo farmersFileVo) {
+			MulitFileVo farmersFileVo) {
 		List<String> photoPath = fileUpload.uploadFarmerFile(
 				farmersFileVo.getFile(), farmersFileVo.getFileFileName());
 		model.setForntIdentityPhoto(photoPath.get(0));//第一张是身份证正面

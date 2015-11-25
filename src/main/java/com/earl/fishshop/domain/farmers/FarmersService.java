@@ -3,7 +3,7 @@ package com.earl.fishshop.domain.farmers;
 import java.util.List;
 
 import com.earl.fishshop.domain.base.BaseService;
-import com.earl.fishshop.vo.MuchFileVo;
+import com.earl.fishshop.vo.MulitFileVo;
 
 public interface FarmersService extends BaseService<FarmersPo>{
 
@@ -15,7 +15,7 @@ public interface FarmersService extends BaseService<FarmersPo>{
 	 * @param farmersFileVo 
 	 * @return
 	 */
-	Boolean authenticationFarmer(Long userId, FarmersPo model, MuchFileVo farmersFileVo);
+	Boolean authenticationFarmer(Long userId, FarmersPo model, MulitFileVo farmersFileVo);
 
 	/**
 	 * 查询养殖户的详细信息.

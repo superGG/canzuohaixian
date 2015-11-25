@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.List;
 
 
-public class MuchFileVo{
+public class MulitFileVo{
 	private List<File> file;
 	
 	private List<String> contentType;

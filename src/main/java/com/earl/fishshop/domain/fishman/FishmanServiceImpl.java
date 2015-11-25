@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.domain.base.BaseServiceImpl;
 import com.earl.fishshop.helper.JsonHelper;
-import com.earl.fishshop.vo.MuchFileVo;
+import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.util.FileUploadImpl;
 
 /**
@@ -36,7 +36,7 @@ public class FishmanServiceImpl extends BaseServiceImpl<FishmanPo> implements
 
 	@Override
 	public Boolean authenticationFishman(Long userId, FishmanPo model,
-			MuchFileVo fishmanFileVo) {
+			MulitFileVo fishmanFileVo) {
 		List<String> photoPath = fileUpload.uploadFishmanFile(
 				fishmanFileVo.getFile(), fishmanFileVo.getFileFileName());
 		model.setFrontIdentityPhoto(photoPath.get(0));//第一张是身份证正面

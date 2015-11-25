@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.domain.base.BaseServiceImpl;
 import com.earl.fishshop.util.VerifyServiceUtil;
-import com.earl.fishshop.vo.MuchFileVo;
+import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.fishshop.vo.ResultMessage;
 import com.earl.util.FileUploadImpl;
 
@@ -221,7 +221,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	}
 
 	@Override
-	public Boolean updateUserImg(UserPo model, MuchFileVo userFile) {
+	public Boolean updateUserImg(UserPo model, MulitFileVo userFile) {
 		try {
 			List<String> uploadUserFile = fileUpload.uploadUserFile(
 					userFile.getFile(), userFile.getFileFileName());

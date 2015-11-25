@@ -34,13 +34,12 @@ public class IpInterceptor extends AbstractInterceptor {
 		logger.debug("进入ip拦截器");
 		// 获取参数
 		ActionContext ctx = invocation.getInvocationContext();
-
 		// 获取HttpServletRequest
 		HttpServletRequest request = (HttpServletRequest) ctx
 				.get(StrutsStatics.HTTP_REQUEST);
 
 		String ip = request.getHeader("x-forwarded-for");
-		logger.info("x-forwarded-for=>" + ip);
+		logger.debug("x-forwarded-for=>" + ip);
 		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
 			ip = request.getHeader("Proxy-Client-IP");
 		}
@@ -50,13 +49,13 @@ public class IpInterceptor extends AbstractInterceptor {
 		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
 			ip = request.getRemoteAddr();
 		}
-		logger.info("      ip      |remote ip address|remote name|remote port|LocalAddress|LocalPort| char encodeing | ContentType | AuthType | PathTranslated | RemoteUser | ServletPath");
-		logger.info(ip+"|" + request.getRemoteAddr()+"|"
+		logger.info("ServletPath|ip|remote ip address|remote name|remote port|LocalAddress|LocalPort|char encodeing|ContentType|AuthType|PathTranslated|RemoteUser");
+		logger.info( request.getServletPath()+"|"+ip+"|" + request.getRemoteAddr()+"|"
 				+ request.getRemoteHost()+"|" + request.getRemotePort()+"|"
 				+ request.getLocalAddr()+"|" + request.getLocalPort()+"|"
 				+ request.getCharacterEncoding()+"|" + request.getContentType()+"|"
 				+ request.getAuthType()+"|" + request.getPathTranslated()+"|"
-				+ request.getRemoteUser()+"|" + request.getServletPath());
+				+ request.getRemoteUser()) ;
 		invocation.invoke();
 		logger.debug("退出ip拦截器");
 		return null;

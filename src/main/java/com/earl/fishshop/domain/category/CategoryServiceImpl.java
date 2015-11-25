@@ -17,7 +17,7 @@ import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.domain.user.UserPo;
 import com.earl.fishshop.helper.JsonHelper;
 import com.earl.fishshop.util.MyConstant;
-import com.earl.fishshop.vo.MuchFileVo;
+import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.fishshop.vo.PageInfo;
 import com.earl.util.FileUploadImpl;
 import com.earl.util.FilterPropertiesUtil;
@@ -127,7 +127,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 	}
 
 	@Override
-	public Boolean addCategory(CategoryPo model, MuchFileVo categoryFile) {
+	public Boolean addCategory(CategoryPo model, MulitFileVo categoryFile) {
 		// TODO 未测试.
 		try {
 			String uploadCategoryFile = fileUpload.uploadMulitCategoryFile(categoryFile.getFile(), categoryFile.getFileFileName());
@@ -141,7 +141,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 	}
 
 	@Override
-	public Boolean updateCategory(CategoryPo model, MuchFileVo categoryFile) {
+	public Boolean updateCategory(CategoryPo model, MulitFileVo categoryFile) {
 		// TODO 未测试.
 		try {
 			if(categoryFile.getFileFileName().size() != 0 ){
