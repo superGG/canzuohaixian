@@ -1,9 +1,11 @@
 package com.earl.fishshop.domain.shop;
 
+import java.util.List;
 import java.util.Map;
 
 import com.earl.fishshop.domain.base.BaseService;
 import com.earl.fishshop.domain.comment.CommentPo;
+import com.earl.fishshop.vo.PageInfo;
 
 public interface ShopService extends BaseService<ShopPo>{
 
@@ -54,6 +56,28 @@ public interface ShopService extends BaseService<ShopPo>{
 	 * @return
 	 */
 	Map<String, Object> getShopCommentInfo(Long shopId);
+
+	/**
+	 * 得到所有渔户的商店.
+	 *@author 宋文光.
+	 * @return
+	 */
+	List<ShopPo> getAllFishmanShop();
+
+	/**
+	 * 获取所有养殖户的商店.
+	 *@author 宋文光.
+	 * @return
+	 */
+	List<ShopPo> getAllFarmersShop();
+
+	/**
+	 * 客户端获取所有商店.
+	 *@author 宋文光.
+	 * @param pageInfo 分页信息.
+	 * @return
+	 */
+	List<ShopPo> getAllShop(PageInfo pageInfo);
 
 	
 

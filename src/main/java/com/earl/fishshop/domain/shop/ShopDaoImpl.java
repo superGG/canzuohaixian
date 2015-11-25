@@ -85,6 +85,12 @@ public class ShopDaoImpl extends BaseDaoImpl<ShopPo> implements ShopDao {
 		getCurrentSession().update(shop);
 	}
 
+	@Override
+	public List<ShopPo> getAllShop(PageInfo pageInfo) {
+		// TODO 暂无完成.
+		return null;
+	}
+
 	
 
 }

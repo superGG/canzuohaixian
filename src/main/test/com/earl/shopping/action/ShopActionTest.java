@@ -60,7 +60,12 @@ public class ShopActionTest extends StrutsSpringTestCase {
 		request.addParameter("shopId", "3");
 		String res = executeAction("/shop_getShopCommentInfo.action");
 		System.out.println(res);
-		
+	}
+	
+	@Test
+	public void testGetAllFarmersShop() throws UnsupportedEncodingException, ServletException{
+		String res = executeAction("/shop_getAllFarmersShop.action");
+		System.out.println(res);
 	}
 
 }

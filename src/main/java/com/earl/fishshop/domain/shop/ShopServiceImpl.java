@@ -1,5 +1,6 @@
 package com.earl.fishshop.domain.shop;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,7 @@ import com.earl.fishshop.domain.farmers.FarmersPo;
 import com.earl.fishshop.domain.fishman.FishmanPo;
 import com.earl.fishshop.domain.user.UserPo;
 import com.earl.fishshop.util.MyConstant;
+import com.earl.fishshop.vo.PageInfo;
 
 /**
  * 每个ServiceImpl都要继承相对应的service接口
@@ -132,6 +134,34 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 		hashMap.put("bedComment", bedComment); //差评数量
 		
 		return hashMap;
+	}
+
+	@Override
+	public List<ShopPo> getAllFishmanShop() {
+		List<ShopPo> fishShopList = new ArrayList<ShopPo>();
+		List<FishmanPo> fishmanList = fishmanDao.findAll();
+		for (FishmanPo fishman : fishmanList) {
+			ShopPo shop = shopDao.get(fishman.getShopId());
+			fishShopList.add(shop);
+		}
+		return fishShopList;
+	}
+
+	@Override
+	public List<ShopPo> getAllFarmersShop() {
+		List<ShopPo> farmersShopList = new ArrayList<ShopPo>();
+		List<FarmersPo> farmersList = farmersDao.findAll();
+		for (FarmersPo farmers : farmersList) {
+			ShopPo shop = shopDao.get(farmers.getShopId());
+			farmersShopList.add(shop);
+		}
+		return farmersShopList;
+	}
+
+	@Override
+	public List<ShopPo> getAllShop(PageInfo pageInfo) {
+		List<ShopPo> shopList = shopDao.getAllShop(pageInfo);
+		return shopList;
 	}
 
 }
