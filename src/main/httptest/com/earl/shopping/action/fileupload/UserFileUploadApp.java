@@ -11,35 +11,29 @@ import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 
-public class CategoryFileUploadApp {
-
+public class UserFileUploadApp {
 	private File targetFile;
 
+	public static void main(String[] args) {
+		new UserFileUploadApp().dod();
+	}
+	
 	public void dod() {
-		String targetURL = "http://localhost:8080/fishshop/category_addCategory.action";
+		String targetURL = "http://localhost:8080/fishshop/user_updateUserImg.action";
 		targetFile = new File(
 				"D:/Favorites/test/test.jpg");
 
 		PostMethod filePost = new PostMethod(targetURL);
 
-		// filePost.getParams().setBooleanParameter(HttpMethodParams.USE_EXPECT_CONTINUE,
-		// cbxExpectHeader.isSelected());
 		try {
 			
 			Part[] parts = { 
-			 new FilePart("categoryFile.file", targetFile)
-//			,new FilePart("categoryFile.file", new File("D:/Favorites/test/宋文光.jpg"))
-			,new StringPart("categorySimpleName", "东星白班鱼","utf-8")
-			,new StringPart("categoryAcademicName", "东星白班鱼","utf-8")
-			,new StringPart("getType", "3","UTF-8")
-			,new StringPart("categoryEnglishName", "东星白班鱼","utf-8")
-			,new StringPart("parentId", "","utf-8")
-			,new StringPart("unit", "1","utf-8")
-			,new StringPart("totalSellNumber", "9","utf-8")
-			// new FilePart(targetFile.getName(), targetFile)
+			 new FilePart("userFile.file", targetFile)
+//			,new FilePart("userFile.file", new File("D:/Favorites/test/QQ图片20150623221402.jpg"))
+			,new StringPart("userId", "2","utf-8")
 			};
 			HttpMethodParams params = filePost.getParams();
-//			String contentCharset = params.getContentCharset();
+//			String contentCharset = params.getContentCharset();f
 			params.setContentCharset("utf-8");
 			filePost.setRequestEntity(new MultipartRequestEntity(parts,
 					filePost.getParams()));
@@ -57,8 +51,5 @@ public class CategoryFileUploadApp {
 		}
 	}
 
-	public static void main(String[] args) {
-		new CategoryFileUploadApp().dod();
-	}
 
 }

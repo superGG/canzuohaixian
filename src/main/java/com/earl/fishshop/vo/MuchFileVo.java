@@ -4,11 +4,11 @@ import java.io.File;
 import java.util.List;
 
 
-public class FishmanFileVo {
-private List<File> file;
+public class MuchFileVo{
+	private List<File> file;
 	
 	private List<String> contentType;
-	
+
 	private List<String> fileName;
 
 	public List<File> getFile() {
@@ -34,4 +34,6 @@ private List<File> file;
 	public void setFileFileName(List<String> fileName) {
 		this.fileName = fileName;
 	}
+
+
 }

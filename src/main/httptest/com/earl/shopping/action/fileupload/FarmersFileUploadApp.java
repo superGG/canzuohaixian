@@ -11,32 +11,30 @@ import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 
-public class CategoryFileUploadApp {
-
+public class FarmersFileUploadApp {
 	private File targetFile;
 
+	public static void main(String[] args) {
+		new FarmersFileUploadApp().dod();
+	}
+	
 	public void dod() {
-		String targetURL = "http://localhost:8080/fishshop/category_addCategory.action";
+		String targetURL = "http://localhost:8080/fishshop/farmers_authenticationFarmer.action";
 		targetFile = new File(
 				"D:/Favorites/test/test.jpg");
 
 		PostMethod filePost = new PostMethod(targetURL);
 
-		// filePost.getParams().setBooleanParameter(HttpMethodParams.USE_EXPECT_CONTINUE,
-		// cbxExpectHeader.isSelected());
 		try {
 			
 			Part[] parts = { 
-			 new FilePart("categoryFile.file", targetFile)
-//			,new FilePart("categoryFile.file", new File("D:/Favorites/test/宋文光.jpg"))
-			,new StringPart("categorySimpleName", "东星白班鱼","utf-8")
-			,new StringPart("categoryAcademicName", "东星白班鱼","utf-8")
-			,new StringPart("getType", "3","UTF-8")
-			,new StringPart("categoryEnglishName", "东星白班鱼","utf-8")
-			,new StringPart("parentId", "","utf-8")
-			,new StringPart("unit", "1","utf-8")
-			,new StringPart("totalSellNumber", "9","utf-8")
-			// new FilePart(targetFile.getName(), targetFile)
+			 new FilePart("farmersFile.file", targetFile)
+			,new FilePart("farmersFile.file", new File("D:/Favorites/test/QQ图片20150623221402.jpg"))
+			,new FilePart("farmersFile.file", new File("D:/Favorites/test/宋文光.jpg"))
+			,new FilePart("farmersFile.file", new File("D:/Favorites/test/257667_880_510_70.jpg"))
+			,new FilePart("farmersFile.file", new File("D:/Favorites/test/wifi0s0-15815604312520b8e092d2c33a0f76e6b33525d17c_crop.jpg"))
+			 ,new FilePart("farmersFile.file", new File("D:/Favorites/test/QQ图片20151010192845.jpg"))
+			,new StringPart("userId", "4","utf-8")
 			};
 			HttpMethodParams params = filePost.getParams();
 //			String contentCharset = params.getContentCharset();
@@ -57,8 +55,5 @@ public class CategoryFileUploadApp {
 		}
 	}
 
-	public static void main(String[] args) {
-		new CategoryFileUploadApp().dod();
-	}
 
 }
