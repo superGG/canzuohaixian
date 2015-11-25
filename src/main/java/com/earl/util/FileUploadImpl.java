@@ -133,7 +133,7 @@ public class FileUploadImpl {
 		} finally {
 			file.delete();
 		}
-		return dir + "/" + newName;
+		return dir + newName;
 	}
 
 	/**

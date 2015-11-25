@@ -85,6 +85,11 @@ public class JsonToJavaBeanInterceptor extends AbstractInterceptor {
                 }
             }
         }
+        StringBuilder builder = new StringBuilder();
+        for (Object object : parm.keySet()) {
+			builder.append(object).append(":").append(((Object[])parm.get(object))[0]).append("|");
+		}
+        logger.info("参数："+builder);
         if (validataResult) {
             invocation.invoke();
         }

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-11-24 22:07:08
+Date: 2015-11-25 22:00:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -49,9 +49,9 @@ INSERT INTO `category` VALUES ('3', '蟹类', '鱼类', '3', 'fishcategory', nul
 INSERT INTO `category` VALUES ('4', '贝类', '鱼类', '3', 'fishcategory', null, 'category/beike.jpg', '斤', '0', null, '2015-11-04 13:41:32', null, '', '1', null);
 INSERT INTO `category` VALUES ('5', '鱿鱼类', '鱼类', '3', 'fishcategory', null, 'category/xia.jpg', '斤', '0', null, '2015-11-04 13:41:32', null, '', '1', null);
 INSERT INTO `category` VALUES ('6', '人参类', '鱼类', '3', 'fishcategory', null, 'category/haishen.jpg', '斤', '0', null, '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('7', '东星白班鱼', '东星白班鱼', '3', 'whitefish', '1', 'category/haishen.jpg', '斤', '53', null, '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('8', '小黄鱼', '小黄鱼', '3', 'yellowfish', '1', 'category/fish.jpg', '只', '26', null, '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('9', '小黑鱼', '小黑鱼', '3', 'smallblackfish', '1', 'category/beike.jpg', '斤', '1', null, '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('7', '东星白班鱼', '东星白班鱼', '3', 'whitefish', '1', 'category/haishen.jpg', '斤', '58', '[1,3]', '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('8', '小黄鱼', '小黄鱼', '3', 'yellowfish', '1', 'category/fish.jpg', '只', '31', '[1,2,3]', '2015-11-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('9', '小黑鱼', '小黑鱼', '3', 'smallblackfish', '1', 'category/beike.jpg', '斤', '6', '[2,3]', '2015-11-04 13:41:32', null, '', '1', null);
 
 -- ----------------------------
 -- Table structure for `checkout`
@@ -193,7 +193,7 @@ CREATE TABLE `getaddress` (
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
   PRIMARY KEY (`getAddressId`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of getaddress
@@ -202,6 +202,7 @@ INSERT INTO `getaddress` VALUES ('1', '4', 'yilinfeng', '广东海洋大学', '1
 INSERT INTO `getaddress` VALUES ('2', '4', 'yilinfeng22', '广东海洋大', '345', '34234', '1', '2015-11-24 18:33:44', null, '', '1');
 INSERT INTO `getaddress` VALUES ('3', '4', 'ImissYou', '湛江市麻章区', '16345', '435', '1', '2015-11-24 18:34:14', null, '', '1');
 INSERT INTO `getaddress` VALUES ('14', '4', '詹纪勋', '广东海洋大学', '18312687412', '525438', null, '2015-11-24 19:07:27', null, '', '1');
+INSERT INTO `getaddress` VALUES ('16', '4', '詹', '广东海洋大学', '18312687412', '525438', null, '2015-11-25 18:52:25', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `gettype`
@@ -256,10 +257,10 @@ CREATE TABLE `goods` (
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
-INSERT INTO `goods` VALUES ('1', '1', '7', '3', null, '1', '1', '34.5', '910', '斤', 'sss', 'goods/aaa.jpg', '165', null, '2015-11-16 22:13:25', '', '1');
-INSERT INTO `goods` VALUES ('2', '2', '7', '5', null, '1', '1', '40', '1000', '只', 'aaa', 'goods/aaa.jpg', '35', null, '2015-11-17 09:40:12', '', '0');
-INSERT INTO `goods` VALUES ('3', '2', '8', '5', null, '1', '1', '40', '1000', '只', 'bbb', 'goods/aaa.jpg', '46', null, '2015-11-17 09:41:23', '', '1');
-INSERT INTO `goods` VALUES ('4', '2', '9', '5', null, '1', '1', '40', '1000', '只', 'ddd', 'goods/aaa.jpg', '66', null, '2015-11-17 09:41:23', '', '1');
+INSERT INTO `goods` VALUES ('1', '1', '7', '3', null, '1', '1', '34.5', '895', '斤', '白星鱼', 'goods/aaa.jpg', '180', null, '2015-11-16 22:13:25', '', '1');
+INSERT INTO `goods` VALUES ('2', '2', '7', '5', null, '1', '1', '40', '1000', '只', '东邦鱼', 'goods/aaa.jpg', '35', null, '2015-11-17 09:40:12', '', '0');
+INSERT INTO `goods` VALUES ('3', '2', '8', '5', null, '1', '1', '40', '1000', '只', '美人鱼', 'goods/aaa.jpg', '46', null, '2015-11-17 09:41:23', '', '1');
+INSERT INTO `goods` VALUES ('4', '2', '9', '5', null, '1', '1', '40', '1000', '只', '死鱼', 'goods/aaa.jpg', '66', null, '2015-11-17 09:41:23', '', '1');
 
 -- ----------------------------
 -- Table structure for `orders`
@@ -286,13 +287,14 @@ CREATE TABLE `orders` (
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
   PRIMARY KEY (`ordersId`)
-) ENGINE=InnoDB AUTO_INCREMENT=11111122 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11111123 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
 INSERT INTO `orders` VALUES ('11111110', '2', '1', '5', '30.5', '3', 'yilinfeng', '海格号', '广东省湛江市广东海洋大学', '易临风', '18719425973', '123456789', '20', '5.5', '10', '2015-11-16 22:14:31', null, null, '1');
 INSERT INTO `orders` VALUES ('11111120', '1', '1', '5', '30.5', '1', 'yilinfeng', '海格hao', '广东海洋大学', 'yilinfeng', '18719425973', null, null, '80', '5', '2015-11-24 11:25:52', null, '', '1');
+INSERT INTO `orders` VALUES ('11111122', '1', '1', '5', '30.5', '1', 'yilinfeng', '海格号222', '广东海洋大学', 'yilinfeng', '18719425973', null, null, '80', '3', '2015-11-24 22:07:40', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `ordersdetail`
@@ -319,14 +321,17 @@ CREATE TABLE `ordersdetail` (
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
   PRIMARY KEY (`ordersDetailId`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ordersdetail
 -- ----------------------------
 INSERT INTO `ordersdetail` VALUES ('28', '11111120', '5', '1', '7', 'sdfsd', null, '养殖', '40', null, '中等大小', null, '斤', '5', null, '2015-11-24 11:25:52', null, '', '1');
 INSERT INTO `ordersdetail` VALUES ('29', '11111120', '5', '1', '7', 'sdfsd', null, '野生', '40', null, '中等大小', null, '斤', '5', null, '2015-11-24 11:25:52', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('30', '11111120', '3', '1', '8', 'sdfsd', null, '2343', '40', null, '中等大小', null, '斤', '5', null, '2015-11-24 11:25:52', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('30', '11111120', '3', '1', '8', 'sdfsd', 'goods/aaa.jpg', '2343', '40', null, '中等大小', null, '斤', '5', null, '2015-11-24 11:25:52', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('34', '11111122', '5', '1', '8', 'sdfsd', null, '养殖', '40', null, '中等大小', null, '斤', '5', null, '2015-11-24 22:07:40', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('35', '11111122', '5', '1', '7', 'sdfsd', null, '野生', '40', null, '中等大小', null, '斤', '5', null, '2015-11-24 22:07:40', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('36', '11111122', '3', '1', '9', '白星东邦鱼', 'goods/bbb.jpg', '2343', '40', null, '中等大小', null, '斤', '5', null, '2015-11-24 22:07:40', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `postage`
@@ -452,8 +457,8 @@ CREATE TABLE `sku` (
 -- Records of sku
 -- ----------------------------
 INSERT INTO `sku` VALUES ('1', '1', '中等大小', '3', '5', '2015-11-04 22:58:42', null, '', '1');
-INSERT INTO `sku` VALUES ('2', '1', '大号', null, null, '2015-11-04 22:59:08', null, '', '1');
-INSERT INTO `sku` VALUES ('3', '1', '小号', null, null, '2015-11-04 22:59:32', null, '', '1');
+INSERT INTO `sku` VALUES ('2', '1', '大号', '4', '8', '2015-11-04 22:59:08', null, '', '1');
+INSERT INTO `sku` VALUES ('3', '1', '小号', '2', '8', '2015-11-04 22:59:32', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `unit`
@@ -505,7 +510,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` VALUES ('1', '2', '1', '2', '易临风', '798555920', '18719425973', 'user/bbb.jpg', '2015-11-05 11:12:04', null, '', '1', null);
 INSERT INTO `user` VALUES ('2', '1', '1', '1', 'Imissyou', '798555920', '18320489492', 'user/bbb.jpg', '2015-11-05 11:12:04', null, '', '1', null);
 INSERT INTO `user` VALUES ('3', '2', '1', '1', '', '798555920', '18765432104', 'user/aaa.jpg', '2015-11-15 09:54:21', null, '', '1', null);
-INSERT INTO `user` VALUES ('4', '2', '2', '2', '詹命天子', '328499605', '18312687412', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', null);
+INSERT INTO `user` VALUES ('4', '2', '2', '2', '詹命天子', '328499605', '18312687412', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
 
 -- ----------------------------
 -- Table structure for `verifycode`

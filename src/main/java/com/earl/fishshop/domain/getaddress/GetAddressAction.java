@@ -42,15 +42,27 @@ public class GetAddressAction extends BaseAction<GetAddressPo> {
 	public void addGetAddress() {
 		Boolean save = getAddressServer.addGetAddress(model);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultInfo("添加成功");
 		resultMessage.setServiceResult(save);
+		if(save){
+			resultMessage.setResultInfo("添加成功");
+		}else{
+			resultMessage.setResultInfo("添加失败");
+		}
 	}
 	
+	/**
+	 * 更新用户常用地址.
+	 * @author 黄祥谦.
+	 */
 	public void updateUserAddress(){
 		Boolean success = getAddressServer.updateUserAddress(model.getGetAddressId(), model.getUserId());
 		resultMessage = new ResultMessage();
-		resultMessage.setResultInfo("更新成功");
 		resultMessage.setServiceResult(success);
+		if(success){
+			resultMessage.setResultInfo("更新成功");
+		}else{
+			resultMessage.setResultInfo("更新失败");
+		}
 	}
 	
 	/**
