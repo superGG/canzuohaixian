@@ -49,6 +49,7 @@ public class CategoryDaoImpl extends BaseDaoImpl<CategoryPo> implements Category
 		List<CategoryPo> categorylist = getCurrentSession().createQuery(hql).list();
 		for (CategoryPo categoryPo : categorylist) {
 			String skuList = categoryPo.getSkuList();
+			@SuppressWarnings("unchecked")
 			List<Double> jsonToBeanList = JsonHelper.jsonToBean(skuList, List.class);
 			ArrayList<SkuPo> arrayList = new ArrayList<SkuPo>();
 			for (Double long1 : jsonToBeanList) {
