@@ -1,4 +1,4 @@
-package com.earl.fishshop.domain.user;
+	package com.earl.fishshop.domain.user;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +13,7 @@ import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.domain.verifycode.VerifyCodePo;
 import com.earl.fishshop.util.VerifyServiceUtil;
 import com.earl.fishshop.vo.ResultMessage;
-import com.earl.fishshop.vo.UserFileVo;
+import com.earl.fishshop.vo.MuchFileVo;
 import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
 
 /**
@@ -34,10 +34,19 @@ public class UserAction extends BaseAction<UserPo> {
 
 	protected ResultMessage resultMessage;
 	
+	/**
+	 * 验证工具欸.
+	 */
 	protected VerifyServiceUtil verifyServiceUtil;
 	
-	private UserFileVo userFileVo;
+	/**
+	 * 用户上传文件.
+	 */
+	private MuchFileVo userFile;
 	
+	/**
+	 * 用户输入的验证码.
+	 */
 	private VerifyCodePo verifyCodePo;
 	
 	public VerifyCodePo getVerifyCodePo() {
@@ -48,13 +57,14 @@ public class UserAction extends BaseAction<UserPo> {
 		this.verifyCodePo = verifyCodePo;
 	}
 
-	public UserFileVo getUserFileVo() {
-		return userFileVo;
+	public MuchFileVo getUserFile() {
+		return userFile;
 	}
 
-	public void setUserFileVo(UserFileVo userFileVo) {
-		this.userFileVo = userFileVo;
+	public void setUserFile(MuchFileVo userFile) {
+		this.userFile = userFile;
 	}
+
 
 	/**
 	 * 用户输入的验证码.
@@ -114,7 +124,7 @@ public class UserAction extends BaseAction<UserPo> {
 	 * @author 宋文光
 	 */
 	public void updateUserImg() {
-		Boolean update = userServer.updateUserImg(model,userFileVo);
+		Boolean update = userServer.updateUserImg(model,userFile);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(update);
 	}
