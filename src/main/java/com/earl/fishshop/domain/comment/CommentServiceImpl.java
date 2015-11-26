@@ -1,5 +1,6 @@
 package com.earl.fishshop.domain.comment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.domain.base.BaseServiceImpl;
 import com.earl.fishshop.domain.orders.OrdersPo;
+import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.vo.PageInfo;
 
@@ -59,7 +61,14 @@ public class CommentServiceImpl extends BaseServiceImpl<CommentPo> implements
 	public List<CommentPo> getUserComment(CommentPo model, PageInfo pageInfo) {
 		List<CommentPo> list = commentDao.getUserComment(model.getUserId(),
 				pageInfo);
-		return list;
+		List<CommentPo> commentList = new ArrayList<CommentPo>();
+		for (CommentPo comment : list) {
+			ShopPo shop = shopDao.get(comment.getShopId());
+			String shopName = shop.getShopName();
+			comment.setShopName(shopName);
+			commentList.add(comment);
+		}
+		return commentList;
 	}
 
 	@Override

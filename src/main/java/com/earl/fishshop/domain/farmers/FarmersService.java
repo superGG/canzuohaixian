@@ -23,7 +23,7 @@ public interface FarmersService extends BaseService<FarmersPo>{
 	 * @param identityId
 	 * @return
 	 */
-	List<FarmersPo> getFarmers(Long identityId);
+	List<FarmersPo> getFarmers(Long farmersId);
 
 	
 	/**
@@ -42,6 +42,14 @@ public interface FarmersService extends BaseService<FarmersPo>{
 	 * @return
 	 */
 	Boolean noPassAuthenticationFarmers(Long userId, Long farmersId);
+
+	/**
+	 * 通过商店获取养殖户.
+	 *@author 宋文光.
+	 * @param model
+	 * @return
+	 */
+	List<FarmersPo> getFarmers(FarmersPo model);
 	
 	
 	

@@ -35,4 +35,6 @@ public interface FarmersDao extends BaseDao<FarmersPo>{
 	 * @param userId
 	 */
 	void noPassAuthenticationFarmers(Long userId);
+
+	
 }

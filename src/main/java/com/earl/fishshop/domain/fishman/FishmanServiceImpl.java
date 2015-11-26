@@ -90,4 +90,10 @@ public class FishmanServiceImpl extends BaseServiceImpl<FishmanPo> implements
 		return false;
 	}
 
+	@Override
+	public List<FishmanPo> getFishman(FishmanPo model) {
+		List<FishmanPo> fishman = fishmanDao.findByGivenCriteria(model);
+		return fishman;
+	}
+
 }

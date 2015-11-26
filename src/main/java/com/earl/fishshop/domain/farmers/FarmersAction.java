@@ -2,6 +2,7 @@ package com.earl.fishshop.domain.farmers;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -125,4 +126,20 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
 	}
+	
+	/**
+	 * 通过商店获取养殖户信息.
+	 *@author 宋文光.
+	 */
+	public void getFarmerByShop() {
+		List<FarmersPo> farmer = farmersServer.getFarmers(model);
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("farmer", farmer);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+		resultMessage.setResultInfo("获取成功");
+	}
+	
+	
 }

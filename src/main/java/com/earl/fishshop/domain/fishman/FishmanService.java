@@ -42,6 +42,14 @@ public interface FishmanService extends BaseService<FishmanPo>{
 	 */
 	Boolean noPassAuthenticationFishman(Long userId, Long fishmanId);
 
+	/**
+	 * 通过商店获取渔户.
+	 *@author 宋文光.
+	 * @param model
+	 * @return
+	 */
+	List<FishmanPo> getFishman(FishmanPo model);
+
 	
 
 	
