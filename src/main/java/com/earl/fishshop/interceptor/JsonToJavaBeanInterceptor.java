@@ -94,7 +94,7 @@ public class JsonToJavaBeanInterceptor extends AbstractInterceptor {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-        logger.error("参数："+builder);
+        logger.info("<<<<参数>>>>："+builder);
         if (validataResult) {
             invocation.invoke();
         }

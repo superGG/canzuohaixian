@@ -57,7 +57,7 @@ public final class JsonHelper {
             String[] beanJson = tempJson.split("},");
             for (String s : beanJson) {
                 if (s.charAt(s.length() - 1) != '}') {
-                    s = s + "}";
+                    s =  s + "}";
                 }
                 list.add(jsonToBean(s, beanClass));
             }

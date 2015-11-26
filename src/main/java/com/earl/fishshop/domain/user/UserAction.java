@@ -100,6 +100,7 @@ public class UserAction extends BaseAction<UserPo> {
     	Boolean result = verifyServiceUtil.confirmImgVerifyCode(SmsVf , verifyCode);
 		if (result) {
 			Boolean save = userServer.rigisterUser(model);
+			resultMessage.setResultInfo("注册成功");
 			resultMessage.setServiceResult(save);
 		} else {
 			resultMessage.setResultInfo("验证码错误");

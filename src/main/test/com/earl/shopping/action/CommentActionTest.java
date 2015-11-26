@@ -43,9 +43,9 @@ public class CommentActionTest extends StrutsSpringTestCase {
 		// request.addHeader("Content-type", " text/html; charset=utf-8");
 //
 		request.addParameter("userId", "1");
-		request.addParameter("shopId", "3");
-		request.addParameter("ordersId", "3");
-		request.addParameter("commentType", "0");
+		request.addParameter("shopId", "1");
+		request.addParameter("ordersId", "11111120");
+		request.addParameter("commentType", "-1");
 		request.addParameter("content", "不错。我只是来测试而已");
 		request.addParameter("weightQuality", "3");
 		request.addParameter("freshQuality", "2");

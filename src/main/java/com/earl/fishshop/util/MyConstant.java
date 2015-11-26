@@ -38,7 +38,7 @@ public class MyConstant {
 	/**
 	 * 用户认证无法通过 v0.
 	 */
-	public static final Integer user_nopass = 0;
+	public static final Integer user_nopass = 3;
 	
 	/**
 	 * 普通用户代号 v0.
