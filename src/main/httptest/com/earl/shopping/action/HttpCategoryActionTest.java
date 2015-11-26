@@ -28,7 +28,7 @@ public class HttpCategoryActionTest extends BaseActionTest{
 			// new FilePart(targetFile.getName(), targetFile)
 			};
 			String sendHttpRequest = sendHttpRequest(filePost, parts);
-//			System.out.println(sendHttpRequest);
+			System.out.println(sendHttpRequest);
 	}
 	@Test
 	public void testGetNextLevelCategory(){

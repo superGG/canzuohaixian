@@ -60,8 +60,8 @@ public class FarmersServiceImpl extends BaseServiceImpl<FarmersPo> implements
 	}
 
 	@Override
-	public List<FarmersPo> getFarmers(Long identityId) {
-		List<FarmersPo> list = farmersDao.getFarmers(identityId);
+	public List<FarmersPo> getFarmers(Long farmersId) {
+		List<FarmersPo> list = farmersDao.getFarmers(farmersId);
 		return list;
 	}
 
@@ -86,6 +86,12 @@ public class FarmersServiceImpl extends BaseServiceImpl<FarmersPo> implements
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	@Override
+	public List<FarmersPo> getFarmers(FarmersPo model) {
+		List<FarmersPo> farmer = farmersDao.findByGivenCriteria(model);
+		return farmer;
 	}
 
 }

@@ -2,6 +2,7 @@ package com.earl.fishshop.domain.fishman;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -140,4 +141,17 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 		resultMessage.setServiceResult(result);
 	}
 
+	/**
+	 * 通过商店获取渔户信息.
+	 *@author 宋文光.
+	 */
+	public void getFishmanByShop() {
+		List<FishmanPo> fishman = fishmanServer.getFishman(model);
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("fishman", fishman);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+		resultMessage.setResultInfo("获取成功");
+	}
 }
