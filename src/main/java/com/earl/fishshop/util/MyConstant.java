@@ -83,7 +83,7 @@ public class MyConstant {
 	/**
 	 * 订单完成支付状态.
 	 */
-	public static final Integer order_pay = 4;
+	public static final Integer order_pay = 5;
 
 	public static final Boolean shop_notOnSell = false;
 	

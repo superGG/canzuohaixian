@@ -25,7 +25,7 @@ public class HttpOrdersActionTest extends BaseActionTest{
 			Part[] parts = { 
 			new StringPart("orders", "{" +
 					 "\"totalprice\" : \"30.5\"" +
-					 ",\"userId\" : \"1\"" +
+					 ",\"userId\" : \"4\"" +
 					 ",\"shopId\": \"1\"" +
 					 ",\"buyerName\": \"yilinfeng\"" +
 					 ",\"shopKeeperName\": \"海格号222\"" +
