@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-11-26 16:22:56
+Date: 2015-11-26 16:43:07
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -109,7 +109,6 @@ INSERT INTO `comment` VALUES ('4', '4', '4', '18320489492', '4', '0', '很好很
 INSERT INTO `comment` VALUES ('5', '5', '5', '匿名', '5', '0', '很好很满意', '1', '2', '5', '4.4', '2015-11-17 11:17:58', null, null, null);
 INSERT INTO `comment` VALUES ('6', '6', '6', '匿名', '6', '-1', '很好很满意', '1', '1', '5', '5', '2015-11-17 11:17:58', null, null, null);
 INSERT INTO `comment` VALUES ('7', '7', '7', '匿名', '7', '-1', '很好很满意', '1', '4', '5', '5', '2015-11-17 11:17:58', null, null, null);
-
 
 -- ----------------------------
 -- Table structure for `farmers`
@@ -426,19 +425,19 @@ CREATE TABLE `shop` (
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `version` bigint(20) DEFAULT '1',
   PRIMARY KEY (`shopId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop
 -- ----------------------------
-INSERT INTO `shop` VALUES ('1', '1', '海格号',null, '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
-INSERT INTO `shop` VALUES ('2', '2', '泰坦尼克号',null, '[4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', '1', '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
-INSERT INTO `shop` VALUES ('3', '3', '海格号',null, '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
-INSERT INTO `shop` VALUES ('4', '4', '海格号',null, '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
-INSERT INTO `shop` VALUES ('5', '5', '海格号',null, '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
-INSERT INTO `shop` VALUES ('6', '6', '海格号',null, '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
-INSERT INTO `shop` VALUES ('7', '7', '海格号',null, '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
-INSERT INTO `shop` VALUES ('8', '8', '海格号',null, '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
+INSERT INTO `shop` VALUES ('1', '1', '海格号', 'shop/aaa.jpg', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
+INSERT INTO `shop` VALUES ('2', '2', '泰坦尼克号', 'shop/aaa.jpg', '[4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', '1', '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
+INSERT INTO `shop` VALUES ('3', '3', '海格号', 'shop/aaa.jpg', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
+INSERT INTO `shop` VALUES ('4', '4', '海格号', 'shop/aaa.jpg', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
+INSERT INTO `shop` VALUES ('5', '5', '海格号', 'shop/aaa.jpg', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
+INSERT INTO `shop` VALUES ('6', '6', '海格号', 'shop/aaa.jpg', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
+INSERT INTO `shop` VALUES ('7', '7', '海格号', 'shop/aaa.jpg', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
+INSERT INTO `shop` VALUES ('8', '8', '海格号', 'shop/aaa.jpg', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
 
 -- ----------------------------
 -- Table structure for `sku`
@@ -506,7 +505,7 @@ CREATE TABLE `user` (
   `getAddressId` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`userId`),
   UNIQUE KEY `phoneNumber` (`phoneNumber`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
@@ -522,7 +521,6 @@ INSERT INTO `user` VALUES ('8', '2', '4', '1', '詹命天子', '328499605', '183
 INSERT INTO `user` VALUES ('9', '2', '5', '2', '詹命天子', '328499605', '18312687417', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
 INSERT INTO `user` VALUES ('10', '2', '6', '2', '詹命天子', '328499605', '1831268752', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
 INSERT INTO `user` VALUES ('11', '2', '7', '2', '詹命天子', '328499605', '18312687912', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
-
 
 -- ----------------------------
 -- Table structure for `verifycode`
