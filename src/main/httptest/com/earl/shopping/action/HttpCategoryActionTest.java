@@ -27,7 +27,8 @@ public class HttpCategoryActionTest extends BaseActionTest{
 			,new StringPart("pageInfo.size", "3","UTF-8")
 			// new FilePart(targetFile.getName(), targetFile)
 			};
-			sendHttpRequest(filePost, parts);
+			String sendHttpRequest = sendHttpRequest(filePost, parts);
+			System.out.println(sendHttpRequest);
 	}
 	@Test
 	public void testGetNextLevelCategory(){
@@ -39,7 +40,21 @@ public class HttpCategoryActionTest extends BaseActionTest{
 				,new StringPart("pageInfo.indexPageNum", "1","utf-8")
 				,new StringPart("pageInfo.size", "3","UTF-8")
 		};
-		sendHttpRequest(filePost, parts);
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
 		
+	}
+	@Test
+	public void testGetHotCategory(){
+//		String targetURL = "http://192.168.1.107:8080/fishshop/category_getHotCategory.action";
+		String targetURL = "http://www.earltech.cn:8080/fishshop/category_getHotCategory.action";
+		PostMethod filePost = new PostMethod(targetURL);
+		Part[] parts = { 
+				new StringPart("categoryId", "1","utf-8")
+				,new StringPart("pageInfo.indexPageNum", "1","utf-8")
+				,new StringPart("pageInfo.size", "3","UTF-8")
+		};
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
 	}
 }

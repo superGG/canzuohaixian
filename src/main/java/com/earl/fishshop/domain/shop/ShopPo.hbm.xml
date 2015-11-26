@@ -13,6 +13,7 @@
         <version name="version" column="version" type="java.lang.Long"></version>
         <property name="userId" type="java.lang.Long" column="userId" />
         <property name="shopName" type="java.lang.String" column="shopName" />
+        <property name="shopPhoto" type="java.lang.String" column="shopPhoto" />
         <property name="getType" type="java.lang.String" column="getType" />
         <property name="grade" type="java.lang.Integer" column="grade" />
         <property name="weightQuality" type="java.lang.Float" column="weightQuality" />

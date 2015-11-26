@@ -17,6 +17,8 @@ public class ShopPo{
 	 */
 	private String shopName ;
 	
+	private String shopPhoto;
+	
 	/**
 	 * 字段描述：Integer 
 	 * 字段类型：grade 评分.
@@ -117,6 +119,12 @@ public class ShopPo{
 	 */
 	private Long version ;
 	
+	public String getShopPhoto() {
+		return shopPhoto;
+	}
+	public void setShopPhoto(String shopPhoto) {
+		this.shopPhoto = shopPhoto;
+	}
 	public List<String> getGetTypeString() {
 		return getTypeString;
 	}

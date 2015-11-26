@@ -61,7 +61,7 @@ public class ResultMessageToJsonInterceptor extends AbstractInterceptor {
         		resultMessage = tempMethod.invoke(action);
         		if (resultMessage != null) {
         			HttpServletResponse response = ServletActionContext.getResponse();
-        			response.setContentType("text/html;charset=UTF8");
+        			response.setContentType("text/html;charset=UTF-8");
         			PrintWriter out = null;
         			out = response.getWriter();
         			String json = JsonHelper.toJson(resultMessage);

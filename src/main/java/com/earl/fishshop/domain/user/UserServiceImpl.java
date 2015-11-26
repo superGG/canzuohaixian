@@ -210,7 +210,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 		Boolean result;
 		try {
 			model.setUserName(model.getPhoneNumber());
-			model.setHeadImage("localhost:8080//aaa.jpg");
+			model.setHeadImage("user/aaa.jpg");
 			userDao.save(model);
 			result = true;
 		} catch (Exception e) {
@@ -234,5 +234,4 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 		}
 		return false;
 	}
-
 }
