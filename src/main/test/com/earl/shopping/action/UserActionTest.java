@@ -87,5 +87,11 @@ public class UserActionTest extends StrutsSpringTestCase {
 	     String res=executeAction("/user_addUser.action");  
 	     System.out.println(res);
 	}
+	
+	@Test
+	public void testCheckSmsBao() throws Exception{
+	     String res=executeAction("/user_checkSmsBao.action");  
+	     System.out.println(res);
+	}
 
 }

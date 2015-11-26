@@ -28,8 +28,13 @@ public interface GetTypeService extends BaseService<GetTypePo>{
 	 */
 	List<GetTypePo> getHierarchyGetType();
 
-	
-
+	/**
+	 * 获取捕捞方式.
+	 *@author 宋文光.
+	 * @param getType
+	 * @return 
+	 */
+	String getGetTypeName(String getType);
 	
 	
 	

@@ -10,8 +10,6 @@ import org.springframework.stereotype.Controller;
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.domain.base.BaseAction;
 import com.earl.fishshop.domain.category.CategoryPo;
-import com.earl.fishshop.domain.farmers.FarmersPo;
-import com.earl.fishshop.domain.fishman.FishmanPo;
 import com.earl.fishshop.domain.goods.GoodsPo;
 import com.earl.fishshop.vo.PageInfo;
 import com.earl.fishshop.vo.ResultMessage;
@@ -166,12 +164,8 @@ public class ShopAction extends BaseAction<ShopPo> {
 	 *@author 宋文光.
 	 */
 	public void getAllFishmanShop() {
-		List<ShopPo> shopList = shopServer.getAllFishmanShop();
-		List<FishmanPo> fishmanList = fishmanServer.findAll();
 		Map<String, Object> hashMap = new HashMap<String,Object>();
-		hashMap.put("fishShop", shopList);
-		hashMap.put("fishmanList", fishmanList);
-		
+		hashMap = shopServer.getAllFishmanShop();
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(true);
 		resultMessage.setResultParm(hashMap);
@@ -182,11 +176,8 @@ public class ShopAction extends BaseAction<ShopPo> {
 	 *@author 宋文光.
 	 */
 	public void getAllFarmersShop() {
-		List<ShopPo> shopList = shopServer.getAllFarmersShop();
-		List<FarmersPo> farmersList = farmersServer.findAll();
 		Map<String, Object> hashMap = new HashMap<String,Object>();
-		hashMap.put("Farmers", shopList);
-		hashMap.put("farmersList", farmersList);
+		hashMap = shopServer.getAllFarmersShop();
 		
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(true);

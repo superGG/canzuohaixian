@@ -102,12 +102,12 @@ CREATE TABLE `comment` (
 -- Records of comment
 -- ----------------------------
 INSERT INTO `comment` VALUES ('1', '1', '1', '18320489492', '1', '1', '很好很满意', '0', '4', '5', '5', '2015-11-17 11:17:58', null, null, null);
-INSERT INTO `comment` VALUES ('2', '1', '1', '18320489492临风', '2', '1', '很好很满意', '0', '3', '3.8', '5', '2015-11-17 11:17:58', null, null, null);
-INSERT INTO `comment` VALUES ('3', '1', '2', '18320489492', '3', '1', '很好很满意', '0', '4', '4.2', '5', '2015-11-17 11:17:58', null, null, null);
-INSERT INTO `comment` VALUES ('4', '2', '2', '18320489492', '4', '0', '很好很满意', '0', '5', '5', '3.3', '2015-11-17 11:17:58', null, null, null);
-INSERT INTO `comment` VALUES ('5', '2', '3', '匿名', '5', '0', '很好很满意', '1', '2', '5', '4.4', '2015-11-17 11:17:58', null, null, null);
-INSERT INTO `comment` VALUES ('6', '3', '1', '匿名', '6', '-1', '很好很满意', '1', '1', '5', '5', '2015-11-17 11:17:58', null, null, null);
-INSERT INTO `comment` VALUES ('7', '3', '3', '匿名', '7', '-1', '很好很满意', '1', '4', '5', '5', '2015-11-17 11:17:58', null, null, null);
+INSERT INTO `comment` VALUES ('2', '2', '2', '18320489492临风', '2', '1', '很好很满意', '0', '3', '3.8', '5', '2015-11-17 11:17:58', null, null, null);
+INSERT INTO `comment` VALUES ('3', '3', '3', '18320489492', '3', '1', '很好很满意', '0', '4', '4.2', '5', '2015-11-17 11:17:58', null, null, null);
+INSERT INTO `comment` VALUES ('4', '4', '4', '18320489492', '4', '0', '很好很满意', '0', '5', '5', '3.3', '2015-11-17 11:17:58', null, null, null);
+INSERT INTO `comment` VALUES ('5', '5', '5', '匿名', '5', '0', '很好很满意', '1', '2', '5', '4.4', '2015-11-17 11:17:58', null, null, null);
+INSERT INTO `comment` VALUES ('6', '6', '6', '匿名', '6', '-1', '很好很满意', '1', '1', '5', '5', '2015-11-17 11:17:58', null, null, null);
+INSERT INTO `comment` VALUES ('7', '7', '7', '匿名', '7', '-1', '很好很满意', '1', '4', '5', '5', '2015-11-17 11:17:58', null, null, null);
 
 -- ----------------------------
 -- Table structure for `farmers`
@@ -134,12 +134,10 @@ CREATE TABLE `farmers` (
 -- ----------------------------
 -- Records of farmers
 -- ----------------------------
-INSERT INTO `farmers` VALUES ('1', '1', '广东海洋大学', '234.4', '344.6', '/fishshop/aaa.jpg', 'fs.jpg', 'dflj.jpg', '23409232408', '4;2;3', '2015-11-17 11:17:58', null, null, '1');
-INSERT INTO `farmers` VALUES ('2', '2', '岭南师范学院', '234.4', '344.6', '/fishshop/aaa.jpg', 'fs.jpg', 'dflj.jpg', '23409232408', '4;2;3', '2015-11-17 11:17:58', null, null, '1');
-INSERT INTO `farmers` VALUES ('3', '3', '北京大学', '234.4', '344.6', '/fishshop/aaa.jpg', 'fs.jpg', 'dflj.jpg', '23409232408', '4;2;3', '2015-11-17 11:17:58', null, null, '1');
-INSERT INTO `farmers` VALUES ('4', '4', '清华大学', '234.4', '344.6', '/fishshop/aaa.jpg', 'fs.jpg', 'dflj.jpg', '23409232408', '4;2;3', '2015-11-17 11:17:58', null, null, '1');
-INSERT INTO `farmers` VALUES ('5', '5', '上海交通大学', '234.4', '344.6', '/fishshop/aaa.jpg', 'fs.jpg', 'dflj.jpg', '23409232408', '4;2;3', '2015-11-17 11:17:58', null, null, '1');
-INSERT INTO `farmers` VALUES ('6', '6', '中山大学', '234.4', '344.6', '/fishshop/aaa.jpg', 'fs.jpg', 'dflj.jpg', '23409232408', '4;2;3', '2015-11-17 11:17:58', null, null, '1');
+INSERT INTO `farmers` VALUES ('1', '5', '广东海洋大学', '234.4', '344.6', '/fishshop/aaa.jpg', 'fs.jpg', 'dflj.jpg', '23409232408', '4;2;3', '2015-11-17 11:17:58', null, null, '1');
+INSERT INTO `farmers` VALUES ('2', '6', '岭南师范学院', '234.4', '344.6', '/fishshop/aaa.jpg', 'fs.jpg', 'dflj.jpg', '23409232408', '4;2;3', '2015-11-17 11:17:58', null, null, '1');
+INSERT INTO `farmers` VALUES ('3', '7', '北京大学', '234.4', '344.6', '/fishshop/aaa.jpg', 'fs.jpg', 'dflj.jpg', '23409232408', '4;2;3', '2015-11-17 11:17:58', null, null, '1');
+INSERT INTO `farmers` VALUES ('4', '8', '清华大学', '234.4', '344.6', '/fishshop/aaa.jpg', 'fs.jpg', 'dflj.jpg', '23409232408', '4;2;3', '2015-11-17 11:17:58', null, null, '1');
 
 -- ----------------------------
 -- Table structure for `fishman`
@@ -169,12 +167,10 @@ CREATE TABLE `fishman` (
 -- ----------------------------
 -- Records of fishman
 -- ----------------------------
-INSERT INTO `fishman` VALUES ('1', '7', '1', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', 'fs.jpg', '20', '23409232408', '2015-11-17', 'superGG', '123456789', 'sdsdfsdf', '2015-11-17 11:17:58', null, null, null);
-INSERT INTO `fishman` VALUES ('2', '8', '1', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', 'fs.jpg', '20', '23409232408', '2015-11-17', 'superGG', '123456789', 'sdsdfsdf', '2015-11-17 11:17:58', null, null, null);
-INSERT INTO `fishman` VALUES ('3', '9', '2', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', 'fs.jpg', '20', '23409232408', '2015-11-17', 'superGG', '123456789', 'sdsdfsdf', '2015-11-17 11:17:58', null, null, null);
-INSERT INTO `fishman` VALUES ('4', '10', '2', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', 'fs.jpg', '20', '23409232408', '2015-11-17', 'superGG', '123456789', 'sdsdfsdf', '2015-11-17 11:17:58', null, null, null);
-INSERT INTO `fishman` VALUES ('5', '11', '3', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', 'fs.jpg', '20', '23409232408', '2015-11-17', 'superGG', '123456789', 'sdsdfsdf', '2015-11-17 11:17:58', null, null, null);
-INSERT INTO `fishman` VALUES ('6', '12', '3', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', 'fs.jpg', '20', '23409232408', '2015-11-17', 'superGG', '123456789', 'sdsdfsdf', '2015-11-17 11:17:58', null, null, null);
+INSERT INTO `fishman` VALUES ('1', '1', '1', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', 'fs.jpg', '20', '23409232408', '2015-11-17', 'superGG', '123456789', 'sdsdfsdf', '2015-11-17 11:17:58', null, null, null);
+INSERT INTO `fishman` VALUES ('2', '2', '1', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', 'fs.jpg', '20', '23409232408', '2015-11-17', 'superGG', '123456789', 'sdsdfsdf', '2015-11-17 11:17:58', null, null, null);
+INSERT INTO `fishman` VALUES ('3', '3', '2', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', 'fs.jpg', '20', '23409232408', '2015-11-17', 'superGG', '123456789', 'sdsdfsdf', '2015-11-17 11:17:58', null, null, null);
+INSERT INTO `fishman` VALUES ('4', '4', '2', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', '/fishshop/aaa.jpg', 'fs.jpg', '20', '23409232408', '2015-11-17', 'superGG', '123456789', 'sdsdfsdf', '2015-11-17 11:17:58', null, null, null);
 
 -- ----------------------------
 -- Table structure for `getaddress`
@@ -292,9 +288,9 @@ CREATE TABLE `orders` (
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
-INSERT INTO `orders` VALUES ('11111110', '2', '1', '5', '30.5', '3', 'yilinfeng', '海格号', '广东省湛江市广东海洋大学', '易临风', '18719425973', '123456789', '20', '5.5', '10', '2015-11-16 22:14:31', null, null, '1');
-INSERT INTO `orders` VALUES ('11111120', '1', '1', '5', '30.5', '1', 'yilinfeng', '海格hao', '广东海洋大学', 'yilinfeng', '18719425973', null, null, '80', '5', '2015-11-24 11:25:52', null, '', '1');
-INSERT INTO `orders` VALUES ('11111122', '1', '1', '5', '30.5', '1', 'yilinfeng', '海格号222', '广东海洋大学', 'yilinfeng', '18719425973', null, null, '80', '3', '2015-11-24 22:07:40', null, '', '1');
+INSERT INTO `orders` VALUES ('11111110', '1', '1', '5', '30.5', '3', 'yilinfeng', '海格号', '广东省湛江市广东海洋大学', '易临风', '18719425973', '123456789', '20', '5.5', '10', '2015-11-16 22:14:31', null, null, '1');
+INSERT INTO `orders` VALUES ('11111120', '5', '5', '5', '30.5', '1', 'yilinfeng', '海格hao', '广东海洋大学', 'yilinfeng', '18719425973', null, null, '80', '5', '2015-11-24 11:25:52', null, '', '1');
+INSERT INTO `orders` VALUES ('11111122', '3', '3', '5', '30.5', '1', 'yilinfeng', '海格号222', '广东海洋大学', 'yilinfeng', '18719425973', null, null, '80', '3', '2015-11-24 22:07:40', null, '', '1');
 
 -- ----------------------------
 -- Table structure for `ordersdetail`
@@ -434,7 +430,12 @@ CREATE TABLE `shop` (
 -- ----------------------------
 INSERT INTO `shop` VALUES ('1', '1', '海格号', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
 INSERT INTO `shop` VALUES ('2', '2', '泰坦尼克号', '[4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', '1', '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
-INSERT INTO `shop` VALUES ('3', '1', '海格号', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
+INSERT INTO `shop` VALUES ('3', '3', '海格号', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
+INSERT INTO `shop` VALUES ('4', '4', '海格号', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
+INSERT INTO `shop` VALUES ('5', '5', '海格号', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
+INSERT INTO `shop` VALUES ('6', '6', '海格号', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
+INSERT INTO `shop` VALUES ('7', '7', '海格号', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
+INSERT INTO `shop` VALUES ('8', '8', '海格号', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
 
 -- ----------------------------
 -- Table structure for `sku`
@@ -507,10 +508,17 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '2', '1', '2', '易临风', '798555920', '18719425973', 'user/bbb.jpg', '2015-11-05 11:12:04', null, '', '1', null);
-INSERT INTO `user` VALUES ('2', '1', '1', '1', 'Imissyou', '798555920', '18320489492', 'user/bbb.jpg', '2015-11-05 11:12:04', null, '', '1', null);
-INSERT INTO `user` VALUES ('3', '2', '1', '1', '', '798555920', '18765432104', 'user/aaa.jpg', '2015-11-15 09:54:21', null, '', '1', null);
-INSERT INTO `user` VALUES ('4', '2', '2', '2', '詹命天子', '328499605', '18312687412', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
+INSERT INTO `user` VALUES ('1', '1', '1', '1', '易临风', '798555920', '18719425973', 'user/bbb.jpg', '2015-11-05 11:12:04', null, '', '1', null);
+INSERT INTO `user` VALUES ('2', '1', '2', '1', 'Imissyou', '798555920', '18320489492', 'user/bbb.jpg', '2015-11-05 11:12:04', null, '', '1', null);
+INSERT INTO `user` VALUES ('3', '1', '3', '1', '', '798555920', '18765432104', 'user/aaa.jpg', '2015-11-15 09:54:21', null, '', '1', null);
+INSERT INTO `user` VALUES ('4', '1', '4', '1', '詹命天子', '328499605', '18312687412', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
+INSERT INTO `user` VALUES ('5', '2', '1', '1', '詹命天子', '328499605', '18312687413', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
+INSERT INTO `user` VALUES ('6', '2', '2', '1', '詹命天子', '328499605', '18312687414', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
+INSERT INTO `user` VALUES ('7', '2', '3', '1', '詹命天子', '328499605', '18312687415', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
+INSERT INTO `user` VALUES ('8', '2', '4', '1', '詹命天子', '328499605', '18312687416', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
+INSERT INTO `user` VALUES ('9', '2', '5', '2', '詹命天子', '328499605', '18312687417', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
+INSERT INTO `user` VALUES ('10', '2', '6', '2', '詹命天子', '328499605', '1831268752', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
+INSERT INTO `user` VALUES ('11', '2', '7', '2', '詹命天子', '328499605', '18312687912', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
 
 -- ----------------------------
 -- Table structure for `verifycode`

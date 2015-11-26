@@ -1,6 +1,5 @@
 package com.earl.fishshop.domain.shop;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,9 +13,7 @@ import com.earl.fishshop.domain.base.BaseServiceImpl;
 import com.earl.fishshop.domain.comment.CommentPo;
 import com.earl.fishshop.domain.farmers.FarmersPo;
 import com.earl.fishshop.domain.fishman.FishmanPo;
-import com.earl.fishshop.domain.shop.ShopDao;
-import com.earl.fishshop.domain.shop.ShopPo;
-import com.earl.fishshop.domain.shop.ShopService;
+import com.earl.fishshop.domain.gettype.GetTypeService;
 import com.earl.fishshop.domain.user.UserPo;
 import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.vo.PageInfo;
@@ -27,7 +24,7 @@ import com.earl.fishshop.vo.PageInfo;
  * @author Administrator
  * 
  */
- @Service(value = "shopService")
+@Service(value = "shopService")
 public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 		ShopService {
 
@@ -35,9 +32,12 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 	ShopDao shopDao;
 
 	@PostConstruct
-	public void initBaseDao(){
+	public void initBaseDao() {
 		baseDao = shopDao;
 	}
+	
+	@Resource
+	protected GetTypeService getTypeServer;
 
 	@Override
 	public ShopPo getMyShop(Long userId) {
@@ -60,7 +60,7 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 	public Boolean addShop(ShopPo model) {
 		try {
 			UserPo userPo = userDao.get(model.getUserId());
-			if(userPo.getUserType() == MyConstant.user_farmer){
+			if (userPo.getUserType() == MyConstant.user_farmer) {
 				FarmersPo farmers = farmersDao.get(userPo.getIdentityId());
 				model.setGetType(farmers.getMultiGetType());
 				model.setAddress(farmers.getAddress());
@@ -71,7 +71,7 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 				Long shopId = shopDao.addShop(model);
 				farmers.setShopId(shopId);
 				farmersDao.update(farmers);
-			}else if(userPo.getUserType() == MyConstant.user_fishman){
+			} else if (userPo.getUserType() == MyConstant.user_fishman) {
 				FishmanPo fishman = fishmanDao.get(userPo.getIdentityId());
 				model.setShopType(MyConstant.shop_fishman);
 				model.setGetType(String.valueOf(fishman.getGetType()));
@@ -106,20 +106,27 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 		List<CommentPo> list = commentDao.getShopComment(model.getShopId());
 		int i = list.size();
 		ShopPo shop = shopDao.getShop(model.getShopId());
-		System.out.println(shop.getFreshQuality().getClass() );
-		System.out.println(shop.getFreshQuality() + "-----" + shop.getFreshQuality() * (i-1) );
-		System.out.println(model.getFreshQuality().getClass() );
-		System.out.println(model.getFreshQuality() +  shop.getFreshQuality());
-		Float newFreshQuality = new Float((shop.getFreshQuality() * (i-1) + model.getFreshQuality())/i);
-		Float newSpeedQuality = new Float((shop.getSpeedQuality() * (i-1) + model.getSpeedQuality())/i);
-		Float newWeightQuality = new Float((shop.getWeightQuality() * (i-1) + model.getWeightQuality())/i);
+		System.out.println(shop.getFreshQuality().getClass());
+		System.out.println(shop.getFreshQuality() + "-----"
+				+ shop.getFreshQuality() * (i - 1));
+		System.out.println(model.getFreshQuality().getClass());
+		System.out.println(model.getFreshQuality() + shop.getFreshQuality());
+		Float newFreshQuality = new Float(
+				(shop.getFreshQuality() * (i - 1) + model.getFreshQuality())
+						/ i);
+		Float newSpeedQuality = new Float(
+				(shop.getSpeedQuality() * (i - 1) + model.getSpeedQuality())
+						/ i);
+		Float newWeightQuality = new Float(
+				(shop.getWeightQuality() * (i - 1) + model.getWeightQuality())
+						/ i);
 		shop.setFreshQuality(newFreshQuality);
 		shop.setSpeedQuality(newSpeedQuality);
 		shop.setWeightQuality(newWeightQuality);
 		System.out.println("---------------------------------");
 		shop.setGrade(shop.getGrade() + model.getCommentType());
 		shopDao.updateShop(shop);
-		
+
 	}
 
 	@Override
@@ -129,36 +136,56 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 		int goodComment = commentDao.getGoodComment(shopId).size();
 		int midComment = commentDao.getMidComment(shopId).size();
 		int bedComment = commentDao.getBedComment(shopId).size();
-		Map<String, Object> hashMap = new HashMap<String,Object>();
-		hashMap.put("shop", shop);  //商店信息：新鲜度、足斤足称、发货速度
-		hashMap.put("commentSize", commentSizt); //全部评论数量
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("shop", shop); // 商店信息：新鲜度、足斤足称、发货速度
+		hashMap.put("commentSize", commentSizt); // 全部评论数量
 		hashMap.put("goodComment", goodComment);// 好评数量
-		hashMap.put("midComment", midComment); //中评数量
-		hashMap.put("bedComment", bedComment); //差评数量
-		
+		hashMap.put("midComment", midComment); // 中评数量
+		hashMap.put("bedComment", bedComment); // 差评数量
+
 		return hashMap;
 	}
 
 	@Override
-	public List<ShopPo> getAllFishmanShop() {
-		List<ShopPo> fishShopList = new ArrayList<ShopPo>();
+	public Map<String, Object> getAllFishmanShop() {
+		Map<String, Object> map = new HashMap<String, Object>();//存放一条信息
+		Map<String, Object> hashmap = new HashMap<String, Object>();//存放全部信息.
 		List<FishmanPo> fishmanList = fishmanDao.findAll();
 		for (FishmanPo fishman : fishmanList) {
-			ShopPo shop = shopDao.get(fishman.getShopId());
-			fishShopList.add(shop);
+			if (fishman.getShopId() != null) {
+				ShopPo shop = shopDao.get(fishman.getShopId());
+//				GetTypePo get = getTypeDao.get(shop.getGetType().);
+				map.put("fishmanId", fishman.getFishmanId());
+				map.put("shopId", fishman.getShopId());
+				String getName = getTypeServer.getGetTypeName(shop.getGetType());
+				map.put("getName", getName);
+				map.put("createTime", fishman.getCreateTime());
+				String key = String.valueOf(fishman.getFishmanId());
+				hashmap.put(key, map);
+			}
 		}
-		return fishShopList;
+		return hashmap;
 	}
 
 	@Override
-	public List<ShopPo> getAllFarmersShop() {
-		List<ShopPo> farmersShopList = new ArrayList<ShopPo>();
+	public Map<String, Object> getAllFarmersShop() {
+		Map<String, Object> map = new HashMap<String, Object>();//存放一条信息
+		Map<String, Object> hashmap = new HashMap<String, Object>();//存放全部信息.
 		List<FarmersPo> farmersList = farmersDao.findAll();
 		for (FarmersPo farmers : farmersList) {
-			ShopPo shop = shopDao.get(farmers.getShopId());
-			farmersShopList.add(shop);
+			if (farmers.getShopId() != null) {
+				ShopPo shop = shopDao.get(farmers.getShopId());
+				map.put("farmersId", farmers.getFarmersId());
+				map.put("shopId", farmers.getShopId());
+				String getName = getTypeServer.getGetTypeName(shop.getGetType());
+				map.put("getName", getName);
+				map.put("shopName", shop.getShopName());
+				map.put("createTime", farmers.getCreateTime());
+				String key = String.valueOf(farmers.getFarmersId());
+				hashmap.put(key, map);
+			}
 		}
-		return farmersShopList;
+		return hashmap;
 	}
 
 	@Override
@@ -166,5 +193,7 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 		List<ShopPo> shopList = shopDao.getAllShop(pageInfo);
 		return shopList;
 	}
+	
+	
 
 }
