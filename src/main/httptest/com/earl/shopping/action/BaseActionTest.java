@@ -14,7 +14,8 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
  */
 public class BaseActionTest {
 
-	public void sendHttpRequest(PostMethod filePost, Part[] parts) {
+	public String sendHttpRequest(PostMethod filePost, Part[] parts) {
+		String string = null;
 		try {
 			HttpMethodParams params = filePost.getParams();
 			params.setContentCharset("utf-8");
@@ -27,11 +28,14 @@ public class BaseActionTest {
 			if (status == HttpStatus.SC_OK) {
 			} else {
 			}
+			byte[] responseBody = filePost.getResponseBody();
+			string = new String(responseBody);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
 			filePost.releaseConnection();
 		}
+		return string;
 	}
 	
 }

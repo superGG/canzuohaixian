@@ -86,10 +86,15 @@ public class JsonToJavaBeanInterceptor extends AbstractInterceptor {
             }
         }
         StringBuilder builder = new StringBuilder();
-        for (Object object : parm.keySet()) {
-			builder.append(object).append(":").append(((Object[])parm.get(object))[0]).append("|");
+        try {
+        	for (Object object : parm.keySet()) {
+        		tempJson = (Object[]) parm.get(object);
+        		builder.append(object).append(":").append(tempJson[0].toString()).append("|");
+        	}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-        logger.info("参数："+builder);
+        logger.error("参数："+builder);
         if (validataResult) {
             invocation.invoke();
         }
