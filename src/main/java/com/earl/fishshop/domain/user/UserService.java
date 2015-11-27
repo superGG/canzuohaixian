@@ -49,11 +49,11 @@ public interface UserService extends BaseService<UserPo>{
 	/**
 	 * 拉黑用户.
 	 *@author 宋文光.
-	 * @param identityId
+	 * @param model
 	 * 			渔户或养殖户id;
 	 * @return
 	 */
-	Boolean blackUser(Long identityId);
+	Boolean blackUser(UserPo model);
 
 	/**
 	 * 注册时发验证码到指定手机.

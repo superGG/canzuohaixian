@@ -39,10 +39,10 @@ public interface UserDao extends BaseDao<UserPo>{
 	/**
 	 * 拉黑指定用户.
 	 *@author 宋文光.
-	 * @param identityId
+	 * @param user
 	 * @return
 	 */
-	Boolean blackUser(Long identityId);
+	Boolean blackUser(UserPo user);
 	
 
 }

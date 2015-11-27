@@ -25,12 +25,12 @@ public class FarmersActionTest extends StrutsSpringTestCase {
 		System.out.println(res);
 	}
 
+
 	@Test
-	public void testGetFiahman() throws Exception {
-		request.addParameter("fishmanId", "1"); 
-		String res = executeAction("/fishman_getFiahman.action");
+	public void testGetFarmersByShop() throws Exception {
+		request.addParameter("shopId", "5"); 
+		String res = executeAction("/farmers_getFarmerByShop.action");
 
 		System.out.println(res);
 	}
-
 }

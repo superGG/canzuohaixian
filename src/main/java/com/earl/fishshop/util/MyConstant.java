@@ -21,37 +21,37 @@ public class MyConstant {
 	public static final Integer checkout_pass = 1;
 	
 	/**
-	 * 用户被拉黑 v3.
+	 * 用户被拉黑 v3.(state)
 	 */
-	public static final Integer user_black= 3;
+	public static final Integer user_black= 5;
 	
 	/**
-	 * 等待审查 v2.
+	 * 等待审查 v2.(state)
 	 */
 	public static final Integer user_wait = 2;
 	
 	/**
-	 * 用户认证通过 v1.
+	 * 用户认证通过 v1.(state)
 	 */
 	public static final Integer user_pass = 1;
 
 	/**
-	 * 用户认证无法通过 v0.
+	 * 用户认证无法通过 v0.(state)
 	 */
 	public static final Integer user_nopass = 3;
 	
 	/**
-	 * 普通用户代号 v0.
+	 * 普通用户代号 v0.(userType)
 	 */
 	public static final Integer user_normal = 0;
 	
 	/**
-	 * 渔户用户代号 v1.
+	 * 渔户用户代号 v1.(userType)
 	 */
 	public static final Integer user_fishman= 1;
 	
 	/**
-	 * 养殖户用户代号 v2.
+	 * 养殖户用户代号 v2.(userType)
 	 */
 	public static final Integer user_farmer= 2;
 
@@ -100,22 +100,22 @@ public class MyConstant {
 	public static final Integer shop_farmerman = 1;
 	
 	/**
-	 * 好评.
+	 * 好评.(connentType)
 	 */
 	public static final Integer comment_good = 1;
 	
 	/**
-	 * 中评
+	 * 中评(connentType)
 	 */
 	public static final Integer comment_med = 0;
 	
 	/**
-	 * 差评.
+	 * 差评.(connentType)
 	 */
 	public static final Integer comment_bed = -1;
 	
 	/**
-	 * 评论匿名.
+	 * 评论匿名.(anonymity)
 	 */
 	public static final Integer comment_anonymity = 1;
 	

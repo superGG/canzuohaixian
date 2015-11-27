@@ -68,4 +68,16 @@ public class FishmanActionTest extends StrutsSpringTestCase {
 		String res = executeAction("/fishman_findAllFiahmanNumber.action");
 		System.out.println(res);
 	}
+	
+	@Test
+	public void testGetFishmanByShop() throws Exception {
+		request.addParameter("shopId", "1"); 
+		String res = executeAction("/fishman_getFishmanByShop.action");
+
+		System.out.println(res);
+	}
+	
+	
+	
+	
 }
