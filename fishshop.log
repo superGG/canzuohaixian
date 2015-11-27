@@ -1,0 +1,355 @@
+2015-11-27 12:07:19,275 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from file [D:\My Documents\GitHub\workspace\canzuohaixian\target\classes\applicationContext-bean.xml]
+2015-11-27 12:07:19,434 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from file [D:\My Documents\GitHub\workspace\canzuohaixian\target\classes\applicationContext-database.xml]
+2015-11-27 12:07:19,850 [main] INFO  [org.springframework.context.support.GenericApplicationContext] - Refreshing org.springframework.context.support.GenericApplicationContext@4ef888ea: startup date [Fri Nov 27 12:07:19 CST 2015]; root of context hierarchy
+2015-11-27 12:07:20,284 [main] INFO  [org.springframework.beans.factory.config.PropertiesFactoryBean] - Loading properties file from URL [file:/D:/My%20Documents/GitHub/workspace/canzuohaixian/target/classes/public.properties]
+2015-11-27 12:07:20,523 [main] INFO  [com.mchange.v2.log.MLog] - MLog clients using log4j logging.
+2015-11-27 12:07:20,758 [main] INFO  [com.mchange.v2.c3p0.C3P0Registry] - Initializing c3p0-0.9.2.1 [built 20-March-2013 10:47:27 +0000; debug? true; trace: 10]
+2015-11-27 12:07:21,088 [main] INFO  [org.hibernate.annotations.common.Version] - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-11-27 12:07:21,096 [main] INFO  [org.hibernate.Version] - HHH000412: Hibernate Core {4.3.10.Final}
+2015-11-27 12:07:21,099 [main] INFO  [org.hibernate.cfg.Environment] - HHH000206: hibernate.properties not found
+2015-11-27 12:07:21,101 [main] INFO  [org.hibernate.cfg.Environment] - HHH000021: Bytecode provider name : javassist
+2015-11-27 12:07:21,128 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000044: Configuring from URL: file:/D:/My%20Documents/GitHub/workspace/canzuohaixian/target/classes/hibernate.cfg.xml
+2015-11-27 12:07:21,162 [main] WARN  [org.hibernate.internal.util.xml.DTDEntityResolver] - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-11-27 12:07:21,186 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/category/CategoryPo.hbm.xml
+2015-11-27 12:07:21,223 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/comment/CommentPo.hbm.xml
+2015-11-27 12:07:21,259 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/farmers/FarmersPo.hbm.xml
+2015-11-27 12:07:21,284 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/fishman/FishmanPo.hbm.xml
+2015-11-27 12:07:21,311 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/goods/GoodsPo.hbm.xml
+2015-11-27 12:07:21,329 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/orders/OrdersPo.hbm.xml
+2015-11-27 12:07:21,351 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/searecord/SeaRecordPo.hbm.xml
+2015-11-27 12:07:21,381 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/shop/ShopPo.hbm.xml
+2015-11-27 12:07:21,403 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/sku/SkuPo.hbm.xml
+2015-11-27 12:07:21,431 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/unit/UnitPo.hbm.xml
+2015-11-27 12:07:21,456 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/user/UserPo.hbm.xml
+2015-11-27 12:07:21,482 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/gettype/GetTypePo.hbm.xml
+2015-11-27 12:07:21,514 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/getaddress/GetAddressPo.hbm.xml
+2015-11-27 12:07:21,539 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/checkout/CheckoutPo.hbm.xml
+2015-11-27 12:07:21,568 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/shipport/ShipPortPo.hbm.xml
+2015-11-27 12:07:21,596 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/ordersdetail/OrdersDetailPo.hbm.xml
+2015-11-27 12:07:21,624 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/verifycode/VerifyCodePo.hbm.xml
+2015-11-27 12:07:21,651 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/postage/PostagePo.hbm.xml
+2015-11-27 12:07:21,670 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000041: Configured SessionFactory: null
+2015-11-27 12:07:21,911 [main] INFO  [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgesxt9djqfqpp8fdwrr|359a9570, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgesxt9djqfqpp8fdwrr|359a9570, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/fishshop, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+2015-11-27 12:07:22,207 [main] INFO  [org.hibernate.dialect.Dialect] - HHH000400: Using dialect: org.hibernate.dialect.MySQLInnoDBDialect
+2015-11-27 12:07:22,216 [main] INFO  [org.hibernate.engine.jdbc.internal.LobCreatorBuilder] - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-27 12:07:22,304 [main] INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-11-27 12:07:22,311 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] - HHH000397: Using ASTQueryTranslatorFactory
+2015-11-27 12:07:22,894 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000228: Running hbm2ddl schema update
+2015-11-27 12:07:22,894 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000102: Fetching database metadata
+2015-11-27 12:07:22,899 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000396: Updating schema
+2015-11-27 12:07:22,930 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.category
+2015-11-27 12:07:22,930 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [skulist, categoryacademicname, fishphoto, hotdegree, isdelete, parentid, categoryenglishname, version, createtime, unit, categoryid, creatorid, totalsellnumber, gettype, categorysimplename]
+2015-11-27 12:07:22,931 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: [fk_t5q79q343h5dagly7r5avs1wj]
+2015-11-27 12:07:22,931 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [fk_t5q79q343h5dagly7r5avs1wj, primary]
+2015-11-27 12:07:22,946 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.checkout
+2015-11-27 12:07:22,946 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, creatorid, state, userid, isdelete, usertype, checkoutid, identityid, version]
+2015-11-27 12:07:22,947 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:07:22,947 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:07:22,964 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.comment
+2015-11-27 12:07:22,964 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, content, commentid, phonenumber, freshquality, shopid, creatorid, ordersid, speedquality, anonymity, userid, isdelete, weightquality, commenttype, version]
+2015-11-27 12:07:22,965 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:07:22,965 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:07:22,979 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.farmers
+2015-11-27 12:07:22,980 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, aquaculturelicense, shopid, creatorid, multigettype, backidentityphoto, address, forntidentityphoto, addressphoto, isdelete, longitude, latitude, farmersid, version]
+2015-11-27 12:07:22,980 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:07:22,980 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:07:22,995 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.fishman
+2015-11-27 12:07:22,995 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [frontidentityphoto, isdelete, homeport, seapassphoto, fishmanid, enginepower, version, createtime, shopid, creatorid, backidentityphoto, shipcreatetime, tonnage, realname, fishinglicense, gettype, shipphoto]
+2015-11-27 12:07:22,996 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:07:22,996 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:07:23,009 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.getaddress
+2015-11-27 12:07:23,010 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, phone, username, creatorid, address, userid, isdelete, provinceid, getaddressid, postcode, version]
+2015-11-27 12:07:23,010 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:07:23,010 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:07:23,024 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.gettype
+2015-11-27 12:07:23,024 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, creatorid, isdelete, parentid, getname, gettypeid, version]
+2015-11-27 12:07:23,024 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: [fk_9f7xf2br1n8grrcimp8o6is2k]
+2015-11-27 12:07:23,024 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary, fk_9f7xf2br1n8grrcimp8o6is2k]
+2015-11-27 12:07:23,042 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.goods
+2015-11-27 12:07:23,042 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [goodsquality, isdelete, hotdegree, sku, version, createtime, goodsname, unit, shopid, categoryid, creatorid, price, goodsid, goodsphoto, nownumber, gettype, sellnumber]
+2015-11-27 12:07:23,043 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:07:23,043 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:07:23,066 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.orders
+2015-11-27 12:07:23,067 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [buyername, phone, ordersid, sendaddress, totalprice, sordersnumber, userid, state, isdelete, ordernumber, provinceid, version, createtime, postageprice, searecordid, shopid, username, creatorid, shopkeepername]
+2015-11-27 12:07:23,068 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:07:23,068 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:07:23,083 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.ordersdetail
+2015-11-27 12:07:23,084 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [totalprice, fishphoto, isdelete, number, sku, skuid, version, postage, createtime, goodsname, unit, shopid, categoryid, creatorid, price, goodsid, goodstype, orderid, ordersdetailid]
+2015-11-27 12:07:23,084 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:07:23,084 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:07:23,095 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.postage
+2015-11-27 12:07:23,096 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, postageid, creatorid, provincename, isdelete, firstweigh, increaseprice, version]
+2015-11-27 12:07:23,096 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:07:23,097 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:07:23,112 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.searecord
+2015-11-27 12:07:23,113 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, searecordid, shopid, creatorid, spendday, endseetime, state, isdelete, longitude, latitude, startseetime, shipportname, version]
+2015-11-27 12:07:23,113 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:07:23,113 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:07:23,126 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.shipport
+2015-11-27 12:07:23,126 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, creatorid, isdelete, longitude, latitude, shipportname, shipportid, version]
+2015-11-27 12:07:23,126 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:07:23,127 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:07:23,141 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.shop
+2015-11-27 12:07:23,141 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [freshquality, shipport, porttime, onsell, speedquality, shopphoto, userid, isdelete, shopname, weightquality, version, createtime, searecordid, shopid, creatorid, address, shoptype, grade, sendprice, longitude, latitude, gettype]
+2015-11-27 12:07:23,142 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:07:23,142 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:07:23,154 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.sku
+2015-11-27 12:07:23,154 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, creatorid, unitid, skuname, isdelete, lowscale, highscale, skuid, version]
+2015-11-27 12:07:23,155 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:07:23,155 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:07:23,167 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.unit
+2015-11-27 12:07:23,167 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, creatorid, unitname, unitid, isdelete, version]
+2015-11-27 12:07:23,168 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:07:23,168 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:07:23,181 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.user
+2015-11-27 12:07:23,182 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [phonenumber, userid, state, isdelete, usertype, password, identityid, version, headimage, createtime, username, creatorid, getaddressid]
+2015-11-27 12:07:23,182 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:07:23,183 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [phonenumber, primary]
+2015-11-27 12:07:23,195 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.verifycode
+2015-11-27 12:07:23,195 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, phonenumber, creatorid, verifycodeid, isdelete, verifycode, version]
+2015-11-27 12:07:23,195 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:07:23,196 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:07:23,197 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000232: Schema update complete
+2015-11-27 12:07:23,295 [main] INFO  [org.springframework.orm.hibernate4.HibernateTransactionManager] - Using DataSource [com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgesxt9djqfqpp8fdwrr|359a9570, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgesxt9djqfqpp8fdwrr|359a9570, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/fishshop, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]] of Hibernate SessionFactory for HibernateTransactionManager
+2015-11-27 12:07:24,712 [main] INFO  [com.earl.fishshop.interceptor.JsonToJavaBeanInterceptor] - <<<<--||参数||-->>>>：content:不错。我只是来测试而已|freshQuality:2|shopId:5|userId:5|anonymity:1|weightQuality:3|speedQuality:4|commentType:-1|ordersId:11111120|
+2015-11-27 12:07:24,712 [main] INFO  [com.earl.fishshop.interceptor.IpInterceptor] - ServletPath|ip|remote ip address|remote name|remote port|LocalAddress|LocalPort|char encodeing|ContentType|AuthType|PathTranslated|RemoteUser
+2015-11-27 12:07:24,712 [main] INFO  [com.earl.fishshop.interceptor.IpInterceptor] - |127.0.0.1|127.0.0.1|localhost|80|127.0.0.1|80|null|null|null|null|null
+2015-11-27 12:07:25,311 [main] INFO  [com.earl.fishshop.interceptor.ResultMessageToJsonInterceptor] - resultMessage =>{"serviceResult":true,"resultInfo":"添加成功"}
+2015-11-27 12:07:25,326 [Thread-5] INFO  [org.springframework.context.support.GenericApplicationContext] - Closing org.springframework.context.support.GenericApplicationContext@4ef888ea: startup date [Fri Nov 27 12:07:19 CST 2015]; root of context hierarchy
+2015-11-27 12:29:49,140 [main] WARN  [org.apache.commons.httpclient.HttpMethodBase] - Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+2015-11-27 12:37:58,301 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from file [D:\My Documents\GitHub\workspace\canzuohaixian\target\classes\applicationContext-bean.xml]
+2015-11-27 12:37:58,473 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from file [D:\My Documents\GitHub\workspace\canzuohaixian\target\classes\applicationContext-database.xml]
+2015-11-27 12:37:58,896 [main] INFO  [org.springframework.context.support.GenericApplicationContext] - Refreshing org.springframework.context.support.GenericApplicationContext@c2c915f: startup date [Fri Nov 27 12:37:58 CST 2015]; root of context hierarchy
+2015-11-27 12:37:59,260 [main] INFO  [org.springframework.beans.factory.config.PropertiesFactoryBean] - Loading properties file from URL [file:/D:/My%20Documents/GitHub/workspace/canzuohaixian/target/classes/public.properties]
+2015-11-27 12:37:59,500 [main] INFO  [com.mchange.v2.log.MLog] - MLog clients using log4j logging.
+2015-11-27 12:37:59,728 [main] INFO  [com.mchange.v2.c3p0.C3P0Registry] - Initializing c3p0-0.9.2.1 [built 20-March-2013 10:47:27 +0000; debug? true; trace: 10]
+2015-11-27 12:38:00,036 [main] INFO  [org.hibernate.annotations.common.Version] - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-11-27 12:38:00,044 [main] INFO  [org.hibernate.Version] - HHH000412: Hibernate Core {4.3.10.Final}
+2015-11-27 12:38:00,046 [main] INFO  [org.hibernate.cfg.Environment] - HHH000206: hibernate.properties not found
+2015-11-27 12:38:00,049 [main] INFO  [org.hibernate.cfg.Environment] - HHH000021: Bytecode provider name : javassist
+2015-11-27 12:38:00,078 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000044: Configuring from URL: file:/D:/My%20Documents/GitHub/workspace/canzuohaixian/target/classes/hibernate.cfg.xml
+2015-11-27 12:38:00,112 [main] WARN  [org.hibernate.internal.util.xml.DTDEntityResolver] - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-11-27 12:38:00,134 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/category/CategoryPo.hbm.xml
+2015-11-27 12:38:00,167 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/comment/CommentPo.hbm.xml
+2015-11-27 12:38:00,194 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/farmers/FarmersPo.hbm.xml
+2015-11-27 12:38:00,222 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/fishman/FishmanPo.hbm.xml
+2015-11-27 12:38:00,251 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/goods/GoodsPo.hbm.xml
+2015-11-27 12:38:00,277 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/orders/OrdersPo.hbm.xml
+2015-11-27 12:38:00,297 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/searecord/SeaRecordPo.hbm.xml
+2015-11-27 12:38:00,324 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/shop/ShopPo.hbm.xml
+2015-11-27 12:38:00,351 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/sku/SkuPo.hbm.xml
+2015-11-27 12:38:00,375 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/unit/UnitPo.hbm.xml
+2015-11-27 12:38:00,409 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/user/UserPo.hbm.xml
+2015-11-27 12:38:00,444 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/gettype/GetTypePo.hbm.xml
+2015-11-27 12:38:00,481 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/getaddress/GetAddressPo.hbm.xml
+2015-11-27 12:38:00,514 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/checkout/CheckoutPo.hbm.xml
+2015-11-27 12:38:00,540 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/shipport/ShipPortPo.hbm.xml
+2015-11-27 12:38:00,568 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/ordersdetail/OrdersDetailPo.hbm.xml
+2015-11-27 12:38:00,588 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/verifycode/VerifyCodePo.hbm.xml
+2015-11-27 12:38:00,611 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/postage/PostagePo.hbm.xml
+2015-11-27 12:38:00,627 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000041: Configured SessionFactory: null
+2015-11-27 12:38:00,854 [main] INFO  [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgesxt9djrj5oe138968s|5469716, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgesxt9djrj5oe138968s|5469716, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/fishshop, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+2015-11-27 12:38:01,152 [main] INFO  [org.hibernate.dialect.Dialect] - HHH000400: Using dialect: org.hibernate.dialect.MySQLInnoDBDialect
+2015-11-27 12:38:01,161 [main] INFO  [org.hibernate.engine.jdbc.internal.LobCreatorBuilder] - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-27 12:38:01,257 [main] INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-11-27 12:38:01,265 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] - HHH000397: Using ASTQueryTranslatorFactory
+2015-11-27 12:38:01,835 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000228: Running hbm2ddl schema update
+2015-11-27 12:38:01,835 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000102: Fetching database metadata
+2015-11-27 12:38:01,840 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000396: Updating schema
+2015-11-27 12:38:01,873 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.category
+2015-11-27 12:38:01,873 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [skulist, categoryacademicname, fishphoto, hotdegree, isdelete, parentid, categoryenglishname, version, createtime, unit, categoryid, creatorid, totalsellnumber, gettype, categorysimplename]
+2015-11-27 12:38:01,873 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: [fk_t5q79q343h5dagly7r5avs1wj]
+2015-11-27 12:38:01,874 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [fk_t5q79q343h5dagly7r5avs1wj, primary]
+2015-11-27 12:38:01,889 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.checkout
+2015-11-27 12:38:01,890 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, creatorid, state, userid, isdelete, usertype, checkoutid, identityid, version]
+2015-11-27 12:38:01,890 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:01,891 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:01,906 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.comment
+2015-11-27 12:38:01,907 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, content, commentid, phonenumber, freshquality, shopid, creatorid, ordersid, speedquality, anonymity, userid, isdelete, weightquality, commenttype, version]
+2015-11-27 12:38:01,907 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:01,907 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:01,921 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.farmers
+2015-11-27 12:38:01,921 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, aquaculturelicense, shopid, creatorid, multigettype, backidentityphoto, address, forntidentityphoto, addressphoto, isdelete, longitude, latitude, farmersid, version]
+2015-11-27 12:38:01,922 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:01,922 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:01,936 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.fishman
+2015-11-27 12:38:01,937 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [frontidentityphoto, isdelete, homeport, seapassphoto, fishmanid, enginepower, version, createtime, shopid, creatorid, backidentityphoto, shipcreatetime, tonnage, realname, fishinglicense, gettype, shipphoto]
+2015-11-27 12:38:01,937 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:01,937 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:01,951 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.getaddress
+2015-11-27 12:38:01,952 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, phone, username, creatorid, address, userid, isdelete, provinceid, getaddressid, postcode, version]
+2015-11-27 12:38:01,952 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:01,952 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:01,968 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.gettype
+2015-11-27 12:38:01,968 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, creatorid, isdelete, parentid, getname, gettypeid, version]
+2015-11-27 12:38:01,968 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: [fk_9f7xf2br1n8grrcimp8o6is2k]
+2015-11-27 12:38:01,969 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary, fk_9f7xf2br1n8grrcimp8o6is2k]
+2015-11-27 12:38:01,982 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.goods
+2015-11-27 12:38:01,983 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [goodsquality, isdelete, hotdegree, sku, version, createtime, goodsname, unit, shopid, categoryid, creatorid, price, goodsid, goodsphoto, nownumber, gettype, sellnumber]
+2015-11-27 12:38:01,983 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:01,983 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:01,998 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.orders
+2015-11-27 12:38:01,999 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [buyername, phone, ordersid, sendaddress, totalprice, sordersnumber, userid, state, isdelete, ordernumber, provinceid, version, createtime, postageprice, searecordid, shopid, username, creatorid, shopkeepername]
+2015-11-27 12:38:01,999 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:01,999 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:02,013 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.ordersdetail
+2015-11-27 12:38:02,014 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [totalprice, fishphoto, isdelete, number, sku, skuid, version, postage, createtime, goodsname, unit, shopid, categoryid, creatorid, price, goodsid, goodstype, orderid, ordersdetailid]
+2015-11-27 12:38:02,014 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:02,014 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:02,027 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.postage
+2015-11-27 12:38:02,027 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, postageid, creatorid, provincename, isdelete, firstweigh, increaseprice, version]
+2015-11-27 12:38:02,027 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:02,028 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:02,042 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.searecord
+2015-11-27 12:38:02,042 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, searecordid, shopid, creatorid, spendday, endseetime, state, isdelete, longitude, latitude, startseetime, shipportname, version]
+2015-11-27 12:38:02,043 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:02,043 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:02,056 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.shipport
+2015-11-27 12:38:02,056 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, creatorid, isdelete, longitude, latitude, shipportname, shipportid, version]
+2015-11-27 12:38:02,056 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:02,057 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:02,071 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.shop
+2015-11-27 12:38:02,071 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [freshquality, shipport, porttime, onsell, speedquality, shopphoto, userid, isdelete, shopname, weightquality, version, createtime, searecordid, shopid, creatorid, address, shoptype, grade, sendprice, longitude, latitude, gettype]
+2015-11-27 12:38:02,072 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:02,072 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:02,085 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.sku
+2015-11-27 12:38:02,085 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, creatorid, unitid, skuname, isdelete, lowscale, highscale, skuid, version]
+2015-11-27 12:38:02,086 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:02,086 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:02,098 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.unit
+2015-11-27 12:38:02,099 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, creatorid, unitname, unitid, isdelete, version]
+2015-11-27 12:38:02,099 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:02,099 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:02,111 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.user
+2015-11-27 12:38:02,112 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [phonenumber, userid, state, isdelete, usertype, password, identityid, version, headimage, createtime, username, creatorid, getaddressid]
+2015-11-27 12:38:02,112 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:02,112 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [phonenumber, primary]
+2015-11-27 12:38:02,124 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.verifycode
+2015-11-27 12:38:02,124 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, phonenumber, creatorid, verifycodeid, isdelete, verifycode, version]
+2015-11-27 12:38:02,124 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:02,125 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:02,126 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000232: Schema update complete
+2015-11-27 12:38:02,231 [main] INFO  [org.springframework.orm.hibernate4.HibernateTransactionManager] - Using DataSource [com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgesxt9djrj5oe138968s|5469716, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgesxt9djrj5oe138968s|5469716, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/fishshop, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]] of Hibernate SessionFactory for HibernateTransactionManager
+2015-11-27 12:38:03,655 [main] INFO  [com.earl.fishshop.interceptor.JsonToJavaBeanInterceptor] - <<<<--||参数||-->>>>：
+2015-11-27 12:38:03,655 [main] INFO  [com.earl.fishshop.interceptor.IpInterceptor] - ServletPath|ip|remote ip address|remote name|remote port|LocalAddress|LocalPort|char encodeing|ContentType|AuthType|PathTranslated|RemoteUser
+2015-11-27 12:38:03,655 [main] INFO  [com.earl.fishshop.interceptor.IpInterceptor] - |127.0.0.1|127.0.0.1|localhost|80|127.0.0.1|80|null|null|null|null|null
+2015-11-27 12:38:04,017 [main] INFO  [com.earl.fishshop.interceptor.ResultMessageToJsonInterceptor] - resultMessage =>{"serviceResult":true,"resultInfo":"4"}
+2015-11-27 12:38:04,034 [Thread-5] INFO  [org.springframework.context.support.GenericApplicationContext] - Closing org.springframework.context.support.GenericApplicationContext@c2c915f: startup date [Fri Nov 27 12:37:58 CST 2015]; root of context hierarchy
+2015-11-27 12:38:47,546 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from file [D:\My Documents\GitHub\workspace\canzuohaixian\target\classes\applicationContext-bean.xml]
+2015-11-27 12:38:47,710 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from file [D:\My Documents\GitHub\workspace\canzuohaixian\target\classes\applicationContext-database.xml]
+2015-11-27 12:38:48,095 [main] INFO  [org.springframework.context.support.GenericApplicationContext] - Refreshing org.springframework.context.support.GenericApplicationContext@4ef888ea: startup date [Fri Nov 27 12:38:48 CST 2015]; root of context hierarchy
+2015-11-27 12:38:48,465 [main] INFO  [org.springframework.beans.factory.config.PropertiesFactoryBean] - Loading properties file from URL [file:/D:/My%20Documents/GitHub/workspace/canzuohaixian/target/classes/public.properties]
+2015-11-27 12:38:48,692 [main] INFO  [com.mchange.v2.log.MLog] - MLog clients using log4j logging.
+2015-11-27 12:38:48,912 [main] INFO  [com.mchange.v2.c3p0.C3P0Registry] - Initializing c3p0-0.9.2.1 [built 20-March-2013 10:47:27 +0000; debug? true; trace: 10]
+2015-11-27 12:38:49,227 [main] INFO  [org.hibernate.annotations.common.Version] - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-11-27 12:38:49,235 [main] INFO  [org.hibernate.Version] - HHH000412: Hibernate Core {4.3.10.Final}
+2015-11-27 12:38:49,238 [main] INFO  [org.hibernate.cfg.Environment] - HHH000206: hibernate.properties not found
+2015-11-27 12:38:49,239 [main] INFO  [org.hibernate.cfg.Environment] - HHH000021: Bytecode provider name : javassist
+2015-11-27 12:38:49,266 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000044: Configuring from URL: file:/D:/My%20Documents/GitHub/workspace/canzuohaixian/target/classes/hibernate.cfg.xml
+2015-11-27 12:38:49,299 [main] WARN  [org.hibernate.internal.util.xml.DTDEntityResolver] - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-11-27 12:38:49,319 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/category/CategoryPo.hbm.xml
+2015-11-27 12:38:49,354 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/comment/CommentPo.hbm.xml
+2015-11-27 12:38:49,380 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/farmers/FarmersPo.hbm.xml
+2015-11-27 12:38:49,401 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/fishman/FishmanPo.hbm.xml
+2015-11-27 12:38:49,430 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/goods/GoodsPo.hbm.xml
+2015-11-27 12:38:49,453 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/orders/OrdersPo.hbm.xml
+2015-11-27 12:38:49,472 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/searecord/SeaRecordPo.hbm.xml
+2015-11-27 12:38:49,497 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/shop/ShopPo.hbm.xml
+2015-11-27 12:38:49,525 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/sku/SkuPo.hbm.xml
+2015-11-27 12:38:49,545 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/unit/UnitPo.hbm.xml
+2015-11-27 12:38:49,567 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/user/UserPo.hbm.xml
+2015-11-27 12:38:49,597 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/gettype/GetTypePo.hbm.xml
+2015-11-27 12:38:49,629 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/getaddress/GetAddressPo.hbm.xml
+2015-11-27 12:38:49,659 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/checkout/CheckoutPo.hbm.xml
+2015-11-27 12:38:49,680 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/shipport/ShipPortPo.hbm.xml
+2015-11-27 12:38:49,705 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/ordersdetail/OrdersDetailPo.hbm.xml
+2015-11-27 12:38:49,736 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/verifycode/VerifyCodePo.hbm.xml
+2015-11-27 12:38:49,760 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000221: Reading mappings from resource: com/earl/fishshop/domain/postage/PostagePo.hbm.xml
+2015-11-27 12:38:49,781 [main] INFO  [org.hibernate.cfg.Configuration] - HHH000041: Configured SessionFactory: null
+2015-11-27 12:38:50,023 [main] INFO  [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgesxt9djrk7mnt5xfue|6f0f183e, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgesxt9djrk7mnt5xfue|6f0f183e, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/fishshop, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+2015-11-27 12:38:50,305 [main] INFO  [org.hibernate.dialect.Dialect] - HHH000400: Using dialect: org.hibernate.dialect.MySQLInnoDBDialect
+2015-11-27 12:38:50,315 [main] INFO  [org.hibernate.engine.jdbc.internal.LobCreatorBuilder] - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-27 12:38:50,402 [main] INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-11-27 12:38:50,408 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] - HHH000397: Using ASTQueryTranslatorFactory
+2015-11-27 12:38:50,950 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000228: Running hbm2ddl schema update
+2015-11-27 12:38:50,950 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000102: Fetching database metadata
+2015-11-27 12:38:50,955 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000396: Updating schema
+2015-11-27 12:38:50,986 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.category
+2015-11-27 12:38:50,986 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [skulist, categoryacademicname, fishphoto, hotdegree, isdelete, parentid, categoryenglishname, version, createtime, unit, categoryid, creatorid, totalsellnumber, gettype, categorysimplename]
+2015-11-27 12:38:50,987 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: [fk_t5q79q343h5dagly7r5avs1wj]
+2015-11-27 12:38:50,987 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [fk_t5q79q343h5dagly7r5avs1wj, primary]
+2015-11-27 12:38:51,002 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.checkout
+2015-11-27 12:38:51,002 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, creatorid, state, userid, isdelete, usertype, checkoutid, identityid, version]
+2015-11-27 12:38:51,003 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:51,003 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:51,019 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.comment
+2015-11-27 12:38:51,020 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, content, commentid, phonenumber, freshquality, shopid, creatorid, ordersid, speedquality, anonymity, userid, isdelete, weightquality, commenttype, version]
+2015-11-27 12:38:51,020 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:51,020 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:51,034 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.farmers
+2015-11-27 12:38:51,035 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, aquaculturelicense, shopid, creatorid, multigettype, backidentityphoto, address, forntidentityphoto, addressphoto, isdelete, longitude, latitude, farmersid, version]
+2015-11-27 12:38:51,035 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:51,035 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:51,050 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.fishman
+2015-11-27 12:38:51,050 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [frontidentityphoto, isdelete, homeport, seapassphoto, fishmanid, enginepower, version, createtime, shopid, creatorid, backidentityphoto, shipcreatetime, tonnage, realname, fishinglicense, gettype, shipphoto]
+2015-11-27 12:38:51,050 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:51,050 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:51,065 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.getaddress
+2015-11-27 12:38:51,066 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, phone, username, creatorid, address, userid, isdelete, provinceid, getaddressid, postcode, version]
+2015-11-27 12:38:51,066 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:51,066 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:51,080 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.gettype
+2015-11-27 12:38:51,080 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, creatorid, isdelete, parentid, getname, gettypeid, version]
+2015-11-27 12:38:51,081 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: [fk_9f7xf2br1n8grrcimp8o6is2k]
+2015-11-27 12:38:51,081 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary, fk_9f7xf2br1n8grrcimp8o6is2k]
+2015-11-27 12:38:51,097 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.goods
+2015-11-27 12:38:51,097 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [goodsquality, isdelete, hotdegree, sku, version, createtime, goodsname, unit, shopid, categoryid, creatorid, price, goodsid, goodsphoto, nownumber, gettype, sellnumber]
+2015-11-27 12:38:51,097 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:51,098 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:51,115 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.orders
+2015-11-27 12:38:51,115 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [buyername, phone, ordersid, sendaddress, totalprice, sordersnumber, userid, state, isdelete, ordernumber, provinceid, version, createtime, postageprice, searecordid, shopid, username, creatorid, shopkeepername]
+2015-11-27 12:38:51,116 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:51,116 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:51,131 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.ordersdetail
+2015-11-27 12:38:51,131 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [totalprice, fishphoto, isdelete, number, sku, skuid, version, postage, createtime, goodsname, unit, shopid, categoryid, creatorid, price, goodsid, goodstype, orderid, ordersdetailid]
+2015-11-27 12:38:51,132 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:51,132 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:51,144 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.postage
+2015-11-27 12:38:51,144 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, postageid, creatorid, provincename, isdelete, firstweigh, increaseprice, version]
+2015-11-27 12:38:51,145 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:51,145 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:51,158 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.searecord
+2015-11-27 12:38:51,159 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, searecordid, shopid, creatorid, spendday, endseetime, state, isdelete, longitude, latitude, startseetime, shipportname, version]
+2015-11-27 12:38:51,159 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:51,159 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:51,171 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.shipport
+2015-11-27 12:38:51,171 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, creatorid, isdelete, longitude, latitude, shipportname, shipportid, version]
+2015-11-27 12:38:51,171 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:51,172 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:51,185 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.shop
+2015-11-27 12:38:51,185 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [freshquality, shipport, porttime, onsell, speedquality, shopphoto, userid, isdelete, shopname, weightquality, version, createtime, searecordid, shopid, creatorid, address, shoptype, grade, sendprice, longitude, latitude, gettype]
+2015-11-27 12:38:51,186 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:51,186 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:51,198 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.sku
+2015-11-27 12:38:51,198 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, creatorid, unitid, skuname, isdelete, lowscale, highscale, skuid, version]
+2015-11-27 12:38:51,198 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:51,199 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:51,212 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.unit
+2015-11-27 12:38:51,213 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, creatorid, unitname, unitid, isdelete, version]
+2015-11-27 12:38:51,213 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:51,214 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:51,228 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.user
+2015-11-27 12:38:51,229 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [phonenumber, userid, state, isdelete, usertype, password, identityid, version, headimage, createtime, username, creatorid, getaddressid]
+2015-11-27 12:38:51,229 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:51,229 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [phonenumber, primary]
+2015-11-27 12:38:51,241 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: fishshop.verifycode
+2015-11-27 12:38:51,241 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [createtime, phonenumber, creatorid, verifycodeid, isdelete, verifycode, version]
+2015-11-27 12:38:51,241 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2015-11-27 12:38:51,242 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2015-11-27 12:38:51,243 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000232: Schema update complete
+2015-11-27 12:38:51,344 [main] INFO  [org.springframework.orm.hibernate4.HibernateTransactionManager] - Using DataSource [com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgesxt9djrk7mnt5xfue|6f0f183e, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgesxt9djrk7mnt5xfue|6f0f183e, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/fishshop, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]] of Hibernate SessionFactory for HibernateTransactionManager
+2015-11-27 12:38:52,784 [main] INFO  [com.earl.fishshop.interceptor.JsonToJavaBeanInterceptor] - <<<<--||参数||-->>>>：
+2015-11-27 12:38:52,784 [main] INFO  [com.earl.fishshop.interceptor.IpInterceptor] - ServletPath|ip|remote ip address|remote name|remote port|LocalAddress|LocalPort|char encodeing|ContentType|AuthType|PathTranslated|RemoteUser
+2015-11-27 12:38:52,784 [main] INFO  [com.earl.fishshop.interceptor.IpInterceptor] - |127.0.0.1|127.0.0.1|localhost|80|127.0.0.1|80|null|null|null|null|null
+2015-11-27 12:38:53,224 [main] INFO  [com.earl.fishshop.interceptor.ResultMessageToJsonInterceptor] - resultMessage =>{"serviceResult":true,"resultParm":{"3":{"createTime":"Nov 17, 2015 11:17:58 AM","fishmanId":4,"shopId":4,"getName":"[\"养殖方式\",\"撒网式\",\"水箱式\"]"},"2":{"createTime":"Nov 17, 2015 11:17:58 AM","fishmanId":4,"shopId":4,"getName":"[\"养殖方式\",\"撒网式\",\"水箱式\"]"},"1":{"createTime":"Nov 17, 2015 11:17:58 AM","fishmanId":4,"shopId":4,"getName":"[\"养殖方式\",\"撒网式\",\"水箱式\"]"},"4":{"createTime":"Nov 17, 2015 11:17:58 AM","fishmanId":4,"shopId":4,"getName":"[\"养殖方式\",\"撒网式\",\"水箱式\"]"}}}
+2015-11-27 12:38:53,243 [Thread-5] INFO  [org.springframework.context.support.GenericApplicationContext] - Closing org.springframework.context.support.GenericApplicationContext@4ef888ea: startup date [Fri Nov 27 12:38:48 CST 2015]; root of context hierarchy
