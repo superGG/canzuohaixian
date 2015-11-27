@@ -81,17 +81,6 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		resultMessage.setServiceResult(update);
 	}
 
-	/**
-	 * 得到带规格的类别.
-	 * @author 黄祥谦.
-	 */
-	public void getCategoryWithSku(){
-		CategoryPo category = categoryServer.getCategoryWithSku(model.getCategoryId());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("category", category);
-		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
-	}
 	
 	/**
 	 * 删除指定类别.
@@ -103,6 +92,17 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		resultMessage.setServiceResult(delete);
 	}
 	
+	/**
+	 * 得到带规格的类别.
+	 * @author 黄祥谦.
+	 */
+	public void getCategoryWithSku(){
+		CategoryPo category = categoryServer.getCategoryWithSku(model.getCategoryId());
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("category", category);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+	}
 	/**
 	 * 得到顶层类别.
 	 * @author 黄祥谦.

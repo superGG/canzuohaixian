@@ -136,10 +136,11 @@ public class CategoryDaoImpl extends BaseDaoImpl<CategoryPo> implements Category
 		// TODO 未测试.
 		CategoryPo categoryPo = get(categoryId);
 		String skuList = categoryPo.getSkuList();
-		List<Long> jsonToBeanList = JsonHelper.jsonToBeanList(skuList, Long.class);
+		@SuppressWarnings("unchecked")
+		List<Double> jsonToBeanList = JsonHelper.jsonToBean(skuList, List.class);
 		ArrayList<SkuPo> arrayList = new ArrayList<SkuPo>();
-		for (Long long1 : jsonToBeanList) {
-			SkuPo object = (SkuPo) getCurrentSession().get(SkuPo.class, long1);
+		for (Double long1 : jsonToBeanList) {
+			SkuPo object = (SkuPo) getCurrentSession().get(SkuPo.class, long1.longValue());
 			arrayList.add(object);
 		}
 		categoryPo.setSkuArrayList(arrayList);
