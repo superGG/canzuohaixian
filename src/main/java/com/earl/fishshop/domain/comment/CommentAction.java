@@ -61,7 +61,7 @@ public class CommentAction extends BaseAction<CommentPo> {
 			resultMessage.setResultInfo("添加成功");
 		} else {
 			resultMessage.setResultInfo("添加失败");
-		}	
+		}
 	}
 	
 	/**
