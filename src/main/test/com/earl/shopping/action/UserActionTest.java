@@ -93,5 +93,13 @@ public class UserActionTest extends StrutsSpringTestCase {
 	     String res=executeAction("/user_checkSmsBao.action");  
 	     System.out.println(res);
 	}
+	
+	@Test
+	public void testBlackUser() throws Exception{
+		 request.addParameter("identityId", "2");
+		 request.addParameter("userType", "1");
+	     String res=executeAction("/user_blackUser.action");  
+	     System.out.println(res);
+	}
 
 }

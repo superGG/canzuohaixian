@@ -150,6 +150,7 @@ public class UserAction extends BaseAction<UserPo> {
 		List<UserPo> userList = userServer.findAll();
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("userList", userList);
+		hashMap.put("number", userList.size());
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 	}
@@ -274,11 +275,11 @@ public class UserAction extends BaseAction<UserPo> {
     public void confirmSmsVerifyCode() {
     	verifyServiceUtil =  new VerifyServiceUtil();
     	resultMessage = new ResultMessage();
-//    	String SmsVf = (String) session.get("smsVerifyCode");
     	String SmsVf = verifyCodeServer.getVerifyCode(model.getPhoneNumber());
     	Boolean result = verifyServiceUtil.confirmImgVerifyCode(SmsVf , verifyCode);
     	if ( result ) {
     		resultMessage.setServiceResult(result);
+    		resultMessage.setResultInfo("验证成功");
     	} else {
     		resultMessage.setServiceResult(result);
     		resultMessage.setResultInfo("验证码错误");
@@ -310,13 +311,13 @@ public class UserAction extends BaseAction<UserPo> {
 	 */
 	public void blackUser() {
 		resultMessage = new ResultMessage();
-		Boolean success = userServer.blackUser(model.getIdentityId());
+		Boolean success = userServer.blackUser(model);
 		if (success) {
 			resultMessage.setServiceResult(success);
 			resultMessage.setResultInfo("拉黑成功");
 		} else {
 			resultMessage.setServiceResult(false);
-			resultMessage.setResultInfo("拉黑出错");
+			resultMessage.setResultInfo("拉黑失败");
 		}
 	}
 

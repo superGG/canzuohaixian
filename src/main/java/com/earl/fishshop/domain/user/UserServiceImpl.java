@@ -110,8 +110,8 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	}
 
 	@Override
-	public Boolean blackUser(Long identityId) {
-		Boolean result = userDao.blackUser(identityId);
+	public Boolean blackUser(UserPo user) {
+		Boolean result = userDao.blackUser(user);
 		return result;
 	}
 
