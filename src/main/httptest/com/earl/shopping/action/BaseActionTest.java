@@ -1,5 +1,8 @@
 package com.earl.shopping.action;
 
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.PostMethod;
@@ -28,8 +31,9 @@ public class BaseActionTest {
 			if (status == HttpStatus.SC_OK) {
 			} else {
 			}
-			byte[] responseBody = filePost.getResponseBody();
-			string = new String(responseBody);
+			InputStream in = filePost.getResponseBodyAsStream();
+			byte[] readStream = readStream(in);
+			string = new String(readStream);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
@@ -37,5 +41,24 @@ public class BaseActionTest {
 		}
 		return string;
 	}
+	
+	/** 
+	 * 读取流 
+	 *  
+	 * @param inStream 
+	 * @return 字节数组 
+	 * @throws Exception 
+	 */  
+	private byte[] readStream(InputStream inStream) throws Exception {  
+	    ByteArrayOutputStream outSteam = new ByteArrayOutputStream();  
+	    byte[] buffer = new byte[1024];  
+	    int len = -1;  
+	    while ((len = inStream.read(buffer)) != -1) {  
+	        outSteam.write(buffer, 0, len);  
+	    }  
+	    outSteam.close();  
+	    inStream.close();  
+	    return outSteam.toByteArray();  
+	}  
 	
 }

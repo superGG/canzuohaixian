@@ -12,10 +12,13 @@ public class HttpOrdersActionTest extends BaseActionTest{
 	@SuppressWarnings("unused")
 	private File targetFile;
 
+	private String bastPath = "http://192.168.1.107:8080";
+//	private String bastPath = "http://www.earltech.cn:8080";
+	
+//	@Ignore
 	@Test
 	public void testAddOrders(){
-		String targetURL = "http://192.168.1.107:8080/fishshop/orders_addOrders.action";
-//		String targetURL = "http://www.earltech.cn:8080/fishshop/category_getGoodsShops.action";
+		String targetURL = bastPath+"/fishshop/orders_addOrders.action";
 		targetFile = new File(
 				"C:/Users/Administrator/Desktop/SpringMVC.jpg.png");
 
@@ -75,34 +78,104 @@ public class HttpOrdersActionTest extends BaseActionTest{
 			filePost.releaseConnection();
 		}
 	}
+
 	@Test
-	public void testGetNextLevelCategory(){
-		String targetURL = "http://192.168.1.107:8080/fishshop/category_getNextLevelCategory.action";
-//		String targetURL = "http://www.earltech.cn:8080/fishshop/category_getGoodsShops.action";
-		PostMethod filePost = new PostMethod(targetURL);
-		
-			Part[] parts = { 
-					new StringPart("categoryId", "1","utf-8")
-					,new StringPart("pageInfo.indexPageNum", "1","utf-8")
-					,new StringPart("pageInfo.size", "3","UTF-8")
-			};
-			sendHttpRequest(filePost, parts);
-	}
-	
-	@Test
-	public void testGetAllUserOrders(){
-		String targetURL = "http://192.168.1.107:8080/fishshop/orders_getAllUserOrders.action";
-//		String targetURL = "http://www.earltech.cn:8080/fishshop/category_getGoodsShops.action";
+	public void testGetMyShopOrders(){
+		String targetURL = bastPath + "/fishshop/orders_getMyShopOrders.action";
 		PostMethod filePost = new PostMethod(targetURL);
 		
 		Part[] parts = { 
-				new StringPart("userId", "1","utf-8")
+				new StringPart("shopId", "4","utf-8")
 				,new StringPart("pageInfo.indexPageNum", "1","utf-8")
 				,new StringPart("pageInfo.size", "3","UTF-8")
 		};
 		
-		sendHttpRequest(filePost, parts);
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+	}
+
+	@Test
+		public void testGetAllUserOrders(){
+			String targetURL = bastPath + "/fishshop/orders_getAllUserOrders.action";
+			PostMethod filePost = new PostMethod(targetURL);
+			
+			Part[] parts = { 
+					new StringPart("userId", "4","utf-8")
+					,new StringPart("pageInfo.indexPageNum", "1","utf-8")
+					,new StringPart("pageInfo.size", "3","UTF-8")
+			};
+			String sendHttpRequest = sendHttpRequest(filePost, parts);
+			System.out.println(sendHttpRequest);
+		}
+	@Test
+	public void testGetUnSentOrders(){
+		String targetURL = bastPath + "/fishshop/orders_getUnSentOrders.action";
+		PostMethod filePost = new PostMethod(targetURL);
 		
+		Part[] parts = { 
+				new StringPart("userId", "4","utf-8")
+				,new StringPart("pageInfo.indexPageNum", "1","utf-8")
+				,new StringPart("pageInfo.size", "3","UTF-8")
+		};
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+	}
+	
+	@Test
+	public void testGetUnPayOrders(){
+		String targetURL = bastPath + "/fishshop/orders_getUnPayOrders.action";
+		PostMethod filePost = new PostMethod(targetURL);
+		
+		Part[] parts = { 
+				new StringPart("userId", "4","utf-8")
+				,new StringPart("pageInfo.indexPageNum", "1","utf-8")
+				,new StringPart("pageInfo.size", "3","UTF-8")
+		};
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+	}
+	
+	@Test
+	public void testGetUngetOrders(){
+		String targetURL = bastPath + "/fishshop/orders_getUngetOrders.action";
+		PostMethod filePost = new PostMethod(targetURL);
+		
+		Part[] parts = { 
+				new StringPart("userId", "4","utf-8")
+				,new StringPart("pageInfo.indexPageNum", "1","utf-8")
+				,new StringPart("pageInfo.size", "3","UTF-8")
+		};
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+	}
+	
+	@Test
+	public void testGetUnCommentOrders(){
+		String targetURL = bastPath + "/fishshop/orders_getUnCommentOrders.action";
+		PostMethod filePost = new PostMethod(targetURL);
+		
+		Part[] parts = { 
+				new StringPart("userId", "4","utf-8")
+				,new StringPart("pageInfo.indexPageNum", "1","utf-8")
+				,new StringPart("pageInfo.size", "3","UTF-8")
+		};
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+	}
+	
+	@Test
+	public void testGetOrdersWithSeaRecord(){
+		String targetURL = bastPath + "/fishshop/orders_getOrdersWithSeaRecord.action";
+		PostMethod filePost = new PostMethod(targetURL);
+		
+		Part[] parts = { 
+				new StringPart("seaRecordId", "6","utf-8")
+				,new StringPart("pageInfo.indexPageNum", "1","utf-8")
+				,new StringPart("pageInfo.size", "3","UTF-8")
+		};
+		
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
 	}
 
 }
