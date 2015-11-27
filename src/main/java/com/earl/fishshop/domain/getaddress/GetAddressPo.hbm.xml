@@ -5,7 +5,7 @@
         
         
 <hibernate-mapping package="com.earl.fishshop.domain.getaddress">
-    <class name="GetAddressPo" table="getAddress" dynamic-update="true" dynamic-insert="true">
+    <class name="GetAddressPo" table="getaddress" dynamic-update="true" dynamic-insert="true">
         <id name="getAddressId" type="java.lang.Long">
             <column name="getAddressId" />
             <generator class="native"></generator>

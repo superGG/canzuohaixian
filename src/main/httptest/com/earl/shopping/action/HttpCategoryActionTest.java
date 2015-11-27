@@ -12,28 +12,26 @@ public class HttpCategoryActionTest extends BaseActionTest{
 	@SuppressWarnings("unused")
 	private File targetFile;
 
+	
 	@Test
 	public void testGetGoodsShops(){
-		String targetURL = "http://192.168.1.107:8080/fishshop/category_getGoodsShops.action";
-//		String targetURL = "http://www.earltech.cn:8080/fishshop/category_getGoodsShops.action";
-		targetFile = new File(
-				"C:/Users/Administrator/Desktop/SpringMVC.jpg.png");
-
+//		String targetURL = "http://192.168.1.107:8080/fishshop/category_getGoodsShops.action";
+		String targetURL = "http://www.earltech.cn:8080/fishshop/category_getGoodsShops.action";
 		PostMethod filePost = new PostMethod(targetURL);
-
-			Part[] parts = { 
-			new StringPart("categoryId", "7","utf-8")
-			,new StringPart("pageInfo.indexPageNum", "1","utf-8")
-			,new StringPart("pageInfo.size", "3","UTF-8")
-			// new FilePart(targetFile.getName(), targetFile)
-			};
-			String sendHttpRequest = sendHttpRequest(filePost, parts);
-			System.out.println(sendHttpRequest);
+		Part[] parts = { 
+				new StringPart("categoryId", "7","utf-8")
+				,new StringPart("pageInfo.indexPageNum", "1","utf-8")
+				,new StringPart("pageInfo.size", "3","UTF-8")
+		};
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+		
 	}
+	
 	@Test
 	public void testGetNextLevelCategory(){
-		String targetURL = "http://192.168.1.107:8080/fishshop/category_getNextLevelCategory.action";
-//		String targetURL = "http://www.earltech.cn:8080/fishshop/category_getGoodsShops.action";
+//		String targetURL = "http://192.168.1.107:8080/fishshop/category_getNextLevelCategory.action";
+		String targetURL = "http://www.earltech.cn:8080/fishshop/category_getNextLevelCategory.action";
 		PostMethod filePost = new PostMethod(targetURL);
 		Part[] parts = { 
 				new StringPart("categoryId", "1","utf-8")
