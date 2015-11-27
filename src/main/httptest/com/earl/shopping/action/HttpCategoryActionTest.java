@@ -12,8 +12,8 @@ public class HttpCategoryActionTest extends BaseActionTest {
 	@SuppressWarnings("unused")
 	private File targetFile;
 
-//	String basePath = "http://www.earltech.cn:8080";
-	String basePath = "http://192.168.1.107:8080";
+	String basePath = "http://www.earltech.cn:8080";
+//	String basePath = "http://192.168.1.107:8080";
 	// String targetURL =
 	// "http://192.168.1.107:8080/fishshop/category_getGoodsShops.action";
 	String targetURL = basePath + "/fishshop/category_getGoodsShops.action";

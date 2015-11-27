@@ -169,4 +169,15 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 		
 	}
 
+	@Override
+	public OrdersPo getPointOrders(Long ordersId) {
+		// TODO 未测试.
+		OrdersPo ordersPo = get(ordersId);
+			String hql2 = "from OrdersDetailPo where orderId =:orderId";
+			@SuppressWarnings("unchecked")
+			List<OrdersDetailPo> ordersDetailList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).list();
+			ordersPo.setOrdersDetail(ordersDetailList);
+		return ordersPo;
+	}
+
 }

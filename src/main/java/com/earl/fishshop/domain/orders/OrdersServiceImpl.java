@@ -41,8 +41,15 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 	@Override
 	public Boolean addOrders(OrdersPo orders, Long getAddressId) {
 		try {
+			Double totalOrdersPrice = 0.0;
 			orders.setState(MyConstant.order_unpay);//设置订单初始状态.
 			orders.setSordersNumber(orders.getOrdersDetail().size());
+			for (OrdersDetailPo ordersDetail : orders.getOrdersDetail()) {
+				Double singalPrice = ordersDetail.getNumber()*ordersDetail.getPrice();
+				ordersDetail.setTotalprice(singalPrice);
+				totalOrdersPrice = totalOrdersPrice+singalPrice;
+			}
+			orders.setTotalprice(totalOrdersPrice);
 			ordersDao.addOrders(orders, getAddressId);
 			return true;
 		} catch (Exception e) {
@@ -146,5 +153,13 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 		}
 		Double postagePrice = ordersDao.getOrdersPostage(model.getOrdersDetail(),model.getProvinceId());
 		return postagePrice;
+	}
+
+	@Override
+	public OrdersPo getPointOrders(Long ordersId) {
+		// TODO 未测试.
+		OrdersPo orders = ordersDao.getPointOrders(ordersId);
+		orders.setSordersNumber(orders.getOrdersDetail().size());
+		return orders;
 	}
 }

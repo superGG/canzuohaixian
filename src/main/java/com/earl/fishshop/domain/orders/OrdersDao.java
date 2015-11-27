@@ -83,4 +83,12 @@ public interface OrdersDao extends BaseDao<OrdersPo>{
 	 */
 	void updateOrder(OrdersPo order);
 
+	/**
+	 * 得到指定订单详情.
+	 * @author 黄祥谦.
+	 * @param ordersId
+	 * @return
+	 */
+	OrdersPo getPointOrders(Long ordersId);
+
 }

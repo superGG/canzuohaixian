@@ -230,5 +230,25 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		}
 	}
 	
+	/**
+	 * 得到指定订单信息.
+	 * @author 黄祥谦.
+	 */
+	public void getPointOrders(){
+		OrdersPo orders = ordersServer.getPointOrders(model.getOrdersId());
+		
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("orders", orders);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		if(orders != null){
+			resultMessage.setServiceResult(true);
+			resultMessage.setResultInfo("请求成功");
+		}else{
+			resultMessage.setServiceResult(false);
+			resultMessage.setResultInfo("请求成功");
+		}
+	}
+	
 	
 }

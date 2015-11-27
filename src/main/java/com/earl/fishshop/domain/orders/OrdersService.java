@@ -110,4 +110,12 @@ public interface OrdersService extends BaseService<OrdersPo>{
 	 * @return
 	 */
 	Double getOrdersPostage(OrdersPo model);
+
+	/**
+	 * 得到指定订单详情.
+	 * @author 黄祥谦.
+	 * @param ordersId TODO
+	 * @return
+	 */
+	OrdersPo getPointOrders(Long ordersId);
 }

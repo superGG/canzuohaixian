@@ -5,6 +5,7 @@ import java.io.File;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class HttpOrdersActionTest extends BaseActionTest{
@@ -12,10 +13,10 @@ public class HttpOrdersActionTest extends BaseActionTest{
 	@SuppressWarnings("unused")
 	private File targetFile;
 
-	private String bastPath = "http://192.168.1.107:8080";
-//	private String bastPath = "http://www.earltech.cn:8080";
+//	private String bastPath = "http://192.168.1.107:8080";
+	private String bastPath = "http://www.earltech.cn:8080";
 	
-//	@Ignore
+	@Ignore
 	@Test
 	public void testAddOrders(){
 		String targetURL = bastPath+"/fishshop/orders_addOrders.action";
@@ -25,9 +26,8 @@ public class HttpOrdersActionTest extends BaseActionTest{
 		PostMethod filePost = new PostMethod(targetURL);
 
 		try {
-			Part[] parts = { 
+			Part[] parts = {
 			new StringPart("orders", "{" +
-					 "\"totalprice\" : \"30.5\"" +
 					 ",\"userId\" : \"4\"" +
 					 ",\"shopId\": \"1\"" +
 					 ",\"buyerName\": \"yilinfeng\"" +
@@ -178,4 +178,15 @@ public class HttpOrdersActionTest extends BaseActionTest{
 		System.out.println(sendHttpRequest);
 	}
 
+	@Test
+	public void testGetPointOrders(){
+		String targetURL = bastPath + "/fishshop/orders_getPointOrders.action";
+		PostMethod filePost = new PostMethod(targetURL);
+		
+		Part[] parts = { 
+				new StringPart("ordersId", "11111123","utf-8")
+		};
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+	}
 }
