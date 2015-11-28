@@ -74,17 +74,11 @@ public class MyConstant {
 	 * 订单未评论 v3.
 	 */
 	public static final Integer order_uncomment = 3;
-	
 	/**
-	 * 订单评论 v4.
+	 * 订单已经评论 v3.
 	 */
 	public static final Integer order_comment = 4;
 	
-	/**
-	 * 订单完成支付状态.
-	 */
-	public static final Integer order_pay = 5;
-
 	public static final Boolean shop_notOnSell = false;
 	
 	public static final Boolean shop_onSell = true;
@@ -118,6 +112,5 @@ public class MyConstant {
 	 * 评论匿名.(anonymity)
 	 */
 	public static final Integer comment_anonymity = 1;
-	
 
 }
