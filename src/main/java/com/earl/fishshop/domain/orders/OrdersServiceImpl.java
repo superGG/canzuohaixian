@@ -8,7 +8,9 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.domain.base.BaseServiceImpl;
+import com.earl.fishshop.domain.goods.GoodsPo;
 import com.earl.fishshop.domain.ordersdetail.OrdersDetailPo;
+import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.util.MyConstant;
 import com.earl.util.PayChargeUtil;
 import com.pingplusplus.model.Charge;
@@ -44,6 +46,14 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 			orders.setState(MyConstant.order_unpay);//设置订单初始状态.
 			orders.setSordersNumber(orders.getOrdersDetail().size());
 			for (OrdersDetailPo ordersDetail : orders.getOrdersDetail()) {
+				GoodsPo goodsPo = goodsDao.get(ordersDetail.getGoodsId());
+				ordersDetail.setShopId(goodsPo.getShopId());
+				ordersDetail.setCategoryId(goodsPo.getCategoryId());
+				ordersDetail.setGoodsName(goodsPo.getGoodsName());
+				ordersDetail.setPrice(goodsPo.getPrice());
+				ordersDetail.setSku(skuDao.get(goodsPo.getSku()).getSkuName());
+				ordersDetail.setUnit(goodsPo.getUnit());
+				ordersDetail.setFishPhoto(goodsPo.getGoodsPhoto());
 				Double singalPrice = ordersDetail.getNumber()*ordersDetail.getPrice();
 				ordersDetail.setTotalprice(singalPrice);
 				totalOrdersPrice = totalOrdersPrice+singalPrice;
@@ -147,6 +157,8 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 		// TODO 未测试.
 		OrdersPo orders = ordersDao.getPointOrders(ordersId);
 		orders.setSordersNumber(orders.getOrdersDetail().size());
+		ShopPo shopPo = shopDao.get(orders.getShopId());
+		orders.setShopPhoto(shopPo.getShopPhoto());
 		return orders;
 	}
 

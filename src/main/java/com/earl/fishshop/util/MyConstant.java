@@ -75,7 +75,7 @@ public class MyConstant {
 	 */
 	public static final Integer order_uncomment = 3;
 	/**
-	 * 订单已经评论 v3.
+	 * 订单已经评论 v4.
 	 */
 	public static final Integer order_comment = 4;
 	
