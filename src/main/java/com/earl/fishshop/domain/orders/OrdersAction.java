@@ -94,7 +94,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	}
 	
 	/**
-	 * 得到用户所有订单.
+	 * 得到用户所有订单.只显示一条东西.
 	 * @author 黄祥谦.
 	 */
 	public void getAllUserOrders(){

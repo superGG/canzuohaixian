@@ -11,10 +11,12 @@ import com.earl.fishshop.domain.category.CategoryDao;
 import com.earl.fishshop.domain.comment.CommentDao;
 import com.earl.fishshop.domain.farmers.FarmersDao;
 import com.earl.fishshop.domain.fishman.FishmanDao;
+import com.earl.fishshop.domain.getaddress.GetAddressDao;
 import com.earl.fishshop.domain.gettype.GetTypeDao;
 import com.earl.fishshop.domain.goods.GoodsDao;
 import com.earl.fishshop.domain.orders.OrdersDao;
 import com.earl.fishshop.domain.ordersdetail.OrdersDetailDao;
+import com.earl.fishshop.domain.postage.PostageDao;
 import com.earl.fishshop.domain.searecord.SeaRecordDao;
 import com.earl.fishshop.domain.shipport.ShipPortDao;
 import com.earl.fishshop.domain.shop.ShopDao;
@@ -64,6 +66,10 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	protected UserDao userDao;
 	@Resource
 	protected GetTypeDao getTypeDao;
+	@Resource
+	protected GetAddressDao getAddressDao;
+	@Resource
+	protected PostageDao postageDao;
 	@Resource
 	protected ShipPortDao shipPortDao;
 	@Resource

@@ -14,13 +14,13 @@
         <property name="orderId" type="java.lang.Long" column="orderId" />
         <property name="shopId" type="java.lang.Long" column="shopId" />
         <property name="goodsId" type="java.lang.Long" column="goodsId" />
+        <property name="skuId" type="java.lang.Long" column="skuId" />
         <property name="categoryId" type="java.lang.Long" column="categoryId" />
         <property name="goodsName" type="java.lang.String" column="goodsName" />
         <property name="fishPhoto" type="java.lang.String" column="fishPhoto" />
         <property name="price" type="java.lang.Double" column="price" />
         <property name="totalprice" type="java.lang.Double" column="totalprice" />
         <property name="sku" type="java.lang.String" column="sku" />
-        <property name="skuId" type="java.lang.Long" column="skuId" />
         <property name="unit" type="java.lang.String" column="unit" />
         <property name="number" type="java.lang.Long" column="number" />
         <property name="createTime" type="java.util.Date" column="createTime" />

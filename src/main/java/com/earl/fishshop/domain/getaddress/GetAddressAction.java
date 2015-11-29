@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.domain.base.BaseAction;
+import com.earl.fishshop.domain.user.UserPo;
 import com.earl.fishshop.vo.ResultMessage;
 
 /**
@@ -94,8 +95,10 @@ public class GetAddressAction extends BaseAction<GetAddressPo> {
 	 */
 	public void getUserAllAddress(){
 		List<GetAddressPo> getAddressList = getAddressServer.getUserAllAddress(model.getUserId());
+		UserPo userPo = userServer.get(model.getUserId());
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("getAddressList", getAddressList);
+		hashMap.put("default", userPo.getGetAddressId());
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setResultInfo("访问成功");

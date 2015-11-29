@@ -8,8 +8,10 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.domain.base.BaseServiceImpl;
+import com.earl.fishshop.domain.getaddress.GetAddressPo;
 import com.earl.fishshop.domain.goods.GoodsPo;
 import com.earl.fishshop.domain.ordersdetail.OrdersDetailPo;
+import com.earl.fishshop.domain.postage.PostagePo;
 import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.util.MyConstant;
 import com.earl.util.PayChargeUtil;
@@ -51,6 +53,7 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 				ordersDetail.setCategoryId(goodsPo.getCategoryId());
 				ordersDetail.setGoodsName(goodsPo.getGoodsName());
 				ordersDetail.setPrice(goodsPo.getPrice());
+				ordersDetail.setSkuId(goodsPo.getSku());
 				ordersDetail.setSku(skuDao.get(goodsPo.getSku()).getSkuName());
 				ordersDetail.setUnit(goodsPo.getUnit());
 				ordersDetail.setFishPhoto(goodsPo.getGoodsPhoto());
@@ -58,7 +61,21 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 				ordersDetail.setTotalprice(singalPrice);
 				totalOrdersPrice = totalOrdersPrice+singalPrice;
 			}
-			orders.setTotalprice(totalOrdersPrice);
+			GetAddressPo getAddressPo = getAddressDao.get(getAddressId);
+			orders.setUserName(getAddressPo.getUserName());
+			orders.setSendAddress(getAddressPo.getAddress());
+			orders.setPhone(getAddressPo.getPhone());
+			
+			String address = getAddressPo.getAddress();
+			String substring = address.substring(0,address.indexOf("省")+1);
+			PostagePo postagePo = new PostagePo();
+			postagePo.setProvinceName(substring);
+			List<PostagePo> findLikeGivenCreteriaWithPage = postageDao.findLikeGivenCreteriaWithPage(postagePo,null);
+			orders.setProvinceId(findLikeGivenCreteriaWithPage.get(0).getPostageId());
+			Double ordersPostage = getOrdersPostage(orders);
+			orders.setPostagePrice(ordersPostage);
+			orders.setSordersNumber(orders.getOrdersDetail().size());
+			orders.setTotalprice(totalOrdersPrice+ordersPostage);
 			ordersDao.addOrders(orders, getAddressId);
 			return true;
 		} catch (Exception e) {

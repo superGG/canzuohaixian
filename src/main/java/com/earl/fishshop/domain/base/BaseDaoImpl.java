@@ -17,6 +17,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;
@@ -153,7 +154,6 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		for (String key : notNullParam.keySet()) {
 			criteria.add(Restrictions.eq(key, notNullParam.get(key)));
 		}
-
 		@SuppressWarnings("unchecked")
 		List<T> listObject = criteria.list();
 
@@ -162,6 +162,36 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		return listObject;
 	}
 
+	/**
+	 * 根据给出的Object条件分页查询该表中的所有记录，并且分页显示
+	 * @author 马德泉
+	 * 
+	 */
+	@Override
+	public List<T> findLikeGivenCreteriaWithPage(T object, PageInfo pageInfo) {
+		// 业务逻辑开始
+
+		Map<String, Object> notNullParam = null;
+		notNullParam = getNotNullProperties(object);
+
+		Criteria criteria = getCurrentSession().createCriteria(clazz);
+		for (String key : notNullParam.keySet()) {
+			//criteria.add(Restrictions.like(key,"%" + notNullParam.get(key)+"%"));
+			criteria.add(Restrictions.like(key,(String) notNullParam.get(key),MatchMode.ANYWHERE));
+		}
+		// 分页
+//		criteria.setFirstResult(
+//				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
+//				.setMaxResults(pageInfo.getSize()).list();
+
+		@SuppressWarnings("unchecked")
+		List<T> listObject = criteria.list();
+
+		// 业务逻辑结束
+		logger.debug("退出findByGivenCreteriaWithPage方法");
+		return listObject;
+	}
+	
 	/**
 	 * 通过给定条件查询,并且分页.
 	 */
