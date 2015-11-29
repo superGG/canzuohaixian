@@ -179,7 +179,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getGoodsShops(){
-		List<ShopPo> shopList = categoryServer.getGoodsShops(model.getCategoryId(), pageInfo);
+		List<ShopPo> shopList = categoryServer.getGoodsShops(model.getCategoryId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("shopList", shopList);
 		resultMessage = new ResultMessage();

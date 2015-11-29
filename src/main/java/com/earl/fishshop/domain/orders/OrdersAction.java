@@ -184,37 +184,6 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	}
 	
 	/**
-	 * 真实支付订单，修改订单状态为未发货.
-	 * @author 黄祥谦.
-	 */
-	public void realPayOrders(){
-		Boolean success = ordersServer.realPayOrders(model.getOrdersId());
-		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(success);
-		
-	}
-	
-	/**
-	 * 修改订单状态为未收货,已发货.
-	 * @author 黄祥谦.
-	 */
-	public void realSendOrders(){
-		Boolean success = ordersServer.realSendOrders(model.getOrdersId());
-		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(success);
-	}
-	
-	/**
-	 * 修改订单状态为未评论,已收货.
-	 * @author 黄祥谦.
-	 */
-	public void realGetOrders(){
-		Boolean success = ordersServer.realGetOrders(model.getOrdersId());
-		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(success);
-	}
-	
-	/**
 	 * 设置订单的订单编号.
 	 * @author 黄祥谦.
 	 */
@@ -279,5 +248,36 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 			resultMessage.setServiceResult(false);
 			resultMessage.setResultInfo("请求成功");
 		}
+	}
+
+	/**
+	 * 真实支付订单，修改订单状态为未发货.
+	 * @author 黄祥谦.
+	 */
+	public void realPayOrders(){
+		Boolean success = ordersServer.realPayOrders(model.getOrdersId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(success);
+		
+	}
+
+	/**
+	 * 修改订单状态为未收货,已发货.
+	 * @author 黄祥谦.
+	 */
+	public void realSendOrders(){
+		Boolean success = ordersServer.realSendOrders(model.getOrdersId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(success);
+	}
+
+	/**
+	 * 修改订单状态为未评论,已收货.
+	 * @author 黄祥谦.
+	 */
+	public void realGetOrders(){
+		Boolean success = ordersServer.realGetOrders(model.getOrdersId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(success);
 	} 
 }
