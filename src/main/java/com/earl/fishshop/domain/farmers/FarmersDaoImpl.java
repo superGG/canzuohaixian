@@ -56,5 +56,14 @@ public class FarmersDaoImpl extends BaseDaoImpl<FarmersPo> implements FarmersDao
 				.setLong("userId", userId).executeUpdate();
 		
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<FarmersPo> getFarmerBy1Shop(Long shopId) {
+		String hql = "from FarmersPo f where f.shopId = :shopId";
+		List<FarmersPo> list = getCurrentSession().createQuery(hql)
+				.setLong("shopId", shopId).list();
+		return list;
+	}
 	
 }

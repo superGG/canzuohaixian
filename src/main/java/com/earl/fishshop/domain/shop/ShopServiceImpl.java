@@ -154,7 +154,6 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 		for (FishmanPo fishman : fishmanList) {
 			if (fishman.getShopId() != null) {
 				ShopPo shop = shopDao.get(fishman.getShopId());
-//				GetTypePo get = getTypeDao.get(shop.getGetType().);
 				map.put("fishmanId", fishman.getFishmanId());
 				map.put("shopId", fishman.getShopId());
 				String getName = getTypeServer.getGetTypeName(shop.getGetType());

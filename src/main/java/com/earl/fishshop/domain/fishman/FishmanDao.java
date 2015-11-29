@@ -36,4 +36,12 @@ public interface FishmanDao extends BaseDao<FishmanPo>{
 	 */
 	void noPassAuthenticationFishman(Long userId);
 
+	/**
+	 * 通过商店获取渔户信息
+	 *@author 宋文光.
+	 * @param shopId
+	 * @return
+	 */
+	List<FishmanPo> getFishmanByShop(Long shopId);
+
 }

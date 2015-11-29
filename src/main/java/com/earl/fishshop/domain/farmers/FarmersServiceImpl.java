@@ -1,7 +1,9 @@
 package com.earl.fishshop.domain.farmers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -9,6 +11,8 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.domain.base.BaseServiceImpl;
+import com.earl.fishshop.domain.gettype.GetTypeService;
+import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.helper.JsonHelper;
 import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.util.FileUploadImpl;
@@ -30,6 +34,9 @@ public class FarmersServiceImpl extends BaseServiceImpl<FarmersPo> implements
 	public void initBaseDao() {
 		baseDao = farmersDao;
 	}
+	
+	@Resource
+	protected GetTypeService getTypeServer;
 
 	@Resource(name = "fileUpload")
 	FileUploadImpl fileUpload;
@@ -89,9 +96,15 @@ public class FarmersServiceImpl extends BaseServiceImpl<FarmersPo> implements
 	}
 
 	@Override
-	public List<FarmersPo> getFarmers(FarmersPo model) {
-		List<FarmersPo> farmer = farmersDao.findByGivenCriteria(model);
-		return farmer;
+	public Map<String, Object> getFarmers(FarmersPo model) {
+		Map<String, Object> map = new HashMap<String, Object>();// 存放一条信息
+		ShopPo shop = shopDao.get(model.getShopId());
+		List<FarmersPo> farmer = farmersDao.getFarmerBy1Shop(model.getShopId());
+		map.put("farmer", farmer);
+		map.put("address", shop.getAddress());//养殖场地址
+		String getName = getTypeServer.getGetTypeName(shop.getGetType());
+		map.put("getName", getName);
+		return map;
 	}
 
 }
