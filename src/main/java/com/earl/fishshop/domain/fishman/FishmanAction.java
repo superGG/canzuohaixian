@@ -142,13 +142,11 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	}
 
 	/**
-	 * 通过商店获取渔户信息.
+	 * 通过渔户商店详细信息.
 	 *@author 宋文光.
 	 */
 	public void getFishmanByShop() {
-		List<FishmanPo> fishman = fishmanServer.getFishman(model);
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("fishman", fishman);
+		Map<String, Object> hashMap = fishmanServer.getFishmanByShop(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);

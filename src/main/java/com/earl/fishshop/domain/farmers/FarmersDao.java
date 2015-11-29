@@ -36,5 +36,13 @@ public interface FarmersDao extends BaseDao<FarmersPo>{
 	 */
 	void noPassAuthenticationFarmers(Long userId);
 
+	/**
+	 * 通过商店获取养殖户信息
+	 *@author 宋文光.
+	 * @param shopId
+	 * @return
+	 */
+	List<FarmersPo> getFarmerBy1Shop(Long shopId);
+
 	
 }

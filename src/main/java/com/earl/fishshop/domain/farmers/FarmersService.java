@@ -1,6 +1,7 @@
 package com.earl.fishshop.domain.farmers;
 
 import java.util.List;
+import java.util.Map;
 
 import com.earl.fishshop.domain.base.BaseService;
 import com.earl.fishshop.vo.MulitFileVo;
@@ -49,7 +50,7 @@ public interface FarmersService extends BaseService<FarmersPo>{
 	 * @param model
 	 * @return
 	 */
-	List<FarmersPo> getFarmers(FarmersPo model);
+	Map<String, Object> getFarmers(FarmersPo model);
 	
 	
 	

@@ -1,6 +1,7 @@
 package com.earl.fishshop.domain.fishman;
 
 import java.util.List;
+import java.util.Map;
 
 import com.earl.fishshop.domain.base.BaseService;
 import com.earl.fishshop.vo.MulitFileVo;
@@ -23,7 +24,7 @@ public interface FishmanService extends BaseService<FishmanPo>{
 	 * @param identityId 渔户的id.
 	 * @return
 	 */
-	List<FishmanPo> getFishman(Long identityId);
+	List<FishmanPo> getFishman(Long fishmanId);
 
 	/**
 	 * 通过渔户认证.
@@ -48,7 +49,8 @@ public interface FishmanService extends BaseService<FishmanPo>{
 	 * @param model
 	 * @return
 	 */
-	List<FishmanPo> getFishman(FishmanPo model);
+	Map<String, Object> getFishmanByShop(FishmanPo model);
+
 
 	
 

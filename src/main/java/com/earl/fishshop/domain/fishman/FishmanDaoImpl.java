@@ -28,10 +28,10 @@ public class FishmanDaoImpl extends BaseDaoImpl<FishmanPo> implements
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<FishmanPo> getFishman(Long identityId) {
-		String hql = "from FishmanPo f where f.fishmanId = :identityId";
+	public List<FishmanPo> getFishman(Long fishmanId) {
+		String hql = "from FishmanPo f where f.fishmanId = :fishmanId";
 		List<FishmanPo> list = getCurrentSession().createQuery(hql)
-				.setLong("identityId", identityId).list();
+				.setLong("fishmanId", fishmanId).list();
 		return list;
 	}
 
@@ -52,6 +52,15 @@ public class FishmanDaoImpl extends BaseDaoImpl<FishmanPo> implements
 				.setInteger("state", MyConstant.user_nopass)
 				.setLong("userId", userId).executeUpdate();
 		
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<FishmanPo> getFishmanByShop(Long shopId) {
+		String hql = "from FishmanPo f where f.shopId = :shopId";
+		List<FishmanPo> list = getCurrentSession().createQuery(hql)
+				.setLong("shopId", shopId).list();
+		return list;
 	}
 	
 	
