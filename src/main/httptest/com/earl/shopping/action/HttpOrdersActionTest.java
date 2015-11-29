@@ -5,6 +5,7 @@ import java.io.File;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class HttpOrdersActionTest extends BaseActionTest{
@@ -25,46 +26,18 @@ public class HttpOrdersActionTest extends BaseActionTest{
 		PostMethod filePost = new PostMethod(targetURL);
 
 		try {
-			Part[] parts = { 
+			Part[] parts = {
 			new StringPart("orders", "{" +
-					 "\"totalprice\" : \"30.5\"" +
-					 ",\"userId\" : \"4\"" +
+					 "\"userId\" : \"4\"" +
 					 ",\"shopId\": \"1\"" +
 					 ",\"buyerName\": \"yilinfeng\"" +
-					 ",\"shopKeeperName\": \"海格号222\"" +
-					 ",\"sendAddress\": \"广东省湛江市广东海洋大学22222\"" +
 					 ",\"phone\": \"18719425973\"" +
-					 ",\"version\": \"1\"" +
-					 ",\"ordersDetail\": [{\"shopId\":\"5\"" +
-					 						",\"goodsId\": \"1\"" +
-					 						",\"categoryId\": \"8\"" +
-					 						",\"goodsName\": \"sdfsd\"" +
-					 						",\"price\": \"40.0\"" +
-					 						",\"sku\": \"中等大小\"" +
-					 						",\"unit\": \"斤\"" +
-					 						",\"number\": \"5\"" +
-					 						",\"version\": \"1\"" +
-					 						",\"goodsType\":\"养殖\"}" +
-					 					",{\"shopId\":\"5\"" +
-					 						",\"goodsId\": \"1\"" +
-					 						",\"categoryId\": \"7\"" +
-					 						",\"goodsName\": \"sdfsd\"" +
-					 						",\"price\": \"40.0\"" +
-					 						",\"sku\": \"中等大小\"" +
-				 							",\"unit\": \"斤\"" +
-				 							",\"number\": \"5\"" +
-				 							",\"version\": \"1\"" +
-				 							",\"goodsType\":\"野生\"}" +
-					 					",{\"shopId\":\"3\"" +
-					 						",\"goodsId\": \"1\"" +
-					 						",\"categoryId\": \"9\"" +
-				 							",\"goodsName\": \"白星东邦鱼\"" +
-				 							",\"price\": \"40.0\"" +
-				 							",\"sku\": \"中等大小\"" +
-				 							",\"unit\": \"斤\"" +
-				 							",\"number\": \"5\"" +
-				 							",\"version\": \"1\"" +
-				 							",\"goodsType\":\"2343\"}" +
+					 ",\"ordersDetail\": [{\"goodsId\": \"1\"" +
+					 						",\"number\": \"5\"}" +
+					 					",{\"goodsId\": \"1\"" +
+				 							",\"number\": \"5\"}" +
+					 					",{\"goodsId\": \"1\"" +
+				 							",\"number\": \"5\"}" +
 					 					"]" +
 					 ",\"seaRecordId\": \"5\"" +
 					 "}","utf-8")
@@ -178,4 +151,15 @@ public class HttpOrdersActionTest extends BaseActionTest{
 		System.out.println(sendHttpRequest);
 	}
 
+	@Test
+	public void testGetPointOrders(){
+		String targetURL = bastPath + "/fishshop/orders_getPointOrders.action";
+		PostMethod filePost = new PostMethod(targetURL);
+		
+		Part[] parts = { 
+				new StringPart("ordersId", "11111123","utf-8")
+		};
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+	}
 }

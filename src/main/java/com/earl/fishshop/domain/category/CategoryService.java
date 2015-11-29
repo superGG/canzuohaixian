@@ -45,10 +45,11 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	 * 得到发布该种类商品的商店.
 	 * @author 黄祥谦.
 	 * @param categoryId TODO
-	 * @param pageInfo
+	 * @param indexPageNum
+	 * @param size TODO
 	 * @return
 	 */
-	List<ShopPo> getGoodsShops(Long categoryId, PageInfo pageInfo);
+	List<ShopPo> getGoodsShops(Long categoryId, Integer indexPageNum, Integer size);
 
 	/**
 	 * 野生产品

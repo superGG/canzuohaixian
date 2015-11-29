@@ -89,8 +89,8 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 	}
 
 	@Override
-	public List<ShopPo> getGoodsShops(Long categoryId, PageInfo pageInfo) {
-		List<ShopPo> shopList = shopDao.getGoodsShops(categoryId,pageInfo);
+	public List<ShopPo> getGoodsShops(Long categoryId, Integer indexPageNum, Integer size) {
+		List<ShopPo> shopList = shopDao.getGoodsShops(categoryId,indexPageNum, size);
 		for (ShopPo shopPo : shopList) {
 			UserPo userPo = userDao.get(shopPo.getUserId());
 			if(userPo.getUserType() == MyConstant.user_farmer){

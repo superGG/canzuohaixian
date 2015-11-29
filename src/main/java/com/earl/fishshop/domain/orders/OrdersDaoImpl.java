@@ -12,7 +12,6 @@ import com.earl.fishshop.domain.getaddress.GetAddressPo;
 import com.earl.fishshop.domain.ordersdetail.OrdersDetailPo;
 import com.earl.fishshop.domain.postage.PostagePo;
 import com.earl.fishshop.domain.sku.SkuPo;
-import com.earl.fishshop.vo.PageInfo;
 
 
 /**
@@ -23,12 +22,12 @@ import com.earl.fishshop.vo.PageInfo;
 public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 
 	@Override
-	public List<OrdersPo> getMyShopOrders(Long shopId, PageInfo pageInfo) {
+	public List<OrdersPo> getMyShopOrders(Long shopId, Integer indexPageNum, Integer size) {
 		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
 		createCriteria.add(Restrictions.eq("shopId", shopId));
 		createCriteria.setFirstResult(
-				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
-				.setMaxResults(pageInfo.getSize());
+				(indexPageNum - 1) * size)
+				.setMaxResults(size);
 		@SuppressWarnings("unchecked")
 		List<OrdersPo> ordersList= createCriteria.list();
 		
@@ -78,13 +77,13 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 	}
 
 	@Override
-	public List<OrdersPo> getOrdersWithSeaRecord(Long seaRecordId, PageInfo pageInfo) {
+	public List<OrdersPo> getOrdersWithSeaRecord(Long seaRecordId, Integer indexPageNum, Integer size) {
 		
 		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
 		createCriteria.add(Restrictions.eq("seaRecordId", seaRecordId));
 		createCriteria.setFirstResult(
-				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
-				.setMaxResults(pageInfo.getSize());
+				(indexPageNum - 1) * size)
+				.setMaxResults(size);
 		@SuppressWarnings("unchecked")
 		List<OrdersPo> ordersList = createCriteria.list();
 		for (OrdersPo ordersPo : ordersList) {
@@ -97,13 +96,13 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 	}
 
 	@Override
-	public List<OrdersPo> getPointStateOrders(Long userId, Integer state, PageInfo pageInfo) {
+	public List<OrdersPo> getPointStateOrders(Long userId, Integer state, Integer indexPageNum, Integer size) {
 		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
 		createCriteria.add(Restrictions.eq("state", state));
 		createCriteria.add(Restrictions.eq("userId", userId));
 		createCriteria.setFirstResult(
-				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
-				.setMaxResults(pageInfo.getSize());
+				(indexPageNum - 1) * size)
+				.setMaxResults(size);
 		@SuppressWarnings("unchecked")
 		List<OrdersPo> ordersList = createCriteria.list();
 		for (OrdersPo ordersPo : ordersList) {
@@ -122,12 +121,12 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 	}
 
 	@Override
-	public List<OrdersPo> getAllUserOrders(Long userId, PageInfo pageInfo) {
+	public List<OrdersPo> getAllUserOrders(Long userId, Integer indexPageNum, Integer size) {
 		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
 		createCriteria.add(Restrictions.eq("userId", userId));
 		createCriteria.setFirstResult(
-				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
-				.setMaxResults(pageInfo.getSize());
+				(indexPageNum - 1) * size)
+				.setMaxResults(size);
 		@SuppressWarnings("unchecked")
 		List<OrdersPo> ordersList = createCriteria.list();
 		for (OrdersPo ordersPo : ordersList) {
@@ -167,6 +166,28 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 	public void updateOrder(OrdersPo order) {
 		getCurrentSession().update(order);
 		
+	}
+
+	@Override
+	public OrdersPo getPointOrders(Long ordersId) {
+		// TODO 未测试.
+		OrdersPo ordersPo = get(ordersId);
+			String hql2 = "from OrdersDetailPo where orderId =:orderId";
+			@SuppressWarnings("unchecked")
+			List<OrdersDetailPo> ordersDetailList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).list();
+			ordersPo.setOrdersDetail(ordersDetailList);
+		return ordersPo;
+	}
+
+	@Override
+	public List<OrdersPo> getAllOrders(Integer indexPageNum, Integer size) {
+		// TODO 未测试.
+		String hql = "from OrdersPo";
+		@SuppressWarnings("unchecked")
+		List<OrdersPo> ordersList = getCurrentSession().createQuery(hql).setFirstResult(
+				(indexPageNum - 1) * size)
+				.setMaxResults(size).list();
+		return ordersList;
 	}
 
 }

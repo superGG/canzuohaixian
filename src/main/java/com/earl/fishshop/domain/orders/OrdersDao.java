@@ -4,16 +4,16 @@ import java.util.List;
 
 import com.earl.fishshop.domain.base.BaseDao;
 import com.earl.fishshop.domain.ordersdetail.OrdersDetailPo;
-import com.earl.fishshop.vo.PageInfo;
 
 public interface OrdersDao extends BaseDao<OrdersPo>{
 
 	/**
 	 * 得到指定商店的订单.
 	 * @author 黄祥谦.
-	 * @param pageInfo TODO
+	 * @param indexPageNum TODO
+	 * @param size TODO
 	 */
-	List<OrdersPo> getMyShopOrders(Long shopId, PageInfo pageInfo);
+	List<OrdersPo> getMyShopOrders(Long shopId, Integer indexPageNum, Integer size);
 
 	/**
 	 * 更新订单状态.
@@ -35,20 +35,22 @@ public interface OrdersDao extends BaseDao<OrdersPo>{
 	 * 得到本次出航订单.
 	 * @author 黄祥谦.
 	 * @param seaRecordId
-	 * @param pageInfo TODO
+	 * @param indexPageNum TODO
+	 * @param size TODO
 	 * @return
 	 */
-	List<OrdersPo> getOrdersWithSeaRecord(Long seaRecordId, PageInfo pageInfo);
+	List<OrdersPo> getOrdersWithSeaRecord(Long seaRecordId, Integer indexPageNum, Integer size);
 
 	/**
 	 * 得到未发货订单.
 	 * @author 黄祥谦.
 	 * @param userId TODO
 	 * @param state TODO
-	 * @param pageInfo TODO
+	 * @param indexPageNum TODO
+	 * @param size TODO
 	 * @return
 	 */
-	List<OrdersPo> getPointStateOrders(Long userId, Integer state, PageInfo pageInfo);
+	List<OrdersPo> getPointStateOrders(Long userId, Integer state, Integer indexPageNum, Integer size);
 
 	/**
 	 * 设置订单编号.
@@ -62,10 +64,11 @@ public interface OrdersDao extends BaseDao<OrdersPo>{
 	 * 得到用户所有订单.
 	 * @author 黄祥谦.
 	 * @param userId
-	 * @param pageInfo
+	 * @param indexPageNum TODO
+	 * @param size TODO
 	 * @return
 	 */
-	List<OrdersPo> getAllUserOrders(Long userId, PageInfo pageInfo);
+	List<OrdersPo> getAllUserOrders(Long userId, Integer indexPageNum, Integer size);
 
 	/**
 	 * 得到邮费.
@@ -82,5 +85,22 @@ public interface OrdersDao extends BaseDao<OrdersPo>{
 	 * @param order
 	 */
 	void updateOrder(OrdersPo order);
+
+	/**
+	 * 得到指定订单详情.
+	 * @author 黄祥谦.
+	 * @param ordersId
+	 * @return
+	 */
+	OrdersPo getPointOrders(Long ordersId);
+
+	/**
+	 * 得到所有订单.
+	 * @author 黄祥谦.
+	 * @param indexPageNum
+	 * @param size TODO
+	 * @return
+	 */
+	List<OrdersPo> getAllOrders(Integer indexPageNum, Integer size);
 
 }

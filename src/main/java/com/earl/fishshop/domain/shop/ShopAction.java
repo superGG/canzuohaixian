@@ -193,5 +193,4 @@ public class ShopAction extends BaseAction<ShopPo> {
 		resultMessage.setServiceResult(true);
 		
 	}
-
 }

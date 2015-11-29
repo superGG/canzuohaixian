@@ -7,11 +7,13 @@ import org.junit.Test;
 
 public class HttpCommentActionTest extends BaseActionTest{
 
+	String basePath = "http://192.168.1.107:8080";
+	
 	@Test
 	public void testAddComment(){
 //		String targetURL = "http://192.168.1.107:8080/fishshop/category_getNextLevelCategory.action";
 //		String targetURL = "http://www.earltech.cn:8080/fishshop/category_getNextLevelCategory.action";
-		String targetURL = "http://localhost:8080/fishshop/comment_addComment.action";
+		String targetURL = basePath + "/fishshop/comment_addComment.action";
 		PostMethod filePost = new PostMethod(targetURL);
 		Part[] parts = { 
 				new StringPart("userId", "1","utf-8")

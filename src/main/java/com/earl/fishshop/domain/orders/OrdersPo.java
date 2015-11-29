@@ -24,6 +24,8 @@ public class OrdersPo{
 	 */
 	private Long shopId ;
 	
+	private String shopPhoto;
+	
 	/**
 	 * 字段描述：Long 
 	 * 字段类型：totalprice  
@@ -93,6 +95,12 @@ public class OrdersPo{
 	
 	public Integer getSordersNumber() {
 		return sordersNumber;
+	}
+	public String getShopPhoto() {
+		return shopPhoto;
+	}
+	public void setShopPhoto(String shopPhoto) {
+		this.shopPhoto = shopPhoto;
 	}
 	public void setSordersNumber(Integer sordersNumber) {
 		this.sordersNumber = sordersNumber;

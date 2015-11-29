@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-11-27 09:53:44
+Date: 2015-11-29 20:02:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -49,7 +49,7 @@ INSERT INTO `category` VALUES ('3', '蟹类', '鱼类', '3', 'fishcategory', nul
 INSERT INTO `category` VALUES ('4', '贝类', '鱼类', '3', 'fishcategory', null, 'category/beike.jpg', '斤', '0', null, '2015-11-04 13:41:32', null, '', '1', null);
 INSERT INTO `category` VALUES ('5', '鱿鱼类', '鱼类', '3', 'fishcategory', null, 'category/xia.jpg', '斤', '0', null, '2015-11-04 13:41:32', null, '', '1', null);
 INSERT INTO `category` VALUES ('6', '人参类', '鱼类', '3', 'fishcategory', null, 'category/haishen.jpg', '斤', '0', null, '2015-11-04 13:41:32', null, '', '1', null);
-INSERT INTO `category` VALUES ('7', '东星白班鱼', '东星白班鱼', '3', 'whitefish', '1', 'category/haishen.jpg', '斤', '68', '[1,3]', '2015-10-04 13:41:32', null, '', '1', null);
+INSERT INTO `category` VALUES ('7', '东星白班鱼', '东星白班鱼', '3', 'whitefish', '1', 'category/haishen.jpg', '斤', '83', '[1,3]', '2015-10-04 13:41:32', null, '', '1', null);
 INSERT INTO `category` VALUES ('8', '小黄鱼', '小黄鱼', '3', 'yellowfish', '1', 'category/fish.jpg', '个', '41', '[1,2,3]', '2015-10-04 13:41:32', null, '', '1', null);
 INSERT INTO `category` VALUES ('9', '小黑鱼', '小黑鱼', '3', 'smallblackfish', '1', 'category/beike.jpg', '条', '16', '[2,3]', '2015-10-04 13:41:32', null, '', '1', null);
 INSERT INTO `category` VALUES ('10', '大头虾', '大头虾', '3', 'bigHeadXia', '2', 'category/xia.jpg', '斤', '0', '[2,3]', '2015-11-26 12:58:27', null, '', '1', null);
@@ -97,7 +97,7 @@ CREATE TABLE `comment` (
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
   PRIMARY KEY (`commentId`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of comment
@@ -113,6 +113,17 @@ INSERT INTO `comment` VALUES ('16', '1', '1', '匿名', null, '0', '的范德萨
 INSERT INTO `comment` VALUES ('17', '1', '1', '匿名', null, '0', 'ghgfh写下你对该宝贝的评分吧！对其他人很有用', '1', '4', '3', '4', '2015-11-26 22:31:29', null, '', '0');
 INSERT INTO `comment` VALUES ('18', '1', '1', '匿名', null, '0', '写下你对该宝贝的评分吧！对其他人很有用', '1', '4', '3.5', '2.5', '2015-11-26 22:52:52', null, '', '0');
 INSERT INTO `comment` VALUES ('19', '1', '1', '匿名', null, '0', '写颠三倒四下你对该宝贝的评分吧！对其他人很有用', '1', '3.5', '2.5', '4', '2015-11-27 09:51:47', null, '', '0');
+INSERT INTO `comment` VALUES ('20', '1', '4', '匿名', null, '0', '写下你对该宝广东广东佛山分贝的评分吧！对其他人很有用', '1', '3', '3.5', '5', '2015-11-27 10:05:07', null, '', '0');
+INSERT INTO `comment` VALUES ('21', '1', '4', '匿名', null, '0', '附近的路上妓房动乱事件的历史写下你对该宝贝的评分吧！对其他人很有用', '1', '3.5', '3.5', '3.5', '2015-11-27 10:06:51', null, '', '0');
+INSERT INTO `comment` VALUES ('22', '1', '1', '匿名', '11111110', '-1', '不错。我只是来测试而已', '1', '3', '2', '4', '2015-11-27 16:49:31', null, '', '0');
+INSERT INTO `comment` VALUES ('23', '1', '1', '匿名', '11111110', '-1', '不错。我只是来测试而已', '1', '3', '2', '4', '2015-11-27 16:50:26', null, '', '0');
+INSERT INTO `comment` VALUES ('24', '1', '1', '匿名', '11111110', '-1', '不错。我只是来测试而已', '1', '3', '2', '4', '2015-11-27 16:51:42', null, '', '0');
+INSERT INTO `comment` VALUES ('25', '1', '4', '匿名', null, '0', 'Imiss有评论', '1', '3', '3.5', '2.5', '2015-11-27 17:30:02', null, '', '0');
+INSERT INTO `comment` VALUES ('26', '1', '4', '匿名', '11111120', '-1', 'Imissyou有评论', '1', '5', '4.5', '4', '2015-11-27 17:32:55', null, '', '0');
+INSERT INTO `comment` VALUES ('27', '1', '4', '匿名', '11111120', '0', '技术的激发了圣诞节费电话费的说法', '1', '3.5', '3.5', '3.5', '2015-11-27 22:38:14', null, '', '0');
+INSERT INTO `comment` VALUES ('28', '1', '4', '匿名', '11111120', '1', '不好！不哈话', '1', '4', '3.5', '3.5', '2015-11-28 11:18:42', null, '', '0');
+INSERT INTO `comment` VALUES ('29', '1', '4', '匿名', '11111120', '1', '胡大垃圾发电水立方角度来看\n不hi啊好不', '1', '1', '1', '1', '2015-11-28 11:21:00', null, '', '0');
+INSERT INTO `comment` VALUES ('30', '1', '4', '匿名', '11111120', '1', '456419135156/urrrrrr', '1', '1.5', '1.5', '1', '2015-11-28 11:21:32', null, '', '0');
 
 -- ----------------------------
 -- Table structure for `farmers`
@@ -134,7 +145,7 @@ CREATE TABLE `farmers` (
   `isDelete` bit(1) DEFAULT NULL,
   `version` bigint(20) DEFAULT '1',
   PRIMARY KEY (`farmersId`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of farmers
@@ -167,7 +178,7 @@ CREATE TABLE `fishman` (
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
   PRIMARY KEY (`fishmanId`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of fishman
@@ -258,7 +269,7 @@ CREATE TABLE `goods` (
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
-INSERT INTO `goods` VALUES ('1', '1', '7', '3', null, '1', '1', '34.5', '865', '斤', '白星鱼', 'goods/aaa.jpg', '210', null, '2015-11-16 22:13:25', '', '1');
+INSERT INTO `goods` VALUES ('1', '1', '7', '3', null, '1', '1', '34.5', '850', '斤', '白星鱼', 'goods/aaa.jpg', '225', null, '2015-11-16 22:13:25', '', '1');
 INSERT INTO `goods` VALUES ('2', '2', '7', '5', null, '1', '1', '40', '1000', '只', '东邦鱼', 'goods/bbb.jpg', '35', null, '2015-11-17 09:40:12', '', '0');
 INSERT INTO `goods` VALUES ('3', '2', '8', '5', null, '1', '1', '40', '1000', '只', '美人鱼', 'goods/aaa.jpg', '46', null, '2015-11-17 09:41:23', '', '1');
 INSERT INTO `goods` VALUES ('4', '2', '9', '5', null, '1', '1', '40', '1000', '只', '死鱼', 'goods/bbb.jpg', '66', null, '2015-11-17 09:41:23', '', '1');
@@ -288,16 +299,17 @@ CREATE TABLE `orders` (
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
   PRIMARY KEY (`ordersId`)
-) ENGINE=InnoDB AUTO_INCREMENT=11111125 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11111126 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
-INSERT INTO `orders` VALUES ('11111110', '4', '1', '6', '30.5', '2', 'yilinfeng', '海格号', '广东省湛江市广东海洋大学', '易临风', '18719425973', '123456789', '20', '5.5', '10', '2015-11-16 22:14:31', null, null, '1');
-INSERT INTO `orders` VALUES ('11111120', '1', '1', '5', '30.5', '1', 'yilinfeng', '海格hao', '广东海洋大学', 'yilinfeng', '18719425973', null, null, '80', '5', '2015-11-24 11:25:52', null, '', '1');
-INSERT INTO `orders` VALUES ('11111122', '4', '1', '3', '30.5', '3', 'yilinfeng', '海格号222', '广东海洋大学', 'yilinfeng', '18719425973', null, null, '80', '3', '2015-11-24 22:07:40', null, '', '1');
-INSERT INTO `orders` VALUES ('11111123', '4', '4', '6', '30.5', '1', 'yilinfeng', '迷之海格号', '广东海洋大学', 'yilinfeng', '18719425973', null, null, '80', '3', '2015-11-26 22:27:07', null, '', '1');
-INSERT INTO `orders` VALUES ('11111124', '4', '1', '6', '30.5', '0', 'yilinfeng', '海格号222', '广东海洋大学', 'yilinfeng', '18719425973', null, null, '80', '3', '2015-11-27 09:37:24', null, '', '1');
+INSERT INTO `orders` VALUES ('11111110', '4', '1', '6', '31.5', '4', 'yilinfeng', '海格号', '广东省湛江市广东海洋大学', '易临风', '18719425973', '123456789', '20', '5.5', '10', '2015-11-16 22:14:31', null, null, '4');
+INSERT INTO `orders` VALUES ('11111120', '5', '4', '5', '32.5', '4', 'yilinfeng', '海格hao', '广东海洋大学', 'yilinfeng', '18719425973', null, null, '80', '5', '2015-11-24 11:25:52', null, '', '5');
+INSERT INTO `orders` VALUES ('11111122', '4', '1', '3', '33.5', '3', 'yilinfeng', '海格号222', '广东海洋大学', 'yilinfeng', '18719425973', null, null, '80', '3', '2015-11-24 22:07:40', null, '', '1');
+INSERT INTO `orders` VALUES ('11111123', '4', '4', '6', '34.5', '1', 'yilinfeng', '迷之海格号', '广东海洋大学', 'yilinfeng', '18719425973', null, null, '80', '3', '2015-11-26 22:27:07', null, '', '1');
+INSERT INTO `orders` VALUES ('11111124', '4', '1', '6', '340.5', '0', 'yilinfeng', '海格号222', '广东海洋大学', 'yilinfeng', '18719425973', null, null, '80', '3', '2015-11-27 09:37:24', null, '', '1');
+INSERT INTO `orders` VALUES ('11111125', '4', '1', '5', '517.5', '1', 'yilinfeng', null, '广东海洋大学', 'yilinfeng', '18719425973', null, null, '80', '3', '2015-11-29 20:02:11', null, '', '0');
 
 -- ----------------------------
 -- Table structure for `ordersdetail`
@@ -311,7 +323,6 @@ CREATE TABLE `ordersdetail` (
   `categoryId` bigint(20) DEFAULT NULL,
   `goodsName` varchar(255) DEFAULT NULL,
   `fishPhoto` varchar(255) DEFAULT NULL,
-  `goodsType` varchar(255) DEFAULT NULL,
   `price` double DEFAULT NULL,
   `totalprice` double DEFAULT NULL,
   `sku` varchar(255) DEFAULT NULL,
@@ -324,23 +335,26 @@ CREATE TABLE `ordersdetail` (
   `isDelete` bit(1) DEFAULT b'0',
   `version` bigint(20) DEFAULT '1',
   PRIMARY KEY (`ordersDetailId`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ordersdetail
 -- ----------------------------
-INSERT INTO `ordersdetail` VALUES ('28', '11111110', '5', '1', '7', 'sdfsd', 'goods/bbb.jpg', '养殖', '40', null, '中等大小', null, '斤', '5', null, '2015-11-24 11:25:52', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('29', '11111110', '5', '1', '7', 'sdfsd', 'goods/bbb.jpg', '野生', '40', null, '中等大小', null, '斤', '5', null, '2015-11-24 11:25:52', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('30', '11111110', '3', '1', '8', 'sdfsd', 'goods/aaa.jpg', '2343', '40', null, '中等大小', null, '斤', '5', null, '2015-10-24 11:25:52', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('34', '11111122', '5', '1', '8', 'sdfsd', 'goods/bbb.jpg', '养殖', '40', null, '中等大小', null, '斤', '5', null, '2015-11-24 22:07:40', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('35', '11111110', '5', '1', '7', 'sdfsd', 'goods/aaa.jpg', '野生', '40', null, '中等大小', null, '斤', '5', null, '2015-10-24 22:07:40', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('36', '11111122', '3', '1', '9', '白星东邦鱼', 'goods/bbb.jpg', '2343', '40', null, '中等大小', null, '斤', '5', null, '2015-10-24 22:07:40', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('37', '11111123', '5', '1', '8', 'sdfsd', null, '养殖', '40', null, '中等大小', null, '斤', '5', null, '2015-11-26 22:27:07', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('38', '11111123', '5', '1', '7', 'sdfsd', null, '野生', '40', null, '中等大小', null, '斤', '5', null, '2015-11-26 22:27:07', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('39', '11111123', '3', '1', '9', '白星东邦鱼', null, '2343', '40', null, '中等大小', null, '斤', '5', null, '2015-11-26 22:27:07', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('40', '11111124', '5', '1', '8', 'sdfsd', null, '养殖', '40', null, '中等大小', null, '斤', '5', null, '2015-11-27 09:37:25', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('41', '11111124', '5', '1', '7', 'sdfsd', null, '野生', '40', null, '中等大小', null, '斤', '5', null, '2015-11-27 09:37:25', null, '', '1');
-INSERT INTO `ordersdetail` VALUES ('42', '11111124', '3', '1', '9', '白星东邦鱼', null, '2343', '40', null, '中等大小', null, '斤', '5', null, '2015-11-27 09:37:25', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('28', '11111110', '5', '1', '7', 'sdfsd', 'goods/bbb.jpg', '40', null, '中等大小', null, '斤', '5', null, '2015-11-24 11:25:52', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('29', '11111110', '5', '1', '7', 'sdfsd', 'goods/bbb.jpg', '40', null, '中等大小', null, '斤', '5', null, '2015-11-24 11:25:52', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('30', '11111110', '3', '1', '8', 'sdfsd', 'goods/aaa.jpg', '40', null, '中等大小', null, '斤', '5', null, '2015-10-24 11:25:52', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('34', '11111122', '5', '1', '8', 'sdfsd', 'goods/bbb.jpg', '40', null, '中等大小', null, '斤', '5', null, '2015-11-24 22:07:40', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('35', '11111110', '5', '1', '7', 'sdfsd', 'goods/aaa.jpg', '40', null, '中等大小', null, '斤', '5', null, '2015-10-24 22:07:40', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('36', '11111122', '3', '1', '9', '白星东邦鱼', 'goods/bbb.jpg', '40', null, '中等大小', null, '斤', '5', null, '2015-10-24 22:07:40', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('37', '11111123', '5', '1', '8', 'sdfsd', 'goods/bbb.jpg', '40', null,'中等大小', null, '斤', '5', null, '2015-11-26 22:27:07', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('38', '11111123', '5', '1', '7', 'sdfsd', 'goods/bbb.jpg', '40',null, '中等大小', null, '斤', '5', null, '2015-11-26 22:27:07', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('39', '11111123', '3', '1', '9', '白星东邦鱼', 'goods/bbb.jpg', '40', null, '中等大小', null, '斤', '5', null, '2015-11-26 22:27:07', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('40', '11111124', '5', '1', '8', 'sdfsd', 'goods/bbb.jpg', '40', null, '中等大小', null, '斤', '5', null, '2015-11-27 09:37:25', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('41', '11111124', '5', '1', '7', 'sdfsd', 'goods/bbb.jpg', '40', null, '中等大小', null, '斤', '5', null, '2015-11-27 09:37:25', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('42', '11111124', '3', '1', '9', '白星东邦鱼', 'goods/bbb.jpg', '40', null, '中等大小', null, '斤', '5', null, '2015-11-27 09:37:25', null, '', '1');
+INSERT INTO `ordersdetail` VALUES ('43', '11111125', '1', '1', '7', '白星鱼', 'goods/aaa.jpg', '34.5', '172.5', '中等大小', null, '斤', '5', null, '2015-11-29 20:02:11', null, '', '0');
+INSERT INTO `ordersdetail` VALUES ('44', '11111125', '1', '1', '7', '白星鱼', 'goods/aaa.jpg', '34.5', '172.5', '中等大小', null, '斤', '5', null, '2015-11-29 20:02:11', null, '', '0');
+INSERT INTO `ordersdetail` VALUES ('45', '11111125', '1', '1', '7', '白星鱼', 'goods/aaa.jpg', '34.5', '172.5', '中等大小', null, '斤', '5', null, '2015-11-29 20:02:11', null, '', '0');
 
 -- ----------------------------
 -- Table structure for `postage`
@@ -442,7 +456,7 @@ CREATE TABLE `shop` (
 -- ----------------------------
 -- Records of shop
 -- ----------------------------
-INSERT INTO `shop` VALUES ('1', '1', '海格号', 'shop/aaa.jpg', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
+INSERT INTO `shop` VALUES ('1', '1', '海格号', 'shop/aaa.jpg', '[2,3,4]', '4', '3.8241', '3.63311', '3.88287', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '7');
 INSERT INTO `shop` VALUES ('2', '2', '泰坦尼克号', 'shop/aaa.jpg', '[4]', '5', '4.5', '4.5', '4.5', '0', '40.5', '', null, null, '广东海洋大学', '1', '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
 INSERT INTO `shop` VALUES ('3', '3', '海格号', 'shop/aaa.jpg', '[2,3,4]', '5', '4.5', '4.5', '4.5', '1', '40.5', '', null, null, '广东海洋大学', null, '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
 INSERT INTO `shop` VALUES ('4', '4', '海格号', 'shop/aaa.jpg', '[2,3,4]', '5', '4.5', '4.5', '4.5', '0', '40.5', '', null, null, '广东海洋大学', '1', '234.4', '344.6', null, '', '2015-11-17 11:18:57', '1');
@@ -530,8 +544,8 @@ INSERT INTO `user` VALUES ('5', '2', '1', '1', '詹命天子', '328499605', '183
 INSERT INTO `user` VALUES ('6', '2', '2', '1', '詹命天子', '328499605', '18312687414', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
 INSERT INTO `user` VALUES ('7', '2', '3', '1', '詹命天子', '328499605', '18312687415', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
 INSERT INTO `user` VALUES ('8', '2', '4', '1', '詹命天子', '328499605', '18312687416', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
-INSERT INTO `user` VALUES ('9', '2', '5', '2', '詹命天子', '328499605', '18312687417', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
-INSERT INTO `user` VALUES ('10', '2', '6', '2', '詹命天子', '328499605', '1831268752', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
+INSERT INTO `user` VALUES ('9', '2', '5', '2', '詹命天子', '328499605', '18312687417', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '17');
+INSERT INTO `user` VALUES ('10', '2', '6', '2', '詹命天子', '328499605', '1831268752', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '18');
 INSERT INTO `user` VALUES ('11', '2', '7', '2', '詹命天子', '328499605', '18312687912', 'user/aaa.jpg', '2015-11-24 12:45:15', null, '', '1', '16');
 INSERT INTO `user` VALUES ('12', null, null, null, '15811707583', 'sidoubi2014', '15811707583', 'user/aaa.jpg', '2015-11-26 22:45:07', null, '', '0', null);
 

@@ -66,25 +66,25 @@ public class OrdersServiceImplTest {
 //		request.addParameter("version", "1");
 		// 使用下面方式，不能直接用struts的modeldriven
 
-		OrdersPo ordersPo = new OrdersPo();
-		ordersPo.setBuyerName("dsdf");
-//		ordersPo.setOrderNumber("134345");
-		ArrayList<OrdersDetailPo> arrayList = new ArrayList<OrdersDetailPo>();
-		OrdersDetailPo ordersDetailPo = new OrdersDetailPo();
-		ordersDetailPo.setCategoryId(1L);
-		ordersDetailPo.setGoodsType("2343");
-		arrayList.add(ordersDetailPo);
-		OrdersDetailPo ordersDetailPo2 = new OrdersDetailPo();
-		ordersDetailPo2.setCategoryId(1L);
-		ordersDetailPo2.setGoodsType("2343");
-		arrayList.add(ordersDetailPo2);
+//		OrdersPo ordersPo = new OrdersPo();
+//		ordersPo.setBuyerName("dsdf");
+////		ordersPo.setOrderNumber("134345");
+//		ArrayList<OrdersDetailPo> arrayList = new ArrayList<OrdersDetailPo>();
+//		OrdersDetailPo ordersDetailPo = new OrdersDetailPo();
+//		ordersDetailPo.setCategoryId(1L);
+//		ordersDetailPo.setGoodsType("2343");
+//		arrayList.add(ordersDetailPo);
+//		OrdersDetailPo ordersDetailPo2 = new OrdersDetailPo();
+//		ordersDetailPo2.setCategoryId(1L);
+//		ordersDetailPo2.setGoodsType("2343");
+//		arrayList.add(ordersDetailPo2);
 		
-		ordersPo.setOrdersDetail(arrayList);
-		
-		ordersService.save(ordersPo);
-		
-		String json = JsonHelper.toJson(ordersPo);
-		System.out.println(json);
+//		ordersPo.setOrdersDetail(arrayList);
+//		
+//		ordersService.save(ordersPo);
+//		
+//		String json = JsonHelper.toJson(ordersPo);
+//		System.out.println(json);
 	}
 
 	

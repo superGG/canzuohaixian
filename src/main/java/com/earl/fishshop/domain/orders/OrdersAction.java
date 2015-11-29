@@ -13,19 +13,13 @@ import com.earl.fishshop.vo.ResultMessage;
 import com.pingplusplus.model.Charge;
 
 /**
- * 
  * 订单
- * 
  * @author Administrator
- * 
  */
 @Controller(value = "ordersAction")
 @Scope(value = "prototype")
 public class OrdersAction extends BaseAction<OrdersPo> {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 3293435262298029608L;
 
 	protected ResultMessage resultMessage;
@@ -40,7 +34,6 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		return pageInfo;
 	}
 
-
 	public void setPageInfo(PageInfo pageInfo) {
 		this.pageInfo = pageInfo;
 	}
@@ -49,11 +42,9 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		return getAddressId;
 	}
 
-
 	public void setGetAddressId(Long getAddressId) {
 		this.getAddressId = getAddressId;
 	}
-
 
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public ResultMessage getResultMessage() {
@@ -94,7 +85,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getMyShopOrders(){
-		List<OrdersPo> ordersList = ordersServer.getMyShopOrders(model.getShopId(), pageInfo);
+		List<OrdersPo> ordersList = ordersServer.getMyShopOrders(model.getShopId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
@@ -107,7 +98,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getAllUserOrders(){
-		List<OrdersPo> ordersList = ordersServer.getAllUserOrders(model.getUserId(),pageInfo);
+		List<OrdersPo> ordersList = ordersServer.getAllUserOrders(model.getUserId(),pageInfo.getIndexPageNum(), pageInfo.getSize());
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
@@ -120,7 +111,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getUnSentOrders(){
-		List<OrdersPo> ordersList = ordersServer.getUnSentOrders(model.getUserId(), pageInfo);
+		List<OrdersPo> ordersList = ordersServer.getUnSentOrders(model.getUserId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
@@ -133,7 +124,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getUnPayOrders(){
-		List<OrdersPo> ordersList = ordersServer.getUnpayOrders(model.getUserId(), pageInfo);
+		List<OrdersPo> ordersList = ordersServer.getUnpayOrders(model.getUserId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
@@ -146,7 +137,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getUngetOrders(){
-		List<OrdersPo> ordersList = ordersServer.getUngetOrders(model.getUserId(), pageInfo);
+		List<OrdersPo> ordersList = ordersServer.getUngetOrders(model.getUserId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
@@ -159,7 +150,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getUnCommentOrders(){
-		List<OrdersPo> ordersList = ordersServer.getUnCommentOrders(model.getUserId(), pageInfo);
+		List<OrdersPo> ordersList = ordersServer.getUnCommentOrders(model.getUserId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
@@ -172,7 +163,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getOrdersWithSeaRecord(){
-		List<OrdersPo> ordersList = ordersServer.getOrdersWithSeaRecord(model.getSeaRecordId(), pageInfo);
+		List<OrdersPo> ordersList = ordersServer.getOrdersWithSeaRecord(model.getSeaRecordId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
@@ -190,17 +181,6 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		hashMap.put("charge", charge);
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
-	}
-	
-	/**
-	 * 真实支付订单，修改订单状态.
-	 * @author 黄祥谦.
-	 */
-	public void realPayOrders(){
-		Boolean success = ordersServer.realPayOrders(model.getOrdersId());
-		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(success);
-		
 	}
 	
 	/**
@@ -230,5 +210,74 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		}
 	}
 	
+	/**
+	 * 得到指定订单信息.
+	 * @author 黄祥谦.
+	 */
+	public void getPointOrders(){
+		OrdersPo orders = ordersServer.getPointOrders(model.getOrdersId());
+		
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("orders", orders);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		if(orders != null){
+			resultMessage.setServiceResult(true);
+			resultMessage.setResultInfo("请求成功");
+		}else{
+			resultMessage.setServiceResult(false);
+			resultMessage.setResultInfo("请求成功");
+		}
+	}
 	
+	/**
+	 * 获得所有订单，不带订单项.
+	 * @author 黄祥谦.
+	 */
+	public void getAllOrders(){
+		List<OrdersPo> ordersList = ordersServer.getAllOrders(pageInfo.getIndexPageNum(), pageInfo.getSize());
+		
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("orders", orders);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		if(ordersList != null){
+			resultMessage.setServiceResult(true);
+			resultMessage.setResultInfo("请求成功");
+		}else{
+			resultMessage.setServiceResult(false);
+			resultMessage.setResultInfo("请求成功");
+		}
+	}
+
+	/**
+	 * 真实支付订单，修改订单状态为未发货.
+	 * @author 黄祥谦.
+	 */
+	public void realPayOrders(){
+		Boolean success = ordersServer.realPayOrders(model.getOrdersId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(success);
+		
+	}
+
+	/**
+	 * 修改订单状态为未收货,已发货.
+	 * @author 黄祥谦.
+	 */
+	public void realSendOrders(){
+		Boolean success = ordersServer.realSendOrders(model.getOrdersId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(success);
+	}
+
+	/**
+	 * 修改订单状态为未评论,已收货.
+	 * @author 黄祥谦.
+	 */
+	public void realGetOrders(){
+		Boolean success = ordersServer.realGetOrders(model.getOrdersId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(success);
+	} 
 }

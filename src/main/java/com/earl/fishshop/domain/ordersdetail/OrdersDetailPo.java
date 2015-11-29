@@ -45,12 +45,6 @@ public class OrdersDetailPo{
 	private String fishPhoto;
 	
 	/**
-	 * 字段描述：String 
-	 * 字段类型：goodsType  
-	 */
-	private String goodsType ;
-	
-	/**
 	 * 字段描述：Double 
 	 * 字段类型：price  
 	 */
@@ -83,11 +77,6 @@ public class OrdersDetailPo{
 	private Long number ;
 	
 	/**
-	 * 邮费
-	 */
-	private Long postage;
-	
-	/**
 	 * 字段描述：Date 
 	 * 字段类型：createTime  
 	 */
@@ -116,12 +105,6 @@ public class OrdersDetailPo{
 	}
 	public void setSkuId(Long skuId) {
 		this.skuId = skuId;
-	}
-	public Long getPostage() {
-		return postage;
-	}
-	public void setPostage(Long postage) {
-		this.postage = postage;
 	}
 	public String getFishPhoto() {
 		return fishPhoto;
@@ -164,12 +147,6 @@ public class OrdersDetailPo{
 	}
 	public String getGoodsName() {
 		return this.goodsName;
-	}
-	public void setGoodsType(String goodsType){
-		this.goodsType = goodsType;
-	}
-	public String getGoodsType() {
-		return this.goodsType;
 	}
 	public void setPrice(Double price){
 		this.price = price;
@@ -230,7 +207,7 @@ public class OrdersDetailPo{
 		return "OrdersDetailPo [ordersDetailId=" + ordersDetailId
 				+ ", orderId=" + orderId + ", shopId=" + shopId + ", goodsId="
 				+ goodsId + ", categoryId=" + categoryId + ", goodsName="
-				+ goodsName + ", goodsType=" + goodsType + ", price=" + price
+				+ goodsName  + ", price=" + price
 				+ ", totalprice=" + totalprice + ", sku=" + sku + ", unit="
 				+ unit + ", number=" + number + ", createTime=" + createTime
 				+ ", creatorId=" + creatorId + ", isDelete=" + isDelete

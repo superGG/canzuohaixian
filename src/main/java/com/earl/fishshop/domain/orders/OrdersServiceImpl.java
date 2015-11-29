@@ -8,9 +8,10 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.domain.base.BaseServiceImpl;
+import com.earl.fishshop.domain.goods.GoodsPo;
 import com.earl.fishshop.domain.ordersdetail.OrdersDetailPo;
+import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.util.MyConstant;
-import com.earl.fishshop.vo.PageInfo;
 import com.earl.util.PayChargeUtil;
 import com.pingplusplus.model.Charge;
 
@@ -33,16 +34,31 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 	}
 
 	@Override
-	public List<OrdersPo> getMyShopOrders(Long shopId, PageInfo pageInfo) {
-		List<OrdersPo> ordersList = ordersDao.getMyShopOrders(shopId, pageInfo);
+	public List<OrdersPo> getMyShopOrders(Long shopId, Integer indexPageNum, Integer size) {
+		List<OrdersPo> ordersList = ordersDao.getMyShopOrders(shopId, indexPageNum, size);
 		return ordersList;
 	}
 
 	@Override
 	public Boolean addOrders(OrdersPo orders, Long getAddressId) {
 		try {
+			Double totalOrdersPrice = 0.0;
 			orders.setState(MyConstant.order_unpay);//设置订单初始状态.
 			orders.setSordersNumber(orders.getOrdersDetail().size());
+			for (OrdersDetailPo ordersDetail : orders.getOrdersDetail()) {
+				GoodsPo goodsPo = goodsDao.get(ordersDetail.getGoodsId());
+				ordersDetail.setShopId(goodsPo.getShopId());
+				ordersDetail.setCategoryId(goodsPo.getCategoryId());
+				ordersDetail.setGoodsName(goodsPo.getGoodsName());
+				ordersDetail.setPrice(goodsPo.getPrice());
+				ordersDetail.setSku(skuDao.get(goodsPo.getSku()).getSkuName());
+				ordersDetail.setUnit(goodsPo.getUnit());
+				ordersDetail.setFishPhoto(goodsPo.getGoodsPhoto());
+				Double singalPrice = ordersDetail.getNumber()*ordersDetail.getPrice();
+				ordersDetail.setTotalprice(singalPrice);
+				totalOrdersPrice = totalOrdersPrice+singalPrice;
+			}
+			orders.setTotalprice(totalOrdersPrice);
 			ordersDao.addOrders(orders, getAddressId);
 			return true;
 		} catch (Exception e) {
@@ -52,32 +68,32 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 	}
 
 	@Override
-	public List<OrdersPo> getOrdersWithSeaRecord(Long seaRecordId, PageInfo pageInfo) {
-		List<OrdersPo> ordersList = ordersDao.getOrdersWithSeaRecord(seaRecordId, pageInfo);
+	public List<OrdersPo> getOrdersWithSeaRecord(Long seaRecordId, Integer indexPageNum, Integer size) {
+		List<OrdersPo> ordersList = ordersDao.getOrdersWithSeaRecord(seaRecordId, indexPageNum, size);
 		return ordersList;
 	}
 
 	@Override
-	public List<OrdersPo> getUnSentOrders(Long userId, PageInfo pageInfo) {
-		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_unsent, pageInfo);
+	public List<OrdersPo> getUnSentOrders(Long userId, Integer indexPageNum, Integer size) {
+		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_unsent, indexPageNum, size);
 		return ordersList;
 	}
 	
 	@Override
-	public List<OrdersPo> getUnpayOrders(Long userId, PageInfo pageInfo) {
-		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_unpay, pageInfo);
+	public List<OrdersPo> getUnpayOrders(Long userId, Integer indexPageNum, Integer size) {
+		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_unpay, indexPageNum, size);
 		return ordersList;
 	}
 
 	@Override
-	public List<OrdersPo> getUngetOrders(Long userId, PageInfo pageInfo) {
-		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_unget, pageInfo);
+	public List<OrdersPo> getUngetOrders(Long userId, Integer indexPageNum, Integer size) {
+		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_unget, indexPageNum, size);
 		return ordersList;
 	}
 
 	@Override
-	public List<OrdersPo> getUnCommentOrders(Long userId, PageInfo pageInfo) {
-		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_uncomment, pageInfo);
+	public List<OrdersPo> getUnCommentOrders(Long userId, Integer indexPageNum, Integer size) {
+		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_uncomment, indexPageNum, size);
 		return ordersList;
 	}
 
@@ -119,21 +135,9 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 	}
 
 	@Override
-	public Boolean realPayOrders(Long ordersId) {
+	public List<OrdersPo> getAllUserOrders(Long userId, Integer indexPageNum, Integer size) {
 		// TODO 未测试.
-		try {
-			ordersDao.updateOrdersState(ordersId, MyConstant.order_pay);
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
-
-	@Override
-	public List<OrdersPo> getAllUserOrders(Long userId, PageInfo pageInfo) {
-		// TODO 未测试.
-		List<OrdersPo> ordersList = ordersDao.getAllUserOrders(userId, pageInfo);
+		List<OrdersPo> ordersList = ordersDao.getAllUserOrders(userId, indexPageNum, size);
 		return ordersList;
 	}
 
@@ -147,4 +151,74 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 		Double postagePrice = ordersDao.getOrdersPostage(model.getOrdersDetail(),model.getProvinceId());
 		return postagePrice;
 	}
+
+	@Override
+	public OrdersPo getPointOrders(Long ordersId) {
+		// TODO 未测试.
+		OrdersPo orders = ordersDao.getPointOrders(ordersId);
+		orders.setSordersNumber(orders.getOrdersDetail().size());
+		ShopPo shopPo = shopDao.get(orders.getShopId());
+		orders.setShopPhoto(shopPo.getShopPhoto());
+		return orders;
+	}
+
+	@Override
+	public List<OrdersPo> getAllOrders(Integer indexPageNum, Integer size) {
+		// TODO 未测试.
+		List<OrdersPo> ordersList = ordersDao.getAllOrders(indexPageNum, size);
+		return ordersList;
+	}
+
+	@Override
+	public Boolean realPayOrders(Long ordersId) {
+		// TODO 未测试.
+		try {
+			OrdersPo ordersPo = ordersDao.get(ordersId);
+			if(ordersPo.getState() == MyConstant.order_unpay){
+				ordersDao.updateOrdersState(ordersId, MyConstant.order_unsent);
+			}else{
+				throw new RuntimeException("非法操作!");
+			}
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public Boolean realSendOrders(Long ordersId) {
+		// TODO 未测试.
+		try {
+			OrdersPo ordersPo = ordersDao.get(ordersId);
+			if(ordersPo.getState() == MyConstant.order_unsent){
+				ordersDao.updateOrdersState(ordersId, MyConstant.order_unget);
+			}else{
+				throw new RuntimeException("非法操作!");
+			}
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	@Override
+	public Boolean realGetOrders(Long ordersId) {
+		// TODO 未测试.
+		try {
+			OrdersPo ordersPo = ordersDao.get(ordersId);
+			if(ordersPo.getState() == MyConstant.order_unget){
+				ordersDao.updateOrdersState(ordersId, MyConstant.order_uncomment);
+			}else{
+				throw new RuntimeException("非法操作!");
+			}
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	
 }

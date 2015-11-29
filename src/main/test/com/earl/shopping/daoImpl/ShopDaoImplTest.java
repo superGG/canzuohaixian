@@ -58,7 +58,7 @@ public class ShopDaoImplTest {
 		PageInfo pageInfo = new PageInfo();
 		pageInfo.setIndexPageNum(1);
 		pageInfo.setSize(1);
-		List<ShopPo> goodsShops = shopDao.getGoodsShops(7L, pageInfo);
+		List<ShopPo> goodsShops = shopDao.getGoodsShops(7L, pageInfo.getIndexPageNum(), pageInfo.getSize());
 		System.out.println(goodsShops);
 	}
 }
