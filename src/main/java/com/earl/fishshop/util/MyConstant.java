@@ -36,7 +36,7 @@ public class MyConstant {
 	public static final Integer user_pass = 1;
 
 	/**
-	 * 用户认证无法通过 v0.(state)
+	 * 用户认证无法通过 v3.(state)
 	 */
 	public static final Integer user_nopass = 3;
 	

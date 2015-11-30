@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.domain.base.BaseServiceImpl;
 import com.earl.fishshop.domain.gettype.GetTypeService;
+import com.earl.fishshop.domain.searecord.SeaRecordPo;
 import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.helper.JsonHelper;
 import com.earl.fishshop.vo.MulitFileVo;
@@ -101,10 +102,11 @@ public class FishmanServiceImpl extends BaseServiceImpl<FishmanPo> implements
 	public Map<String, Object> getFishmanByShop(FishmanPo model) {
 		Map<String, Object> map = new HashMap<String, Object>();// 存放一条信息
 		ShopPo shop = shopDao.get(model.getShopId());
+		SeaRecordPo seaRecordPo = seaRecordDao.get(shop.getShopId());
 		List<FishmanPo> fishman = fishmanDao.getFishmanByShop(model.getShopId());
 		map.put("fishman", fishman);
-		map.put("shipPort", shop.getShipPort());//靠岸口
-		map.put("portTime", shop.getPortTime());//靠岸时间
+		map.put("shipportName", seaRecordPo.getShipportName());//预定靠岸口
+		map.put("endSeeTime", seaRecordPo.getEndSeeTime());//预定靠岸时间
 		String getName = getTypeServer.getGetTypeName(shop.getGetType());
 		map.put("getName", getName);
 		return map;

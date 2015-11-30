@@ -62,14 +62,14 @@ public interface ShopService extends BaseService<ShopPo>{
 	 *@author 宋文光.
 	 * @return
 	 */
-	Map<String, Object> getAllFishmanShop();
+	List<Map<String, Object>> getAllFishmanShop();
 
 	/**
 	 * 获取所有养殖户的商店.
 	 *@author 宋文光.
 	 * @return
 	 */
-	Map<String, Object> getAllFarmersShop();
+	List<Map<String, Object>> getAllFarmersShop();
 
 	/**
 	 * 客户端获取所有商店.

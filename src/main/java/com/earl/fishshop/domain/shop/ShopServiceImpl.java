@@ -1,5 +1,6 @@
 package com.earl.fishshop.domain.shop;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -147,9 +148,9 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 	}
 
 	@Override
-	public Map<String, Object> getAllFishmanShop() {
+	public List<Map<String, Object>> getAllFishmanShop() {
 		Map<String, Object> map = new HashMap<String, Object>();//存放一条信息
-		Map<String, Object> hashmap = new HashMap<String, Object>();//存放全部信息.
+		List<Map<String,Object>> infoList = new ArrayList<Map<String,Object>>();//存放全部信息.
 		List<FishmanPo> fishmanList = fishmanDao.findAll();
 		for (FishmanPo fishman : fishmanList) {
 			if (fishman.getShopId() != null) {
@@ -159,17 +160,16 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 				String getName = getTypeServer.getGetTypeName(shop.getGetType());
 				map.put("getName", getName);
 				map.put("createTime", fishman.getCreateTime());
-				String key = String.valueOf(fishman.getFishmanId());
-				hashmap.put(key, map);
+				infoList.add(map);
 			}
 		}
-		return hashmap;
+		return infoList;
 	}
 
 	@Override
-	public Map<String, Object> getAllFarmersShop() {
+	public List<Map<String, Object>> getAllFarmersShop() {
 		Map<String, Object> map = new HashMap<String, Object>();//存放一条信息
-		Map<String, Object> hashmap = new HashMap<String, Object>();//存放全部信息.
+		List<Map<String,Object>> infoList = new ArrayList<Map<String,Object>>();//存放全部信息.
 		List<FarmersPo> farmersList = farmersDao.findAll();
 		for (FarmersPo farmers : farmersList) {
 			if (farmers.getShopId() != null) {
@@ -179,12 +179,11 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 				String getName = getTypeServer.getGetTypeName(shop.getGetType());
 				map.put("getName", getName);
 				map.put("shopName", shop.getShopName());
-				map.put("createTime", farmers.getCreateTime());
-				String key = String.valueOf(farmers.getFarmersId());
-				hashmap.put(key, map);
+				map.put("createTime", shop.getCreateTime());
+				infoList.add(map);
 			}
 		}
-		return hashmap;
+		return infoList;
 	}
 
 	@Override
