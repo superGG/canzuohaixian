@@ -29,4 +29,12 @@ public interface GetAddressDao extends BaseDao<GetAddressPo>{
 	 */
 	void updateUserAddress(Long getAddressId, Long userId);
 
+	/**
+	 * 得到第一条地址.
+	 * @author 黄祥谦.
+	 * @param userId
+	 * @return
+	 */
+	GetAddressPo getFirst(Long userId);
+
 }

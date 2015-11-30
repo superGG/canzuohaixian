@@ -5,7 +5,6 @@ import java.io.File;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class HttpOrdersActionTest extends BaseActionTest{

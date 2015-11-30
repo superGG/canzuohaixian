@@ -2,7 +2,6 @@ package com.earl.shopping.serverImpl;
 
 import static org.junit.Assert.fail;
 
-import java.util.ArrayList;
 
 import javax.annotation.Resource;
 
@@ -11,12 +10,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.earl.fishshop.domain.orders.OrdersPo;
 import com.earl.fishshop.domain.orders.OrdersService;
-import com.earl.fishshop.domain.ordersdetail.OrdersDetailPo;
-import com.earl.fishshop.helper.JsonHelper;
-
-
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath*:applicationContext-*.xml")
