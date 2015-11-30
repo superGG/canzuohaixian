@@ -26,7 +26,7 @@ public interface GetAddressService extends BaseService<GetAddressPo>{
 	 * 设置用户常用收货地址.
 	 * @author 黄祥谦.
 	 * @param getAddressId
-	 * @param userId TODO
+	 * @param userId 
 	 * @return
 	 */
 	Boolean updateUserAddress(Long getAddressId, Long userId);

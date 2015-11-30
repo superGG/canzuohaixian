@@ -24,7 +24,7 @@ public interface CategoryDao extends BaseDao<CategoryPo>{
 	/**
 	 * 得到下一级的类别.
 	 * @author 黄祥谦.
-	 * @param pageInfo TODO
+	 * @param pageInfo 分页对象.
 	 * @param l
 	 * @return
 	 */
@@ -34,9 +34,9 @@ public interface CategoryDao extends BaseDao<CategoryPo>{
 	 * 得到本月热门类别.
 	 * 指定返回个数
 	 * @author 黄祥谦.
-	 * @param date TODO
+	 * @param date 日期对象
 	 * @param date2 
-	 * @param showNumber TODO
+	 * @param showNumber 
 	 * @return
 	 */
 	List<CategoryPo> getHotCategory(String date, String date2, Integer showNumber);

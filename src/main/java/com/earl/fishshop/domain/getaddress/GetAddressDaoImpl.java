@@ -43,7 +43,7 @@ public class GetAddressDaoImpl extends BaseDaoImpl<GetAddressPo> implements GetA
 	public GetAddressPo getFirst(Long userId) {
 		// TODO 未测试.
 		String hql = " from GetAddressPo where userId =:userId";
-		GetAddressPo getAddress = (GetAddressPo) getCurrentSession().createQuery(hql).setLong("userId", userId).setFirstResult(1).setMaxResults(1).uniqueResult();
+		GetAddressPo getAddress = (GetAddressPo) getCurrentSession().createQuery(hql).setLong("userId", userId).setFirstResult(0).setMaxResults(1).uniqueResult();
 		return getAddress;
 	}
 }

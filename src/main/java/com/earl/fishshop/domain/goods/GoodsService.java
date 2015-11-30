@@ -30,7 +30,7 @@ public interface GoodsService extends BaseService<GoodsPo>{
 	 * 通过商品类别得到指定商品.
 	 * @author 黄祥谦.
 	 * @param categoryId
-	 * @param pageInfo TODO
+	 * @param pageInfo 
 	 * @return
 	 */
 	List<GoodsPo> getGoodsWithCategory(Long categoryId, PageInfo pageInfo);
@@ -47,7 +47,7 @@ public interface GoodsService extends BaseService<GoodsPo>{
 	 * 得到商家发布的所有商品，数量为零的不显示
 	 * @author 黄祥谦.
 	 * @param shopId
-	 * @param pageInfo TODO
+	 * @param pageInfo 
 	 * @return
 	 */
 	List<GoodsPo> getShopAllGoods(Long shopId, PageInfo pageInfo);

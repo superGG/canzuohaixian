@@ -7,7 +7,7 @@ public interface CheckoutService extends BaseService<CheckoutPo>{
 	/**
 	 * 审查通过.
 	 * @author 黄祥谦.
-	 * @param checkoutId TODO
+	 * @param checkoutId 
 	 * @return
 	 */
 	Boolean passRecord(Long checkoutId);

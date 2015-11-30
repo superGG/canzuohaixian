@@ -28,7 +28,7 @@ public interface GoodsDao extends BaseDao<GoodsPo>{
 	 * 得到商家指定类别的商品.
 	 * @author 黄祥谦.
 	 * @param goodsCategory
-	 * @param pageInfo TODO
+	 * @param pageInfo 
 	 * @return
 	 */
 	List<GoodsPo> getGoodsWithCategory(Long goodsCategory, PageInfo pageInfo);
@@ -46,7 +46,7 @@ public interface GoodsDao extends BaseDao<GoodsPo>{
 	 * 得到商家发布的所有商品，数量为零的不显示
 	 * @author 黄祥谦.
 	 * @param shopId
-	 * @param pageInfo TODO
+	 * @param pageInfo 
 	 * @return
 	 */
 	List<GoodsPo> getShopAllGoods(Long shopId, PageInfo pageInfo);
