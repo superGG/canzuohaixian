@@ -34,6 +34,7 @@ public class HttpOrdersActionTest extends BaseActionTest{
 					 ",\"shopId\": \"1\"" +
 					 ",\"buyerName\": \"yilinfeng\"" +
 					 ",\"shopKeeperName\": \"海格号\"" +
+					 ",\"sss\": \"海格号\"" +
 					 ",\"phone\": \"18719425973\"" +
 					 ",\"ordersDetail\": [{\"goodsId\": \"1\"" +
 					 						",\"number\": \"5\"}" +

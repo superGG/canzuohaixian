@@ -171,6 +171,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		hashMap.put("categoryList", categoryList);
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
+		resultMessage.setResultInfo("执行成功");
 		resultMessage.setServiceResult(true);
 	}
 	
