@@ -14,6 +14,7 @@ import com.earl.fishshop.util.VerifyServiceUtil;
 import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.fishshop.vo.ResultMessage;
 import com.earl.util.FileUploadImpl;
+import com.earl.util.SmsbaoHelper;
 
 /**
  * 每个ServiceImpl都要继承相对应的service接口
@@ -127,8 +128,9 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	 */
 	public ResultMessage verifyPassword(List<UserPo> userlist, String password) {
 		ResultMessage rs = new ResultMessage();
+		String userPassword = SmsbaoHelper.Md5(userlist.get(0).getPassword());
 		if (userlist.size() != 0) { // 根据用户输入查询所得用户信息.
-			if (password.equals(userlist.get(0).getPassword())) { // 密码验证
+			if (password.equals(userPassword)) { // 密码验证
 				rs.setServiceResult(true);
 				rs.setResultInfo("登陆成功");
 				Map<String, Object> hashMap = new HashMap<String, Object>();
@@ -211,6 +213,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 		try {
 			model.setUserName(model.getPhoneNumber());
 			model.setHeadImage("user/aaa.jpg");
+			model.setPassword(SmsbaoHelper.Md5(model.getPassword()));
 			userDao.save(model);
 			result = true;
 		} catch (Exception e) {

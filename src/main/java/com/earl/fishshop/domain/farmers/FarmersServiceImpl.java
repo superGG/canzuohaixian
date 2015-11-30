@@ -100,7 +100,7 @@ public class FarmersServiceImpl extends BaseServiceImpl<FarmersPo> implements
 		Map<String, Object> map = new HashMap<String, Object>();// 存放一条信息
 		ShopPo shop = shopDao.get(model.getShopId());
 		List<FarmersPo> farmer = farmersDao.getFarmerByShop(model.getShopId());
-		map.put("farmer", farmer);
+		map.put("farmer", farmer.get(0));
 		map.put("address", shop.getAddress());//养殖场地址
 		String getName = getTypeServer.getGetTypeName(shop.getGetType());
 		map.put("getName", getName);
