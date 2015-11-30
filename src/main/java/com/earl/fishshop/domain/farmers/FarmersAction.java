@@ -132,7 +132,7 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 	 *@author 宋文光.
 	 */
 	public void getFarmerByShop() {
-		Map<String, Object> hashMap = farmersServer.getFarmers(model);
+		Map<String, Object> hashMap = farmersServer.getFarmerByShop(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);

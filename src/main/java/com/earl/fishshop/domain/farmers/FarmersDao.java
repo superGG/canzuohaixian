@@ -42,7 +42,7 @@ public interface FarmersDao extends BaseDao<FarmersPo>{
 	 * @param shopId
 	 * @return
 	 */
-	List<FarmersPo> getFarmerBy1Shop(Long shopId);
+	List<FarmersPo> getFarmerByShop(Long shopId);
 
 	
 }

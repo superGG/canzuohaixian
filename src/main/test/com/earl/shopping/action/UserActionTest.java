@@ -101,5 +101,17 @@ public class UserActionTest extends StrutsSpringTestCase {
 	     String res=executeAction("/user_blackUser.action");  
 	     System.out.println(res);
 	}
+	
+	@Test
+	public void testGetVerifyFishman() throws Exception{
+	     String res=executeAction("/user_getVerifyFishman.action");  
+	     System.out.println(res);
+	}
+	
+	@Test
+	public void testGetVerifyFarmers() throws Exception{
+	     String res=executeAction("/user_getVerifyFarmers.action");  
+	     System.out.println(res);
+	}
 
 }

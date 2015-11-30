@@ -50,7 +50,7 @@ public interface FarmersService extends BaseService<FarmersPo>{
 	 * @param model
 	 * @return
 	 */
-	Map<String, Object> getFarmers(FarmersPo model);
+	Map<String, Object> getFarmerByShop(FarmersPo model);
 	
 	
 	

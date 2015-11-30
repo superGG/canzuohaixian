@@ -11,6 +11,7 @@ import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.domain.base.BaseAction;
 import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.domain.verifycode.VerifyCodePo;
+import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.util.VerifyServiceUtil;
 import com.earl.fishshop.vo.ResultMessage;
 import com.earl.fishshop.vo.MulitFileVo;
@@ -120,7 +121,7 @@ public class UserAction extends BaseAction<UserPo> {
 	}
 	
 	/**
-	 * 更新用户头像.
+	 * 更新用户头像(客户端).
 	 * 
 	 * @author 宋文光
 	 */
@@ -156,10 +157,27 @@ public class UserAction extends BaseAction<UserPo> {
 	}
 	
 	/**
-	 * 获取指定用户（某种状态）.
+	 * 获取等待审核的渔户.
 	 *@author 宋文光.
 	 */
-	public void getUser() {
+	public void getVerifyFishman() {
+		model.setState(MyConstant.user_wait);
+		model.setUserType(MyConstant.user_fishman);
+		List<UserPo> userlist = userServer.findByGivenCreteria(model);
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("userlist", userlist);
+		hashMap.put("number", userlist.size());
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+	}
+	
+	/**
+	 * 获取等待审核的养殖户.
+	 *@author 宋文光.
+	 */
+	public void getVerifyFarmers() {
+		model.setState(MyConstant.user_wait);
+		model.setUserType(MyConstant.user_farmer);
 		List<UserPo> userlist = userServer.findByGivenCreteria(model);
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("userlist", userlist);
@@ -177,19 +195,6 @@ public class UserAction extends BaseAction<UserPo> {
 		resultMessage = userServer.userLogin(model);
 	}
 
-//	/**
-//	 * 获取所有用户数量.
-//	 * 
-//	 * @author 宋文光
-//	 */
-//	public void findAllUserNumber() {
-//		List<UserPo> userList = userServer.findAll();
-//		String userNamber = String.valueOf(userList.size());
-//		resultMessage = new ResultMessage();
-//		resultMessage.setServiceResult(true);
-//		resultMessage.setResultInfo(userNamber);
-//	}
-
 	/**
 	 * 得到我的商店信息.
 	 * 
@@ -199,34 +204,6 @@ public class UserAction extends BaseAction<UserPo> {
 		ShopPo shop = shopServer.getMyShop(model.getUserId());
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("shop", shop);
-		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
-		resultMessage.setServiceResult(true);
-	}
-
-	/**
-	 * 获取所有渔户的用户信息.
-	 * 
-	 * @author 宋文光.
-	 */
-	public void getAllFishmanUser() {
-		List<UserPo> userList = userServer.getAllFishmanUser();
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("fishmanUser", userList);
-		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
-		resultMessage.setServiceResult(true);
-	}
-
-	/**
-	 * 获取所有养殖户的用户信息.
-	 * 
-	 * @author 宋文光.
-	 */
-	public void getAllFarmersUser() {
-		List<UserPo> userList = userServer.getAllFarmersUser();
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("farmersUser", userList);
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);

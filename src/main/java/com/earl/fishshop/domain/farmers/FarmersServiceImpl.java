@@ -96,10 +96,10 @@ public class FarmersServiceImpl extends BaseServiceImpl<FarmersPo> implements
 	}
 
 	@Override
-	public Map<String, Object> getFarmers(FarmersPo model) {
+	public Map<String, Object> getFarmerByShop(FarmersPo model) {
 		Map<String, Object> map = new HashMap<String, Object>();// 存放一条信息
 		ShopPo shop = shopDao.get(model.getShopId());
-		List<FarmersPo> farmer = farmersDao.getFarmerBy1Shop(model.getShopId());
+		List<FarmersPo> farmer = farmersDao.getFarmerByShop(model.getShopId());
 		map.put("farmer", farmer);
 		map.put("address", shop.getAddress());//养殖场地址
 		String getName = getTypeServer.getGetTypeName(shop.getGetType());

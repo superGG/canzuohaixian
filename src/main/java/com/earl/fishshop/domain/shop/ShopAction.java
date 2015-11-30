@@ -160,25 +160,28 @@ public class ShopAction extends BaseAction<ShopPo> {
 	}
 	
 	/**
-	 * 获取所有渔户商店.
+	 * 获取所有渔户商店(后台).
 	 *@author 宋文光.
 	 */
 	public void getAllFishmanShop() {
 		Map<String, Object> hashMap = new HashMap<String,Object>();
-		hashMap = shopServer.getAllFishmanShop();
+		List<Map<String, Object>> list = shopServer.getAllFishmanShop();
+		hashMap.put("shopInfo", list);
+		hashMap.put("number", list.size());
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(true);
 		resultMessage.setResultParm(hashMap);
 	}
 	
 	/**
-	 * 获取所有养殖户商店.
+	 * 获取所有养殖户商店(后台).
 	 *@author 宋文光.
 	 */
 	public void getAllFarmersShop() {
 		Map<String, Object> hashMap = new HashMap<String,Object>();
-		hashMap = shopServer.getAllFarmersShop();
-		
+		List<Map<String, Object>> list = shopServer.getAllFarmersShop();
+		hashMap.put("shopInfo", list);
+		hashMap.put("number", list.size());
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(true);
 		resultMessage.setResultParm(hashMap);
