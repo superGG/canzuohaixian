@@ -5,7 +5,6 @@ import java.io.File;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class HttpOrdersActionTest extends BaseActionTest{
@@ -31,6 +30,7 @@ public class HttpOrdersActionTest extends BaseActionTest{
 					 "\"userId\" : \"4\"" +
 					 ",\"shopId\": \"1\"" +
 					 ",\"buyerName\": \"yilinfeng\"" +
+					 ",\"shopKeeperName\": \"海格号\"" +
 					 ",\"phone\": \"18719425973\"" +
 					 ",\"ordersDetail\": [{\"goodsId\": \"1\"" +
 					 						",\"number\": \"5\"}" +

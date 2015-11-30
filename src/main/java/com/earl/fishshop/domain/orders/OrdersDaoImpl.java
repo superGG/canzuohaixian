@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 
 import com.earl.fishshop.domain.base.BaseDaoImpl;
-import com.earl.fishshop.domain.getaddress.GetAddressPo;
 import com.earl.fishshop.domain.ordersdetail.OrdersDetailPo;
 import com.earl.fishshop.domain.postage.PostagePo;
 import com.earl.fishshop.domain.sku.SkuPo;
@@ -48,12 +47,7 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 
 	@Override
 	public void addOrders(OrdersPo orders, Long getAddressId) {
-		GetAddressPo object = (GetAddressPo) getCurrentSession().get(GetAddressPo.class, getAddressId);
-		orders.setUserName(object.getUserName());
-		orders.setSendAddress(object.getAddress());
-		orders.setPhone(object.getPhone());
-		Double ordersPostage = getOrdersPostage(orders.getOrdersDetail(), object.getProvinceId());
-		orders.setPostagePrice(ordersPostage);
+		
 		Long ordersId = (Long) getCurrentSession().save(orders);
 		List<OrdersDetailPo> ordersDetail = orders.getOrdersDetail();
 		if(ordersDetail != null){

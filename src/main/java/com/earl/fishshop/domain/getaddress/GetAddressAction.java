@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.domain.base.BaseAction;
+import com.earl.fishshop.domain.user.UserPo;
 import com.earl.fishshop.vo.ResultMessage;
 
 /**
@@ -51,7 +52,30 @@ public class GetAddressAction extends BaseAction<GetAddressPo> {
 	}
 	
 	/**
-	 * 更新用户常用地址.
+	 * 动态更新.
+	 * 更新收货人地址.
+	 * @author 黄祥谦.
+	 */
+	public void updateGetAddress(){
+		Boolean update = getAddressServer.updateWithNotNullProperties(model);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultInfo("更新成功");
+		resultMessage.setServiceResult(update);
+	}
+
+	/**
+	 * 删除指定编号收货人地址.
+	 * @author 黄祥谦.
+	 */
+	public void deleteGetAddress(){
+		Boolean deleteById = getAddressServer.deleteGetAddress(model.getGetAddressId());
+		resultMessage = new ResultMessage();
+		resultMessage.setResultInfo("删除成功");
+		resultMessage.setServiceResult(deleteById);
+	}
+
+	/**
+	 * 设置用户常用地址.
 	 * @author 黄祥谦.
 	 */
 	public void updateUserAddress(){
@@ -66,36 +90,15 @@ public class GetAddressAction extends BaseAction<GetAddressPo> {
 	}
 	
 	/**
-	 * 动态更新.
-	 * 更新收货人地址.
-	 * @author 黄祥谦.
-	 */
-	public void updateGetAddress(){
-		Boolean update = getAddressServer.updateWithNotNullProperties(model);
-		resultMessage = new ResultMessage();
-		resultMessage.setResultInfo("更新成功");
-		resultMessage.setServiceResult(update);
-	}
-	
-	/**
-	 * 删除指定编号收货人地址.
-	 * @author 黄祥谦.
-	 */
-	public void deleteGetAddress(){
-		Boolean deleteById = getAddressServer.deleteById(model.getGetAddressId());
-		resultMessage = new ResultMessage();
-		resultMessage.setResultInfo("删除成功");
-		resultMessage.setServiceResult(deleteById);
-	}
-	
-	/**
 	 * 得到用户的所有收货地址.
 	 * @author 黄祥谦.
 	 */
 	public void getUserAllAddress(){
 		List<GetAddressPo> getAddressList = getAddressServer.getUserAllAddress(model.getUserId());
+		UserPo userPo = userServer.get(model.getUserId());
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("getAddressList", getAddressList);
+		hashMap.put("default", userPo.getGetAddressId());
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setResultInfo("访问成功");

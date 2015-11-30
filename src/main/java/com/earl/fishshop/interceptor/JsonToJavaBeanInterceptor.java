@@ -53,6 +53,19 @@ public class JsonToJavaBeanInterceptor extends AbstractInterceptor {
         ActionContext ctx = invocation.getInvocationContext();
         @SuppressWarnings("rawtypes")
         Map parm = ctx.getParameters();
+        StringBuilder builder = new StringBuilder();
+        try {
+        	for (Object object : parm.keySet()) {
+        		Object object2 = parm.get(object);
+        		System.out.println(object2);
+        		Object[] tempJson = null;
+        		tempJson = (Object[]) parm.get(object);
+        		builder.append(object).append(":").append(tempJson[0].toString()).append("|");
+        	}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+        logger.info("<<<<--||参数||-->>>>："+builder);
         Class<? extends Object> actionClass = invocation.getAction().getClass();
 
         List<String> actionClassFieldNameList = new ArrayList<String>();
@@ -85,16 +98,7 @@ public class JsonToJavaBeanInterceptor extends AbstractInterceptor {
                 }
             }
         }
-        StringBuilder builder = new StringBuilder();
-        try {
-        	for (Object object : parm.keySet()) {
-        		tempJson = (Object[]) parm.get(object);
-        		builder.append(object).append(":").append(tempJson[0].toString()).append("|");
-        	}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-        logger.info("<<<<--||参数||-->>>>："+builder);
+ 
         if (validataResult) {
             invocation.invoke();
         }

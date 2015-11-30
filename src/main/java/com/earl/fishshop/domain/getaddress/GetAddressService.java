@@ -23,13 +23,21 @@ public interface GetAddressService extends BaseService<GetAddressPo>{
 	Boolean addGetAddress(GetAddressPo model);
 
 	/**
-	 * 更新用户常用收货地址.
+	 * 设置用户常用收货地址.
 	 * @author 黄祥谦.
 	 * @param getAddressId
 	 * @param userId TODO
 	 * @return
 	 */
 	Boolean updateUserAddress(Long getAddressId, Long userId);
+
+	/**
+	 * 删除用户收货地址.
+	 * @author 黄祥谦.
+	 * @param getAddressId
+	 * @return
+	 */
+	Boolean deleteGetAddress(Long getAddressId);
 
 	
 
