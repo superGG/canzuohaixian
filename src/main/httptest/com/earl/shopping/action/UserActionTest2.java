@@ -1,12 +1,15 @@
 package com.earl.shopping.action;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.params.HttpMethodParams;
+
+import com.earl.fishshop.helper.JsonHelper;
 
 public class UserActionTest2 {
 
@@ -40,7 +43,14 @@ public class UserActionTest2 {
         }
 	
    public static void main(String[] args) {
-   	new UserActionTest2().dod();
+//   	new UserActionTest2().dod();
+	   
+	   ArrayList<String> arrayList = new ArrayList<String>();
+	   arrayList.add("user/aaa.jpg");
+	   arrayList.add("user/bbb.jpg");
+	   arrayList.add("user/ccc.jpg");
+	   String json = JsonHelper.toJson(arrayList);
+	   System.out.println(json);
    }
       
 }

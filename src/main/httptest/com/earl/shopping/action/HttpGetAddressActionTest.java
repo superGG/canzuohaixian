@@ -7,8 +7,8 @@ import org.junit.Test;
 
 public class HttpGetAddressActionTest extends BaseActionTest {
 
-//	private String bastPath = "http://192.168.1.107:8080";
-	 private String bastPath = "http://www.earltech.cn:8080";
+	private String bastPath = "http://192.168.1.107:8080";
+//	 private String bastPath = "http://www.earltech.cn:8080";
 
 	@Test
 	public void testAddGetAddress() {
@@ -21,7 +21,7 @@ public class HttpGetAddressActionTest extends BaseActionTest {
 				new StringPart("userName", "易临风", "utf-8"),
 				new StringPart("address", "广东省湛江市麻章区广东海洋大学", "utf-8"),
 				new StringPart("phone", "18719425973", "utf-8"),
-				new StringPart("postcode", "524000", "utf-8"),
+				new StringPart("postcode", "524000", "utf-8")
 		};
 		String sendHttpRequest = sendHttpRequest(filePost, parts);
 		System.out.println(sendHttpRequest);
