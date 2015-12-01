@@ -10,4 +10,18 @@ bin-release/
 # should NOT be excluded as they contain compiler settings and other important
 # information for Eclipse / Flash Builder.
 *.class
+
 *.class
+
+.classPath
+
+*.pom
+
+target/*
+
+.settings/*
+
+*.log
+.project
+
+target/*/*/*/*/*/pom.properties
