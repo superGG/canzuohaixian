@@ -1,6 +1,5 @@
 package com.earl.fishshop.domain.searecord;
 
-import java.util.List;
 
 import com.earl.fishshop.domain.base.BaseDao;
 
@@ -19,6 +18,6 @@ public interface SeaRecordDao extends BaseDao<SeaRecordPo>{
 	 * @param shopId
 	 * @return
 	 */
-	List<SeaRecordPo> getSeaRecordByShop(Long shopId);
+	SeaRecordPo getSeaRecordByShop(Long shopId);
 
 }

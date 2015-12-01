@@ -90,7 +90,6 @@ public class CommentAction extends BaseAction<CommentPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
-		
 	}
 	
 

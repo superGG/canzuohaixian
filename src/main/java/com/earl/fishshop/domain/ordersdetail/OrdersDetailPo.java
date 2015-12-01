@@ -2,6 +2,8 @@ package com.earl.fishshop.domain.ordersdetail;
 
 import java.util.Date;
 
+import com.google.gson.annotations.SerializedName;
+
 public class OrdersDetailPo{
 
 
@@ -40,9 +42,10 @@ public class OrdersDetailPo{
 	private String goodsName ;
 	
 	/**
-	 * 鱼图片.
+	 * 商品图片.
 	 */
-	private String fishPhoto;
+	@SerializedName("goodsPhoto")
+	private String goodsPhoto;
 	
 	/**
 	 * 字段描述：Double 
@@ -106,11 +109,11 @@ public class OrdersDetailPo{
 	public void setSkuId(Long skuId) {
 		this.skuId = skuId;
 	}
-	public String getFishPhoto() {
-		return fishPhoto;
+	public String getGoodsPhoto() {
+		return goodsPhoto;
 	}
-	public void setFishPhoto(String fishPhoto) {
-		this.fishPhoto = fishPhoto;
+	public void setGoodsPhoto(String goodsPhoto) {
+		this.goodsPhoto = goodsPhoto;
 	}
 	public Long getCategoryId() {
 		return categoryId;
