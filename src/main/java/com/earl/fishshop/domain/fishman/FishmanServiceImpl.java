@@ -102,7 +102,7 @@ public class FishmanServiceImpl extends BaseServiceImpl<FishmanPo> implements
 	public Map<String, Object> getFishmanByShop(FishmanPo model) {
 		Map<String, Object> map = new HashMap<String, Object>();// 存放一条信息
 		ShopPo shop = shopDao.get(model.getShopId());
-		SeaRecordPo seaRecordPo = seaRecordDao.getSeaRecordByShop(shop.getShopId());
+		SeaRecordPo seaRecordPo = seaRecordDao.get(shop.getSeaRecordId());
 		List<FishmanPo> fishman = fishmanDao.getFishmanByShop(model.getShopId());
 		map.put("fishman", fishman);
 		map.put("shipportName", seaRecordPo.getShipportName());//预定靠岸口
