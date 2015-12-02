@@ -75,4 +75,15 @@ public interface GoodsDao extends BaseDao<GoodsPo>{
 	 */
 	List<SkuPo> getPointCategoryGoodsInfo(Long shopId, Long categoryId);
 
+	/**
+	 * 得到商家的指定类别的商品.
+	 * @author 黄祥谦.
+	 * @param shopId
+	 * @param categoryId
+	 * @param indexPageNum TODO
+	 * @param size TODO
+	 * @return
+	 */
+	List<GoodsPo> getShopPointCategory(Long shopId, Long categoryId, Integer indexPageNum, Integer size);
+
 }

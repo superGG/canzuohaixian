@@ -87,4 +87,6 @@ public interface GoodsService extends BaseService<GoodsPo>{
 	 */
 	List<SkuPo> getPointCategoryGoodsInfo(Long shopId, Long categoryId);
 
+	List<GoodsPo> getShopPointCategory(Long shopId, Long categoryId, Integer indexPageNum, Integer size);
+
 }

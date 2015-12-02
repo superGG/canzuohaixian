@@ -124,4 +124,11 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 		return pointCategoryGoodsInfo;
 	}
 
+	@Override
+	public List<GoodsPo> getShopPointCategory(Long shopId, Long categoryId, Integer indexPageNum, Integer size) {
+		// TODO 未测试.
+		List<GoodsPo> goodsList = goodsDao.getShopPointCategory(shopId,categoryId, indexPageNum, size);
+		return goodsList;
+	}
+
 }

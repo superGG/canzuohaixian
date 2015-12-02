@@ -31,7 +31,6 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 	
 	private PageInfo pageInfo ;
 	
-	@SuppressWarnings("unused")
 	private List<GoodsPo> goodsList;//传入json数据
 	
 	public PageInfo getPageInfo() {
@@ -120,7 +119,20 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 	public void getGoodsInfo(){
 		GoodsPo goods= goodsServer.getGoodsInfo(model.getGoodsId());
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("goodsList", goods);
+		hashMap.put("goods", goods);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+	}
+	
+	/**
+	 * 得到商店指定类别的商品
+	 * @author 黄祥谦.
+	 */
+	public void getShopPointCategory(){
+		List<GoodsPo> goodsList = goodsServer.getShopPointCategory(model.getShopId(),model.getCategoryId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("goodsList", goodsList);
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);

@@ -111,4 +111,18 @@ public class GoodsDaoImpl extends BaseDaoImpl<GoodsPo> implements GoodsDao {
 		return arrayList;
 	}
 
+	@Override
+	public List<GoodsPo> getShopPointCategory(Long shopId, Long categoryId, Integer indexPageNum, Integer size) {
+		// TODO 未测试.
+		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
+		createCriteria.add(Restrictions.eq("shopId", shopId)).add(Restrictions.gt("nowNumber", 0L));
+		
+		createCriteria.setFirstResult(
+				(indexPageNum - 1) * size)
+				.setMaxResults(size);
+		@SuppressWarnings("unchecked")
+		List<GoodsPo> goodsList = createCriteria.list();
+		return goodsList;
+	}
+
 }
