@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.earl.fishshop.domain.base.BaseDao;
 import com.earl.fishshop.domain.category.CategoryPo;
+import com.earl.fishshop.domain.sku.SkuPo;
 import com.earl.fishshop.vo.PageInfo;
 
 public interface GoodsDao extends BaseDao<GoodsPo>{
@@ -11,18 +12,16 @@ public interface GoodsDao extends BaseDao<GoodsPo>{
 	/**
 	 * 修改商品价格.
 	 * @author 黄祥谦.
-	 * @param goodsId
-	 * @param price
+	 * @param goodsList TODO
 	 */
-	void updateGoodPrice(Long goodsId, Double price);
+	void updateGoodPrice(List<GoodsPo> goodsList);
 
 	/**
 	 * 更新商品数量.
 	 * @author 黄祥谦.
-	 * @param goodsId
-	 * @param nowNumber
+	 * @param goodsList TODO
 	 */
-	void updateGoodNowNumber(Long goodsId, Long nowNumber);
+	void updateGoodNowNumber(List<GoodsPo> goodsList);
 
 	/**
 	 * 得到商家指定类别的商品.
@@ -59,5 +58,21 @@ public interface GoodsDao extends BaseDao<GoodsPo>{
 	 * @return
 	 */
 	void deletePointCategoryGoods(Long categoryId, Long shopId);
+
+	/**
+	 * 批量添加，集成事务
+	 * @author 黄祥谦.
+	 * @param arrayList
+	 */
+	void saveList(List<GoodsPo> arrayList);
+
+	/**
+	 * 商家得到指定类别的商品详情.
+	 * @author 黄祥谦.
+	 * @param shopId
+	 * @param categoryId
+	 * @return
+	 */
+	List<SkuPo> getPointCategoryGoodsInfo(Long shopId, Long categoryId);
 
 }

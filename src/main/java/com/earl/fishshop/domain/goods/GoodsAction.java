@@ -31,7 +31,9 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 	
 	private PageInfo pageInfo ;
 	
-
+	@SuppressWarnings("unused")
+	private List<GoodsPo> goodsList;//传入json数据
+	
 	public PageInfo getPageInfo() {
 		return pageInfo;
 	}
@@ -55,7 +57,11 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 		Boolean save = goodsServer.save(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
-		
+		if(save){
+			resultMessage.setResultInfo("操作成功");
+		}else{
+			resultMessage.setResultInfo("操作失败");
+		}
 	}
 	
 	/**
@@ -63,9 +69,14 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 	 * @author 黄祥谦.
 	 */
 	public void updateGoodPrice(){
-		Boolean success = goodsServer.updateGoodPrice(model.getGoodsId(),model.getPrice());
+		Boolean success = goodsServer.updateGoodPrice(goodsList);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(success);
+		if(success){
+			resultMessage.setResultInfo("操作成功");
+		}else{
+			resultMessage.setResultInfo("操作失败");
+		}
 	}
 	
 	/**
@@ -73,7 +84,7 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 	 * @author 黄祥谦.
 	 */
 	public void updateGoodNowNumber(){
-		Boolean success = goodsServer.updateGoodNowNumber(model.getGoodsId(),model.getNowNumber());
+		Boolean success = goodsServer.updateGoodNowNumber(goodsList);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(success);
 	}
@@ -92,7 +103,7 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 	}
 
 	/**
-	 * 删除指定类别的渔获.
+	 * 删除商家指定类别的渔获.
 	 * @author 黄祥谦.
 	 */
 	public void deletePointCategoryGoods(){

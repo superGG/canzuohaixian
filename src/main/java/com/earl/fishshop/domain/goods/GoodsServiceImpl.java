@@ -1,15 +1,19 @@
 package com.earl.fishshop.domain.goods;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.domain.base.BaseServiceImpl;
 import com.earl.fishshop.domain.category.CategoryPo;
+import com.earl.fishshop.domain.sku.SkuPo;
 import com.earl.fishshop.vo.PageInfo;
+import com.earl.fishshop.vo.SingleFileVo;
 
 /**
  * 每个ServiceImpl都要继承相对应的service接口
@@ -23,16 +27,16 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 
 	@Resource(name = "goodsDao")
 	GoodsDao goodsDao;
-
+	
 	@PostConstruct
 	public void initBaseDao(){
 		baseDao = goodsDao;
 	}
 
 	@Override
-	public Boolean updateGoodPrice(Long goodsId, Double price) {
+	public Boolean updateGoodPrice(List<GoodsPo> goodsList) {
 		try {
-			goodsDao.updateGoodPrice(goodsId,price);
+			goodsDao.updateGoodPrice(goodsList);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -41,9 +45,9 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 	}
 
 	@Override
-	public Boolean updateGoodNowNumber(Long goodsId, Long nowNumber) {
+	public Boolean updateGoodNowNumber(List<GoodsPo> goodsList) {
 		try {
-			goodsDao.updateGoodNowNumber(goodsId,nowNumber);
+			goodsDao.updateGoodNowNumber(goodsList);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -88,6 +92,36 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	@Override
+	public Boolean addGoods(CategoryPo model, SingleFileVo goodsFile) {
+		// TODO 未测试.
+		try {
+			String goodsPhoto = fileUpload.uploadGoodsFile(goodsFile.getFile(), goodsFile.getFileFileName());
+			List<SkuPo> skuArrayList = model.getSkuArrayList();
+			List<GoodsPo> arrayList = new ArrayList<GoodsPo>();
+			for (SkuPo skuPo : skuArrayList) {
+				GoodsPo goodsPo = new GoodsPo();
+				BeanUtils.copyProperties(model, goodsPo);
+				goodsPo.setGoodsPhoto(goodsPhoto);
+				goodsPo.setSku(skuPo.getSkuId());
+				goodsPo.setPrice(skuPo.getPrice());
+				arrayList.add(goodsPo);
+			}
+			goodsDao.saveList(arrayList);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public List<SkuPo> getPointCategoryGoodsInfo(Long shopId, Long categoryId) {
+		// TODO 未测试.
+		List<SkuPo> pointCategoryGoodsInfo = goodsDao.getPointCategoryGoodsInfo(shopId,categoryId);
+		return pointCategoryGoodsInfo;
 	}
 
 }

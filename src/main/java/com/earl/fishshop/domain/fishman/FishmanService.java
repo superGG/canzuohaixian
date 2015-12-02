@@ -51,12 +51,4 @@ public interface FishmanService extends BaseService<FishmanPo>{
 	 */
 	Map<String, Object> getFishmanByShop(FishmanPo model);
 
-
-	
-
-	
-
-	
-	
-	
 }

@@ -196,6 +196,25 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	}
 	
 	/**
+	 * 得到订单快递编号.
+	 * @author 黄祥谦.
+	 */
+	public void getOrderNumber(){
+		OrdersPo ordersPo = ordersServer.get(model.getOrdersId());
+		resultMessage = new ResultMessage();
+		if(ordersPo != null){
+			HashMap<String, Object> hashMap = new HashMap<String, Object>();
+			hashMap.put("ordersNumber", ordersPo.getOrderNumber());
+			resultMessage.setResultParm(hashMap);
+			resultMessage.setResultInfo("执行成功");
+			resultMessage.setServiceResult(true);
+		}else{
+			resultMessage.setResultInfo("执行失败");
+			resultMessage.setServiceResult(false);
+		}
+	}
+	
+	/**
 	 * 得到订单运费.
 	 * @author 黄祥谦.
 	 */

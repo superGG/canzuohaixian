@@ -24,6 +24,7 @@ import com.earl.fishshop.domain.sku.SkuDao;
 import com.earl.fishshop.domain.unit.UnitDao;
 import com.earl.fishshop.domain.user.UserDao;
 import com.earl.fishshop.domain.verifycode.VerifyCodeDao;
+import com.earl.util.FileUploadImpl;
 
 /**
  * @author Administrator
@@ -74,6 +75,8 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	protected ShipPortDao shipPortDao;
 	@Resource
 	protected VerifyCodeDao verifyCodeDao;
+	@Resource(name = "fileUpload")
+	protected FileUploadImpl fileUpload;
 	
 	public BaseServiceImpl() {
 

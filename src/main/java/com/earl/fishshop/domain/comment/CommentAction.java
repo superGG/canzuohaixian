@@ -100,7 +100,7 @@ public class CommentAction extends BaseAction<CommentPo> {
 	public void getGoodComment() {
 		List<CommentPo> list = commentServer.getGoodComment(model.getShopId(), pageInfo);
 		Map<String,Object> map = new HashMap<String, Object>();
-		map.put("goodComment", list);
+		map.put("comment", list);
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(map);
 		resultMessage.setServiceResult(true);
@@ -113,7 +113,7 @@ public class CommentAction extends BaseAction<CommentPo> {
 	public void getMidComment() {
 		List<CommentPo> list = commentServer.getMidComment(model.getShopId(), pageInfo);
 		Map<String,Object> map = new HashMap<String, Object>();
-		map.put("midComment", list);
+		map.put("comment", list);
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(map);
 		resultMessage.setServiceResult(true);
@@ -126,7 +126,7 @@ public class CommentAction extends BaseAction<CommentPo> {
 	public void getBedComment() {
 		List<CommentPo> list = commentServer.getBedComment(model.getShopId(), pageInfo);
 		Map<String,Object> map = new HashMap<String, Object>();
-		map.put("bedComment", list);
+		map.put("comment", list);
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(map);
 		resultMessage.setServiceResult(true);

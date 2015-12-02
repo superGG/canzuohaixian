@@ -10,9 +10,9 @@ import org.springframework.stereotype.Controller;
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.domain.base.BaseAction;
 import com.earl.fishshop.domain.shop.ShopPo;
-import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.fishshop.vo.PageInfo;
 import com.earl.fishshop.vo.ResultMessage;
+import com.earl.fishshop.vo.SingleFileVo;
 
 /**
  * 
@@ -31,7 +31,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 
 	private PageInfo pageInfo;
 	
-	private MulitFileVo categoryFile;
+	private SingleFileVo categoryFile;
 	
 	protected ResultMessage resultMessage;
 
@@ -48,11 +48,11 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		this.pageInfo = pageInfo;
 	}
 	
-	public MulitFileVo getCategoryFile() {
+	public SingleFileVo getCategoryFile() {
 		return categoryFile;
 	}
 
-	public void setCategoryFile(MulitFileVo categoryFile) {
+	public void setCategoryFile(SingleFileVo categoryFile) {
 		this.categoryFile = categoryFile;
 	}
 
@@ -62,6 +62,20 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 */
 	public void addCategory() {
 		Boolean save = categoryServer.addCategory(model, categoryFile);
+		resultMessage = new ResultMessage(); 
+		resultMessage.setServiceResult(save);
+		if(save){
+			resultMessage.setResultInfo("添加成功");
+		}else{
+			resultMessage.setResultInfo("添加失败");
+		}
+	}
+	/**
+	 * 添加商品.
+	 * @author 黄祥谦.
+	 */
+	public void addGoods() {
+		Boolean save = goodsServer.addGoods(model, categoryFile);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
 		if(save){

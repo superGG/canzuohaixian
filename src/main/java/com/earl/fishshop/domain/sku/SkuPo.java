@@ -11,11 +11,15 @@ public class SkuPo{
 	 */
 	private Long skuId ;
 	
+	private Long goodsId;
+	
 	/**
 	 * 字段描述：Long 
 	 * 字段类型：unitId  
 	 */
 	private Long unitId ;
+	
+	private Double price;
 	
 	/**
 	 * 字段描述：String 
@@ -57,6 +61,18 @@ public class SkuPo{
 	 */
 	private Long version ;
 	
+	public Long getGoodsId() {
+		return goodsId;
+	}
+	public void setGoodsId(Long goodsId) {
+		this.goodsId = goodsId;
+	}
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
 	public Double getLowscale() {
 		return lowscale;
 	}
