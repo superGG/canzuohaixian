@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+        
+<hibernate-mapping package="com.earl.fishshop.domain.shop">
+    <class name="ShopPo" table="shop" dynamic-update="true" dynamic-insert="true">
+        <id name="shopId" type="java.lang.Long">
+            <column name="shopId" />
+            <generator class="native"></generator>
+        </id>
+        <version name="version" column="version" type="java.lang.Long"></version>
+        <property name="userId" type="java.lang.Long" column="userId" />
+        <property name="shopName" type="java.lang.String" column="shopName" />
+        <property name="shopPhoto" type="java.lang.String" column="shopPhoto" />
+        <property name="getType" type="java.lang.String" column="getType" />
+        <property name="grade" type="java.lang.Integer" column="grade" />
+        <property name="weightQuality" type="java.lang.Float" column="weightQuality" />
+        <property name="freshQuality" type="java.lang.Float" column="freshQuality" />
+        <property name="speedQuality" type="java.lang.Float" column="speedQuality" />
+        <property name="shopType" type="java.lang.Integer" column="shopType" />
+        <property name="sendPrice" type="java.lang.Double" column="sendPrice" />
+        <property name="onSell" type="java.lang.Boolean" column="onSell" />
+        <property name="shipPort" type="java.lang.String" column="shipPort" />
+        <property name="portTime" type="java.util.Date" column="portTime" />
+        <property name="address" type="java.lang.String" column="address" />
+        <property name="seaRecordId" type="java.lang.Long" column="seaRecordId" />
+		<property name="longitude" type="java.lang.Double" column="longitude" />
+        <property name="latitude" type="java.lang.Double" column="latitude" />
+        <property name="creatorId" type="java.lang.Long" column="creatorId" />
+        <property name="isDelete" type="java.lang.Boolean" column="isDelete" />
+        <property name="createTime" type="java.util.Date" column="createTime" />
+    </class>
+</hibernate-mapping>

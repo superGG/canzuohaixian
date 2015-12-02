@@ -2,6 +2,8 @@ package com.earl.fishshop.domain.getaddress;
 
 import java.util.Date;
 
+import com.earl.fishshop.annotation.IdAnnotatioin;
+
 public class GetAddressPo{
 
 
@@ -9,6 +11,7 @@ public class GetAddressPo{
 	 * 字段描述：Long 
 	 * 字段类型：getAddressId  
 	 */
+	@IdAnnotatioin
 	private Long getAddressId ;
 	
 	/**

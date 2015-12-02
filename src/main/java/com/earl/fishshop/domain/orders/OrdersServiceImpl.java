@@ -56,7 +56,7 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 				ordersDetail.setSkuId(goodsPo.getSku());
 				ordersDetail.setSku(skuDao.get(goodsPo.getSku()).getSkuName());
 				ordersDetail.setUnit(goodsPo.getUnit());
-				ordersDetail.setFishPhoto(goodsPo.getGoodsPhoto());
+				ordersDetail.setGoodsPhoto(goodsPo.getGoodsPhoto());
 				Double singalPrice = ordersDetail.getNumber()*ordersDetail.getPrice();
 				ordersDetail.setTotalprice(singalPrice);
 				totalOrdersPrice = totalOrdersPrice+singalPrice;

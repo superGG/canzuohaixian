@@ -70,8 +70,13 @@ public class GetAddressServiceImpl extends BaseServiceImpl<GetAddressPo> impleme
 			if(userPo.getGetAddressId() != getAddressId){
 				getAddressDao.deleteById(getAddressId);
 			}else{
+				getAddressDao.deleteById(getAddressId);
 				GetAddressPo getAddress = getAddressDao.getFirst(userPo.getUserId());
-				userPo.setGetAddressId(getAddress.getGetAddressId());
+				if(getAddress != null){
+					userPo.setGetAddressId(getAddress.getGetAddressId());
+				}else{
+					userPo.setGetAddressId(null);
+				}
 				userDao.update(userPo);
 			}
 			return true;

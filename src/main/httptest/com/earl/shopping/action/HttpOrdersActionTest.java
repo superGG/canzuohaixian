@@ -5,7 +5,11 @@ import java.io.File;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
+import org.junit.Assert;
 import org.junit.Test;
+
+import com.earl.fishshop.helper.JsonHelper;
+import com.earl.fishshop.vo.ResultMessage;
 
 public class HttpOrdersActionTest extends BaseActionTest{
 
@@ -24,13 +28,13 @@ public class HttpOrdersActionTest extends BaseActionTest{
 
 		PostMethod filePost = new PostMethod(targetURL);
 
-		try {
 			Part[] parts = {
 			new StringPart("orders", "{" +
 					 "\"userId\" : \"4\"" +
 					 ",\"shopId\": \"1\"" +
 					 ",\"buyerName\": \"yilinfeng\"" +
 					 ",\"shopKeeperName\": \"海格号\"" +
+					 ",\"sss\": \"海格号\"" +
 					 ",\"phone\": \"18719425973\"" +
 					 ",\"ordersDetail\": [{\"goodsId\": \"1\"" +
 					 						",\"number\": \"5\"}" +
@@ -44,12 +48,10 @@ public class HttpOrdersActionTest extends BaseActionTest{
 			,new StringPart("getAddressId", "1","utf-8")
 //			,new StringPart("pageInfo.size", "3","UTF-8")
 			};
-			sendHttpRequest(filePost, parts);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		} finally {
-			filePost.releaseConnection();
-		}
+			String sendHttpRequest = sendHttpRequest(filePost, parts);
+			ResultMessage jsonToBean = JsonHelper.jsonToBean(sendHttpRequest, ResultMessage.class);
+			Assert.assertTrue(jsonToBean.getServiceResult());
+			System.out.println(sendHttpRequest);
 	}
 
 	@Test

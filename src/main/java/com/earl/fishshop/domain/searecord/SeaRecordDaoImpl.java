@@ -8,7 +8,6 @@ import com.earl.fishshop.domain.shop.ShopPo;
 
 /**
  * 
- * 
  */
 @Repository("seaRecordDao")
 public class SeaRecordDaoImpl extends BaseDaoImpl<SeaRecordPo> implements SeaRecordDao {
@@ -22,6 +21,5 @@ public class SeaRecordDaoImpl extends BaseDaoImpl<SeaRecordPo> implements SeaRec
 		shop.setOnSell(true);
 		getCurrentSession().save(shop);
 	}
-
 
 }

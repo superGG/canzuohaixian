@@ -4,33 +4,33 @@ import java.util.List;
 
 import com.earl.fishshop.domain.base.BaseService;
 import com.earl.fishshop.domain.category.CategoryPo;
+import com.earl.fishshop.domain.sku.SkuPo;
 import com.earl.fishshop.vo.PageInfo;
+import com.earl.fishshop.vo.SingleFileVo;
 
 public interface GoodsService extends BaseService<GoodsPo>{
 
 	/**
 	 * 修改商品价格.
 	 * @author 黄祥谦.
-	 * @param goodsId
-	 * @param price
+	 * @param goodsList TODO
 	 * @return
 	 */
-	Boolean updateGoodPrice(Long goodsId, Double price);
+	Boolean updateGoodPrice(List<GoodsPo> goodsList);
 
 	/**
 	 * 修改商品数量.
 	 * @author 黄祥谦.
-	 * @param goodsId
-	 * @param nowNumber
+	 * @param goodsList TODO
 	 * @return
 	 */
-	Boolean updateGoodNowNumber(Long goodsId, Long nowNumber);
+	Boolean updateGoodNowNumber(List<GoodsPo> goodsList);
 
 	/**
 	 * 通过商品类别得到指定商品.
 	 * @author 黄祥谦.
 	 * @param categoryId
-	 * @param pageInfo TODO
+	 * @param pageInfo 
 	 * @return
 	 */
 	List<GoodsPo> getGoodsWithCategory(Long categoryId, PageInfo pageInfo);
@@ -47,7 +47,7 @@ public interface GoodsService extends BaseService<GoodsPo>{
 	 * 得到商家发布的所有商品，数量为零的不显示
 	 * @author 黄祥谦.
 	 * @param shopId
-	 * @param pageInfo TODO
+	 * @param pageInfo 
 	 * @return
 	 */
 	List<GoodsPo> getShopAllGoods(Long shopId, PageInfo pageInfo);
@@ -68,5 +68,25 @@ public interface GoodsService extends BaseService<GoodsPo>{
 	 * @return
 	 */
 	Boolean deletePointCategoryGoods(Long categoryId, Long shopId);
+
+	/**
+	 * 添加商品.
+	 * @author 黄祥谦.
+	 * @param model
+	 * @param categoryFile
+	 * @return
+	 */
+	Boolean addGoods(CategoryPo model, SingleFileVo categoryFile);
+
+	/**
+	 * 商家得到指定类别的商品详情信息.
+	 * @author 黄祥谦.
+	 * @param shopId
+	 * @param categoryId
+	 * @return
+	 */
+	List<SkuPo> getPointCategoryGoodsInfo(Long shopId, Long categoryId);
+
+	List<GoodsPo> getShopPointCategory(Long shopId, Long categoryId, Integer indexPageNum, Integer size);
 
 }

@@ -1,0 +1,46 @@
+
+shop_getCategoryWithTotalNumber.action
+参数：shopId 商家id
+图片：1发布商品.jpg
+
+goods_deletePointCategoryGoods.action
+参数：categoryId 类别Id
+	shopId 	        商家id
+图片：1发布商品-删除鱼货.jpg
+
+category_getTopCategory.action
+参数：无
+图片：1发布商品-添加鱼货1.jpg
+
+cateogry_getAllNextLevelCategory.action
+参数：categoryId 父类别id;
+图片：1发布商品-添加鱼货2.jpg
+
+category_getCategoryWithSku.action
+参数：类别id 
+图片：1发布商品-添加鱼货3.jpg
+
+category_addGoods.action
+参数：
+图片：1发布商品-添加鱼货4.jpg
+
+shop_getPointCategoryGoodsInfo.action
+参数：shopId
+	categoryId
+图片：5鱼货详情-出港状态.jpg
+
+goods_updateGoodPrice.action
+参数：
+图片：7鱼货详情-修改价格.jpg
+
+goods_updateGoodNowNumber.action
+参数：
+图片：6鱼货详情-更新产量.jpg
+
+orders_setOrderNumber.action
+参数：ordersId    订单编号
+	orderNumber 订单快递编号
+图片：7商品订单-发货.jpg
+
+searecord_addSeaRecord.action
+图片：3发布商品-是否出港.jpg ，备注，改设计图不完善，

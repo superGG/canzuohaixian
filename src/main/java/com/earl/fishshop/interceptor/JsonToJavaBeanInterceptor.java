@@ -56,8 +56,6 @@ public class JsonToJavaBeanInterceptor extends AbstractInterceptor {
         StringBuilder builder = new StringBuilder();
         try {
         	for (Object object : parm.keySet()) {
-        		Object object2 = parm.get(object);
-        		System.out.println(object2);
         		Object[] tempJson = null;
         		tempJson = (Object[]) parm.get(object);
         		builder.append(object).append(":").append(tempJson[0].toString()).append("|");
@@ -65,6 +63,7 @@ public class JsonToJavaBeanInterceptor extends AbstractInterceptor {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+        System.out.println("\n");
         logger.info("<<<<--||参数||-->>>>："+builder);
         Class<? extends Object> actionClass = invocation.getAction().getClass();
 

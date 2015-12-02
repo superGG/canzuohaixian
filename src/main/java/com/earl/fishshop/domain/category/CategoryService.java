@@ -5,8 +5,8 @@ import java.util.Map;
 
 import com.earl.fishshop.domain.base.BaseService;
 import com.earl.fishshop.domain.shop.ShopPo;
-import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.fishshop.vo.PageInfo;
+import com.earl.fishshop.vo.SingleFileVo;
 
 public interface CategoryService extends BaseService<CategoryPo>{
 
@@ -28,7 +28,7 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	 * 得到指定类别的下一级类别.
 	 * @author 黄祥谦.
 	 * @param parentId 指定的父类别id.
-	 * @param pageInfo TODO
+	 * @param pageInfo 
 	 * @return
 	 */
 	List<CategoryPo> getNextLevelCategory(Long parentId, PageInfo pageInfo);
@@ -44,9 +44,9 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	/**
 	 * 得到发布该种类商品的商店.
 	 * @author 黄祥谦.
-	 * @param categoryId TODO
+	 * @param categoryId 
 	 * @param indexPageNum
-	 * @param size TODO
+	 * @param size 
 	 * @return
 	 */
 	List<ShopPo> getGoodsShops(Long categoryId, Integer indexPageNum, Integer size);
@@ -75,10 +75,10 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	 * 添加类别.
 	 * @author 黄祥谦.
 	 * @param model
-	 * @param categoryFile TODO
+	 * @param categoryFile 
 	 * @return
 	 */
-	Boolean addCategory(CategoryPo model, MulitFileVo categoryFile);
+	Boolean addCategory(CategoryPo model, SingleFileVo categoryFile);
 
 	/**
 	 * 得到带规格的类别
@@ -95,7 +95,7 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	 * @param categoryFile
 	 * @return
 	 */
-	Boolean updateCategory(CategoryPo model, MulitFileVo categoryFile);
+	Boolean updateCategory(CategoryPo model, SingleFileVo categoryFile);
 
 	/**
 	 * 

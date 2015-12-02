@@ -28,6 +28,8 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	
 	OrdersPo orders;
 	
+	Long payOrdersId;
+	
 	private Long getAddressId;
 	
 	public PageInfo getPageInfo() {
@@ -176,7 +178,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void payForOrdersWithAlipay(){
-		Charge charge = ordersServer.payForOrdersWithAlipay(model.getOrdersId());
+		Charge charge = ordersServer.payForOrdersWithAlipay(payOrdersId);
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("charge", charge);
 		resultMessage = new ResultMessage();
@@ -191,6 +193,25 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		Boolean success = ordersServer.setOrderNumber(model.getOrdersId(), model.getOrderNumber());
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(success);
+	}
+	
+	/**
+	 * 得到订单快递编号.
+	 * @author 黄祥谦.
+	 */
+	public void getOrderNumber(){
+		OrdersPo ordersPo = ordersServer.get(model.getOrdersId());
+		resultMessage = new ResultMessage();
+		if(ordersPo != null){
+			HashMap<String, Object> hashMap = new HashMap<String, Object>();
+			hashMap.put("ordersNumber", ordersPo.getOrderNumber());
+			resultMessage.setResultParm(hashMap);
+			resultMessage.setResultInfo("执行成功");
+			resultMessage.setServiceResult(true);
+		}else{
+			resultMessage.setResultInfo("执行失败");
+			resultMessage.setServiceResult(false);
+		}
 	}
 	
 	/**

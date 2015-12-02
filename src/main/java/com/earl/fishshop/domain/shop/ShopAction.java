@@ -11,6 +11,7 @@ import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.domain.base.BaseAction;
 import com.earl.fishshop.domain.category.CategoryPo;
 import com.earl.fishshop.domain.goods.GoodsPo;
+import com.earl.fishshop.domain.sku.SkuPo;
 import com.earl.fishshop.vo.PageInfo;
 import com.earl.fishshop.vo.ResultMessage;
 
@@ -33,6 +34,16 @@ public class ShopAction extends BaseAction<ShopPo> {
 	private ResultMessage resultMessage;
 
 	private PageInfo pageInfo;
+
+	private Long categoryId;
+	
+	public Long getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
+	}
 
 	public PageInfo getPageInfo() {
 		return pageInfo;
@@ -99,6 +110,19 @@ public class ShopAction extends BaseAction<ShopPo> {
 				.getCategoryWithTotalNumber(model.getShopId());
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("categoryList", categoryList);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(true);
+		resultMessage.setResultParm(hashMap);
+	}
+	/**
+	* 获得指定类别的渔获，包括规格信息，价格信息.
+	* @author 黄祥谦.
+	*/
+	public void getPointCategoryGoodsInfo() {
+		List<SkuPo> skuList = goodsServer
+				.getPointCategoryGoodsInfo(model.getShopId(),categoryId);
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("skuList", skuList);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(true);
 		resultMessage.setResultParm(hashMap);

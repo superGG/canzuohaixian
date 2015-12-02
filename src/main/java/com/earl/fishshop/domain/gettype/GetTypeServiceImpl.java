@@ -53,10 +53,10 @@ public class GetTypeServiceImpl extends BaseServiceImpl<GetTypePo> implements
 		List<String> idList = getTypeToList(getType);
 		for (String id : idList) {
 			Long getTypeId = Long.parseLong(id);
-			System.out.println(getTypeId);
+//			System.out.println(getTypeId);
 			GetTypePo get = getTypeDao.get(getTypeId);
 			getTypeNameList.add(get.getGetName());
-			System.out.println(get.getGetName());
+//			System.out.println(get.getGetName());
 		}
 		String getTypeName = JsonHelper.toJson(getTypeNameList);
 		System.out.println(getTypeName);

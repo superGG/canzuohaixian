@@ -57,13 +57,12 @@ public class FarmersDaoImpl extends BaseDaoImpl<FarmersPo> implements FarmersDao
 		
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<FarmersPo> getFarmerByShop(Long shopId) {
-		String hql = "from FarmersPo f where f.shopId = :shopId";
-		List<FarmersPo> list = getCurrentSession().createQuery(hql)
-				.setLong("shopId", shopId).list();
-		return list;
+	public FarmersPo getFarmerByShop(Long shopId) {
+		String hql = "from FarmersPo f where f.shopId =:shopId";
+		FarmersPo farmers = (FarmersPo) getCurrentSession().createQuery(hql)
+				.setLong("shopId", shopId).uniqueResult();
+		return farmers;
 	}
 	
 }

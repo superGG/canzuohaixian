@@ -11,5 +11,4 @@ public interface SeaRecordDao extends BaseDao<SeaRecordPo>{
 	 */
 	void addSeaRecord(SeaRecordPo model);
 
-
 }

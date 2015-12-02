@@ -17,9 +17,8 @@ import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.domain.user.UserPo;
 import com.earl.fishshop.helper.JsonHelper;
 import com.earl.fishshop.util.MyConstant;
-import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.fishshop.vo.PageInfo;
-import com.earl.util.FileUploadImpl;
+import com.earl.fishshop.vo.SingleFileVo;
 import com.earl.util.FilterPropertiesUtil;
 
 /**
@@ -35,9 +34,6 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 	@Resource(name = "categoryDao")
 	CategoryDao categoryDao;
 
-	@Resource(name = "fileUpload")
-	FileUploadImpl fileUpload;
-	
 	@PostConstruct
 	public void initBaseDao() {
 		baseDao = categoryDao;
@@ -127,10 +123,10 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 	}
 
 	@Override
-	public Boolean addCategory(CategoryPo model, MulitFileVo categoryFile) {
+	public Boolean addCategory(CategoryPo model, SingleFileVo categoryFile) {
 		// TODO 未测试.
 		try {
-			String uploadCategoryFile = fileUpload.uploadMulitCategoryFile(categoryFile.getFile(), categoryFile.getFileFileName());
+			String uploadCategoryFile = fileUpload.uploadCategoryFile(categoryFile.getFile(), categoryFile.getFileFileName());
 			model.setFishPhoto(uploadCategoryFile);
 			categoryDao.addCategory(model);
 			return true;
@@ -141,13 +137,11 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 	}
 
 	@Override
-	public Boolean updateCategory(CategoryPo model, MulitFileVo categoryFile) {
+	public Boolean updateCategory(CategoryPo model, SingleFileVo categoryFile) {
 		// TODO 未测试.
 		try {
-			if(categoryFile.getFileFileName().size() != 0 ){
-				String uploadCategoryFile = fileUpload.uploadMulitCategoryFile(categoryFile.getFile(), categoryFile.getFileFileName());
+				String uploadCategoryFile = fileUpload.uploadCategoryFile(categoryFile.getFile(), categoryFile.getFileFileName());
 				model.setFishPhoto(uploadCategoryFile);
-			}
 			categoryDao.updateCategory(model);
 			return true;
 		} catch (Exception e) {

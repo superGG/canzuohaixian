@@ -61,7 +61,6 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 				try {
 					getCurrentSession().createQuery(hql2).setLong("tosell", ordersDetailPo.getNumber()).setLong("categoryId",ordersDetailPo.getCategoryId()).executeUpdate();
 				} catch (Exception e) {
-					// TODO: handle exception
 					e.printStackTrace();
 				}
 				ordersDetailPo.setOrderId(ordersId);
@@ -126,7 +125,7 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 		for (OrdersPo ordersPo : ordersList) {
 			String hql2 = "from OrdersDetailPo where orderId =:orderId";
 			@SuppressWarnings("unchecked")
-			List<OrdersDetailPo> ordersDetailList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).setFirstResult(1).setMaxResults(1).list();
+			List<OrdersDetailPo> ordersDetailList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).setFirstResult(0).setMaxResults(1).list();
 			ordersPo.setOrdersDetail(ordersDetailList);
 		}
 		return ordersList;

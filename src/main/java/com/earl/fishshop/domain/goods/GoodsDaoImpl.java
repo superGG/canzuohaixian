@@ -8,10 +8,12 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 
 import com.earl.fishshop.domain.base.BaseDaoImpl;
 import com.earl.fishshop.domain.category.CategoryPo;
+import com.earl.fishshop.domain.sku.SkuPo;
 import com.earl.fishshop.vo.PageInfo;
 
 
@@ -23,15 +25,19 @@ import com.earl.fishshop.vo.PageInfo;
 public class GoodsDaoImpl extends BaseDaoImpl<GoodsPo> implements GoodsDao {
 
 	@Override
-	public void updateGoodPrice(Long goodsId, Double price) {
-		String hql = "update GoodsPo set price =:price where goodsId =:goodsId";
-		getCurrentSession().createQuery(hql).setLong("goodsId", goodsId).setDouble("price", price).executeUpdate();
+	public void updateGoodPrice(List<GoodsPo> goodsList) {
+		for (GoodsPo goodsPo : goodsList) {
+			String hql = "update GoodsPo set price =:price where goodsId =:goodsId";
+			getCurrentSession().createQuery(hql).setLong("goodsId", goodsPo.getGoodsId()).setDouble("price", goodsPo.getPrice()).executeUpdate();
+		}
 	}
 
 	@Override
-	public void updateGoodNowNumber(Long goodsId, Long nowNumber) {
+	public void updateGoodNowNumber(List<GoodsPo> goodsList) {
+		for (GoodsPo goodsPo : goodsList) {
 		String hql = "update GoodsPo set nowNumber =:nowNumber where goodsId =:goodsId";
-		getCurrentSession().createQuery(hql).setLong("goodsId", goodsId).setDouble("nowNumber", nowNumber).executeUpdate();
+		getCurrentSession().createQuery(hql).setLong("goodsId",goodsPo.getGoodsId()).setDouble("nowNumber", goodsPo.getNowNumber()).executeUpdate();
+		}
 	}
 
 	@Override
@@ -80,6 +86,43 @@ public class GoodsDaoImpl extends BaseDaoImpl<GoodsPo> implements GoodsDao {
 	public void deletePointCategoryGoods(Long categoryId, Long shopId) {
 		String hql = "delete from GoodsPo where categoryId=:categoryId and shopId=:shopId";
 		getCurrentSession().createQuery(hql).setLong("categoryId", categoryId).setLong("shopId", shopId).executeUpdate();
+	}
+
+	@Override
+	public void saveList(List<GoodsPo> arrayList) {
+		// TODO 未测试.
+		for (GoodsPo goodsPo : arrayList) {
+			save(goodsPo);
+		}
+	}
+
+	@Override
+	public List<SkuPo> getPointCategoryGoodsInfo(Long shopId, Long categoryId) {
+		// TODO 未测试.
+		String hql = "from GoodsPo where shopId=:shopId and categoryId=:categoryId";
+		@SuppressWarnings("unchecked")
+		List<GoodsPo> list = getCurrentSession().createQuery(hql).setLong("shopId", shopId).setLong("categoryId", categoryId).list();
+		ArrayList<SkuPo> arrayList = new ArrayList<SkuPo>();
+		for (GoodsPo goodsPo : list) {
+			SkuPo skuPo = new SkuPo();
+			BeanUtils.copyProperties(goodsPo, skuPo);
+			arrayList.add(skuPo);
+		}
+		return arrayList;
+	}
+
+	@Override
+	public List<GoodsPo> getShopPointCategory(Long shopId, Long categoryId, Integer indexPageNum, Integer size) {
+		// TODO 未测试.
+		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
+		createCriteria.add(Restrictions.eq("shopId", shopId)).add(Restrictions.gt("nowNumber", 0L));
+		
+		createCriteria.setFirstResult(
+				(indexPageNum - 1) * size)
+				.setMaxResults(size);
+		@SuppressWarnings("unchecked")
+		List<GoodsPo> goodsList = createCriteria.list();
+		return goodsList;
 	}
 
 }

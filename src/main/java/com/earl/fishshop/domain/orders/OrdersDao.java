@@ -10,7 +10,7 @@ public interface OrdersDao extends BaseDao<OrdersPo>{
 	/**
 	 * 得到指定商店的订单.
 	 * @author 黄祥谦.
-	 * @param indexPageNum TODO
+	 * @param indexPageNum 
 	 * @param size TODO
 	 */
 	List<OrdersPo> getMyShopOrders(Long shopId, Integer indexPageNum, Integer size);

@@ -22,13 +22,15 @@ public class FileUploadImpl {
 	@SuppressWarnings("unused")
 	private String filePath = "C:/";
 
-	private String categoryfilePath = "C:/category/";
+	private String categoryfilePath = "category/";
+	
+	private String goodsfilePath = "goods/";
 
-	private String userfilePath = "C:/user/";
+	private String userfilePath = "user/";
 
-	private String fishmanfilePath = "C:/fishman/";
+	private String fishmanfilePath = "fishman/";
 
-	private String farmerfilePath = "C:/farmer/";
+	private String farmerfilePath = "farmer/";
 
 	@Value("#{public[basePath]}" + "#{public.filePath}")
 	public void setFilePath(String filePath) {
@@ -79,10 +81,15 @@ public class FileUploadImpl {
 	 * java.lang.String)
 	 */
 
-//	public String uploadCategoryFile(File file, String oldName) {
-//		String uploadFile = uploadFile(file, categoryfilePath, oldName);
-//		return uploadFile;
-//	}
+	public String uploadCategoryFile(File file, String oldName) {
+		String uploadFile = uploadFile(file, categoryfilePath, oldName);
+		return uploadFile;
+	}
+	
+	public String uploadGoodsFile(File file, String oldName) {
+		String uploadFile = uploadFile(file, goodsfilePath, oldName);
+		return uploadFile;
+	}
 	
 	public String uploadMulitCategoryFile(File[] file, String oldName[]) {
 		ArrayList<String> filename = new ArrayList<String>();

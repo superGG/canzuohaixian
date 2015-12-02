@@ -16,6 +16,8 @@ public class CategoryPo{
 	@IdAnnotatioin
 	private Long categoryId ;
 	
+	private Long shopId;
+	
 	/**
 	 * 字段描述：String 
 	 * 字段类型：categorySimpleName  
@@ -99,6 +101,12 @@ public class CategoryPo{
 	 */
 	private Long version ;
 	
+	public Long getShopId() {
+		return shopId;
+	}
+	public void setShopId(Long shopId) {
+		this.shopId = shopId;
+	}
 	public List<SkuPo> getSkuArrayList() {
 		return skuArrayList;
 	}
