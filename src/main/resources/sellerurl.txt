@@ -109,3 +109,45 @@ orders_realSendOrders.action
 orders_realGetOrders.action
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+test-->success
+user_userLogin.action
+参数：用户手机phoneNumber 用户密码password
+图片：1登陆.jpg
+
+test-->success
+user_smsCodeOfRegister.action
+参数：用户手机phoneNumber
+图片：2注册.jpg(获取验证码)
+
+
+test-->success
+user_smsCodeOfRegister.action
+参数：用户手机phoneNumber
+图片：2注册.jpg(获取验证码)
+
+
+test-->success
+user_smsCodeOfRegister.action
+参数：用户手机phoneNumber
+图片：2注册.jpg(注册)
+
+
+
+
+
+
+
+

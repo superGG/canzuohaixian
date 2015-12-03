@@ -128,9 +128,11 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	 */
 	public ResultMessage verifyPassword(UserPo user, String password) {
 		ResultMessage rs = new ResultMessage();
-		String userPassword = SmsbaoHelper.Md5(user.getPassword());
-		if (user != null ) { // 根据用户输入查询所得用户信息.
-			if (password.equals(userPassword)) { // 密码验证
+
+		String userPassword = SmsbaoHelper.Md5(password);
+		if (user != null) { // 根据用户输入查询所得用户信息.
+			if (userPassword.equals(user.getPassword())) { // 密码验证
+
 				rs.setServiceResult(true);
 				rs.setResultInfo("登陆成功");
 				Map<String, Object> hashMap = new HashMap<String, Object>();
