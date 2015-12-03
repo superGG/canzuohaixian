@@ -22,12 +22,11 @@ public class UserDaoImpl extends BaseDaoImpl<UserPo> implements UserDao {
 	 * @param phoneNumber
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	public List<UserPo> getUserByPhone(String phoneNumber){
+	public UserPo getUserByPhone(String phoneNumber){
 		String hql = "from UserPo u where u.phoneNumber = :phoneNumber";
-		List<UserPo> list = getCurrentSession().createQuery(hql)
-				.setString("phoneNumber", phoneNumber).list();
-		return list;
+		UserPo user = (UserPo) getCurrentSession().createQuery(hql)
+				.setString("phoneNumber", phoneNumber).uniqueResult();
+		return user;
 	}
 
 	/**

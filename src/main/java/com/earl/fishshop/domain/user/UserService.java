@@ -14,7 +14,7 @@ public interface UserService extends BaseService<UserPo>{
 	 * @param phoneNumber
 	 * @return
 	 */
-	List<UserPo> getUserByPhone(String phoneNumber);
+	UserPo getUserByPhone(String phoneNumber);
 
 	/**
 	 * 通过用户名查询用户.

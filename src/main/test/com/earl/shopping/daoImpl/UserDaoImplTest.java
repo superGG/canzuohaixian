@@ -76,7 +76,7 @@ public class UserDaoImplTest {
 	@Test
 	public void testGetUserByPhone() {
 		String phone = "18320489492";
-		List<UserPo> userList = userDao.getUserByPhone(phone);
+		UserPo userList = userDao.getUserByPhone(phone);
 		System.out.println("----------------完美分割线----------------");
 		System.out.println(userList);
 		System.out.println("----------------完美分割线----------------");

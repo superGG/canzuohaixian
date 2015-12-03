@@ -270,7 +270,7 @@ public class UserAction extends BaseAction<UserPo> {
      */
     public void findPassword() {
     	resultMessage = new ResultMessage();
-    	UserPo userPo  = userServer.getUserByPhone(model.getPhoneNumber()).get(0);
+    	UserPo userPo  = userServer.getUserByPhone(model.getPhoneNumber());
     	String newPassword = SmsbaoHelper.Md5(model.getPassword());//加密
     	userPo.setPassword(newPassword);
     	Boolean update = userServer.update(userPo);

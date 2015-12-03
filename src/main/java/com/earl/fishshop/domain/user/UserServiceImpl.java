@@ -47,8 +47,8 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	 * @return
 	 */
 	@Override
-	public List<UserPo> getUserByPhone(String phoneNumber) {
-		List<UserPo> userList = userDao.getUserByPhone(phoneNumber);
+	public UserPo getUserByPhone(String phoneNumber) {
+		UserPo userList = userDao.getUserByPhone(phoneNumber);
 		return userList;
 	}
 
@@ -74,9 +74,9 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	public ResultMessage userLogin(UserPo model) {
 		ResultMessage rs = new ResultMessage();
 		if (model.getPhoneNumber() != null) { // 用户使用手机登录
-			List<UserPo> userList = userDao.getUserByPhone(model
+			UserPo user = userDao.getUserByPhone(model
 					.getPhoneNumber());
-			rs = verifyPassword(userList, model.getPassword());
+			rs = verifyPassword(user, model.getPassword());
 		} else {
 			rs.setResultInfo("验证失败");
 			rs.setServiceResult(false);
@@ -126,15 +126,15 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	 *            用户输入密码.
 	 * @return
 	 */
-	public ResultMessage verifyPassword(List<UserPo> userlist, String password) {
+	public ResultMessage verifyPassword(UserPo user, String password) {
 		ResultMessage rs = new ResultMessage();
-		String userPassword = SmsbaoHelper.Md5(userlist.get(0).getPassword());
-		if (userlist.size() != 0) { // 根据用户输入查询所得用户信息.
+		String userPassword = SmsbaoHelper.Md5(user.getPassword());
+		if (user != null ) { // 根据用户输入查询所得用户信息.
 			if (password.equals(userPassword)) { // 密码验证
 				rs.setServiceResult(true);
 				rs.setResultInfo("登陆成功");
 				Map<String, Object> hashMap = new HashMap<String, Object>();
-				hashMap.put("user", userlist);
+				hashMap.put("user", user);
 				rs.setResultParm(hashMap);
 			} else {
 				rs.setResultInfo("密码错误");
@@ -162,8 +162,8 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 		ResultMessage rs = new ResultMessage();
 		verifyServiceUtil = new VerifyServiceUtil();
 		if (userPhone != null) {
-			List<UserPo> userList = userDao.getUserByPhone(userPhone);
-			if (userList.size() != 0) {
+			UserPo user = userDao.getUserByPhone(userPhone);
+			if (user != null) {
 				rs = verifyServiceUtil.sendMobileVerifyCode(userPhone);
 			} else {
 				rs.setResultInfo("该手机无注册用户");
@@ -191,9 +191,9 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 
 		if (model.getPhoneNumber() != null) {
 			// 检测注册手机是否被注册
-			List<UserPo> userList = userDao.getUserByPhone(model
+			UserPo userList = userDao.getUserByPhone(model
 					.getPhoneNumber());
-			if (userList.size() == 0) {
+			if (userList == null) {
 				rs = verifyServiceUtil.sendMobileVerifyCode(model
 						.getPhoneNumber());
 			} else {
