@@ -16,7 +16,7 @@ public interface GoodsService extends BaseService<GoodsPo>{
 	 * @param goodsList TODO
 	 * @return
 	 */
-	Boolean updateGoodPrice(List<GoodsPo> goodsList);
+	Boolean updateGoodPrice(List goodsList);
 
 	/**
 	 * 修改商品数量.

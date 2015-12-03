@@ -14,7 +14,7 @@ public interface GoodsDao extends BaseDao<GoodsPo>{
 	 * @author 黄祥谦.
 	 * @param goodsList TODO
 	 */
-	void updateGoodPrice(List<GoodsPo> goodsList);
+	void updateGoodPrice(List goodsList);
 
 	/**
 	 * 更新商品数量.

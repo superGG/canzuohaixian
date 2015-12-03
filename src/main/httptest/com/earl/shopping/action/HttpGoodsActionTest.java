@@ -52,7 +52,7 @@ public class HttpGoodsActionTest extends HttpBaseActionTest {
 		String targetURL = basePath + "goods_updateGoodPrice.action";
 		//----------------请求代码
 		PostMethod filePost = new PostMethod(targetURL);
-		Part[] parts = { new StringPart("goodsList", "[{\"goodsId\":1,\"price\":34.5},{\"goodsId\":4,\"price\":36.5}]", "utf-8")
+		Part[] parts = { new StringPart("goodsList", "[{\"goodsId\":1,\"price\":366.5},{\"goodsId\":4,\"price\":336.5}]", "utf-8")
 		};
 		String sendHttpRequest = sendHttpRequest(filePost, parts);
 		System.out.println(sendHttpRequest);

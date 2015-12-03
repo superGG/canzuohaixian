@@ -14,6 +14,7 @@ import com.earl.fishshop.domain.base.BaseDaoImpl;
 import com.earl.fishshop.domain.category.CategoryPo;
 import com.earl.fishshop.domain.sku.SkuPo;
 import com.earl.fishshop.vo.PageInfo;
+import com.google.gson.internal.LinkedTreeMap;
 
 
 /**
@@ -24,10 +25,14 @@ import com.earl.fishshop.vo.PageInfo;
 public class GoodsDaoImpl extends BaseDaoImpl<GoodsPo> implements GoodsDao {
 
 	@Override
-	public void updateGoodPrice(List<GoodsPo> goodsList) {
-		for (GoodsPo goodsPo : goodsList) {
+	public void updateGoodPrice(@SuppressWarnings("rawtypes") List goodsList) {
+		for (Object object : goodsList) {
+			LinkedTreeMap goods = (LinkedTreeMap) object;
+			Double object2 = (Double) goods.get("goodsId");
+			Double object3 = (Double) goods.get("price");
 			String hql = "update GoodsPo set price =:price where goodsId =:goodsId";
-			getCurrentSession().createQuery(hql).setLong("goodsId", goodsPo.getGoodsId()).setDouble("price", goodsPo.getPrice()).executeUpdate();
+			getCurrentSession().createQuery(hql).setLong("goodsId", object2.longValue()).setDouble("price", object3).executeUpdate();
+			
 		}
 	}
 
