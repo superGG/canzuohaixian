@@ -33,8 +33,8 @@ public class UserActionTest extends StrutsSpringTestCase {
 	
 	@Test
 	public void testUserLogin() throws Exception {
-		request.addParameter("phoneNumber", "18719425973");
-		request.addParameter("password", "798555920");
+		request.addParameter("phoneNumber", "18320489492");
+		request.addParameter("password", "18320489492");
 		
 		String res = executeAction("/user_userLogin.action");
 		System.out.println(res);
@@ -80,9 +80,9 @@ public class UserActionTest extends StrutsSpringTestCase {
 	
 	@Test
 	public void testAddUser() throws Exception{
-		 request.addParameter("phoneNumber", "18320489491");
+		 request.addParameter("phoneNumber", "18320489492");
 		 request.addParameter("password", "18320489492");
-		 request.addParameter("verifyCode", "656363");
+		 request.addParameter("verifyCode", "123456");
 		 
 	     String res=executeAction("/user_addUser.action");  
 	     System.out.println(res);
