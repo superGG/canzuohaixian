@@ -5,10 +5,8 @@ import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
 import org.junit.Test;
 
-public class HttpCommentActionTest extends BaseActionTest{
+public class HttpCommentActionTest extends HttpBaseActionTest{
 
-	String basePath = "http://192.168.1.111:8080/fishshop/";
-	
 	@Test
 	public void testAddComment(){
 //		String targetURL = "http://192.168.1.107:8080/fishshop/category_getNextLevelCategory.action";

@@ -32,6 +32,7 @@ category_addGoods.action
 	categoryFile.file 文件对象: new File("xxx");
 图片：1发布商品-添加鱼货4.jpg
 
+test-->success
 shop_getPointCategoryGoodsInfo.action
 参数：shopId
 	categoryId

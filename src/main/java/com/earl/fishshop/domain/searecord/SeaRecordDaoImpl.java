@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.earl.fishshop.domain.base.BaseDaoImpl;
 import com.earl.fishshop.domain.shop.ShopPo;
+import com.earl.fishshop.util.MyConstant;
 
 /**
  * 
@@ -29,7 +30,7 @@ public class SeaRecordDaoImpl extends BaseDaoImpl<SeaRecordPo> implements SeaRec
 		ShopPo shop= (ShopPo) getCurrentSession().get(ShopPo.class, shopId);
 		SeaRecordPo seaRecordPo = get(shop.getSeaRecordId());
 		seaRecordPo.setEndSeeTime(endSeeTime);
-		shop.setOnSell(false);
+		shop.setOnSell(MyConstant.shop_notOnSell);
 		shop.setSeaRecordId(null);
 		getCurrentSession().update(shop);
 		getCurrentSession().update(seaRecordPo);
@@ -52,7 +53,7 @@ public class SeaRecordDaoImpl extends BaseDaoImpl<SeaRecordPo> implements SeaRec
 		Date date = new Date();
 		long  between = date.getTime() - seaRecordPo.getEndSeeTime().getTime();
 		if(between > 0){
-			shop.setOnSell(false);
+			shop.setOnSell(MyConstant.shop_notOnSell);
 			shop.setSeaRecordId(null);
 		    return true;
 		}

@@ -94,7 +94,7 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 		// TODO 未测试.
 		try {
 			ShopPo shopPo = shopDao.get(shopId);
-			shopPo.setOnSell(false);
+			shopPo.setOnSell(MyConstant.shop_notOnSell);
 			shopPo.setSeaRecordId(null);
 			shopDao.update(shopPo);
 			return true;

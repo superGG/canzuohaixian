@@ -8,7 +8,6 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 
 import com.earl.fishshop.domain.base.BaseDaoImpl;
@@ -104,9 +103,10 @@ public class GoodsDaoImpl extends BaseDaoImpl<GoodsPo> implements GoodsDao {
 		List<GoodsPo> list = getCurrentSession().createQuery(hql).setLong("shopId", shopId).setLong("categoryId", categoryId).list();
 		ArrayList<SkuPo> arrayList = new ArrayList<SkuPo>();
 		for (GoodsPo goodsPo : list) {
-			SkuPo skuPo = new SkuPo();
-			BeanUtils.copyProperties(goodsPo, skuPo);
-			arrayList.add(skuPo);
+			SkuPo object = (SkuPo) getCurrentSession().get(SkuPo.class, goodsPo.getSku());
+			object.setPrice(goodsPo.getPrice());
+			object.setGoodsId(goodsPo.getGoodsId());
+			arrayList.add(object);
 		}
 		return arrayList;
 	}

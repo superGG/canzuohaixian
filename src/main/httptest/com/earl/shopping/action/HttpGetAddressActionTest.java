@@ -5,14 +5,11 @@ import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
 import org.junit.Test;
 
-public class HttpGetAddressActionTest extends BaseActionTest {
-
-	private String bastPath = "http://192.168.1.111:8080/fishshop/";
-//	 private String bastPath = "http://www.earltech.cn:8080";
+public class HttpGetAddressActionTest extends HttpBaseActionTest {
 
 	@Test
 	public void testAddGetAddress() {
-		String targetURL = bastPath
+		String targetURL = basePath
 				+ "getaddress_addGetAddress.action";
 
 		PostMethod filePost = new PostMethod(targetURL);
@@ -29,7 +26,7 @@ public class HttpGetAddressActionTest extends BaseActionTest {
 
 	@Test
 	public void testUpdateGetAddress() {
-		String targetURL = bastPath
+		String targetURL = basePath
 				+ "getaddress_updateGetAddress.action";
 		PostMethod filePost = new PostMethod(targetURL);
 
@@ -46,7 +43,7 @@ public class HttpGetAddressActionTest extends BaseActionTest {
 
 	@Test
 	public void testDeleteGetAddress() {
-		String targetURL = bastPath
+		String targetURL = basePath
 				+ "getaddress_deleteGetAddress.action";
 		PostMethod filePost = new PostMethod(targetURL);
 
@@ -57,7 +54,7 @@ public class HttpGetAddressActionTest extends BaseActionTest {
 
 	@Test
 	public void testUpdateUserAddress() {
-		String targetURL = bastPath
+		String targetURL = basePath
 				+ "getaddress_updateUserAddress.action";
 		PostMethod filePost = new PostMethod(targetURL);
 
@@ -68,7 +65,7 @@ public class HttpGetAddressActionTest extends BaseActionTest {
 	}
 	@Test
 	public void testGetUserAllAddress() {
-		String targetURL = bastPath
+		String targetURL = basePath
 				+ "getaddress_getUserAllAddress.action";
 		PostMethod filePost = new PostMethod(targetURL);
 		

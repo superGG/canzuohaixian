@@ -10,20 +10,9 @@ import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
 import org.junit.Test;
 
-import com.earl.fishshop.domain.category.CategoryPo;
-import com.earl.fishshop.domain.sku.SkuPo;
-import com.earl.fishshop.helper.JsonHelper;
+public class HttpCategoryActionTest extends HttpBaseActionTest {
 
-public class HttpCategoryActionTest extends BaseActionTest {
-
-	@SuppressWarnings("unused")
 	private File targetFile;
-
-//	String basePath = "http://www.earltech.cn:8080/fishshop/";
-	String basePath = "http://192.168.1.111:8080/fishshop/";
-	// String targetURL =
-	// "http://192.168.1.107:8080/fishshop/category_getGoodsShops.action";
-//	String targetURL = basePath + "/fishshop/category_getGoodsShops.action";
 
 	@Test
 	public void testGetCategoryWithSku() {
