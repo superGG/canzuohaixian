@@ -13,8 +13,9 @@ import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.domain.verifycode.VerifyCodePo;
 import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.util.VerifyServiceUtil;
-import com.earl.fishshop.vo.ResultMessage;
 import com.earl.fishshop.vo.MulitFileVo;
+import com.earl.fishshop.vo.ResultMessage;
+import com.earl.util.SmsbaoHelper;
 import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
 
 /**
@@ -270,7 +271,8 @@ public class UserAction extends BaseAction<UserPo> {
     public void findPassword() {
     	resultMessage = new ResultMessage();
     	UserPo userPo  = userServer.getUserByPhone(model.getPhoneNumber()).get(0);
-    	userPo.setPassword(model.getPassword());
+    	String newPassword = SmsbaoHelper.Md5(model.getPassword());//加密
+    	userPo.setPassword(newPassword);
     	Boolean update = userServer.update(userPo);
     	if(update){
     		resultMessage.setServiceResult(update);
