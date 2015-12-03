@@ -62,8 +62,8 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 	}
 
 	@Override
-	public List<CategoryPo> getCategoryWithTotalNumber(Long shopId) {
-		List<CategoryPo> goodsList = goodsDao.getCategoryWithTotalNumber(shopId);
+	public List<CategoryPo> getCategoryWithTotalNumber(Long shopId, Integer indexPageNum, Integer size) {
+		List<CategoryPo> goodsList = goodsDao.getCategoryWithTotalNumber(shopId, indexPageNum, size);
 		return goodsList;
 	}
 
@@ -99,12 +99,17 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 		// TODO 未测试.
 		try {
 			String goodsPhoto = fileUpload.uploadGoodsFile(goodsFile.getFile(), goodsFile.getFileFileName());
+			CategoryPo categoryPo = categoryDao.get(model.getCategoryId());
 			List<SkuPo> skuArrayList = model.getSkuArrayList();
 			List<GoodsPo> arrayList = new ArrayList<GoodsPo>();
 			for (SkuPo skuPo : skuArrayList) {
 				GoodsPo goodsPo = new GoodsPo();
 				BeanUtils.copyProperties(model, goodsPo);
 				goodsPo.setGoodsPhoto(goodsPhoto);
+				goodsPo.setGoodsQuality(0);
+				goodsPo.setGetType(categoryPo.getGetType());
+				goodsPo.setUnit(categoryPo.getUnit());
+				goodsPo.setGoodsName(categoryPo.getCategorySimpleName());
 				goodsPo.setSku(skuPo.getSkuId());
 				goodsPo.setPrice(skuPo.getPrice());
 				arrayList.add(goodsPo);

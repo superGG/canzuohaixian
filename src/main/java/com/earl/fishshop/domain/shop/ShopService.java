@@ -79,6 +79,14 @@ public interface ShopService extends BaseService<ShopPo>{
 	 */
 	List<ShopPo> getAllShop(PageInfo pageInfo);
 
+	/**
+	 * 得到商店详细信息.
+	 * @author 黄祥谦.
+	 * @param shopId
+	 * @return
+	 */
+	ShopPo getShop(Long shopId);
+
 	
 
 }

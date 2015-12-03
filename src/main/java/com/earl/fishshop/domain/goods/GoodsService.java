@@ -38,10 +38,12 @@ public interface GoodsService extends BaseService<GoodsPo>{
 	/**
 	 * 得到用户发布的该类别下的商品总量
 	 * @author 黄祥谦.
+	 * @param indexPageNum TODO
+	 * @param size TODO
 	 * @param userId
 	 * @return
 	 */
-	List<CategoryPo> getCategoryWithTotalNumber(Long shopId);
+	List<CategoryPo> getCategoryWithTotalNumber(Long shopId, Integer indexPageNum, Integer size);
 
 	/**
 	 * 得到商家发布的所有商品，数量为零的不显示

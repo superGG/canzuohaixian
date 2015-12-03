@@ -7,13 +7,13 @@ import org.junit.Test;
 
 public class HttpFarmersActionTest extends BaseActionTest {
 
-	private String bastPath = "http://192.168.1.107:8080";
+	private String bastPath = "http://192.168.1.111:8080/fishshop/";
 //	 private String bastPath = "http://www.earltech.cn:8080";
 
 	@Test
 	public void testGetFarmerByShop() {
 		String targetURL = bastPath
-				+ "/fishshop/farmers_getFarmerByShop.action";
+				+ "farmers_getFarmerByShop.action";
 
 		PostMethod filePost = new PostMethod(targetURL);
 

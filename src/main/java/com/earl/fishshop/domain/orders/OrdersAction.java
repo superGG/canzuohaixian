@@ -30,6 +30,8 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	
 	Long payOrdersId;
 	
+	String channel;
+	
 	private Long getAddressId;
 	
 	public PageInfo getPageInfo() {
@@ -46,6 +48,22 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 
 	public void setGetAddressId(Long getAddressId) {
 		this.getAddressId = getAddressId;
+	}
+
+	public Long getPayOrdersId() {
+		return payOrdersId;
+	}
+
+	public void setPayOrdersId(Long payOrdersId) {
+		this.payOrdersId = payOrdersId;
+	}
+
+	public String getChannel() {
+		return channel;
+	}
+
+	public void setChannel(String channel) {
+		this.channel = channel;
 	}
 
 	@ReturnValue //返回实体对象，或者其他任意对象
@@ -165,7 +183,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getOrdersWithSeaRecord(){
-		List<OrdersPo> ordersList = ordersServer.getOrdersWithSeaRecord(model.getSeaRecordId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
+		List<OrdersPo> ordersList = ordersServer.getOrdersWithSeaRecord(model.getShopId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
@@ -178,7 +196,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void payForOrdersWithAlipay(){
-		Charge charge = ordersServer.payForOrdersWithAlipay(payOrdersId);
+		Charge charge = ordersServer.payForOrders(payOrdersId, channel);
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("charge", charge);
 		resultMessage = new ResultMessage();

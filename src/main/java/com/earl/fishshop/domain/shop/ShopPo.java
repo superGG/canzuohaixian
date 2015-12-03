@@ -15,7 +15,7 @@ public class ShopPo{
 	 * 字段描述：String 
 	 * 字段类型：shopName 商店名称.
 	 */
-	private String shopName ;
+	private String shopName;
 	
 	private String shopPhoto;
 	

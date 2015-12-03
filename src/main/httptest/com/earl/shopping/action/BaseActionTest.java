@@ -2,6 +2,7 @@ package com.earl.shopping.action;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
@@ -9,6 +10,11 @@ import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
 import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.params.HttpMethodParams;
+import org.junit.Assert;
+
+import com.earl.fishshop.helper.JsonHelper;
+import com.earl.fishshop.vo.ResultMessage;
+import com.google.gson.internal.LinkedTreeMap;
 
 /**
  * @author 黄祥谦.
@@ -61,4 +67,33 @@ public class BaseActionTest {
 	    return outSteam.toByteArray();  
 	}  
 	
+	public void normalListAssert(String sendHttpRequest,
+			List<String> needCheckParam, String paramName) {
+		ResultMessage jsonToBean = JsonHelper.jsonToBean(sendHttpRequest, ResultMessage.class);
+		Assert.assertEquals("true", jsonToBean.getServiceResult().toString());
+		@SuppressWarnings("unchecked")
+		List<LinkedTreeMap<String,Object>> object = (List<LinkedTreeMap<String,Object>>) jsonToBean.getResultParm().get(paramName);
+		for (int i = 0; i < object.size(); i++) {
+			LinkedTreeMap<String, Object> linkedTreeMap = object.get(i);
+			//---------------------------
+			for (String string : needCheckParam) {
+				Object object2 = linkedTreeMap.get(string);
+				System.out.println(object2);
+				Assert.assertNotNull(object2);
+			}
+		}
+	}
+	public void normalObjectAssert(String sendHttpRequest,
+			List<String> needCheckParam, String paramName) {
+		ResultMessage jsonToBean = JsonHelper.jsonToBean(sendHttpRequest, ResultMessage.class);
+		Assert.assertEquals("true", jsonToBean.getServiceResult().toString());
+		@SuppressWarnings("unchecked")
+		LinkedTreeMap<String, Object> linkedTreeMap = (LinkedTreeMap<String, Object>) jsonToBean.getResultParm().get(paramName);
+			//---------------------------
+			for (String string : needCheckParam) {
+				Object object2 = linkedTreeMap.get(string);
+				System.out.println(object2);
+				Assert.assertNotNull(object2);
+			}
+	}
 }

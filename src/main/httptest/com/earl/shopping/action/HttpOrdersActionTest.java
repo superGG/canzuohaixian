@@ -16,7 +16,7 @@ public class HttpOrdersActionTest extends BaseActionTest{
 	@SuppressWarnings("unused")
 	private File targetFile;
 
-	private String bastPath = "http://192.168.1.107:8080";
+	private String bastPath = "http://192.168.1.111:8080/fishshop/";
 //	private String bastPath = "http://www.earltech.cn:8080";
 	
 //	@Ignore

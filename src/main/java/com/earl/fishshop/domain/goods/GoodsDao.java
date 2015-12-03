@@ -37,9 +37,11 @@ public interface GoodsDao extends BaseDao<GoodsPo>{
 	 * 得到类别分类，group by category.
 	 * @author 黄祥谦.
 	 * @param shopId
+	 * @param indexPageNum TODO
+	 * @param size TODO
 	 * @return
 	 */
-	List<CategoryPo> getCategoryWithTotalNumber(Long shopId);
+	List<CategoryPo> getCategoryWithTotalNumber(Long shopId, Integer indexPageNum, Integer size);
 	
 	/**
 	 * 得到商家发布的所有商品，数量为零的不显示

@@ -85,8 +85,9 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 	}
 
 	@Override
-	public List<OrdersPo> getOrdersWithSeaRecord(Long seaRecordId, Integer indexPageNum, Integer size) {
-		List<OrdersPo> ordersList = ordersDao.getOrdersWithSeaRecord(seaRecordId, indexPageNum, size);
+	public List<OrdersPo> getOrdersWithSeaRecord(Long shopId, Integer indexPageNum, Integer size) {
+		ShopPo shopPo = shopDao.get(shopId);
+		List<OrdersPo> ordersList = ordersDao.getOrdersWithSeaRecord(shopPo.getSeaRecordId(), indexPageNum, size);
 		return ordersList;
 	}
 
@@ -143,11 +144,11 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 	//                                           cnp_u:应用内快捷支付（银联）
 	//                                           cnp_f:应用内快捷支付（外卡）
 	@Override
-	public Charge payForOrdersWithAlipay(Long ordersId) {
+	public Charge payForOrders(Long ordersId, String channel) {
 		// TODO 未测试.
 		OrdersPo ordersPo = ordersDao.get(ordersId);
 		Double price = ordersPo.getTotalprice()*100;
-		Charge charge = PayChargeUtil.charge(ordersPo.getOrdersId(), price.longValue(), "alipay", ordersPo.getShopKeeperName(), ordersPo.getBuyerName());
+		Charge charge = PayChargeUtil.charge(ordersPo.getOrdersId(), price.longValue(), channel, ordersPo.getShopKeeperName(), ordersPo.getBuyerName());
 		return charge;
 	}
 

@@ -80,8 +80,10 @@ public class GoodsDaoImplTest {
 
 	@Test
 	public void testGetCategoryWithTotalNumber() {
-		
-		List<CategoryPo> categoryWithTotalNumber = goodsDao.getCategoryWithTotalNumber(1L);
+		PageInfo pageInfo = new PageInfo();
+		pageInfo.setIndexPageNum(1);
+		pageInfo.setSize(4);
+		List<CategoryPo> categoryWithTotalNumber = goodsDao.getCategoryWithTotalNumber(1L, pageInfo.getIndexPageNum(), pageInfo.getSize());
 		System.out.println(categoryWithTotalNumber);
 	}
 	

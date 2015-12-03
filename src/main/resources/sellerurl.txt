@@ -1,27 +1,35 @@
-
+test-->success
 shop_getCategoryWithTotalNumber.action
 参数：shopId 商家id
 图片：1发布商品.jpg
 
+test-->success
 goods_deletePointCategoryGoods.action
 参数：categoryId 类别Id
 	shopId 	        商家id
 图片：1发布商品-删除鱼货.jpg
 
+test-->success
 category_getTopCategory.action
 参数：无
 图片：1发布商品-添加鱼货1.jpg
 
-cateogry_getAllNextLevelCategory.action
-参数：categoryId 父类别id;
+test-->success
+cateogry_getNextLevelCategory.action
+参数：categoryId 父类别id
+	pageInfo.indexPageNum
+	pageInfo.size
 图片：1发布商品-添加鱼货2.jpg
 
+test-->success
 category_getCategoryWithSku.action
-参数：类别id 
+参数：categoryId 类别id 
 图片：1发布商品-添加鱼货3.jpg
 
+test-->success
 category_addGoods.action
-参数：
+参数： category 类别对象："{\"categoryId\":1,\"shopId\":1,\"fishPhoto\":\"category/aaa.jpg\",\"skuArrayList\":[{\"skuId\":1,\"price\":34.5},{\"skuId\":2,\"price\":35.5}]}"
+	categoryFile.file 文件对象: new File("xxx");
 图片：1发布商品-添加鱼货4.jpg
 
 shop_getPointCategoryGoodsInfo.action
@@ -44,3 +52,59 @@ orders_setOrderNumber.action
 
 searecord_addSeaRecord.action
 图片：3发布商品-是否出港.jpg ，备注，改设计图不完善，
+
+searecord_aheadEndSeaing.action
+参数：shopId
+	endSeeTime
+图片：9管理到港时间.jpg
+
+searecord_delayEndSeaing.action
+参数：shopId
+	endSeeTime
+图片：9管理到港时间.jpg
+
+searecord_booleanEndSeaing.action
+参数：shopId
+图片：9管理到港时间.jpg
+
+//出航的时候使用
+orders_getOrdersWithSeaRecord.action
+
+图片：1商品订单-非航行模式.jpg
+
+//回港的时候使用
+orders_getMyShopOrders.action
+
+图片：1商品订单-非航行模式.jpg
+
+orders_getUnPayOrders.action
+
+图片：3商品订单-待付款.jpg
+
+orders_getUnSentOrders.action
+
+图片：4商品订单-待发货.jpg
+
+orders_getUngetOrders.action
+
+图片：5商品订单-已发货.jpg
+
+orders_getUnCommentOrders.action
+
+图片：6商品订单-待评价.jpg
+
+orders_payForOrdersWithAlipay.action
+
+orders_getOrdersNumber.action
+
+orders_getPointOrders.action
+
+orders_realPayOrders.action
+
+orders_realSendOrders.action
+
+图片:4商品订单-待发货.jpg
+
+orders_realGetOrders.action
+
+

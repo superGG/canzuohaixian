@@ -35,6 +35,8 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	
 	protected ResultMessage resultMessage;
 
+	protected CategoryPo category;
+	
 	@ReturnValue //返回实体对象，或者其他任意对象
 	public ResultMessage getResultMessage() {
 		return resultMessage;
@@ -75,7 +77,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 * @author 黄祥谦.
 	 */
 	public void addGoods() {
-		Boolean save = goodsServer.addGoods(model, categoryFile);
+		Boolean save = goodsServer.addGoods(category, categoryFile);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
 		if(save){
@@ -95,7 +97,6 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		resultMessage.setServiceResult(update);
 	}
 
-	
 	/**
 	 * 删除指定类别.
 	 * @author 黄祥谦.
@@ -115,6 +116,11 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("category", category);
 		resultMessage = new ResultMessage();
+		if(category != null){
+			resultMessage.setServiceResult(true);
+		}else{
+			resultMessage.setServiceResult(false);
+		}
 		resultMessage.setResultParm(hashMap);
 	}
 	/**

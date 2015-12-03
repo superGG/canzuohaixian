@@ -36,7 +36,73 @@ public class SeaRecordAction extends BaseAction<SeaRecordPo> {
 		Boolean save = seaRecordServer.addSeaRecord(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
+		if(save){
+			resultMessage.setResultInfo("操作成功");
+		}else{
+			resultMessage.setResultInfo("操作失败");
+		}
 	}
 	
+	/**
+	 * 提前到港.
+	 * @author 黄祥谦.
+	 */
+	public void aheadEndSeaing(){
+		Boolean success = seaRecordServer.aheadEndSeaing(model.getShopId(),model.getEndSeeTime());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(success);
+		if(success){
+			resultMessage.setResultInfo("操作成功");
+		}else{
+			resultMessage.setResultInfo("操作失败");
+		}
+		
+		
+	}
 
+	/**
+	 * 商家延迟到港.
+	 * @author 黄祥谦.
+	 */
+	public void delayEndSeaing(){
+		Boolean success = seaRecordServer.delayEndSeaing(model.getShopId(), model.getEndSeeTime());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(success);
+		if(success){
+			resultMessage.setResultInfo("操作成功");
+		}else{
+			resultMessage.setResultInfo("操作失败");
+		}
+	}
+	
+	/**
+	 * 商家是否已经到港.
+	 * @author 黄祥谦.
+	 */
+	public void booleanEndSeaing(){
+		Boolean success = seaRecordServer.booleanEndSeaing(model.getShopId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(success);
+		if(success){
+			resultMessage.setResultInfo("操作成功");
+		}else{
+			resultMessage.setResultInfo("操作失败");
+		}
+	}
+	
+	/**
+	 * 到港口了，停止出港
+	 * 
+	 * @author 黄祥谦.
+	 */
+	public void endSeaing() {
+		Boolean success = shopServer.endSeaing(model.getShopId());
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(success);
+		if(success){
+			resultMessage.setResultInfo("操作成功");
+		}else{
+			resultMessage.setResultInfo("操作失败");
+		}
+	}
 }

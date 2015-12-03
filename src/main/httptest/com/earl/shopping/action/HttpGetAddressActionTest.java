@@ -7,13 +7,13 @@ import org.junit.Test;
 
 public class HttpGetAddressActionTest extends BaseActionTest {
 
-	private String bastPath = "http://192.168.1.107:8080";
+	private String bastPath = "http://192.168.1.111:8080/fishshop/";
 //	 private String bastPath = "http://www.earltech.cn:8080";
 
 	@Test
 	public void testAddGetAddress() {
 		String targetURL = bastPath
-				+ "/fishshop/getaddress_addGetAddress.action";
+				+ "getaddress_addGetAddress.action";
 
 		PostMethod filePost = new PostMethod(targetURL);
 
@@ -30,7 +30,7 @@ public class HttpGetAddressActionTest extends BaseActionTest {
 	@Test
 	public void testUpdateGetAddress() {
 		String targetURL = bastPath
-				+ "/fishshop/getaddress_updateGetAddress.action";
+				+ "getaddress_updateGetAddress.action";
 		PostMethod filePost = new PostMethod(targetURL);
 
 		Part[] parts = { new StringPart("userId", "4", "utf-8"),
@@ -47,7 +47,7 @@ public class HttpGetAddressActionTest extends BaseActionTest {
 	@Test
 	public void testDeleteGetAddress() {
 		String targetURL = bastPath
-				+ "/fishshop/getaddress_deleteGetAddress.action";
+				+ "getaddress_deleteGetAddress.action";
 		PostMethod filePost = new PostMethod(targetURL);
 
 		Part[] parts = { new StringPart("getAddressId", "16", "utf-8") };
@@ -58,7 +58,7 @@ public class HttpGetAddressActionTest extends BaseActionTest {
 	@Test
 	public void testUpdateUserAddress() {
 		String targetURL = bastPath
-				+ "/fishshop/getaddress_updateUserAddress.action";
+				+ "getaddress_updateUserAddress.action";
 		PostMethod filePost = new PostMethod(targetURL);
 
 		Part[] parts = { new StringPart("userId", "4", "utf-8"),
@@ -69,7 +69,7 @@ public class HttpGetAddressActionTest extends BaseActionTest {
 	@Test
 	public void testGetUserAllAddress() {
 		String targetURL = bastPath
-				+ "/fishshop/getaddress_getUserAllAddress.action";
+				+ "getaddress_getUserAllAddress.action";
 		PostMethod filePost = new PostMethod(targetURL);
 		
 		Part[] parts = {

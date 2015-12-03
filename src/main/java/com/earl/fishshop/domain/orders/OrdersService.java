@@ -27,12 +27,12 @@ public interface OrdersService extends BaseService<OrdersPo>{
 	/**
 	 * 得到本次航海订单.
 	 * @author 黄祥谦.
-	 * @param seaRecordId
+	 * @param shopId
 	 * @param indexPageNum TODO
 	 * @param size TODO
 	 * @return
 	 */
-	List<OrdersPo> getOrdersWithSeaRecord(Long seaRecordId, Integer indexPageNum, Integer size);
+	List<OrdersPo> getOrdersWithSeaRecord(Long shopId, Integer indexPageNum, Integer size);
 
 	/**
 	 * 得到未发货订单.
@@ -87,9 +87,10 @@ public interface OrdersService extends BaseService<OrdersPo>{
 	 * 支付订单.
 	 * @author 黄祥谦.
 	 * @param ordersId
+	 * @param channel TODO
 	 * @return
 	 */
-	Charge payForOrdersWithAlipay(Long ordersId);
+	Charge payForOrders(Long ordersId, String channel);
 
 	/**
 	 * 修改订单状态为支付状态

@@ -107,11 +107,15 @@ public class ShopAction extends BaseAction<ShopPo> {
 	 */
 	public void getCategoryWithTotalNumber() {
 		List<CategoryPo> categoryList = goodsServer
-				.getCategoryWithTotalNumber(model.getShopId());
+				.getCategoryWithTotalNumber(model.getShopId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("categoryList", categoryList);
 		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(true);
+		if(categoryList.size()!=0){
+			resultMessage.setServiceResult(true);
+		}else{
+			resultMessage.setServiceResult(false);
+		}
 		resultMessage.setResultParm(hashMap);
 	}
 	/**
@@ -150,24 +154,13 @@ public class ShopAction extends BaseAction<ShopPo> {
 	 */
 	// TODO 未完成.
 	public void getShop() {
-		ShopPo shop = shopServer.get(model.getShopId());
+		ShopPo shop = shopServer.getShop(model.getShopId());
 		System.out.println(shop);
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("shop", shop);
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
-	}
-
-	/**
-	 * 到港口了，停止出港
-	 * 
-	 * @author 黄祥谦.
-	 */
-	public void endSeaing() {
-		Boolean success = shopServer.endSeaing(model.getShopId());
-		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(success);
 	}
 
 	/**
@@ -211,6 +204,10 @@ public class ShopAction extends BaseAction<ShopPo> {
 		resultMessage.setResultParm(hashMap);
 	}
 	
+	/**
+	 * 得到所有商店.
+	 * @author 黄祥谦.
+	 */
 	public void getAllShop() {
 		List<ShopPo> shopList = shopServer.getAllShop(pageInfo);
 		Map<String,Object> hashMap = new HashMap<String, Object>();
@@ -218,6 +215,6 @@ public class ShopAction extends BaseAction<ShopPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
-		
 	}
+
 }

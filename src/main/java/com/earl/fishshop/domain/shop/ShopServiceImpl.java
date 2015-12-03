@@ -15,6 +15,7 @@ import com.earl.fishshop.domain.comment.CommentPo;
 import com.earl.fishshop.domain.farmers.FarmersPo;
 import com.earl.fishshop.domain.fishman.FishmanPo;
 import com.earl.fishshop.domain.gettype.GetTypeService;
+import com.earl.fishshop.domain.searecord.SeaRecordPo;
 import com.earl.fishshop.domain.user.UserPo;
 import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.vo.PageInfo;
@@ -94,6 +95,7 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 		try {
 			ShopPo shopPo = shopDao.get(shopId);
 			shopPo.setOnSell(false);
+			shopPo.setSeaRecordId(null);
 			shopDao.update(shopPo);
 			return true;
 		} catch (Exception e) {
@@ -106,7 +108,7 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 	public void updateShopComment(CommentPo model) {
 		List<CommentPo> list = commentDao.getShopComment(model.getShopId());
 		int i = list.size();
-		ShopPo shop = shopDao.getShop(model.getShopId());
+		ShopPo shop = shopDao.get(model.getShopId());
 		System.out.println(shop.getFreshQuality().getClass());
 		System.out.println(shop.getFreshQuality() + "-----"
 				+ shop.getFreshQuality() * (i - 1));
@@ -190,6 +192,18 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 	public List<ShopPo> getAllShop(PageInfo pageInfo) {
 		List<ShopPo> shopList = shopDao.getAllShop(pageInfo);
 		return shopList;
+	}
+
+	@Override
+	public ShopPo getShop(Long shopId) {
+		// TODO 未测试.
+		ShopPo shop = shopDao.get(shopId);
+		if(shop.getSeaRecordId() != null){
+			SeaRecordPo seaRecordPo = seaRecordDao.get(shop.getSeaRecordId());
+			shop.setShipPort(seaRecordPo.getShipportName());
+			shop.setPortTime(seaRecordPo.getEndSeeTime());
+		}
+		return shop;
 	}
 	
 	

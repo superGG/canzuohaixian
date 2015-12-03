@@ -71,12 +71,6 @@ public class ShopDaoImpl extends BaseDaoImpl<ShopPo> implements ShopDao {
 	}
 
 	@Override
-	public ShopPo getShop(Long shopId) {
-		ShopPo shopPo = (ShopPo) getCurrentSession().get(ShopPo.class, shopId);
-		return shopPo;
-	}
-
-	@Override
 	public void updateShop(ShopPo shop) {
 		getCurrentSession().update(shop);
 	}

@@ -113,4 +113,6 @@ public class MyConstant {
 	 */
 	public static final Integer comment_anonymity = 1;
 
+//	public static final Integer category_
+	
 }

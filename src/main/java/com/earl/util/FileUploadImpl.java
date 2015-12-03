@@ -171,7 +171,7 @@ public class FileUploadImpl {
 	}
 
 	private String getDir(String filePath2) {
-		String substring = filePath2.substring(filePath2.lastIndexOf("\\") + 2,
+		String substring = filePath2.substring(filePath2.lastIndexOf("\\") + 1,
 				filePath2.length());
 		return substring;
 	}
