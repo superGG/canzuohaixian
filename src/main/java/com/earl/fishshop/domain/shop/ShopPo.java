@@ -34,7 +34,7 @@ public class ShopPo{
 	 * 字段描述：String 
 	 * 字段类型：getType  
 	 */
-	private String getType ;
+	private String getType;
 	
 	/**
 	 * string 类型的捕捞方式.
@@ -45,13 +45,13 @@ public class ShopPo{
 	 * 字段描述：Float 
 	 * 字段类型：weightQuality  
 	 */
-	private Float weightQuality ;
+	private Float weightQuality;
 	
 	/**
 	 * 字段描述：Float 
 	 * 字段类型：freshQuality  
 	 */
-	private Float freshQuality ;
+	private Float freshQuality;
 	
 	/**
 	 * 字段描述：Float 
@@ -69,13 +69,13 @@ public class ShopPo{
 	 * 字段描述：Double 
 	 * 字段类型：sendPrice  
 	 */
-	private Double sendPrice ;
+	private Double sendPrice;
 	
 	/**
 	 * 字段描述：Boolean 
 	 * 字段类型：onSell  
 	 */
-	private Boolean onSell ;
+	private Boolean onSell;
 	
 	private String shipPort;//靠岸口
 	

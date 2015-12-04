@@ -62,16 +62,19 @@ searecord_addSeaRecord.action
 	shipportId : 1 //港口id,到时候选择港口
 图片：3发布商品-是否出港.jpg ，备注，改设计图不完善，
 
+test-->success
 searecord_aheadEndSeaing.action
-参数：shopId
-	endSeeTime
+参数：shopId : 1
+	endSeeTime : 2015-12-05 17:13:30
 图片：9管理到港时间.jpg
 
+test-->success
 searecord_delayEndSeaing.action
 参数：shopId
 	endSeeTime
 图片：9管理到港时间.jpg
 
+test-->success
 searecord_booleanEndSeaing.action
 参数：shopId
 图片：9管理到港时间.jpg

@@ -1,5 +1,7 @@
 package com.earl.fishshop.domain.searecord;
 
+import java.util.HashMap;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -82,12 +84,11 @@ public class SeaRecordAction extends BaseAction<SeaRecordPo> {
 	public void booleanEndSeaing(){
 		Boolean success = seaRecordServer.booleanEndSeaing(model.getShopId());
 		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(success);
-		if(success){
-			resultMessage.setResultInfo("操作成功");
-		}else{
-			resultMessage.setResultInfo("操作失败");
-		}
+		HashMap<String, Object> resultParm = new HashMap<String, Object>();
+		resultParm.put("booleanEnd", success);
+		resultMessage.setResultParm(resultParm);
+		resultMessage.setServiceResult(true);
+		resultMessage.setResultInfo("操作成功");
 	}
 	
 	/**

@@ -1,12 +1,9 @@
 package com.earl.fishshop.domain.searecord;
 
-import java.util.Date;
-
 import org.springframework.stereotype.Repository;
 
 import com.earl.fishshop.domain.base.BaseDaoImpl;
 import com.earl.fishshop.domain.shop.ShopPo;
-import com.earl.fishshop.util.MyConstant;
 
 /**
  * 
@@ -25,41 +22,11 @@ public class SeaRecordDaoImpl extends BaseDaoImpl<SeaRecordPo> implements SeaRec
 	}
 
 	@Override
-	public void aheadEndSeaing(Long shopId, Date endSeeTime) {
+	public void updateShopAndSeaRecord(ShopPo shop, SeaRecordPo seaRecord) {
 		// TODO 未测试.
-		ShopPo shop= (ShopPo) getCurrentSession().get(ShopPo.class, shopId);
-		SeaRecordPo seaRecordPo = get(shop.getSeaRecordId());
-		seaRecordPo.setEndSeeTime(endSeeTime);
-		seaRecordPo.setState(MyConstant.searecord_ahead);
-		shop.setOnSell(MyConstant.shop_notOnSell);
-		shop.setSeaRecordId(null);
 		getCurrentSession().update(shop);
-		getCurrentSession().update(seaRecordPo);
+		getCurrentSession().update(seaRecord);
 		
-	}
-
-	@Override
-	public void delayEndSeaing(Long shopId, Date endSeeTime) {
-		// TODO 未测试.
-		ShopPo shop= (ShopPo) getCurrentSession().get(ShopPo.class, shopId);
-		SeaRecordPo seaRecordPo = get(shop.getSeaRecordId());
-		seaRecordPo.setEndSeeTime(endSeeTime);
-		seaRecordPo.setState(MyConstant.searecord_delay);
-		getCurrentSession().update(seaRecordPo);
-	}
-
-	@Override
-	public Boolean booleanEndSeaing(Long shopId) {
-		ShopPo shop= (ShopPo) getCurrentSession().get(ShopPo.class, shopId);
-		SeaRecordPo seaRecordPo = get(shop.getSeaRecordId());
-		Date date = new Date();
-		long  between = date.getTime() - seaRecordPo.getEndSeeTime().getTime();
-		if(between > 0){
-			shop.setOnSell(MyConstant.shop_notOnSell);
-			shop.setSeaRecordId(null);
-		    return true;
-		}
-		return false;
 	}
 
 }

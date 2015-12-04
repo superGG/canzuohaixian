@@ -92,11 +92,11 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 			if(userPo.getUserType() == MyConstant.user_farmer){
 			}else if(userPo.getUserType() == MyConstant.user_fishman){
 				if(shopPo.getSeaRecordId() != null){
-					SeaRecordPo farmersPo = seaRecordDao.get(shopPo.getSeaRecordId());
-					shopPo.setPortTime(farmersPo.getEndSeeTime());
-					shopPo.setShipPort(farmersPo.getShipportName());
-					shopPo.setLatitude(farmersPo.getLatitude());
-					shopPo.setLongitude(farmersPo.getLongitude());
+					SeaRecordPo serecord = seaRecordDao.get(shopPo.getSeaRecordId());
+					shopPo.setPortTime(serecord.getEndSeeTime());
+					shopPo.setShipPort(serecord.getShipportName());
+					shopPo.setLatitude(serecord.getLatitude());
+					shopPo.setLongitude(serecord.getLongitude());
 				}
 			}
 			String getType = shopPo.getGetType();

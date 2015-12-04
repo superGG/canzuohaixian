@@ -27,11 +27,53 @@ public class HttpSeaRecordActionTest extends HttpBaseActionTest{
 				new StringPart("shopId", "1", "utf-8")
 				,new StringPart("startSeeTime", "2015-12-04 17:13:30", "utf-8")
 				,new StringPart("endSeeTime", "2015-12-05 17:13:30", "utf-8")
-				,new StringPart("shipportId", "1", "utf-8")
+				,new StringPart("shipportId", "1","utf-8")
 		};
 		String sendHttpRequest = sendHttpRequest(filePost, parts);
 		System.out.println(sendHttpRequest);
 	}
+    @Test
+    public void testAheadEndSeaing() {
+    	String targetURL = basePath
+    			+ "searecord_aheadEndSeaing.action";
+    	
+    	PostMethod filePost = new PostMethod(targetURL);
+    	
+    	Part[] parts = { 
+    			new StringPart("shopId", "1", "utf-8")
+    			,new StringPart("endSeeTime", "2015-12-08 17:13:30", "utf-8")
+    	};
+    	String sendHttpRequest = sendHttpRequest(filePost, parts);
+    	System.out.println(sendHttpRequest);
+    }
+    
+    @Test
+    public void testDelayEndSeaing() {
+    	String targetURL = basePath
+    			+ "searecord_delayEndSeaing.action";
+    	
+    	PostMethod filePost = new PostMethod(targetURL);
+    	
+    	Part[] parts = { 
+    			new StringPart("shopId", "1", "utf-8")
+    			,new StringPart("endSeeTime", "2015-12-10 17:13:30", "utf-8")
+    	};
+    	String sendHttpRequest = sendHttpRequest(filePost, parts);
+    	System.out.println(sendHttpRequest);
+    }
+    @Test
+    public void testBooleanEndSeaing() {
+    	String targetURL = basePath
+    			+ "searecord_booleanEndSeaing.action";
+    	
+    	PostMethod filePost = new PostMethod(targetURL);
+    	
+    	Part[] parts = { 
+    			new StringPart("shopId", "1", "utf-8")
+    	};
+    	String sendHttpRequest = sendHttpRequest(filePost, parts);
+    	System.out.println(sendHttpRequest);
+    }
     
     @Test
     public void testsdlfj(){
