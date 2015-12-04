@@ -1,7 +1,5 @@
 package com.earl.shopping.action;
 
-import java.io.File;
-
 import org.apache.struts2.StrutsSpringTestCase;
 import org.junit.Test;
 
@@ -54,9 +52,10 @@ public class FishmanActionTest extends StrutsSpringTestCase {
 	public void testAuthenticationFishman() throws Exception {
 		request.addParameter("userId", "1"); 
 		request.addParameter("fishmanId", "1"); 
-		File file = new File("D:/Favorites/test/QQ图片20150623221402.jpg");
-		request.addHeader("fishmanFileVo", file);
-		request.addHeader("fishmanFileVo", new File("D:/Favorites/test/test.jpg"));
+		request.addParameter("frontIdentityPhoto", "localhost:8081//bbb.jpg");
+		request.addParameter("backIdentityPhoto", "localhost:8081//bbb.jpg");
+		request.addParameter("seaPassPhoto", "localhost:8081//bbb.jpg");
+		request.addParameter("shipPhoto", "localhost:8081//bbb.jpg");
 		String res = executeAction("/fishman_authenticationFishman.action");
 
 		System.out.println(res);
