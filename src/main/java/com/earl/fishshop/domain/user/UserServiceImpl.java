@@ -233,6 +233,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 			model.setUserName(model.getPhoneNumber());
 			model.setHeadImage("user/aaa.jpg");
 			model.setPassword(SmsbaoHelper.Md5(model.getPassword()));
+			model.setUserType(MyConstant.user_normal);
 			userDao.save(model);
 			result = true;
 		} catch (Exception e) {
