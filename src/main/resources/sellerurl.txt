@@ -139,10 +139,36 @@ user_smsCodeOfRegister.action
 
 
 test-->success
-user_smsCodeOfRegister.action
-参数：用户手机phoneNumber
+user_addUser.action
+参数：用户手机phoneNumber 用户密码password 验证码verifyCode
 图片：2注册.jpg(注册)
 
+
+test-->success
+fishman_authenticationFishman.action
+参数：图片文件fishmanFile（按身份证正面、背面、船舶证、n张船照的顺序），用户id :userId
+图片：4认证为渔户.jpg
+
+test-->success
+farmers_authenticationFarmer.action
+参数：图片文件fishmanFile（按身份证正面、背面、n张养殖场照的顺序），用户id :userId
+图片：5认证为养殖户.jpg
+
+
+test-->success
+user_smsCodeOfFound.action
+参数：用户手机phoneNumber
+图片：6找回密码1.jpg(获取验证码)
+
+test-->success
+user_confirmSmsVerifyCode.action
+参数：用户手机phoneNumber 验证码verifyCode
+图片：6找回密码1.jpg(验证 验证码)
+
+test-->success
+user_findPassword.action
+参数：用户手机phoneNumber 用户密码password 
+图片：7找回密码2.jpg
 
 
 

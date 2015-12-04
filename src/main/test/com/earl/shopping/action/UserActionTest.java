@@ -64,7 +64,7 @@ public class UserActionTest extends StrutsSpringTestCase {
 	
 	@Test
 	public void testSmsCodeOfFound() throws Exception{
-		 request.addParameter("phoneNumber", "18320489492");
+		 request.addParameter("phoneNumber", "18320489592");
 	     String res=executeAction("/user_smsCodeOfFound.action");  
 	     System.out.println(res);
 	}

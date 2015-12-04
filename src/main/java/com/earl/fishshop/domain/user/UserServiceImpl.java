@@ -10,6 +10,10 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.domain.base.BaseServiceImpl;
+import com.earl.fishshop.domain.farmers.FarmersPo;
+import com.earl.fishshop.domain.fishman.FishmanPo;
+import com.earl.fishshop.domain.shop.ShopPo;
+import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.util.VerifyServiceUtil;
 import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.fishshop.vo.ResultMessage;
@@ -73,10 +77,25 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	 */
 	public ResultMessage userLogin(UserPo model) {
 		ResultMessage rs = new ResultMessage();
+		FishmanPo fishman = null;
+		FarmersPo farmer = null;
+		ShopPo shop = null;
+		
 		if (model.getPhoneNumber() != null) { // 用户使用手机登录
 			List<UserPo> userList = userDao.getUserByPhone(model
 					.getPhoneNumber());
 			rs = verifyPassword(userList, model.getPassword());
+			if (userList.get(0).getUserType()==MyConstant.user_fishman) { //登陆用户为渔户
+				fishman = fishmanDao.get(userList.get(0).getIdentityId());
+				shop = shopDao.get(fishman.getShopId());
+				rs.getResultParm().put("fishman", fishman);
+				rs.getResultParm().put("shop", shop);
+			} else if (userList.get(0).getUserType()==MyConstant.user_farmer){//登陆用户为养殖户
+				farmer = farmersDao.get(userList.get(0).getIdentityId());
+				shop = shopDao.get(farmer.getShopId());
+				rs.getResultParm().put("farmer", farmer);
+				rs.getResultParm().put("shop", shop);
+			}
 		} else {
 			rs.setResultInfo("验证失败");
 			rs.setServiceResult(false);
@@ -128,9 +147,10 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	 */
 	public ResultMessage verifyPassword(List<UserPo> userlist, String password) {
 		ResultMessage rs = new ResultMessage();
+		UserPo user = userlist.get(0);
 		String userPassword = SmsbaoHelper.Md5(password);
 		if (userlist.size() != 0) { // 根据用户输入查询所得用户信息.
-			if (userPassword.equals(userlist.get(0).getPassword())) { // 密码验证
+			if (userPassword.equals(user.getPassword())) { // 密码验证
 				rs.setServiceResult(true);
 				rs.setResultInfo("登陆成功");
 				Map<String, Object> hashMap = new HashMap<String, Object>();
