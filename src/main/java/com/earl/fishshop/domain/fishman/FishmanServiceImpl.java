@@ -15,6 +15,7 @@ import com.earl.fishshop.domain.gettype.GetTypeService;
 import com.earl.fishshop.domain.searecord.SeaRecordPo;
 import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.helper.JsonHelper;
+import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.util.FileUploadImpl;
 
@@ -76,9 +77,21 @@ public class FishmanServiceImpl extends BaseServiceImpl<FishmanPo> implements
 	}
 
 	@Override
-	public Boolean passAuthenticationFishman(Long userId) {
+	public Boolean passAuthenticationFishman(Long userId, FishmanPo model) {
 		try {
 			fishmanDao.passAuthenticationFishman(userId);
+			
+			String shopName = "渔户商店"+String.valueOf(userId);
+			ShopPo shop = new ShopPo();
+			shop.setUserId(userId);
+			shop.setShopName(shopName);
+			shop.setShopType(MyConstant.shop_fishman);
+			shop.setOnSell(false);
+			Long shopId = shopDao.addShop(shop); //添加新的商店
+			
+			FishmanPo fishman = get(model.getFishmanId());
+			fishman.setShopId(shopId);
+			fishmanDao.update(fishman);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

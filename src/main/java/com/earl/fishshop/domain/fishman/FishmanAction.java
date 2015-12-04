@@ -85,10 +85,15 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 * @author 宋文光.
 	 */
 	public void authenticationFishman() {
-		System.out.println("11111");
-		Boolean result = fishmanServer.authenticationFishman(userId, model,fishmanFile);
 		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(result);	
+		Boolean result = fishmanServer.authenticationFishman(userId, model,fishmanFile);
+		if(result) {
+			resultMessage.setResultInfo("认证发送成功");
+			resultMessage.setServiceResult(result);
+		} else {
+			resultMessage.setServiceResult(result);	
+			resultMessage.setResultInfo("认证发送失败");
+		}
 	}
 
 	/**
@@ -124,9 +129,17 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 * @author 宋文光.
 	 */
 	public void passAuthenticationFishman() {
-		Boolean result = fishmanServer.passAuthenticationFishman(userId);
 		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(result);
+		Boolean result = fishmanServer.passAuthenticationFishman(userId,model);
+		if (result) {
+			resultMessage.setResultInfo("成功通过认证");
+			resultMessage.setServiceResult(result);
+		} else {
+			resultMessage.setResultInfo("操作失败");
+			resultMessage.setServiceResult(result);
+		}
+		
+		
 	}
 
 	/**

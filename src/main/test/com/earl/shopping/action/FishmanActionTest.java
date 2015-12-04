@@ -76,6 +76,13 @@ public class FishmanActionTest extends StrutsSpringTestCase {
 		System.out.println(res);
 	}
 	
+	@Test
+	public void testPassAuthenticationFishman() throws Exception {
+		request.addParameter("shopId", "1"); 
+		String res = executeAction("/fishman_passAuthenticationFishman.action");
+
+		System.out.println(res);
+	}
 	
 	
 	

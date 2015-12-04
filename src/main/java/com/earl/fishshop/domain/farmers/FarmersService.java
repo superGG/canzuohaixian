@@ -31,9 +31,10 @@ public interface FarmersService extends BaseService<FarmersPo>{
 	 *  通过养殖户认证.
 	 *@author 宋文光.
 	 * @param userId
+	 * @param model 
 	 * @return
 	 */
-	Boolean passAuthenticationFarmers(Long userId);
+	Boolean passAuthenticationFarmers(Long userId, FarmersPo model);
 
 	/**
 	 * 不通过养殖认证.

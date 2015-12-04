@@ -14,6 +14,7 @@ import com.earl.fishshop.domain.base.BaseServiceImpl;
 import com.earl.fishshop.domain.gettype.GetTypeService;
 import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.helper.JsonHelper;
+import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.util.FileUploadImpl;
 
@@ -73,9 +74,21 @@ public class FarmersServiceImpl extends BaseServiceImpl<FarmersPo> implements
 	}
 
 	@Override
-	public Boolean passAuthenticationFarmers(Long userId) {
+	public Boolean passAuthenticationFarmers(Long userId,FarmersPo model) {
 		try {
 			farmersDao.passAuthenticationFarmers(userId);
+			
+			String shopName = "养殖户商店"+String.valueOf(userId);
+			ShopPo shop = new ShopPo();
+			shop.setUserId(userId);
+			shop.setShopName(shopName);
+			shop.setShopType(MyConstant.shop_farmerman);
+			shop.setOnSell(true);
+			Long shopId = shopDao.addShop(shop); //添加新的商店
+			
+			FarmersPo farmer = farmersDao.get(model.getFarmersId());
+			farmer.setShopId(shopId);
+			farmersDao.update(farmer);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
