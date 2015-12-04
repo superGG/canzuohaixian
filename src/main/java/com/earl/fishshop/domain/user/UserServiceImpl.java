@@ -85,12 +85,12 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 			UserPo user = userDao.getUserByPhone(model
 					.getPhoneNumber());
 			rs = verifyPassword(user, model.getPassword());
-			if (user.getUserType()==MyConstant.user_fishman) { //登陆用户为渔户
+			if (user.getUserType()==MyConstant.user_fishman && user.getState() == MyConstant.user_pass) { //登陆用户为渔户
 				fishman = fishmanDao.get(user.getIdentityId());
 				shop = shopDao.get(fishman.getShopId());
 				rs.getResultParm().put("fishman", fishman);
 				rs.getResultParm().put("shop", shop);
-			} else if (user.getUserType()==MyConstant.user_farmer){//登陆用户为养殖户
+			} else if (user.getUserType()==MyConstant.user_farmer && user.getState() == MyConstant.user_pass){//登陆用户为养殖户
 				farmer = farmersDao.get(user.getIdentityId());
 				shop = shopDao.get(farmer.getShopId());
 				rs.getResultParm().put("farmer", farmer);

@@ -30,9 +30,10 @@ public interface FishmanService extends BaseService<FishmanPo>{
 	 * 通过渔户认证.
 	 *@author 宋文光.
 	 * @param userId
+	 * @param model 
 	 * @return
 	 */
-	Boolean passAuthenticationFishman(Long userId);
+	Boolean passAuthenticationFishman(Long userId, FishmanPo model);
 
 	/**
 	 * 不通过渔户认证.

@@ -112,9 +112,14 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 	 *@author 宋文光.
 	 */
 	public void passAuthenticationFarmers() {
-		Boolean result = farmersServer.passAuthenticationFarmers(userId);
-		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(result);
+		Boolean result = farmersServer.passAuthenticationFarmers(userId,model);
+		if (result) {
+			resultMessage.setResultInfo("成功通过认证");
+			resultMessage.setServiceResult(result);
+		} else {
+			resultMessage.setResultInfo("操作失败");
+			resultMessage.setServiceResult(result);
+		}
 	}
 	
 	/**
