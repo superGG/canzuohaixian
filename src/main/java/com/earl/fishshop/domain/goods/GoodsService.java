@@ -16,7 +16,7 @@ public interface GoodsService extends BaseService<GoodsPo>{
 	 * @param goodsList TODO
 	 * @return
 	 */
-	Boolean updateGoodPrice(List goodsList);
+	Boolean updateGoodPrice(@SuppressWarnings("rawtypes") List goodsList);
 
 	/**
 	 * 修改商品数量.
@@ -24,7 +24,7 @@ public interface GoodsService extends BaseService<GoodsPo>{
 	 * @param goodsList TODO
 	 * @return
 	 */
-	Boolean updateGoodNowNumber(List<GoodsPo> goodsList);
+	Boolean updateGoodNowNumber(@SuppressWarnings("rawtypes") List goodsList);
 
 	/**
 	 * 通过商品类别得到指定商品.

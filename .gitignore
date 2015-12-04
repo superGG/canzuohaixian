@@ -13,7 +13,7 @@ bin-release/
 
 *.class
 
-.classPath
+.classpath
 
 *.pom
 
@@ -24,4 +24,5 @@ target/*
 *.log
 .project
 
-target/*/*/*/*/*/pom.properties
+target/
+WEB-INF/

@@ -10,6 +10,7 @@ import java.util.Map;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import com.pingplusplus.Pingpp;
 import com.pingplusplus.exception.PingppException;
 import com.pingplusplus.model.Charge;
 
@@ -23,11 +24,17 @@ public class PayChargeUtil {
 	/**
 	 * pingpp 管理平台对应的 API key
 	 */
-	public static String apiKey = "sk_test_T04yj18Kezv1LG408S0C0mrTk";
+//	sk_test_T04yj18Kezv1LG408S0C0mrT
+	
+//	public static String apiKey = "sk_test_CWj5mHjTy5qH5qL800PunP8K";
 	/**
 	 * pingpp 管理平台对应的应用 ID
 	 */
-	public static String appId = "app_fT8aTCzvnr1OLyT0k";
+	public static String appId = "app_e9a5m9rnPWz50arv";
+	
+	static{
+		Pingpp.apiKey = "sk_test_CWj5mHjTy5qH5qL800PunP8K";
+	}
 	
 	static Logger logger = LogManager.getLogger(PayChargeUtil.class);
 
@@ -44,6 +51,7 @@ public class PayChargeUtil {
 	 * @return
 	     */
 	    public static Charge charge(Long ordersId, Long totalPrice, String payWay, String goodsName, String describe) {
+	    	
 	        Charge charge = null;
 	        Map<String, Object> chargeMap = new HashMap<String, Object>();
 	        chargeMap.put("amount", totalPrice);//required 订单总金额, 单位为对应币种的最小货币单位，例如：人民币为分（如订单总金额为 1 元，此处请填 100）。

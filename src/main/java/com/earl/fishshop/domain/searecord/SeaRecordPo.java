@@ -42,6 +42,8 @@ public class SeaRecordPo{
 	 */
 	private Integer state ;
 	
+	private Long shipportId;
+	
 	/**
 	 * 字段描述：String 
 	 * 字段类型：shipportName  
@@ -58,7 +60,7 @@ public class SeaRecordPo{
 	 * 字段描述：Double 
 	 * 字段类型：latitude  
 	 */
-	private Double latitude ;
+	private Double latitude;
 	
 	/**
 	 * 字段描述：Date 
@@ -87,6 +89,12 @@ public class SeaRecordPo{
 	public String getShipportName() {
 		return shipportName;
 	}
+	public Long getShipportId() {
+		return shipportId;
+	}
+	public void setShipportId(Long shipportId) {
+		this.shipportId = shipportId;
+	}
 	public void setShipportName(String shipportName) {
 		this.shipportName = shipportName;
 	}
@@ -114,17 +122,17 @@ public class SeaRecordPo{
 	public Long getShopId() {
 		return this.shopId;
 	}
-	public void setStartSeeTime(Date startSeeTime){
+	public Date getStartSeeTime() {
+		return startSeeTime;
+	}
+	public void setStartSeeTime(Date startSeeTime) {
 		this.startSeeTime = startSeeTime;
 	}
-	public Date getStartSeeTime() {
-		return this.startSeeTime;
-	}
-	public void setEndSeeTime(Date endSeeTime){
-		this.endSeeTime = endSeeTime;
-	}
 	public Date getEndSeeTime() {
-		return this.endSeeTime;
+		return endSeeTime;
+	}
+	public void setEndSeeTime(Date endSeeTime) {
+		this.endSeeTime = endSeeTime;
 	}
 	public void setSpendDay(Integer spendDay){
 		this.spendDay = spendDay;

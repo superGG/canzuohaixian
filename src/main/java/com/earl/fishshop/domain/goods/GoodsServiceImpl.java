@@ -34,7 +34,7 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 	}
 
 	@Override
-	public Boolean updateGoodPrice(List goodsList) {
+	public Boolean updateGoodPrice(@SuppressWarnings("rawtypes") List goodsList) {
 		try {
 			goodsDao.updateGoodPrice(goodsList);
 			return true;
@@ -45,7 +45,7 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 	}
 
 	@Override
-	public Boolean updateGoodNowNumber(List<GoodsPo> goodsList) {
+	public Boolean updateGoodNowNumber(@SuppressWarnings("rawtypes") List goodsList) {
 		try {
 			goodsDao.updateGoodNowNumber(goodsList);
 			return true;

@@ -27,6 +27,7 @@ public class GoodsDaoImpl extends BaseDaoImpl<GoodsPo> implements GoodsDao {
 	@Override
 	public void updateGoodPrice(@SuppressWarnings("rawtypes") List goodsList) {
 		for (Object object : goodsList) {
+			@SuppressWarnings("rawtypes")
 			LinkedTreeMap goods = (LinkedTreeMap) object;
 			Double object2 = (Double) goods.get("goodsId");
 			Double object3 = (Double) goods.get("price");
@@ -37,10 +38,14 @@ public class GoodsDaoImpl extends BaseDaoImpl<GoodsPo> implements GoodsDao {
 	}
 
 	@Override
-	public void updateGoodNowNumber(List<GoodsPo> goodsList) {
-		for (GoodsPo goodsPo : goodsList) {
+	public void updateGoodNowNumber(@SuppressWarnings("rawtypes") List goodsList) {
+		for (Object goodsPo : goodsList) {
+			@SuppressWarnings("rawtypes")
+			LinkedTreeMap goods = (LinkedTreeMap) goodsPo;
+			Double object2 = (Double) goods.get("goodsId");
+			Double object3 = (Double) goods.get("nowNumber");
 		String hql = "update GoodsPo set nowNumber =:nowNumber where goodsId =:goodsId";
-		getCurrentSession().createQuery(hql).setLong("goodsId",goodsPo.getGoodsId()).setDouble("nowNumber", goodsPo.getNowNumber()).executeUpdate();
+		getCurrentSession().createQuery(hql).setLong("goodsId",object2.longValue()).setDouble("nowNumber", object3).executeUpdate();
 		}
 	}
 

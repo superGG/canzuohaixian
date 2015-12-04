@@ -128,6 +128,9 @@ public final class JsonHelper {
         String json = null;
 
         Gson gson = new Gson();
+        //TODO 以后要改成下面的方式
+//        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+//        new GsonBuilder().registerTypeAdapter(Timestamp.class,new TimestampTypeAdapter()).setDateFormat("yyyy-MM-dd HH:mm:ss").create();
         json = gson.toJson(obj);
 
         logger.debug("退出toJson方法");

@@ -30,6 +30,7 @@ public class SeaRecordDaoImpl extends BaseDaoImpl<SeaRecordPo> implements SeaRec
 		ShopPo shop= (ShopPo) getCurrentSession().get(ShopPo.class, shopId);
 		SeaRecordPo seaRecordPo = get(shop.getSeaRecordId());
 		seaRecordPo.setEndSeeTime(endSeeTime);
+		seaRecordPo.setState(MyConstant.searecord_ahead);
 		shop.setOnSell(MyConstant.shop_notOnSell);
 		shop.setSeaRecordId(null);
 		getCurrentSession().update(shop);
@@ -43,6 +44,7 @@ public class SeaRecordDaoImpl extends BaseDaoImpl<SeaRecordPo> implements SeaRec
 		ShopPo shop= (ShopPo) getCurrentSession().get(ShopPo.class, shopId);
 		SeaRecordPo seaRecordPo = get(shop.getSeaRecordId());
 		seaRecordPo.setEndSeeTime(endSeeTime);
+		seaRecordPo.setState(MyConstant.searecord_delay);
 		getCurrentSession().update(seaRecordPo);
 	}
 
