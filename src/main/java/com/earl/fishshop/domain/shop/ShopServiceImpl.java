@@ -70,6 +70,7 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 				model.setLatitude(farmers.getLatitude());
 				model.setShopType(MyConstant.shop_farmerman);
 				model.setOnSell(MyConstant.shop_onSell);
+				model.setShopType(MyConstant.shop_farmerman);
 				Long shopId = shopDao.addShop(model);
 				farmers.setShopId(shopId);
 				farmersDao.update(farmers);
@@ -77,6 +78,7 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 				FishmanPo fishman = fishmanDao.get(userPo.getIdentityId());
 				model.setShopType(MyConstant.shop_fishman);
 				model.setGetType(String.valueOf(fishman.getGetType()));
+				model.setShopType(MyConstant.shop_fishman);
 				model.setOnSell(MyConstant.shop_notOnSell);
 				Long shopId = shopDao.addShop(model);
 				fishman.setShopId(shopId);
@@ -94,7 +96,7 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 		// TODO 未测试.
 		try {
 			ShopPo shopPo = shopDao.get(shopId);
-			shopPo.setOnSell(false);
+			shopPo.setOnSell(MyConstant.shop_notOnSell);
 			shopPo.setSeaRecordId(null);
 			shopDao.update(shopPo);
 			return true;

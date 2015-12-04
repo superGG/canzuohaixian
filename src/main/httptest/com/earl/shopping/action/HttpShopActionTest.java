@@ -8,10 +8,7 @@ import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
 import org.junit.Test;
 
-public class HttpShopActionTest extends BaseActionTest {
-
-	private String basePath = "http://192.168.1.111:8080"+"/fishshop/";
-//	 private String basePath = "http://www.earltech.cn:8080"+"/fishshop/";
+public class HttpShopActionTest extends HttpBaseActionTest {
 
 	@Test
 	public void testGetShopCommentInfo() {
@@ -44,6 +41,24 @@ public class HttpShopActionTest extends BaseActionTest {
 		needCheckParam.add("categoryId");
 		
 		normalListAssert(sendHttpRequest, needCheckParam, "categoryList");
+	}
+	@Test
+	public void testGetPointCategoryGoodsInfo() {
+		String targetURL = basePath + "shop_getPointCategoryGoodsInfo.action";
+		//----------------请求代码
+		PostMethod filePost = new PostMethod(targetURL);
+		Part[] parts = { new StringPart("shopId", "2", "utf-8")
+				,new StringPart("categoryId", "7", "utf-8")
+		};
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+		//-----------------测试代码
+		List<String> needCheckParam = new ArrayList<String>();
+		needCheckParam.add("fishPhoto");
+		needCheckParam.add("totalNowNumber");
+		needCheckParam.add("categoryId");
+		
+//		normalListAssert(sendHttpRequest, needCheckParam, "categoryList");
 	}
 
 

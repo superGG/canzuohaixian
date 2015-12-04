@@ -8,13 +8,13 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 
 import com.earl.fishshop.domain.base.BaseDaoImpl;
 import com.earl.fishshop.domain.category.CategoryPo;
 import com.earl.fishshop.domain.sku.SkuPo;
 import com.earl.fishshop.vo.PageInfo;
+import com.google.gson.internal.LinkedTreeMap;
 
 
 /**
@@ -25,18 +25,27 @@ import com.earl.fishshop.vo.PageInfo;
 public class GoodsDaoImpl extends BaseDaoImpl<GoodsPo> implements GoodsDao {
 
 	@Override
-	public void updateGoodPrice(List<GoodsPo> goodsList) {
-		for (GoodsPo goodsPo : goodsList) {
+	public void updateGoodPrice(@SuppressWarnings("rawtypes") List goodsList) {
+		for (Object object : goodsList) {
+			@SuppressWarnings("rawtypes")
+			LinkedTreeMap goods = (LinkedTreeMap) object;
+			Double object2 = (Double) goods.get("goodsId");
+			Double object3 = (Double) goods.get("price");
 			String hql = "update GoodsPo set price =:price where goodsId =:goodsId";
-			getCurrentSession().createQuery(hql).setLong("goodsId", goodsPo.getGoodsId()).setDouble("price", goodsPo.getPrice()).executeUpdate();
+			getCurrentSession().createQuery(hql).setLong("goodsId", object2.longValue()).setDouble("price", object3).executeUpdate();
+			
 		}
 	}
 
 	@Override
-	public void updateGoodNowNumber(List<GoodsPo> goodsList) {
-		for (GoodsPo goodsPo : goodsList) {
+	public void updateGoodNowNumber(@SuppressWarnings("rawtypes") List goodsList) {
+		for (Object goodsPo : goodsList) {
+			@SuppressWarnings("rawtypes")
+			LinkedTreeMap goods = (LinkedTreeMap) goodsPo;
+			Double object2 = (Double) goods.get("goodsId");
+			Double object3 = (Double) goods.get("nowNumber");
 		String hql = "update GoodsPo set nowNumber =:nowNumber where goodsId =:goodsId";
-		getCurrentSession().createQuery(hql).setLong("goodsId",goodsPo.getGoodsId()).setDouble("nowNumber", goodsPo.getNowNumber()).executeUpdate();
+		getCurrentSession().createQuery(hql).setLong("goodsId",object2.longValue()).setDouble("nowNumber", object3).executeUpdate();
 		}
 	}
 
@@ -104,9 +113,10 @@ public class GoodsDaoImpl extends BaseDaoImpl<GoodsPo> implements GoodsDao {
 		List<GoodsPo> list = getCurrentSession().createQuery(hql).setLong("shopId", shopId).setLong("categoryId", categoryId).list();
 		ArrayList<SkuPo> arrayList = new ArrayList<SkuPo>();
 		for (GoodsPo goodsPo : list) {
-			SkuPo skuPo = new SkuPo();
-			BeanUtils.copyProperties(goodsPo, skuPo);
-			arrayList.add(skuPo);
+			SkuPo object = (SkuPo) getCurrentSession().get(SkuPo.class, goodsPo.getSku());
+			object.setPrice(goodsPo.getPrice());
+			object.setGoodsId(goodsPo.getGoodsId());
+			arrayList.add(object);
 		}
 		return arrayList;
 	}

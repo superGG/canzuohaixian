@@ -21,8 +21,11 @@ import com.google.gson.internal.LinkedTreeMap;
  * @date:2015-11-24 下午12:26:17
  * @version :
  */
-public class BaseActionTest {
+public class HttpBaseActionTest {
 
+//	String basePath = "http://www.earltech.cn:8080/fishshop/";
+	String basePath = "http://192.168.1.111:8080/fishshop/";
+	
 	public String sendHttpRequest(PostMethod filePost, Part[] parts) {
 		String string = null;
 		try {

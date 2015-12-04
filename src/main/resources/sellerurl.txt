@@ -32,25 +32,33 @@ category_addGoods.action
 	categoryFile.file 文件对象: new File("xxx");
 图片：1发布商品-添加鱼货4.jpg
 
+test-->success
 shop_getPointCategoryGoodsInfo.action
 参数：shopId
 	categoryId
 图片：5鱼货详情-出港状态.jpg
 
+test-->success
 goods_updateGoodPrice.action
-参数：
+参数： goodsList : [{\"goodsId\":1,\"price\":366.5},{\"goodsId\":4,\"price\":336.5}]
 图片：7鱼货详情-修改价格.jpg
 
+test-->success
 goods_updateGoodNowNumber.action
-参数：
+参数：goodsList : [{\"goodsId\":1,\"nowNumber\":34},{\"goodsId\":4,\"nowNumber\":55}]
 图片：6鱼货详情-更新产量.jpg
 
+test--success
 orders_setOrderNumber.action
 参数：ordersId    订单编号
 	orderNumber 订单快递编号
 图片：7商品订单-发货.jpg
 
 searecord_addSeaRecord.action
+参数 ：shopId : 1
+	startSeeTime : 2015-12-04 17:13:30
+	endSeeTime : 2015-12-05 17:13:30
+	shipportId : 1 //港口id,到时候选择港口
 图片：3发布商品-是否出港.jpg ，备注，改设计图不完善，
 
 searecord_aheadEndSeaing.action
@@ -108,17 +116,7 @@ orders_realSendOrders.action
 orders_realGetOrders.action
 
 
-
-
-
-
-
-
-
-
-
-
-
+----------------------------------------------
 
 
 test-->success
@@ -169,8 +167,6 @@ test-->success
 user_findPassword.action
 参数：用户手机phoneNumber 用户密码password 
 图片：7找回密码2.jpg
-
-
 
 
 

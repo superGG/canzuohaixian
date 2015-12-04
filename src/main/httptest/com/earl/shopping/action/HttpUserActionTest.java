@@ -1,17 +1,17 @@
 package com.earl.shopping.action;
 
 import java.io.File;
-import java.util.ArrayList;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.methods.multipart.Part;
+import org.apache.commons.httpclient.methods.multipart.StringPart;
 import org.apache.commons.httpclient.params.HttpMethodParams;
+import org.junit.Test;
 
-import com.earl.fishshop.helper.JsonHelper;
-
-public class UserActionTest2 {
+public class HttpUserActionTest extends HttpBaseActionTest{
 
 	 @SuppressWarnings("unused")
 	private File targetFile;
@@ -41,16 +41,20 @@ public class UserActionTest2 {
                     filePost.releaseConnection();
                 }
         }
-	
-   public static void main(String[] args) {
-//   	new UserActionTest2().dod();
-	   
-	   ArrayList<String> arrayList = new ArrayList<String>();
-	   arrayList.add("user/aaa.jpg");
-	   arrayList.add("user/bbb.jpg");
-	   arrayList.add("user/ccc.jpg");
-	   String json = JsonHelper.toJson(arrayList);
-	   System.out.println(json);
-   }
-      
+    
+    @Test
+	public void testUserLogin() {
+		String targetURL = basePath
+				+ "user_userLogin.action";
+
+		PostMethod filePost = new PostMethod(targetURL);
+
+		Part[] parts = { 
+				new StringPart("phoneNumber", "13763012723", "utf-8")
+				,new StringPart("userName", "1", "utf-8")
+				,new StringPart("password", "123456", "utf-8")
+		};
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+	}
 }

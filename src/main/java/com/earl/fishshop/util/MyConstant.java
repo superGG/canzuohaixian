@@ -113,6 +113,32 @@ public class MyConstant {
 	 */
 	public static final Integer comment_anonymity = 1;
 
-//	public static final Integer category_
+	/**
+	 * 养殖类的类别
+	 */
+	public static final Integer category_breed = 0;
+	/**
+	 * 野生类的类别
+	 */
+	public static final Integer category_wild = 1;
 	
+	/**
+	 * 正在出航.
+	 */
+	public static final Integer searecord_seaing = 0;
+	
+	/**
+	 * 延迟出航.
+	 */
+	public static final Integer searecord_delay = 1;
+	
+	/**
+	 * 准时到岸.
+	 */
+	public static final Integer searecord_ontime = 2;
+	
+	/**
+	 * 提前到港.
+	 */
+	public static final Integer searecord_ahead = 3;
 }

@@ -1,5 +1,6 @@
 package com.earl.fishshop.domain.searecord;
 
+
 import java.util.Date;
 
 import com.earl.fishshop.domain.base.BaseService;

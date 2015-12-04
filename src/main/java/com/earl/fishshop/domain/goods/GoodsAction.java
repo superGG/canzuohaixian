@@ -86,6 +86,11 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 		Boolean success = goodsServer.updateGoodNowNumber(goodsList);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(success);
+		if(success){
+			resultMessage.setResultInfo("操作成功");
+		}else{
+			resultMessage.setResultInfo("操作失败");
+		}
 	}
 	
 	/**

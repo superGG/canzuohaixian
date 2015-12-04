@@ -196,7 +196,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void payForOrdersWithAlipay(){
-		Charge charge = ordersServer.payForOrders(payOrdersId, channel);
+		Charge charge = ordersServer.payForOrders(model.getOrdersId(), channel);
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("charge", charge);
 		resultMessage = new ResultMessage();

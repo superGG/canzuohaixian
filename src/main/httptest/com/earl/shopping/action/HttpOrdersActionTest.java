@@ -11,18 +11,15 @@ import org.junit.Test;
 import com.earl.fishshop.helper.JsonHelper;
 import com.earl.fishshop.vo.ResultMessage;
 
-public class HttpOrdersActionTest extends BaseActionTest{
+public class HttpOrdersActionTest extends HttpBaseActionTest{
 
 	@SuppressWarnings("unused")
 	private File targetFile;
 
-	private String bastPath = "http://192.168.1.111:8080/fishshop/";
-//	private String bastPath = "http://www.earltech.cn:8080";
-	
 //	@Ignore
 	@Test
 	public void testAddOrders(){
-		String targetURL = bastPath+"/fishshop/orders_addOrders.action";
+		String targetURL = basePath+"/fishshop/orders_addOrders.action";
 		targetFile = new File(
 				"C:/Users/Administrator/Desktop/SpringMVC.jpg.png");
 
@@ -56,7 +53,7 @@ public class HttpOrdersActionTest extends BaseActionTest{
 
 	@Test
 	public void testGetMyShopOrders(){
-		String targetURL = bastPath + "/fishshop/orders_getMyShopOrders.action";
+		String targetURL = basePath + "/fishshop/orders_getMyShopOrders.action";
 		PostMethod filePost = new PostMethod(targetURL);
 		
 		Part[] parts = { 
@@ -71,7 +68,7 @@ public class HttpOrdersActionTest extends BaseActionTest{
 
 	@Test
 		public void testGetAllUserOrders(){
-			String targetURL = bastPath + "/fishshop/orders_getAllUserOrders.action";
+			String targetURL = basePath + "/fishshop/orders_getAllUserOrders.action";
 			PostMethod filePost = new PostMethod(targetURL);
 			
 			Part[] parts = { 
@@ -84,7 +81,7 @@ public class HttpOrdersActionTest extends BaseActionTest{
 		}
 	@Test
 	public void testGetUnSentOrders(){
-		String targetURL = bastPath + "/fishshop/orders_getUnSentOrders.action";
+		String targetURL = basePath + "/fishshop/orders_getUnSentOrders.action";
 		PostMethod filePost = new PostMethod(targetURL);
 		
 		Part[] parts = { 
@@ -98,7 +95,7 @@ public class HttpOrdersActionTest extends BaseActionTest{
 	
 	@Test
 	public void testGetUnPayOrders(){
-		String targetURL = bastPath + "/fishshop/orders_getUnPayOrders.action";
+		String targetURL = basePath + "/fishshop/orders_getUnPayOrders.action";
 		PostMethod filePost = new PostMethod(targetURL);
 		
 		Part[] parts = { 
@@ -112,7 +109,7 @@ public class HttpOrdersActionTest extends BaseActionTest{
 	
 	@Test
 	public void testGetUngetOrders(){
-		String targetURL = bastPath + "/fishshop/orders_getUngetOrders.action";
+		String targetURL = basePath + "/fishshop/orders_getUngetOrders.action";
 		PostMethod filePost = new PostMethod(targetURL);
 		
 		Part[] parts = { 
@@ -126,7 +123,7 @@ public class HttpOrdersActionTest extends BaseActionTest{
 	
 	@Test
 	public void testGetUnCommentOrders(){
-		String targetURL = bastPath + "/fishshop/orders_getUnCommentOrders.action";
+		String targetURL = basePath + "/fishshop/orders_getUnCommentOrders.action";
 		PostMethod filePost = new PostMethod(targetURL);
 		
 		Part[] parts = { 
@@ -140,7 +137,7 @@ public class HttpOrdersActionTest extends BaseActionTest{
 	
 	@Test
 	public void testGetOrdersWithSeaRecord(){
-		String targetURL = bastPath + "/fishshop/orders_getOrdersWithSeaRecord.action";
+		String targetURL = basePath + "/fishshop/orders_getOrdersWithSeaRecord.action";
 		PostMethod filePost = new PostMethod(targetURL);
 		
 		Part[] parts = { 
@@ -155,7 +152,7 @@ public class HttpOrdersActionTest extends BaseActionTest{
 
 	@Test
 	public void testGetPointOrders(){
-		String targetURL = bastPath + "/fishshop/orders_getPointOrders.action";
+		String targetURL = basePath + "/fishshop/orders_getPointOrders.action";
 		PostMethod filePost = new PostMethod(targetURL);
 		
 		Part[] parts = { 

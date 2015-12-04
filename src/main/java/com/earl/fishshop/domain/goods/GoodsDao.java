@@ -14,14 +14,14 @@ public interface GoodsDao extends BaseDao<GoodsPo>{
 	 * @author 黄祥谦.
 	 * @param goodsList TODO
 	 */
-	void updateGoodPrice(List<GoodsPo> goodsList);
+	void updateGoodPrice(@SuppressWarnings("rawtypes") List goodsList);
 
 	/**
 	 * 更新商品数量.
 	 * @author 黄祥谦.
 	 * @param goodsList TODO
 	 */
-	void updateGoodNowNumber(List<GoodsPo> goodsList);
+	void updateGoodNowNumber(@SuppressWarnings("rawtypes") List goodsList);
 
 	/**
 	 * 得到商家指定类别的商品.

@@ -216,84 +216,79 @@ public class UserAction extends BaseAction<UserPo> {
 		resultMessage.setServiceResult(true);
 	}
 
-	/**
-	 * 在注册时发送验证码到手机.
-	 * 
-	 * @throws Exception
-	 * @author 宋文光
-	 * @throws java.lang.Exception
-	 */
-	public final void smsCodeOfRegister() throws java.lang.Exception {
-		resultMessage = userServer.smsCodeOfRegister(model);
-		System.out.println("验证码：" + resultMessage.getResultInfo());
-		if (resultMessage.getServiceResult()) {
-			verifyCodePo = new VerifyCodePo();
-			verifyCodePo.setVerifyCode(resultMessage.getResultInfo());
-			verifyCodePo.setPhoneNumber(model.getPhoneNumber());
-			verifyCodeServer.saveVerifyCode(verifyCodePo);
-			resultMessage.setResultInfo("发送成功");
-		}
-	}
-
-	/**
-	 * 在找回密码时发送验证码到手机.
-	 * 
-	 * @throws Exception
-	 * @author 宋文光
-	 * @throws java.lang.Exception
-	 */
-	public final void smsCodeOfFound() throws java.lang.Exception {
-		resultMessage = userServer.smsCodefindPassWord(model.getPhoneNumber());
-		System.out.println("验证码：" + resultMessage.getResultInfo());
-		if (resultMessage.getServiceResult()) {
-			verifyCodePo = new VerifyCodePo();
-			verifyCodePo.setVerifyCode(resultMessage.getResultInfo());
-			verifyCodePo.setPhoneNumber(model.getPhoneNumber());
-			verifyCodeServer.saveVerifyCode(verifyCodePo);
-			resultMessage.setResultInfo("发送成功");
-		}
-	}
-
-	/**
-	 * 验证输入手机验证码.
-	 * 
-	 * @author 宋文光
-	 */
-	public void confirmSmsVerifyCode() {
-		verifyServiceUtil = new VerifyServiceUtil();
-		resultMessage = new ResultMessage();
-		String SmsVf = verifyCodeServer.getVerifyCode(model.getPhoneNumber());
-		Boolean result = verifyServiceUtil.confirmImgVerifyCode(SmsVf,
-				verifyCode);
-		if (result) {
-			resultMessage.setServiceResult(result);
-			resultMessage.setResultInfo("验证成功");
-		} else {
-			resultMessage.setServiceResult(result);
-			resultMessage.setResultInfo("验证码错误");
-		}
-	}
-
-	/**
-	 * 找回密码时修改密码.
-	 * 
-	 * @author 宋文光.
-	 */
-	public void findPassword() {
-		resultMessage = new ResultMessage();
-		UserPo userPo = userServer.getUserByPhone(model.getPhoneNumber())
-				.get(0);
-		String newPassword = SmsbaoHelper.Md5(model.getPassword());// 加密
-		userPo.setPassword(newPassword);
-		Boolean update = userServer.update(userPo);
-		if (update) {
-			resultMessage.setServiceResult(update);
-			resultMessage.setResultInfo("更新成功");
-		} else {
-			resultMessage.setServiceResult(update);
-			resultMessage.setResultInfo("更新失败");
-		}
-	}
+	
+	 /**
+     * 在注册时发送验证码到手机.
+     * @throws Exception 
+     * @author 宋文光
+     * @throws java.lang.Exception 
+     */
+    public final void smsCodeOfRegister() throws java.lang.Exception {
+    	resultMessage = userServer.smsCodeOfRegister(model);
+    	System.out.println("验证码："+ resultMessage.getResultInfo());
+    	if (resultMessage.getServiceResult()) {
+    		verifyCodePo = new VerifyCodePo();
+    		verifyCodePo.setVerifyCode(resultMessage.getResultInfo());
+    		verifyCodePo.setPhoneNumber(model.getPhoneNumber());
+    		verifyCodeServer.saveVerifyCode(verifyCodePo);
+    		resultMessage.setResultInfo("发送成功");
+    	} 
+    }
+    
+    /**
+     * 在找回密码时发送验证码到手机.
+     * @throws Exception 
+     * @author 宋文光
+     * @throws java.lang.Exception 
+     */
+    public final void smsCodeOfFound() throws java.lang.Exception  {
+    	resultMessage = userServer.smsCodefindPassWord(model.getPhoneNumber());
+    	System.out.println("验证码："+ resultMessage.getResultInfo());
+    	if (resultMessage.getServiceResult()) {
+    		verifyCodePo = new VerifyCodePo();
+    		verifyCodePo.setVerifyCode(resultMessage.getResultInfo());
+    		verifyCodePo.setPhoneNumber(model.getPhoneNumber());
+    		verifyCodeServer.saveVerifyCode(verifyCodePo);
+    		resultMessage.setResultInfo("发送成功");
+    	} 
+    }
+    
+    /**
+     * 验证输入手机验证码.
+     * @author 宋文光
+     */
+    public void confirmSmsVerifyCode() {
+    	verifyServiceUtil =  new VerifyServiceUtil();
+    	resultMessage = new ResultMessage();
+    	String SmsVf = verifyCodeServer.getVerifyCode(model.getPhoneNumber());
+    	Boolean result = verifyServiceUtil.confirmImgVerifyCode(SmsVf , verifyCode);
+    	if ( result ) {
+    		resultMessage.setServiceResult(result);
+    		resultMessage.setResultInfo("验证成功");
+    	} else {
+    		resultMessage.setServiceResult(result);
+    		resultMessage.setResultInfo("验证码错误");
+    	}
+    }
+    
+    /**
+     * 找回密码时修改密码.
+     * @author 宋文光.
+     */
+    public void findPassword() {
+    	resultMessage = new ResultMessage();
+    	UserPo userPo  = userServer.getUserByPhone(model.getPhoneNumber());
+    	String newPassword = SmsbaoHelper.Md5(model.getPassword());//加密
+    	userPo.setPassword(newPassword);
+    	Boolean update = userServer.update(userPo);
+    	if(update){
+    		resultMessage.setServiceResult(update);
+    		resultMessage.setResultInfo("更新成功");
+    	} else {
+    		resultMessage.setServiceResult(update);
+    		resultMessage.setResultInfo("更新失败");
+    	}
+    }
 
 	/**
 	 * 拉黑用户.

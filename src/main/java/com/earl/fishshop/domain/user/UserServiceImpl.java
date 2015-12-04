@@ -51,8 +51,8 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	 * @return
 	 */
 	@Override
-	public List<UserPo> getUserByPhone(String phoneNumber) {
-		List<UserPo> userList = userDao.getUserByPhone(phoneNumber);
+	public UserPo getUserByPhone(String phoneNumber) {
+		UserPo userList = userDao.getUserByPhone(phoneNumber);
 		return userList;
 	}
 
@@ -82,16 +82,16 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 		ShopPo shop = null;
 		
 		if (model.getPhoneNumber() != null) { // 用户使用手机登录
-			List<UserPo> userList = userDao.getUserByPhone(model
+			UserPo user = userDao.getUserByPhone(model
 					.getPhoneNumber());
-			rs = verifyPassword(userList, model.getPassword());
-			if (userList.get(0).getUserType()==MyConstant.user_fishman) { //登陆用户为渔户
-				fishman = fishmanDao.get(userList.get(0).getIdentityId());
+			rs = verifyPassword(user, model.getPassword());
+			if (user.getUserType()==MyConstant.user_fishman) { //登陆用户为渔户
+				fishman = fishmanDao.get(user.getIdentityId());
 				shop = shopDao.get(fishman.getShopId());
 				rs.getResultParm().put("fishman", fishman);
 				rs.getResultParm().put("shop", shop);
-			} else if (userList.get(0).getUserType()==MyConstant.user_farmer){//登陆用户为养殖户
-				farmer = farmersDao.get(userList.get(0).getIdentityId());
+			} else if (user.getUserType()==MyConstant.user_farmer){//登陆用户为养殖户
+				farmer = farmersDao.get(user.getIdentityId());
 				shop = shopDao.get(farmer.getShopId());
 				rs.getResultParm().put("farmer", farmer);
 				rs.getResultParm().put("shop", shop);
@@ -145,16 +145,15 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	 *            用户输入密码.
 	 * @return
 	 */
-	public ResultMessage verifyPassword(List<UserPo> userlist, String password) {
+	public ResultMessage verifyPassword(UserPo user, String password) {
 		ResultMessage rs = new ResultMessage();
-		UserPo user = userlist.get(0);
 		String userPassword = SmsbaoHelper.Md5(password);
-		if (userlist.size() != 0) { // 根据用户输入查询所得用户信息.
+		if (user != null) { // 根据用户输入查询所得用户信息.
 			if (userPassword.equals(user.getPassword())) { // 密码验证
 				rs.setServiceResult(true);
 				rs.setResultInfo("登陆成功");
 				Map<String, Object> hashMap = new HashMap<String, Object>();
-				hashMap.put("user", userlist);
+				hashMap.put("user", user);
 				rs.setResultParm(hashMap);
 			} else {
 				rs.setResultInfo("密码错误");
@@ -182,8 +181,8 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 		ResultMessage rs = new ResultMessage();
 		verifyServiceUtil = new VerifyServiceUtil();
 		if (userPhone != null) {
-			List<UserPo> userList = userDao.getUserByPhone(userPhone);
-			if (userList.size() != 0) {
+			UserPo user = userDao.getUserByPhone(userPhone);
+			if (user != null) {
 				rs = verifyServiceUtil.sendMobileVerifyCode(userPhone);
 			} else {
 				rs.setResultInfo("该手机无注册用户");
@@ -211,9 +210,9 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 
 		if (model.getPhoneNumber() != null) {
 			// 检测注册手机是否被注册
-			List<UserPo> userList = userDao.getUserByPhone(model
+			UserPo userList = userDao.getUserByPhone(model
 					.getPhoneNumber());
-			if (userList.size() == 0) {
+			if (userList == null) {
 				rs = verifyServiceUtil.sendMobileVerifyCode(model
 						.getPhoneNumber());
 			} else {

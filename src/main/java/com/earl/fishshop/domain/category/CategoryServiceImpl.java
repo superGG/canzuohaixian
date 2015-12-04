@@ -91,11 +91,13 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 			UserPo userPo = userDao.get(shopPo.getUserId());
 			if(userPo.getUserType() == MyConstant.user_farmer){
 			}else if(userPo.getUserType() == MyConstant.user_fishman){
-				SeaRecordPo farmersPo = seaRecordDao.get(shopPo.getSeaRecordId());
-				shopPo.setPortTime(farmersPo.getEndSeeTime());
-				shopPo.setShipPort(farmersPo.getShipportName());
-				shopPo.setLatitude(farmersPo.getLatitude());
-				shopPo.setLongitude(farmersPo.getLongitude());
+				if(shopPo.getSeaRecordId() != null){
+					SeaRecordPo farmersPo = seaRecordDao.get(shopPo.getSeaRecordId());
+					shopPo.setPortTime(farmersPo.getEndSeeTime());
+					shopPo.setShipPort(farmersPo.getShipportName());
+					shopPo.setLatitude(farmersPo.getLatitude());
+					shopPo.setLongitude(farmersPo.getLongitude());
+				}
 			}
 			String getType = shopPo.getGetType();
 			ArrayList<String> getTypeName = new ArrayList<String>();
@@ -124,7 +126,6 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 
 	@Override
 	public Boolean addCategory(CategoryPo model, SingleFileVo categoryFile) {
-		// TODO 未测试.
 		try {
 			String uploadCategoryFile = fileUpload.uploadCategoryFile(categoryFile.getFile(), categoryFile.getFileFileName());
 			model.setFishPhoto(uploadCategoryFile);
