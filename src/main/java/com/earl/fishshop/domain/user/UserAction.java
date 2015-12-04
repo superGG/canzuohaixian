@@ -1,4 +1,4 @@
-	package com.earl.fishshop.domain.user;
+package com.earl.fishshop.domain.user;
 
 import java.util.HashMap;
 import java.util.List;
@@ -35,22 +35,22 @@ public class UserAction extends BaseAction<UserPo> {
 	private static final long serialVersionUID = 3293435262298029608L;
 
 	protected ResultMessage resultMessage;
-	
+
 	/**
 	 * 验证工具欸.
 	 */
 	protected VerifyServiceUtil verifyServiceUtil;
-	
+
 	/**
 	 * 用户上传文件.
 	 */
 	private MulitFileVo userFile;
-	
+
 	/**
 	 * 用户输入的验证码.
 	 */
 	private VerifyCodePo verifyCodePo;
-	
+
 	public VerifyCodePo getVerifyCodePo() {
 		return verifyCodePo;
 	}
@@ -67,13 +67,11 @@ public class UserAction extends BaseAction<UserPo> {
 		this.userFile = userFile;
 	}
 
-
 	/**
 	 * 用户输入的验证码.
 	 */
-	private String verifyCode; 
-	
-	
+	private String verifyCode;
+
 	public String getVerifyCode() {
 		return verifyCode;
 	}
@@ -95,15 +93,21 @@ public class UserAction extends BaseAction<UserPo> {
 	 * @author 宋文光
 	 */
 	public void addUser() {
-		verifyServiceUtil =  new VerifyServiceUtil();
+		verifyServiceUtil = new VerifyServiceUtil();
 		resultMessage = new ResultMessage();
-		
+
 		String SmsVf = verifyCodeServer.getVerifyCode(model.getPhoneNumber());
-    	Boolean result = verifyServiceUtil.confirmImgVerifyCode(SmsVf , verifyCode);
+		Boolean result = verifyServiceUtil.confirmImgVerifyCode(SmsVf,
+				verifyCode);
 		if (result) {
 			Boolean save = userServer.rigisterUser(model);
-			resultMessage.setResultInfo("注册成功");
-			resultMessage.setServiceResult(save);
+			if (save) {
+				resultMessage.setResultInfo("注册成功");
+				resultMessage.setServiceResult(save);
+			} else {
+				resultMessage.setResultInfo("注册失败");
+				resultMessage.setServiceResult(save);
+			}
 		} else {
 			resultMessage.setResultInfo("验证码错误");
 			resultMessage.setServiceResult(result);
@@ -120,14 +124,14 @@ public class UserAction extends BaseAction<UserPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(update);
 	}
-	
+
 	/**
 	 * 更新用户头像(客户端).
 	 * 
 	 * @author 宋文光
 	 */
 	public void updateUserImg() {
-		Boolean update = userServer.updateUserImg(model,userFile);
+		Boolean update = userServer.updateUserImg(model, userFile);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(update);
 	}
@@ -156,10 +160,11 @@ public class UserAction extends BaseAction<UserPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 	}
-	
+
 	/**
 	 * 获取等待审核的渔户.
-	 *@author 宋文光.
+	 * 
+	 * @author 宋文光.
 	 */
 	public void getVerifyFishman() {
 		model.setState(MyConstant.user_wait);
@@ -171,10 +176,11 @@ public class UserAction extends BaseAction<UserPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setResultParm(hashMap);
 	}
-	
+
 	/**
 	 * 获取等待审核的养殖户.
-	 *@author 宋文光.
+	 * 
+	 * @author 宋文光.
 	 */
 	public void getVerifyFarmers() {
 		model.setState(MyConstant.user_wait);
@@ -209,79 +215,85 @@ public class UserAction extends BaseAction<UserPo> {
 		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
 	}
-	
-	 /**
-     * 在注册时发送验证码到手机.
-     * @throws Exception 
-     * @author 宋文光
-     * @throws java.lang.Exception 
-     */
-    public final void smsCodeOfRegister() throws java.lang.Exception {
-    	resultMessage = userServer.smsCodeOfRegister(model);
-    	System.out.println("验证码："+ resultMessage.getResultInfo());
-    	if (resultMessage.getServiceResult()) {
-    		verifyCodePo = new VerifyCodePo();
-    		verifyCodePo.setVerifyCode(resultMessage.getResultInfo());
-    		verifyCodePo.setPhoneNumber(model.getPhoneNumber());
-    		verifyCodeServer.saveVerifyCode(verifyCodePo);
-    		resultMessage.setResultInfo("发送成功");
-    	} 
-    }
-    
-    /**
-     * 在找回密码时发送验证码到手机.
-     * @throws Exception 
-     * @author 宋文光
-     * @throws java.lang.Exception 
-     */
-    public final void smsCodeOfFound() throws java.lang.Exception  {
-    	resultMessage = userServer.smsCodefindPassWord(model.getPhoneNumber());
-    	System.out.println("验证码："+ resultMessage.getResultInfo());
-    	if (resultMessage.getServiceResult()) {
-    		verifyCodePo = new VerifyCodePo();
-    		verifyCodePo.setVerifyCode(resultMessage.getResultInfo());
-    		verifyCodePo.setPhoneNumber(model.getPhoneNumber());
-    		verifyCodeServer.saveVerifyCode(verifyCodePo);
-    		resultMessage.setResultInfo("发送成功");
-    	} 
-    }
-    
-    /**
-     * 验证输入手机验证码.
-     * @author 宋文光
-     */
-    public void confirmSmsVerifyCode() {
-    	verifyServiceUtil =  new VerifyServiceUtil();
-    	resultMessage = new ResultMessage();
-    	String SmsVf = verifyCodeServer.getVerifyCode(model.getPhoneNumber());
-    	Boolean result = verifyServiceUtil.confirmImgVerifyCode(SmsVf , verifyCode);
-    	if ( result ) {
-    		resultMessage.setServiceResult(result);
-    		resultMessage.setResultInfo("验证成功");
-    	} else {
-    		resultMessage.setServiceResult(result);
-    		resultMessage.setResultInfo("验证码错误");
-    	}
-    }
-    
-    /**
-     * 找回密码时修改密码.
-     * @author 宋文光.
-     */
-    public void findPassword() {
-    	resultMessage = new ResultMessage();
-    	UserPo userPo  = userServer.getUserByPhone(model.getPhoneNumber()).get(0);
-    	String newPassword = SmsbaoHelper.Md5(model.getPassword());//加密
-    	userPo.setPassword(newPassword);
-    	Boolean update = userServer.update(userPo);
-    	if(update){
-    		resultMessage.setServiceResult(update);
-    		resultMessage.setResultInfo("更新成功");
-    	} else {
-    		resultMessage.setServiceResult(update);
-    		resultMessage.setResultInfo("更新失败");
-    	}
-    }
+
+	/**
+	 * 在注册时发送验证码到手机.
+	 * 
+	 * @throws Exception
+	 * @author 宋文光
+	 * @throws java.lang.Exception
+	 */
+	public final void smsCodeOfRegister() throws java.lang.Exception {
+		resultMessage = userServer.smsCodeOfRegister(model);
+		System.out.println("验证码：" + resultMessage.getResultInfo());
+		if (resultMessage.getServiceResult()) {
+			verifyCodePo = new VerifyCodePo();
+			verifyCodePo.setVerifyCode(resultMessage.getResultInfo());
+			verifyCodePo.setPhoneNumber(model.getPhoneNumber());
+			verifyCodeServer.saveVerifyCode(verifyCodePo);
+			resultMessage.setResultInfo("发送成功");
+		}
+	}
+
+	/**
+	 * 在找回密码时发送验证码到手机.
+	 * 
+	 * @throws Exception
+	 * @author 宋文光
+	 * @throws java.lang.Exception
+	 */
+	public final void smsCodeOfFound() throws java.lang.Exception {
+		resultMessage = userServer.smsCodefindPassWord(model.getPhoneNumber());
+		System.out.println("验证码：" + resultMessage.getResultInfo());
+		if (resultMessage.getServiceResult()) {
+			verifyCodePo = new VerifyCodePo();
+			verifyCodePo.setVerifyCode(resultMessage.getResultInfo());
+			verifyCodePo.setPhoneNumber(model.getPhoneNumber());
+			verifyCodeServer.saveVerifyCode(verifyCodePo);
+			resultMessage.setResultInfo("发送成功");
+		}
+	}
+
+	/**
+	 * 验证输入手机验证码.
+	 * 
+	 * @author 宋文光
+	 */
+	public void confirmSmsVerifyCode() {
+		verifyServiceUtil = new VerifyServiceUtil();
+		resultMessage = new ResultMessage();
+		String SmsVf = verifyCodeServer.getVerifyCode(model.getPhoneNumber());
+		Boolean result = verifyServiceUtil.confirmImgVerifyCode(SmsVf,
+				verifyCode);
+		if (result) {
+			resultMessage.setServiceResult(result);
+			resultMessage.setResultInfo("验证成功");
+		} else {
+			resultMessage.setServiceResult(result);
+			resultMessage.setResultInfo("验证码错误");
+		}
+	}
+
+	/**
+	 * 找回密码时修改密码.
+	 * 
+	 * @author 宋文光.
+	 */
+	public void findPassword() {
+		resultMessage = new ResultMessage();
+		UserPo userPo = userServer.getUserByPhone(model.getPhoneNumber())
+				.get(0);
+		String newPassword = SmsbaoHelper.Md5(model.getPassword());// 加密
+		userPo.setPassword(newPassword);
+		Boolean update = userServer.update(userPo);
+		if (update) {
+			resultMessage.setServiceResult(update);
+			resultMessage.setResultInfo("更新成功");
+		} else {
+			resultMessage.setServiceResult(update);
+			resultMessage.setResultInfo("更新失败");
+		}
+	}
 
 	/**
 	 * 拉黑用户.
@@ -300,12 +312,13 @@ public class UserAction extends BaseAction<UserPo> {
 		}
 	}
 
-	 /**
-     * 查询短信余量.
-     * @author 宋文光
-     */
-    public final void checkSmsBao() {
-    	verifyServiceUtil = new VerifyServiceUtil();
-    	resultMessage = verifyServiceUtil.checkSmsbao();
-    }
+	/**
+	 * 查询短信余量.
+	 * 
+	 * @author 宋文光
+	 */
+	public final void checkSmsBao() {
+		verifyServiceUtil = new VerifyServiceUtil();
+		resultMessage = verifyServiceUtil.checkSmsbao();
+	}
 }
