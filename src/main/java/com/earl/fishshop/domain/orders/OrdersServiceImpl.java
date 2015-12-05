@@ -121,7 +121,6 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 	//                                           cnp_f:应用内快捷支付（外卡）
 	@Override
 	public Charge payForOrders(Long ordersId, String channel) {
-		// TODO 未测试.
 		OrdersPo ordersPo = ordersDao.get(ordersId);
 		Double price = ordersPo.getTotalprice()*100;
 		Charge charge = PayChargeUtil.charge(ordersPo.getOrdersId(), price.longValue(), channel, ordersPo.getShopKeeperName(), ordersPo.getBuyerName());
@@ -130,14 +129,12 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 
 	@Override
 	public List<OrdersPo> getAllUserOrders(Long userId, Integer indexPageNum, Integer size) {
-		// TODO 未测试.
 		List<OrdersPo> ordersList = ordersDao.getAllUserOrders(userId, indexPageNum, size);
 		return ordersList;
 	}
 
 	@Override
 	public Double getOrdersPostage(OrdersPo model) {
-		// TODO 未测试.
 		List<OrdersDetailPo> ordersDetail = model.getOrdersDetail();
 		for (OrdersDetailPo ordersDetailPo : ordersDetail) {
 			ordersDetailPo.getSkuId();
@@ -148,7 +145,6 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 
 	@Override
 	public OrdersPo getPointOrders(Long ordersId) {
-		// TODO 未测试.
 		OrdersPo orders = ordersDao.getPointOrders(ordersId);
 		orders.setSordersNumber(orders.getOrdersDetail().size());
 		ShopPo shopPo = shopDao.get(orders.getShopId());
@@ -158,14 +154,12 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 
 	@Override
 	public List<OrdersPo> getAllOrders(Integer indexPageNum, Integer size) {
-		// TODO 未测试.
 		List<OrdersPo> ordersList = ordersDao.getAllOrders(indexPageNum, size);
 		return ordersList;
 	}
 
 	@Override
 	public Boolean realPayOrders(Long ordersId) {
-		// TODO 未测试.
 		try {
 			OrdersPo ordersPo = ordersDao.get(ordersId);
 			if(ordersPo.getState() == MyConstant.order_unpay){
@@ -182,7 +176,6 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 
 	@Override
 	public Boolean realSendOrders(Long ordersId) {
-		// TODO 未测试.
 		try {
 			OrdersPo ordersPo = ordersDao.get(ordersId);
 			if(ordersPo.getState() == MyConstant.order_unsent){
@@ -199,7 +192,6 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 	
 	@Override
 	public Boolean realGetOrders(Long ordersId) {
-		// TODO 未测试.
 		try {
 			OrdersPo ordersPo = ordersDao.get(ordersId);
 			if(ordersPo.getState() == MyConstant.order_unget){

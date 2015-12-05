@@ -77,6 +77,9 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	 */
 	public ResultMessage userLogin(UserPo model) {
 		ResultMessage rs = new ResultMessage();
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("fishman", null);
+//		rs.setResultParm(hashMap);
 		FishmanPo fishman = null;
 		FarmersPo farmer = null;
 		ShopPo shop = null;
@@ -147,13 +150,14 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	 */
 	public ResultMessage verifyPassword(UserPo user, String password) {
 		ResultMessage rs = new ResultMessage();
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		rs.setResultParm(hashMap);
 		String userPassword = SmsbaoHelper.Md5(password);
 		if (user != null) { // 根据用户输入查询所得用户信息.
 			if (userPassword.equals(user.getPassword())) { // 密码验证
 				rs.setServiceResult(true);
 				rs.setResultInfo("登陆成功");
-				Map<String, Object> hashMap = new HashMap<String, Object>();
-				hashMap.put("user", user);
+				rs.getResultParm().put("user", user);
 				rs.setResultParm(hashMap);
 			} else {
 				rs.setResultInfo("密码错误");

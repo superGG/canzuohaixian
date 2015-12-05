@@ -6,7 +6,6 @@ import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.earl.fishshop.helper.JsonHelper;
@@ -17,7 +16,7 @@ public class HttpOrdersActionTest extends HttpBaseActionTest{
 	@SuppressWarnings("unused")
 	private File targetFile;
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testAddOrders(){
 		String targetURL = basePath+"orders_addOrders.action";
@@ -27,11 +26,10 @@ public class HttpOrdersActionTest extends HttpBaseActionTest{
 		PostMethod filePost = new PostMethod(targetURL);
 			Part[] parts = {
 			new StringPart("orders", "{" +
-					 "\"userId\" : \"4\"" +
+					 "\"userId\" : \"28\"" +
 					 ",\"shopId\": \"1\"" +
 					 ",\"buyerName\": \"yilinfeng\"" +
 					 ",\"shopKeeperName\": \"海格号\"" +
-					 ",\"sss\": \"海格号\"" +
 					 ",\"phone\": \"18719425973\"" +
 					 ",\"ordersDetail\": [{\"goodsId\": \"1\"" +
 					 						",\"number\": \"5\"}" +
