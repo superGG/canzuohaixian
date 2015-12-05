@@ -98,4 +98,12 @@ public interface UserService extends BaseService<UserPo>{
 	 */
 	ResultMessage userLogin(UserPo model);
 
+	/**
+	 * 修改密码.
+	 *@author 宋文光.
+	 * @param model
+	 * @return
+	 */
+	Boolean updatePassword(UserPo model);
+
 }

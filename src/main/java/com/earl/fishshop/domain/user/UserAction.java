@@ -113,6 +113,22 @@ public class UserAction extends BaseAction<UserPo> {
 			resultMessage.setServiceResult(result);
 		}
 	}
+	
+	/**
+	 * 修改密码.
+	 *@author 宋文光.
+	 */
+	public void updatePassword() {
+		Boolean result = userServer.updatePassword(model);
+		resultMessage = new ResultMessage();
+		if(result){
+			resultMessage.setResultInfo("更改成功");
+			resultMessage.setServiceResult(result);
+		} else {
+			resultMessage.setServiceResult(result);
+			resultMessage.setResultInfo("更改失败");
+		}
+	}
 
 	/**
 	 * 更新用户信息.
@@ -122,7 +138,13 @@ public class UserAction extends BaseAction<UserPo> {
 	public void updateUser() {
 		Boolean update = userServer.updateWithNotNullProperties(model);
 		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(update);
+		if(update){
+			resultMessage.setResultInfo("更新成功");
+			resultMessage.setServiceResult(update);
+		} else {
+			resultMessage.setServiceResult(update);
+			resultMessage.setResultInfo("更新失败");
+		}
 	}
 
 	/**

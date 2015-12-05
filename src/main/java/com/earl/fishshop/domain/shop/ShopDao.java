@@ -52,16 +52,6 @@ public interface ShopDao extends BaseDao<ShopPo>{
 	Long addShop(ShopPo model);
 
 	void updateShop(ShopPo shop);
-
-	/**
-	 * 客户端获取所有商店.
-	 *@author 宋文光.
-	 * @param pageInfo 分页信息.
-	 * @return
-	 */
-	List<ShopPo> getAllShop(PageInfo pageInfo);
-
-	
 	
 
 }

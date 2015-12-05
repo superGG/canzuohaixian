@@ -18,7 +18,6 @@ import com.earl.fishshop.domain.gettype.GetTypeService;
 import com.earl.fishshop.domain.searecord.SeaRecordPo;
 import com.earl.fishshop.domain.user.UserPo;
 import com.earl.fishshop.util.MyConstant;
-import com.earl.fishshop.vo.PageInfo;
 
 /**
  * 每个ServiceImpl都要继承相对应的service接口
@@ -188,12 +187,6 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 			}
 		}
 		return infoList;
-	}
-
-	@Override
-	public List<ShopPo> getAllShop(PageInfo pageInfo) {
-		List<ShopPo> shopList = shopDao.getAllShop(pageInfo);
-		return shopList;
 	}
 
 	@Override

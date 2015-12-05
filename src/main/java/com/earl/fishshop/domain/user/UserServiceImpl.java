@@ -78,26 +78,37 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	public ResultMessage userLogin(UserPo model) {
 		ResultMessage rs = new ResultMessage();
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("fishman", null);
-//		rs.setResultParm(hashMap);
+//		hashMap.put("fishman", null);
+		// rs.setResultParm(hashMap);
 		FishmanPo fishman = null;
 		FarmersPo farmer = null;
 		ShopPo shop = null;
-		
+
 		if (model.getPhoneNumber() != null) { // 用户使用手机登录
-			UserPo user = userDao.getUserByPhone(model
-					.getPhoneNumber());
+			UserPo user = userDao.getUserByPhone(model.getPhoneNumber());
 			rs = verifyPassword(user, model.getPassword());
-			if (user.getUserType()==MyConstant.user_fishman && user.getState() == MyConstant.user_pass) { //登陆用户为渔户
-				fishman = fishmanDao.get(user.getIdentityId());
-				shop = shopDao.get(fishman.getShopId());
-				rs.getResultParm().put("fishman", fishman);
-				rs.getResultParm().put("shop", shop);
-			} else if (user.getUserType()==MyConstant.user_farmer && user.getState() == MyConstant.user_pass){//登陆用户为养殖户
-				farmer = farmersDao.get(user.getIdentityId());
-				shop = shopDao.get(farmer.getShopId());
-				rs.getResultParm().put("farmer", farmer);
-				rs.getResultParm().put("shop", shop);
+			if (rs.getServiceResult()) { //验证成功进行判定
+				if (user.getUserType() == MyConstant.user_fishman
+						&& user.getState() == MyConstant.user_pass) { // 登陆用户为渔户
+					fishman = fishmanDao.get(user.getIdentityId());
+					shop = shopDao.get(fishman.getShopId());
+					hashMap = (HashMap<String, Object>) rs.getResultParm();
+					hashMap.put("fishman", fishman);
+					hashMap.put("shop", shop);
+					rs.setResultParm(hashMap);
+				} else if (user.getUserType() == MyConstant.user_farmer
+						&& user.getState() == MyConstant.user_pass) {// 登陆用户为养殖户
+					farmer = farmersDao.get(user.getIdentityId());
+					shop = shopDao.get(farmer.getShopId());
+					hashMap = (HashMap<String, Object>) rs.getResultParm();
+					hashMap.put("farmer", farmer);
+					hashMap.put("shop", shop);
+					rs.setResultParm(hashMap);
+				} else {
+					return rs;
+				}
+			} else { //验证失败返回
+				return rs;
 			}
 		} else {
 			rs.setResultInfo("登录失败");
@@ -214,8 +225,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 
 		if (model.getPhoneNumber() != null) {
 			// 检测注册手机是否被注册
-			UserPo userList = userDao.getUserByPhone(model
-					.getPhoneNumber());
+			UserPo userList = userDao.getUserByPhone(model.getPhoneNumber());
 			if (userList == null) {
 				rs = verifyServiceUtil.sendMobileVerifyCode(model
 						.getPhoneNumber());
@@ -260,5 +270,18 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	@Override
+	public Boolean updatePassword(UserPo model) {
+		try {
+			UserPo user = userDao.get(model.getUserId());
+			user.setPassword(model.getPassword());
+			userDao.update(user);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 }

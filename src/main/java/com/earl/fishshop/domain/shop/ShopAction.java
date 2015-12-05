@@ -203,18 +203,5 @@ public class ShopAction extends BaseAction<ShopPo> {
 		resultMessage.setServiceResult(true);
 		resultMessage.setResultParm(hashMap);
 	}
-	
-	/**
-	 * 得到所有商店.
-	 * @author 黄祥谦.
-	 */
-	public void getAllShop() {
-		List<ShopPo> shopList = shopServer.getAllShop(pageInfo);
-		Map<String,Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("shop", shopList);
-		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
-		resultMessage.setServiceResult(true);
-	}
 
 }

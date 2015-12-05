@@ -5,7 +5,6 @@ import java.util.Map;
 
 import com.earl.fishshop.domain.base.BaseService;
 import com.earl.fishshop.domain.comment.CommentPo;
-import com.earl.fishshop.vo.PageInfo;
 
 public interface ShopService extends BaseService<ShopPo>{
 
@@ -70,14 +69,6 @@ public interface ShopService extends BaseService<ShopPo>{
 	 * @return
 	 */
 	List<Map<String, Object>> getAllFarmersShop();
-
-	/**
-	 * 客户端获取所有商店.
-	 *@author 宋文光.
-	 * @param pageInfo 分页信息.
-	 * @return
-	 */
-	List<ShopPo> getAllShop(PageInfo pageInfo);
 
 	/**
 	 * 得到商店详细信息.
