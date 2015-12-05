@@ -89,25 +89,6 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 	}
 
 	@Override
-	public List<OrdersPo> getPointStateOrders(Long userId, Integer state, Integer indexPageNum, Integer size) {
-		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
-		createCriteria.add(Restrictions.eq("state", state));
-		createCriteria.add(Restrictions.eq("userId", userId));
-		createCriteria.setFirstResult(
-				(indexPageNum - 1) * size)
-				.setMaxResults(size);
-		@SuppressWarnings("unchecked")
-		List<OrdersPo> ordersList = createCriteria.list();
-		for (OrdersPo ordersPo : ordersList) {
-			String hql2 = "from OrdersDetailPo where orderId =:orderId";
-			@SuppressWarnings("unchecked")
-			List<OrdersDetailPo> ordersDetailList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).list();
-			ordersPo.setOrdersDetail(ordersDetailList);
-		}
-		return ordersList;
-	}
-
-	@Override
 	public void setOrderNumber(Long ordersId, String orderNumber) {
 		String hql = "update OrdersPo set orderNumber =:orderNumber where ordersId =:ordersId";
 		getCurrentSession().createQuery(hql).setString("orderNumber", orderNumber).setLong("ordersId", ordersId).executeUpdate();
@@ -162,6 +143,17 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 	}
 
 	@Override
+	public List<OrdersPo> getAllOrders(Integer indexPageNum, Integer size) {
+		// TODO 未测试.
+		String hql = "from OrdersPo";
+		@SuppressWarnings("unchecked")
+		List<OrdersPo> ordersList = getCurrentSession().createQuery(hql).setFirstResult(
+				(indexPageNum - 1) * size)
+				.setMaxResults(size).list();
+		return ordersList;
+	}
+
+	@Override
 	public OrdersPo getPointOrders(Long ordersId) {
 		// TODO 未测试.
 		OrdersPo ordersPo = get(ordersId);
@@ -173,13 +165,41 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 	}
 
 	@Override
-	public List<OrdersPo> getAllOrders(Integer indexPageNum, Integer size) {
-		// TODO 未测试.
-		String hql = "from OrdersPo";
-		@SuppressWarnings("unchecked")
-		List<OrdersPo> ordersList = getCurrentSession().createQuery(hql).setFirstResult(
+	public List<OrdersPo> getPointStateOrders(Long userId, Integer state, Integer indexPageNum, Integer size) {
+		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
+		createCriteria.add(Restrictions.eq("state", state));
+		createCriteria.add(Restrictions.eq("userId", userId));
+		createCriteria.setFirstResult(
 				(indexPageNum - 1) * size)
-				.setMaxResults(size).list();
+				.setMaxResults(size);
+		@SuppressWarnings("unchecked")
+		List<OrdersPo> ordersList = createCriteria.list();
+		for (OrdersPo ordersPo : ordersList) {
+			String hql2 = "from OrdersDetailPo where orderId =:orderId";
+			@SuppressWarnings("unchecked")
+			List<OrdersDetailPo> ordersDetailList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).list();
+			ordersPo.setOrdersDetail(ordersDetailList);
+		}
+		return ordersList;
+	}
+
+	@Override
+	public List<OrdersPo> getShopPointStateOrders(Long shopId, Integer state,
+			Integer indexPageNum, Integer size) {
+		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
+		createCriteria.add(Restrictions.eq("state", state));
+		createCriteria.add(Restrictions.eq("shopId", shopId));
+		createCriteria.setFirstResult(
+				(indexPageNum - 1) * size)
+				.setMaxResults(size);
+		@SuppressWarnings("unchecked")
+		List<OrdersPo> ordersList = createCriteria.list();
+		for (OrdersPo ordersPo : ordersList) {
+			String hql2 = "from OrdersDetailPo where orderId =:orderId";
+			@SuppressWarnings("unchecked")
+			List<OrdersDetailPo> ordersDetailList = getCurrentSession().createQuery(hql2).setLong("orderId", ordersPo.getOrdersId()).list();
+			ordersPo.setOrdersDetail(ordersDetailList);
+		}
 		return ordersList;
 	}
 

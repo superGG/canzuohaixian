@@ -92,6 +92,19 @@ public class HttpOrdersActionTest extends HttpBaseActionTest{
 		String sendHttpRequest = sendHttpRequest(filePost, parts);
 		System.out.println(sendHttpRequest);
 	}
+	@Test
+	public void testGetShopUnSentOrders(){
+		String targetURL = basePath + "orders_getShopUnSentOrders.action";
+		PostMethod filePost = new PostMethod(targetURL);
+		
+		Part[] parts = { 
+				new StringPart("shopId", "1","utf-8")
+				,new StringPart("pageInfo.indexPageNum", "1","utf-8")
+				,new StringPart("pageInfo.size", "3","UTF-8")
+		};
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+	}
 	
 	@Test
 	public void testGetUnPayOrders(){
@@ -100,6 +113,20 @@ public class HttpOrdersActionTest extends HttpBaseActionTest{
 		
 		Part[] parts = { 
 				new StringPart("userId", "4","utf-8")
+				,new StringPart("pageInfo.indexPageNum", "1","utf-8")
+				,new StringPart("pageInfo.size", "3","UTF-8")
+		};
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+	}
+	
+	@Test
+	public void testGetShopUnPayOrders(){
+		String targetURL = basePath + "orders_getShopUnPayOrders.action";
+		PostMethod filePost = new PostMethod(targetURL);
+		
+		Part[] parts = { 
+				new StringPart("shopId", "4","utf-8")
 				,new StringPart("pageInfo.indexPageNum", "1","utf-8")
 				,new StringPart("pageInfo.size", "3","UTF-8")
 		};
@@ -122,6 +149,20 @@ public class HttpOrdersActionTest extends HttpBaseActionTest{
 	}
 	
 	@Test
+	public void testGetShopUngetOrders(){
+		String targetURL = basePath + "orders_getShopUngetOrders.action";
+		PostMethod filePost = new PostMethod(targetURL);
+		
+		Part[] parts = { 
+				new StringPart("shopId", "1","utf-8")
+				,new StringPart("pageInfo.indexPageNum", "1","utf-8")
+				,new StringPart("pageInfo.size", "3","UTF-8")
+		};
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+	}
+	
+	@Test
 	public void testGetUnCommentOrders(){
 		String targetURL = basePath + "orders_getUnCommentOrders.action";
 		PostMethod filePost = new PostMethod(targetURL);
@@ -136,12 +177,26 @@ public class HttpOrdersActionTest extends HttpBaseActionTest{
 	}
 	
 	@Test
+	public void testGetShopUnCommentOrders(){
+		String targetURL = basePath + "orders_getShopUnCommentOrders.action";
+		PostMethod filePost = new PostMethod(targetURL);
+		
+		Part[] parts = { 
+				new StringPart("shopId", "1","utf-8")
+				,new StringPart("pageInfo.indexPageNum", "1","utf-8")
+				,new StringPart("pageInfo.size", "3","UTF-8")
+		};
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+	}
+	
+	@Test
 	public void testGetOrdersWithSeaRecord(){
 		String targetURL = basePath + "orders_getOrdersWithSeaRecord.action";
 		PostMethod filePost = new PostMethod(targetURL);
 		
 		Part[] parts = { 
-				new StringPart("shopId", "2","utf-8")
+				new StringPart("shopId", "1","utf-8")
 				,new StringPart("pageInfo.indexPageNum", "1","utf-8")
 				,new StringPart("pageInfo.size", "3","UTF-8")
 		};

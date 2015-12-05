@@ -114,71 +114,6 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	}
 	
 	/**
-	 * 得到用户所有订单.只显示一条东西.
-	 * @author 黄祥谦.
-	 */
-	public void getAllUserOrders(){
-		List<OrdersPo> ordersList = ordersServer.getAllUserOrders(model.getUserId(),pageInfo.getIndexPageNum(), pageInfo.getSize());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("ordersList", ordersList);
-		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
-		resultMessage.setServiceResult(true);
-	}
-	
-	/**
-	 * 客户得到未发货订单.
-	 * @author 黄祥谦.
-	 */
-	public void getUnSentOrders(){
-		List<OrdersPo> ordersList = ordersServer.getUnSentOrders(model.getUserId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("ordersList", ordersList);
-		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
-		resultMessage.setServiceResult(true);
-	}
-	
-	/**
-	 * 未支付订单.
-	 * @author 黄祥谦.
-	 */
-	public void getUnPayOrders(){
-		List<OrdersPo> ordersList = ordersServer.getUnpayOrders(model.getUserId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("ordersList", ordersList);
-		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
-		resultMessage.setServiceResult(true);
-	}
-	
-	/**
-	 * 得到待收货订单.
-	 * @author 黄祥谦.
-	 */
-	public void getUngetOrders(){
-		List<OrdersPo> ordersList = ordersServer.getUngetOrders(model.getUserId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("ordersList", ordersList);
-		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
-		resultMessage.setServiceResult(true);
-	}
-	
-	/**
-	 * 得到未评论订单.
-	 * @author 黄祥谦.
-	 */
-	public void getUnCommentOrders(){
-		List<OrdersPo> ordersList = ordersServer.getUnCommentOrders(model.getUserId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("ordersList", ordersList);
-		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
-		resultMessage.setServiceResult(true);
-	}
-	
-	/**
 	 * 得到本次出航的订单.
 	 * @author 黄祥谦.
 	 */
@@ -318,5 +253,124 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		Boolean success = ordersServer.realGetOrders(model.getOrdersId());
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(success);
-	} 
+	}
+
+	/**
+	 * 用户得到用户所有订单.只显示一条东西.
+	 * @author 黄祥谦.
+	 */
+	public void getAllUserOrders(){
+		List<OrdersPo> ordersList = ordersServer.getAllUserOrders(model.getUserId(),pageInfo.getIndexPageNum(), pageInfo.getSize());
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+	}
+
+	/**
+	 * 客户得到未发货订单.
+	 * @author 黄祥谦.
+	 */
+	public void getUnSentOrders(){
+		List<OrdersPo> ordersList = ordersServer.getUnSentOrders(model.getUserId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+	}
+
+	/**
+	 * 商家得到未发货订单.
+	 * @author 黄祥谦.
+	 */
+	public void getShopUnSentOrders(){
+		List<OrdersPo> ordersList = ordersServer.getShopUnSentOrders(model.getShopId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+	}
+	
+	/**
+	 * 用户未支付订单.
+	 * @author 黄祥谦.
+	 */
+	public void getUnPayOrders(){
+		List<OrdersPo> ordersList = ordersServer.getUnpayOrders(model.getUserId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+	}
+
+	/**
+	 * 商家得到未支付订单.
+	 * @author 黄祥谦.
+	 */
+	public void getShopUnPayOrders(){
+		List<OrdersPo> ordersList = ordersServer.getShopUnPayOrders(model.getShopId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+	}
+	
+	/**
+	 * 用户得到待收货订单.
+	 * @author 黄祥谦.
+	 */
+	public void getUngetOrders(){
+		List<OrdersPo> ordersList = ordersServer.getUngetOrders(model.getUserId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+	}
+
+	
+	/**
+	 * 商家得到未收货订单.
+	 * @author 黄祥谦.
+	 */
+	public void getShopUngetOrders(){
+		List<OrdersPo> ordersList = ordersServer.getShopUnGetOrders(model.getShopId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+	}
+	
+	/**
+	 * 得到未评论订单.
+	 * @author 黄祥谦.
+	 */
+	public void getUnCommentOrders(){
+		List<OrdersPo> ordersList = ordersServer.getUnCommentOrders(model.getUserId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+	}
+	
+	/**
+	 * 商家得到未收货订单.
+	 * @author 黄祥谦.
+	 */
+	public void getShopUnCommentOrders(){
+		List<OrdersPo> ordersList = ordersServer.getShopUnCommentOrders(model.getShopId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("ordersList", ordersList);
+		resultMessage = new ResultMessage();
+		resultMessage.setResultParm(hashMap);
+		resultMessage.setServiceResult(true);
+	}
+	
 }

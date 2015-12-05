@@ -92,30 +92,6 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 	}
 
 	@Override
-	public List<OrdersPo> getUnSentOrders(Long userId, Integer indexPageNum, Integer size) {
-		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_unsent, indexPageNum, size);
-		return ordersList;
-	}
-	
-	@Override
-	public List<OrdersPo> getUnpayOrders(Long userId, Integer indexPageNum, Integer size) {
-		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_unpay, indexPageNum, size);
-		return ordersList;
-	}
-
-	@Override
-	public List<OrdersPo> getUngetOrders(Long userId, Integer indexPageNum, Integer size) {
-		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_unget, indexPageNum, size);
-		return ordersList;
-	}
-
-	@Override
-	public List<OrdersPo> getUnCommentOrders(Long userId, Integer indexPageNum, Integer size) {
-		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_uncomment, indexPageNum, size);
-		return ordersList;
-	}
-
-	@Override
 	public Boolean setOrderNumber(Long orderId, String orderNumber) {
 		try {
 			ordersDao.setOrderNumber(orderId, orderNumber);
@@ -237,6 +213,57 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 		}
 		return false;
 	}
+
+	@Override
+	public List<OrdersPo> getUnSentOrders(Long userId, Integer indexPageNum, Integer size) {
+		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_unsent, indexPageNum, size);
+		return ordersList;
+	}
+
+	@Override
+	public List<OrdersPo> getShopUnSentOrders(Long shopId,
+			Integer indexPageNum, Integer size) {
+		List<OrdersPo> ordersList = ordersDao.getShopPointStateOrders(shopId, MyConstant.order_unsent, indexPageNum, size);
+		return ordersList;
+	}
 	
+	@Override
+	public List<OrdersPo> getUnpayOrders(Long userId, Integer indexPageNum, Integer size) {
+		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_unpay, indexPageNum, size);
+		return ordersList;
+	}
+
+	@Override
+	public List<OrdersPo> getShopUnPayOrders(Long shopId,
+			Integer indexPageNum, Integer size) {
+		List<OrdersPo> ordersList = ordersDao.getShopPointStateOrders(shopId, MyConstant.order_unpay, indexPageNum, size);
+		return ordersList;
+	}
+	
+	@Override
+	public List<OrdersPo> getUngetOrders(Long userId, Integer indexPageNum, Integer size) {
+		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_unget, indexPageNum, size);
+		return ordersList;
+	}
+
+	@Override
+	public List<OrdersPo> getShopUnGetOrders(Long shopId,
+			Integer indexPageNum, Integer size) {
+		List<OrdersPo> ordersList = ordersDao.getShopPointStateOrders(shopId, MyConstant.order_unget, indexPageNum, size);
+		return ordersList;
+	}
+	
+	@Override
+	public List<OrdersPo> getUnCommentOrders(Long userId, Integer indexPageNum, Integer size) {
+		List<OrdersPo> ordersList = ordersDao.getPointStateOrders(userId, MyConstant.order_uncomment, indexPageNum, size);
+		return ordersList;
+	}
+
+	@Override
+	public List<OrdersPo> getShopUnCommentOrders(Long shopId,
+			Integer indexPageNum, Integer size) {
+		List<OrdersPo> ordersList = ordersDao.getShopPointStateOrders(shopId, MyConstant.order_uncomment, indexPageNum, size);
+		return ordersList;
+	}
 	
 }
