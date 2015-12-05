@@ -97,7 +97,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 				rs.getResultParm().put("shop", shop);
 			}
 		} else {
-			rs.setResultInfo("验证失败");
+			rs.setResultInfo("登录失败");
 			rs.setServiceResult(false);
 		}
 		return rs;
