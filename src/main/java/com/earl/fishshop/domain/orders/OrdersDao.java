@@ -27,7 +27,7 @@ public interface OrdersDao extends BaseDao<OrdersPo>{
 	 * 添加订单.
 	 * @author 黄祥谦.
 	 * @param orders
-	 * @param getAddressId TODO
+	 * @param getAddressId 
 	 */
 	void addOrders(OrdersPo orders, Long getAddressId);
 
@@ -35,14 +35,14 @@ public interface OrdersDao extends BaseDao<OrdersPo>{
 	 * 得到本次出航订单.
 	 * @author 黄祥谦.
 	 * @param seaRecordId
-	 * @param indexPageNum TODO
-	 * @param size TODO
+	 * @param indexPageNum 
+	 * @param size 
 	 * @return
 	 */
 	List<OrdersPo> getOrdersWithSeaRecord(Long seaRecordId, Integer indexPageNum, Integer size);
 
 	/**
-	 * 得到未发货订单.
+	 * 得到用户指定状态订单.
 	 * @author 黄祥谦.
 	 * @param userId TODO
 	 * @param state TODO
@@ -51,6 +51,17 @@ public interface OrdersDao extends BaseDao<OrdersPo>{
 	 * @return
 	 */
 	List<OrdersPo> getPointStateOrders(Long userId, Integer state, Integer indexPageNum, Integer size);
+	
+	/**
+	 * 得到商家指定状态订单.
+	 * @author 黄祥谦.
+	 * @param userId TODO
+	 * @param state TODO
+	 * @param indexPageNum TODO
+	 * @param size TODO
+	 * @return
+	 */
+	List<OrdersPo> getShopPointStateOrders(Long shopId, Integer state, Integer indexPageNum, Integer size);
 
 	/**
 	 * 设置订单编号.

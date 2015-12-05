@@ -150,4 +150,24 @@ public interface OrdersService extends BaseService<OrdersPo>{
 	 * @return
 	 */
 	Boolean realGetOrders(Long ordersId);
+
+	/**
+	 * 得到商家未发货订单.
+	 * @author 黄祥谦.
+	 * @param shopId
+	 * @param indexPageNum
+	 * @param size
+	 * @return
+	 */
+	List<OrdersPo> getShopUnSentOrders(Long shopId, Integer indexPageNum,
+			Integer size);
+
+	List<OrdersPo> getShopUnPayOrders(Long shopId, Integer indexPageNum,
+			Integer size);
+
+	List<OrdersPo> getShopUnGetOrders(Long shopId, Integer indexPageNum,
+			Integer size);
+
+	List<OrdersPo> getShopUnCommentOrders(Long shopId, Integer indexPageNum,
+			Integer size);
 }

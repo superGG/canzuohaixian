@@ -54,6 +54,7 @@ orders_setOrderNumber.action
 	orderNumber 订单快递编号
 图片：7商品订单-发货.jpg
 
+test-->success
 searecord_addSeaRecord.action
 参数 ：shopId : 1
 	startSeeTime : 2015-12-04 17:13:30
@@ -61,58 +62,83 @@ searecord_addSeaRecord.action
 	shipportId : 1 //港口id,到时候选择港口
 图片：3发布商品-是否出港.jpg ，备注，改设计图不完善，
 
+test-->success
 searecord_aheadEndSeaing.action
-参数：shopId
-	endSeeTime
+参数：shopId : 1
+	endSeeTime : 2015-12-05 17:13:30
 图片：9管理到港时间.jpg
 
+test-->success
 searecord_delayEndSeaing.action
 参数：shopId
 	endSeeTime
 图片：9管理到港时间.jpg
 
+test-->success
 searecord_booleanEndSeaing.action
 参数：shopId
 图片：9管理到港时间.jpg
 
+test-->success
 //出航的时候使用
 orders_getOrdersWithSeaRecord.action
-
+参数：shopId
+	pageInfo.indexPageNum
+	pageInfo.size
 图片：1商品订单-非航行模式.jpg
 
+test-->success
 //回港的时候使用
 orders_getMyShopOrders.action
-
+参数：shopId
+	pageInfo.indexPageNum
+	pageInfo.size
 图片：1商品订单-非航行模式.jpg
 
-orders_getUnPayOrders.action
-
+test-->success
+orders_getShopUnPayOrders.action
+参数：shopId 
+	pageInfo.indexPageNum
+	pageInfo.size
 图片：3商品订单-待付款.jpg
 
-orders_getUnSentOrders.action
-
+test-->success
+orders_getShopUnSentOrders.action
+参数：shopId
+	pageInfo.indexPageNum
+	pageInfo.size
 图片：4商品订单-待发货.jpg
 
-orders_getUngetOrders.action
-
+test-->success
+orders_getShopUngetOrders.action
+参数：shopId
+	pageInfo.indexPageNum
+	pageInfo.size
 图片：5商品订单-已发货.jpg
 
-orders_getUnCommentOrders.action
-
+test-->success
+orders_getShopUnCommentOrders.action
+参数：shopId
+	pageInfo.indexPageNum
+	pageInfo.size
 图片：6商品订单-待评价.jpg
 
+//后台支付接口
 orders_payForOrdersWithAlipay.action
+参数：ordersId
 
+//得到订单快递编号
 orders_getOrdersNumber.action
+参数：ordersId
 
 orders_getPointOrders.action
 
-orders_realPayOrders.action
-
+//商家完成发货.
 orders_realSendOrders.action
 
 图片:4商品订单-待发货.jpg
 
+//用户完成收货
 orders_realGetOrders.action
 
 

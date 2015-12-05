@@ -24,8 +24,9 @@ public class HttpUserActionTest extends HttpBaseActionTest{
     	PostMethod filePost = new PostMethod(targetURL);
     	filePost.getParams().setBooleanParameter(HttpMethodParams.USE_EXPECT_CONTINUE,
                 true);
-    	NameValuePair userName   = new NameValuePair("userName", "IMissYou");
-        NameValuePair password      = new NameValuePair("password", "798555920");
+//    	phoneNumber:18312687412|password:123456| 
+    	NameValuePair userName   = new NameValuePair("phoneNumber", "18312687412");
+        NameValuePair password      = new NameValuePair("password", "123456");
         //TODO 要先设置文件参数，在设置from表单参数，否则表单参数丢失.
                 try {
                     filePost.setRequestBody(new NameValuePair[] {userName, password});
@@ -50,8 +51,7 @@ public class HttpUserActionTest extends HttpBaseActionTest{
 		PostMethod filePost = new PostMethod(targetURL);
 
 		Part[] parts = { 
-				new StringPart("phoneNumber", "13763012723", "utf-8")
-				,new StringPart("userName", "1", "utf-8")
+				new StringPart("phoneNumber", "18312687412", "utf-8")
 				,new StringPart("password", "123456", "utf-8")
 		};
 		String sendHttpRequest = sendHttpRequest(filePost, parts);
