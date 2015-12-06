@@ -4,6 +4,7 @@
  */
 package com.earl.fishshop.vo;
 
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -14,6 +15,10 @@ import java.util.Map;
  * @since 3.0.0
  */
 public class ResultMessage {
+	public ResultMessage(){
+		this.resultParm = new HashMap<String, Object>();
+	}
+	
     /**
      * 用户令牌判断结果.
      */

@@ -71,10 +71,9 @@ public class CommentAction extends BaseAction<CommentPo> {
 	public void getUserComment() {
 		List<CommentPo> list = commentServer.getUserComment(model,pageInfo);
 		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("commentsArray", list);
 		hashMap.put("total", list.size());
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("commentsArray", list);
 		resultMessage.setServiceResult(true);
 	}
 	
@@ -85,10 +84,9 @@ public class CommentAction extends BaseAction<CommentPo> {
 	public void getShopComment() {
 		List<CommentPo> list = commentServer.getShopComment(model.getShopId(), pageInfo);
 		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("comment", list);
 		hashMap.put("total", list.size());
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("comment", list);
 		resultMessage.setServiceResult(true);
 	}
 	
@@ -99,10 +97,8 @@ public class CommentAction extends BaseAction<CommentPo> {
 	 */
 	public void getGoodComment() {
 		List<CommentPo> list = commentServer.getGoodComment(model.getShopId(), pageInfo);
-		Map<String,Object> map = new HashMap<String, Object>();
-		map.put("comment", list);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(map);
+		resultMessage.getResultParm().put("comment", list);
 		resultMessage.setServiceResult(true);
 	}
 
@@ -112,10 +108,8 @@ public class CommentAction extends BaseAction<CommentPo> {
 	 */
 	public void getMidComment() {
 		List<CommentPo> list = commentServer.getMidComment(model.getShopId(), pageInfo);
-		Map<String,Object> map = new HashMap<String, Object>();
-		map.put("comment", list);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(map);
+		resultMessage.getResultParm().put("comment", list);
 		resultMessage.setServiceResult(true);
 	}
 	
@@ -125,10 +119,8 @@ public class CommentAction extends BaseAction<CommentPo> {
 	 */
 	public void getBedComment() {
 		List<CommentPo> list = commentServer.getBedComment(model.getShopId(), pageInfo);
-		Map<String,Object> map = new HashMap<String, Object>();
-		map.put("comment", list);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(map);
+		resultMessage.getResultParm().put("comment", list);
 		resultMessage.setServiceResult(true);
 	}
 }

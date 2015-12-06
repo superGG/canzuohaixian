@@ -1,8 +1,6 @@
 package com.earl.fishshop.domain.gettype;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -48,9 +46,7 @@ public class GetTypeAction extends BaseAction<GetTypePo> {
 	 */
 	public void getHierarchyGetType(){
 		List<GetTypePo> getTypeList = getTypeServer.getHierarchyGetType();
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("getTypeList", getTypeList);
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("getTypeList", getTypeList);
 	}
 	
 	/**
@@ -59,9 +55,7 @@ public class GetTypeAction extends BaseAction<GetTypePo> {
 	 */
 	public void getTopGetType(){
 		List<GetTypePo> getTypeList = getTypeServer.getTopGetType();
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("getTypeList", getTypeList);
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("getTypeList", getTypeList);
 	}
 	
 	/**
@@ -70,8 +64,6 @@ public class GetTypeAction extends BaseAction<GetTypePo> {
 	 */
 	public void getNextLevelGetType(){
 		List<GetTypePo> getTypeList = getTypeServer.getNextLevelGetType(model.getGetTypeId());
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("getTypeList", getTypeList);
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("getTypeList", getTypeList);
 	}
 }

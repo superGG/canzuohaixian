@@ -106,11 +106,9 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 */
 	public void getMyShopOrders(){
 		List<OrdersPo> ordersList = ordersServer.getMyShopOrders(model.getShopId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
+		resultMessage.getResultParm().put("ordersList", ordersList);
 	}
 	
 	/**
@@ -119,10 +117,8 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 */
 	public void getOrdersWithSeaRecord(){
 		List<OrdersPo> ordersList = ordersServer.getOrdersWithSeaRecord(model.getShopId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("ordersList", ordersList);
 		resultMessage.setServiceResult(true);
 	}
 	
@@ -132,10 +128,8 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 */
 	public void payForOrdersWithAlipay(){
 		Charge charge = ordersServer.payForOrders(model.getOrdersId(), channel);
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("charge", charge);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("charge", charge);
 	}
 	
 	/**
@@ -156,9 +150,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		OrdersPo ordersPo = ordersServer.get(model.getOrdersId());
 		resultMessage = new ResultMessage();
 		if(ordersPo != null){
-			HashMap<String, Object> hashMap = new HashMap<String, Object>();
-			hashMap.put("ordersNumber", ordersPo.getOrderNumber());
-			resultMessage.setResultParm(hashMap);
+			resultMessage.getResultParm().put("ordersNumber", ordersPo.getOrderNumber());
 			resultMessage.setResultInfo("执行成功");
 			resultMessage.setServiceResult(true);
 		}else{
@@ -179,8 +171,10 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		if(postagePrice != null){
 			
 			resultMessage.setServiceResult(true);
+			resultMessage.setResultInfo("请求成功");
 		}else{
 			resultMessage.setServiceResult(false);
+			resultMessage.setResultInfo("请求失败");
 		}
 	}
 	
@@ -191,16 +185,14 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	public void getPointOrders(){
 		OrdersPo orders = ordersServer.getPointOrders(model.getOrdersId());
 		
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("orders", orders);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("orders", orders);
 		if(orders != null){
 			resultMessage.setServiceResult(true);
 			resultMessage.setResultInfo("请求成功");
 		}else{
 			resultMessage.setServiceResult(false);
-			resultMessage.setResultInfo("请求成功");
+			resultMessage.setResultInfo("请求失败");
 		}
 	}
 	
@@ -211,17 +203,15 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	public void getAllOrders(){
 		List<OrdersPo> ordersList = ordersServer.getAllOrders(pageInfo.getIndexPageNum(), pageInfo.getSize());
 		
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("orders", orders);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
 		if(ordersList != null){
 			resultMessage.setServiceResult(true);
 			resultMessage.setResultInfo("请求成功");
 		}else{
 			resultMessage.setServiceResult(false);
-			resultMessage.setResultInfo("请求成功");
+			resultMessage.setResultInfo("请求失败");
 		}
+		resultMessage.getResultParm().put("orders", orders);
 	}
 
 	/**
@@ -253,6 +243,11 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		Boolean success = ordersServer.realGetOrders(model.getOrdersId());
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(success);
+		if(success){
+			resultMessage.setResultInfo("操作成功");
+		}else{
+			resultMessage.setResultInfo("操作失败");
+		}
 	}
 
 	/**
@@ -261,11 +256,9 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 */
 	public void getAllUserOrders(){
 		List<OrdersPo> ordersList = ordersServer.getAllUserOrders(model.getUserId(),pageInfo.getIndexPageNum(), pageInfo.getSize());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
+		resultMessage.getResultParm().put("ordersList", ordersList);
 	}
 
 	/**
@@ -274,10 +267,8 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 */
 	public void getUnSentOrders(){
 		List<OrdersPo> ordersList = ordersServer.getUnSentOrders(model.getUserId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("ordersList", ordersList);
 		resultMessage.setServiceResult(true);
 	}
 
@@ -287,10 +278,8 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 */
 	public void getShopUnSentOrders(){
 		List<OrdersPo> ordersList = ordersServer.getShopUnSentOrders(model.getShopId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("ordersList", ordersList);
 		resultMessage.setServiceResult(true);
 	}
 	
@@ -300,10 +289,8 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 */
 	public void getUnPayOrders(){
 		List<OrdersPo> ordersList = ordersServer.getUnpayOrders(model.getUserId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("ordersList", ordersList);
 		resultMessage.setServiceResult(true);
 	}
 
@@ -313,11 +300,9 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 */
 	public void getShopUnPayOrders(){
 		List<OrdersPo> ordersList = ordersServer.getShopUnPayOrders(model.getShopId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
+		resultMessage.getResultParm().put("ordersList", ordersList);
 	}
 	
 	/**
@@ -326,11 +311,9 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 */
 	public void getUngetOrders(){
 		List<OrdersPo> ordersList = ordersServer.getUngetOrders(model.getUserId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
+		resultMessage.getResultParm().put("ordersList", ordersList);
 	}
 
 	
@@ -340,10 +323,8 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 */
 	public void getShopUngetOrders(){
 		List<OrdersPo> ordersList = ordersServer.getShopUnGetOrders(model.getShopId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("ordersList", ordersList);
 		resultMessage.setServiceResult(true);
 	}
 	
@@ -353,10 +334,8 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 */
 	public void getUnCommentOrders(){
 		List<OrdersPo> ordersList = ordersServer.getUnCommentOrders(model.getUserId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("ordersList", ordersList);
 		resultMessage.setServiceResult(true);
 	}
 	
@@ -366,11 +345,9 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 */
 	public void getShopUnCommentOrders(){
 		List<OrdersPo> ordersList = ordersServer.getShopUnCommentOrders(model.getShopId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("ordersList", ordersList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
+		resultMessage.getResultParm().put("ordersList", ordersList);
 	}
 	
 }

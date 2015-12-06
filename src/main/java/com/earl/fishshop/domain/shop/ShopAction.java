@@ -1,6 +1,5 @@
 package com.earl.fishshop.domain.shop;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -108,15 +107,13 @@ public class ShopAction extends BaseAction<ShopPo> {
 	public void getCategoryWithTotalNumber() {
 		List<CategoryPo> categoryList = goodsServer
 				.getCategoryWithTotalNumber(model.getShopId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("categoryList", categoryList);
 		resultMessage = new ResultMessage();
 		if(categoryList.size()!=0){
 			resultMessage.setServiceResult(true);
 		}else{
 			resultMessage.setServiceResult(false);
 		}
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("categoryList", categoryList);
 	}
 	/**
 	* 获得指定类别的渔获，包括规格信息，价格信息.
@@ -125,11 +122,9 @@ public class ShopAction extends BaseAction<ShopPo> {
 	public void getPointCategoryGoodsInfo() {
 		List<SkuPo> skuList = goodsServer
 				.getPointCategoryGoodsInfo(model.getShopId(),categoryId);
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("skuList", skuList);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(true);
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("skuList", skuList);
 	}
 
 	/**
@@ -140,10 +135,8 @@ public class ShopAction extends BaseAction<ShopPo> {
 	public void getShopAllGoods() {
 		List<GoodsPo> goodsList = goodsServer.getShopAllGoods(
 				model.getShopId(), pageInfo);
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("goodsList", goodsList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("goodsList", goodsList);
 		resultMessage.setServiceResult(true);
 	}
 
@@ -156,10 +149,8 @@ public class ShopAction extends BaseAction<ShopPo> {
 	public void getShop() {
 		ShopPo shop = shopServer.getShop(model.getShopId());
 		System.out.println(shop);
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("shop", shop);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("shop", shop);
 		resultMessage.setServiceResult(true);
 	}
 
@@ -181,13 +172,11 @@ public class ShopAction extends BaseAction<ShopPo> {
 	 *@author 宋文光.
 	 */
 	public void getAllFishmanShop() {
-		Map<String, Object> hashMap = new HashMap<String,Object>();
 		List<Map<String, Object>> list = shopServer.getAllFishmanShop();
-		hashMap.put("shopInfo", list);
-		hashMap.put("number", list.size());
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(true);
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("shopInfo", list);
+		resultMessage.getResultParm().put("number", list.size());
 	}
 	
 	/**
@@ -195,13 +184,11 @@ public class ShopAction extends BaseAction<ShopPo> {
 	 *@author 宋文光.
 	 */
 	public void getAllFarmersShop() {
-		Map<String, Object> hashMap = new HashMap<String,Object>();
 		List<Map<String, Object>> list = shopServer.getAllFarmersShop();
-		hashMap.put("shopInfo", list);
-		hashMap.put("number", list.size());
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(true);
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("shopInfo", list);
+		resultMessage.getResultParm().put("number", list.size());
 	}
 
 }

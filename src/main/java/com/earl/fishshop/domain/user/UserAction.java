@@ -1,8 +1,6 @@
 package com.earl.fishshop.domain.user;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -176,11 +174,9 @@ public class UserAction extends BaseAction<UserPo> {
 	 */
 	public void findAllUser() {
 		List<UserPo> userList = userServer.findAll();
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("userList", userList);
-		hashMap.put("number", userList.size());
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("userList", userList);
+		resultMessage.getResultParm().put("number", userList.size());
 	}
 
 	/**
@@ -192,11 +188,9 @@ public class UserAction extends BaseAction<UserPo> {
 		model.setState(MyConstant.user_wait);
 		model.setUserType(MyConstant.user_fishman);
 		List<UserPo> userlist = userServer.findByGivenCreteria(model);
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("userlist", userlist);
-		hashMap.put("number", userlist.size());
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("userlist", userlist);
+		resultMessage.getResultParm().put("number", userlist.size());
 	}
 
 	/**
@@ -208,11 +202,9 @@ public class UserAction extends BaseAction<UserPo> {
 		model.setState(MyConstant.user_wait);
 		model.setUserType(MyConstant.user_farmer);
 		List<UserPo> userlist = userServer.findByGivenCreteria(model);
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("userlist", userlist);
-		hashMap.put("number", userlist.size());
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("userlist", userlist);
+		resultMessage.getResultParm().put("number", userlist.size());
 	}
 
 	/**
@@ -231,10 +223,8 @@ public class UserAction extends BaseAction<UserPo> {
 	 */
 	public void getMyShop() {
 		ShopPo shop = shopServer.getMyShop(model.getUserId());
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("shop", shop);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("shop", shop);
 		resultMessage.setServiceResult(true);
 	}
 
