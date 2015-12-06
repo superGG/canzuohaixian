@@ -1,6 +1,5 @@
 package com.earl.fishshop.domain.fishman;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -103,10 +102,8 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 */
 	public void getFiahman() {
 		List<FishmanPo> list = fishmanServer.getFishman(model.getFishmanId());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("fiashman", list);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("fiashman", list);
 		resultMessage.setServiceResult(true);
 	}
 

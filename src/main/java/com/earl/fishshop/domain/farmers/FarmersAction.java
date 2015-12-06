@@ -1,6 +1,5 @@
 package com.earl.fishshop.domain.farmers;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -88,10 +87,8 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 	 */
 	public void getFarmers() {
 		List<FarmersPo> list = farmersServer.getFarmers(model.getFarmersId());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("farmers", list);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("farmers", list);
 		resultMessage.setServiceResult(true);
 	}
 	

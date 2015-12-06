@@ -40,7 +40,7 @@ public class HttpOrdersActionTest extends HttpBaseActionTest{
 					 					"]" +
 					 ",\"seaRecordId\": \"5\"" +
 					 "}","utf-8")
-			,new StringPart("getAddressId", "1","utf-8")
+			,new StringPart("getAddressId", "23","utf-8")
 //			,new StringPart("pageInfo.size", "3","UTF-8")
 			};
 			String sendHttpRequest = sendHttpRequest(filePost, parts);

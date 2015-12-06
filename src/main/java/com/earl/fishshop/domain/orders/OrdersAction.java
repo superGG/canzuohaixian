@@ -77,6 +77,11 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		Boolean save = ordersServer.addOrders(orders, getAddressId);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
+		if(save){
+			resultMessage.setResultInfo("操作成功");
+		}else{
+			resultMessage.setResultInfo("操作失败");
+		}
 	}
 	
 	/**
@@ -87,7 +92,6 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		Boolean updateWithNotNullProperties = ordersServer.updateWithNotNullProperties(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(updateWithNotNullProperties);
-		
 	}
 	
 	/**
