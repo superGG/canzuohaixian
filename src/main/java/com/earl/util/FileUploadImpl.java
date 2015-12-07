@@ -22,15 +22,20 @@ public class FileUploadImpl {
 	@SuppressWarnings("unused")
 	private String filePath = "C:/";
 
-	private String categoryfilePath = "category/";
+//	private String categoryfilePath = "category/";
+	private String categoryfilePath;
 	
-	private String goodsfilePath = "goods/";
+//	private String goodsfilePath = "goods/";
+	private String goodsfilePath;
 
-	private String userfilePath = "user/";
+//	private String userfilePath = "user/";
+	private String userfilePath ;
 
-	private String fishmanfilePath = "fishman/";
+	private String fishmanfilePath ;
+//	private String fishmanfilePath = "fishman/";
 
-	private String farmerfilePath = "farmer/";
+//	private String farmerfilePath = "farmer/";
+	private String farmerfilePath ;
 
 	@Value("#{public[basePath]}" + "#{public.filePath}")
 	public void setFilePath(String filePath) {
@@ -60,6 +65,12 @@ public class FileUploadImpl {
 	public void setFarmerFilePath(String filePath) {
 		System.out.println("farmerfilePath=" + filePath);
 		this.farmerfilePath = filePath;
+	}
+	
+	@Value("#{public[basePath]}" + "#{public.goodsfilePath}")
+	public void setGoodsFilePath(String filePath) {
+		System.out.println("farmerfilePath=" + filePath);
+		this.goodsfilePath = filePath;
 	}
 
 	// 1: 获取文件后缀名
@@ -171,7 +182,7 @@ public class FileUploadImpl {
 	}
 
 	private String getDir(String filePath2) {
-		String substring = filePath2.substring(filePath2.lastIndexOf("\\") + 1,
+		String substring = filePath2.substring(filePath2.indexOf("/") + 1,
 				filePath2.length());
 		return substring;
 	}
