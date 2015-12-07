@@ -201,7 +201,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 * 
 	 * @author 黄祥谦.
 	 */
-	public void getGoodsShops(){
+	public void getGoodsShops1(){
 		List<ShopPo> shopList = categoryServer.getGoodsShops(model.getCategoryId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
 		resultMessage = new ResultMessage();
 		resultMessage.getResultParm().put("shopList", shopList);
@@ -213,7 +213,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 * 
 	 * @author 黄祥谦.
 	 */
-	public void getGoodsFishShops(){
+	public void getGoodsFishShops1(){
 		List<ShopPo> shopList = categoryServer.getGoodsFishShops(model.getCategoryId(), pageInfo);
 		resultMessage = new ResultMessage();
 		resultMessage.getResultParm().put("shopList", shopList);
@@ -225,7 +225,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 * 
 	 * @author 黄祥谦.
 	 */
-	public void getGoodsFarmerShops(){
+	public void getGoodsFarmerShops1(){
 		List<ShopPo> shopList = categoryServer.getGoodsFarmerShops(model.getCategoryId(), pageInfo);
 		resultMessage = new ResultMessage();
 		resultMessage.getResultParm().put("shopList", shopList);
@@ -237,7 +237,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 * 
 	 * @author 宋文光.
 	 */
-	public void getGoodsShops1() {
+	public void getGoodsShops() {
 		List<ShopPo> shopList = categoryServer.getGoodsShops(
 				model.getCategoryId(), pageInfo.getIndexPageNum(),
 				pageInfo.getSize(), sortType);
@@ -251,7 +251,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 * 
 	 * @author 宋文光.
 	 */
-	public void getGoodsFishShops1() {
+	public void getGoodsFishShops() {
 		List<ShopPo> shopList = categoryServer.getGoodsFishShops(
 				model.getCategoryId(), pageInfo, sortType);
 		resultMessage = new ResultMessage();
@@ -264,7 +264,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 * 
 	 * @author 宋文光.
 	 */
-	public void getGoodsFarmerShops1() {
+	public void getGoodsFarmerShops() {
 		List<ShopPo> shopList = categoryServer.getGoodsFarmerShops(
 				model.getCategoryId(), pageInfo, sortType);
 		resultMessage = new ResultMessage();
