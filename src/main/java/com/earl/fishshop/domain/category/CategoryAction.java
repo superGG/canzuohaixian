@@ -1,8 +1,6 @@
 package com.earl.fishshop.domain.category;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -130,18 +128,15 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 * 
 	 * @author 黄祥谦.
 	 */
-	public void getCategoryWithSku() {
-		CategoryPo category = categoryServer.getCategoryWithSku(model
-				.getCategoryId());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("category", category);
+	public void getCategoryWithSku(){
+		CategoryPo category = categoryServer.getCategoryWithSku(model.getCategoryId());
 		resultMessage = new ResultMessage();
 		if (category != null) {
 			resultMessage.setServiceResult(true);
 		} else {
 			resultMessage.setServiceResult(false);
 		}
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("category", category);
 	}
 
 	/**
@@ -151,30 +146,24 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 */
 	public void getTopCategory() {
 		List<CategoryPo> categoryList = categoryServer.getTopCategory();
-
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("categoryList", categoryList);
 		resultMessage = new ResultMessage();
 		if (categoryList.size() != 0) {
 			resultMessage.setServiceResult(true);
 		} else {
 			resultMessage.setServiceResult(false);
 		}
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("categoryList", categoryList);
 	}
 
-	public void getAllNextLevelCategory() {
-		List<CategoryPo> categoryList = categoryServer
-				.getAllNextLevelCategory();
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("categoryList", categoryList);
+	public void getAllNextLevelCategory(){
+		List<CategoryPo> categoryList = categoryServer.getAllNextLevelCategory();
 		resultMessage = new ResultMessage();
 		if (categoryList.size() != 0) {
 			resultMessage.setServiceResult(true);
 		} else {
 			resultMessage.setServiceResult(false);
 		}
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("categoryList", categoryList);
 	}
 
 	/**
@@ -182,15 +171,12 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 * 
 	 * @author 黄祥谦.
 	 */
-	public void getNextLevelCategory() {
-		List<CategoryPo> categoryList = categoryServer.getNextLevelCategory(
-				model.getCategoryId(), pageInfo);
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("categoryList", categoryList);
+	public void getNextLevelCategory(){
+		List<CategoryPo> categoryList = categoryServer.getNextLevelCategory(model.getCategoryId(), pageInfo);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(true);
 		resultMessage.setResultInfo("方法执行成功");
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("categoryList", categoryList);
 	}
 
 	/**
@@ -202,13 +188,10 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 * 
 	 * @author 黄祥谦.
 	 */
-	public void getHotCategory() {
-		List<CategoryPo> categoryList = categoryServer
-				.getHotCategory(application);
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("categoryList", categoryList);
+	public void getHotCategory(){
+		List<CategoryPo> categoryList = categoryServer.getHotCategory(application);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("categoryList", categoryList);
 		resultMessage.setResultInfo("执行成功");
 		resultMessage.setServiceResult(true);
 	}
@@ -218,14 +201,10 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 * 
 	 * @author 黄祥谦.
 	 */
-	public void getGoodsShops() {
-		List<ShopPo> shopList = categoryServer.getGoodsShops(
-				model.getCategoryId(), pageInfo.getIndexPageNum(),
-				pageInfo.getSize());
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("shopList", shopList);
+	public void getGoodsShops(){
+		List<ShopPo> shopList = categoryServer.getGoodsShops(model.getCategoryId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("shopList", shopList);
 		resultMessage.setServiceResult(true);
 	}
 
@@ -234,13 +213,10 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 * 
 	 * @author 黄祥谦.
 	 */
-	public void getGoodsFishShops() {
-		List<ShopPo> shopList = categoryServer.getGoodsFishShops(
-				model.getCategoryId(), pageInfo);
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("shopList", shopList);
+	public void getGoodsFishShops(){
+		List<ShopPo> shopList = categoryServer.getGoodsFishShops(model.getCategoryId(), pageInfo);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("shopList", shopList);
 		resultMessage.setServiceResult(true);
 	}
 
@@ -249,13 +225,10 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 * 
 	 * @author 黄祥谦.
 	 */
-	public void getGoodsFarmerShops() {
-		List<ShopPo> shopList = categoryServer.getGoodsFarmerShops(
-				model.getCategoryId(), pageInfo);
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("shopList", shopList);
+	public void getGoodsFarmerShops(){
+		List<ShopPo> shopList = categoryServer.getGoodsFarmerShops(model.getCategoryId(), pageInfo);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("shopList", shopList);
 		resultMessage.setServiceResult(true);
 	}
 
@@ -268,10 +241,8 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		List<ShopPo> shopList = categoryServer.getGoodsShops(
 				model.getCategoryId(), pageInfo.getIndexPageNum(),
 				pageInfo.getSize(), sortType);
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("shopList", shopList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("shopList", shopList);
 		resultMessage.setServiceResult(true);
 	}
 
@@ -283,10 +254,8 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	public void getGoodsFishShops1() {
 		List<ShopPo> shopList = categoryServer.getGoodsFishShops(
 				model.getCategoryId(), pageInfo, sortType);
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("shopList", shopList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("shopList", shopList);
 		resultMessage.setServiceResult(true);
 	}
 
@@ -298,10 +267,8 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	public void getGoodsFarmerShops1() {
 		List<ShopPo> shopList = categoryServer.getGoodsFarmerShops(
 				model.getCategoryId(), pageInfo, sortType);
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("shopList", shopList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("shopList", shopList);
 		resultMessage.setServiceResult(true);
 	}
 

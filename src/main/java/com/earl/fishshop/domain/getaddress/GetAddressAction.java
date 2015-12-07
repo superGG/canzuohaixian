@@ -1,6 +1,5 @@
 package com.earl.fishshop.domain.getaddress;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.context.annotation.Scope;
@@ -96,11 +95,9 @@ public class GetAddressAction extends BaseAction<GetAddressPo> {
 	public void getUserAllAddress(){
 		List<GetAddressPo> getAddressList = getAddressServer.getUserAllAddress(model.getUserId());
 		UserPo userPo = userServer.get(model.getUserId());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("getAddressList", getAddressList);
-		hashMap.put("default", userPo.getGetAddressId());
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("getAddressList", getAddressList);
+		resultMessage.getResultParm().put("default", userPo.getGetAddressId());
 		resultMessage.setResultInfo("访问成功");
 		resultMessage.setServiceResult(true);
 	}

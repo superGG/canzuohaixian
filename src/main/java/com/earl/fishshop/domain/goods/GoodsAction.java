@@ -1,6 +1,5 @@
 package com.earl.fishshop.domain.goods;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.context.annotation.Scope;
@@ -99,11 +98,9 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 	 */
 	public void getGoodsWithCategory(){
 		List<GoodsPo> goodsList = goodsServer.getGoodsWithCategory(model.getCategoryId(), pageInfo);
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("goodsList", goodsList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
+		resultMessage.getResultParm().put("goodsList", goodsList);
 	}
 
 	/**
@@ -123,11 +120,9 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 	 */
 	public void getGoodsInfo(){
 		GoodsPo goods= goodsServer.getGoodsInfo(model.getGoodsId());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("goods", goods);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
+		resultMessage.getResultParm().put("goods", goods);;
 	}
 	
 	/**
@@ -136,10 +131,8 @@ public class GoodsAction extends BaseAction<GoodsPo> {
 	 */
 	public void getShopPointCategory(){
 		List<GoodsPo> goodsList = goodsServer.getShopPointCategory(model.getShopId(),model.getCategoryId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("goodsList", goodsList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
 		resultMessage.setServiceResult(true);
+		resultMessage.getResultParm().put("goodsList", goodsList);
 	}
 }

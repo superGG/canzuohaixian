@@ -1,8 +1,6 @@
 package com.earl.fishshop.domain.unit;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -59,10 +57,8 @@ public class UnitAction extends BaseAction<UnitPo> {
 	 */
 	public void getAllUnit(){
 		List<UnitPo> unitList= unitServer.findAll();
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("unitList", unitList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("unitList", unitList);
 		resultMessage.setServiceResult(true);
 	}
 	
@@ -72,10 +68,8 @@ public class UnitAction extends BaseAction<UnitPo> {
 	 */
 	public void getSkuFromUnit(){
 		List<SkuPo> skuList = unitServer.getSkuFromUnit(model.getUnitId());
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("skuList", skuList);
 		resultMessage = new ResultMessage();
-		resultMessage.setResultParm(hashMap);
+		resultMessage.getResultParm().put("skuList", skuList);
 		resultMessage.setServiceResult(true);
 	}
 	

@@ -17,4 +17,5 @@ WEB-INF/
 *.log
 .project
 
+src/main/webapp/
 
