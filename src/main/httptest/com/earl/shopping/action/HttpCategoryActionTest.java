@@ -105,6 +105,7 @@ public class HttpCategoryActionTest extends HttpBaseActionTest {
 		String sendHttpRequest = sendHttpRequest(filePost, parts);
 		System.out.println(sendHttpRequest);
 	}
+	
 	@Test
 	public void testGetGoodsFishShops() {
 		String targetURL = basePath + "category_getGoodsFishShops.action";

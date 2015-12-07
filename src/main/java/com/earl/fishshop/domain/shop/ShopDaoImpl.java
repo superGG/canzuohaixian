@@ -47,7 +47,7 @@ public class ShopDaoImpl extends BaseDaoImpl<ShopPo> implements ShopDao {
 	public List<ShopPo> getPointTypeGoodsShops(Long categoryId,
 			Integer shopType, PageInfo pageInfo) {
 		// TODO 未测试.
-		String hql = "select s from ShopPo s,GoodsPo g where s.onSell=true and s.shopType=:shopType and g.categoryId=:categoryId and g.nowNumber > 0 group by s.shopId";
+		String hql = "select s from ShopPo s,GoodsPo g where s.shopId = g.shopId and s.onSell=true and s.shopType=:shopType and g.categoryId=:categoryId and g.nowNumber > 0 group by s.shopId";
 		String hql2 = "select count(*) from ShopPo s,GoodsPo g where s.onSell=true and s.shopType=:shopType and g.categoryId =:categoryId and g.nowNumber>0 group by s.shopId";
 		@SuppressWarnings("unchecked")
 		List<ShopPo> shopList = getCurrentSession()
@@ -101,15 +101,15 @@ public class ShopDaoImpl extends BaseDaoImpl<ShopPo> implements ShopDao {
 			Integer shopType, PageInfo pageInfo, Integer sortType) {
 		String hql = null;
 		if (sortType == MyConstant.sort_synthesize) { // 综合排序
-			hql = "select s from ShopPo s,GoodsPo g where s.onSell=true and s.shopType=:shopType and g.categoryId=:categoryId and g.nowNumber > 0 group by s.shopId order by ((s.weightQuality+s.freshQuality+s.speedQuality)*10-s.sendPrice) desc ";
+			hql = "select s from ShopPo s,GoodsPo g where s.shopId = g.shopId and s.onSell=true and s.shopType=:shopType and g.categoryId=:categoryId and g.nowNumber > 0 group by s.shopId order by ((s.weightQuality+s.freshQuality+s.speedQuality)*10-s.sendPrice) desc ";
 		} else if (sortType == MyConstant.sort_comment) { // 按评价排序
-			hql = "select s from ShopPo s,GoodsPo g where s.onSell=true and s.shopType=:shopType and g.categoryId=:categoryId and g.nowNumber > 0 group by s.shopId order by (s.weightQuality+s.freshQuality+s.speedQuality) desc";
+			hql = "select s from ShopPo s,GoodsPo g where s.shopId = g.shopId and s.onSell=true and s.shopType=:shopType and g.categoryId=:categoryId and g.nowNumber > 0 group by s.shopId order by (s.weightQuality+s.freshQuality+s.speedQuality) desc";
 		} else if (sortType == MyConstant.sort_sendPrice) { // 按起送价排序
-			hql = "select s from ShopPo s,GoodsPo g where s.onSell=true and s.shopType=:shopType and g.categoryId=:categoryId and g.nowNumber > 0 group by s.shopId order by s.sendPrice asc";
+			hql = "select s from ShopPo s,GoodsPo g where s.shopId = g.shopId and s.onSell=true and s.shopType=:shopType and g.categoryId=:categoryId and g.nowNumber > 0 group by s.shopId order by s.sendPrice asc";
 		} else { // 按销量排序
-			hql = "select s from ShopPo s,GoodsPo g where s.onSell=true and s.shopType=:shopType and g.categoryId=:categoryId and g.nowNumber > 0 group by s.shopId order by g.sellNumber desc";
+			hql = "select s from ShopPo s,GoodsPo g where s.shopId = g.shopId and s.onSell=true and s.shopType=:shopType and g.categoryId=:categoryId and g.nowNumber > 0 group by s.shopId order by g.sellNumber desc";
 		}
-		String hql2 = "select count(*) from ShopPo s,GoodsPo g where s.onSell=true and s.shopType=:shopType and g.categoryId =:categoryId and g.nowNumber>0 group by s.shopId";
+		String hql2 = "select count(*) from ShopPo s,GoodsPo g where s.shopId = g.shopId and s.onSell=true and s.shopType=:shopType and g.categoryId =:categoryId and g.nowNumber>0 group by s.shopId";
 		@SuppressWarnings("unchecked")
 		List<ShopPo> shopList = getCurrentSession()
 				.createQuery(hql)
