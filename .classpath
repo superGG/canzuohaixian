@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" output="target/classes" path="src/main/java"/>
+<classpathentry kind="src" output="target/classes" path="src/main/java"/>
 	<classpathentry kind="src" path="src/main/test"/>
 	<classpathentry kind="src" output="target/classes" path="src/main/httptest"/>
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources"/>
@@ -11,4 +11,5 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>

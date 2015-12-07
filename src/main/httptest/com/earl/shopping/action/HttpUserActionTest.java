@@ -13,7 +13,7 @@ import org.junit.Test;
 
 public class HttpUserActionTest extends HttpBaseActionTest{
 
-	 @SuppressWarnings("unused")
+	@SuppressWarnings("unused")
 	private File targetFile;
 
     public void dod(){
@@ -57,4 +57,5 @@ public class HttpUserActionTest extends HttpBaseActionTest{
 		String sendHttpRequest = sendHttpRequest(filePost, parts);
 		System.out.println(sendHttpRequest);
 	}
+    
 }

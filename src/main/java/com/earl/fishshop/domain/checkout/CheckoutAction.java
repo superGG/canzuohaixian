@@ -61,4 +61,8 @@ public class CheckoutAction extends BaseAction<CheckoutPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(result);
 	}
+	
+	public void xxx(){
+//		ApplicationContext
+	}
 }
