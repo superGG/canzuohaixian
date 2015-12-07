@@ -141,4 +141,24 @@ public class MyConstant {
 	 * 提前到港.
 	 */
 	public static final Integer searecord_ahead = 3;
+	
+	/**
+	 * 综合排序1.
+	 */
+	public static final Integer sort_synthesize = 1;
+	
+	/**
+	 * 评价排序2.
+	 */
+	public static final Integer sort_comment = 2;
+	
+	/**
+	 * 起送价排序3.
+	 */
+	public static final Integer sort_sendPrice = 3;
+	
+	/**
+	 * 销量排序4.
+	 */
+	public static final Integer sort_sellNumber = 4;
 }

@@ -103,5 +103,35 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	 * @return
 	 */
 	List<CategoryPo> getAllNextLevelCategory();
+	
+	/**
+	 * 得到发布该种类商品的商店.
+	 * @author 宋文光.
+	 * @param categoryId 
+	 * @param indexPageNum
+	 * @param size 
+	 * @return
+	 */
+	List<ShopPo> getGoodsShops(Long categoryId, Integer indexPageNum, Integer size,Integer sortType);
+
+	/**
+	 * 野生产品
+	 * 得到该类别下的渔户商家的信息.
+	 * @author 宋文光.
+	 * @param categoryId
+	 * @param pageInfo
+	 * @return
+	 */
+	List<ShopPo> getGoodsFishShops(Long categoryId, PageInfo pageInfo,Integer sortType);
+	
+	/**
+	 * 养殖产品
+	 * 得到该类别下的养殖户商家的信息.
+	 * @author 宋文光.
+	 * @param categoryId
+	 * @param pageInfo
+	 * @return
+	 */
+	List<ShopPo> getGoodsFarmerShops(Long categoryId, PageInfo pageInfo,Integer sortType);
 
 }

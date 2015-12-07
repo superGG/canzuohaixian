@@ -164,4 +164,45 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 		List<CategoryPo> categoryList = categoryDao.getAllNextLevelCategory();
 		return categoryList;
 	}
+	
+	@Override
+	public List<ShopPo> getGoodsShops(Long categoryId, Integer indexPageNum, Integer size,Integer sortType) {
+		List<ShopPo> shopList = shopDao.getGoodsShops(categoryId,indexPageNum, size,sortType);
+		for (ShopPo shopPo : shopList) {
+			UserPo userPo = userDao.get(shopPo.getUserId());
+			if(userPo.getUserType() == MyConstant.user_farmer){
+			}else if(userPo.getUserType() == MyConstant.user_fishman){
+				if(shopPo.getSeaRecordId() != null){
+					SeaRecordPo serecord = seaRecordDao.get(shopPo.getSeaRecordId());
+					shopPo.setPortTime(serecord.getEndSeeTime());
+					shopPo.setShipPort(serecord.getShipportName());
+					shopPo.setLatitude(serecord.getLatitude());
+					shopPo.setLongitude(serecord.getLongitude());
+				}
+			}
+			String getType = shopPo.getGetType();
+			ArrayList<String> getTypeName = new ArrayList<String>();
+			@SuppressWarnings("unchecked")
+			List<Double> jsonToBean = JsonHelper.jsonToBean(getType, List.class);
+			for (Double long1 : jsonToBean) {
+				GetTypePo getTypePo = getTypeDao.get(long1.longValue());
+				getTypeName.add(getTypePo.getGetName());
+			}
+			shopPo.setGetTypeString(getTypeName);
+		}
+		return shopList;
+	}
+
+	@Override
+	public List<ShopPo> getGoodsFarmerShops(Long categoryId, PageInfo pageInfo,Integer sortType) {
+		List<ShopPo> shopList = shopDao.getPointTypeGoodsShops(categoryId,MyConstant.shop_farmerman, pageInfo,sortType);
+		return shopList;
+	}
+	
+	@Override
+	public List<ShopPo> getGoodsFishShops(Long categoryId, PageInfo pageInfo,Integer sortType) {
+		List<ShopPo> shopList = shopDao.getPointTypeGoodsShops(categoryId,MyConstant.shop_fishman, pageInfo,sortType);
+		return shopList;
+	}
+
 }

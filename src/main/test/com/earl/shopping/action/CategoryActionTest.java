@@ -102,5 +102,19 @@ public class CategoryActionTest extends StrutsSpringTestCase {
 		System.out.println(res);
 		assert res != null;
 	}
+	
+
+	@Test
+	public void testGetGoodsShops1() throws UnsupportedEncodingException,
+			ServletException {
+		request.addParameter("categoryId", "2"); // 鱼类
+		request.addParameter("pageInfo.indexPageNum", "1");
+		request.addParameter("pageInfo.size", "2");
+		request.addParameter("sortType", "3");
+		String res = executeAction("/category_getGoodsShops1.action");
+
+		System.out.println(res);
+		assert res != null;
+	}
 
 }

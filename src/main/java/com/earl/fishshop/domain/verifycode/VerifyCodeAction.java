@@ -46,6 +46,10 @@ public class VerifyCodeAction extends BaseAction<VerifyCodePo> {
 
 	// 下面填写业务逻辑
 
+	/**
+	 * 保存手机 验证码.
+	 *@author 宋文光.
+	 */
 	public void addVerifyCode() {
 		Boolean save = verifyCodeServer.save(model);
 		resultMessage = new ResultMessage();
