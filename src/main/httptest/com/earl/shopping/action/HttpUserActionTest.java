@@ -58,4 +58,18 @@ public class HttpUserActionTest extends HttpBaseActionTest{
 		System.out.println(sendHttpRequest);
 	}
     
+    @Test
+   	public void testSmsCodeOfRegister() {
+   		String targetURL = basePath
+   				+ "user_smsCodeOfRegister.action";
+
+   		PostMethod filePost = new PostMethod(targetURL);
+
+   		Part[] parts = { 
+   				new StringPart("phoneNumber", "18320489492", "utf-8")
+   		};
+   		String sendHttpRequest = sendHttpRequest(filePost, parts);
+   		System.out.println(sendHttpRequest);
+   	}
+    
 }
