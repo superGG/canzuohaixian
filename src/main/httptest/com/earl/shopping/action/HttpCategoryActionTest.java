@@ -123,7 +123,7 @@ public class HttpCategoryActionTest extends HttpBaseActionTest {
 	public void testGetGoodsFarmerShops() {
 		String targetURL = basePath + "category_getGoodsFarmerShops.action";
 		PostMethod filePost = new PostMethod(targetURL);
-		Part[] parts = { new StringPart("categoryId", "7", "utf-8"),
+		Part[] parts = { new StringPart("categoryId", "2", "utf-8"),
 				new StringPart("pageInfo.indexPageNum", "1", "utf-8"),
 				new StringPart("pageInfo.size", "3", "UTF-8"),
 		new StringPart("sortType", "1", "UTF-8") };
