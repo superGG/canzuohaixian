@@ -22,7 +22,7 @@ import com.earl.fishshop.vo.SingleFileVo;
 @Controller(value = "categoryAction")
 @Scope(value = "prototype")
 public class CategoryAction extends BaseAction<CategoryPo> {
-
+	
 	/**
 	 * 
 	 */
@@ -39,8 +39,8 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	// 选择排序方式.
 	private Integer sortType;
 
-	@ReturnValue
 	// 返回实体对象，或者其他任意对象
+	@ReturnValue
 	public ResultMessage getResultMessage() {
 		return resultMessage;
 	}

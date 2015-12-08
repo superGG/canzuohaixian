@@ -171,6 +171,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 		for (ShopPo shopPo : shopList) {
 			UserPo userPo = userDao.get(shopPo.getUserId());
 			if(userPo.getUserType() == MyConstant.user_farmer){
+				
 			}else if(userPo.getUserType() == MyConstant.user_fishman){
 				if(shopPo.getSeaRecordId() != null){
 					SeaRecordPo serecord = seaRecordDao.get(shopPo.getSeaRecordId());
