@@ -1,6 +1,10 @@
 package com.earl.fishshop.domain.verifycode;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -29,13 +33,24 @@ public class VerifyCodeServiceImpl extends BaseServiceImpl<VerifyCodePo> impleme
 	}
 
 	@Override
-	public void saveVerifyCode(VerifyCodePo verifyCodePo) {
+	public void saveVerifyCode(final VerifyCodePo verifyCodePo) {
 		List<VerifyCodePo> list = verifyCodeDao.getVerifyCode(verifyCodePo.getPhoneNumber());
 		if ( list.size() != 0) {
 			list.get(0).setVerifyCode(verifyCodePo.getVerifyCode());
 			verifyCodeDao.update(list.get(0));
 		} else {
 			verifyCodeDao.save(verifyCodePo);
+			SimpleDateFormat startdate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+			System.out.println(startdate.format(new Date()));// new Date()为获取当前系统时间
+			Timer timer = new Timer();
+			timer.schedule(new TimerTask() {
+				public void run(){
+					deleVerifyCodeByPhone(verifyCodePo.getPhoneNumber());
+					SimpleDateFormat enddate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+					System.out.println(enddate.format(new Date()));// new Date()为获取当前系统时间
+					System.out.println("验证码已删除");
+				}
+			}, 60000);
 		}
 	}
 
@@ -46,5 +61,10 @@ public class VerifyCodeServiceImpl extends BaseServiceImpl<VerifyCodePo> impleme
 			String verifyCode = list.get(0).getVerifyCode();
 			return verifyCode;
 		} else return null;
+	}
+	
+	public void deleVerifyCodeByPhone(String phoneNumber){
+		VerifyCodePo verifyCode = verifyCodeDao.getVerifyCode(phoneNumber).get(0);
+		verifyCodeDao.deleteById(verifyCode.getVerifycodeId());
 	}
 }

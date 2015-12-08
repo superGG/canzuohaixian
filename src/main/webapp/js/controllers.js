@@ -74,6 +74,27 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 		}
 	}
 
+	$scope.pushPhoto = function(){
+
+		var file = $("#compentPhoto").get(0).files[0];
+
+		var fd = new FormData();
+		fd.append("compentPhoto",file);
+		$("#viewPhoto").attr("src",window.URL.createObjectURL(file));
+		var xhr = new XMLHttpRequest();
+
+		xhr.open("post","test/usersinfo.json");
+		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+
+		xhr.upload.onprogress = function(evt){
+
+			$scope.precentage = evt.total/evt.loaded * 100;
+		}
+
+		xhr.send(fd);
+	}
+
+
 });
 
 GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){

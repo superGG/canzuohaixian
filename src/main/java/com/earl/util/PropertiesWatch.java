@@ -36,7 +36,7 @@ public class PropertiesWatch extends FileWatchDog {
 	@Override
 	protected void doOnChange() {
 		// TODO 未测试.
-		logger.debug("watching" + this.filename);
+		logger.debug("reloading spring properties [" + this.filename + "]");
 		XmlWebApplicationContext context2 = (XmlWebApplicationContext) WebApplicationContextUtils
 				.getWebApplicationContext(this.servletContext);
 		context2.refresh();

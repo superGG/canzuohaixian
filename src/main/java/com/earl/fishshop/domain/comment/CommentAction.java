@@ -83,10 +83,9 @@ public class CommentAction extends BaseAction<CommentPo> {
 	 */
 	public void getShopComment() {
 		List<CommentPo> list = commentServer.getShopComment(model.getShopId(), pageInfo);
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("total", list.size());
 		resultMessage = new ResultMessage();
 		resultMessage.getResultParm().put("comment", list);
+		resultMessage.getResultParm().put("total", list.size());
 		resultMessage.setServiceResult(true);
 	}
 	

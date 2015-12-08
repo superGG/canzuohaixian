@@ -27,5 +27,49 @@ public class HttpCommentActionTest extends HttpBaseActionTest{
 		System.out.println(sendHttpRequest);
 		
 	}
+	
+	@Test
+	public void testGetBedComment() {
+		String targetURL = basePath + "comment_getBedComment.action";
+		PostMethod filePost = new PostMethod(targetURL);
+		Part[] parts = { new StringPart("shopId", "1", "utf-8"),
+				new StringPart("pageInfo.indexPageNum", "1", "utf-8"),
+				new StringPart("pageInfo.size", "3", "UTF-8") };
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+	}
+	
+	@Test
+	public void testGetMidComment() {
+		String targetURL = basePath + "comment_getMidComment.action";
+		PostMethod filePost = new PostMethod(targetURL);
+		Part[] parts = { new StringPart("shopId", "1", "utf-8"),
+				new StringPart("pageInfo.indexPageNum", "1", "utf-8"),
+				new StringPart("pageInfo.size", "3", "UTF-8") };
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+	}
+	
+	@Test
+	public void testGetGoodComment() {
+		String targetURL = basePath + "comment_getGoodComment.action";
+		PostMethod filePost = new PostMethod(targetURL);
+		Part[] parts = { new StringPart("shopId", "1", "utf-8"),
+				new StringPart("pageInfo.indexPageNum", "1", "utf-8"),
+				new StringPart("pageInfo.size", "3", "UTF-8") };
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+	}
+	
+	@Test
+	public void testGetShopComment() {
+		String targetURL = basePath + "comment_getShopComment.action";
+		PostMethod filePost = new PostMethod(targetURL);
+		Part[] parts = { new StringPart("shopId", "1", "utf-8"),
+				new StringPart("pageInfo.indexPageNum", "1", "utf-8"),
+				new StringPart("pageInfo.size", "3", "UTF-8") };
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+	}
       
 }
