@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script src="assets/js/jquery-2.0.3.min.js"></script>
+<body>
+<input type="file" name="photoImg" id="photoImg"/>
+
+<div class="viewImg"></div>
+</body>
+
+<script>
+
+    $(function(){
+
+        var fd = new FormData();
+        $("#photoImg").change(function(){
+            console.log($("#photoImg").get(0).files[0]);
+
+            fd.append("myPhoto",$("#photoImg").get(0).files[0]);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("post","test/usersinfo.json");
+            xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+
+            xhr.upload.onprogress = function(evt){
+                console.log(evt);
+                console.log(evt.loaded)
+            }
+            xhr.send(fd);
+
+            $(".viewImg").html("<img src=" + window.URL.createObjectURL($("#photoImg").get(0).files[0])+" />");
+
+        });
+
+
+    });
+</script>
+</html>
