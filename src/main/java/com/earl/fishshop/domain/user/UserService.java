@@ -104,6 +104,6 @@ public interface UserService extends BaseService<UserPo>{
 	 * @param model
 	 * @return
 	 */
-	Boolean updatePassword(UserPo model);
+	Boolean updatePassword(UserPo model,String newPassword);
 
 }

@@ -13,6 +13,7 @@ import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.util.VerifyServiceUtil;
 import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.fishshop.vo.ResultMessage;
+import com.earl.util.FilterPropertiesUtil;
 import com.earl.util.SmsbaoHelper;
 import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
 
@@ -48,6 +49,19 @@ public class UserAction extends BaseAction<UserPo> {
 	 * 用户输入的验证码.
 	 */
 	private VerifyCodePo verifyCodePo;
+	
+	/**
+	 * 用户输入的新密码.
+	 */
+	public String newPassword;
+	
+	public String getNewPassword() {
+		return newPassword;
+	}
+
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
+	}
 
 	public VerifyCodePo getVerifyCodePo() {
 		return verifyCodePo;
@@ -117,14 +131,14 @@ public class UserAction extends BaseAction<UserPo> {
 	 *@author 宋文光.
 	 */
 	public void updatePassword() {
-		Boolean result = userServer.updatePassword(model);
+		Boolean result = userServer.updatePassword(model,newPassword);
 		resultMessage = new ResultMessage();
 		if(result){
 			resultMessage.setResultInfo("更改成功");
 			resultMessage.setServiceResult(result);
 		} else {
 			resultMessage.setServiceResult(result);
-			resultMessage.setResultInfo("更改失败");
+			resultMessage.setResultInfo("旧密码错误");
 		}
 	}
 
@@ -153,7 +167,13 @@ public class UserAction extends BaseAction<UserPo> {
 	public void updateUserImg() {
 		Boolean update = userServer.updateUserImg(model, userFile);
 		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(update);
+		if(update){
+			resultMessage.setResultInfo("更新成功");
+			resultMessage.setServiceResult(update);
+		} else {
+			resultMessage.setServiceResult(update);
+			resultMessage.setResultInfo("更新失败");
+		}
 	}
 
 	/**
@@ -173,10 +193,10 @@ public class UserAction extends BaseAction<UserPo> {
 	 * @author 宋文光
 	 */
 	public void findAllUser() {
-		List<UserPo> userList = userServer.findAll();
+		List<UserPo> userlist = userServer.findAll();
 		resultMessage = new ResultMessage();
-		resultMessage.getResultParm().put("userList", userList);
-		resultMessage.getResultParm().put("number", userList.size());
+		resultMessage.getResultParm().put("userList", FilterPropertiesUtil.filterUserPassword(userlist));
+		resultMessage.getResultParm().put("number", userlist.size());
 	}
 
 	/**
@@ -189,7 +209,7 @@ public class UserAction extends BaseAction<UserPo> {
 		model.setUserType(MyConstant.user_fishman);
 		List<UserPo> userlist = userServer.findByGivenCreteria(model);
 		resultMessage = new ResultMessage();
-		resultMessage.getResultParm().put("userlist", userlist);
+		resultMessage.getResultParm().put("userlist", FilterPropertiesUtil.filterUserPassword(userlist));
 		resultMessage.getResultParm().put("number", userlist.size());
 	}
 
@@ -203,7 +223,7 @@ public class UserAction extends BaseAction<UserPo> {
 		model.setUserType(MyConstant.user_farmer);
 		List<UserPo> userlist = userServer.findByGivenCreteria(model);
 		resultMessage = new ResultMessage();
-		resultMessage.getResultParm().put("userlist", userlist);
+		resultMessage.getResultParm().put("userlist", FilterPropertiesUtil.filterUserPassword(userlist));
 		resultMessage.getResultParm().put("number", userlist.size());
 	}
 

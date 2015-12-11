@@ -197,6 +197,17 @@ user_findPassword.action
 图片：7找回密码2.jpg
 
 test-->success
+user_updatePassword.action
+参数：用户id userId  旧密码 password  新密码 newPassword 
+图片：3商家信息-我的账户.jpg(修改密码)
+
+test-->success
+user_updateUserImg.action
+参数：用户id userId  图片文件userFile
+图片：3商家信息-我的账户.jpg(更改头像)
+
+
+test-->success
 shop_getShopCommentInfo.action
 参数：商店id： shopId
 图片：5商家信息-店铺评价.jpg(获取商店信息)
