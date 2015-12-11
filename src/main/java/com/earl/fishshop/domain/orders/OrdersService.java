@@ -22,7 +22,7 @@ public interface OrdersService extends BaseService<OrdersPo>{
 	 * @param getAddressId TODO
 	 * @return
 	 */
-	Boolean addOrders(OrdersPo model, Long getAddressId);
+	Long addOrders(OrdersPo model, Long getAddressId);
 
 	/**
 	 * 得到本次航海订单.

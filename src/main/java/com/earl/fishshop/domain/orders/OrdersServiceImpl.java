@@ -42,8 +42,7 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 	}
 
 	@Override
-	public Boolean addOrders(OrdersPo orders, Long getAddressId) {
-		try {
+	public Long addOrders(OrdersPo orders, Long getAddressId) {
 			Double totalOrdersPrice = 0.0;
 			orders.setState(MyConstant.order_unpay);//设置订单初始状态.
 			orders.setSordersNumber(orders.getOrdersDetail().size());
@@ -53,8 +52,8 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 				ordersDetail.setCategoryId(goodsPo.getCategoryId());
 				ordersDetail.setGoodsName(goodsPo.getGoodsName());
 				ordersDetail.setPrice(goodsPo.getPrice());
-				ordersDetail.setSkuId(goodsPo.getSku());
-				ordersDetail.setSku(skuDao.get(goodsPo.getSku()).getSkuName());
+				ordersDetail.setSkuId(goodsPo.getSkuId());
+				ordersDetail.setSku(skuDao.get(goodsPo.getSkuId()).getSkuName());
 				ordersDetail.setUnit(goodsPo.getUnit());
 				ordersDetail.setGoodsPhoto(goodsPo.getGoodsPhoto());
 				Double singalPrice = ordersDetail.getNumber()*ordersDetail.getPrice();
@@ -70,12 +69,8 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 			orders.setPostagePrice(ordersPostage);
 			orders.setSordersNumber(orders.getOrdersDetail().size());
 			orders.setTotalprice(totalOrdersPrice+ordersPostage);
-			ordersDao.addOrders(orders, getAddressId);
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return false; 
+			Long ordersId = ordersDao.addOrders(orders, getAddressId);
+			return ordersId;
 	}
 
 	@Override

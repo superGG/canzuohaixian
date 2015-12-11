@@ -5,7 +5,7 @@
         
         
 <hibernate-mapping package="com.earl.fishshop.domain.region">
-    <class name="RegionPo" table="category" dynamic-update="false" dynamic-insert="true">
+    <class name="RegionPo" table="region" dynamic-update="false" dynamic-insert="true">
         <id name="regionId" type="java.lang.Long">
             <column name="regionId" />
             <generator class="native"></generator>

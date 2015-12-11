@@ -52,9 +52,9 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 	}
 
 	@Override
-	public List<CategoryPo> getNextLevelCategory(Long parentId, PageInfo pageInfo) {
+	public List<CategoryPo> getNextLevelCategory(Long parentId, Integer indexPageNum, Integer size) {
 		List<CategoryPo> nextLevelCategory = categoryDao
-				.getNextLevelCategory(parentId, pageInfo);
+				.getNextLevelCategory(parentId, indexPageNum, size);
 		for (CategoryPo categoryPo : nextLevelCategory) {
 			try {
 				FilterPropertiesUtil.filterProperties(categoryPo, CategoryForNextLevel.class);

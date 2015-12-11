@@ -3,7 +3,6 @@ package com.earl.fishshop.domain.category;
 import java.util.List;
 
 import com.earl.fishshop.domain.base.BaseDao;
-import com.earl.fishshop.vo.PageInfo;
 
 public interface CategoryDao extends BaseDao<CategoryPo>{
 
@@ -24,11 +23,12 @@ public interface CategoryDao extends BaseDao<CategoryPo>{
 	/**
 	 * 得到下一级的类别.
 	 * @author 黄祥谦.
-	 * @param pageInfo 分页对象.
+	 * @param indexPageNum TODO
+	 * @param size TODO
 	 * @param l
 	 * @return
 	 */
-	List<CategoryPo> getNextLevelCategory(Long parentId, PageInfo pageInfo);
+	List<CategoryPo> getNextLevelCategory(Long parentId, Integer indexPageNum, Integer size);
 
 	/**
 	 * 得到本月热门类别.

@@ -28,8 +28,9 @@ public interface OrdersDao extends BaseDao<OrdersPo>{
 	 * @author 黄祥谦.
 	 * @param orders
 	 * @param getAddressId 
+	 * @return TODO
 	 */
-	void addOrders(OrdersPo orders, Long getAddressId);
+	Long addOrders(OrdersPo orders, Long getAddressId);
 
 	/**
 	 * 得到本次出航订单.
