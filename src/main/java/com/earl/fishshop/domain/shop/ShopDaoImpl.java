@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.earl.fishshop.domain.base.BaseDaoImpl;
+import com.earl.fishshop.domain.searecord.SeaRecordPo;
+import com.earl.fishshop.domain.user.UserPo;
 import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.vo.PageInfo;
 
@@ -123,6 +125,22 @@ public class ShopDaoImpl extends BaseDaoImpl<ShopPo> implements ShopDao {
 				.setInteger("shopType", shopType).uniqueResult();
 		pageInfo.setTotalCount(uniqueResult);
 		return shopList;
+	}
+
+	@Override
+	public String getShopAddressCode(Long shopId) {
+		// TODO 未测试.
+		ShopPo shopPo = get(shopId);
+		
+		UserPo object = (UserPo) getCurrentSession().get(UserPo.class, shopPo.getUserId());
+		Integer userType = object.getUserType();
+		if(userType == MyConstant.user_farmer){
+			return shopPo.getAddresscode();
+		}
+			Long seaRecordId = shopPo.getSeaRecordId();
+			SeaRecordPo object2 = (SeaRecordPo) getCurrentSession().get(SeaRecordPo.class, seaRecordId);
+			String addresscode = object2.getAddresscode();
+		return addresscode;
 	}
 
 }

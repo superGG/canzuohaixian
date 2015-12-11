@@ -64,7 +64,11 @@ public abstract class FileWatchDog extends Thread {
 		this.filename = filename;
 		file = new File(filename);
 		setDaemon(true);
-//		checkAndConfigure();
+		if (file.exists()) {
+		lastModif = file.lastModified(); // this can also throw a
+		}
+		//SecurityException
+		//checkAndConfigure();
 	}
 
 	/**

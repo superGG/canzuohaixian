@@ -31,6 +31,8 @@ public class GetAddressPo{
 	 */
 	private String address ;
 	
+	private String addresscode;
+	
 	/**
 	 * 字段描述：String 
 	 * 字段类型：phone  
@@ -42,8 +44,6 @@ public class GetAddressPo{
 	 * 字段类型：postcode  
 	 */
 	private String postcode ;
-	
-	private Long provinceId;
 	
 	/**
 	 * 字段描述：Date 
@@ -69,11 +69,11 @@ public class GetAddressPo{
 	 */
 	private Long version ;
 	
-	public Long getProvinceId() {
-		return provinceId;
+	public String getAddresscode() {
+		return addresscode;
 	}
-	public void setProvinceId(Long provinceId) {
-		this.provinceId = provinceId;
+	public void setAddresscode(String addresscode) {
+		this.addresscode = addresscode;
 	}
 	public Long getUserId() {
 		return userId;

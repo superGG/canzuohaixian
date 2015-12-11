@@ -1,6 +1,5 @@
 package com.earl.fishshop.listener;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 

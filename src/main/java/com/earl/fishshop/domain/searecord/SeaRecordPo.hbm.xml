@@ -12,6 +12,7 @@
         </id>
         <version name="version" column="version" type="java.lang.Long"></version>
         <property name="shopId" type="java.lang.Long" column="shopId" />
+        <property name="addresscode" type="java.lang.String" column="addresscode" />
         <property name="startSeeTime" type="java.util.Date" column="startSeeTime" />
         <property name="endSeeTime" type="java.util.Date" column="endSeeTime" />
         <property name="spendDay" type="java.lang.Integer" column="spendDay" />

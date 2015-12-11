@@ -1,6 +1,8 @@
 test-->success
 shop_getCategoryWithTotalNumber.action
 参数：shopId 商家id
+	pageInfo.indexPageNum
+	pageInfo.size
 图片：1发布商品.jpg
 
 test-->success

@@ -51,8 +51,6 @@ public class OrdersPo{
 	
 	private String phone;//收货电话
 	
-	private Long provinceId;
-	
 	private Double postagePrice;
 	
 	private Integer sordersNumber;
@@ -122,12 +120,6 @@ public class OrdersPo{
 	}
 	public void setOrderNumber(String orderNumber) {
 		this.orderNumber = orderNumber;
-	}
-	public Long getProvinceId() {
-		return provinceId;
-	}
-	public void setProvinceId(Long provinceId) {
-		this.provinceId = provinceId;
 	}
 	public Long getUserId() {
 		return userId;

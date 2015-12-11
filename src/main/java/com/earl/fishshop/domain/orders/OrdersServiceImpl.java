@@ -66,13 +66,7 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 			orders.setSendAddress(getAddressPo.getAddress());
 			orders.setPhone(getAddressPo.getPhone());
 			
-			String address = getAddressPo.getAddress();
-			String substring = address.substring(0,address.indexOf("省")+1);
-			PostagePo postagePo = new PostagePo();
-			postagePo.setProvinceName(substring);
-			List<PostagePo> findLikeGivenCreteriaWithPage = postageDao.findLikeGivenCreteriaWithPage(postagePo,null);
-			orders.setProvinceId(findLikeGivenCreteriaWithPage.get(0).getPostageId());
-			Double ordersPostage = getOrdersPostage(orders);
+			Double ordersPostage = getOrdersPostage(orders, getAddressId);
 			orders.setPostagePrice(ordersPostage);
 			orders.setSordersNumber(orders.getOrdersDetail().size());
 			orders.setTotalprice(totalOrdersPrice+ordersPostage);
@@ -134,12 +128,15 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 	}
 
 	@Override
-	public Double getOrdersPostage(OrdersPo model) {
-		List<OrdersDetailPo> ordersDetail = model.getOrdersDetail();
-		for (OrdersDetailPo ordersDetailPo : ordersDetail) {
-			ordersDetailPo.getSkuId();
-		}
-		Double postagePrice = ordersDao.getOrdersPostage(model.getOrdersDetail(),model.getProvinceId());
+	public Double getOrdersPostage(OrdersPo model, Long getAddressId) {
+		GetAddressPo getAddressPo = getAddressDao.get(getAddressId);
+		Double weight = ordersDao.getWeight(model.getOrdersDetail());
+		String shopAddressCode = shopDao.getShopAddressCode(model.getShopId());
+		PostagePo postagePo = new PostagePo();
+		postagePo.setOrigin(shopAddressCode);
+		postagePo.setDestination(getAddressPo.getAddresscode());
+		List<PostagePo> postage = postageDao.findByGivenCriteria(postagePo);
+		Double postagePrice = ordersDao.getOrdersPostage(weight,postage.get(0).getFirstWeigh(), postage.get(0).getIncreasePrice());
 		return postagePrice;
 	}
 

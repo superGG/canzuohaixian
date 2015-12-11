@@ -23,7 +23,6 @@
         <property name="phone" type="java.lang.String" column="phone" />
         <property name="userName" type="java.lang.String" column="userName" />
         <property name="orderNumber" type="java.lang.String" column="orderNumber" />
-        <property name="provinceId" type="java.lang.Long" column="provinceId" />
         <property name="postagePrice" type="java.lang.Double" column="postagePrice" />
         <property name="sordersNumber" type="java.lang.Integer" column="sordersNumber" />
        

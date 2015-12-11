@@ -84,11 +84,12 @@ public interface OrdersDao extends BaseDao<OrdersPo>{
 	/**
 	 * 得到邮费.
 	 * @author 黄祥谦.
-	 * @param ordersDetail
-	 * @param provinceId
+	 * @param weight TODO
+	 * @param firstWeight TODO
+	 * @param increasePrice TODO
 	 * @return
 	 */
-	Double getOrdersPostage(List<OrdersDetailPo> ordersDetail, Long provinceId);
+	Double getOrdersPostage(Double weight, Double firstWeight, Double increasePrice);
 
 	/**
 	 * 更新订单.
@@ -113,5 +114,13 @@ public interface OrdersDao extends BaseDao<OrdersPo>{
 	 * @return
 	 */
 	List<OrdersPo> getAllOrders(Integer indexPageNum, Integer size);
+
+	/**
+	 * 得到订单项的总质量.
+	 * @author 黄祥谦.
+	 * @param ordersDetail
+	 * @return
+	 */
+	Double getWeight(List<OrdersDetailPo> ordersDetail);
 
 }

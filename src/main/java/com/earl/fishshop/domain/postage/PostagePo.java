@@ -25,11 +25,9 @@ public class PostagePo{
 	 */
 	private Double increasePrice;
 	
-	/**
-	 * 省份.
-	 */
-	private String provinceName;
+	private String origin;
 	
+	private String destination;
 	/**
 	 * 字段描述：Date 
 	 * 字段类型：createTime  
@@ -54,6 +52,18 @@ public class PostagePo{
 	 */
 	private Long version ;
 	
+	public String getOrigin() {
+		return origin;
+	}
+	public void setOrigin(String origin) {
+		this.origin = origin;
+	}
+	public String getDestination() {
+		return destination;
+	}
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
 	public Double getIncreasePrice() {
 		return increasePrice;
 	}
@@ -71,12 +81,6 @@ public class PostagePo{
 	}
 	public void setPostageId(Long postageId) {
 		this.postageId = postageId;
-	}
-	public String getProvinceName() {
-		return provinceName;
-	}
-	public void setProvinceName(String provinceName) {
-		this.provinceName = provinceName;
 	}
 	public void setCreateTime(Date createTime){
 		this.createTime = createTime;

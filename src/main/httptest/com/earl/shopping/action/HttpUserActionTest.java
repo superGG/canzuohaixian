@@ -65,11 +65,15 @@ public class HttpUserActionTest extends HttpBaseActionTest{
 
    		PostMethod filePost = new PostMethod(targetURL);
 
-   		Part[] parts = { 
-   				new StringPart("phoneNumber", "18320489492", "utf-8")
-   		};
-   		String sendHttpRequest = sendHttpRequest(filePost, parts);
-   		System.out.println(sendHttpRequest);
+   		
+   		for (int i = 0; i < 10; i++) {
+   			Part[] parts = { 
+   					new StringPart("phoneNumber", "183204894"+i+"2", "utf-8")
+   			};
+   			String sendHttpRequest = sendHttpRequest(filePost, parts);
+   			System.out.println(sendHttpRequest);
+		}
+   		
    	}
     
 }

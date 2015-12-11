@@ -1,6 +1,5 @@
 package com.earl.fishshop.domain.orders;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.context.annotation.Scope;
@@ -168,12 +167,10 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getOrdersPostage(){
-		Double postagePrice = ordersServer.getOrdersPostage(model);
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("postagePrice", postagePrice);
+		Double postagePrice = ordersServer.getOrdersPostage(model, getAddressId);
 		resultMessage = new ResultMessage();
+		resultMessage.getResultParm().put("postagePrice", postagePrice);
 		if(postagePrice != null){
-			
 			resultMessage.setServiceResult(true);
 			resultMessage.setResultInfo("请求成功");
 		}else{

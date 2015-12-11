@@ -72,6 +72,13 @@ public interface ShopDao extends BaseDao<ShopPo>{
 	 * @return
 	 */
 	List<ShopPo> getPointTypeGoodsShops(Long categoryId, Integer shopType, PageInfo pageInfo,Integer sortType);
-	
+
+	/**
+	 * 得到商家的地址编码.
+	 * @author 黄祥谦.
+	 * @param shopId TODO
+	 * @return
+	 */
+	String getShopAddressCode(Long shopId);
 
 }

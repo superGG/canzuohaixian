@@ -18,6 +18,8 @@ public class SeaRecordPo{
 	 */
 	private Long shopId ;
 	
+	private String addresscode;
+	
 	/**
 	 * 字段描述：Date 
 	 * 字段类型：startSeeTime  
@@ -88,6 +90,12 @@ public class SeaRecordPo{
 	
 	public String getShipportName() {
 		return shipportName;
+	}
+	public String getAddresscode() {
+		return addresscode;
+	}
+	public void setAddresscode(String addresscode) {
+		this.addresscode = addresscode;
 	}
 	public Long getShipportId() {
 		return shipportId;

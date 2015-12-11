@@ -71,6 +71,8 @@ public class ShopPo{
 	 */
 	private Double sendPrice;
 	
+	private String addresscode;
+	
 	/**
 	 * 字段描述：Boolean 
 	 * 字段类型：onSell  
@@ -119,6 +121,12 @@ public class ShopPo{
 	 */
 	private Long version ;
 	
+	public String getAddresscode() {
+		return addresscode;
+	}
+	public void setAddresscode(String addresscode) {
+		this.addresscode = addresscode;
+	}
 	public String getShopPhoto() {
 		return shopPhoto;
 	}
