@@ -168,6 +168,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 			if (userPassword.equals(user.getPassword())) { // 密码验证
 				rs.setServiceResult(true);
 				rs.setResultInfo("登陆成功");
+				user.setPassword(null);
 				rs.getResultParm().put("user", user);
 				rs.setResultParm(hashMap);
 			} else {

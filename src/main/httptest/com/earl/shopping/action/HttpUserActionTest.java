@@ -67,13 +67,13 @@ public class HttpUserActionTest extends HttpBaseActionTest{
    		PostMethod filePost = new PostMethod(targetURL);
 
    		
-   		for (int i = 0; i < 10; i++) {
+//   		for (int i = 0; i < 10; i++) {
    			Part[] parts = { 
-   					new StringPart("phoneNumber", "183204894"+i+"2", "utf-8")
+   					new StringPart("phoneNumber", "18320489492", "utf-8")
    			};
    			String sendHttpRequest = sendHttpRequest(filePost, parts);
    			System.out.println(sendHttpRequest);
-		}
+//		}
    		
    	}
     
@@ -118,6 +118,21 @@ public class HttpUserActionTest extends HttpBaseActionTest{
    		Part[] parts = { 
    				new StringPart("userId", "14", "utf-8")
    				,new StringPart("userName", "superGG", "utf-8")
+   		};
+   		String sendHttpRequest = sendHttpRequest(filePost, parts);
+   		System.out.println(sendHttpRequest);
+   	}
+    
+    @Test
+   	public void testFindAllUser() throws FileNotFoundException {
+   		String targetURL = basePath
+   				+ "user_findAllUser.action";
+
+   		PostMethod filePost = new PostMethod(targetURL);
+
+   		Part[] parts = { 
+//   				new StringPart("userId", "14", "utf-8")
+//   				,new StringPart("userName", "superGG", "utf-8")
    		};
    		String sendHttpRequest = sendHttpRequest(filePost, parts);
    		System.out.println(sendHttpRequest);

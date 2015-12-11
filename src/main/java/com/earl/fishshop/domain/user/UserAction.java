@@ -13,6 +13,7 @@ import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.util.VerifyServiceUtil;
 import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.fishshop.vo.ResultMessage;
+import com.earl.util.FilterPropertiesUtil;
 import com.earl.util.SmsbaoHelper;
 import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
 
@@ -192,10 +193,10 @@ public class UserAction extends BaseAction<UserPo> {
 	 * @author 宋文光
 	 */
 	public void findAllUser() {
-		List<UserPo> userList = userServer.findAll();
+		List<UserPo> userlist = userServer.findAll();
 		resultMessage = new ResultMessage();
-		resultMessage.getResultParm().put("userList", userList);
-		resultMessage.getResultParm().put("number", userList.size());
+		resultMessage.getResultParm().put("userList", FilterPropertiesUtil.filterUserPassword(userlist));
+		resultMessage.getResultParm().put("number", userlist.size());
 	}
 
 	/**
@@ -208,7 +209,7 @@ public class UserAction extends BaseAction<UserPo> {
 		model.setUserType(MyConstant.user_fishman);
 		List<UserPo> userlist = userServer.findByGivenCreteria(model);
 		resultMessage = new ResultMessage();
-		resultMessage.getResultParm().put("userlist", userlist);
+		resultMessage.getResultParm().put("userlist", FilterPropertiesUtil.filterUserPassword(userlist));
 		resultMessage.getResultParm().put("number", userlist.size());
 	}
 
@@ -222,7 +223,7 @@ public class UserAction extends BaseAction<UserPo> {
 		model.setUserType(MyConstant.user_farmer);
 		List<UserPo> userlist = userServer.findByGivenCreteria(model);
 		resultMessage = new ResultMessage();
-		resultMessage.getResultParm().put("userlist", userlist);
+		resultMessage.getResultParm().put("userlist", FilterPropertiesUtil.filterUserPassword(userlist));
 		resultMessage.getResultParm().put("number", userlist.size());
 	}
 
