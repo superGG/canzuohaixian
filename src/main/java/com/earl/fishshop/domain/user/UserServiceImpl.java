@@ -268,17 +268,24 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 		} catch (Exception e) {
 			System.out.println("更新用户头像失败");
 			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 
 	@Override
-	public Boolean updatePassword(UserPo model) {
+	public Boolean updatePassword(UserPo model, String newPassword) {
 		try {
 			UserPo user = userDao.get(model.getUserId());
-			user.setPassword(model.getPassword());
-			userDao.update(user);
-			return true;
+			String userPassword = user.getPassword();
+			String oldPassword = SmsbaoHelper.Md5(model.getPassword());
+			String newPassword_MD = SmsbaoHelper.Md5(newPassword);
+			if(userPassword.equals(oldPassword)){
+				user.setPassword(newPassword_MD);
+				userDao.update(user);
+				return true;
+			} else {
+				return false;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

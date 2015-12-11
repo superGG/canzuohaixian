@@ -1,11 +1,13 @@
 package com.earl.shopping.action;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.methods.multipart.FilePart;
 import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
 import org.apache.commons.httpclient.params.HttpMethodParams;
@@ -13,7 +15,6 @@ import org.junit.Test;
 
 public class HttpUserActionTest extends HttpBaseActionTest{
 
-	@SuppressWarnings("unused")
 	private File targetFile;
 
     public void dod(){
@@ -74,6 +75,52 @@ public class HttpUserActionTest extends HttpBaseActionTest{
    			System.out.println(sendHttpRequest);
 		}
    		
+   	}
+    
+    @Test
+   	public void testUpdatePassword() {
+   		String targetURL = basePath
+   				+ "user_updatePassword.action";
+
+   		PostMethod filePost = new PostMethod(targetURL);
+
+   		Part[] parts = { 
+   				new StringPart("userId", "14", "utf-8")
+   				,new StringPart("password", "1234567", "utf-8")
+   				,new StringPart("newPassword", "123456", "utf-8")
+   		};
+   		String sendHttpRequest = sendHttpRequest(filePost, parts);
+   		System.out.println(sendHttpRequest);
+   	}
+    
+    @Test
+   	public void testUpdateUserImg() throws FileNotFoundException {
+   		String targetURL = basePath
+   				+ "user_updateUserImg.action";
+
+   		PostMethod filePost = new PostMethod(targetURL);
+
+   		Part[] parts = { 
+   				new FilePart("userFile.file", targetFile)
+   				,new StringPart("userId", "14", "utf-8")
+   		};
+   		String sendHttpRequest = sendHttpRequest(filePost, parts);
+   		System.out.println(sendHttpRequest);
+   	}
+    
+    @Test
+   	public void testUpdateUser() throws FileNotFoundException {
+   		String targetURL = basePath
+   				+ "user_updateUser.action";
+
+   		PostMethod filePost = new PostMethod(targetURL);
+
+   		Part[] parts = { 
+   				new StringPart("userId", "14", "utf-8")
+   				,new StringPart("userName", "superGG", "utf-8")
+   		};
+   		String sendHttpRequest = sendHttpRequest(filePost, parts);
+   		System.out.println(sendHttpRequest);
    	}
     
 }
