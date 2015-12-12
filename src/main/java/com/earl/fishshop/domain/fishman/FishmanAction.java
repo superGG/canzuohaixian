@@ -63,8 +63,13 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 */
 	public void addFishman() {
 		Boolean result = fishmanServer.save(model);
-		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(result);
+		if (result) {
+			resultMessage.setResultInfo("操作成功");
+			resultMessage.setServiceResult(result);
+		} else {
+			resultMessage.setResultInfo("操作失败");
+			resultMessage.setServiceResult(result);
+		}
 	}
 
 	/**
@@ -74,8 +79,13 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 */
 	public void updateFishman() {
 		Boolean result = fishmanServer.updateWithNotNullProperties(model);
-		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(result);
+		if (result) {
+			resultMessage.setResultInfo("操作成功");
+			resultMessage.setServiceResult(result);
+		} else {
+			resultMessage.setResultInfo("操作失败");
+			resultMessage.setServiceResult(result);
+		}
 	}
 
 	/**
@@ -147,8 +157,13 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	public void noPassAuthenticationFishman() {
 		Boolean result = fishmanServer.noPassAuthenticationFishman(userId,
 				model.getFishmanId());
-		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(result);
+		if (result) {
+			resultMessage.setResultInfo("操作成功");
+			resultMessage.setServiceResult(result);
+		} else {
+			resultMessage.setResultInfo("操作失败");
+			resultMessage.setServiceResult(result);
+		}
 	}
 
 	/**

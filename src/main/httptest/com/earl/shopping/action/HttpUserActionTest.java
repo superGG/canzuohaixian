@@ -19,7 +19,7 @@ public class HttpUserActionTest extends HttpBaseActionTest{
 
     public void dod(){
     	String targetURL = "http://localhost:8080/fishshop/user_userLogin.action";
-     	targetFile = new File("C:/Users/Administrator/Desktop/SpringMVC.jpg.png");
+     	targetFile = new File("D:/Favorites/test/257667_880_510_70.jpg");
     	
      	HttpClient client = new HttpClient();
     	PostMethod filePost = new PostMethod(targetURL);
@@ -97,6 +97,7 @@ public class HttpUserActionTest extends HttpBaseActionTest{
    	public void testUpdateUserImg() throws FileNotFoundException {
    		String targetURL = basePath
    				+ "user_updateUserImg.action";
+   		targetFile = new File("D:\\Favorites\\照片\\hdImg_6ffbf6a411fde926bce67c5691b5862d-002.jpg");
 
    		PostMethod filePost = new PostMethod(targetURL);
 

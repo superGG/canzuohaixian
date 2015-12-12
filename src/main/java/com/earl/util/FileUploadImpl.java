@@ -138,6 +138,11 @@ public class FileUploadImpl {
 		List<String> uploadFile = uploadFile(file, userfilePath, oldName);
 		return uploadFile;
 	}
+	
+	public String uploadUserFile(File file, String oldName) {
+		String uploadFile = uploadFile(file, userfilePath, oldName);
+		return uploadFile;
+	}
 
 	private String uploadFile(File file, String filePath, String oldName) {
 		String dir = getDir(filePath);

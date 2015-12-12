@@ -21,7 +21,7 @@ public class UserFileUploadApp {
 	public void dod() {
 		String targetURL = "http://localhost:8080/fishshop/user_updateUserImg.action";
 		targetFile = new File(
-				"D:/Favorites/test/test.jpg");
+				"D:/Favorites/test/257667_880_510_70.jpg");
 
 		PostMethod filePost = new PostMethod(targetURL);
 
@@ -29,8 +29,7 @@ public class UserFileUploadApp {
 			
 			Part[] parts = { 
 			 new FilePart("userFile.file", targetFile)
-//			,new FilePart("userFile.file", new File("D:/Favorites/test/QQ图片20150623221402.jpg"))
-			,new StringPart("userId", "2","utf-8")
+			,new StringPart("userId", "14","utf-8")
 			};
 			HttpMethodParams params = filePost.getParams();
 //			String contentCharset = params.getContentCharset();f
