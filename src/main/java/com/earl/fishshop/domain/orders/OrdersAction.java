@@ -73,12 +73,14 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	// 下面填写业务逻辑
 
 	public void addOrders() {
-		Boolean save = ordersServer.addOrders(orders, getAddressId);
+		Long ordersId = ordersServer.addOrders(orders, getAddressId);
 		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(save);
-		if(save){
+		if(ordersId != null){
+			resultMessage.getResultParm().put("ordersId", ordersId);
+			resultMessage.setServiceResult(true);
 			resultMessage.setResultInfo("操作成功");
 		}else{
+			resultMessage.setServiceResult(false);
 			resultMessage.setResultInfo("操作失败");
 		}
 	}
@@ -167,7 +169,7 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getOrdersPostage(){
-		Double postagePrice = ordersServer.getOrdersPostage(model, getAddressId);
+		Double postagePrice = ordersServer.getOrdersPostage(orders, getAddressId);
 		resultMessage = new ResultMessage();
 		resultMessage.getResultParm().put("postagePrice", postagePrice);
 		if(postagePrice != null){

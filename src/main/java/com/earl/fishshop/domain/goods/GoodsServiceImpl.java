@@ -71,7 +71,7 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 	public List<GoodsPo> getShopAllGoods(Long shopId, PageInfo pageInfo) {
 		List<GoodsPo> goodsList = goodsDao.getShopAllGoods(shopId, pageInfo);
 		for (GoodsPo goodsPo : goodsList) {
-			goodsPo.setSkuString(skuDao.get(goodsPo.getSku()).getSkuName());
+			goodsPo.setSkuString(skuDao.get(goodsPo.getSkuId()).getSkuName());
 		}
 		return goodsList;
 	}
@@ -110,7 +110,7 @@ public class GoodsServiceImpl extends BaseServiceImpl<GoodsPo> implements
 				goodsPo.setGetType(categoryPo.getGetType());
 				goodsPo.setUnit(categoryPo.getUnit());
 				goodsPo.setGoodsName(categoryPo.getCategorySimpleName());
-				goodsPo.setSku(skuPo.getSkuId());
+				goodsPo.setSkuId(skuPo.getSkuId());
 				goodsPo.setPrice(skuPo.getPrice());
 				arrayList.add(goodsPo);
 			}

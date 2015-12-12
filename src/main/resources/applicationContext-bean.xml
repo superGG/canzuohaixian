@@ -22,6 +22,7 @@
 		</property>
 	</bean>
 	-->
+	<!--  -->
 	<!-- 读取配置文件,可以支持注解的方式注入  -->
 	<bean id="public" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
 		<property name="locations">

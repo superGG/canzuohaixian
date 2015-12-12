@@ -6,14 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.earl.fishshop.domain.base.BaseDaoImpl;
 import com.earl.fishshop.domain.sku.SkuPo;
 import com.earl.fishshop.helper.JsonHelper;
-import com.earl.fishshop.vo.PageInfo;
 
 
 /**
@@ -62,14 +60,14 @@ public class CategoryDaoImpl extends BaseDaoImpl<CategoryPo> implements Category
 	}
 
 	@Override
-	public List<CategoryPo> getNextLevelCategory(Long parentId, PageInfo pageInfo) {
+	public List<CategoryPo> getNextLevelCategory(Long parentId, Integer indexPageNum, Integer size) {
 		
 		Criteria createCriteria = getCurrentSession().createCriteria(clazz);
 		createCriteria.add(Restrictions.eq("parentId", parentId));
 		
 		createCriteria.setFirstResult(
-				(pageInfo.getIndexPageNum() - 1) * pageInfo.getSize())
-				.setMaxResults(pageInfo.getSize());
+				(indexPageNum - 1) * size)
+				.setMaxResults(size);
 
 		@SuppressWarnings("unchecked")
 		List<CategoryPo> categorylist = createCriteria.list();
@@ -78,10 +76,6 @@ public class CategoryDaoImpl extends BaseDaoImpl<CategoryPo> implements Category
 			Double uniqueResult = (Double) getCurrentSession().createQuery(hql).setLong("categoryId", categoryPo.getCategoryId()).uniqueResult();
 			categoryPo.setLowPrice(uniqueResult);
 		}
-		
-		Long size = (Long) createCriteria.setProjection(Projections.rowCount())
-	                .uniqueResult();
-		pageInfo.setTotalCount(size);
 		
 		return categorylist;
 	}

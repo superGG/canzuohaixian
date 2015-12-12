@@ -28,10 +28,11 @@ public interface CategoryService extends BaseService<CategoryPo>{
 	 * 得到指定类别的下一级类别.
 	 * @author 黄祥谦.
 	 * @param parentId 指定的父类别id.
-	 * @param pageInfo 
+	 * @param indexPageNum TODO
+	 * @param size TODO
 	 * @return
 	 */
-	List<CategoryPo> getNextLevelCategory(Long parentId, PageInfo pageInfo);
+	List<CategoryPo> getNextLevelCategory(Long parentId, Integer indexPageNum, Integer size);
 
 	/**
 	 * 得到本月热门类别.

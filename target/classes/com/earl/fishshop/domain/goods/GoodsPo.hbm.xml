@@ -18,7 +18,7 @@
         <property name="goodsQuality" type="java.lang.Integer" column="goodsQuality" />
         <property name="hotDegree" type="java.lang.Long" column="hotDegree" />
         <property name="getType" type="java.lang.Integer" column="getType" />
-        <property name="sku" type="java.lang.Long" column="sku" />
+        <property name="skuId" type="java.lang.Long" column="sku" />
         <property name="price" type="java.lang.Double" column="price" />
         <property name="nowNumber" type="java.lang.Long" column="nowNumber" />
         <property name="unit" type="java.lang.String" column="unit" />

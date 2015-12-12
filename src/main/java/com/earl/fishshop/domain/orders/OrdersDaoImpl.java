@@ -44,7 +44,7 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 	}
 
 	@Override
-	public void addOrders(OrdersPo orders, Long getAddressId) {
+	public Long addOrders(OrdersPo orders, Long getAddressId) {
 		
 		Long ordersId = (Long) getCurrentSession().save(orders);
 		List<OrdersDetailPo> ordersDetail = orders.getOrdersDetail();
@@ -65,6 +65,7 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 				getCurrentSession().save(ordersDetailPo);
 			}
 		}
+		return ordersId;
 	}
 
 	@Override

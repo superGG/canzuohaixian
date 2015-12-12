@@ -113,7 +113,7 @@ public class GoodsDaoImpl extends BaseDaoImpl<GoodsPo> implements GoodsDao {
 		List<GoodsPo> list = getCurrentSession().createQuery(hql).setLong("shopId", shopId).setLong("categoryId", categoryId).list();
 		ArrayList<SkuPo> arrayList = new ArrayList<SkuPo>();
 		for (GoodsPo goodsPo : list) {
-			SkuPo object = (SkuPo) getCurrentSession().get(SkuPo.class, goodsPo.getSku());
+			SkuPo object = (SkuPo) getCurrentSession().get(SkuPo.class, goodsPo.getSkuId());
 			object.setPrice(goodsPo.getPrice());
 			object.setGoodsId(goodsPo.getGoodsId());
 			arrayList.add(object);

@@ -172,7 +172,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getNextLevelCategory(){
-		List<CategoryPo> categoryList = categoryServer.getNextLevelCategory(model.getCategoryId(), pageInfo);
+		List<CategoryPo> categoryList = categoryServer.getNextLevelCategory(model.getCategoryId(), pageInfo.getIndexPageNum(), pageInfo.getSize());
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(true);
 		resultMessage.setResultInfo("方法执行成功");
