@@ -1,14 +1,19 @@
 package com.earl.shopping.action;
 
 import java.io.File;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.multipart.FilePart;
 import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
 import org.junit.Test;
+
+import com.earl.fishshop.domain.category.CategoryPo;
 
 public class HttpCategoryActionTest extends HttpBaseActionTest {
 
@@ -129,5 +134,19 @@ public class HttpCategoryActionTest extends HttpBaseActionTest {
 		new StringPart("sortType", "1", "UTF-8") };
 		String sendHttpRequest = sendHttpRequest(filePost, parts);
 		System.out.println(sendHttpRequest);
+	}
+	
+	@Test
+	public void testdddd() throws IllegalAccessException, InvocationTargetException{
+		CategoryPo categoryPo = new CategoryPo();
+		categoryPo.setCategoryAcademicName("xixi");
+		HashMap<String, Object> hashMap = new HashMap<String,Object>();
+		hashMap.put("category", categoryPo);
+		Object object = hashMap.get("category");
+		Class<? extends Object> class1 = object.getClass();
+		System.out.println(object.getClass().getName());
+		CategoryPo categoryPo2 = new CategoryPo();
+		BeanUtils.copyProperties(categoryPo2, object);
+		System.out.println(categoryPo2);
 	}
 }
