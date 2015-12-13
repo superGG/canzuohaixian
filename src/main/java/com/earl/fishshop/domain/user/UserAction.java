@@ -11,8 +11,8 @@ import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.domain.verifycode.VerifyCodePo;
 import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.util.VerifyServiceUtil;
-import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.fishshop.vo.ResultMessage;
+import com.earl.fishshop.vo.SingleFileVo;
 import com.earl.util.FilterPropertiesUtil;
 import com.earl.util.SmsbaoHelper;
 import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
@@ -43,7 +43,7 @@ public class UserAction extends BaseAction<UserPo> {
 	/**
 	 * 用户上传文件.
 	 */
-	private MulitFileVo userFile;
+	private SingleFileVo userFile;
 
 	/**
 	 * 用户输入的验证码.
@@ -71,13 +71,15 @@ public class UserAction extends BaseAction<UserPo> {
 		this.verifyCodePo = verifyCodePo;
 	}
 
-	public MulitFileVo getUserFile() {
+	public SingleFileVo getUserFile() {
 		return userFile;
 	}
 
-	public void setUserFile(MulitFileVo userFile) {
+	public void setUserFile(SingleFileVo userFile) {
 		this.userFile = userFile;
 	}
+
+
 
 	/**
 	 * 用户输入的验证码.
@@ -183,8 +185,13 @@ public class UserAction extends BaseAction<UserPo> {
 	 */
 	public void deleteUser() {
 		Boolean delete = userServer.deleteById(model.getUserId());
-		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(delete);
+		if ( delete ) {
+    		resultMessage.setServiceResult(delete);
+    		resultMessage.setResultInfo("操作成功");
+    	} else {
+    		resultMessage.setServiceResult(delete);
+    		resultMessage.setResultInfo("操作失败");
+    	}
 	}
 
 	/**

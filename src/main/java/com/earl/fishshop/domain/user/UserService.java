@@ -3,8 +3,8 @@ package com.earl.fishshop.domain.user;
 import java.util.List;
 
 import com.earl.fishshop.domain.base.BaseService;
-import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.fishshop.vo.ResultMessage;
+import com.earl.fishshop.vo.SingleFileVo;
 
 public interface UserService extends BaseService<UserPo>{
 
@@ -88,7 +88,7 @@ public interface UserService extends BaseService<UserPo>{
 	 * @param userFileVo
 	 * @return
 	 */
-	Boolean updateUserImg(UserPo model, MulitFileVo userFileVo);
+	Boolean updateUserImg(UserPo model, SingleFileVo userFileVo);
 
 	/**
 	 * 用户登录.

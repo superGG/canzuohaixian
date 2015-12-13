@@ -15,8 +15,8 @@ import com.earl.fishshop.domain.fishman.FishmanPo;
 import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.util.VerifyServiceUtil;
-import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.fishshop.vo.ResultMessage;
+import com.earl.fishshop.vo.SingleFileVo;
 import com.earl.util.FileUploadImpl;
 import com.earl.util.SmsbaoHelper;
 
@@ -259,11 +259,11 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 	}
 
 	@Override
-	public Boolean updateUserImg(UserPo model, MulitFileVo userFile) {
+	public Boolean updateUserImg(UserPo model, SingleFileVo userFile) {
 		try {
-			List<String> uploadUserFile = fileUpload.uploadUserFile(
+			String uploadUserFile = fileUpload.uploadUserFile(
 					userFile.getFile(), userFile.getFileFileName());
-			model.setHeadImage(uploadUserFile.get(0));
+			model.setHeadImage(uploadUserFile);
 			userDao.updateWithNotNullProperties(model);
 			return true;
 		} catch (Exception e) {

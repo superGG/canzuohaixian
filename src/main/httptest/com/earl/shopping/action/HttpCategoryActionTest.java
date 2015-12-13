@@ -39,7 +39,7 @@ public class HttpCategoryActionTest extends HttpBaseActionTest {
 	public void testAddGoods() throws Exception{
 		String targetURL = basePath
 				+ "category_addGoods.action";
-		targetFile = new File("C:\\Users\\Administrator\\Desktop\\SpringMVC.jpg.png");
+		targetFile = new File("D:/Favorites/test/257667_880_510_70.jpg");
 		PostMethod filePost = new PostMethod(targetURL);
 		Part[] parts = {
 		new FilePart("categoryFile.file", targetFile)
@@ -104,10 +104,10 @@ public class HttpCategoryActionTest extends HttpBaseActionTest {
 	public void testGetGoodsShops() {
 		String targetURL = basePath + "category_getGoodsShops.action";
 		PostMethod filePost = new PostMethod(targetURL);
-		Part[] parts = { new StringPart("categoryId", "7", "utf-8"),
+		Part[] parts = { new StringPart("categoryId", "2", "utf-8"),
 				new StringPart("pageInfo.indexPageNum", "1", "utf-8"),
-				new StringPart("pageInfo.size", "3", "UTF-8")};
-//				new StringPart("sortType", "1", "UTF-8") };
+				new StringPart("pageInfo.size", "3", "UTF-8"),
+				new StringPart("sortType", "1", "UTF-8") };
 		String sendHttpRequest = sendHttpRequest(filePost, parts);
 		System.out.println(sendHttpRequest);
 	}
