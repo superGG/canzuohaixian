@@ -242,7 +242,8 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 
         request.setCharacterEncoding("UTF8");
         //获取头部所有信息
-        Enumeration headerNames = request.getHeaderNames();
+        @SuppressWarnings("rawtypes")
+		Enumeration headerNames = request.getHeaderNames();
         while (headerNames.hasMoreElements()) {
             String key = (String) headerNames.nextElement();
             String value = request.getHeader(key);

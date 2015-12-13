@@ -34,7 +34,8 @@ public class SkuAction extends BaseAction<SkuPo> {
 	// 下面填写业务逻辑
 
 	public void addSku() {
-		Boolean save = skuServer.save(model);
+		
+		Boolean save = skuServer.addSku(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
 	}

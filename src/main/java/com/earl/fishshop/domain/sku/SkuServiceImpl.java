@@ -24,5 +24,19 @@ public class SkuServiceImpl extends BaseServiceImpl<SkuPo> implements
 	public void initBaseDao(){
 		baseDao = skuDao;
 	}
+
+	@Override
+	public Boolean addSku(SkuPo model) {
+		// TODO 未测试.
+		try {
+			model.setSkuName(model.getSkuName()+"("+model.getLowscale()+"-"+model.getHighscale()+")");
+			skuDao.save(model);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 }

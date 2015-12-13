@@ -54,7 +54,6 @@ public class FarmersDaoImpl extends BaseDaoImpl<FarmersPo> implements FarmersDao
 				.setInteger("userType", MyConstant.user_normal)
 				.setInteger("state", MyConstant.user_nopass)
 				.setLong("userId", userId).executeUpdate();
-		
 	}
 
 	@Override
