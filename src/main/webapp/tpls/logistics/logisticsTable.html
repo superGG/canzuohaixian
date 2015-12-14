@@ -1,13 +1,13 @@
-<div class="row" ng-controller="ShipportCtrl">
-
-    
+<div class="row" ng-controller="LogisticsCtrl">
     <div class="col-xs-12 col-md-12" ui-view>
         <div class="widget" >
             <div class="widget-header ">
-                <span class="widget-caption">船户停港口表</span>
+                <span class="widget-caption">物流价格管理表</span>
                 <div class="table-toolbar">
-                    <a id="editabledatatable_new" href="javascript:void(0);" class="btn btn-default" ui-sref=".newShipport">
-                        新建一个商品父分类
+                    <a id="editabledatatable_new" href="javascript:void(0);" class="btn btn-default" ui-sref=".newlogistics">
+                        新建一条物理分类信息
+
+                        
                     </a>
                 </div>
             </div>
@@ -19,40 +19,47 @@
                             <div class="checker"><span class=""><input type="checkbox" class="group-checkable" data-set="#flip .checkboxes"></span></div>
                         </th>
                         <th>
-                            停港口Id
+                            物流定价信息ID
                         </th>
                         <th>
-                            停港口名称
+                            发货省
                         </th>
                         <th>
-                            停港口经度
+                            收货省
                         </th>
                         <th>
-                            停港口纬度
+                            首重价格
+                        </th>
+                        <th>
+                            续重价格
                         </th>
                         <th>操作</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="shipportInfo in shipportsInfo" on-finish-render-filters>
+                    <tr ng-repeat="logisticInfo in logisticsInfo" on-finish-render-filters>
                         <td>
                             <div class="checker"><span class=""><input type="checkbox" class="checkboxes" value="1"></span></div>
                         </td>
                         <td>
-                            {{shipportInfo.shipportId}}
+                            {{logisticInfo.postageId}}
                         </td>
                         <td>
-                            {{shipportInfo.shipportName}}
+                            {{logisticInfo.originName}}
+                        </td>
+                        <td >
+                            <span ng-repeat="destinationName in logisticInfo.destinationsName">{{destinationName | decorateDestination:$last}}</span>
+
                         </td>
                         <td>
-                            {{shipportInfo.lontitude}}
+                            {{logisticInfo.firstWeight}}
                         </td>
                         <td class="center ">
-                            {{shipportInfo.latitude}}
+                            {{logisticInfo.increasePrice}}
                         </td>
                         <td>
-                            <eidtbtn eidtone="toEdit(shipportInfo)" ui-sref=".editShipport"></eidtbtn>
-                            <deletebtn delete="doDelete(shipportInfo.Id,'test/shipport/shipportinfo.json',getdata)" ></deletebtn>
+                            <eidtbtn eidtone="toEdit(logisticInfo)" ui-sref=".editlogistics"></eidtbtn>
+                            <deletebtn delete="doDelete(logisticInfo.Id,'test/shipport/shipportinfo.json',getdata)" ></deletebtn>
 
                         </td>
                     </tr>
@@ -61,6 +68,4 @@
             </div>
         </div>
     </div>
-
-
 </div>

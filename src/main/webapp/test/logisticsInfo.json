@@ -1,0 +1,59 @@
+{
+  "result":[{
+    "postageId":"1",
+    "originName":"广东省",
+    "destinationsName":["广东省","江苏省"] ,
+    "firstWeight":8,
+    "increasePrice":6
+  },{
+    "postageId":"1",
+    "originName":"广东省",
+    "destinationsName":["广东省","江苏省"] ,
+    "firstWeight":8,
+    "increasePrice":6
+  },{
+    "postageId":"1",
+    "originName":"广东省",
+    "destinationsName":["广东省","江苏省"] ,
+    "firstWeight":8,
+
+    
+    "increasePrice":6
+  },{
+    "postageId":"1",
+    "originName":"广东省",
+    "destinationsName":["广东省","江苏省"] ,
+    "firstWeight":8,
+    "increasePrice":6
+  },{
+    "postageId":"1",
+    "originName":"广东省",
+    "destinationsName":["广东省","江苏省"] ,
+    "firstWeight":8,
+    "increasePrice":6
+  },{
+    "postageId":"1",
+    "originName":"广东省",
+    "destinationsName":["广东省","江苏省"] ,
+    "firstWeight":8,
+    "increasePrice":6
+  },{
+    "postageId":"1",
+    "originName":"广东省",
+    "destinationsName":["广东省","江苏省"] ,
+    "firstWeight":8,
+    "increasePrice":6
+  },{
+    "postageId":"1",
+    "originName":"广东省",
+    "destinationsName":["广东省","江苏省"] ,
+    "firstWeight":8,
+    "increasePrice":6
+  },{
+    "postageId":"1",
+    "originName":"广东省",
+    "destinationsName":["广东省","江苏省"] ,
+    "firstWeight":8,
+    "increasePrice":6
+  }]
+}
