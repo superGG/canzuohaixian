@@ -4,7 +4,8 @@
 * Description
 */
 var seaTable = angular.module('seaTable', ['ui.router','UsersListModule','GoodsCategoryCompentModule',
-	'GoodsCategoryLeafModule','FarmersModule','FishmanModule',"FishmanApplyModule","OrdersModule"]).
+	'GoodsCategoryLeafModule','FarmersModule','FishmanModule',"FishmanApplyModule","OrdersModule",
+	"ShipportModule","LogisticsModule"]).
 run(function($rootScope,$state,$stateParams,$location){
 	$rootScope.$state = $state;
 	$rootScope.$stateParams = $stateParams;
@@ -216,7 +217,26 @@ config(function($stateProvider,$urlRouterProvider) {
 		templateUrl:"tpls/fishman/fishmaninfoform.html"})
 	.state("orders",{
 		url:"/orders",
-		templateUrl:"tpls/orders.html"});
+		templateUrl:"tpls/orders.html"
+	}).state("shipport",{
+		url:"/shipport",
+		templateUrl:"tpls/shipport/shipporttable.html"
+	}).state("shipport.editShipport",{
+		url:"/editShipport",
+		templateUrl:"tpls/shipport/editShipport.html"
+	}).state("shipport.newShipport",{
+			url:"/newShipport",
+			templateUrl:"tpls/shipport/newShipport.html"
+	}).state("logistics",{
+			url:"/logistics",
+			templateUrl:"tpls/logistics/logisticsTable.html"
+	}).state("logistics.newlogistics",{
+			url:"/newlogistics",
+			templateUrl:"tpls/logistics/newLogistics.html"
+	}).state("logistics.editlogistics",{
+			url:"/editlogistics",
+			templateUrl:"tpls/logistics/editLogistics.html"
+		});
 });
 
 
@@ -239,7 +259,23 @@ seaTable.filter("shopstatus",function(){
 	}
 
 
-})
+});
+
+seaTable.filter("decorateDestination",function(){
+	return function(inputArray,$last){
+
+		var str = "";
+
+		if($last){
+			str = inputArray;
+		}else {
+			str = inputArray + ",";
+		}
+
+
+		return str;
+	}
+});
 
 /**
 * UsersListModule Module
@@ -294,3 +330,9 @@ var FishmanApplyModule = angular.module('FishmanApplyModule', []);
 * Description
 */
 var OrdersModule = angular.module('OrdersModule', []);
+
+
+var ShipportModule = angular.module("ShipportModule",[]);
+
+
+var LogisticsModule = angular.module("LogisticsModule",[]);

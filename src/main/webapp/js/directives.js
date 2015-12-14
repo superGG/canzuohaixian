@@ -1,3 +1,22 @@
+seaTable.directive("deletebtn",function(){
+	return {
+		restrict: "AE",
+
+		scope:{
+			delete:"&"
+		},
+		template:'<button class="btn btn-danger btn-xs delete" ng-click="delete()"><i class="fa fa-trash-o ficon" >&#xe824;</i> 删除</button>'
+	}
+}).directive("eidtbtn",function(){
+	return {
+		restrict:"AE",
+		scope:{
+			eidtone:"&"
+		},
+		template:'<button href="#" class="btn btn-info btn-xs edit" ng-click="eidtone()"><i class="fa fa-edit ficon">&#xe820;</i> 编辑</butto>'
+	}
+});
+
 UsersListModule.directive('onFinishRenderFilters', function($timeout,$location){
 	// Runs during compile
 	return {
