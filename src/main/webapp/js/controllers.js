@@ -18,7 +18,7 @@ UsersListModule.controller('UsersCtrl',function($scope,$http){
     // });
 });
 
-seaTable.controller('seaTableCtrl',function($rootScope,$scope,$location){
+seaTable.controller('seaTableCtrl',function($rootScope,$scope,$location,$http){
 	$scope.tableTitle = "欢迎使用";
 
 	$scope.$on('$stateChangeSuccess', function(){
@@ -36,7 +36,16 @@ seaTable.controller('seaTableCtrl',function($rootScope,$scope,$location){
 		}
 	});
 
-})
+	$scope.doDelete = function(id,url,callback){
+
+		$http.get(url,{
+			params:{"id":id}
+		}).success(function(data){
+			console.log(data);
+		});
+	}
+
+});
 
 
 GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
@@ -245,4 +254,133 @@ OrdersModule.controller("ordersCtrl",function($scope,$http){
 
 		$scope.getdata();
 	}
-})
+});
+
+
+ShipportModule.controller("ShipportCtrl",function($scope,$http){
+
+	$scope.newShipport = {};
+
+	$scope.doNew = function(){
+
+		console.log($scope.newShipport);
+
+		$http.get("test/shipportinfo.json",{
+			params:$scope.newShipport
+		})
+	}
+
+	$scope.getData = function(){
+
+		$http.get("test/shipportinfo.json").success(function(data){
+
+			$scope.shipportsInfo = data.results;
+		})
+	};
+
+	$scope.toEdit = function(shipport){
+
+		console.log(shipport);
+		$scope.editShipport = shipport;
+	};
+
+	$scope.doEdit = function(){
+
+		$http.get("test/shipportinfo.json",{
+			params:$scope.editShipport
+		}).success(function(data){
+			console.log(data);
+		});
+	};
+
+	$scope.getData();
+});
+
+
+LogisticsModule.controller("LogisticsCtrl",function($scope,$http,$timeout){
+
+	$scope.newLogistic = {};
+
+	$http.get("test/provinceListInfo.json").success(function(data){
+		$scope.provincesInfo = data.result;
+	});
+
+	$scope.getData = function(){
+		$http.get("test/logisticsInfo.json").success(function(data){
+
+			$scope.logisticsInfo = data.result;
+		});
+	};
+
+	$scope.doNew = function(){
+
+		$scope.newLogistic.destination = $('[name="duallistbox_demo1"]').val();
+
+		$http.get("test/logisticsInfo.json",{
+			params:$scope.newLogistic
+		});
+	};
+
+	$scope.init = function(provinceName,editName,$index,$last){
+		console.log($last);
+
+		if(arguments.length === 4){
+
+			$scope.hasSelect(provinceName,editName,$index);
+		}
+
+		if($last){
+			$timeout(function(){
+				$(function () {
+					var demo2 = $('.demo1').bootstrapDualListbox({
+						nonSelectedListLabel: '所有省份',
+						selectedListLabel: '送达的省份',
+						preserveSelectionOnMove: 'moved',
+						moveOnSelect: false
+					});
+
+					$("#showValue").click(function () {
+						alert($('[name="duallistbox_demo1"]').val());
+					});
+				});
+			})
+		}
+
+
+	};
+
+
+	$scope.hasSelect = function(provinceName,editName,$index){
+
+		for(var i = 0,len = editName.length;i < len;i++){
+
+			if(provinceName === editName[i]){
+
+				$(".demo1 option").eq($index).attr("selected","selected");
+			}
+		}
+	};
+
+
+	$scope.toEdit = function(logisticsInfo){
+
+		$scope.editLogistic = logisticsInfo;
+	};
+
+
+	$scope.doEdit = function(){
+
+		$scope.editLogistic.destination = $('[name="duallistbox_demo1"]').val();
+
+
+		$http.get("test/logisticsInfo.json",{
+			params:$scope.editLogistic
+		}).success(function(data){
+
+		});
+	};
+
+
+
+	$scope.getData();
+});

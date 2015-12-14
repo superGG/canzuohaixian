@@ -12,7 +12,7 @@ WEB-INF/
 # information for Eclipse / Flash Builder.
 *.class
 .classpath
-
+.idea
 *.pom
 *.log
 .project

@@ -1,17 +1,11 @@
-<div class="row">
-    <div class="col-xs-12 col-md-12">
-        <div class="widget" ng-controller="UsersCtrl">
+<div class="row" ng-controller="ShipportCtrl">
+    <div class="col-xs-12 col-md-12" ui-view>
+        <div class="widget" >
             <div class="widget-header ">
-                <span class="widget-caption">产品用户表</span>
-                <div class="widget-buttons">
-                    <a href="#" data-toggle="maximize">
-                        <i class="fa fa-expand"></i>
-                    </a>
-                    <a href="#" data-toggle="collapse">
-                        <i class="fa fa-minus"></i>
-                    </a>
-                    <a href="#" data-toggle="dispose">
-                        <i class="fa fa-times"></i>
+                <span class="widget-caption">船户停港口表</span>
+                <div class="table-toolbar">
+                    <a id="editabledatatable_new" href="javascript:void(0);" class="btn btn-default" ui-sref=".newShipport">
+                        新建一个商品父分类
                     </a>
                 </div>
             </div>
@@ -23,35 +17,41 @@
                             <div class="checker"><span class=""><input type="checkbox" class="group-checkable" data-set="#flip .checkboxes"></span></div>
                         </th>
                         <th>
-                            用户名
+                            停港口Id
                         </th>
                         <th>
-                            认证手机号码
+                            停港口名称
                         </th>
                         <th>
-                            用户类型
+                            停港口经度
                         </th>
                         <th>
-                            注册时间
+                            停港口纬度
                         </th>
+                        <th>操作</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="userInfo in usersInfo" on-finish-render-filters>
+                    <tr ng-repeat="shipportInfo in shipportsInfo" on-finish-render-filters>
                         <td>
                             <div class="checker"><span class=""><input type="checkbox" class="checkboxes" value="1"></span></div>
                         </td>
                         <td>
-                            {{userInfo.userName}}
+                            {{shipportInfo.shipportId}}
                         </td>
                         <td>
-                            <a href="mailto:looper90@gmail.com">{{userInfo.phoneNumber}}</a>
+                            {{shipportInfo.shipportName}}
                         </td>
                         <td>
-                            {{userInfo.userType}}
+                            {{shipportInfo.lontitude}}
                         </td>
                         <td class="center ">
-                            {{userInfo.createTime}}
+                            {{shipportInfo.latitude}}
+                        </td>
+                        <td>
+                            <eidtbtn eidtone="toEdit(shipportInfo)" ui-sref=".editShipport"></eidtbtn>
+                            <deletebtn delete="doDelete(shipportInfo.Id,'test/shipport/shipportinfo.json',getdata)" ></deletebtn>
+
                         </td>
                     </tr>
                     </tbody>
