@@ -22,7 +22,7 @@ public interface OrdersService extends BaseService<OrdersPo>{
 	 * @param getAddressId TODO
 	 * @return
 	 */
-	Boolean addOrders(OrdersPo model, Long getAddressId);
+	Long addOrders(OrdersPo model, Long getAddressId);
 
 	/**
 	 * 得到本次航海订单.
@@ -114,9 +114,10 @@ public interface OrdersService extends BaseService<OrdersPo>{
 	 * 得到运费计价方式.
 	 * @author 黄祥谦.
 	 * @param model
+	 * @param getAddressId TODO
 	 * @return
 	 */
-	Double getOrdersPostage(OrdersPo model);
+	Double getOrdersPostage(OrdersPo model, Long getAddressId);
 
 	/**
 	 * 得到指定订单详情.

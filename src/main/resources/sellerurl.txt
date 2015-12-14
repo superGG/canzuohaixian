@@ -1,6 +1,8 @@
 test-->success
 shop_getCategoryWithTotalNumber.action
 参数：shopId 商家id
+	pageInfo.indexPageNum
+	pageInfo.size
 图片：1发布商品.jpg
 
 test-->success
@@ -193,6 +195,17 @@ test-->success
 user_findPassword.action
 参数：用户手机phoneNumber 用户密码password 
 图片：7找回密码2.jpg
+
+test-->success
+user_updatePassword.action
+参数：用户id userId  旧密码 password  新密码 newPassword 
+图片：3商家信息-我的账户.jpg(修改密码)
+
+test-->success
+user_updateUserImg.action
+参数：用户id userId  图片文件userFile
+图片：3商家信息-我的账户.jpg(更改头像)
+
 
 test-->success
 shop_getShopCommentInfo.action

@@ -2,8 +2,6 @@ package com.earl.fishshop.serviceImpl;
 
 import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.Signature;
-import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Service;
@@ -13,8 +11,8 @@ import org.springframework.stereotype.Service;
 public class LogAspect {
 
 	public static final Logger logger = Logger.getLogger(LogAspect.class);
-
-	@Pointcut("execution(* com.earl.shopping.daoImpl.*.*(..))")
+//	* com.earl.fishshop.domain.*.*DaoImpl.*(..)
+	@Pointcut("execution(* com.earl.fishshop.domain.*.*ServiceImpl.*(..))")
 	public void logManager() throws Throwable {
 	}
 
@@ -42,31 +40,31 @@ public class LogAspect {
 //		
 //		invoke1
 //	  invoke
-	@Around("logManager()")
-	public Object invoke(ProceedingJoinPoint join) throws Throwable {
-		Logger.getLogger(this.getClass()).info("start "+join.getSignature());
-		long start = System.currentTimeMillis();
-		Object result = join.proceed();
-		Signature name = join.getSignature();
-		// String name =
-		// MethodSignature.class.cast(join.getSignature()).getMethod().getName();
-		Object[] args = join.getArgs();
-		long time = System.currentTimeMillis() - start;
-		StringBuilder builder = new StringBuilder();
-		builder.append("MethodSignature:").append(name).append("Args:")
-				.append(args).append("毫秒:").append(time).append("秒:")
-				.append(time / 1000).append("result:").append(result);
-		Logger.getLogger(this.getClass()).info(builder.toString());
-		return result;
-	}
+//	@Around("logManager()")
+//	public Object invoke(ProceedingJoinPoint join) throws Throwable {
+//		logger.info("start "+join.getSignature());
+//		long start = System.currentTimeMillis();
+//		Object result = join.proceed();
+//		Signature name = join.getSignature();
+//		// String name =
+//		// MethodSignature.class.cast(join.getSignature()).getMethod().getName();
+//		Object[] args = join.getArgs();
+//		long time = System.currentTimeMillis() - start;
+//		StringBuilder builder = new StringBuilder();
+//		builder.append("MethodSignature:").append(name).append("\n").append("Args:")
+//				.append(args).append("\n").append("毫秒:").append(time).append("秒:")
+//				.append(time / 1000).append("\n").append("result:").append(result);
+//		logger.info(builder.toString());
+//		return result;
+//	}
 	
-	@Around("logManager()")
-	public Object invoke1(ProceedingJoinPoint join) throws Throwable {
-		Logger.getLogger(this.getClass()).info("---->");
-		Object result = join.proceed();
-		Logger.getLogger(this.getClass()).info("---->");
-		return result;
-	}
+//	@Around("logManager()")
+//	public Object invoke1(ProceedingJoinPoint join) throws Throwable {
+//		logger.info("---->");
+//		Object result = join.proceed();
+//		logger.info("---->");
+//		return result;
+//	}
 
 	// @Around("checkNormalKeywords()")
 	public String invokeAndReturnString(ProceedingJoinPoint join)
@@ -87,4 +85,21 @@ public class LogAspect {
 		}
 		return null;
 	}
+	
+//	public static void main(String[] args) {
+//		//启动Spring容器
+//		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+//		//获取service组件
+//		UserService service = (UserService) context.getBean("userService");
+//		//以普通的方式调用UserService对象的三个方法
+//		User user = service.get(1L);
+//		service.save(user);
+//		try {
+//			service.delete(1L);
+//		} catch (Exception e) {
+//			if(log.isWarnEnabled()){
+//				log.warn("Delete user : " + e.getMessage());
+//			}
+//		}
+//	}
 }

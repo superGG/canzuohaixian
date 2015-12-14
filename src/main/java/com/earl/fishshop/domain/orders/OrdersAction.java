@@ -1,8 +1,15 @@
 package com.earl.fishshop.domain.orders;
 
-import java.util.HashMap;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.Enumeration;
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.StrutsStatics;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -10,7 +17,10 @@ import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.domain.base.BaseAction;
 import com.earl.fishshop.vo.PageInfo;
 import com.earl.fishshop.vo.ResultMessage;
+import com.opensymphony.xwork2.ActionContext;
 import com.pingplusplus.model.Charge;
+import com.pingplusplus.model.Event;
+import com.pingplusplus.model.Webhooks;
 
 /**
  * 订单
@@ -74,12 +84,14 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	// 下面填写业务逻辑
 
 	public void addOrders() {
-		Boolean save = ordersServer.addOrders(orders, getAddressId);
+		Long ordersId = ordersServer.addOrders(orders, getAddressId);
 		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(save);
-		if(save){
+		if(ordersId != null){
+			resultMessage.getResultParm().put("ordersId", ordersId);
+			resultMessage.setServiceResult(true);
 			resultMessage.setResultInfo("操作成功");
 		}else{
+			resultMessage.setServiceResult(false);
 			resultMessage.setResultInfo("操作失败");
 		}
 	}
@@ -168,12 +180,10 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	 * @author 黄祥谦.
 	 */
 	public void getOrdersPostage(){
-		Double postagePrice = ordersServer.getOrdersPostage(model);
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("postagePrice", postagePrice);
+		Double postagePrice = ordersServer.getOrdersPostage(orders, getAddressId);
 		resultMessage = new ResultMessage();
+		resultMessage.getResultParm().put("postagePrice", postagePrice);
 		if(postagePrice != null){
-			
 			resultMessage.setServiceResult(true);
 			resultMessage.setResultInfo("请求成功");
 		}else{
@@ -221,12 +231,48 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 	/**
 	 * 真实支付订单，修改订单状态为未发货.
 	 * @author 黄祥谦.
+	 * @throws IOException 
 	 */
-	public void realPayOrders(){
-		Boolean success = ordersServer.realPayOrders(model.getOrdersId());
+	public void realPayOrders() throws IOException{
+		
+		ActionContext ctx = ActionContext.getContext();
+        // 获取HttpServletRequest   
+        HttpServletRequest request = (HttpServletRequest)ctx.get(StrutsStatics.HTTP_REQUEST);
+        HttpServletResponse response = (HttpServletResponse)ctx.get(StrutsStatics.HTTP_RESPONSE);
+
+        request.setCharacterEncoding("UTF8");
+        //获取头部所有信息
+        Enumeration headerNames = request.getHeaderNames();
+        while (headerNames.hasMoreElements()) {
+            String key = (String) headerNames.nextElement();
+            String value = request.getHeader(key);
+            System.out.println(key+" "+value);
+        }
+        // 获得 http body 内容
+        BufferedReader reader = request.getReader();
+        StringBuffer buffer = new StringBuffer();
+        String string;
+        while ((string = reader.readLine()) != null) {
+            buffer.append(string);
+        }
+        reader.close();
+        // 解析异步通知数据
+        Event event = Webhooks.eventParse(buffer.toString());
+        if ("charge.succeeded".equals(event.getType())) {
+           response.setStatus(200);
+        } else if ("refund.succeeded".equals(event.getType())) {
+            response.setStatus(200);
+        } else {
+            response.setStatus(500);
+        }
+        Map<String, Object> object = event.getData();
+        @SuppressWarnings("unchecked")
+		Map<String, Object> object2 = (Map<String, Object>) object.get("object");
+        String object3 = (String) object2.get("order_no");
+        System.out.println("order_no:"+object3);
+		Boolean success = ordersServer.realPayOrders(Long.valueOf(object3));
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(success);
-		
 	}
 
 	/**

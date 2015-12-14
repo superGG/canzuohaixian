@@ -25,6 +25,7 @@
         <property name="shipPort" type="java.lang.String" column="shipPort" />
         <property name="portTime" type="java.util.Date" column="portTime" />
         <property name="address" type="java.lang.String" column="address" />
+        <property name="addresscode" type="java.lang.String" column="addresscode" />
         <property name="seaRecordId" type="java.lang.Long" column="seaRecordId" />
 		<property name="longitude" type="java.lang.Double" column="longitude" />
         <property name="latitude" type="java.lang.Double" column="latitude" />

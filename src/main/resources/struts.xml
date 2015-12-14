@@ -15,6 +15,9 @@
 	<constant name="struts.multipart.saveDir " value="d:/tmp" />
 	<package name="mypackage" extends="struts-default" namespace="/">
 		<interceptors>
+		<interceptor name="errorInterceptor"
+				class="com.earl.fishshop.interceptor.ErrorInterceptor">
+			</interceptor>
 			<interceptor name="escapeInterceptor"
 				class="com.earl.fishshop.interceptor.EscapeInterceptor">
 			</interceptor>
@@ -28,6 +31,7 @@
 				class="com.earl.fishshop.interceptor.IpInterceptor">
 			</interceptor>
 			<interceptor-stack name="systemInterceptorStack">
+				<interceptor-ref name="errorInterceptor" /> 
 				<interceptor-ref name="resultMessageInterceptor" /> 
 				<interceptor-ref name="escapeInterceptor" /> 
 				<interceptor-ref name="jsonTojavaBeanInterceptor" /> 

@@ -7,10 +7,13 @@ package com.earl.util;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+
+import com.earl.fishshop.domain.user.UserPo;
 
 
 
@@ -66,6 +69,15 @@ public class FilterPropertiesUtil {
 		long spend = endtime-begintime;
 		logger.debug("退出filterProperties2方法,毫秒数: "+spend+"毫秒;耗费时间：" + spend/1000 + "秒");
 		return newInstance;
+	}
+	
+	public static List<UserPo> filterUserPassword(List<UserPo> userlist) {
+		List<UserPo> list = new ArrayList<UserPo>();
+		for(UserPo user : userlist) {
+			user.setPassword(null);
+			list.add(user);
+		}
+		return list;
 	}
 	
 }

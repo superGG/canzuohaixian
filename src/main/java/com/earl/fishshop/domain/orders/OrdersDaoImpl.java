@@ -6,10 +6,8 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-
 import com.earl.fishshop.domain.base.BaseDaoImpl;
 import com.earl.fishshop.domain.ordersdetail.OrdersDetailPo;
-import com.earl.fishshop.domain.postage.PostagePo;
 import com.earl.fishshop.domain.sku.SkuPo;
 
 
@@ -46,7 +44,7 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 	}
 
 	@Override
-	public void addOrders(OrdersPo orders, Long getAddressId) {
+	public Long addOrders(OrdersPo orders, Long getAddressId) {
 		
 		Long ordersId = (Long) getCurrentSession().save(orders);
 		List<OrdersDetailPo> ordersDetail = orders.getOrdersDetail();
@@ -67,6 +65,7 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 				getCurrentSession().save(ordersDetailPo);
 			}
 		}
+		return ordersId;
 	}
 
 	@Override
@@ -113,10 +112,7 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 	}
 
 	@Override
-	public Double getOrdersPostage(List<OrdersDetailPo> ordersDetail,
-			Long provinceId) {
-		// TODO 未测试.
-		Double postagePrice = 0.0;
+	public Double getWeight(List<OrdersDetailPo> ordersDetail){
 		Double weight = 0.0;
 		for (OrdersDetailPo ordersDetailPo : ordersDetail) {
 			String unit = ordersDetailPo.getUnit();
@@ -127,11 +123,18 @@ public class OrdersDaoImpl extends BaseDaoImpl<OrdersPo> implements OrdersDao {
 				weight = weight + ((sku.getLowscale()+sku.getHighscale())/2) * ordersDetailPo.getNumber();
 			}
 		}
-		PostagePo postage = (PostagePo) getCurrentSession().get(PostagePo.class, provinceId);
+		return weight;
+	}
+	
+	@Override
+	public Double getOrdersPostage(Double weight,
+			Double firstWeight, Double increasePrice) {
+		// TODO 未测试.
+		Double postagePrice = 0.0;
 		if( weight<=1){
-			postagePrice = postage.getFirstWeigh();
+			postagePrice = firstWeight;
 		}else{
-			postagePrice = postage.getFirstWeigh()+postage.getIncreasePrice()*(weight -1);
+			postagePrice = firstWeight + increasePrice *(weight -1);
 		}
 		return postagePrice;
 	}

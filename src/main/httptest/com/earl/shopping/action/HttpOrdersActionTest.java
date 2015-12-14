@@ -45,8 +45,8 @@ public class HttpOrdersActionTest extends HttpBaseActionTest{
 			};
 			String sendHttpRequest = sendHttpRequest(filePost, parts);
 			ResultMessage jsonToBean = JsonHelper.jsonToBean(sendHttpRequest, ResultMessage.class);
-//			Assert.assertTrue(jsonToBean.getServiceResult());
-//			System.out.println(sendHttpRequest);
+			Assert.assertTrue(jsonToBean.getServiceResult());
+			System.out.println(sendHttpRequest);
 	}
 
 	@Test

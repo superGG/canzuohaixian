@@ -23,6 +23,8 @@ public class ShipPortPo{
 	 */
 	private Double longitude ;
 	
+	private String addresscode;
+	
 	/**
 	 * 字段描述：Double 
 	 * 字段类型：latitude  
@@ -53,6 +55,12 @@ public class ShipPortPo{
 	 */
 	private Long version ;
 	
+	public String getAddresscode() {
+		return addresscode;
+	}
+	public void setAddresscode(String addresscode) {
+		this.addresscode = addresscode;
+	}
 	public Long getShipPortId() {
 		return shipPortId;
 	}

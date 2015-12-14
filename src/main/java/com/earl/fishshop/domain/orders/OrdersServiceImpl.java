@@ -42,8 +42,7 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 	}
 
 	@Override
-	public Boolean addOrders(OrdersPo orders, Long getAddressId) {
-		try {
+	public Long addOrders(OrdersPo orders, Long getAddressId) {
 			Double totalOrdersPrice = 0.0;
 			orders.setState(MyConstant.order_unpay);//设置订单初始状态.
 			orders.setSordersNumber(orders.getOrdersDetail().size());
@@ -53,8 +52,8 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 				ordersDetail.setCategoryId(goodsPo.getCategoryId());
 				ordersDetail.setGoodsName(goodsPo.getGoodsName());
 				ordersDetail.setPrice(goodsPo.getPrice());
-				ordersDetail.setSkuId(goodsPo.getSku());
-				ordersDetail.setSku(skuDao.get(goodsPo.getSku()).getSkuName());
+				ordersDetail.setSkuId(goodsPo.getSkuId());
+				ordersDetail.setSku(skuDao.get(goodsPo.getSkuId()).getSkuName());
 				ordersDetail.setUnit(goodsPo.getUnit());
 				ordersDetail.setGoodsPhoto(goodsPo.getGoodsPhoto());
 				Double singalPrice = ordersDetail.getNumber()*ordersDetail.getPrice();
@@ -66,22 +65,12 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 			orders.setSendAddress(getAddressPo.getAddress());
 			orders.setPhone(getAddressPo.getPhone());
 			
-			String address = getAddressPo.getAddress();
-			String substring = address.substring(0,address.indexOf("省")+1);
-			PostagePo postagePo = new PostagePo();
-			postagePo.setProvinceName(substring);
-			List<PostagePo> findLikeGivenCreteriaWithPage = postageDao.findLikeGivenCreteriaWithPage(postagePo,null);
-			orders.setProvinceId(findLikeGivenCreteriaWithPage.get(0).getPostageId());
-			Double ordersPostage = getOrdersPostage(orders);
+			Double ordersPostage = getOrdersPostage(orders, getAddressId);
 			orders.setPostagePrice(ordersPostage);
 			orders.setSordersNumber(orders.getOrdersDetail().size());
 			orders.setTotalprice(totalOrdersPrice+ordersPostage);
-			ordersDao.addOrders(orders, getAddressId);
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return false; 
+			Long ordersId = ordersDao.addOrders(orders, getAddressId);
+			return ordersId;
 	}
 
 	@Override
@@ -134,12 +123,15 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 	}
 
 	@Override
-	public Double getOrdersPostage(OrdersPo model) {
-		List<OrdersDetailPo> ordersDetail = model.getOrdersDetail();
-		for (OrdersDetailPo ordersDetailPo : ordersDetail) {
-			ordersDetailPo.getSkuId();
-		}
-		Double postagePrice = ordersDao.getOrdersPostage(model.getOrdersDetail(),model.getProvinceId());
+	public Double getOrdersPostage(OrdersPo model, Long getAddressId) {
+		GetAddressPo getAddressPo = getAddressDao.get(getAddressId);
+		Double weight = ordersDao.getWeight(model.getOrdersDetail());
+		String shopAddressCode = shopDao.getShopAddressCode(model.getShopId());
+		PostagePo postagePo = new PostagePo();
+		postagePo.setOrigin(shopAddressCode);
+		postagePo.setDestination(getAddressPo.getAddresscode());
+		List<PostagePo> postage = postageDao.findByGivenCriteria(postagePo);
+		Double postagePrice = ordersDao.getOrdersPostage(weight,postage.get(0).getFirstWeigh(), postage.get(0).getIncreasePrice());
 		return postagePrice;
 	}
 

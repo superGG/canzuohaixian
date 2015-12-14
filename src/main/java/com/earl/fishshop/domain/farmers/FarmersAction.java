@@ -57,8 +57,13 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 
 	public void addFarmers() {
 		Boolean save = farmersServer.save(model);
-		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(save);
+		if (save) {
+			resultMessage.setResultInfo("操作成功");
+			resultMessage.setServiceResult(save);
+		} else {
+			resultMessage.setResultInfo("操作失败");
+			resultMessage.setServiceResult(save);
+		}
 	}
 	
 	/**
@@ -67,8 +72,13 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 	 */
 	public void authenticationFarmer(){
 		Boolean result = farmersServer.authenticationFarmer(userId,model,farmersFile);
-		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(result);
+		if (result) {
+			resultMessage.setResultInfo("认证发送成功");
+			resultMessage.setServiceResult(result);
+		} else {
+			resultMessage.setResultInfo("认证发送失败");
+			resultMessage.setServiceResult(result);
+		}
 	}
 
 	/**
@@ -77,8 +87,13 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 	 */
 	public void updateFarmers(){
 		Boolean result = farmersServer.updateWithNotNullProperties(model);
-		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(result);
+		if (result) {
+			resultMessage.setResultInfo("操作成功");
+			resultMessage.setServiceResult(result);
+		} else {
+			resultMessage.setResultInfo("操作失败");
+			resultMessage.setServiceResult(result);
+		}
 	}
 	
 	/**
@@ -125,8 +140,13 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 	 */
 	public void noPassAuthenticationFarmers() {
 		Boolean result = farmersServer.noPassAuthenticationFarmers(userId,model.getFarmersId());
-		resultMessage = new ResultMessage();
-		resultMessage.setServiceResult(result);
+		if (result) {
+			resultMessage.setResultInfo("操作成功");
+			resultMessage.setServiceResult(result);
+		} else {
+			resultMessage.setResultInfo("操作失败");
+			resultMessage.setServiceResult(result);
+		}
 	}
 	
 	/**

@@ -67,7 +67,7 @@ public class GoodsPo{
 	/**
 	 * 商品规格.
 	 */
-	private Long sku;
+	private Long skuId;
 	
 	/**
 	 * 字段描述：Long 
@@ -117,11 +117,11 @@ public class GoodsPo{
 	public void setGoodsPhoto(String goodsPhoto) {
 		this.goodsPhoto = goodsPhoto;
 	}
-	public Long getSku() {
-		return sku;
+	public Long getSkuId() {
+		return skuId;
 	}
-	public void setSku(Long sku) {
-		this.sku = sku;
+	public void setSkuId(Long skuId) {
+		this.skuId = skuId;
 	}
 	public void setGoodsId(Long goodsId){
 		this.goodsId = goodsId;
@@ -210,12 +210,13 @@ public class GoodsPo{
 	@Override
 	public String toString() {
 		return "GoodsPo [goodsId=" + goodsId + ", shopId=" + shopId
-				+ ", categoryId=" + categoryId + ", goodsQuality="
-				+ goodsQuality + ", hotDegree=" + hotDegree + ", getType="
-				+ getType + ", price=" + price + ", nowNumber=" + nowNumber
-				+ ", unit=" + unit + ", sku=" + sku + ", sellNumber="
-				+ sellNumber + ", creatorId=" + creatorId + ", createTime="
-				+ createTime + ", isDelete=" + isDelete + ", version="
-				+ version + "]";
+				+ ", categoryId=" + categoryId + ", goodsName=" + goodsName
+				+ ", skuString=" + skuString + ", goodsPhoto=" + goodsPhoto
+				+ ", goodsQuality=" + goodsQuality + ", hotDegree=" + hotDegree
+				+ ", getType=" + getType + ", price=" + price + ", nowNumber="
+				+ nowNumber + ", unit=" + unit + ", skuId=" + skuId
+				+ ", sellNumber=" + sellNumber + ", creatorId=" + creatorId
+				+ ", createTime=" + createTime + ", isDelete=" + isDelete
+				+ ", version=" + version + "]";
 	}
 }
