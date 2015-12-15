@@ -7,10 +7,10 @@
 UsersListModule.controller('UsersCtrl',function($scope,$http){
 
 //    $http.get('test/usersinfo.json').
-    $http.get('fishshop/user_findAllUser.json').
+    $http.get('/fishshop/user_findAllUser.action').
     	success(function(data){
 
-    		$scope.usersInfo = data.result;
+    		$scope.usersInfo = data.resultParm.userList;
     	});
 
     // $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent){
@@ -95,8 +95,9 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 		fd.append("categorySimpleName",$scope.newCompent.categorySimpleName);
 		$("#viewPhoto").attr("src",window.URL.createObjectURL(file));
 		var xhr = new XMLHttpRequest();
-
-		xhr.open("post","test/usersinfo.json");
+		$http.get('').
+//		xhr.open("post","test/usersinfo.json");
+		xhr.open("post","/fishshop/user_findAllUser.action");
 		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 
 		xhr.upload.onprogress = function(evt){
