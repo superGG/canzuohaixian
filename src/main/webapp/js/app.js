@@ -256,9 +256,31 @@ seaTable.filter("shopstatus",function(){
 		}
 
 		return status;
+	};
+
+
+});
+
+
+seaTable.filter("orderstatus",function(){
+	return function(inputArray){
+		
+		var status = "";
+		
+		if(inputArray === 0){
+			status ="未发货";
+		}else if(inputArray === 1){
+			status = "未支付";
+		}else if(inputArray === 2){
+			status = "未收货";
+		}else if(inputArray === 3){
+			status = "未评论";
+		}else if(inputArray === 4){
+			status = "已评论";
+		}
+		
+		return status;
 	}
-
-
 });
 
 seaTable.filter("decorateDestination",function(){

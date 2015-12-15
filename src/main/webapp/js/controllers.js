@@ -49,8 +49,10 @@ seaTable.controller('seaTableCtrl',function($rootScope,$scope,$location,$http){
 
 
 GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
+	
+	$scope.newCompent = {};
 
-	$http.get('http://localhost:8080/fishshop/category_getTopCategory.action')
+	$http.get('/fishshop/category_getTopCategory.action')
 //	 $http.get('http://www.earltech.cn:8080/fishshop/category_getTopCategory.action')
 	.success(function(data){
 
@@ -83,12 +85,13 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 		}
 	}
 
-	$scope.pushPhoto = function(){
-
+	$scope.doNew = function(){
+		
 		var file = $("#compentPhoto").get(0).files[0];
 
 		var fd = new FormData();
 		fd.append("compentPhoto",file);
+		fd.append("categorySimpleName",$scope.newCompent.categorySimpleName);
 		$("#viewPhoto").attr("src",window.URL.createObjectURL(file));
 		var xhr = new XMLHttpRequest();
 
@@ -198,11 +201,12 @@ OrdersModule.controller("ordersCtrl",function($scope,$http){
 
 	$scope.getdata = function(){
 
-		$http.get('test/ordersinfo.json',{params:{page:$scope.page,start:($scope.page*15),limit:15}}).success(function(data){
+//		$http.get('test/ordersinfo.json',{params:{page:$scope.page,start:($scope.page*15),limit:15}}).success(function(data){
+		$http.get('/fishshop/orders_findAllOrders.action',{params:{"pageInfo.indexPageNum":$scope.page+1,start:($scope.page*15),"pageInfo.size":15}}).success(function(data){
 
-			$scope.ordersInfo = data.result;
+			$scope.ordersInfo = data.resultParm.ordersList;
 
-			$scope.totals = data.totals;
+			$scope.totals = data.resultParm.total;
 
 			if(($scope.totals/15) > 5){
 
@@ -321,13 +325,13 @@ LogisticsModule.controller("LogisticsCtrl",function($scope,$http,$timeout){
 		});
 	};
 
-	$scope.init = function(provinceName,editName,$index,$last){
+	$scope.editInit = function(provinceName,editName,$index,$last){
 		console.log($last);
 
-		if(arguments.length === 4){
+		
 
-			$scope.hasSelect(provinceName,editName,$index);
-		}
+		$scope.hasSelect(provinceName,editName,$index);
+		
 
 		if($last){
 			$timeout(function(){
@@ -348,6 +352,26 @@ LogisticsModule.controller("LogisticsCtrl",function($scope,$http,$timeout){
 
 
 	};
+	
+	$scope.newInit = function($last){
+		
+		if($last){
+			$timeout(function(){
+				$(function () {
+					var demo2 = $('.demo1').bootstrapDualListbox({
+						nonSelectedListLabel: '所有省份',
+						selectedListLabel: '送达的省份',
+						preserveSelectionOnMove: 'moved',
+						moveOnSelect: false
+					});
+
+					$("#showValue").click(function () {
+						alert($('[name="duallistbox_demo1"]').val());
+					});
+				});
+			})
+		}
+	}
 
 
 	$scope.hasSelect = function(provinceName,editName,$index){

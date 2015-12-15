@@ -115,6 +115,19 @@ public class OrdersAction extends BaseAction<OrdersPo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(deleteById);
 	}
+
+	/**
+	 * 查询所有订单.
+	 * @author 黄祥谦.
+	 */
+	public void findAllOrders(){
+		List<OrdersPo> ordersList = ordersServer.findAll(pageInfo);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(true);
+		resultMessage.getResultParm().put("ordersList", ordersList);
+		resultMessage.getResultParm().put("total", pageInfo.getTotalCount());
+	}
+	
 	
 	/**
 	 * 得到指定商店的所有订单.

@@ -21,6 +21,7 @@ import com.earl.fishshop.domain.gettype.GetTypeService;
 import com.earl.fishshop.domain.goods.GoodsService;
 import com.earl.fishshop.domain.orders.OrdersService;
 import com.earl.fishshop.domain.ordersdetail.OrdersDetailService;
+import com.earl.fishshop.domain.postage.PostageService;
 import com.earl.fishshop.domain.region.RegionService;
 import com.earl.fishshop.domain.searecord.SeaRecordService;
 import com.earl.fishshop.domain.shipport.ShipPortService;
@@ -85,6 +86,8 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	protected VerifyCodeService verifyCodeServer;
 	@Resource
 	protected RegionService regionServer;
+	@Resource
+	protected PostageService postageServer;
 	
 //	protected PageInfo pageInfo = new PageInfo();
 //

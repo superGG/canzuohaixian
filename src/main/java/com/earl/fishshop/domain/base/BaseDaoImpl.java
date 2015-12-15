@@ -120,6 +120,20 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	// return list;
 	// }
 
+	@Override
+	public List<T> findAll(PageInfo pageInfo) {
+		// TODO 未测试.
+		String hql = "from " + clazz.getSimpleName();
+		@SuppressWarnings("unchecked")
+		List<T> list = getCurrentSession().createQuery(hql).setFirstResult((pageInfo.getIndexPageNum()-1)* pageInfo.getSize()).setMaxResults(pageInfo.getSize()).list();
+		String hql2 = "select count(*) from "+clazz.getSimpleName();
+		Object uniqueResult = getCurrentSession().createQuery(hql2).uniqueResult();
+		Long intValue = (new Integer(uniqueResult.toString()))  
+        .longValue();
+		pageInfo.setTotalCount(intValue);
+		return list;
+	}
+
 	// 删除所有对象
 	@Override
 	public void deleteAll() {

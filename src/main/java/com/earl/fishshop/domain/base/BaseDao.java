@@ -32,6 +32,8 @@ public interface BaseDao<T> {
 
 	List<T> findAll();
 
+	List<T> findAll(PageInfo pageInfo);
+	
 	void deleteAll();
 
 	void delete(T persistentInstance);

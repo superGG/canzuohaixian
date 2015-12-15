@@ -24,6 +24,7 @@ import com.earl.fishshop.domain.sku.SkuDao;
 import com.earl.fishshop.domain.unit.UnitDao;
 import com.earl.fishshop.domain.user.UserDao;
 import com.earl.fishshop.domain.verifycode.VerifyCodeDao;
+import com.earl.fishshop.vo.PageInfo;
 import com.earl.util.FileUploadImpl;
 
 /**
@@ -132,6 +133,12 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 //
 //		return baseDao.pageFindAll(pageInfo);
 //	}
+
+	@Override
+	public List<T> findAll(PageInfo pageInfo) {
+		// TODO 未测试.
+		return baseDao.findAll(pageInfo);
+	}
 
 	@Override
 	public List<T> findByGivenCreteria(T object) {

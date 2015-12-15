@@ -150,6 +150,7 @@ public class UserAction extends BaseAction<UserPo> {
 	 * @author 宋文光
 	 */
 	public void updateUser() {
+		model.setPassword(null);
 		Boolean update = userServer.updateWithNotNullProperties(model);
 		resultMessage = new ResultMessage();
 		if(update){
