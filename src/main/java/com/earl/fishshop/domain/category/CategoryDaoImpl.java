@@ -102,12 +102,14 @@ public class CategoryDaoImpl extends BaseDaoImpl<CategoryPo> implements Category
 		// TODO 未测试.
 		ArrayList<Long> arrayList = new ArrayList<Long>();
 		List<SkuPo> skuList = model.getSkuArrayList();
-		for (SkuPo skuPo : skuList) {
-			Long save = (Long) getCurrentSession().save(skuPo);
-			arrayList.add(save);
+		if(skuList != null){
+			for (SkuPo skuPo : skuList) {
+				Long save = (Long) getCurrentSession().save(skuPo);
+				arrayList.add(save);
+			}
+			String json = JsonHelper.toJson(arrayList);
+			model.setSkuList(json);
 		}
-		String json = JsonHelper.toJson(arrayList);
-		model.setSkuList(json);
 		getCurrentSession().save(model);
 	}
 
@@ -116,12 +118,14 @@ public class CategoryDaoImpl extends BaseDaoImpl<CategoryPo> implements Category
 		// TODO 未测试.
 		ArrayList<Long> arrayList = new ArrayList<Long>();
 		List<SkuPo> skuList = model.getSkuArrayList();
-		for (SkuPo skuPo : skuList) {
-			getCurrentSession().update(skuPo);
-			arrayList.add(skuPo.getSkuId());
+		if(skuList != null){
+			for (SkuPo skuPo : skuList) {
+				getCurrentSession().update(skuPo);
+				arrayList.add(skuPo.getSkuId());
+			}
+			String json = JsonHelper.toJson(arrayList);
+			model.setSkuList(json);
 		}
-		String json = JsonHelper.toJson(arrayList);
-		model.setSkuList(json);
 		updateWithNotNullProperties(model);
 	}
 

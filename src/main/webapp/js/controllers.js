@@ -91,13 +91,12 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 		var file = $("#compentPhoto").get(0).files[0];
 
 		var fd = new FormData();
-		fd.append("compentPhoto",file);
+		fd.append("categoryFile.file",file);
 		fd.append("categorySimpleName",$scope.newCompent.categorySimpleName);
 		$("#viewPhoto").attr("src",window.URL.createObjectURL(file));
 		var xhr = new XMLHttpRequest();
-		$http.get('').
 //		xhr.open("post","test/usersinfo.json");
-		xhr.open("post","/fishshop/user_findAllUser.action");
+		xhr.open("post","/fishshop/category_addCategory.action");
 		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 
 		xhr.upload.onprogress = function(evt){
