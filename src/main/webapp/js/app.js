@@ -261,6 +261,8 @@ seaTable.filter("shopstatus",function(){
 
 });
 
+
+
 seaTable.filter("decorateDestination",function(){
 	return function(inputArray,$last){
 
