@@ -54,12 +54,12 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 	$scope.newCompent = {};
 	$scope.editCompent = {};
 
-	//$http.get('/fishshop/category_getTopCategory.action')
-	 $http.get('test/goodscategorycompentinfo.json')
+	$http.get('/fishshop/category_getTopCategory.action')
+	 //$http.get('test/goodscategorycompentinfo.json')
 	.success(function(data){
 
-		//$scope.gccsInfo = data.resultParm.categoryList;
-		$scope.gccsInfo = data.result;
+		$scope.gccsInfo = data.resultParm.categoryList;
+		//$scope.gccsInfo = data.result;
 
 //		$scope.skuArrayList = data.resultParm.categoryList.skuArrayList;
 	})
@@ -86,7 +86,9 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 
 		var fd = new FormData();
 		fd.append("compentPhoto",file);
-		fd.append("categorySimpleName",$scope.newCompent.categorySimpleName);
+		fd.append("categorySimpleName",$scope.editCompent.categorySimpleName);
+		fd.append("categoryId",$scope.editCompent.categoryId);
+
 		$("#viewPhoto").attr("src",window.URL.createObjectURL(file));
 		var xhr = new XMLHttpRequest();
 
