@@ -52,13 +52,15 @@ seaTable.controller('seaTableCtrl',function($rootScope,$scope,$location,$http){
 GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 	
 	$scope.newCompent = {};
+	$scope.editCompent = {};
 
-	$http.get('/fishshop/category_getTopCategory.action')
-//	 $http.get('http://www.earltech.cn:8080/fishshop/category_getTopCategory.action')
+	//$http.get('/fishshop/category_getTopCategory.action')
+	 $http.get('test/goodscategorycompentinfo.json')
 	.success(function(data){
 
-		$scope.gccsInfo = data.resultParm.categoryList;
-		
+		//$scope.gccsInfo = data.resultParm.categoryList;
+		$scope.gccsInfo = data.result;
+
 //		$scope.skuArrayList = data.resultParm.categoryList.skuArrayList;
 	})
 
@@ -69,21 +71,35 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 		}else{
 			return false;
 		}
-	}
+	};
 
-	$scope.editcategorycompent = {};
 
-	$scope.editOne = function(id){
+	$scope.toEdit = function(gccinfo){
 
-		for(var i = 0; i < $scope.gccsInfo.length ; i++){
+		$scope.editCompent = gccinfo;
+	};
 
-			if($scope.gccsInfo[i].categoryId == id){
+	$scope.doEdit = function (){
 
-				$scope.editcategorycompent = $scope.gccsInfo[i];
 
-				return;
-			}
+		var file = $("#compentPhoto").get(0).files[0];
+
+		var fd = new FormData();
+		fd.append("compentPhoto",file);
+		fd.append("categorySimpleName",$scope.newCompent.categorySimpleName);
+		$("#viewPhoto").attr("src",window.URL.createObjectURL(file));
+		var xhr = new XMLHttpRequest();
+
+		xhr.open("post","test/usersinfo.json");
+		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+
+		xhr.upload.onprogress = function(evt){
+
+			$scope.precentage = evt.total/evt.loaded * 100;
 		}
+
+		xhr.send(fd);
+
 	}
 
 	$scope.doNew = function(){
