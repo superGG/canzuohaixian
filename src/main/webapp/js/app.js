@@ -254,7 +254,6 @@ seaTable.filter("shopstatus",function(){
 		}else if(inputArray === '3'){
 			status = "已被拉黑";
 		}
-
 		return status;
 	};
 

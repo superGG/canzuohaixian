@@ -11,6 +11,7 @@ import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.domain.verifycode.VerifyCodePo;
 import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.util.VerifyServiceUtil;
+import com.earl.fishshop.vo.PageInfo;
 import com.earl.fishshop.vo.ResultMessage;
 import com.earl.fishshop.vo.SingleFileVo;
 import com.earl.util.FilterPropertiesUtil;
@@ -28,9 +29,18 @@ import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
 @Scope(value = "prototype")
 public class UserAction extends BaseAction<UserPo> {
 
-	/**
-	 * 
-	 */
+	PageInfo pageInfo;
+	
+	public PageInfo getPageInfo() {
+		return pageInfo;
+	}
+
+	public void setPageInfo(PageInfo pageInfo) {
+		this.pageInfo = pageInfo;
+	}
+
+
+
 	private static final long serialVersionUID = 3293435262298029608L;
 
 	protected ResultMessage resultMessage;

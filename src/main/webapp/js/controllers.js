@@ -6,7 +6,8 @@
 
 UsersListModule.controller('UsersCtrl',function($scope,$http){
 
-    $http.get('test/usersinfo.json').
+//    $http.get('test/usersinfo.json').
+    $http.get('fishshop/user_findAllUser.json').
     	success(function(data){
 
     		$scope.usersInfo = data.result;
