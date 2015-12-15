@@ -158,9 +158,10 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 
 FarmersModule.controller("FarmersCtrl",function($scope,$http){
 
-	$http.get('test/farmersinfo.json').success(function(data){
+//	$http.get('test/farmersinfo.json').success(function(data){
+	$http.get('/fishshop/shop_getAllFarmersShop.action').success(function(data){
 
-		$scope.farmersInfo = data.result;
+		$scope.farmersInfo = data.resultParm.shopInfo;
 	});
 
 	$http.get("test/farmersapplyinfo.json").success(function(data){
@@ -172,9 +173,9 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http){
 
 FishmanModule.controller("FishmanCtrl",function($scope,$http){
 
-	$http.get('test/fishmaninfo.json').success(function(data){
+	$http.get('/fishshop/shop_getAllFishmanShop.action').success(function(data){
 
-		$scope.fishmansInfo = data.result;
+		$scope.fishmansInfo = data.resultParm.shopInfo;
 	});
 
 	$http.get("test/fishmansapplyinfo.json").success(function(data){

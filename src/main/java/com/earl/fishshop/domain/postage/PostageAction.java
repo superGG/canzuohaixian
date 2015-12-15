@@ -38,8 +38,19 @@ public class PostageAction extends BaseAction<PostagePo> {
 		this.destinationList = destinationList;
 	}
 
+	/**
+	 * 添加
+	 * @author 黄祥谦.
+	 */
 	public void addPostage(){
-		Boolean success = postageServer.addPostage(model,destinationList);
+		Boolean success = postageServer.save(model);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(success);
+		if(success){
+			resultMessage.setResultInfo("添加成功");
+		}else{
+			resultMessage.setResultInfo("添加失败");
+		}
 	}
 	
 }

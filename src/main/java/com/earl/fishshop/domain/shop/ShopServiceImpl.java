@@ -162,6 +162,7 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 				map.put("shopId", fishman.getShopId());
 				String getName = getTypeServer.getGetTypeName(shop.getGetType());
 				map.put("getName", getName);
+				map.put("shopName", shop.getShopName());
 				map.put("createTime", fishman.getCreateTime());
 				infoList.add(map);
 			}
@@ -180,6 +181,7 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 				map.put("farmersId", farmers.getFarmersId());
 				map.put("shopId", farmers.getShopId());
 				String getName = getTypeServer.getGetTypeName(shop.getGetType());
+				map.put("address", farmers.getAddress());
 				map.put("getName", getName);
 				map.put("shopName", shop.getShopName());
 				map.put("createTime", shop.getCreateTime());
