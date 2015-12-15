@@ -2,6 +2,8 @@ package com.earl.fishshop.domain.base;
 
 import java.util.List;
 
+import com.earl.fishshop.vo.PageInfo;
+
 public interface BaseService<T> {
 
 	Boolean save(T model);
@@ -13,6 +15,8 @@ public interface BaseService<T> {
 	Boolean deleteById(Long id);
 
 	List<T> findAll();
+	
+	List<T> findAll(PageInfo pageInfo);
 
 //	List<T> pagefindAll(PageInfo pageInfo);
 

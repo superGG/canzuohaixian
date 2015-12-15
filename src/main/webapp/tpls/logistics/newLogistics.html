@@ -29,7 +29,7 @@
                         <label for="showValue" class="col-sm-2 control-label no-padding-right">选择收货省</label>
                         <div class="col-sm-10">
                             <select multiple="multiple" size="10" name="duallistbox_demo1" class="demo1">
-                                <option value="{{provinceInfo.id}}" ng-repeat="provinceInfo in provincesInfo" ng-init="init($last)">{{provinceInfo.name}}</option>
+                                <option value="{{provinceInfo.id}}" ng-repeat="provinceInfo in provincesInfo" ng-init="newInit($last)">{{provinceInfo.name}}</option>
                             </select>
                             <br />
                             <input id="showValue" ng-show="false" type="button" value="show selected data" ng-model="newLogistic.destination" />

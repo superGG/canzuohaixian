@@ -17,9 +17,8 @@ import com.earl.fishshop.vo.ResultMessage;
 @Scope(value = "prototype")
 public class PostageAction extends BaseAction<PostagePo> {
 
-	/**
-	 * 
-	 */
+	Long [] destinationList;
+	
 	private static final long serialVersionUID = 3293435262298029608L;
 
 	protected ResultMessage resultMessage;
@@ -29,7 +28,18 @@ public class PostageAction extends BaseAction<PostagePo> {
 		return resultMessage;
 	}
 
-
 	// 下面填写业务逻辑
+	
+	public Long[] getDestinationList() {
+		return destinationList;
+	}
+
+	public void setDestinationList(Long[] destinationList) {
+		this.destinationList = destinationList;
+	}
+
+	public void addPostage(){
+		Boolean success = postageServer.addPostage(model,destinationList);
+	}
 	
 }
