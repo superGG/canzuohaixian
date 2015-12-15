@@ -15,7 +15,7 @@ config(function($stateProvider,$urlRouterProvider) {
 	
 	$urlRouterProvider.otherwise('/users');
 
-
+//路由配置
 	$stateProvider.state("users",{
 		url:"/users",
 		templateUrl: "tpls/users.html"
@@ -44,7 +44,6 @@ config(function($stateProvider,$urlRouterProvider) {
 		url:"/editFarmerinfo/{farmerId}",
 		templateUrl:"tpls/farmer/farmereidt.html",
 		controller:function($scope,$stateParams,$http){
-
 
 			$http.get("test/farmerbaicinfo.json", {params:{id:$stateParams.farmerId}}).success(function(data){
 				$scope.farmerinfo = data.result;
