@@ -48,21 +48,76 @@ seaTable.controller('seaTableCtrl',function($rootScope,$scope,$location,$http){
 
 });
 
+/**
+ *
+ * 商品父分类管理模块的controller方法
+ *
+ *
+ */
 
 GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 	
 	$scope.newCompent = {};
 	$scope.editCompent = {};
 
-	$http.get('/fishshop/category_getTopCategory.action')
-	 //$http.get('test/goodscategorycompentinfo.json')
-	.success(function(data){
+	/**
+	 * 数据更新函数
+	 */
+	$scope.getData = function(){
 
-		$scope.gccsInfo = data.resultParm.categoryList;
-		//$scope.gccsInfo = data.result;
+		$http.get('/fishshop/category_getTopCategory.action')
+			//$http.get('test/goodscategorycompentinfo.json')
+			.success(function(data){
+
+				$scope.gccsInfo = data.resultParm.categoryList;
+				//$scope.gccsInfo = data.result;
 
 //		$scope.skuArrayList = data.resultParm.categoryList.skuArrayList;
-	})
+			})
+	};
+
+	/**
+	 * 得到一个包含图片文件的FormData对象
+	 * @param id 图片所在input的id
+	 * @param imgValName  变量名
+	 * @returns {FromData}
+	 *
+	 */
+
+	$scope.getImgShow = function(id,imgValName){
+		var file = $(id).get(0).files[0];
+		var fd = new FormData();
+		fd.append(imgValName,file);
+
+		$("#viewPhoto").attr("src",window.URL.createObjectURL(file));
+
+		return fd;
+	};
+
+	/**
+	 * 得到已发送FormData请求的ajax配置项.
+	 * @param url 访问的url
+	 * @param fd 要发送的FormData对象
+	 * @returns {配置项}
+	 */
+	$scope.getFormDataRequestConfig = function(url,fd){
+
+		var ajaxConfig = {
+			method : "POST",
+			'url' : url,
+			data:fd,
+			headers:{
+				"Content-Type": 'application/x-www-form-urlencoded'
+			},
+			transformRequest:function(data) {
+				return data;
+			}
+		};
+
+		return ajaxConfig;
+
+	};
+
 
 	$scope.forCompentId = function(id){
 
@@ -73,7 +128,6 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 		}
 	};
 
-
 	$scope.toEdit = function(gccinfo){
 
 		$scope.editCompent = gccinfo;
@@ -81,66 +135,64 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 
 	$scope.doEdit = function (){
 
+		var fd = $scope.getImgShow("#compentPhoto","categoryFile.file");
 
-		var file = $("#compentPhoto").get(0).files[0];
-
-		var fd = new FormData();
-		fd.append("compentPhoto",file);
 		fd.append("categorySimpleName",$scope.editCompent.categorySimpleName);
 		fd.append("categoryId",$scope.editCompent.categoryId);
 
-		$("#viewPhoto").attr("src",window.URL.createObjectURL(file));
-		var xhr = new XMLHttpRequest();
 
-//		xhr.open("post","test/usersinfo.json");
-		xhr.open("post","/fishshop/category_updateCategory.action");
-		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+		$http($scope.getFormDataRequestConfig("/fishshop/category_addCategory.action",fd)).success(function(data){
+		});
 
-		xhr.upload.onprogress = function(evt){
-
-			$scope.precentage = evt.total/evt.loaded * 100;
-		}
-
-		xhr.send(fd);
-
-	}
+	};
 
 	$scope.doNew = function(){
-		
-		var file = $("#compentPhoto").get(0).files[0];
 
-		var fd = new FormData();
-		fd.append("categoryFile.file",file);
+		var fd = $scope.getImgShow("#compentPhoto","categoryFile.file");
+
 		fd.append("categorySimpleName",$scope.newCompent.categorySimpleName);
-		$("#viewPhoto").attr("src",window.URL.createObjectURL(file));
-		var xhr = new XMLHttpRequest();
-//		xhr.open("post","test/usersinfo.json");
-		xhr.open("post","/fishshop/category_addCategory.action");
-		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 
-		xhr.upload.onprogress = function(evt){
+		$http($scope.getFormDataRequestConfig("/fishshop/category_addCategory.action",fd)).success(function(data){
 
-			$scope.precentage = evt.total/evt.loaded * 100;
-		}
+		});
+	};
 
-		xhr.send(fd);
-	}
+	//初始化数据
+	$scope.getData();
 
 
 });
 
+
+/**
+ *
+ *   商品子分类管理模块的controller方法
+ *
+ *
+ */
 GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 
-//	$http.get('test/goodscategoryleafinfo.json').success(function(data){
-	$http.get('/fishshop/category_getAllNextLevelCategory.action').success(function(data){
 
-		$scope.gclsInfo = data.resultParm.categoryList;
-	})
+	$scope.newLeaf = {};
 
-	$http.get('/fishshop/category_getTopCategory.action').success(function(data){
+	/**
+	 * 获取数据的函数
+	 */
+	$scope.getData = function(){
 
-		$scope.gccsInfo = data.resultParm.categoryList;
-	})
+		//	$http.get('test/goodscategoryleafinfo.json').success(function(data){
+		$http.get('/fishshop/category_getAllNextLevelCategory.action').success(function(data){
+
+			$scope.gclsInfo = data.resultParm.categoryList;
+		});
+
+		$http.get('/fishshop/category_getTopCategory.action').success(function(data){
+
+			$scope.gccsInfo = data.resultParm.categoryList;
+		});
+	};
+
+
 
 	$scope.unitType = "1";
 
@@ -163,13 +215,18 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 				return;
 			}
 		}
+	};
+
+	$scope.doNew = function(){
+
+		console.log($scope.newLeaf);
 	}
 
 	$scope.test = function(){
 		console.log($scope.editcategoryleaf);
 	}
 
-	
+	$scope.getData();
 
 
 });
