@@ -92,7 +92,8 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 		$("#viewPhoto").attr("src",window.URL.createObjectURL(file));
 		var xhr = new XMLHttpRequest();
 
-		xhr.open("post","test/usersinfo.json");
+//		xhr.open("post","test/usersinfo.json");
+		xhr.open("post","/fishshop/category_updateCategory.action");
 		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 
 		xhr.upload.onprogress = function(evt){
@@ -393,7 +394,6 @@ LogisticsModule.controller("LogisticsCtrl",function($scope,$http,$timeout){
 			})
 		}
 	}
-
 
 	$scope.hasSelect = function(provinceName,editName,$index){
 
