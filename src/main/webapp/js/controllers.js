@@ -131,14 +131,14 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 
 //	$http.get('test/goodscategoryleafinfo.json').success(function(data){
-	$http.get('http://localhost:8080/fishshop/category_getAllNextLevelCategory.action').success(function(data){
+	$http.get('/fishshop/category_getAllNextLevelCategory.action').success(function(data){
 
 		$scope.gclsInfo = data.resultParm.categoryList;
 	})
 
-	$http.get('test/goodscategorycompentinfo.json').success(function(data){
+	$http.get('/fishshop/category_getTopCategory.action').success(function(data){
 
-		$scope.gccsInfo = data.result;
+		$scope.gccsInfo = data.resultParm.categoryList;
 	})
 
 	$scope.unitType = "1";
@@ -183,8 +183,9 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http){
 	});
 
 	$http.get("test/farmersapplyinfo.json").success(function(data){
-
-		$scope.farmersapplyinfo = data.result;
+//		$http.get("/fishshop/user_getVerifyFishman.action").success(function(data){
+		
+		$scope.farmersapplyinfo = data.result;//.userList
 	});
 });
 
