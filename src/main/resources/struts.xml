@@ -86,5 +86,8 @@
 		<action name="shipport_*" class="shipPortAction"
 			method="{1}">
 		</action>
+		<action name="postage_*" class="postageAction"
+			method="{1}">
+		</action>
 	</package>
 </struts>    

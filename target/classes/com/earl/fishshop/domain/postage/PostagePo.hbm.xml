@@ -14,7 +14,7 @@
         
         <property name="origin" type="java.lang.String" column="origin" />
         <property name="destination" type="java.lang.String" column="destination" />
-        <property name="firstWeigh" type="java.lang.Double" column="firstWeigh" />
+        <property name="firstWeight" type="java.lang.Double" column="firstWeigh" />
         <property name="increasePrice" type="java.lang.Double" column="increasePrice" />
         <property name="createTime" type="java.util.Date" column="createTime" />
         <property name="creatorId" type="java.lang.Long" column="creatorId" />

@@ -430,9 +430,9 @@ LogisticsModule.controller("LogisticsCtrl",function($scope,$http,$timeout){
 
 
 	$scope.getData = function(){
-		$http.get("test/logisticsInfo.json").success(function(data){
+		$http.get("/fishshop/postage_findAllPostage.action").success(function(data){
 
-			$scope.logisticsInfo = data.result;
+			$scope.logisticsInfo = data.resultParm.postageList;
 		});
 
 		$http.get("test/provinceListInfo.json").success(function(data){
@@ -444,7 +444,7 @@ LogisticsModule.controller("LogisticsCtrl",function($scope,$http,$timeout){
 	$scope.doNew = function(){
 
 
-		$http.post("test/logisticsInfo.json",
+		$http.post("/fishshop/postage_addPostage.action",
 			Ninico.JsonToKeyVal($scope.newLogistic),
 			{
 				headers:{
@@ -454,67 +454,6 @@ LogisticsModule.controller("LogisticsCtrl",function($scope,$http,$timeout){
 
 			});
 	};
-    //
-	//$scope.editInit = function(provinceName,editName,$index,$last){
-	//	console.log($last);
-    //
-    //
-    //
-	//	$scope.hasSelect(provinceName,editName,$index);
-    //
-    //
-	//	if($last){
-	//		$timeout(function(){
-	//			$(function () {
-	//				var demo2 = $('.demo1').bootstrapDualListbox({
-	//					nonSelectedListLabel: '所有省份',
-	//					selectedListLabel: '送达的省份',
-	//					preserveSelectionOnMove: 'moved',
-	//					moveOnSelect: false
-	//				});
-    //
-	//				$("#showValue").click(function () {
-	//					alert($('[name="duallistbox_demo1"]').val());
-	//				});
-	//			});
-	//		})
-	//	}
-    //
-    //
-	//};
-    //
-	//$scope.newInit = function($last){
-	//
-	//	if($last){
-	//		$timeout(function(){
-	//			$(function () {
-	//				var demo2 = $('.demo1').bootstrapDualListbox({
-	//					nonSelectedListLabel: '所有省份',
-	//					selectedListLabel: '送达的省份',
-	//					preserveSelectionOnMove: 'moved',
-	//					moveOnSelect: false
-	//				});
-    //
-	//				$("#showValue").click(function () {
-	//					alert($('[name="duallistbox_demo1"]').val());
-	//				});
-	//			});
-	//		})
-	//	}
-	//}
-
-    //
-	//$scope.hasSelect = function(provinceName,editName,$index){
-    //
-	//	for(var i = 0,len = editName.length;i < len;i++){
-    //
-	//		if(provinceName === editName[i]){
-    //
-	//			$(".demo1 option").eq($index).attr("selected","selected");
-	//		}
-	//	}
-	//};
-
 
 	$scope.toEdit = function(logisticsInfo){
 
@@ -523,8 +462,10 @@ LogisticsModule.controller("LogisticsCtrl",function($scope,$http,$timeout){
 
 
 	$scope.doEdit = function(){
+		
+		delete $scope.editLogistic.createTime;
 
-		$http.post("test/logisticsInfo.json",
+		$http.post("/fishshop/postage_updatePostage.action",
 			Ninico.JsonToKeyVal($scope.editLogistic),
 			{
 				headers:{
