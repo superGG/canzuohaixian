@@ -138,17 +138,17 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 	$scope.newLeaf = {};
 	//按斤计算的商品规格
 	$scope.newLeaf.skulista = [
-		{skuname:"较小规格",lowscale:0,highscale:0},
-		{skuname:"中等规格",lowscale:0,highscale:0},
-		{skuname:"较大规格",lowscale:0,highscale:0}
+		{skuName:"较小规格",lowscale:0,highscale:0},
+		{skuName:"中等规格",lowscale:0,highscale:0},
+		{skuName:"较大规格",lowscale:0,highscale:0}
 	];
 	//按个计算的商品规格
 	$scope.newLeaf.skulistb = [
-		{skuname:"最小规格",lowscale:0,highscale:0},
-		{skuname:"较小规格",lowscale:0,highscale:0},
-		{skuname:"中等规格",lowscale:0,highscale:0},
-		{skuname:"较大规格",lowscale:0,highscale:0},
-		{skuname:"最大规格",lowscale:0,highscale:0}
+		{skuName:"最小规格",lowscale:0,highscale:0},
+		{skuName:"较小规格",lowscale:0,highscale:0},
+		{skuName:"中等规格",lowscale:0,highscale:0},
+		{skuName:"较大规格",lowscale:0,highscale:0},
+		{skuName:"最大规格",lowscale:0,highscale:0}
 	];
 
 	/**
@@ -187,25 +187,25 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 	$scope.toEdit = function(gclInfo){
 		$scope.editLeaf = gclInfo;
 
-		if($scope.editLeaf.unitName === "斤"){
+		if($scope.editLeaf.unit === "斤"){
 
 			$scope.editLeaf.unitType = 1;
 			$scope.editLeaf.skulista = $scope.editLeaf.skulist;
 			$scope.editLeaf.skulistb = [
-				{skuname:"最小规格",lowscale:0,highscale:0},
-				{skuname:"较小规格",lowscale:0,highscale:0},
-				{skuname:"中等规格",lowscale:0,highscale:0},
-				{skuname:"较大规格",lowscale:0,highscale:0},
-				{skuname:"最大规格",lowscale:0,highscale:0}
+				{skuName:"最小规格",lowscale:0,highscale:0},
+				{skuName:"较小规格",lowscale:0,highscale:0},
+				{skuName:"中等规格",lowscale:0,highscale:0},
+				{skuName:"较大规格",lowscale:0,highscale:0},
+				{skuName:"最大规格",lowscale:0,highscale:0}
 			];
-		}else if($scope.editLeaf.unitName === "个"){
+		}else if($scope.editLeaf.unit === "个"){
 
 			$scope.editLeaf.unitType = 2;
 			$scope.editLeaf.skulistb = $scope.editLeaf.skulist;
 			$scope.editLeaf.skulista =  [
-				{skuname:"较小规格",lowscale:0,highscale:0},
-				{skuname:"中等规格",lowscale:0,highscale:0},
-				{skuname:"较大规格",lowscale:0,highscale:0}
+				{skuName:"较小规格",lowscale:0,highscale:0},
+				{skuName:"中等规格",lowscale:0,highscale:0},
+				{skuName:"较大规格",lowscale:0,highscale:0}
 			];
 		}
 	};
@@ -216,10 +216,10 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 
 		var fd = Ninico.getImgShow("#leafPhoto","categoryFile.file");
 
-		if($scope.newLeaf.unitName = "斤"){
+		if($scope.newLeaf.unit = "斤"){
 
 			$scope.newLeaf.skuArrayList = $scope.newLeaf.skulista;
-		}else if($scope.newLeaf.unitName = "个"){
+		}else if($scope.newLeaf.unit = "个"){
 
 			$scope.newLeaf.skuArrayList = $scope.newLeaf.skulistb;
 		}
@@ -229,11 +229,11 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 		//fd.append("categoryAcademicName",$scope.newLeaf.categoryAcademicName);
 		//fd.append("categoryEnglishName",$scope.newLeaf.categoryEnglishName);
 		//fd.append("parentId",$scope.newLeaf.parentId);
-		//fd.append("unitName",$scope.newLeaf.unitName);
+		//fd.append("unit",$scope.newLeaf.unit);
         //
 		//fd.append("skuArrayList",$scope.editLeaf.skulista);
 
-		////{"skuname":"最大规格","lowscale":"0.1","highscale":"0.3"}
+		////{"skuName":"最大规格","lowscale":"0.1","highscale":"0.3"}
 		//fd.append("skuArrayList.lowscale",$scope.editLeaf.skulista[0].lowscale);
 		//fd.append("skuArrayList.highscale",$scope.editLeaf.skulista[0].highscale);
 
@@ -254,10 +254,10 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 		fd.append("categoryEnglishName",$scope.editLeaf.categoryEnglishName);
 		fd.append("parentId",$scope.editLeaf.parentId);
 		fd.append("categoryId",$scope.editLeaf.categoryId);
-		fd.append("unitName",$scope.editLeaf.unitName);
+		fd.append("unit",$scope.editLeaf.unit);
 		fd.append("skuArrayList.skuName",$scope.editLeaf.skulista[0].skuName);
 
-		//{"skuname":"最大规格","lowscale":"0.1","highscale":"0.3"}
+		//{"skuName":"最大规格","lowscale":"0.1","highscale":"0.3"}
 		fd.append("skuArrayList.lowscale",$scope.editLeaf.skulista[0].lowscale);
 		fd.append("skuArrayList.highscale",$scope.editLeaf.skulista[0].highscale);
 
