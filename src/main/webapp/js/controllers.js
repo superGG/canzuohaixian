@@ -37,13 +37,17 @@ seaTable.controller('seaTableCtrl',function($rootScope,$scope,$location,$http){
 		}
 	});
 
-	$scope.doDelete = function(id,url,callback){
+	$scope.doDelete = function(idKey,id,url,callback){
 
-		$http.get(url,{
-			params:{"id":id}
-		}).success(function(data){
-			console.log(data);
-		});
+		$http.post(url,
+			idKey + "=" + id,
+			{
+				headers:{
+					"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"
+				}
+			}).success(function(data){
+				callback();
+			});
 	}
 
 });
