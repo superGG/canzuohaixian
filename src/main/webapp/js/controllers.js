@@ -137,8 +137,8 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 
 		var fd = $scope.getImgShow("#compentPhoto","categoryFile.file");
 
-		fd.append("categorySimpleName",$scope.editCompent.categorySimpleName);
 		fd.append("categoryId",$scope.editCompent.categoryId);
+		fd.append("categorySimpleName",$scope.editCompent.categorySimpleName);
 
 
 		$http($scope.getFormDataRequestConfig("/fishshop/category_addCategory.action",fd)).success(function(data){
