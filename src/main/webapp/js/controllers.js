@@ -186,10 +186,10 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 
 	$scope.toEdit = function(gclInfo){
 		$scope.editLeaf = gclInfo;
+		$scope.editLeaf.unit = $scope.editLeaf.unitName;
 
 		if($scope.editLeaf.unit === "斤"){
 
-			$scope.editLeaf.unitType = 1;
 			$scope.editLeaf.skulista = $scope.editLeaf.skulist;
 			$scope.editLeaf.skulistb = [
 				{skuName:"最小规格",lowscale:0,highscale:0},
@@ -200,7 +200,6 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 			];
 		}else if($scope.editLeaf.unit === "个"){
 
-			$scope.editLeaf.unitType = 2;
 			$scope.editLeaf.skulistb = $scope.editLeaf.skulist;
 			$scope.editLeaf.skulista =  [
 				{skuName:"较小规格",lowscale:0,highscale:0},
@@ -216,26 +215,15 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 
 		var fd = Ninico.getImgShow("#leafPhoto","categoryFile.file");
 
-		if($scope.newLeaf.unit = "斤"){
+		if($scope.newLeaf.unit === "斤"){
 
 			$scope.newLeaf.skuArrayList = $scope.newLeaf.skulista;
-		}else if($scope.newLeaf.unit = "个"){
+		}else if($scope.newLeaf.unit === "个"){
 
 			$scope.newLeaf.skuArrayList = $scope.newLeaf.skulistb;
 		}
 
 		fd.append("category",angular.toJson($scope.newLeaf));
-
-		//fd.append("categoryAcademicName",$scope.newLeaf.categoryAcademicName);
-		//fd.append("categoryEnglishName",$scope.newLeaf.categoryEnglishName);
-		//fd.append("parentId",$scope.newLeaf.parentId);
-		//fd.append("unit",$scope.newLeaf.unit);
-        //
-		//fd.append("skuArrayList",$scope.editLeaf.skulista);
-
-		////{"skuName":"最大规格","lowscale":"0.1","highscale":"0.3"}
-		//fd.append("skuArrayList.lowscale",$scope.editLeaf.skulista[0].lowscale);
-		//fd.append("skuArrayList.highscale",$scope.editLeaf.skulista[0].highscale);
 
 		$http(
 			Ninico.getFormDataRequestConfig("/fishshop/category_addSubCategory.action",fd)).success(function(data){
@@ -249,10 +237,10 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 
 		var fd = Ninico.getImgShow("#leafPhoto","categoryFile.file");
 
-		if($scope.editLeaf.unit = "斤"){
+		if($scope.editLeaf.unit === "斤"){
 
 			$scope.editLeaf.skuArrayList = $scope.editLeaf.skulista;
-		}else if($scope.editLeaf.unit = "个"){
+		}else if($scope.editLeaf.unit === "个"){
 
 			$scope.editLeaf.skuArrayList = $scope.editLeaf.skulistb;
 		}
@@ -391,19 +379,26 @@ ShipportModule.controller("ShipportCtrl",function($scope,$http){
 
 	$scope.doNew = function(){
 
-		console.log($scope.newShipport);
-
-		$http.get("test/shipportinfo.json",{
-			params:$scope.newShipport
-		})
-	}
+		$http.post("test/shipportinfo.json",
+			Ninico.JsonToKeyVal($scope.newShipport)
+			,{
+			headers:{
+				"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"
+			}
+		});
+	};
 
 	$scope.getData = function(){
 
 		$http.get("test/shipportinfo.json").success(function(data){
 
 			$scope.shipportsInfo = data.results;
-		})
+		});
+
+		$http.get("test/provinceListInfo.json").success(function(data){
+
+			$scope.provincesInfo = data.result;
+		});
 	};
 
 	$scope.toEdit = function(shipport){
@@ -414,8 +409,10 @@ ShipportModule.controller("ShipportCtrl",function($scope,$http){
 
 	$scope.doEdit = function(){
 
-		$http.get("test/shipportinfo.json",{
-			params:$scope.editShipport
+		$http.post("test/shipportinfo.json", Ninico.JsonToKeyVal($scope.editShipport),{
+			headers:{
+				"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"
+			}
 		}).success(function(data){
 			console.log(data);
 		});
