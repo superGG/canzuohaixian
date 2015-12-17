@@ -97,7 +97,7 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 		fd.append("categorySimpleName",$scope.editCompent.categorySimpleName);
 		fd.append("categoryId",$scope.editCompent.categoryId);
 
-		$http(Ninico.getFormDataRequestConfig("/fishshop/category_addCategory.action",fd)).success(function(data){
+		$http(Ninico.getFormDataRequestConfig("/fishshop/category_updateCategory.action",fd)).success(function(data){
 
 		});
 
@@ -249,29 +249,27 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 
 		var fd = Ninico.getImgShow("#leafPhoto","categoryFile.file");
 
-		fd.append("categorySimpleName",$scope.editLeaf.categorySimpleName);
-		fd.append("categoryAcademicName",$scope.editLeaf.categoryAcademicName);
-		fd.append("categoryEnglishName",$scope.editLeaf.categoryEnglishName);
-		fd.append("parentId",$scope.editLeaf.parentId);
-		fd.append("categoryId",$scope.editLeaf.categoryId);
-		fd.append("unit",$scope.editLeaf.unit);
-		fd.append("skuArrayList.skuName",$scope.editLeaf.skulista[0].skuName);
+		if($scope.editLeaf.unit = "斤"){
 
-		//{"skuName":"最大规格","lowscale":"0.1","highscale":"0.3"}
-		fd.append("skuArrayList.lowscale",$scope.editLeaf.skulista[0].lowscale);
-		fd.append("skuArrayList.highscale",$scope.editLeaf.skulista[0].highscale);
+			$scope.editLeaf.skuArrayList = $scope.editLeaf.skulista;
+		}else if($scope.editLeaf.unit = "个"){
 
-		$http(Ninico.getFormDataRequestConfig("/fishshop/category_addCategory.action",fd)).success(function(data){
+			$scope.editLeaf.skuArrayList = $scope.editLeaf.skulistb;
+		}
+
+		fd.append("category",angular.toJson($scope.editLeaf));
+
+		$http(Ninico.getFormDataRequestConfig("/fishshop/category_updateSubCategory.action",fd)).success(function(data){
 
 		});
 
 		history.back();
 
-	}
+	};
 
 	$scope.test = function(){
 		console.log($scope.editcategoryleaf);
-	}
+	};
 
 	$scope.getData();
 
