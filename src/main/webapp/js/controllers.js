@@ -240,6 +240,11 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 		fd.append("parentId",$scope.editLeaf.parentId);
 		fd.append("categoryId",$scope.editLeaf.categoryId);
 		fd.append("unitName",$scope.editLeaf.unitName);
+		fd.append("skuArrayList.skuName",$scope.editLeaf.skulista[0].skuName);
+
+		//{"skuname":"最大规格","lowscale":"0.1","highscale":"0.3"}
+		fd.append("skuArrayList.lowscale",$scope.editLeaf.skulista[0].lowscale);
+		fd.append("skuArrayList.highscale",$scope.editLeaf.skulista[0].highscale);
 
 		$http(Ninico.getFormDataRequestConfig("/fishshop/category_addCategory.action",fd)).success(function(data){
 
