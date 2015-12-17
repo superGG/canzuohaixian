@@ -18,7 +18,7 @@
                         <label for="shipportName" class="col-sm-2 control-label no-padding-right">停港点所在省份</label>
                         <div class="col-sm-10">
                             <select name="provinceName" id="provinceName" ng-model="newShipport.provinceName" >
-                                <option value="{{provinceInfo.name}}" ng-repeat="provinceInfo in provincesInfo">{{provinceInfo.name}}</option>
+                                <option value="{{provinceInfo.id}}" ng-repeat="provinceInfo in provincesInfo">{{provinceInfo.name}}</option>
                             </select>
                             
                         </div>
