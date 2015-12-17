@@ -17,6 +17,7 @@ import com.earl.fishshop.domain.goods.GoodsDao;
 import com.earl.fishshop.domain.orders.OrdersDao;
 import com.earl.fishshop.domain.ordersdetail.OrdersDetailDao;
 import com.earl.fishshop.domain.postage.PostageDao;
+import com.earl.fishshop.domain.region.RegionDao;
 import com.earl.fishshop.domain.searecord.SeaRecordDao;
 import com.earl.fishshop.domain.shipport.ShipPortDao;
 import com.earl.fishshop.domain.shop.ShopDao;
@@ -76,6 +77,8 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	protected ShipPortDao shipPortDao;
 	@Resource
 	protected VerifyCodeDao verifyCodeDao;
+	@Resource
+	protected RegionDao regionDao;
 	@Resource(name = "fileUpload")
 	protected FileUploadImpl fileUpload;
 	

@@ -8,8 +8,8 @@
 <session-factory>
 	<property name="hibernate.hbm2ddl.auto">update</property>
 	<!-- 
-	<property name="format_sql">true</property>
-	 -->
+		<property name="format_sql">true</property>
+	-->
 	<!-- 数据库连接信息 -->
 	<!-- org.hibernate.dialect.MySQLDialect -->
 	<!-- 使用下面方言，默认生成InnoDB引擎数据库表 -->
@@ -25,7 +25,7 @@
 		com.mysql.jdbc.Driver
 	</property>
 	<!-- Hibnerate自身的配置信息 
-	<property name="show_sql">true</property>
+		<property name="show_sql">true</property>
 	-->
 	<!-- 关闭Hibernate基于注解的验证,默认在Hibernate3.6和以后的版本提供的此功能,而且此功能必须要在J2EE6.0.jar 
 		之上 -->
@@ -57,12 +57,21 @@
 	<mapping resource="com/earl/fishshop/domain/sku/SkuPo.hbm.xml" />
 	<mapping resource="com/earl/fishshop/domain/unit/UnitPo.hbm.xml" />
 	<mapping resource="com/earl/fishshop/domain/user/UserPo.hbm.xml" />
-	<mapping resource="com/earl/fishshop/domain/gettype/GetTypePo.hbm.xml" />
-	<mapping resource="com/earl/fishshop/domain/getaddress/GetAddressPo.hbm.xml" />
-	<mapping resource="com/earl/fishshop/domain/checkout/CheckoutPo.hbm.xml" />
-	<mapping resource="com/earl/fishshop/domain/shipport/ShipPortPo.hbm.xml" />
-	<mapping resource="com/earl/fishshop/domain/ordersdetail/OrdersDetailPo.hbm.xml" />
-	<mapping resource="com/earl/fishshop/domain/verifycode/VerifyCodePo.hbm.xml" />
-	<mapping resource="com/earl/fishshop/domain/postage/PostagePo.hbm.xml" />
+	<mapping
+		resource="com/earl/fishshop/domain/gettype/GetTypePo.hbm.xml" />
+	<mapping
+		resource="com/earl/fishshop/domain/getaddress/GetAddressPo.hbm.xml" />
+	<mapping
+		resource="com/earl/fishshop/domain/checkout/CheckoutPo.hbm.xml" />
+	<mapping
+		resource="com/earl/fishshop/domain/shipport/ShipPortPo.hbm.xml" />
+	<mapping
+		resource="com/earl/fishshop/domain/ordersdetail/OrdersDetailPo.hbm.xml" />
+	<mapping
+		resource="com/earl/fishshop/domain/verifycode/VerifyCodePo.hbm.xml" />
+	<mapping
+		resource="com/earl/fishshop/domain/postage/PostagePo.hbm.xml" />
+	<mapping
+		resource="com/earl/fishshop/domain/region/RegionPo.hbm.xml" />
 </session-factory>
 </hibernate-configuration>

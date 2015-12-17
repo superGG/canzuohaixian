@@ -379,7 +379,7 @@ ShipportModule.controller("ShipportCtrl",function($scope,$http){
 
 	$scope.doNew = function(){
 
-		$http.post("test/shipportinfo.json",
+		$http.post("/fishshop/shipport_addShipPort.action",
 			Ninico.JsonToKeyVal($scope.newShipport)
 			,{
 			headers:{
@@ -390,9 +390,10 @@ ShipportModule.controller("ShipportCtrl",function($scope,$http){
 
 	$scope.getData = function(){
 
-		$http.get("test/shipportinfo.json").success(function(data){
+//		$http.get("test/shipportinfo.json").success(function(data){
+		$http.get("fishshop/shipport_findAllShipPort.action").success(function(data){
 
-			$scope.shipportsInfo = data.results;
+			$scope.shipportsInfo = data.resultParm.shipportList;
 		});
 
 		$http.get("test/provinceListInfo.json").success(function(data){

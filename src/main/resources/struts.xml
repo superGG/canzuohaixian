@@ -83,5 +83,8 @@
 		<action name="getaddress_*" class="getAddressAction"
 			method="{1}">
 		</action>
+		<action name="shipport_*" class="shipPortAction"
+			method="{1}">
+		</action>
 	</package>
 </struts>    

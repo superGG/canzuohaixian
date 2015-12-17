@@ -1,5 +1,7 @@
 package com.earl.fishshop.domain.shipport;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -40,5 +42,13 @@ public class ShipPortAction extends BaseAction<ShipPortPo> {
 		Boolean save = shipPortServer.save(model);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(save);
+	}
+	
+	public void findAllShipPort(){
+			List<ShipPortPo> shipportList = shipPortServer.findAllShipPort();
+			resultMessage = new ResultMessage();
+			resultMessage.setServiceResult(true);
+			resultMessage.getResultParm().put("shipportList",shipportList );
+		
 	}
 }

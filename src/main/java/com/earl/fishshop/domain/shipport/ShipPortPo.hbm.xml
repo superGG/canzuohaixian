@@ -13,7 +13,7 @@
         <version name="version" column="version" type="java.lang.Long"></version>
         <property name="shipportName" type="java.lang.String" column="shipportName" />
         <property name="addresscode" type="java.lang.String" column="addresscode" />
-        <property name="longitude" type="java.lang.Double" column="longitude" />
+        <property name="lontitude" type="java.lang.Double" column="longitude" />
         <property name="latitude" type="java.lang.Double" column="latitude" />
         <property name="createTime" type="java.util.Date" column="createTime" />
         <property name="creatorId" type="java.lang.Long" column="creatorId" />

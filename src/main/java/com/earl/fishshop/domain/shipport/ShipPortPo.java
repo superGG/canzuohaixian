@@ -17,11 +17,13 @@ public class ShipPortPo{
 	 */
 	private String shipportName ;
 	
+	private String provinceName;
+	
 	/**
 	 * 字段描述：Double 
 	 * 字段类型：longitude  
 	 */
-	private Double longitude ;
+	private Double lontitude ;
 	
 	private String addresscode;
 	
@@ -55,6 +57,12 @@ public class ShipPortPo{
 	 */
 	private Long version ;
 	
+	public String getProvinceName() {
+		return provinceName;
+	}
+	public void setProvinceName(String provinceName) {
+		this.provinceName = provinceName;
+	}
 	public String getAddresscode() {
 		return addresscode;
 	}
@@ -73,11 +81,11 @@ public class ShipPortPo{
 	public String getShipportName() {
 		return this.shipportName;
 	}
-	public void setLongitude(Double longitude){
-		this.longitude = longitude;
+	public Double getLontitude() {
+		return lontitude;
 	}
-	public Double getLongitude() {
-		return this.longitude;
+	public void setLontitude(Double lontitude) {
+		this.lontitude = lontitude;
 	}
 	public void setLatitude(Double latitude){
 		this.latitude = latitude;
