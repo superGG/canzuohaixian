@@ -36,7 +36,7 @@
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label no-padding-right">请上传商品的图片</label>
                         <div class="col-sm-10">
-                            <input type="file" name="" id=""></div>
+                            <input type="file" name="" id="leafPhoto"></div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
@@ -51,7 +51,7 @@
                     <div class="form-group">
                         <label for="inputtext3" class="col-sm-2 control-label no-padding-right">请选择商品的记价方式</label>
                         <div class="col-sm-10">
-                            <select class="form-control" ng-model="unitType">
+                            <select class="form-control" ng-model="newLeaf.unitType">
                                 <option value="1">按斤计算</option>
                                 <option value="2">按个计算</option>
                             </select>
@@ -67,106 +67,40 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group" ng-show="unitType==1">
-                        <label for="inputtext3" class="col-sm-2 control-label no-padding-right">较小规格</label>
-                        <div class="row">
-                            <div class="col-md-2">
-                                <input type="text" name="to" placeholder="以斤为单位" ng-model="newLeaf.skulist[0].lowscale" class="form-control">
-                                <div class="horizontal-space"></div>
-                            </div>
-                            <div class="col-sm-1"><h4>到</h4></div>
-                            <div class="col-md-2">
-                                <input type="text" name="subject" placeholder="以斤为单位" class="form-control" ng-model="newLeaf.skulist[0].highscale">
-                                <div class="horizontal-space"></div>
-                            </div>
-                        </div>
-                        <label for="inputtext3" class="col-sm-2 control-label no-padding-right">中等规格</label>
-                        <div class="row">
-                            <div class="col-md-2">
-                                <input type="text" name="to" placeholder="以斤为单位" ng-model="newLeaf.skulist[1].lowscale" class="form-control">
-                                <div class="horizontal-space"></div>
-                            </div>
-                            <div class="col-sm-1"><h4>到</h4></div>
-                            <div class="col-md-2">
-                                <input type="text" name="subject" placeholder="以斤为单位" ng-model="newLeaf.skulist[1].highscale" class="form-control">
-                                <div class="horizontal-space"></div>
+                    <div class="form-group" ng-show="newLeaf.unitType==1">
+                        <div class="form-group" ng-repeat="skuItem in newLeaf.skulista">
+                            <label for="inputtext3" class="col-sm-2 control-label no-padding-right">{{skuItem.skuname}}</label>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <input type="text" name="to" placeholder="以斤为单位" ng-model="skuItem.lowscale" class="form-control">
+                                    <div class="horizontal-space"></div>
+                                </div>
+                                <div class="col-sm-1"><h4>到</h4></div>
+                                <div class="col-md-2">
+                                    <input type="text" name="subject" placeholder="以斤为单位" class="form-control" ng-model="skuItem.highscale">
+                                    <div class="horizontal-space"></div>
+                                </div>
                             </div>
                         </div>
-                        <label for="inputtext3" class="col-sm-2 control-label no-padding-right">较大规格</label>
-                        <div class="row">
-                            <div class="col-md-2">
-                                <input type="text" name="to" placeholder="以斤为单位" class="form-control" ng-model="newLeaf.skulist[2].lowscale">
-                                <div class="horizontal-space"></div>
-                            </div>
-                            <div class="col-sm-1"><h4>到</h4></div>
-                            <div class="col-md-2">
-                                <input type="text" name="subject" placeholder="以斤为单位" class="form-control" ng-model="newLeaf.skulist[2].highscale">
-                                <div class="horizontal-space"></div>
-                            </div>
-                        </div>
+
                     </div>
 
-                     <div class="form-group" ng-show="unitType==2">
-                        <label for="inputtext3" class="col-sm-2 control-label no-padding-right">最小规格</label>
-                        <div class="row">
-                            <div class="col-md-2">
-                                <input type="text" name="to" placeholder="以斤为单位" ng-model="newLeaf.skulistb[0].lowscale" class="form-control">
-                                <div class="horizontal-space"></div>
-                            </div>
-                            <div class="col-sm-1"><h4>到</h4></div>
-                            <div class="col-md-2">
-                                <input type="text" name="subject" placeholder="以斤为单位" class="form-control" ng-model="newLeaf.skulistb[0].highscale">
-                                <div class="horizontal-space"></div>
-                            </div>
-                        </div>
-                        <label for="inputtext3" class="col-sm-2 control-label no-padding-right">较小规格</label>
-                        <div class="row">
-                            <div class="col-md-2">
-                                <input type="text" name="to" placeholder="以斤为单位" class="form-control" ng-model="newLeaf.skulistb[1].lowscale" >
-                                <div class="horizontal-space"></div>
-                            </div>
-                            <div class="col-sm-1"><h4>到</h4></div>
-                            <div class="col-md-2">
-                                <input type="text" name="subject" placeholder="以斤为单位" class="form-control" ng-model="newLeaf.skulistb[1].highscale">
-                                <div class="horizontal-space"></div>
-                            </div>
-                        </div>
-                        <label for="inputtext3" class="col-sm-2 control-label no-padding-right">中等规格</label>
-                        <div class="row">
-                            <div class="col-md-2">
-                                <input type="text" name="to" placeholder="以斤为单位" class="form-control" ng-model="newLeaf.skulistb[2].lowscale">
-                                <div class="horizontal-space"></div>
-                            </div>
-                            <div class="col-sm-1"><h4>到</h4></div>
-                            <div class="col-md-2">
-                                <input type="text" name="subject" placeholder="以斤为单位" class="form-control" ng-model="newLeaf.skulistb[2].highscale">
-                                <div class="horizontal-space"></div>
-                            </div>
-                        </div>
-                        <label for="inputtext3" class="col-sm-2 control-label no-padding-right">较大规格</label>
-                        <div class="row">
-                            <div class="col-md-2">
-                                <input type="text" name="to" placeholder="以斤为单位" class="form-control" ng-model="newLeaf.skulistb[3].lowscale">
-                                <div class="horizontal-space"></div>
-                            </div>
-                            <div class="col-sm-1"><h4>到</h4></div>
-                            <div class="col-md-2">
-                                <input type="text" name="subject" placeholder="以斤为单位" class="form-control" ng-model="newLeaf.skulistb[3].highscale">
-                                <div class="horizontal-space"></div>
-                            </div>
-                        </div>
-                        <label for="inputtext3" class="col-sm-2 control-label no-padding-right">最大规格</label>
-                        <div class="row">
-                            <div class="col-md-2">
-                                <input type="text" name="to" placeholder="以斤为单位" class="form-control" ng-model="newLeaf.skulistb[4].lowscale">
-                                <div class="horizontal-space"></div>
-                            </div>
-                            <div class="col-sm-1"><h4>到</h4></div>
-                            <div class="col-md-2">
-                                <input type="text" name="subject" placeholder="以斤为单位" class="form-control" ng-model="newLeaf.skulistb[4].highscale">
-                                <div class="horizontal-space"></div>
-                            </div>
-                        </div>
+                     <div class="form-group" ng-show="newLeaf.unitType==2">
+                         <div class="form-group" ng-repeat="skuItem in newLeaf.skulistb">
+                             <label for="inputtext3" class="col-sm-2 control-label no-padding-right">{{skuItem.skuname}}</label>
+                             <div class="row">
+                                 <div class="col-md-2">
+                                     <input type="text" name="to" placeholder="以斤为单位" ng-model="skuItem.lowscale" class="form-control">
+                                     <div class="horizontal-space"></div>
+                                 </div>
+                                 <div class="col-sm-1"><h4>到</h4></div>
+                                 <div class="col-md-2">
+                                     <input type="text" name="subject" placeholder="以斤为单位" class="form-control" ng-model="skuItem.highscale">
+                                     <div class="horizontal-space"></div>
+                                 </div>
+                             </div>
+                         </div>
+
                     </div>
                     
                     <div class="form-group">
