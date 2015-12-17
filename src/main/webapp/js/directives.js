@@ -48,10 +48,6 @@ UsersListModule.directive('onFinishRenderFilters', function($timeout,$location){
 		templateUrl: 'tpls/dataBox.html',                 
 		replace: true,
 
-		// controller: function($scope){
-		// 	$scope.
-		// },
-
 		link: function($scope,$element,$attr){
 
 			console.log($attr.role === "fishman");
@@ -76,75 +72,6 @@ UsersListModule.directive('onFinishRenderFilters', function($timeout,$location){
 	}
 });
 
-// GoodsCategoryCompentModule.directive('onFinishRenderFilters', function($timeout){
-// 	// Runs during compile
-// 	return {
-// 		restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
-		
-// 		link: function($scope, iElm, iAttrs, controller) {
-
-// 			if($scope.$last === true){            //当队列执行到最后一个的时候
-// 				$timeout(function(){				//延迟执行这个函数
-// 					console.log("ninico");
-//     				InitiateExpandableDataTable.init();
-// 					$scope.$emit('ngRepeatFinished');       //注册一个叫做ngRepeatFinished的事件
-// 				});
-// 			}
-// 		}
-// 	};
-// });
-
-//GoodsCategoryLeafModule.directive('skumodule',function(){
-//
-//	// scope:{}
-//	return {
-//
-//		restrict: 'E',
-//		templateUrl: 'tpls/goodscategoryleaf/editcategoryleaf-skulist.html',
-//		replace: true,
-//
-//		link: function($scope,$element,$attr){
-//
-//			$scope.leafskus = eval("(" + $attr.leaf + ")").skulist;
-//
-//			$scope.unitType = 1;
-//
-//			console.log($scope.editleafName);
-//
-//			if($scope.editleafName == "斤"){
-//				$scope.otherModule = ["最小","较小","中等","较大","最大"];
-//
-//			}else if($scope.editleafName == "只"){
-//				$scope.otherModule = ["较小","中等","较大"];
-//
-//
-//			}
-//
-//			console.log($scope.otherModule);
-//		},
-//
-//		controller: function($scope){
-//			$("#unitType").bind("change",function(){
-//
-//				console.log($("#jin"));
-//				if($(this).val() == 1){
-//					$("#jin").show();
-//					$("#zhi").hide();
-//				}else if($(this).val() == 2){
-//					$("#jin").hide();
-//					$("#zhi").show();
-//				}
-//
-//				console.log($scope.otherModule);
-//			})
-//		}
-//
-//	}
-//});
-
-
-
-
 OrdersModule.directive("pagination",function(){
 	
 	return {
@@ -154,10 +81,6 @@ OrdersModule.directive("pagination",function(){
 		},
 		templateUrl: 'tpls/pagination.html',                 
 		replace: true,
-
-		// controller: function($scope){
-		// 	$scope.
-		// },
 
 		link: function($scope,$element,$attr){
 

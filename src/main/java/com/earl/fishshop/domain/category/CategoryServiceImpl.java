@@ -141,8 +141,10 @@ public class CategoryServiceImpl extends BaseServiceImpl<CategoryPo> implements
 	public Boolean updateCategory(CategoryPo model, SingleFileVo categoryFile) {
 		// TODO 未测试.
 		try {
+			if(categoryFile != null){
 				String uploadCategoryFile = fileUpload.uploadCategoryFile(categoryFile.getFile(), categoryFile.getFileFileName());
 				model.setFishPhoto(uploadCategoryFile);
+			}
 			categoryDao.updateCategory(model);
 			return true;
 		} catch (Exception e) {

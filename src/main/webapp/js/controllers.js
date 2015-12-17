@@ -94,8 +94,8 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 
 		var fd = Ninico.getImgShow("#compentPhoto","categoryFile.file");
 
-		fd.append("categorySimpleName",$scope.editCompent.categorySimpleName);
 		fd.append("categoryId",$scope.editCompent.categoryId);
+		fd.append("categorySimpleName",$scope.editCompent.categorySimpleName);
 
 		$http(Ninico.getFormDataRequestConfig("/fishshop/category_updateCategory.action",fd)).success(function(data){
 
@@ -167,11 +167,11 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 	 */
 	$scope.getData = function(){
 
-			$http.get('test/goodscategoryleafinfo.json').success(function(data){
-		//$http.get('/fishshop/category_getAllNextLevelCategory.action').success(function(data){
+//			$http.get('test/goodscategoryleafinfo.json').success(function(data){
+		$http.get('/fishshop/category_getAllNextLevelCategory.action').success(function(data){
 
-			//$scope.gclsInfo = data.resultParm.categoryList;
-				$scope.gclsInfo = data.result;
+			$scope.gclsInfo = data.resultParm.categoryList;
+//				$scope.gclsInfo = data.result;
 		});
 
 		$http.get('/fishshop/category_getTopCategory.action').success(function(data){
@@ -379,7 +379,7 @@ ShipportModule.controller("ShipportCtrl",function($scope,$http){
 
 	$scope.doNew = function(){
 
-		$http.post("test/shipportinfo.json",
+		$http.post("/fishshop/shipport_addShipPort.action",
 			Ninico.JsonToKeyVal($scope.newShipport)
 			,{
 			headers:{
@@ -390,9 +390,10 @@ ShipportModule.controller("ShipportCtrl",function($scope,$http){
 
 	$scope.getData = function(){
 
-		$http.get("test/shipportinfo.json").success(function(data){
+//		$http.get("test/shipportinfo.json").success(function(data){
+		$http.get("fishshop/shipport_findAllShipPort.action").success(function(data){
 
-			$scope.shipportsInfo = data.results;
+			$scope.shipportsInfo = data.resultParm.shipportList;
 		});
 
 		$http.get("test/provinceListInfo.json").success(function(data){
@@ -439,7 +440,9 @@ LogisticsModule.controller("LogisticsCtrl",function($scope,$http,$timeout){
 		});
 	};
 
+
 	$scope.doNew = function(){
+
 
 		$http.post("test/logisticsInfo.json",
 			Ninico.JsonToKeyVal($scope.newLogistic),

@@ -38,7 +38,7 @@ public class SeaRecordServiceImpl extends BaseServiceImpl<SeaRecordPo> implement
 			ShipPortPo shipPortPo = shipPortDao.get(model.getShipportId());
 			model.setShipportName(shipPortPo.getShipportName());
 			model.setLatitude(shipPortPo.getLatitude());
-			model.setLongitude(shipPortPo.getLongitude());
+			model.setLongitude(shipPortPo.getLontitude());
 			model.setState(MyConstant.searecord_seaing);
 			seaRecordDao.addSeaRecord(model);
 			return true;
