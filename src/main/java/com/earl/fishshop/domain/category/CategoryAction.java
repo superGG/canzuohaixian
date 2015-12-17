@@ -84,6 +84,21 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 			resultMessage.setResultInfo("添加失败");
 		}
 	}
+	/**
+	 * 添加商品类别.
+	 * 
+	 * @author 黄祥谦.
+	 */
+	public void addSubCategory() {
+		Boolean save = categoryServer.addCategory(category, categoryFile);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(save);
+		if (save) {
+			resultMessage.setResultInfo("添加成功");
+		} else {
+			resultMessage.setResultInfo("添加失败");
+		}
+	}
 
 	/**
 	 * 添加商品.
@@ -110,6 +125,18 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 		Boolean update = categoryServer.updateCategory(model, categoryFile);
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(update);
+		resultMessage.setResultInfo("修改成功");
+	}
+	/**
+	 * 更新子分类别信息.
+	 * 
+	 * @author 黄祥谦.
+	 */
+	public void updateSubCategory() {
+		Boolean update = categoryServer.updateCategory(category, categoryFile);
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(update);
+		resultMessage.setResultInfo("修改成功");
 	}
 
 	/**
