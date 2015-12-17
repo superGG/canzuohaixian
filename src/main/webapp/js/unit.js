@@ -44,5 +44,25 @@ Ninico.getFormDataRequestConfig = function(url,fd){
     };
 
     return ajaxConfig;
+};
 
+/**
+ *  一个将obj转换为键值对字符串的方法
+ * @param 一个对象
+ * @returns {返回post方法所需的key-val字符串}
+ *
+ */
+Ninico.JsonToKeyVal = function(obj){
+
+    var str = "";
+
+    for(p in obj){
+
+        str = str + p + "=" + obj[p] + "&";
+    }
+
+    str = str.slice(0,-1);
+    console.log(str);
+
+    return str;
 };

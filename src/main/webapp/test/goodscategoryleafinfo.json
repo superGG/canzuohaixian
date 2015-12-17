@@ -9,10 +9,10 @@
 		"createTime":"20150101",
 		"fishPhoto": "fish.jpg",
 		"skulist":[
-			{"skuname":"最小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"中等规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"最大规格","lowscale":"0.1","highscale":"0.3"}
+			{"skuName":"最小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"中等规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"最大规格","lowscale":"0.1","highscale":"0.3"}
 		]
 	},{
 		"categoryId":"1",
@@ -24,11 +24,11 @@
 		"createTime":"20150101",
 		"fishPhoto": "fish.jpg",
 		"skulist":[
-			{"skuname":"最小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"中等规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较大规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"最大规格","lowscale":"0.1","highscale":"0.3"}
+			{"skuName":"最小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"中等规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较大规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"最大规格","lowscale":"0.1","highscale":"0.3"}
 		]
 	},{
 		"categoryId":"1",
@@ -40,11 +40,11 @@
 		"createTime":"20150101",
 		"fishPhoto": "fish.jpg",
 		"skulist":[
-			{"skuname":"最小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"中等规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较大规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"最大规格","lowscale":"0.1","highscale":"0.3"}
+			{"skuName":"最小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"中等规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较大规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"最大规格","lowscale":"0.1","highscale":"0.3"}
 		]
 	},{
 		"categoryId":"1",
@@ -56,11 +56,11 @@
 		"createTime":"20150101",
 		"fishPhoto": "fish.jpg",
 		"skulist":[
-			{"skuname":"最小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"中等规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较大规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"最大规格","lowscale":"0.1","highscale":"0.3"}
+			{"skuName":"最小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"中等规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较大规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"最大规格","lowscale":"0.1","highscale":"0.3"}
 		]
 	},{
 		"categoryId":"1",
@@ -72,11 +72,11 @@
 		"createTime":"20150101",
 		"fishPhoto": "fish.jpg",
 		"skulist":[
-			{"skuname":"最小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"中等规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较大规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"最大规格","lowscale":"0.1","highscale":"0.3"}
+			{"skuName":"最小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"中等规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较大规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"最大规格","lowscale":"0.1","highscale":"0.3"}
 		]
 	},{
 		"categoryId":"1",
@@ -88,11 +88,11 @@
 		"createTime":"20150101",
 		"fishPhoto": "fish.jpg",
 		"skulist":[
-			{"skuname":"最小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"中等规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较大规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"最大规格","lowscale":"0.1","highscale":"0.3"}
+			{"skuName":"最小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"中等规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较大规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"最大规格","lowscale":"0.1","highscale":"0.3"}
 		]
 	},{
 		"categoryId":"1",
@@ -104,11 +104,11 @@
 		"createTime":"20150101",
 		"fishPhoto": "fish.jpg",
 		"skulist":[
-			{"skuname":"最小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"中等规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较大规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"最大规格","lowscale":"0.1","highscale":"0.3"}
+			{"skuName":"最小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"中等规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较大规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"最大规格","lowscale":"0.1","highscale":"0.3"}
 		]
 	},{
 		"categoryId":"1",
@@ -120,11 +120,11 @@
 		"createTime":"20150101",
 		"fishPhoto": "fish.jpg",
 		"skulist":[
-			{"skuname":"最小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"中等规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较大规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"最大规格","lowscale":"0.1","highscale":"0.3"}
+			{"skuName":"最小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"中等规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较大规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"最大规格","lowscale":"0.1","highscale":"0.3"}
 		]
 	},{
 		"categoryId":"1",
@@ -136,11 +136,11 @@
 		"createTime":"20150101",
 		"fishPhoto": "fish.jpg",
 		"skulist":[
-			{"skuname":"最小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"中等规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较大规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"最大规格","lowscale":"0.1","highscale":"0.3"}
+			{"skuName":"最小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"中等规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较大规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"最大规格","lowscale":"0.1","highscale":"0.3"}
 		]
 	},{
 		"categoryId":"1",
@@ -152,11 +152,11 @@
 		"createTime":"20150101",
 		"fishPhoto": "fish.jpg",
 		"skulist":[
-			{"skuname":"最小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"中等规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较大规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"最大规格","lowscale":"0.1","highscale":"0.3"}
+			{"skuName":"最小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"中等规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较大规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"最大规格","lowscale":"0.1","highscale":"0.3"}
 		]
 	},{
 		"categoryId":"1",
@@ -168,11 +168,11 @@
 		"createTime":"20150101",
 		"fishPhoto": "fish.jpg",
 		"skuList":[
-			{"skuname":"最小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较小规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"中等规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"较大规格","lowscale":"0.1","highscale":"0.3"},
-			{"skuname":"最大规格","lowscale":"0.1","highscale":"0.3"}
+			{"skuName":"最小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较小规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"中等规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"较大规格","lowscale":"0.1","highscale":"0.3"},
+			{"skuName":"最大规格","lowscale":"0.1","highscale":"0.3"}
 		]
 	}]
 }
