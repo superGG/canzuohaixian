@@ -76,49 +76,6 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 			})
 	};
 
-	/**
-	 * 得到一个包含图片文件的FormData对象
-	 * @param id 图片所在input的id
-	 * @param imgValName  变量名
-	 * @returns {FromData}
-	 *
-	 */
-
-	$scope.getImgShow = function(id,imgValName){
-		var file = $(id).get(0).files[0];
-		var fd = new FormData();
-		fd.append(imgValName,file);
-
-		$("#viewPhoto").attr("src",window.URL.createObjectURL(file));
-
-		return fd;
-	};
-
-	/**
-	 * 得到已发送FormData请求的ajax配置项.
-	 * @param url 访问的url
-	 * @param fd 要发送的FormData对象
-	 * @returns {配置项}
-	 */
-	$scope.getFormDataRequestConfig = function(url,fd){
-
-		var ajaxConfig = {
-			method : "POST",
-			'url' : url,
-			data:fd,
-			headers:{
-				"Content-Type": 'application/x-www-form-urlencoded'
-			},
-			transformRequest:function(data) {
-				return data;
-			}
-		};
-
-		return ajaxConfig;
-
-	};
-
-
 	$scope.forCompentId = function(id){
 
 		if(id>7){
@@ -135,12 +92,12 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 
 	$scope.doEdit = function (){
 
-		var fd = $scope.getImgShow("#compentPhoto","categoryFile.file");
+		var fd = Ninico.getImgShow("#compentPhoto","categoryFile.file");
 
 		fd.append("categorySimpleName",$scope.editCompent.categorySimpleName);
 		fd.append("categoryId",$scope.editCompent.categoryId);
 
-		$http($scope.getFormDataRequestConfig("/fishshop/category_addCategory.action",fd)).success(function(data){
+		$http(Ninico.getFormDataRequestConfig("/fishshop/category_addCategory.action",fd)).success(function(data){
 
 		});
 
@@ -148,11 +105,11 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 
 	$scope.doNew = function(){
 
-		var fd = $scope.getImgShow("#compentPhoto","categoryFile.file");
+		var fd = Ninico.getImgShow("#compentPhoto","categoryFile.file");
 
 		fd.append("categorySimpleName",$scope.newCompent.categorySimpleName);
 
-		$http($scope.getFormDataRequestConfig("/fishshop/category_addCategory.action",fd)).success(function(data){
+		$http(Ninico.getFormDataRequestConfig("/fishshop/category_addCategory.action",fd)).success(function(data){
 
 		});
 	};
@@ -173,17 +130,48 @@ GoodsCategoryCompentModule.controller("GCCCtrl",function($scope,$http){
 GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 
 
+	/**
+	 * 新建商品子分类页面所用到的变量
+	 * @type {{}}
+	 */
+
 	$scope.newLeaf = {};
+	//按斤计算的商品规格
+	$scope.newLeaf.skulista = [
+		{skuname:"较小规格",lowscale:0,highscale:0},
+		{skuname:"中等规格",lowscale:0,highscale:0},
+		{skuname:"较大规格",lowscale:0,highscale:0}
+	];
+	//按个计算的商品规格
+	$scope.newLeaf.skulistb = [
+		{skuname:"最小规格",lowscale:0,highscale:0},
+		{skuname:"较小规格",lowscale:0,highscale:0},
+		{skuname:"中等规格",lowscale:0,highscale:0},
+		{skuname:"较大规格",lowscale:0,highscale:0},
+		{skuname:"最大规格",lowscale:0,highscale:0}
+	];
+
+	/**
+	 * 修改商品子分类页面所用到的变量
+	 *
+	 */
+
+	$scope.editLeaf = {};
+
+
+
+
 
 	/**
 	 * 获取数据的函数
 	 */
 	$scope.getData = function(){
 
-		//	$http.get('test/goodscategoryleafinfo.json').success(function(data){
-		$http.get('/fishshop/category_getAllNextLevelCategory.action').success(function(data){
+			$http.get('test/goodscategoryleafinfo.json').success(function(data){
+		//$http.get('/fishshop/category_getAllNextLevelCategory.action').success(function(data){
 
-			$scope.gclsInfo = data.resultParm.categoryList;
+			//$scope.gclsInfo = data.resultParm.categoryList;
+				$scope.gclsInfo = data.result;
 		});
 
 		$http.get('/fishshop/category_getTopCategory.action').success(function(data){
@@ -196,30 +184,69 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 
 	$scope.unitType = "1";
 
-	$scope.editOne = function(id){
+	$scope.toEdit = function(gclInfo){
+		$scope.editLeaf = gclInfo;
 
+		if($scope.editLeaf.unitName === "斤"){
 
-		for(var i = 0; i < $scope.gclsInfo.length ; i++){
-			if($scope.gclsInfo[i].categoryId == id){
+			$scope.editLeaf.unitType = 1;
+			$scope.editLeaf.skulista = $scope.editLeaf.skulist;
+			$scope.editLeaf.skulistb = [
+				{skuname:"最小规格",lowscale:0,highscale:0},
+				{skuname:"较小规格",lowscale:0,highscale:0},
+				{skuname:"中等规格",lowscale:0,highscale:0},
+				{skuname:"较大规格",lowscale:0,highscale:0},
+				{skuname:"最大规格",lowscale:0,highscale:0}
+			];
+		}else if($scope.editLeaf.unitName === "个"){
 
-				$scope.editcategoryleaf = $scope.gclsInfo[i];
-
-				if($scope.editcategoryleaf.unitName == "斤"){
-
-					$scope.unitType = 1;
-				}else if($scope.editcategoryleaf.unitName == "只"){
-
-					$scope.unitType = 2;
-				}
-
-				return;
-			}
+			$scope.editLeaf.unitType = 2;
+			$scope.editLeaf.skulistb = $scope.editLeaf.skulist;
+			$scope.editLeaf.skulista =  [
+				{skuname:"较小规格",lowscale:0,highscale:0},
+				{skuname:"中等规格",lowscale:0,highscale:0},
+				{skuname:"较大规格",lowscale:0,highscale:0}
+			];
 		}
 	};
 
 	$scope.doNew = function(){
 
 		console.log($scope.newLeaf);
+
+		var fd = Ninico.getImgShow("#leafPhoto","categoryFile.file");
+
+		fd.append("categorySimpleName",$scope.newLeaf.categorySimpleName);
+		fd.append("categoryAcademicName",$scope.newLeaf.categoryAcademicName);
+		fd.append("categoryEnglishName",$scope.newLeaf.categoryEnglishName);
+		fd.append("parentId",$scope.newLeaf.parentId);
+		fd.append("unitName",$scope.newLeaf.unitName);
+
+		$http(
+			Ninico.getFormDataRequestConfig("/fishshop/category_addCategory.action",fd)).success(function(data){
+
+		});
+	};
+
+	$scope.doEdit = function(){
+
+		console.log($scope.editLeaf);
+
+		var fd = Ninico.getImgShow("#leafPhoto","categoryFile.file");
+
+		fd.append("categorySimpleName",$scope.editLeaf.categorySimpleName);
+		fd.append("categoryAcademicName",$scope.editLeaf.categoryAcademicName);
+		fd.append("categoryEnglishName",$scope.editLeaf.categoryEnglishName);
+		fd.append("parentId",$scope.editLeaf.parentId);
+		fd.append("categoryId",$scope.editLeaf.categoryId);
+		fd.append("unitName",$scope.editLeaf.unitName);
+
+		$http(Ninico.getFormDataRequestConfig("/fishshop/category_addCategory.action",fd)).success(function(data){
+
+		});
+
+		history.back();
+
 	}
 
 	$scope.test = function(){

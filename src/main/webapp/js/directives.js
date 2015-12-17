@@ -94,49 +94,53 @@ UsersListModule.directive('onFinishRenderFilters', function($timeout,$location){
 // 	};
 // });
 
-GoodsCategoryLeafModule.directive('skumodule',function(){
-	
-	// scope:{}
-	return {
-
-		restrict: 'E',
-		templateUrl: 'tpls/goodscategoryleaf/editcategoryleaf-skulist.html',                 
-		replace: true,
-
-		link: function($scope,$element,$attr){
-
-			$scope.leafskus = eval("(" + $attr.leaf + ")").skulist;
-
-			$scope.unitType = 1;
-			
-
-			if($scope.editleafName == "斤"){
-
-				$scope.otherModule = ["最小","较小","中等","较大","最大"];
-			}else if($scope.editleafName == "只"){
-
-
-				$scope.otherModule = ["较小","中等","较大"];
-			}
-
-		},
-
-		controller: function(){
-			$("#unitType").bind("change",function(){
-
-				console.log($("#jin"));
-				if($(this).val() == 1){
-					$("#jin").show();
-					$("#zhi").hide();
-				}else if($(this).val() == 2){
-					$("#jin").hide();
-					$("#zhi").show();
-				}
-			})
-		}
-
-	}
-});
+//GoodsCategoryLeafModule.directive('skumodule',function(){
+//
+//	// scope:{}
+//	return {
+//
+//		restrict: 'E',
+//		templateUrl: 'tpls/goodscategoryleaf/editcategoryleaf-skulist.html',
+//		replace: true,
+//
+//		link: function($scope,$element,$attr){
+//
+//			$scope.leafskus = eval("(" + $attr.leaf + ")").skulist;
+//
+//			$scope.unitType = 1;
+//
+//			console.log($scope.editleafName);
+//
+//			if($scope.editleafName == "斤"){
+//				$scope.otherModule = ["最小","较小","中等","较大","最大"];
+//
+//			}else if($scope.editleafName == "只"){
+//				$scope.otherModule = ["较小","中等","较大"];
+//
+//
+//			}
+//
+//			console.log($scope.otherModule);
+//		},
+//
+//		controller: function($scope){
+//			$("#unitType").bind("change",function(){
+//
+//				console.log($("#jin"));
+//				if($(this).val() == 1){
+//					$("#jin").show();
+//					$("#zhi").hide();
+//				}else if($(this).val() == 2){
+//					$("#jin").hide();
+//					$("#zhi").show();
+//				}
+//
+//				console.log($scope.otherModule);
+//			})
+//		}
+//
+//	}
+//});
 
 
 
