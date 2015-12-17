@@ -120,7 +120,7 @@ public class CategoryAction extends BaseAction<CategoryPo> {
 	 * 删除指定类别.
 	 * @author 黄祥谦.
 	 */
-	public void deletePointPostage(){
+	public void deletePointCategory(){
 		Boolean success = categoryServer.deleteById(model.getCategoryId());
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(success);

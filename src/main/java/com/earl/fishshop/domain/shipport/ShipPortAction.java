@@ -48,7 +48,7 @@ public class ShipPortAction extends BaseAction<ShipPortPo> {
 	 * 删除指定邮费.
 	 * @author 黄祥谦.
 	 */
-	public void deletePointPostage(){
+	public void deletePointShipPort(){
 		Boolean success = shipPortServer.deleteById(model.getShipPortId());
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(success);
