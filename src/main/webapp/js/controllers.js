@@ -301,6 +301,24 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 		});
 	};
 
+	//获取养殖户的申请信息
+
+	$scope.getApplyInfo = function(userId){
+
+		//保存用户的userId
+		$scope.userId = userId;
+			$http.get("/fishshop/user_getFarmerByUser.action", {params:{'userId':userId}}).success(function(data){
+				$scope.farmerapplyinfo = data.resultParm.farmer;
+			}).success(function(data){
+				$location.path("/applyform");
+			});
+	};
+
+
+	//
+
+
+	//新建养殖户基本信息
 	$scope.doNew = function(){
 
 		$http.post("test/",Ninico.JsonToKeyVal($scope.newFarmerinfo),{
@@ -312,7 +330,10 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 		});
 	};
 
+
+	//养殖户验证通过的方法
 	$scope.setStatus = function(farmerId,userId){
+
 
 		var data = {
 			"userId":userId,
