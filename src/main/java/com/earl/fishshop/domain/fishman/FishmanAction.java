@@ -139,7 +139,7 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 		resultMessage = new ResultMessage();
 		Boolean result = fishmanServer.passAuthenticationFishman(userId,model);
 		if (result) {
-			resultMessage.setResultInfo("成功通过认证");
+			resultMessage.setResultInfo("success");
 			resultMessage.setServiceResult(result);
 		} else {
 			resultMessage.setResultInfo("操作失败");

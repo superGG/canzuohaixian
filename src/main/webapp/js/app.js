@@ -73,7 +73,7 @@ config(function($stateProvider,$urlRouterProvider) {
 
 			$http.get("/fishshop/farmers_passAuthenticationFarmers.action",{params:{id:$stateParams.farmerId}}).success(function(data){
 				
-				if(data.result === "success"){
+				if(data.resultInfo === "success"){
 					$scope.status = true;
 				}else{
 					$scope.status = false;
@@ -186,8 +186,8 @@ config(function($stateProvider,$urlRouterProvider) {
 		templateUrl:"tpls/fishman/fishman.applyform.html",
 		controller:function($scope,$stateParams,$http){
 			// console.log($stateParams.fishmanId);
-			$http.get("test/fishmanapplyinfo.json", {params:{id:$stateParams.fishmanId}}).success(function(data){
-				$scope.fishmanapplyinfo = data.result;
+			$http.get("/fishshop/fishman_getFishmanBuUser.action", {params:{id:$stateParams.fishmanId}}).success(function(data){
+				$scope.fishmanapplyinfo = data.resultParm.fishman;
 			})
 		}
 	}).state("fishman.applyform.success",{
@@ -202,7 +202,7 @@ config(function($stateProvider,$urlRouterProvider) {
 				return $scope.status;
 			}
 
-			$http.get("test/fishmanapplyinfosuccess.json",{params:{id:$stateParams.fishmanId}}).success(function(data){
+			$http.get("/fishshop/farmers_passAuthenticationFishman.action",{params:{id:$stateParams.fishmanId}}).success(function(data){
 				
 				if(data.result === "success"){
 					$scope.status = true;
