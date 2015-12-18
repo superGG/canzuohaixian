@@ -15,19 +15,21 @@ config(function($stateProvider,$urlRouterProvider) {
 	
 	$urlRouterProvider.otherwise('/users');
 
-
+	//用户模块路由配置
 	$stateProvider.state("users",{
 		url:"/users",
 		templateUrl: "tpls/users.html"
+		//商品父分类管理模块路由配置
 	}).state("categorycompent",{
 		url:"/categorycompent",
-		templateUrl: "tpls/goodscategorycompent/goodscategorycompent.html"
+		templateUrl: "tpls/goodscategorycompent/goodscategorycompent.html",
 	}).state("categorycompent.newcompent",{
 		url:"/newcompent",
-		templateUrl: "tpls/goodscategorycompent/newcompent.html"
+		templateUrl: "tpls/goodscategorycompent/newcompent.html",
 	}).state("categorycompent.editcompent",{
 		url:"/editcompent",
-		templateUrl: "tpls/goodscategorycompent/editcategorycompent.html"
+		templateUrl: "tpls/goodscategorycompent/editcategorycompent.html",
+		//商品子分类管理模块路由配置
 	}).state("categoryleaf",{
 		url:"/categoryleaf",
 		templateUrl: "tpls/goodscategoryleaf/goodscategoryleaf.html"
@@ -37,99 +39,34 @@ config(function($stateProvider,$urlRouterProvider) {
 	}).state("categoryleaf.editleaf",{
 		url:"/editleaf",
 		templateUrl: "tpls/goodscategoryleaf/editcategoryleaf.html"
+		// 养殖户管理模块路由配置
 	}).state("farmer",{
 		url:"/farmer",
 		templateUrl:"tpls/farmer/farmerstable.html"
-	}).state("farmer.editFishmaninfo",{
-		url:"/editFarmerinfo/{farmerId}",
-		templateUrl:"tpls/farmer/farmereidt.html"
-		//,
-		//controller:function($scope,$stateParams,$http){
-        //
-        //
-		//	$http.get("test/farmerbaicinfo.json", {params:{id:$stateParams.farmerId}}).success(function(data){
-		//		$scope.farmerinfo = data.result;
-		//	})
-		//}
 	}).state("farmer.applyform",{
 		url:"/applyform",
 		templateUrl:"tpls/farmer/farmers.applyform.html"
-		//,
-		//controller:function($scope,$stateParams,$http){
-		//	// console.log($stateParams.fishmanId);
-        //
-		//	$scope.userId = $stateParams.farmerId;
-		//	$http.get("/fishshop/user_getFarmerByUser.action", {params:{userId:$stateParams.farmerId}}).success(function(data){
-		//		$scope.farmerapplyinfo = data.resultParm.farmer;
-		//	});
-		//}
 	}).state("farmer.applyform.success",{
 		url:"/success",
 		templateUrl:"tpls/farmer/farmer.applyform.success.html"
-		//,
-		//controller:function($scope,$stateParams,$http){
-        //
-		//	$scope.status = false;
-        //
-        //
-		//	$scope.getStatus = function(){
-		//		return $scope.status;
-		//	};
-        //
-		//	$http.get("/fishshop/farmers_passAuthenticationFarmers.action",{params:{id:$stateParams.farmerId}}).success(function(data){
-		//
-		//		if(data.resultInfo === "success"){
-		//			$scope.status = true;
-		//		}else{
-		//			$scope.status = false;
-		//		}
-        //
-		//})
-		//}
 	}).state("farmer.applyform.success.infoform",{
-		url:"/infoform/{farmerId}",
+		url:"/infoform",
 		templateUrl:"tpls/farmer/farmerinfoform.html"
 	}).state("farmer.farmerMoreinfo",{
-		url:"/farmerMoreinfo/{farmerId}",
-		templateUrl:"tpls/farmer/farmerMoreinfo.html",
-		controller:function($scope,$stateParams,$http){
-
-			$scope.isActive = [true,false,false];
-
-			$http.get("test/farmerbaicinfo.json", {params:{id:$stateParams.farmerId}}).success(function(data){
-				$scope.farmerinfo = data.result;
-			});
-
-			$scope.activeshow = function(j){
-
-				for(var i = 0; i < $scope.isActive.length ; i ++){
-					if(i === j){
-						$scope.isActive[i] = true;
-					}else{
-						$scope.isActive[i] = false;
-					}
-
-				}
-			}
-
-		}
+		url:"/farmerMoreinfo",
+		templateUrl:"tpls/farmer/farmerMoreinfo.html"
+	}).state("farmer.farmerMoreinfo.editFishmaninfo",{
+		url:"/editFarmerinfo",
+		templateUrl:"tpls/farmer/farmereidt.html"
 	}).state("farmer.farmerMoreinfo.applyform",{
 		url:"/applyform",
-		templateUrl:"tpls/farmer/farmermoreinfo/moreinfoapply.html",
-		controller:function($scope,$stateParams,$http){
-			// console.log($stateParams.fishmanId);
-			$http.get("test/farmerapplyinfo.json", {params:{id:$stateParams.farmerId}}).success(function(data){
-				$scope.farmerapplyinfo = data.result;
-			})
-		}
+		templateUrl:"tpls/farmer/farmermoreinfo/moreinfoapply.html"
 	}).state("farmer.farmerMoreinfo.shopinfo",{
 		url:"/shopinfo",
 		templateUrl:"tpls/farmer/farmermoreinfo/shopinfo.html",
 		controller:function($scope,$stateParams,$http){
 			// console.log($stateParams.fishmanId);
-			$http.get("test/farmershopinfo.json", {params:{id:$stateParams.farmerId}}).success(function(data){
-				$scope.farmerinfo = data.result;
-			})
+
 		}
 	}).state("fishman",{
 		url:"/fishman",

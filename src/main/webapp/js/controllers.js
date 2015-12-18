@@ -277,7 +277,7 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 
 	$scope.newFarmerinfo = {};
-	$scope.editFatmerinfo = {};
+	$scope.editFarmerinfo = {};
 
 	$http.get("").success(function(data){
 
@@ -287,16 +287,17 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 	//更新数据
 	$scope.getData = function(){
 
-//	$http.get('test/farmersinfo.json').success(function(data){
+	//$http.get('test/farmersinfo.json').success(function(data){
 		$http.get('/fishshop/shop_getAllFarmersShop.action').success(function(data){
 
 			$scope.farmersInfo = data.resultParm.shopInfo;
+			//$scope.farmersInfo = data.result;
 			$scope.databox.number = data.resultParm.number;
 		});
 
-//	$http.get("test/farmersapplyinfo.json").success(function(data){
+	//$http.get("test/farmersapplyinfo.json").success(function(data){
 		$http.get("/fishshop/user_getVerifyFarmers.action").success(function(data){
-
+			//$scope.farmersapplyinfo = data.result;
 			$scope.farmersapplyinfo = data.resultParm.userlist;
 		});
 	};
@@ -308,8 +309,12 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 		//保存用户的userId
 		console.log(userId);
 		$scope.userId = userId;
-			$http.get("/fishshop/user_getFarmerByUser.action", {params:{'userId':userId}}).success(function(data){
+			$http.
+				get("/fishshop/user_getFarmerByUser.action"
+				//get("test/farmerapplyinfo.json"
+				, {params:{'userId':userId}}).success(function(data){
 				$scope.farmerapplyinfo = data.resultParm.farmer;
+					//$scope.farmerapplyinfo = data.result;
 			}).success(function(data){
 				$location.path("/farmer/applyform");
 			});
@@ -339,7 +344,7 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 		var data = {
 			"userId":userId,
 			"farmersId": farmerId
-		}
+		};
 
 		$http.post("/fishshop/farmers_passAuthenticationFarmers.action",Ninico.JsonToKeyVal(data),{
 			headers:{
@@ -352,25 +357,69 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 			}else{
 				$scope.status = false;
 			}
-
-			$location.path("/farmer/success");
+			$location.path("/farmer/applyform/success");
 		});
+
 	};
 
-	$scope.toEdit = function(){
+	//修改养殖户基本信息的准备方法
+	$scope.toEdit = function(farmerinfo){
 
+		$scope.editFarmerinfo = farmerinfo;
 	};
 
 
 	$scope.doEdit = function(){
 
-		$http.post("test/",Ninico.JsonToKeyVal($scope.editFatmerinfo),{
+		console.log($scope.editFarmerinfo)
+		$http.post("test/",Ninico.JsonToKeyVal($scope.editFarmerinfo),{
 			headers:{
 				"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"
 			}
 		}).success(function(data){
+			$location.path("/farmer");
 
 		});
+	};
+
+	//得到养殖户更多信息的方法
+	$scope.getFarmerMoreInfo = function(farmerId,shipId){
+
+		$scope.isActive = [true,false,false];
+
+		//获取养殖户基本信息
+		$http.get("test/farmerbaicinfo.json", {params:{"farmerId":farmerId}}).success(function(data){
+			$scope.farmerinfo = data.result;
+			console.log($scope.farmerinfo);
+		});
+
+		//获取养殖户的验证信息
+		$http.get("test/farmerapplyinfo.json", {params:{"userId":farmerId}}).success(function(data){
+			$scope.farmerapplyinfo = data.result;
+		});
+
+		 //获取养殖的商店信息
+		$http.get("test/farmershopinfo.json", {params:{"shipId":shipId}}).success(function(data){
+			$scope.shopinfo = data.result;
+		});
+
+
+
+		$scope.activeshow = function(j){
+
+			for(var i = 0; i < $scope.isActive.length ; i ++){
+				if(i === j){
+					$scope.isActive[i] = true;
+				}else{
+					$scope.isActive[i] = false;
+				}
+
+			}
+		}
+
+		$location.path("farmer/farmerMoreinfo")
+
+
 	};
 
 	$scope.getData();

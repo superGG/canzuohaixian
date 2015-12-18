@@ -24,7 +24,12 @@
                 <p>养殖方式:{{farmerinfo.multiGetType}}</p>
                 <p>商家状态:{{farmerinfo.state | shopstatus}}</p>
                 <p>用户注册时间:{{farmerinfo.createTime}}</p>
+                <a href="#" class="btn btn-info btn-xs edit" ui-sref=".editFishmaninfo" ng-click="toEdit(farmerinfo)">
+                    <i class="fa fa-edit ficon">&#xe820;</i>
+                    编辑
+                </a>
             </div>
+
         </div>
     </div>
 </div>
