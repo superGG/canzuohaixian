@@ -51,16 +51,17 @@ config(function($stateProvider,$urlRouterProvider) {
 			})
 		}
 	}).state("farmer.applyform",{
-		url:"/applyform/{farmerId}",
-		templateUrl:"tpls/farmer/farmers.applyform.html",
-		controller:function($scope,$stateParams,$http){
-			// console.log($stateParams.fishmanId);
-
-			$scope.userId = $stateParams.farmerId;
-			$http.get("/fishshop/user_getFarmerByUser.action", {params:{userId:$stateParams.farmerId}}).success(function(data){
-				$scope.farmerapplyinfo = data.resultParm.farmer;
-			});
-		}
+		url:"/applyform",
+		templateUrl:"tpls/farmer/farmers.applyform.html"
+		//,
+		//controller:function($scope,$stateParams,$http){
+		//	// console.log($stateParams.fishmanId);
+        //
+		//	$scope.userId = $stateParams.farmerId;
+		//	$http.get("/fishshop/user_getFarmerByUser.action", {params:{userId:$stateParams.farmerId}}).success(function(data){
+		//		$scope.farmerapplyinfo = data.resultParm.farmer;
+		//	});
+		//}
 	}).state("farmer.applyform.success",{
 		url:"/success/{farmerId}",
 		templateUrl:"tpls/farmer/farmer.applyform.success.html",

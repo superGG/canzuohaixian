@@ -274,7 +274,7 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
  * 养殖户管理模块控制器
  *
  */
-FarmersModule.controller("FarmersCtrl",function($scope,$http){
+FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 
 	$scope.newFarmerinfo = {};
 	$scope.editFatmerinfo = {};
@@ -301,6 +301,24 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http){
 		});
 	};
 
+	//获取养殖户的申请信息
+
+	$scope.getApplyInfo = function(userId){
+
+		//保存用户的userId
+		$scope.userId = userId;
+			$http.get("/fishshop/user_getFarmerByUser.action", {params:{'userId':userId}}).success(function(data){
+				$scope.farmerapplyinfo = data.resultParm.farmer;
+			}).success(function(data){
+				$location.path("/applyform");
+			});
+	};
+
+
+	//
+
+
+	//新建养殖户基本信息
 	$scope.doNew = function(){
 
 		$http.post("test/",Ninico.JsonToKeyVal($scope.newFarmerinfo),{
@@ -312,7 +330,9 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http){
 		});
 	};
 
-	$scope.setStatus = function(userId,farmerId,$location){
+
+	//养殖户验证通过的方法
+	$scope.setStatus = function(userId,farmerId){
 
 		var data = {
 			"userId":userId,
