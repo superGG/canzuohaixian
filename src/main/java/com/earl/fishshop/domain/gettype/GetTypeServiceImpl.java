@@ -79,4 +79,10 @@ public class GetTypeServiceImpl extends BaseServiceImpl<GetTypePo> implements
 		}
 		return idList;
 	}
+
+	@Override
+	public List<GetTypePo> getFarmerGetType(GetTypePo model) {
+		List<GetTypePo> list = getTypeDao.getFarmerGetType(model);
+		return list;
+	}
 }

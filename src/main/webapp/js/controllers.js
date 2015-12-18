@@ -274,12 +274,12 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
  * 养殖户管理模块控制器
  *
  */
-FarmersModule.controller("FarmersCtrl",function($scope,$http){
+FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 
 	$scope.newFarmerinfo = {};
 	$scope.editFatmerinfo = {};
 
-	$htttp.get("").success(function(data){
+	$http.get("").success(function(data){
 
 		$scope.multiGetTypes = data.result;
 	});
@@ -312,14 +312,14 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http){
 		});
 	};
 
-	$scope.setStatus = function(userId,farmerId,$location){
+	$scope.setStatus = function(farmerId,userId){
 
 		var data = {
 			"userId":userId,
 			"farmersId": farmerId
 		}
 
-		$http.post("test",Ninico.JsonToKeyVal(data),{
+		$http.post("/fishshop/farmers_passAuthenticationFarmers.action",Ninico.JsonToKeyVal(data),{
 			headers:{
 				"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"
 			}

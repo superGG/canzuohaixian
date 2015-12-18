@@ -188,7 +188,7 @@ config(function($stateProvider,$urlRouterProvider) {
 		templateUrl:"tpls/fishman/fishman.applyform.html",
 		controller:function($scope,$stateParams,$http){
 			// console.log($stateParams.fishmanId);
-			$http.get("/fishshop/fishman_getFishmanBuUser.action", {params:{id:$stateParams.fishmanId}}).success(function(data){
+			$http.get("/fishshop/fishman_getFishmanByUser.action", {params:{id:$stateParams.fishmanId}}).success(function(data){
 				$scope.fishmanapplyinfo = data.resultParm.fishman;
 			})
 		}
