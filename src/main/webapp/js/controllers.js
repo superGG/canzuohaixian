@@ -347,8 +347,18 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 			}
 		}).success(function(data){
 
-			$location.path("/success");
+			if(data.resultInfo === "success"){
+				$scope.status = true;
+			}else{
+				$scope.status = false;
+			}
+
+			$location.path("/farmer/success");
 		});
+	};
+
+	$scope.toEdit = function(){
+
 	};
 
 
