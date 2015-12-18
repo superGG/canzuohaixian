@@ -42,14 +42,15 @@ config(function($stateProvider,$urlRouterProvider) {
 		templateUrl:"tpls/farmer/farmerstable.html"
 	}).state("farmer.editFishmaninfo",{
 		url:"/editFarmerinfo/{farmerId}",
-		templateUrl:"tpls/farmer/farmereidt.html",
-		controller:function($scope,$stateParams,$http){
-
-
-			$http.get("test/farmerbaicinfo.json", {params:{id:$stateParams.farmerId}}).success(function(data){
-				$scope.farmerinfo = data.result;
-			})
-		}
+		templateUrl:"tpls/farmer/farmereidt.html"
+		//,
+		//controller:function($scope,$stateParams,$http){
+        //
+        //
+		//	$http.get("test/farmerbaicinfo.json", {params:{id:$stateParams.farmerId}}).success(function(data){
+		//		$scope.farmerinfo = data.result;
+		//	})
+		//}
 	}).state("farmer.applyform",{
 		url:"/applyform",
 		templateUrl:"tpls/farmer/farmers.applyform.html"
@@ -63,27 +64,28 @@ config(function($stateProvider,$urlRouterProvider) {
 		//	});
 		//}
 	}).state("farmer.applyform.success",{
-		url:"/success/{farmerId}",
-		templateUrl:"tpls/farmer/farmer.applyform.success.html",
-		controller:function($scope,$stateParams,$http){
-
-			$scope.status = false;
-
-
-			$scope.getStatus = function(){
-				return $scope.status;
-			};
-
-			$http.get("/fishshop/farmers_passAuthenticationFarmers.action",{params:{id:$stateParams.farmerId}}).success(function(data){
-				
-				if(data.resultInfo === "success"){
-					$scope.status = true;
-				}else{
-					$scope.status = false;
-				}
-
-			})
-		}
+		url:"/success",
+		templateUrl:"tpls/farmer/farmer.applyform.success.html"
+		//,
+		//controller:function($scope,$stateParams,$http){
+        //
+		//	$scope.status = false;
+        //
+        //
+		//	$scope.getStatus = function(){
+		//		return $scope.status;
+		//	};
+        //
+		//	$http.get("/fishshop/farmers_passAuthenticationFarmers.action",{params:{id:$stateParams.farmerId}}).success(function(data){
+		//
+		//		if(data.resultInfo === "success"){
+		//			$scope.status = true;
+		//		}else{
+		//			$scope.status = false;
+		//		}
+        //
+		//})
+		//}
 	}).state("farmer.applyform.success.infoform",{
 		url:"/infoform/{farmerId}",
 		templateUrl:"tpls/farmer/farmerinfoform.html"
