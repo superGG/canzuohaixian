@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.domain.base.BaseAction;
+import com.earl.fishshop.domain.farmers.FarmersPo;
+import com.earl.fishshop.domain.fishman.FishmanPo;
 import com.earl.fishshop.domain.shop.ShopPo;
 import com.earl.fishshop.domain.verifycode.VerifyCodePo;
 import com.earl.fishshop.util.MyConstant;
@@ -355,6 +357,26 @@ public class UserAction extends BaseAction<UserPo> {
 			resultMessage.setServiceResult(false);
 			resultMessage.setResultInfo("拉黑失败");
 		}
+	}
+	
+	/**
+	 * 通过user获取渔户.
+	 *@author 宋文光.
+	 */
+	public void getFishmanByUser() {
+		resultMessage = new ResultMessage();
+		FishmanPo fishman = userServer.getFishmanByUser(model);
+		resultMessage.getResultParm().put("fishman", fishman);
+	}
+	
+	/**
+	 * 通过user获取养殖户.
+	 *@author 宋文光.
+	 */
+	public void getFarmerByUser() {
+		resultMessage = new ResultMessage();
+		FarmersPo farmer = userServer.getFarmerByUser(model);
+		resultMessage.getResultParm().put("farmer", farmer);
 	}
 
 	/**

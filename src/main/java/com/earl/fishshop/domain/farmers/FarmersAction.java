@@ -126,10 +126,10 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 	public void passAuthenticationFarmers() {
 		Boolean result = farmersServer.passAuthenticationFarmers(userId,model);
 		if (result) {
-			resultMessage.setResultInfo("成功通过认证");
+			resultMessage.setResultInfo("success");
 			resultMessage.setServiceResult(result);
 		} else {
-			resultMessage.setResultInfo("操作失败");
+			resultMessage.setResultInfo("false");
 			resultMessage.setServiceResult(result);
 		}
 	}

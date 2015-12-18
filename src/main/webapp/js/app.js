@@ -55,8 +55,8 @@ config(function($stateProvider,$urlRouterProvider) {
 		templateUrl:"tpls/farmer/farmers.applyform.html",
 		controller:function($scope,$stateParams,$http){
 			// console.log($stateParams.fishmanId);
-			$http.get("test/farmerapplyinfo.json", {params:{id:$stateParams.farmerId}}).success(function(data){
-				$scope.farmerapplyinfo = data.result;
+			$http.get("/fishshop/user_getFarmerByUser.action", {params:{userId:$stateParams.farmerId}}).success(function(data){
+				$scope.farmerapplyinfo = data.resultParm.farmer;
 			})
 		}
 	}).state("farmer.applyform.success",{
@@ -69,9 +69,9 @@ config(function($stateProvider,$urlRouterProvider) {
 
 			$scope.getStatus = function(){
 				return $scope.status;
-			}
+			};
 
-			$http.get("test/farmerapplyinfosuccess.json",{params:{id:$stateParams.farmerId}}).success(function(data){
+			$http.get("/fishshop/farmers_passAuthenticationFarmers.action",{params:{id:$stateParams.farmerId}}).success(function(data){
 				
 				if(data.result === "success"){
 					$scope.status = true;
@@ -93,7 +93,7 @@ config(function($stateProvider,$urlRouterProvider) {
 
 			$http.get("test/farmerbaicinfo.json", {params:{id:$stateParams.farmerId}}).success(function(data){
 				$scope.farmerinfo = data.result;
-			})
+			});
 
 			$scope.activeshow = function(j){
 

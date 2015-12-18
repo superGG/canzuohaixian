@@ -1,5 +1,6 @@
 package com.earl.fishshop.domain.user;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -295,7 +296,28 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 
 	@Override
 	public List<UserPo> findAllUser() {
-		List<UserPo> userlist = userDao.findAllUser();
+		List<UserPo> list = userDao.findAllUser();
+		List<UserPo> userlist = new ArrayList<UserPo>();
+		for(UserPo user : list) {
+			if(user.getState()!=MyConstant.user_black)
+				userlist.add(user);
+		}
 		return userlist;
+	}
+
+	@Override
+	public FishmanPo getFishmanByUser(UserPo model) {
+		UserPo user = userDao.get(model.getUserId());
+		FishmanPo fishman = fishmanDao.get(user.getIdentityId());
+		
+		return fishman;
+	}
+
+	@Override
+	public FarmersPo getFarmerByUser(UserPo model) {
+		UserPo user = userDao.get(model.getUserId());
+		FarmersPo farmer = farmersDao.get(user.getIdentityId());
+		
+		return farmer;
 	}
 }

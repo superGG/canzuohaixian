@@ -1,8 +1,5 @@
 package com.earl.shopping.action;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;

@@ -8,19 +8,19 @@
                 <form role="form">
                     <div class="form-group" ng-show="true">
                         <label >养殖户ID</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" name="farmerId" value="{{farmerinfo.farmerId}}">
+                        <input type="text" class="form-control" id="farmerId" name="farmerId" value="{{editFarmerinfo.farmerId}}">
                     </div>
                     <div class="form-group">
                         <label >养殖场地址</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" name="address" value="{{farmerinfo.address}}">
+                        <input type="text" class="form-control" id="address" name="address" value="{{editFarmerinfo.address}}">
                     </div>
                     <div class="form-group">
                         <label >养殖场地址经度</label>
-                        <input type="text" class="form-control"  name="longitude" value="{{farmerinfo.longitude}}">
+                        <input type="text" class="form-control"  name="longitude" value="{{editFarmerinfo.longitude}}">
                     </div>
                     <div class="form-group">
                         <label >养殖场地址纬度</label>
-                        <input type="text" class="form-control"  name="latitude" value="{{farmerinfo.latitude}}">
+                        <input type="text" class="form-control"  name="latitude" value="{{editFarmerinfo.latitude}}">
                     </div>
                     <button type="submit" class="btn btn-blue" ui-sref="farmer">提交</button>
                     <button  class="btn btn-danger" ui-sref="farmer">取消</button>

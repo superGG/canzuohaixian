@@ -167,7 +167,7 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	}
 
 	/**
-	 * 通过渔户商店详细信息.
+	 * 通过渔户商店详细信息(客户端).
 	 *@author 宋文光.
 	 */
 	public void getFishmanByShop() {
