@@ -269,21 +269,62 @@ GoodsCategoryLeafModule.controller("GCLCtrl",function($scope,$http){
 
 });
 
-
+/**
+ *
+ * 养殖户管理模块控制器
+ *
+ */
 FarmersModule.controller("FarmersCtrl",function($scope,$http){
 
-//	$http.get('test/farmersinfo.json').success(function(data){
-	$http.get('/fishshop/shop_getAllFarmersShop.action').success(function(data){
+	$scope.newFarmerinfo = {};
+	$scope.editFatmerinfo = {};
 
-		$scope.farmersInfo = data.resultParm.shopInfo;
-		$scope.databox.number = data.resultParm.number;
+	$htttp.get("").success(function(data){
+
+		$scope.multiGetTypes = data.result;
 	});
+
+	//更新数据
+	$scope.getData = function(){
+
+//	$http.get('test/farmersinfo.json').success(function(data){
+		$http.get('/fishshop/shop_getAllFarmersShop.action').success(function(data){
+
+			$scope.farmersInfo = data.resultParm.shopInfo;
+			$scope.databox.number = data.resultParm.number;
+		});
 
 //	$http.get("test/farmersapplyinfo.json").success(function(data){
 		$http.get("/fishshop/user_getVerifyFarmers.action").success(function(data){
-		
-		$scope.farmersapplyinfo = data.resultParm.userlist;
-	});
+
+			$scope.farmersapplyinfo = data.resultParm.userlist;
+		});
+	};
+
+	$scope.doNew = function(){
+
+		$http.post("test/",Ninico.JsonToKeyVal($scope.newFarmerinfo),{
+			headers:{
+				"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"
+			}
+		}).success(function(data){
+
+		});
+	};
+
+
+	$scope.doEdit = function(){
+
+		$http.post("test/",Ninico.JsonToKeyVal($scope.editFatmerinfo),{
+			headers:{
+				"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"
+			}
+		}).success(function(data){
+
+		});
+	};
+
+	$scope.getData();
 });
 
 
