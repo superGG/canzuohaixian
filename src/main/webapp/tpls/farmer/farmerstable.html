@@ -5,9 +5,9 @@
         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
             <div class="orders-container">
                 <div class="orders-header">
-                    <h6>渔户商铺入驻申请</h6>
+                    <h6>养殖户商铺入驻申请</h6>
                 </div>
-                <ul class="orders-list">
+                <ul class="orders-list"> 
                     <li class="order-item" ng-repeat="farmerapplyinfo in farmersapplyinfo">
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 item-left">
@@ -64,12 +64,7 @@
                     <table class="table table-striped table-bordered table-hover" id="simpledatatable">
                         <thead>
                             <tr>
-                                <th>
-                                    <div class="checker">
-                                        <span class="">
-                                            <input type="checkbox" class="group-checkable" data-set="#flip .checkboxes"></span>
-                                    </div>
-                                </th>
+                                
                                 <th>养殖户ID</th>
                                 <th>养殖户商店ID</th>
                                 <th>养殖户店铺名</th>
@@ -81,12 +76,7 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="farmerInfo in farmersInfo" on-finish-render-filters>
-                                <td>
-                                    <div class="checker">
-                                        <span class="">
-                                            <input type="checkbox" class="checkboxes" value="1"></span>
-                                    </div>
-                                </td>
+                               
                                 <td>{{farmerInfo.farmersId}}</td>
                                 <td>{{farmerInfo.shopId}}</td>
                                 <td>{{farmerInfo.shopName}}</td>

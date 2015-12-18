@@ -245,13 +245,13 @@ seaTable.filter("shopstatus",function(){
 		
 		var status = '';
 
-		if(inputArray === '0'){
+		if(inputArray === 0){
 			status = "正常";
-		}else if(inputArray === '1'){
+		}else if(inputArray === 1){
 			status = "失败";
-		}else if(inputArray === '2'){
+		}else if(inputArray === 2){
 			status = "等待审核";
-		}else if(inputArray === '3'){
+		}else if(inputArray === 5){
 			status = "已被拉黑";
 		}
 		return status;

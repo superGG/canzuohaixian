@@ -139,4 +139,34 @@ public class HttpUserActionTest extends HttpBaseActionTest{
    		System.out.println(sendHttpRequest);
    	}
     
+    @Test
+   	public void testGetVerifyFarmers() throws FileNotFoundException {
+   		String targetURL = basePath
+   				+ "user_getVerifyFarmers.action";
+
+   		PostMethod filePost = new PostMethod(targetURL);
+
+   		Part[] parts = { 
+//   				new StringPart("userId", "14", "utf-8")
+//   				,new StringPart("userName", "superGG", "utf-8")
+   		};
+   		String sendHttpRequest = sendHttpRequest(filePost, parts);
+   		System.out.println(sendHttpRequest);
+   	}
+    
+    @Test
+   	public void testGetVerifyFishman() throws FileNotFoundException {
+   		String targetURL = basePath
+   				+ "user_getVerifyFishman.action";
+
+   		PostMethod filePost = new PostMethod(targetURL);
+
+   		Part[] parts = { 
+//   				new StringPart("userId", "14", "utf-8")
+//   				,new StringPart("userName", "superGG", "utf-8")
+   		};
+   		String sendHttpRequest = sendHttpRequest(filePost, parts);
+   		System.out.println(sendHttpRequest);
+   	}
+    
 }

@@ -11,6 +11,7 @@ UsersListModule.controller('UsersCtrl',function($scope,$http){
     	success(function(data){
 
     		$scope.usersInfo = data.resultParm.userList;
+    		$scope.databox.number = data.resultParm.number;
     	});
 
     // $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent){
@@ -275,12 +276,13 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http){
 	$http.get('/fishshop/shop_getAllFarmersShop.action').success(function(data){
 
 		$scope.farmersInfo = data.resultParm.shopInfo;
+		$scope.databox.number = data.resultParm.number;
 	});
 
-	$http.get("test/farmersapplyinfo.json").success(function(data){
-//		$http.get("/fishshop/user_getVerifyFishman.action").success(function(data){
+//	$http.get("test/farmersapplyinfo.json").success(function(data){
+		$http.get("/fishshop/user_getVerifyFarmers.action").success(function(data){
 		
-		$scope.farmersapplyinfo = data.result;//.userList
+		$scope.farmersapplyinfo = data.resultParm.userlist;
 	});
 });
 
@@ -290,12 +292,13 @@ FishmanModule.controller("FishmanCtrl",function($scope,$http){
 	$http.get('/fishshop/shop_getAllFishmanShop.action').success(function(data){
 
 		$scope.fishmansInfo = data.resultParm.shopInfo;
+		$scope.databox.number = data.resultParm.number;
 	});
 
-	$http.get("test/fishmansapplyinfo.json").success(function(data){
-
-		$scope.fishmansapplyinfo = data.result;
-	})
+	$http.get("/fishshop/user_getVerifyFishman.action").success(function(data){
+		
+		$scope.fishmanapplyinfo = data.resultParm.userlist;
+	});
 });
 
 

@@ -45,7 +45,7 @@ UsersListModule.directive('onFinishRenderFilters', function($timeout,$location){
 	scope:{}
 	return {
 		restrict: 'E',
-		templateUrl: 'tpls/dataBox.html',                 
+		templateUrl: 'tpls/databox.html',                 
 		replace: true,
 
 		link: function($scope,$element,$attr){
