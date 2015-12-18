@@ -152,11 +152,12 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 
 	@Override
 	public List<Map<String, Object>> getAllFishmanShop() {
-		Map<String, Object> map = new HashMap<String, Object>();//存放一条信息
+		
 		List<Map<String,Object>> infoList = new ArrayList<Map<String,Object>>();//存放全部信息.
 		List<FishmanPo> fishmanList = fishmanDao.findAll();
 		for (FishmanPo fishman : fishmanList) {
 			if (fishman.getShopId() != null) {
+				Map<String, Object> map = new HashMap<String, Object>();//存放一条信息
 				ShopPo shop = shopDao.get(fishman.getShopId());
 				map.put("fishmanId", fishman.getFishmanId());
 				map.put("shopId", fishman.getShopId());
@@ -172,11 +173,12 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 
 	@Override
 	public List<Map<String, Object>> getAllFarmersShop() {
-		Map<String, Object> map = new HashMap<String, Object>();//存放一条信息
+		
 		List<Map<String,Object>> infoList = new ArrayList<Map<String,Object>>();//存放全部信息.
 		List<FarmersPo> farmersList = farmersDao.findAll();
 		for (FarmersPo farmers : farmersList) {
 			if (farmers.getShopId() != null) {
+				Map<String, Object> map = new HashMap<String, Object>();//存放一条信息
 				ShopPo shop = shopDao.get(farmers.getShopId());
 				map.put("farmersId", farmers.getFarmersId());
 				map.put("shopId", farmers.getShopId());

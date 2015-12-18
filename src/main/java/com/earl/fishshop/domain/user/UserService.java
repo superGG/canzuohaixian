@@ -106,4 +106,11 @@ public interface UserService extends BaseService<UserPo>{
 	 */
 	Boolean updatePassword(UserPo model,String newPassword);
 
+	/**
+	 * 获取所有用户（后台）
+	 *@author 宋文光.
+	 * @return
+	 */
+	List<UserPo> findAllUser();
+
 }

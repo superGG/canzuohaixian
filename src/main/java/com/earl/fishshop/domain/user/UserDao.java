@@ -43,6 +43,13 @@ public interface UserDao extends BaseDao<UserPo>{
 	 * @return
 	 */
 	Boolean blackUser(UserPo user);
+
+	/**
+	 * 获取所有用户信息（后台）
+	 *@author 宋文光.
+	 * @return
+	 */
+	List<UserPo> findAllUser();
 	
 
 }

@@ -78,4 +78,12 @@ public class UserDaoImpl extends BaseDaoImpl<UserPo> implements UserDao {
 		return false;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<UserPo> findAllUser() {
+		String hql = "from UserPo u order by u.createTime desc";
+		List<UserPo> userlist = getCurrentSession().createQuery(hql).list();
+		return userlist;
+	}
+
 }

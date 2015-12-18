@@ -292,4 +292,10 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 			return false;
 		}
 	}
+
+	@Override
+	public List<UserPo> findAllUser() {
+		List<UserPo> userlist = userDao.findAllUser();
+		return userlist;
+	}
 }

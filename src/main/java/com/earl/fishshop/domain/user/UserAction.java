@@ -211,7 +211,7 @@ public class UserAction extends BaseAction<UserPo> {
 	 * @author 宋文光
 	 */
 	public void findAllUser() {
-		List<UserPo> userlist = userServer.findAll();
+		List<UserPo> userlist = userServer.findAllUser();
 		resultMessage = new ResultMessage();
 		resultMessage.getResultParm().put("userList", FilterPropertiesUtil.filterUserPassword(userlist));
 		resultMessage.getResultParm().put("number", userlist.size());
