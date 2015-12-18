@@ -312,6 +312,23 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http){
 		});
 	};
 
+	$scope.setStatus = function(userId,farmerId,$location){
+
+		var data = {
+			"userId":userId,
+			"farmersId": farmerId
+		}
+
+		$http.post("test",Ninico.JsonToKeyVal(data),{
+			headers:{
+				"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"
+			}
+		}).success(function(data){
+
+			$location.path("/success");
+		});
+	};
+
 
 	$scope.doEdit = function(){
 
