@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.domain.base.BaseAction;
+import com.earl.fishshop.domain.region.RegionPo;
 import com.earl.fishshop.vo.ResultMessage;
 
 /**
@@ -85,6 +86,17 @@ public class PostageAction extends BaseAction<PostagePo> {
 		resultMessage = new ResultMessage();
 		resultMessage.setServiceResult(true);
 		resultMessage.getResultParm().put("postageList", postageList);
+	}
+	
+	/**
+	 * 得到未设置邮费的地区
+	 * @author 黄祥谦.
+	 */
+	public void getUnSetRegion(){
+		List<RegionPo> regionList = postageServer.getUnSetRegion(Long.valueOf(model.getOrigin()));
+		resultMessage = new ResultMessage();
+		resultMessage.setServiceResult(true);
+		resultMessage.getResultParm().put("regionList", regionList);
 	}
 	
 }

@@ -42,4 +42,19 @@ public class PostageServiceImpl extends BaseServiceImpl<PostagePo> implements
 		return findAll;
 	}
 
+	@Override
+	public List<RegionPo> getUnSetRegion(Long valueOf) {
+		// TODO 未测试.
+		List<PostagePo> postageList = postageDao.getHaveSetRegion(valueOf);
+		List<RegionPo> regioinList = regionDao.findAll();
+		for (RegionPo regionPo : regioinList) {
+			for (PostagePo postagePo : postageList) {
+				if(regionPo.getRegionId() == Long.valueOf(postagePo.getDestination())){
+					regioinList.remove(regionPo);
+				}
+			}
+		}
+		return regioinList;
+	}
+
 }
