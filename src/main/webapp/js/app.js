@@ -69,7 +69,7 @@ config(function($stateProvider,$urlRouterProvider) {
 
 			$scope.getStatus = function(){
 				return $scope.status;
-			}
+			};
 
 			$http.get("test/farmerapplyinfosuccess.json",{params:{id:$stateParams.farmerId}}).success(function(data){
 				
@@ -93,7 +93,7 @@ config(function($stateProvider,$urlRouterProvider) {
 
 			$http.get("test/farmerbaicinfo.json", {params:{id:$stateParams.farmerId}}).success(function(data){
 				$scope.farmerinfo = data.result;
-			})
+			});
 
 			$scope.activeshow = function(j){
 
