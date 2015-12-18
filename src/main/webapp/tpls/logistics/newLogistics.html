@@ -19,7 +19,7 @@
                     <div class="form-group">
                         <label for="origin" class="col-sm-2 control-label no-padding-right">选择发货省</label>
                         <div class="col-sm-10">
-                            <select name="origin" id="origin" ng-model="newLogistic.origin">
+                            <select name="origin" id="origin" ng-model="newLogistic.origin" ng-change="getProvinceList(newLogistic.origin)">
                                 <option value="{{provinceInfo.id}}" ng-repeat="provinceInfo in provincesInfo">{{provinceInfo.name}}</option>
 
                             </select>
@@ -30,7 +30,7 @@
                         <div class="col-sm-10">
 
                             <select name="destination" id="destination" ng-model="newLogistic.destination">
-                                <option value="{{provinceInfo.id}}" ng-repeat="provinceInfo in provincesInfo">{{provinceInfo.name}}</option>
+                                <option value="{{provinceInfo.id}}" ng-repeat="provinceInfo in destinationsList">{{provinceInfo.name}}</option>
                             </select>
                         </div>
                     </div>
