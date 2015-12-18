@@ -155,8 +155,10 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 		
 		List<Map<String,Object>> infoList = new ArrayList<Map<String,Object>>();//存放全部信息.
 		List<FishmanPo> fishmanList = fishmanDao.findAll();
+		UserPo user = new UserPo();
 		for (FishmanPo fishman : fishmanList) {
-			if (fishman.getShopId() != null) {
+			user = userDao.getUserByFishmen(fishman.getFishmanId());
+			if (fishman.getShopId() != null && user.getState()!=MyConstant.user_black) {
 				Map<String, Object> map = new HashMap<String, Object>();//存放一条信息
 				ShopPo shop = shopDao.get(fishman.getShopId());
 				map.put("fishmanId", fishman.getFishmanId());
@@ -176,8 +178,10 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 		
 		List<Map<String,Object>> infoList = new ArrayList<Map<String,Object>>();//存放全部信息.
 		List<FarmersPo> farmersList = farmersDao.findAll();
+		UserPo user = new UserPo();
 		for (FarmersPo farmers : farmersList) {
-			if (farmers.getShopId() != null) {
+			user = userDao.getUserByfarmers(farmers.getFarmersId());
+			if (farmers.getShopId() != null && user.getState()!=MyConstant.user_black) {
 				Map<String, Object> map = new HashMap<String, Object>();//存放一条信息
 				ShopPo shop = shopDao.get(farmers.getShopId());
 				map.put("farmersId", farmers.getFarmersId());

@@ -50,6 +50,22 @@ public interface UserDao extends BaseDao<UserPo>{
 	 * @return
 	 */
 	List<UserPo> findAllUser();
+
+	/**
+	 * 通过渔户获取用户(后台).
+	 *@author 宋文光.
+	 * @param fishmanId
+	 * @return
+	 */
+	UserPo getUserByFishmen(Long fishmanId);
+
+	/**
+	 * 通过养殖户户获取用户(后台).
+	 *@author 宋文光.
+	 * @param fishmanId
+	 * @return
+	 */
+	UserPo getUserByfarmers(Long farmersId);
 	
 
 }

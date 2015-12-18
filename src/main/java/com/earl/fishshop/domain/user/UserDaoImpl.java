@@ -81,9 +81,25 @@ public class UserDaoImpl extends BaseDaoImpl<UserPo> implements UserDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<UserPo> findAllUser() {
-		String hql = "from UserPo u order by u.createTime desc";
+		String hql = "from UserPo u where u.userType = 0 order by u.createTime desc";
 		List<UserPo> userlist = getCurrentSession().createQuery(hql).list();
 		return userlist;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public UserPo getUserByFishmen(Long fishmanId) {
+		String hql = "from UserPo u where u.userType = 1 and u.identityId=:identityId";
+		List<UserPo> userlist = getCurrentSession().createQuery(hql).setLong("identityId", fishmanId).list();
+		return userlist.get(0);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public UserPo getUserByfarmers(Long farmersId) {
+		String hql = "from UserPo u where u.userType = 1 and u.identityId=:identityId";
+		List<UserPo> userlist = getCurrentSession().createQuery(hql).setLong("identityId", farmersId).list();
+		return userlist.get(0);
 	}
 
 }

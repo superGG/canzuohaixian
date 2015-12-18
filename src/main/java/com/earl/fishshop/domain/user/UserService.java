@@ -3,6 +3,8 @@ package com.earl.fishshop.domain.user;
 import java.util.List;
 
 import com.earl.fishshop.domain.base.BaseService;
+import com.earl.fishshop.domain.farmers.FarmersPo;
+import com.earl.fishshop.domain.fishman.FishmanPo;
 import com.earl.fishshop.vo.ResultMessage;
 import com.earl.fishshop.vo.SingleFileVo;
 
@@ -112,5 +114,21 @@ public interface UserService extends BaseService<UserPo>{
 	 * @return
 	 */
 	List<UserPo> findAllUser();
+
+	/**
+	 * 通过用户获取渔户.
+	 *@author 宋文光.
+	 * @param model
+	 * @return
+	 */
+	FishmanPo getFishmanByUser(UserPo model);
+
+	/**
+	 * 通过用户获取养殖户.
+	 *@author 宋文光.
+	 * @param model
+	 * @return
+	 */
+	FarmersPo getFarmerByUser(UserPo model);
 
 }
