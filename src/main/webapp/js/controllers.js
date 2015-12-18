@@ -434,9 +434,9 @@ LogisticsModule.controller("LogisticsCtrl",function($scope,$http,$timeout){
 
 
 	$scope.getData = function(){
-		$http.get("test/logisticsInfo.json").success(function(data){
+		$http.get("/fishshop/postage_findAllPostage.action").success(function(data){
 
-			$scope.logisticsInfo = data.result;
+			$scope.logisticsInfo = data.resultParm.postageList;
 		});
 
 		$http.get("test/provinceListInfo.json").success(function(data){
@@ -448,7 +448,7 @@ LogisticsModule.controller("LogisticsCtrl",function($scope,$http,$timeout){
 	$scope.doNew = function(){
 
 
-		$http.post("test/logisticsInfo.json",
+		$http.post("/fishshop/postage_addPostage.action",
 			Ninico.JsonToKeyVal($scope.newLogistic),
 			{
 				headers:{
@@ -458,6 +458,7 @@ LogisticsModule.controller("LogisticsCtrl",function($scope,$http,$timeout){
 
 			});
 	};
+
 
 
 	$scope.getProvinceList = function(id){
@@ -475,6 +476,7 @@ LogisticsModule.controller("LogisticsCtrl",function($scope,$http,$timeout){
 	};
 
 
+
 	$scope.toEdit = function(logisticsInfo){
 
 		$scope.editLogistic = logisticsInfo;
@@ -482,8 +484,10 @@ LogisticsModule.controller("LogisticsCtrl",function($scope,$http,$timeout){
 
 
 	$scope.doEdit = function(){
+		
+		delete $scope.editLogistic.createTime;
 
-		$http.post("test/logisticsInfo.json",
+		$http.post("/fishshop/postage_updatePostage.action",
 			Ninico.JsonToKeyVal($scope.editLogistic),
 			{
 				headers:{

@@ -18,7 +18,7 @@ public class PostagePo{
 	/**
 	 * 首重.
 	 */
-	private Double firstWeigh;
+	private Double firstWeight;
 	
 	/**
 	 * 超重后，额外增加价格.
@@ -70,11 +70,11 @@ public class PostagePo{
 	public void setIncreasePrice(Double increasePrice) {
 		this.increasePrice = increasePrice;
 	}
-	public Double getFirstWeigh() {
-		return firstWeigh;
+	public Double getFirstWeight() {
+		return firstWeight;
 	}
-	public void setFirstWeigh(Double firstWeigh) {
-		this.firstWeigh = firstWeigh;
+	public void setFirstWeight(Double firstWeight) {
+		this.firstWeight = firstWeight;
 	}
 	public Long getPostageId() {
 		return postageId;

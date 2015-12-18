@@ -45,10 +45,10 @@
                             {{logisticInfo.postageId}}
                         </td>
                         <td>
-                            {{logisticInfo.originName}}
+                            {{logisticInfo.origin}}
                         </td>
                         <td >
-                            <span ng-repeat="destinationName in logisticInfo.destinationsName">{{destinationName}}</span>
+                            <span ng-repeat="destination in logisticInfo.destination">{{destination}}</span>
 
                         </td>
                         <td>
@@ -59,7 +59,7 @@
                         </td>
                         <td>
                             <eidtbtn eidtone="toEdit(logisticInfo)" ui-sref=".editlogistics"></eidtbtn>
-                            <deletebtn delete="doDelete('postageId',logisticInfo.postageId,'test/shipport/shipportinfo.json',getdata)" ></deletebtn>
+                            <deletebtn delete="doDelete('postageId',logisticInfo.postageId,'/fishshop/postage_deletePointPostage.action',getData)" ></deletebtn>
 
                         </td>
                     </tr>
