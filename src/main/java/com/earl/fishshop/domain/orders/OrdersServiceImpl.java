@@ -131,7 +131,7 @@ public class OrdersServiceImpl extends BaseServiceImpl<OrdersPo> implements
 		postagePo.setOrigin(shopAddressCode);
 		postagePo.setDestination(getAddressPo.getAddresscode());
 		List<PostagePo> postage = postageDao.findByGivenCriteria(postagePo);
-		Double postagePrice = ordersDao.getOrdersPostage(weight,postage.get(0).getFirstWeigh(), postage.get(0).getIncreasePrice());
+		Double postagePrice = ordersDao.getOrdersPostage(weight,postage.get(0).getFirstWeight(), postage.get(0).getIncreasePrice());
 		return postagePrice;
 	}
 

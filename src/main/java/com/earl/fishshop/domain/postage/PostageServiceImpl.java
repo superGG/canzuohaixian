@@ -1,11 +1,14 @@
 package com.earl.fishshop.domain.postage;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
 import com.earl.fishshop.domain.base.BaseServiceImpl;
+import com.earl.fishshop.domain.region.RegionPo;
 
 /**
  * 每个ServiceImpl都要继承相对应的service接口
@@ -24,6 +27,34 @@ public class PostageServiceImpl extends BaseServiceImpl<PostagePo> implements
 	@PostConstruct//在构造函数之后执行.
 	public void initBaseDao(){
 		baseDao = postageDao;
+	}
+
+	@Override
+	public List<PostagePo> findAllPostage() {
+		// TODO 未测试.
+		List<PostagePo> findAll = postageDao.findAll();
+		for (PostagePo postagePo : findAll) {
+			RegionPo org = regionDao.get(Long.valueOf(postagePo.getOrigin()));
+			RegionPo des = regionDao.get(Long.valueOf(postagePo.getDestination()));
+			postagePo.setOrigin(org.getName());
+			postagePo.setDestination(des.getName());
+		}
+		return findAll;
+	}
+
+	@Override
+	public List<RegionPo> getUnSetRegion(Long valueOf) {
+		// TODO 未测试.
+		List<PostagePo> postageList = postageDao.getHaveSetRegion(valueOf);
+		List<RegionPo> regioinList = regionDao.findAll();
+		for (RegionPo regionPo : regioinList) {
+			for (PostagePo postagePo : postageList) {
+				if(regionPo.getRegionId() == Long.valueOf(postagePo.getDestination())){
+					regioinList.remove(regionPo);
+				}
+			}
+		}
+		return regioinList;
 	}
 
 }
