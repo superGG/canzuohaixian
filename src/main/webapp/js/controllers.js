@@ -306,11 +306,12 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 	$scope.getApplyInfo = function(userId){
 
 		//保存用户的userId
+		console.log(userId);
 		$scope.userId = userId;
 			$http.get("/fishshop/user_getFarmerByUser.action", {params:{'userId':userId}}).success(function(data){
 				$scope.farmerapplyinfo = data.resultParm.farmer;
 			}).success(function(data){
-				$location.path("/applyform");
+				$location.path("/farmer/applyform");
 			});
 	};
 

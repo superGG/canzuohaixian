@@ -62,6 +62,7 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 * @author 黄祥谦.
 	 */
 	public void addFishman() {
+		resultMessage = new ResultMessage();
 		Boolean result = fishmanServer.save(model);
 		if (result) {
 			resultMessage.setResultInfo("操作成功");
@@ -78,6 +79,7 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 * @author 黄祥谦.
 	 */
 	public void updateFishman() {
+		resultMessage = new ResultMessage();
 		Boolean result = fishmanServer.updateWithNotNullProperties(model);
 		if (result) {
 			resultMessage.setResultInfo("操作成功");
@@ -155,6 +157,7 @@ public class FishmanAction extends BaseAction<FishmanPo> {
 	 * @author 宋文光.
 	 */
 	public void noPassAuthenticationFishman() {
+		resultMessage = new ResultMessage();
 		Boolean result = fishmanServer.noPassAuthenticationFishman(userId,
 				model.getFishmanId());
 		if (result) {

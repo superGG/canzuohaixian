@@ -36,7 +36,7 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 	public void initBaseDao() {
 		baseDao = shopDao;
 	}
-	
+
 	@Resource
 	protected GetTypeService getTypeServer;
 
@@ -152,18 +152,20 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 
 	@Override
 	public List<Map<String, Object>> getAllFishmanShop() {
-		
-		List<Map<String,Object>> infoList = new ArrayList<Map<String,Object>>();//存放全部信息.
+
+		List<Map<String, Object>> infoList = new ArrayList<Map<String, Object>>();// 存放全部信息.
 		List<FishmanPo> fishmanList = fishmanDao.findAll();
 		UserPo user = new UserPo();
 		for (FishmanPo fishman : fishmanList) {
 			user = userDao.getUserByFishmen(fishman.getFishmanId());
-			if (fishman.getShopId() != null && user.getState()!=MyConstant.user_black) {
-				Map<String, Object> map = new HashMap<String, Object>();//存放一条信息
+			if (fishman.getShopId() != null
+					&& user.getState() != MyConstant.user_black) {
+				Map<String, Object> map = new HashMap<String, Object>();// 存放一条信息
 				ShopPo shop = shopDao.get(fishman.getShopId());
 				map.put("fishmanId", fishman.getFishmanId());
 				map.put("shopId", fishman.getShopId());
-				String getName = getTypeServer.getGetTypeName(shop.getGetType());
+				String getName = getTypeServer
+						.getGetTypeName(shop.getGetType());
 				map.put("getName", getName);
 				map.put("shopName", shop.getShopName());
 				map.put("createTime", fishman.getCreateTime());
@@ -175,20 +177,24 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 
 	@Override
 	public List<Map<String, Object>> getAllFarmersShop() {
-		
-		List<Map<String,Object>> infoList = new ArrayList<Map<String,Object>>();//存放全部信息.
+
+		List<Map<String, Object>> infoList = new ArrayList<Map<String, Object>>();// 存放全部信息.
 		List<FarmersPo> farmersList = farmersDao.findAll();
 		UserPo user = new UserPo();
 		for (FarmersPo farmers : farmersList) {
 			user = userDao.getUserByfarmers(farmers.getFarmersId());
-			if (farmers.getShopId() != null && user.getState()!=MyConstant.user_black) {
-				Map<String, Object> map = new HashMap<String, Object>();//存放一条信息
+			if (farmers.getShopId() != null
+					&& user.getState() != MyConstant.user_black) {
+				Map<String, Object> map = new HashMap<String, Object>();// 存放一条信息
 				ShopPo shop = shopDao.get(farmers.getShopId());
 				map.put("farmersId", farmers.getFarmersId());
 				map.put("shopId", farmers.getShopId());
-				String getName = getTypeServer.getGetTypeName(shop.getGetType());
+				if (shop.getGetType() != null) {
+					String getName = getTypeServer.getGetTypeName(shop
+							.getGetType());
+					map.put("getName", getName);
+				}
 				map.put("address", farmers.getAddress());
-				map.put("getName", getName);
 				map.put("shopName", shop.getShopName());
 				map.put("createTime", shop.getCreateTime());
 				infoList.add(map);
@@ -201,14 +207,12 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 	public ShopPo getShop(Long shopId) {
 		// TODO 未测试.
 		ShopPo shop = shopDao.get(shopId);
-		if(shop.getSeaRecordId() != null){
+		if (shop.getSeaRecordId() != null) {
 			SeaRecordPo seaRecordPo = seaRecordDao.get(shop.getSeaRecordId());
 			shop.setShipPort(seaRecordPo.getShipportName());
 			shop.setPortTime(seaRecordPo.getEndSeeTime());
 		}
 		return shop;
 	}
-	
-	
 
 }

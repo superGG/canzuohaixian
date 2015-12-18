@@ -56,6 +56,7 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 	}
 
 	public void addFarmers() {
+		resultMessage = new ResultMessage();
 		Boolean save = farmersServer.save(model);
 		if (save) {
 			resultMessage.setResultInfo("操作成功");
@@ -71,6 +72,7 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 	 * @author 宋文光.
 	 */
 	public void authenticationFarmer(){
+		resultMessage = new ResultMessage();
 		Boolean result = farmersServer.authenticationFarmer(userId,model,farmersFile);
 		if (result) {
 			resultMessage.setResultInfo("认证发送成功");
@@ -86,6 +88,7 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 	 * @author 宋文光.
 	 */
 	public void updateFarmers(){
+		resultMessage = new ResultMessage();
 		Boolean result = farmersServer.updateWithNotNullProperties(model);
 		if (result) {
 			resultMessage.setResultInfo("操作成功");

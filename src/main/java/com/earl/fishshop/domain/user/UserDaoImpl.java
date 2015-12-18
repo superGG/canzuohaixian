@@ -97,7 +97,7 @@ public class UserDaoImpl extends BaseDaoImpl<UserPo> implements UserDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public UserPo getUserByfarmers(Long farmersId) {
-		String hql = "from UserPo u where u.userType = 1 and u.identityId=:identityId";
+		String hql = "from UserPo u where u.userType = 2 and u.identityId=:identityId";
 		List<UserPo> userlist = getCurrentSession().createQuery(hql).setLong("identityId", farmersId).list();
 		return userlist.get(0);
 	}
