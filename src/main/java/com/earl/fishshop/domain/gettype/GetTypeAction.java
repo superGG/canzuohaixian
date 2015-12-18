@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.domain.base.BaseAction;
+import com.earl.fishshop.util.MyConstant;
 import com.earl.fishshop.vo.ResultMessage;
 
 /**
@@ -66,4 +67,18 @@ public class GetTypeAction extends BaseAction<GetTypePo> {
 		List<GetTypePo> getTypeList = getTypeServer.getNextLevelGetType(model.getGetTypeId());
 		resultMessage.getResultParm().put("getTypeList", getTypeList);
 	}
+	
+	/**
+	 * 得到养殖方式.
+	 *@author 宋文光.
+	 */
+	public void getFarmerGetType() {
+		model.setParentId(MyConstant.getType_farmer);
+		List<GetTypePo> list = getTypeServer.getFarmerGetType(model);
+		resultMessage = new ResultMessage();
+		resultMessage.getResultParm().put("list", list);
+		resultMessage.setResultInfo("获取成功");
+	}
+
+	
 }

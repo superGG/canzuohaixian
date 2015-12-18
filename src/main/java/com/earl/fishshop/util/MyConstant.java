@@ -161,4 +161,9 @@ public class MyConstant {
 	 * 销量排序4.
 	 */
 	public static final Integer sort_sellNumber = 4;
+	
+	/**
+	 * 养殖方式.
+	 */
+	public static final Long getType_farmer = 2l;
 }

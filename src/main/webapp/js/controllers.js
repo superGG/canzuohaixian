@@ -279,7 +279,7 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 	$scope.newFarmerinfo = {};
 	$scope.editFatmerinfo = {};
 
-	$htttp.get("").success(function(data){
+	$http.get("").success(function(data){
 
 		$scope.multiGetTypes = data.result;
 	});
@@ -332,14 +332,15 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 
 
 	//养殖户验证通过的方法
-	$scope.setStatus = function(userId,farmerId){
+	$scope.setStatus = function(farmerId,userId){
+
 
 		var data = {
 			"userId":userId,
 			"farmersId": farmerId
 		}
 
-		$http.post("test",Ninico.JsonToKeyVal(data),{
+		$http.post("/fishshop/farmers_passAuthenticationFarmers.action",Ninico.JsonToKeyVal(data),{
 			headers:{
 				"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"
 			}

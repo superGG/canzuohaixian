@@ -36,4 +36,14 @@ public class GetTypeDaoImpl extends BaseDaoImpl<GetTypePo> implements GetTypeDao
 		List<GetTypePo> categoryList = getCurrentSession().createQuery(hql).list();
 		return categoryList;
 	}
+
+	@Override
+	public List<GetTypePo> getFarmerGetType(GetTypePo model) {
+		String hql = "from GetTypePo g where parentId = :parentId";
+		@SuppressWarnings("unchecked")
+		List<GetTypePo> list = getCurrentSession().createQuery(hql)
+				.setLong("parentId", model.getParentId()).list();
+		return list;
+	}
+	
 }

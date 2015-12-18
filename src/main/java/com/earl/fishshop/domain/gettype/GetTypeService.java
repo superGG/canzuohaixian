@@ -35,6 +35,14 @@ public interface GetTypeService extends BaseService<GetTypePo>{
 	 * @return 
 	 */
 	String getGetTypeName(String getType);
+
+	/**
+	 * 获取养殖方式.
+	 *@author 宋文光.
+	 * @param model
+	 * @return
+	 */
+	List<GetTypePo> getFarmerGetType(GetTypePo model);
 	
 	
 	
