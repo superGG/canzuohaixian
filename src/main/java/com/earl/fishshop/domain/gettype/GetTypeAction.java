@@ -74,9 +74,9 @@ public class GetTypeAction extends BaseAction<GetTypePo> {
 	 */
 	public void getFarmerGetType() {
 		model.setParentId(MyConstant.getType_farmer);
-		List<GetTypePo> list = getTypeServer.getFarmerGetType(model);
+		List<GetTypePo> gettypelist = getTypeServer.getFarmerGetType(model);
 		resultMessage = new ResultMessage();
-		resultMessage.getResultParm().put("list", list);
+		resultMessage.getResultParm().put("list", gettypelist);
 		resultMessage.setResultInfo("获取成功");
 	}
 

@@ -279,9 +279,9 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 	$scope.newFarmerinfo = {};
 	$scope.editFarmerinfo = {};
 
-	$http.get("").success(function(data){
+	$http.get("/fishshop/gettype_getFarmerGetType.action").success(function(data){
 
-		$scope.multiGetTypes = data.result;
+		$scope.multiGetTypes = data.resultParm.gettypelist;
 	});
 
 	//更新数据
