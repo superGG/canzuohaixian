@@ -325,7 +325,7 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 
 
 	//新建养殖户基本信息
-	$scope.doNew = function(){
+	$scope.doNew = function(farmerId){
 
 		$http.post("test/",Ninico.JsonToKeyVal($scope.newFarmerinfo),{
 			headers:{
@@ -340,6 +340,7 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 	//养殖户验证通过的方法
 	$scope.setStatus = function(farmerId,userId){
 
+		$scope.newFarmerinfo.farmersId = farmerId;
 
 		var data = {
 			"userId":userId,
@@ -426,7 +427,7 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 });
 
 
-FishmanModule.controller("FishmanCtrl",function($scope,$http){
+FishmanModule.controller("FishmanCtrl",function($scope,$http,$location){
 
 
 	//获取数据更新
@@ -447,12 +448,68 @@ FishmanModule.controller("FishmanCtrl",function($scope,$http){
 			"test/fishmansapplyinfo.json"
 		).success(function(data){
 
-				$scope.fishmanapplyinfo = data.result;
+				$scope.fishmansapplyinfo = data.result;
 			//$scope.fishmanapplyinfo = data.resultParm.userlist;
 		});
-	}
+	};
+
+
+	//获取渔户的申请信息
+	$scope.getApplyInfo = function(userId){
+
+		$scope.userId = userId;
+
+		$http.get(
+			"test/fishmanapplyinfo.json"
+		//"/fishshop/fishman_getFishmanByUser.action"
+			,{
+			params:{"userId":userId}
+		}).success(function(data){
+			$scope.fishmanapplyinfo = data.result;
+				//$scope.fishmanapplyinfo = data.resultParm.fishman;
+
+			$location.path("fishman/applyform");
+		})
+	};
+
+	$scope.setStatus = function(fishmanId,userId){
+
+		$scope.status = false;
+
+		console.log($scope.userId);
+		console.log(userId);
+
+
+		$scope.getStatus = function(){
+			return $scope.status;
+		};
+
+		var params = {
+			"fishmanId":fishmanId,
+			"userId":userId
+		};
+
+		$http.post("//fishshop/farmers_passAuthenticationFishman.action",Ninico.JsonToKeyVal(params),{
+			headers:{
+				"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"
+			}
+		}).success(function(data){
+
+			if(data.result === "success"){
+				$scope.status = true;
+			}else{
+				$scope.status = false;
+			}
+
+		});
+
+		$location.path("fishman/applyform/success");
+
+	};
 
 	$scope.getData();
+
+
 
 
 });

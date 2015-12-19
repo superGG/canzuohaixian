@@ -38,8 +38,9 @@
                             </div>
                             </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-warning" data-dismiss="modal" ui-sref="farmer">关闭</button>
-                            <button type="button" class="btn btn-primary" ui-sref=".success({farmerId:fishmanapplyinfo.farmerId})">通过</button>
+                            <button type="button" class="btn btn-warning" data-dismiss="modal" ui-sref="fishman">关闭</button>
+                            <button type="button" class="btn btn-primary" ng-click="setStatus(fishmanapplyinfo.fishmanId,userId)">通过</button>
+                            <!--ui-sref=".success({farmerId:fishmanapplyinfo.farmerId})-->
                         </div>
                     </div>
                     <!-- /.modal-content --> </div>
