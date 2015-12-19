@@ -281,7 +281,9 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 
 	$http.get("/fishshop/gettype_getFarmerGetType.action").success(function(data){
 
-		$scope.multiGetTypes = data.resultParm.gettypelist;
+		$scope.multiGetTypes = data.resultParm.list;
+		
+		console.log($scope.multiGetTypes);
 	});
 
 	//更新数据
@@ -353,7 +355,7 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 			}
 		}).success(function(data){
 
-			if(data.resultInfo === "success"){
+			if(data.resultInfo == "success"){
 				$scope.status = true;
 			}else{
 				$scope.status = false;
@@ -365,7 +367,9 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 
 	//修改养殖户基本信息的准备方法
 	$scope.toEdit = function(farmerinfo){
-
+		
+		
+		console.log($scope.multiGetTypes);
 		$scope.editFarmerinfo = farmerinfo;
 	};
 

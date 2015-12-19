@@ -89,7 +89,7 @@
                                 <td>{{farmerInfo.getName}}</td>
                                 <td class="center ">{{farmerInfo.createTime}}</td>
                                 <td>
-                                    <a href="#" class="btn btn-danger btn-xs delete">
+                                    <a href="#" class="btn btn-danger btn-xs delete" ng-click="doDelete('userId',farmerInfo.userId,'/fishshop/user_blackUser.action',getData)">
                                         <i class="fa fa-trash-o ficon">&#xe824;</i>
                                         拉黑该用户
                                     </a>

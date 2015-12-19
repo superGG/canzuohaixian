@@ -69,11 +69,10 @@ public class UserDaoImpl extends BaseDaoImpl<UserPo> implements UserDao {
 
 	@Override
 	public Boolean blackUser(UserPo model) {
-		String hql = "update UserPo set state=:state where identityId = :identityId and userType = :userType";
+		String hql = "update UserPo set state=:state where userId=:userId";
 		int a = getCurrentSession().createQuery(hql)
 			.setInteger("state", MyConstant.user_black)
-			.setInteger("userType", model.getUserType())
-			.setLong("identityId", model.getIdentityId()).executeUpdate();
+			.setLong("userId", model.getUserId()).executeUpdate();
 		if(a == 1) return true;
 		return false;
 	}

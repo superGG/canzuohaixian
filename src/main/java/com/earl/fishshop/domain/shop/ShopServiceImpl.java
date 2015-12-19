@@ -162,6 +162,7 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 					&& user.getState() != MyConstant.user_black) {
 				Map<String, Object> map = new HashMap<String, Object>();// 存放一条信息
 				ShopPo shop = shopDao.get(fishman.getShopId());
+				map.put("userId", user.getUserId());
 				map.put("fishmanId", fishman.getFishmanId());
 				map.put("shopId", fishman.getShopId());
 				String getName = getTypeServer
@@ -187,6 +188,7 @@ public class ShopServiceImpl extends BaseServiceImpl<ShopPo> implements
 					&& user.getState() != MyConstant.user_black) {
 				Map<String, Object> map = new HashMap<String, Object>();// 存放一条信息
 				ShopPo shop = shopDao.get(farmers.getShopId());
+				map.put("userId", user.getUserId());
 				map.put("farmersId", farmers.getFarmersId());
 				map.put("shopId", farmers.getShopId());
 				if (shop.getGetType() != null) {
