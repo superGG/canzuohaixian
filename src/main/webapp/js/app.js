@@ -63,11 +63,8 @@ config(function($stateProvider,$urlRouterProvider) {
 		templateUrl:"tpls/farmer/farmermoreinfo/moreinfoapply.html"
 	}).state("farmer.farmerMoreinfo.shopinfo",{
 		url:"/shopinfo",
-		templateUrl:"tpls/farmer/farmermoreinfo/shopinfo.html",
-		controller:function($scope,$stateParams,$http){
-			// console.log($stateParams.fishmanId);
-
-		}
+		templateUrl:"tpls/farmer/farmermoreinfo/shopinfo.html"
+		//渔户管理模块路由配置
 	}).state("fishman",{
 		url:"/fishman",
 		templateUrl:"tpls/fishman/fishmantable.html"
@@ -90,7 +87,7 @@ config(function($stateProvider,$urlRouterProvider) {
 
 			$http.get("test/fishmanbaicinfo.json", {params:{id:$stateParams.fishmanId}}).success(function(data){
 				$scope.fishmaninfo = data.result;
-			})
+			});
 
 			$scope.activeshow = function(j){
 
@@ -124,33 +121,17 @@ config(function($stateProvider,$urlRouterProvider) {
 			})
 		}
 	}).state("fishman.applyform",{
-		url:"/applyform/{fishmanId}",
-		templateUrl:"tpls/fishman/fishman.applyform.html",
-		controller:function($scope,$stateParams,$http){
-			// console.log($stateParams.fishmanId);
-			$http.get("/fishshop/fishman_getFishmanByUser.action", {params:{id:$stateParams.fishmanId}}).success(function(data){
-				$scope.fishmanapplyinfo = data.resultParm.fishman;
-			})
-		}
+		url:"/applyform",
+		templateUrl:"tpls/fishman/fishman.applyform.html"
 	}).state("fishman.applyform.success",{
-		url:"/success/{fishmanId}",
+		url:"/success",
 		templateUrl:"tpls/fishman/fishman.applyform.success.html",
 		controller:function($scope,$stateParams,$http){
 
-			$scope.status = false;
 
-
-			$scope.getStatus = function(){
-				return $scope.status;
-			}
 
 			$http.get("/fishshop/farmers_passAuthenticationFishman.action",{params:{id:$stateParams.fishmanId}}).success(function(data){
 				
-				if(data.result === "success"){
-					$scope.status = true;
-				}else{
-					$scope.status = false;
-				}
 
 			})
 		}
