@@ -131,4 +131,22 @@ public interface UserService extends BaseService<UserPo>{
 	 */
 	FarmersPo getFarmerByUser(UserPo model);
 
+	/**
+	 * 通过养殖户获取用户.
+	 *@author 宋文光.
+	 * @param farmersId
+	 * @return
+	 */
+	UserPo getUserByFarmer(Long farmersId);
+
+	/**
+	 * 通过鱼户获取用户.
+	 *@author 宋文光.
+	 * @param farmersId
+	 * @return
+	 */
+	UserPo getUserByFishman(Long fishmanId);
+
+	
+
 }

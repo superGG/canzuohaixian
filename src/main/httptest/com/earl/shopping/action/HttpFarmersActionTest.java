@@ -19,5 +19,19 @@ public class HttpFarmersActionTest extends HttpBaseActionTest {
 		String sendHttpRequest = sendHttpRequest(filePost, parts);
 		System.out.println(sendHttpRequest);
 	}
+	
+
+	@Test
+	public void testGetFarmers() {
+		String targetURL = basePath
+				+ "farmers_getFarmers.action";
+
+		PostMethod filePost = new PostMethod(targetURL);
+
+		Part[] parts = { new StringPart("farmersId", "2", "utf-8"),
+		};
+		String sendHttpRequest = sendHttpRequest(filePost, parts);
+		System.out.println(sendHttpRequest);
+	}
 
 }

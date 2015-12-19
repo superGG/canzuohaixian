@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 
 import com.earl.fishshop.annotation.ReturnValue;
 import com.earl.fishshop.domain.base.BaseAction;
+import com.earl.fishshop.domain.user.UserPo;
 import com.earl.fishshop.vo.MulitFileVo;
 import com.earl.fishshop.vo.ResultMessage;
 
@@ -105,8 +106,11 @@ public class FarmersAction extends BaseAction<FarmersPo> {
 	 */
 	public void getFarmers() {
 		List<FarmersPo> list = farmersServer.getFarmers(model.getFarmersId());
+		UserPo user = userServer.getUserByFarmer(model.getFarmersId());
 		resultMessage = new ResultMessage();
-		resultMessage.getResultParm().put("farmers", list);
+		resultMessage.getResultParm().put("farmers", list.get(0));
+		resultMessage.getResultParm().put("userId", user.getUserId());
+		resultMessage.getResultParm().put("phoneNumber", user.getPhoneNumber());
 		resultMessage.setServiceResult(true);
 	}
 	

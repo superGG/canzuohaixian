@@ -371,9 +371,10 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 
 
 	$scope.doEdit = function(){
-
+		
+		delete $scope.editFarmerinfo.createTime;
 		console.log($scope.editFarmerinfo)
-		$http.post("test/",Ninico.JsonToKeyVal($scope.editFarmerinfo),{
+		$http.post("/fishshop/farmers_updateFarmers.action",Ninico.JsonToKeyVal($scope.editFarmerinfo),{
 			headers:{
 				"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"
 			}
@@ -389,19 +390,21 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 		$scope.isActive = [true,false,false];
 
 		//获取养殖户基本信息
-		$http.get("test/farmerbaicinfo.json", {params:{"farmerId":farmerId}}).success(function(data){
-			$scope.farmerinfo = data.result;
+		$http.get("/fishshop/farmers_getFarmers.action", {params:{"farmersId":farmerId}}).success(function(data){
+			$scope.farmerinfo = data.resultParm.farmers;
+			$scope.phoneNumber = data.resultParm.phoneNumber;
+			$scope.farmerapplyinfo = data.resultParm.farmers;
 			console.log($scope.farmerinfo);
 		});
 
-		//获取养殖户的验证信息
-		$http.get("test/farmerapplyinfo.json", {params:{"userId":farmerId}}).success(function(data){
-			$scope.farmerapplyinfo = data.result;
-		});
+//		//获取养殖户的验证信息
+//		$http.get("test/farmerapplyinfo.json", {params:{"userId":farmerId}}).success(function(data){
+//			$scope.farmerapplyinfo = data.result;
+//		});
 
 		 //获取养殖的商店信息
-		$http.get("test/farmershopinfo.json", {params:{"shipId":shipId}}).success(function(data){
-			$scope.shopinfo = data.result;
+		$http.get("/fishshop/shop_getShop.action", {params:{"shopId":shipId}}).success(function(data){
+			$scope.shopinfo = data.resultParm.shop;
 		});
 
 

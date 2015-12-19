@@ -145,7 +145,6 @@ public class ShopAction extends BaseAction<ShopPo> {
 	 * 
 	 * @author 黄祥谦.
 	 */
-	// TODO 未完成.
 	public void getShop() {
 		ShopPo shop = shopServer.getShop(model.getShopId());
 		System.out.println(shop);

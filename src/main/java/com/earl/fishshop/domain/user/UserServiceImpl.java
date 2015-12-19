@@ -320,4 +320,16 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 		
 		return farmer;
 	}
+
+	@Override
+	public UserPo getUserByFarmer(Long farmersId) {
+		UserPo user = userDao.getUserByfarmers(farmersId);
+		return user;
+	}
+
+	@Override
+	public UserPo getUserByFishman(Long fishmanId) {
+		UserPo user = userDao.getUserByFishmen(fishmanId);
+		return user;
+	}
 }

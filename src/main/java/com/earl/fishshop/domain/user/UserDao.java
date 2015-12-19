@@ -66,6 +66,8 @@ public interface UserDao extends BaseDao<UserPo>{
 	 * @return
 	 */
 	UserPo getUserByfarmers(Long farmersId);
+
+	
 	
 
 }
