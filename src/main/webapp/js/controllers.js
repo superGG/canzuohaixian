@@ -428,16 +428,33 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 
 FishmanModule.controller("FishmanCtrl",function($scope,$http){
 
-	$http.get('/fishshop/shop_getAllFishmanShop.action').success(function(data){
 
-		$scope.fishmansInfo = data.resultParm.shopInfo;
-		$scope.databox.number = data.resultParm.number;
-	});
+	//获取数据更新
+	$scope.getData = function(){
 
-	$http.get("/fishshop/user_getVerifyFishman.action").success(function(data){
-		
-		$scope.fishmanapplyinfo = data.resultParm.userlist;
-	});
+		$http.get(
+			//'/fishshop/shop_getAllFishmanShop.action'
+			'test/fishmaninfo.json'
+		).success(function(data){
+
+			//$scope.databox.number = data.resultParm.number;
+				//$scope.fishmansInfo = data.resultParm.shopInfo;
+				$scope.fishmansInfo = data.result;
+			});
+
+		$http.get(
+			//"/fishshop/user_getVerifyFishman.action"
+			"test/fishmansapplyinfo.json"
+		).success(function(data){
+
+				$scope.fishmanapplyinfo = data.result;
+			//$scope.fishmanapplyinfo = data.resultParm.userlist;
+		});
+	}
+
+	$scope.getData();
+
+
 });
 
 
