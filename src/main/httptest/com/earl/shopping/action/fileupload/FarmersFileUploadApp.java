@@ -34,7 +34,7 @@ public class FarmersFileUploadApp {
 			,new FilePart("farmersFile.file", new File("D:/Favorites/test/257667_880_510_70.jpg"))
 			,new FilePart("farmersFile.file", new File("D:/Favorites/test/wifi0s0-15815604312520b8e092d2c33a0f76e6b33525d17c_crop.jpg"))
 			 ,new FilePart("farmersFile.file", new File("D:/Favorites/test/QQ图片20151010192845.jpg"))
-			,new StringPart("userId", "15","utf-8")
+			,new StringPart("userId", "19","utf-8")
 			};
 			HttpMethodParams params = filePost.getParams();
 //			String contentCharset = params.getContentCharset();

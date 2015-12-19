@@ -169,4 +169,20 @@ public class HttpUserActionTest extends HttpBaseActionTest{
    		System.out.println(sendHttpRequest);
    	}
     
+    @Test
+   	public void testAddUser() throws FileNotFoundException {
+   		String targetURL = basePath
+   				+ "user_addUser.action";
+
+   		PostMethod filePost = new PostMethod(targetURL);
+
+   		Part[] parts = { 
+   				new StringPart("phoneNumber", "18320489492", "utf-8")
+   				,new StringPart("verifyCode", "573797", "utf-8")
+   				,new StringPart("password", "123456", "utf-8")
+   		};
+   		String sendHttpRequest = sendHttpRequest(filePost, parts);
+   		System.out.println(sendHttpRequest);
+   	}
+    
 }

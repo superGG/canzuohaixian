@@ -36,7 +36,7 @@ public class FishmanFileUploadApp {
 			,new FilePart("fishmanFile.file", new File("D:/Favorites/test/257667_880_510_70.jpg"))
 			,new FilePart("fishmanFile.file", new File("D:/Favorites/test/wifi0s0-15815604312520b8e092d2c33a0f76e6b33525d17c_crop.jpg"))
 			 ,new FilePart("fishmanFile.file", new File("D:/Favorites/test/QQ图片20151010192845.jpg"))
-			,new StringPart("userId", "12","utf-8")
+			,new StringPart("userId", "17","utf-8")
 			};
 			HttpMethodParams params = filePost.getParams();
 //			String contentCharset = params.getContentCharset();

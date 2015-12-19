@@ -247,7 +247,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserPo> implements
 		Boolean result;
 		try {
 			model.setUserName(model.getPhoneNumber());
-			model.setHeadImage("user/aaa.jpg");
+			model.setHeadImage("user/bbb.jpg");
 			model.setPassword(SmsbaoHelper.Md5(model.getPassword()));
 			model.setUserType(MyConstant.user_normal);
 			userDao.save(model);
