@@ -49,10 +49,11 @@ public class FarmersServiceImpl extends BaseServiceImpl<FarmersPo> implements
 				farmersFileVo.getFile(), farmersFileVo.getFileFileName());
 		model.setForntIdentityPhoto(photoPath.get(0));//第一张是身份证正面
 		model.setBackIdentityPhoto(photoPath.get(1));//第二张是身份证背面
+		model.setAquacultureLicense(photoPath.get(2));//第三张是养殖证
 		
 		List<String> addressPhotoList = new ArrayList<String>();//将之后养殖场照片放到list中装成json
-		addressPhotoList.add(photoPath.get(2));
-		if(photoPath.size() >= 4) {
+		addressPhotoList.add(photoPath.get(3));
+		if(photoPath.size() >= 5) {
 			for (int i=3; i<photoPath.size(); i++) {
 				addressPhotoList.add(photoPath.get(i));
 			}
