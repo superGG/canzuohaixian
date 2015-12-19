@@ -7,11 +7,8 @@
             <div>
                 <form role="form">
                     <div class="form-group">
-                        <label >养殖方式</label>
-                        <!--<input type="text" class="form-control" id="exampleInputEmail1" name="multiGetType">-->
-                        <select name="multiGetType" id="multiGetType" ng-model="newFarmerinfo.multiGetType">
-                            <option value="{{multiGetType.id}}" ng-repeat="multiGetType in multiGetTypes">{{multiGetType.name}}</option>
-                        </select>
+                        <label for="">养殖方式</label>
+                        <input type="checkbox" name="" id="" ng-repeat="multiGetType in multiGetTypes" ng-model="newFarmerinfo.multiGetType"/>{{multiGetType.name}}
                     </div>
                     <div class="form-group">
                         <label >养殖场地址</label>
