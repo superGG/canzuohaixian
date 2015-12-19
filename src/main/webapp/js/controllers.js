@@ -430,7 +430,14 @@ FarmersModule.controller("FarmersCtrl",function($scope,$http,$location){
 });
 
 
+/**
+ *
+ * 渔户管理模块的controller
+ *
+ */
 FishmanModule.controller("FishmanCtrl",function($scope,$http,$location){
+
+	$scope.newFishmaninfo = {};
 
 
 	//获取数据更新
@@ -477,6 +484,7 @@ FishmanModule.controller("FishmanCtrl",function($scope,$http,$location){
 
 	$scope.setStatus = function(fishmanId,userId){
 
+		$scope.newFishmaninfo.fishmanId = fishmanId;
 		$scope.status = false;
 
 		console.log($scope.userId);
@@ -492,7 +500,7 @@ FishmanModule.controller("FishmanCtrl",function($scope,$http,$location){
 			"userId":userId
 		};
 
-		$http.post("//fishshop/farmers_passAuthenticationFishman.action",Ninico.JsonToKeyVal(params),{
+		$http.post("/fishshop/farmers_passAuthenticationFishman.action",Ninico.JsonToKeyVal(params),{
 			headers:{
 				"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"
 			}
@@ -510,7 +518,54 @@ FishmanModule.controller("FishmanCtrl",function($scope,$http,$location){
 
 	};
 
+	$scope.doNew = function(){
+
+		$http.post("test/fishmanapplyinfo.json",Ninico.JsonToKeyVal($scope.newFishmaninfo),{
+			headers:{
+				"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"
+			}
+		}).success(function(data){
+
+
+		});
+
+		$location.path("/fishman");
+	};
+
+	//查看更多渔户信息
+	$scope.getFishmanMoreInfo = function(farmerId,shopId){
+
+		$scope.isActive = [true,false,false];
+
+		$http.get("test/fishmanbaicinfo.json", {params:{"fishmanId":fishmanId}}).success(function(data){
+			$scope.fishmaninfo = data.result;
+		});
+
+		$http.get("test/fishmanshopinfo.json",{params:{"shopId":shopId}}).success(function(data){
+			$scope.shopinfo = data.result;
+		});
+
+		$scope.activeshow = function(j){
+
+			for(var i = 0; i < $scope.isActive.length ; i ++){
+				if(i === j){
+					$scope.isActive[i] = true;
+				}else{
+					$scope.isActive[i] = false;
+				}
+
+			}
+		}
+	};
+
+
+	$scope.toEdit = function(fishmanInfo){
+
+		$scope.editFishmanInfo = fishmanInfo;
+	};
+
 	$scope.getData();
+
 
 
 

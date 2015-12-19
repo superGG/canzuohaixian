@@ -79,27 +79,12 @@ config(function($stateProvider,$urlRouterProvider) {
 			})
 		}
 	}).state("fishman.fishmanMoreinfo",{
-		url:"/fishmanMoreinfo/{fishmanId}",
-		templateUrl:"tpls/fishman/fishmanMoreinfo.html",
+		url:"/fishmanMoreinfo",
+		templateUrl:"tpls/fishman/fishmanMoreinfo.html"
+		,
 		controller:function($scope,$stateParams,$http){
 
-			$scope.isActive = [true,false,false];
 
-			$http.get("test/fishmanbaicinfo.json", {params:{id:$stateParams.fishmanId}}).success(function(data){
-				$scope.fishmaninfo = data.result;
-			});
-
-			$scope.activeshow = function(j){
-
-				for(var i = 0; i < $scope.isActive.length ; i ++){
-					if(i === j){
-						$scope.isActive[i] = true;
-					}else{
-						$scope.isActive[i] = false;
-					}
-
-				}
-			}
 
 		}
 	}).state("fishman.fishmanMoreinfo.applyform",{
@@ -125,18 +110,9 @@ config(function($stateProvider,$urlRouterProvider) {
 		templateUrl:"tpls/fishman/fishman.applyform.html"
 	}).state("fishman.applyform.success",{
 		url:"/success",
-		templateUrl:"tpls/fishman/fishman.applyform.success.html",
-		controller:function($scope,$stateParams,$http){
-
-
-
-			$http.get("/fishshop/farmers_passAuthenticationFishman.action",{params:{id:$stateParams.fishmanId}}).success(function(data){
-				
-
-			})
-		}
+		templateUrl:"tpls/fishman/fishman.applyform.success.html"
 	}).state("fishman.applyform.success.infoform",{
-		url:"/infoform/{fishmanId}",
+		url:"/infoform",
 		templateUrl:"tpls/fishman/fishmaninfoform.html"})
 	.state("orders",{
 		url:"/orders",
